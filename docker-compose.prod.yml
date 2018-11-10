@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+    nginx:
+        restart: always
+        image: inshopgroup/inshop-crm-client-nginx
+        volumes:
+            - .:/var/www
+        ports:
+            - ${PORT_CLIENT}:80
