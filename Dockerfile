@@ -1,10 +1,11 @@
-FROM inshopgroup/docker-inshop-crm-client-nginx-prod:latest
+FROM inshopgroup/docker-inshop-crm-client-nginx-dev:latest
 
 WORKDIR /var/www
 
-ADD ./web /var/www/web
+ADD . /var/www
 
-RUN mkdir -p /var/www/web/upload /var/www/web/upload/multimedia /var/www/web/upload/photos /var/www/web/upload/tmp
+RUN yarn install
+RUN yarn build
 
-RUN chown -R www-data:www-data /var/www/web
+RUN chown -R www-data:www-data /var/www
 RUN usermod -u 1000 www-data
