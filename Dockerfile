@@ -4,6 +4,7 @@ WORKDIR /var/www
 
 ADD . /var/www
 
+RUN cp .env.prod .env
 RUN yarn install
 RUN yarn build
 
