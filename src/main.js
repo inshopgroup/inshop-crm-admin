@@ -58,7 +58,7 @@ Vue.component('v-select', vSelect)
 Vue.component(VuePassword)
 
 Vue.use(VueSentry, {
-  enable: process.env.NODE_ENV === 'production',
+  enable: process.env.NODE_ENV === 'production' && process.env.SENTRY_PUBLIC_KEY !== '',
   key: process.env.SENTRY_PUBLIC_KEY,
   project: process.env.SENTRY_PROJECT_ID,
   server: process.env.SENTRY_SERVER,
