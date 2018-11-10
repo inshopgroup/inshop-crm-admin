@@ -1,0 +1,5 @@
+export const RESET = 'CITY_LIST_RESET'
+export const SET_ITEMS = 'CITY_LIST_SET_ITEMS'
+export const SET_ERROR = 'CITY_LIST_SET_ERROR'
+export const SET_VIEW = 'CITY_LIST_SET_VIEW'
+export const TOGGLE_LOADING = 'CITY_LIST_TOGGLE_LOADING'

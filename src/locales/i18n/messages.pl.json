@@ -1,0 +1,248 @@
+{
+  "title": "Inshop CRM",
+  "loading": "Ładowanie...",
+  "powered_by": "Powered by",
+  "submit": "Zatwierdź",
+  "field": "Pole",
+  "value": "Wartość",
+  "auth": {
+    "username": "Email adres",
+    "password": "Hasło",
+    "signin": "Zaloguj się",
+    "signout": "Wyloguj się",
+    "start_session": "Zaloguj się, aby rozpocząć sesję"
+  },
+  "back_to_list": "Powrót do listy",
+  "show": "Podgląd",
+  "delete": "Usuń",
+  "create": "Utwórz",
+  "deleted": "Usunięty",
+  "saved": "Zapisane",
+  "save": "Zapisz",
+  "close": "Zamknij",
+  "edit": "Edycja",
+  "delete_are_you_sure": "Czy na pewno chcesz usunąć ten element?",
+  "error_occurred": "Wystąpił błąd",
+  "menu": {
+    "title": "Nawigacja",
+    "calendar": "Kalendar",
+    "clients": "Klienty",
+    "companies": "Firmy",
+    "contacts": "Kontakty",
+    "documents": "Dokumenty",
+    "templates": "Szablony",
+    "tasks": "Deadliny",
+    "projects": "Sprawy",
+    "users": "Użytkownicy",
+    "groups": "Grupy użytkowników"
+  },
+  "client": {
+    "add": "Dodaj Klienta",
+    "list": "Lista Klientów",
+    "name": "Imię",
+    "clients": "Relacji z klientami",
+    "columnContacts": "Kontakty",
+    "address": "Adres",
+    "description": "Opis",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji",
+    "contacts": {
+      "value": "Kontakty"
+    },
+    "tabs": {
+      "general": "Informacja ogólna",
+      "contacts": "Kontakty",
+      "clients": "Klienty",
+      "companies": "Firmy",
+      "projects": "Sprawy",
+      "tasks": "Deadliny",
+      "documents": "Dokumenty"
+    }
+  },
+  "template": {
+    "add": "Dodaj szablon",
+    "list": "Lista szablonów",
+    "id": "ID",
+    "name": "Nazwa",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji",
+    "tabs": {
+      "general": "Informacja ogólna",
+      "files": "Pliki"
+    }
+  },
+  "task": {
+    "add": "Dodaj deadline",
+    "list": "Lista deadlinów",
+    "saved": "Deadline {task} został zapisany",
+    "id": "ID",
+    "name": "Nazwa",
+    "client": "Klient",
+    "description": "Opis",
+    "deadline": "Deadline",
+    "status": {
+      "id": "Status",
+      "name": "Status"
+    },
+    "project": {
+      "name": "Sprawa"
+    },
+    "assignee": {
+      "name": "Przypisany do"
+    },
+    "columnDeadline": "Deadline",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji",
+    "tabs": {
+      "general": "Informacja ogólna"
+    }
+  },
+  "project": {
+    "add": "Dodaj sprawę",
+    "list": "Lista spraw",
+    "edit": "Edycja sprawy {project}",
+    "deleted": "Sprawa {project} została usunięta",
+    "saved": "Sprawa {project} została zapisana",
+    "id": "ID",
+    "name": "Nazwa",
+    "description": "Opis",
+    "status": {
+      "id": "Status",
+      "name": "Status"
+    },
+    "type": {
+      "id": "Rodzaj sprawy",
+      "name": "Rodzaj sprawy"
+    },
+    "client": {
+      "name": "Klient"
+    },
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji",
+    "tabs": {
+      "general": "Informacja ogólna",
+      "documents": "Dokumenty",
+      "tasks": "Deadliny"
+    }
+  },
+  "user": {
+    "add": "Dodaj użytkownika",
+    "list": "Lista użytkowników",
+    "id": "ID",
+    "name": "Nazwa",
+    "password": "Hasło",
+    "isActive": "Aktywny",
+    "email": "Email",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji",
+    "groups": {
+      "name": "Grupy"
+    },
+    "tabs": {
+      "general": "Informacja ogólna",
+      "tasks": "Deadliny"
+    }
+  },
+  "group": {
+    "add": "Dodaj grupę użytkownika",
+    "list": "Lista grup użytkowników",
+    "id": "ID",
+    "name": "Nazwa",
+    "roles": "Roli",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji",
+    "tabs": {
+      "general": "Informacja ogólna",
+      "roles": "Roli"
+    }
+  },
+  "company": {
+    "add": "Dodaj firmę",
+    "list": "Lista firm",
+    "id": "ID",
+    "name": "Nazwa",
+    "krs": "KRS",
+    "nip": "NIP",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji"
+  },
+  "contact": {
+    "list": "Lista kontaktów",
+    "add": "Dodaj kontakt",
+    "edit": "Edycja kontaktu {contact}",
+    "deleted": "Kontakt {contact} został usunięty",
+    "saved": "Kontakt {contact} został zapisany",
+    "id": "ID",
+    "value": "Kontakt",
+    "type": "Typ",
+    "client": "Klient",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji"
+  },
+  "document": {
+    "list": "Lista dokumentów",
+    "add": "Dodaj document",
+    "edit": "Edycja dokumentu {document}",
+    "deleted": "Dokument {document} został usunięty",
+    "saved": "Dokument {document} został zapisany",
+    "id": "ID",
+    "name": "Nazwa",
+    "projects": "Sprawy",
+    "files": "Pliki",
+    "columnCreatedAt": "Utworzono",
+    "columnUpdatedAt": "Zaktualizowano",
+    "createdAt": "Utworzono",
+    "updatedAt": "Zaktualizowano",
+    "updatedBy": "Zaktualizowano przez",
+    "actions": "Akcji",
+    "tabs": {
+      "general": "Informacja ogólna",
+      "projects": "Sprawy",
+      "files": "Pliki"
+    }
+  },
+  "file": {
+    "id": "ID",
+    "size": "Rozmiar",
+    "mimeType": "Mime type",
+    "originalName": "Oryginalna nazwa",
+    "createdAt": "Utworzono"
+  },
+  "search": {
+    "list": "Wyniki wyszukiwania",
+    "keyword": "Słowo kluczowe",
+    "show": "Podgląd"
+  }
+}

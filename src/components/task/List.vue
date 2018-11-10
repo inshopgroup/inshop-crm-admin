@@ -1,0 +1,78 @@
+<template>
+<div>
+  <section class="content-header">
+    <h1>{{$t('task.list')}}</h1>
+  </section>
+
+  <section class="content">
+    <div class="box box-primary">
+      <!--<div class="box-header with-border">-->
+        <!--<router-link :to="{ name: 'TaskCreate' }" class="btn btn-primary pull-right">{{$t('task.add')}}</router-link>-->
+      <!--</div>-->
+      <div class="box-body">
+        <item-list-errors :entity="'task'"></item-list-errors>
+
+        <api-table
+                :entity="'Task'"
+                :route="'tasks'"
+                :path="'task'"
+                :filterable="filterable"
+                :customFilters="customFilters"
+                :sortable="sortable"
+                :columns="columns"
+                :templates="templates"
+        >
+          <template slot="filter__status.id">
+            <task-status-filter></task-status-filter>
+          </template>
+        </api-table>
+
+        <!--<div class="col-xs-6">-->
+          <!--<div class="table-responsive">-->
+            <!--<table class="table">-->
+              <!--<tbody>-->
+              <!--<tr>-->
+                <!--<th style="width:50%">{{$t('task.timeEstimated')}}:</th>-->
+                <!--<td>0</td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<th>{{$t('task.timeSpent')}}:</th>-->
+                <!--<td>0</td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+          <!--</div>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </section>
+</div>
+</template>
+
+<script>
+import ItemListErrors from '../layout/errors/ItemListErrors'
+import ApiTable from '../ApiTable'
+import columnCreatedAt from './../../table/ColumnCreatedAt'
+import columnUpdatedAt from './../../table/ColumnUpdatedAt'
+import columnDeadline from './../../table/ColumnDeadline'
+import columnStatus from './../../table/ColumnStatus'
+import TaskStatusFilter from '../filters/TaskStatusFilter'
+
+export default {
+  components: {TaskStatusFilter, ItemListErrors, ApiTable},
+  data: function () {
+    return {
+      columns: ['id', 'name', 'project.client.name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'project.client.name', 'project.name', 'assignee.name', 'columnDeadline', 'columnCreatedAt', 'columnUpdatedAt'],
+      customFilters: ['status.id'],
+      sortable: ['id', 'name', 'project.client.name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt'],
+      templates: {
+        columnCreatedAt,
+        columnUpdatedAt,
+        columnDeadline,
+        'status.id': columnStatus
+      }
+    }
+  }
+}
+</script>
