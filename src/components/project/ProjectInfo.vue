@@ -46,7 +46,7 @@
     </tr>
     <tr>
       <td>{{$t('project.updatedAt')}}</td>
-      <td>{{ moment(item['updateAt']).format('DD-MM-YYYY HH:mm') }}</td>
+      <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
     </tr>
     <tr>
       <td>{{$t('project.updatedBy')}}</td>

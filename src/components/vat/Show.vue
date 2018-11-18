@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                   <td>{{$t('vat.updatedAt')}}</td>
-                  <td>{{ moment(item['updateAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('vat.updatedBy')}}</td>

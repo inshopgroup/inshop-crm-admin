@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                   <td>{{$t('user.updatedAt')}}</td>
-                  <td>{{ moment(item['updateAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('user.updatedBy')}}</td>
