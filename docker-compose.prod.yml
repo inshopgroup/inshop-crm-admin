@@ -3,7 +3,7 @@ version: '3.2'
 services:
     nginx:
         restart: always
-        image: inshopgroup/inshop-crm-client-nginx
+        image: registry.inshop.com.ua/crm/server/inshop-crm-client-nginx-prod
         volumes:
             - .:/var/www
         ports:

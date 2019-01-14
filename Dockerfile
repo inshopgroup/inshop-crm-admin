@@ -1,4 +1,4 @@
-FROM inshopgroup/docker-inshop-crm-client-nginx-dev:latest
+FROM registry.inshop.com.ua/crm/server/docker-inshop-crm-client-nginx-dev:latest
 
 WORKDIR /var/www
 
