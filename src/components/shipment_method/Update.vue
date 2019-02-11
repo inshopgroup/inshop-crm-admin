@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('shipment_method.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('shipment_method.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,12 @@
           <item-errors :entity="'shipment_method'" :is-loading="isLoading"></item-errors>
 
           <ShipmentMethodForm
-            v-if="item && !isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+
+            :item="item"
+            :errors="errors"
+            />
         </div>
       </div>
     </section>
@@ -33,31 +33,18 @@ export default {
     ShipmentMethodForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'shipment_method/del/deleted',
-      retrieved: 'shipment_method/update/retrieved',
-      violations: 'shipment_method/update/violations'
+
+      item: 'shipment_method/item',
+      errors: 'shipment_method/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'ShipmentMethodList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -69,26 +56,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'shipment_method/create/reset',
-      delReset: 'shipment_method/del/reset',
-      retrieve: 'shipment_method/update/retrieve',
-      updateReset: 'shipment_method/update/reset',
-      update: 'shipment_method/update/update',
-      updateRetrieved: 'shipment_method/update/updateRetrieved'
+      getItem: 'shipment_method/getItem',
+      reset: 'shipment_method/reset',
+      update: 'shipment_method/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

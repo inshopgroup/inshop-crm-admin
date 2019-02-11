@@ -312,20 +312,14 @@ export default {
       required: true
     },
 
-    handleUpdateField: {
-      type: Function,
-      required: true
-    },
+
 
     errors: {
       type: Object,
       default: () => {}
     },
 
-    initialValues: {
-      type: Object,
-      default: () => {}
-    }
+
   },
 
   computed: {

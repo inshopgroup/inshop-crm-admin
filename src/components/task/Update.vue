@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('task.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('task.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,12 @@
           <item-errors :entity="'task'" :is-loading="isLoading"></item-errors>
 
           <TaskForm
-            v-if="item && !isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+
+            :item="item"
+            :errors="errors"
+            />
         </div>
       </div>
     </section>
@@ -34,31 +34,18 @@ export default {
     TaskForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'task/del/deleted',
-      retrieved: 'task/update/retrieved',
-      violations: 'task/update/violations'
+
+      item: 'task/item',
+      errors: 'task/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'TaskList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -70,26 +57,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'task/create/reset',
-      delReset: 'task/del/reset',
-      retrieve: 'task/update/retrieve',
-      updateReset: 'task/update/reset',
-      update: 'task/update/update',
-      updateRetrieved: 'task/update/updateRetrieved'
+      getItem: 'task/getItem',
+      reset: 'task/reset',
+      update: 'task/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

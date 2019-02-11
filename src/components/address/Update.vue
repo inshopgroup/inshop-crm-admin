@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('address.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('address.edit', {entity: item && item.id}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,10 @@
           <item-errors :entity="'address'" :is-loading="isLoading"></item-errors>
 
           <AddressForm
-            v-if="item && !isLoading"
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+            :item="item"
+            :errors="errors"
+          />
         </div>
       </div>
     </section>
@@ -32,63 +30,29 @@ export default {
     ItemErrors,
     AddressForm
   },
-
-  data () {
-    return {
-      item: {}
-    }
-  },
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'address/del/deleted',
-      retrieved: 'address/update/retrieved',
-      violations: 'address/update/violations'
+      item: 'address/item',
+      errors: 'address/errors'
     })
   },
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
-
-      this.$router.push({ name: 'AddressList' })
-    }
-  },
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
-      createReset: 'address/create/reset',
-      delReset: 'address/del/reset',
-      retrieve: 'address/update/retrieve',
-      updateReset: 'address/update/reset',
-      update: 'address/update/update',
-      updateRetrieved: 'address/update/updateRetrieved'
+      getItem: 'address/getItem',
+      reset: 'address/reset',
+      update: 'address/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
-
-    onSendForm () {
-      this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
+    onSendForm() {
+      this.update().then(() => {
+        this.$router.push({name: 'AddressShow', params: {id: this.item['@id']}})
+      }).catch(e => {})
     }
   }
 }

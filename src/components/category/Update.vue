@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('category.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('category.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,11 +10,11 @@
           <item-errors :entity="'category'" :is-loading="isLoading"></item-errors>
 
           <CategoryForm
-            v-if="!isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
+
             :item="retrieved"
-            :errors="violations" />
+            :errors="errors" />
         </div>
       </div>
     </section>
@@ -35,22 +35,13 @@ export default {
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'category/del/deleted',
-      retrieved: 'category/update/retrieved',
-      violations: 'category/update/violations'
+
+      item: 'category/item',
+      errors: 'category/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'CategoryList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -62,26 +53,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'category/create/reset',
-      delReset: 'category/del/reset',
-      retrieve: 'category/update/retrieve',
-      updateReset: 'category/update/reset',
-      update: 'category/update/update',
-      updateRetrieved: 'category/update/updateRetrieved'
+      getItem: 'category/getItem',
+      reset: 'category/reset',
+      update: 'category/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

@@ -11,10 +11,10 @@
 
           <ProductForm
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
+
             :item="item"
-            :errors="violations"
-            v-if="!isLoading"
+            :errors="errors"
+
           />
         </div>
       </div>
@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
+
 import ProductForm from './Form'
 import ItemErrors from '../layout/errors/ItemErrors'
 
-const { mapGetters, mapActions } = createNamespacedHelpers('product/create')
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   components: {

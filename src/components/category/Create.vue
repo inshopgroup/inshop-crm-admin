@@ -11,10 +11,10 @@
 
           <CategoryForm
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
+
             :item="item"
-            :errors="violations"
-            v-if="!isLoading"
+            :errors="errors"
+
           />
         </div>
       </div>
@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
+
 import CategoryForm from './Form'
 import ItemErrors from '../layout/errors/ItemErrors'
 
-const { mapGetters, mapActions } = createNamespacedHelpers('category/create')
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   components: {

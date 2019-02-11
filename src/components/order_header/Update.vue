@@ -1,18 +1,18 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('order_header.edit', {entity: retrieved && retrieved.number}) }}</h1>
+      <h1>{{ $t('order_header.edit', {entity: item && item.number}) }}</h1>
     </section>
 
     <item-errors :entity="'order_header'" :is-loading="isLoading"></item-errors>
 
     <OrderHeaderForm
-      v-if="item && !isLoading"
+
       :handle-submit="onSendForm"
-      :handle-update-field="updateField"
-      :values="item"
-      :errors="violations"
-      :initial-values="retrieved" />
+
+      :item="item"
+      :errors="errors"
+      />
 
   </div>
 </template>
@@ -39,22 +39,13 @@ export default {
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'order_header/del/deleted',
-      retrieved: 'order_header/update/retrieved',
-      violations: 'order_header/update/violations'
+
+      item: 'order_header/item',
+      errors: 'order_header/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'OrderHeaderList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -66,26 +57,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'order_header/create/reset',
-      delReset: 'order_header/del/reset',
-      retrieve: 'order_header/update/retrieve',
-      updateReset: 'order_header/update/reset',
-      update: 'order_header/update/update',
-      updateRetrieved: 'order_header/update/updateRetrieved'
+      getItem: 'order_header/getItem',
+      reset: 'order_header/reset',
+      update: 'order_header/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

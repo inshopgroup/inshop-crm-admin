@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('language.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('language.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,12 @@
           <item-errors :entity="'language'" :is-loading="isLoading"></item-errors>
 
           <LanguageForm
-            v-if="item && !isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+
+            :item="item"
+            :errors="errors"
+            />
         </div>
       </div>
     </section>
@@ -33,31 +33,18 @@ export default {
     LanguageForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'language/del/deleted',
-      retrieved: 'language/update/retrieved',
-      violations: 'language/update/violations'
+
+      item: 'language/item',
+      errors: 'language/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'LanguageList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -69,26 +56,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'language/create/reset',
-      delReset: 'language/del/reset',
-      retrieve: 'language/update/retrieve',
-      updateReset: 'language/update/reset',
-      update: 'language/update/update',
-      updateRetrieved: 'language/update/updateRetrieved'
+      getItem: 'language/getItem',
+      reset: 'language/reset',
+      update: 'language/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

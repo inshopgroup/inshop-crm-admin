@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('channel.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('channel.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,12 @@
           <item-errors :entity="'channel'" :is-loading="isLoading"></item-errors>
 
           <ChannelForm
-            v-if="item && !isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+
+            :item="item"
+            :errors="errors"
+            />
         </div>
       </div>
     </section>
@@ -33,31 +33,18 @@ export default {
     ChannelForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'channel/del/deleted',
-      retrieved: 'channel/update/retrieved',
-      violations: 'channel/update/violations'
+
+      item: 'channel/item',
+      errors: 'channel/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'ChannelList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -69,26 +56,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'channel/create/reset',
-      delReset: 'channel/del/reset',
-      retrieve: 'channel/update/retrieve',
-      updateReset: 'channel/update/reset',
-      update: 'channel/update/update',
-      updateRetrieved: 'channel/update/updateRetrieved'
+      getItem: 'channel/getItem',
+      reset: 'channel/reset',
+      update: 'channel/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

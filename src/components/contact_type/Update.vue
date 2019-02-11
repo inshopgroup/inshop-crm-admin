@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('contact_type.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('contact_type.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,12 @@
           <item-errors :entity="'contact_type'" :is-loading="isLoading"></item-errors>
 
           <ContactTypeForm
-            v-if="item && !isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+
+            :item="item"
+            :errors="errors"
+            />
         </div>
       </div>
     </section>
@@ -33,31 +33,18 @@ export default {
     ContactTypeForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'contact_type/del/deleted',
-      retrieved: 'contact_type/update/retrieved',
-      violations: 'contact_type/update/violations'
+
+      item: 'contact_type/item',
+      errors: 'contact_type/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'ContactTypeList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -69,26 +56,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'contact_type/create/reset',
-      delReset: 'contact_type/del/reset',
-      retrieve: 'contact_type/update/retrieve',
-      updateReset: 'contact_type/update/reset',
-      update: 'contact_type/update/update',
-      updateRetrieved: 'contact_type/update/updateRetrieved'
+      getItem: 'contact_type/getItem',
+      reset: 'contact_type/reset',
+      update: 'contact_type/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

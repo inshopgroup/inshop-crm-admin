@@ -175,12 +175,9 @@ export default {
       required: true
     },
 
-    handleUpdateField: {
-      type: Function,
-      required: true
-    },
 
-    values: {
+
+    item: {
       type: Object,
       required: true
     },
@@ -190,10 +187,7 @@ export default {
       default: () => {}
     },
 
-    initialValues: {
-      type: Object,
-      default: () => {}
-    }
+
   },
 
   created () {

@@ -11,10 +11,10 @@
 
           <CompanyForm
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            v-if="!isLoading"
+
+            :item="item"
+            :errors="errors"
+
           />
         </div>
       </div>
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex'
+
 import CompanyForm from './Form'
 import ItemErrors from '../layout/errors/ItemErrors'
 
-const { mapGetters, mapActions } = createNamespacedHelpers('company/create')
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
   components: {
@@ -35,11 +35,7 @@ export default {
     CompanyForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   mounted () {
     this.getLast()

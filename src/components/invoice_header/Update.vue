@@ -1,16 +1,16 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('invoice_header.edit', {entity: retrieved && retrieved.number}) }}</h1>
+      <h1>{{ $t('invoice_header.edit', {entity: item && item.number}) }}</h1>
     </section>
 
     <item-errors :entity="'invoice_header'" :is-loading="isLoading"></item-errors>
 
     <InvoiceHeaderForm
       :handle-submit="onSendForm"
-      :handle-update-field="updateField"
-      :errors="violations"
-      :initial-values="retrieved" />
+
+      :errors="errors"
+      />
   </div>
 </template>
 
@@ -28,22 +28,13 @@ export default {
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'invoice_header/del/deleted',
-      retrieved: 'invoice_header/update/retrieved',
-      violations: 'invoice_header/update/violations'
+
+      item: 'invoice_header/item',
+      errors: 'invoice_header/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'InvoiceHeaderList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -55,26 +46,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'invoice_header/create/reset',
-      delReset: 'invoice_header/del/reset',
-      retrieve: 'invoice_header/update/retrieve',
-      updateReset: 'invoice_header/update/reset',
-      update: 'invoice_header/update/update',
-      updateRetrieved: 'invoice_header/update/updateRetrieved'
+      getItem: 'invoice_header/getItem',
+      reset: 'invoice_header/reset',
+      update: 'invoice_header/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

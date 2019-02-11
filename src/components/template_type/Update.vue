@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('template_type.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('template_type.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,12 @@
           <item-errors :entity="'template_type'" :is-loading="isLoading"></item-errors>
 
           <TemplateTypeForm
-            v-if="item && !isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+
+            :item="item"
+            :errors="errors"
+            />
         </div>
       </div>
     </section>
@@ -33,31 +33,18 @@ export default {
     TemplateTypeForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'template_type/del/deleted',
-      retrieved: 'template_type/update/retrieved',
-      violations: 'template_type/update/violations'
+
+      item: 'template_type/item',
+      errors: 'template_type/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'TemplateTypeList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -69,26 +56,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'template_type/create/reset',
-      delReset: 'template_type/del/reset',
-      retrieve: 'template_type/update/retrieve',
-      updateReset: 'template_type/update/reset',
-      update: 'template_type/update/update',
-      updateRetrieved: 'template_type/update/updateRetrieved'
+      getItem: 'template_type/getItem',
+      reset: 'template_type/reset',
+      update: 'template_type/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }

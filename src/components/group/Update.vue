@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('group.edit', {entity: retrieved && retrieved.name}) }}</h1>
+      <h1>{{ $t('group.edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <section class="content">
@@ -10,12 +10,12 @@
           <item-errors :entity="'group'" :is-loading="isLoading"></item-errors>
 
           <GroupForm
-            v-if="item && !isLoading"
+
             :handle-submit="onSendForm"
-            :handle-update-field="updateField"
-            :values="item"
-            :errors="violations"
-            :initial-values="retrieved" />
+
+            :item="item"
+            :errors="errors"
+            />
         </div>
       </div>
     </section>
@@ -33,31 +33,18 @@ export default {
     GroupForm
   },
 
-  data () {
-    return {
-      item: {}
-    }
-  },
+
 
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-      deleted: 'group/del/deleted',
-      retrieved: 'group/update/retrieved',
-      violations: 'group/update/violations'
+
+      item: 'group/item',
+      errors: 'group/errors'
     })
   },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    deleted: function (deleted) {
-      if (!deleted) {
-        return
-      }
 
-      this.$router.push({ name: 'GroupList' })
-    }
-  },
 
   beforeDestroy () {
     this.reset()
@@ -69,26 +56,13 @@ export default {
 
   methods: {
     ...mapActions({
-      createReset: 'group/create/reset',
-      delReset: 'group/del/reset',
-      retrieve: 'group/update/retrieve',
-      updateReset: 'group/update/reset',
-      update: 'group/update/update',
-      updateRetrieved: 'group/update/updateRetrieved'
+      getItem: 'group/getItem',
+      reset: 'group/reset',
+      update: 'group/update',
     }),
-
-    reset () {
-      this.updateReset()
-      this.delReset()
-      this.createReset()
-    },
 
     onSendForm () {
       this.update()
-    },
-
-    updateField (field, value) {
-      this.updateRetrieved({ [field]: value })
     }
   }
 }
