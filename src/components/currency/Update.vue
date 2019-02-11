@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-update-errors :entity="'currency'" :is-loading="isLoading"></item-update-errors>
+          <item-errors :entity="'currency'" :is-loading="isLoading"></item-errors>
 
           <CurrencyForm
             v-if="item && !isLoading"
@@ -25,11 +25,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import CurrencyForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     CurrencyForm
   },
 

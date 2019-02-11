@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'currency'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'currency'" :is-loading="isLoading"></item-errors>
 
           <CurrencyForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import CurrencyForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('currency/create')
 
 export default {
   components: {
     CurrencyForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

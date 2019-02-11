@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'payment_type'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'payment_type'" :is-loading="isLoading"></item-errors>
 
           <PaymentTypeForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import PaymentTypeForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('payment_type/create')
 
 export default {
   components: {
     PaymentTypeForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

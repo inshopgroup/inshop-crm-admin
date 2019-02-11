@@ -4,7 +4,7 @@
       <h1>{{$t('order_header.add')}}</h1>
     </section>
 
-    <item-create-errors :entity="'order_header'" :is-loading="isLoading"></item-create-errors>
+    <item-errors :entity="'order_header'" :is-loading="isLoading"></item-errors>
 
     <OrderHeaderForm
       :handle-submit="onSendForm"
@@ -19,14 +19,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import OrderHeaderForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('order_header/create')
 
 export default {
   components: {
     OrderHeaderForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

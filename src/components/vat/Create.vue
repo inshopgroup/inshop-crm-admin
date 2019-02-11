@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'vat'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'vat'" :is-loading="isLoading"></item-errors>
 
           <VatForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import VatForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('vat/create')
 
 export default {
   components: {
     VatForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

@@ -4,7 +4,7 @@
       <h1>{{$t('project.add')}}</h1>
     </section>
 
-    <item-create-errors :entity="'template'" :is-loading="isLoading"></item-create-errors>
+    <item-errors :entity="'template'" :is-loading="isLoading"></item-errors>
 
     <ProjectForm
       :handle-submit="onSendForm"
@@ -19,13 +19,13 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import ProjectForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('project/create')
 
 export default {
   components: {
-    ItemCreateErrors,
+    ItemErrors,
     ProjectForm
   },
 

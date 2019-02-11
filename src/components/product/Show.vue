@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-show-errors :entity="'product'" :is-loading="isLoading"></item-show-errors>
+      <item-errors :entity="'product'" :is-loading="isLoading"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -79,7 +79,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../layout/ItemShowActions'
-import ItemShowErrors from '../layout/errors/ItemShowErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import History from '../History'
 import CompanyProducts from '../company/CompanyProducts'
 import ProductSellPrices from './ProductSellPrices'
@@ -89,7 +89,7 @@ export default {
     ProductSellPrices,
     CompanyProducts,
     History,
-    ItemShowErrors,
+    ItemErrors,
     ItemShowActions
   },
 

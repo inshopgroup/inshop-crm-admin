@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-update-errors :entity="'brand'" :is-loading="isLoading"></item-update-errors>
+          <item-errors :entity="'brand'" :is-loading="isLoading"></item-errors>
 
           <BrandForm
             v-if="item && !isLoading"
@@ -25,11 +25,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import BrandForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     BrandForm
   },
 

@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-show-errors :entity="'vat'" :is-loading="isLoading"></item-show-errors>
+      <item-errors :entity="'vat'" :is-loading="isLoading"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -61,11 +61,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../layout/ItemShowActions'
-import ItemShowErrors from '../layout/errors/ItemShowErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import History from '../History'
 
 export default {
-  components: {History, ItemShowErrors, ItemShowActions },
+  components: {History, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
     isLoading: 'vat/show/isLoading',

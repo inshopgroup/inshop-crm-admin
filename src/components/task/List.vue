@@ -10,7 +10,7 @@
         <!--<router-link :to="{ name: 'TaskCreate' }" class="btn btn-primary pull-right">{{$t('task.add')}}</router-link>-->
       <!--</div>-->
       <div class="box-body">
-        <item-list-errors :entity="'task'"></item-list-errors>
+        <item-errors :entity="'task'"></item-errors>
 
         <api-table
                 :entity="'Task'"
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import ItemListErrors from '../layout/errors/ItemListErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ApiTable from '../ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
@@ -59,7 +59,7 @@ import columnStatus from './../../table/ColumnStatus'
 import TaskStatusFilter from '../filters/TaskStatusFilter'
 
 export default {
-  components: {TaskStatusFilter, ItemListErrors, ApiTable},
+  components: {TaskStatusFilter, ItemErrors, ApiTable},
   data: function () {
     return {
       columns: ['id', 'name', 'project.client.name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],

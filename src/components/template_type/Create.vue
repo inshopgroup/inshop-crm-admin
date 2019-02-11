@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'template_type'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'template_type'" :is-loading="isLoading"></item-errors>
 
           <TemplateTypeForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import TemplateTypeForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('template_type/create')
 
 export default {
   components: {
     TemplateTypeForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

@@ -10,7 +10,7 @@
           <router-link :to="{ name: 'GroupCreate' }" class="btn btn-primary pull-right">{{$t('group.add')}}</router-link>
         </div>
         <div class="box-body">
-          <item-list-errors :entity="'group'"></item-list-errors>
+          <item-errors :entity="'group'"></item-errors>
 
           <api-table
             :entity="'Group'"
@@ -28,14 +28,14 @@
 </template>
 
 <script>
-import ItemListErrors from '../layout/errors/ItemListErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ApiTable from '../ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnGroups from './../../table/ColumnGroups'
 
 export default {
-  components: {ItemListErrors, ApiTable},
+  components: {ItemErrors, ApiTable},
   data: function () {
     return {
       columns: ['id', 'name', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],

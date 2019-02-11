@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'shipment_method'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'shipment_method'" :is-loading="isLoading"></item-errors>
 
           <ShipmentMethodForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import ShipmentMethodForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('shipment_method/create')
 
 export default {
   components: {
     ShipmentMethodForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

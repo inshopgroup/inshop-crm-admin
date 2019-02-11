@@ -4,7 +4,7 @@
       <h1>{{ $t('order_header.edit', {entity: retrieved && retrieved.number}) }}</h1>
     </section>
 
-    <item-update-errors :entity="'order_header'" :is-loading="isLoading"></item-update-errors>
+    <item-errors :entity="'order_header'" :is-loading="isLoading"></item-errors>
 
     <OrderHeaderForm
       v-if="item && !isLoading"
@@ -20,11 +20,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import OrderHeaderForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     OrderHeaderForm
   },
 

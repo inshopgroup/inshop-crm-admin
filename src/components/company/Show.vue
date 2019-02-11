@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-show-errors :entity="'company'" :is-loading="isLoading"></item-show-errors>
+      <item-errors :entity="'company'" :is-loading="isLoading"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs hidden-print">
@@ -52,7 +52,7 @@ import { mapActions, mapGetters } from 'vuex'
 import CompanyInfo from './CompanyInfo'
 import CompanyClients from './CompanyClients'
 import ItemShowActions from '../layout/ItemShowActions'
-import ItemShowErrors from '../layout/errors/ItemShowErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import History from '../History'
 import ClientAddresses from '../client/ClientAddresses'
 import ClientContacts from '../client/ClientContacts'
@@ -62,7 +62,7 @@ import CompanyProducts from './CompanyProducts'
 export default {
   components: {
     History,
-    ItemShowErrors,
+    ItemErrors,
     CompanyInfo,
     CompanyClients,
     ItemShowActions,

@@ -4,7 +4,7 @@
       <h1>{{$t('client.add')}}</h1>
     </section>
 
-    <item-create-errors :entity="'client'" :is-loading="isLoading"></item-create-errors>
+    <item-errors :entity="'client'" :is-loading="isLoading"></item-errors>
 
     <ClientForm
       :handle-submit="onSendForm"
@@ -19,13 +19,13 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import ClientForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('client/create')
 
 export default {
   components: {
-    ItemCreateErrors,
+    ItemErrors,
     ClientForm
   },
 

@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'group'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'group'" :is-loading="isLoading"></item-errors>
 
           <GroupForm
             :handle-submit="onSendForm"
@@ -26,13 +26,13 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import GroupForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('group/create')
 
 export default {
   components: {
-    ItemCreateErrors,
+    ItemErrors,
     GroupForm
   },
 

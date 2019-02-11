@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'project_status'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'project_status'" :is-loading="isLoading"></item-errors>
 
           <ProjectStatusForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import ProjectStatusForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('project_status/create')
 
 export default {
   components: {
     ProjectStatusForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

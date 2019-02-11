@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-show-errors :entity="'client'" :is-loading="isLoading"></item-show-errors>
+      <item-errors :entity="'client'" :is-loading="isLoading"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -64,7 +64,7 @@ import ClientDocuments from './ClientDocuments'
 import ClientInfo from './ClientInfo'
 import ClientProjects from './ClientProjects'
 import ItemShowActions from '../layout/ItemShowActions'
-import ItemShowErrors from '../layout/errors/ItemShowErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ProjectTasksTable from '../user/TasksTable'
 import ClientRelations from './ClientRelations'
 import History from '../History'
@@ -74,7 +74,7 @@ export default {
     History,
     ClientRelations,
     ProjectTasksTable,
-    ItemShowErrors,
+    ItemErrors,
     ClientCompanies,
     ClientContacts,
     ClientAddresses,

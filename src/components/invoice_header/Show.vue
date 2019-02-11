@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-show-errors :entity="'invoice_header'" :is-loading="isLoading"></item-show-errors>
+      <item-errors :entity="'invoice_header'" :is-loading="isLoading"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -152,12 +152,12 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../layout/ItemShowActions'
-import ItemShowErrors from '../layout/errors/ItemShowErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import Lines from './Lines'
 import History from '../History'
 
 export default {
-  components: {History, Lines, ItemShowErrors, ItemShowActions },
+  components: {History, Lines, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
     isLoading: 'invoice_header/show/isLoading',

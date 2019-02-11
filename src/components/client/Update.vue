@@ -4,7 +4,7 @@
       <h1>{{ $t('client.edit', {entity: retrieved && retrieved.name}) }}</h1>
     </section>
 
-    <item-update-errors :entity="'client'" :is-loading="isLoading"></item-update-errors>
+    <item-errors :entity="'client'" :is-loading="isLoading"></item-errors>
 
     <ClientForm
       v-if="item && !isLoading"
@@ -19,11 +19,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ClientForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     ClientForm
   },
 

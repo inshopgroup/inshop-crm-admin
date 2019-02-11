@@ -4,7 +4,7 @@
       <h1>{{ $t('project.edit', {entity: retrieved && retrieved.name}) }}</h1>
     </section>
 
-    <item-update-errors :entity="'project'" :is-loading="isLoading"></item-update-errors>
+    <item-errors :entity="'project'" :is-loading="isLoading"></item-errors>
 
     <ProjectForm
       v-if="item && !isLoading"
@@ -19,11 +19,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ProjectForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     ProjectForm
   },
 

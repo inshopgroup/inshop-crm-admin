@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-show-errors :entity="'document'" :is-loading="isLoading"></item-show-errors>
+      <item-errors :entity="'document'" :is-loading="isLoading"></item-errors>
 
 
       <div class="nav-tabs-custom">
@@ -39,14 +39,14 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../layout/ItemShowActions'
-import ItemShowErrors from '../layout/errors/ItemShowErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ClientProjects from '../client/ClientProjects'
 import TemplateInfo from '../template/TemplateInfo'
 import FilesTable from '../template/FilesTable'
 import History from '../History'
 
 export default {
-  components: {History, FilesTable, TemplateInfo, ClientProjects, ItemShowErrors, ItemShowActions},
+  components: {History, FilesTable, TemplateInfo, ClientProjects, ItemErrors, ItemShowActions},
   computed: mapGetters({
     isLoading: 'document/show/isLoading',
     item: 'document/show/retrieved'

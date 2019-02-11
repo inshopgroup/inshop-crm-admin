@@ -4,7 +4,7 @@
       <h1>{{ $t('invoice_header.edit', {entity: retrieved && retrieved.number}) }}</h1>
     </section>
 
-    <item-update-errors :entity="'invoice_header'" :is-loading="isLoading"></item-update-errors>
+    <item-errors :entity="'invoice_header'" :is-loading="isLoading"></item-errors>
 
     <InvoiceHeaderForm
       :handle-submit="onSendForm"
@@ -17,11 +17,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import InvoiceHeaderForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     InvoiceHeaderForm
   },
 

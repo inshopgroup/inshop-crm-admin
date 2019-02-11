@@ -10,7 +10,7 @@
         <router-link :to="{ name: 'CompanyCreate' }" class="btn btn-primary pull-right">{{$t('company.add')}}</router-link>
       </div>
       <div class="box-body">
-        <item-list-errors :entity="'company'"></item-list-errors>
+        <item-errors :entity="'company'"></item-errors>
 
         <api-table
                 :entity="'Company'"
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import ItemListErrors from '../layout/errors/ItemListErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ApiTable from '../ApiTable'
 import columnContacts from './../../table/ColumnContacts'
 import columnCode from './../../table/ColumnCode'
@@ -44,7 +44,7 @@ import columnAddressPostCode from './../../table/ColumnAddressPostCode'
 import LabelsFilter from '../filters/LabelsFilter'
 
 export default {
-  components: {LabelsFilter, ItemListErrors, ApiTable},
+  components: {LabelsFilter, ItemErrors, ApiTable},
   data: function () {
     return {
       columns: ['code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id'],

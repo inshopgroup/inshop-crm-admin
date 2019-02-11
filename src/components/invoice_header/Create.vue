@@ -4,7 +4,7 @@
       <h1>{{$t('invoice_header.add')}}</h1>
     </section>
 
-    <item-create-errors :entity="'invoice_header'" :is-loading="isLoading"></item-create-errors>
+    <item-errors :entity="'invoice_header'" :is-loading="isLoading"></item-errors>
 
     <InvoiceHeaderForm
       :handle-submit="onSendForm"
@@ -19,14 +19,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import InvoiceHeaderForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('invoice_header/create')
 
 export default {
   components: {
     InvoiceHeaderForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

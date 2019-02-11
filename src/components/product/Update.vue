@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-update-errors :entity="'product'" :is-loading="isLoading"></item-update-errors>
+          <item-errors :entity="'product'" :is-loading="isLoading"></item-errors>
 
           <ProductForm
             v-if="!isLoading"
@@ -24,11 +24,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ProductForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     ProductForm
   },
 

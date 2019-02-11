@@ -10,7 +10,7 @@
         <router-link :to="{ name: 'CategoryCreate' }" class="btn btn-primary pull-right">{{$t('category.add')}}</router-link>
       </div>
       <div class="box-body">
-        <item-list-errors :entity="'category'"></item-list-errors>
+        <item-errors :entity="'category'"></item-errors>
 
         <api-table
                 :entity="'Category'"
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import ItemListErrors from '../layout/errors/ItemListErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ApiTable from '../ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
@@ -36,7 +36,7 @@ import columnTranslatedName from './../../table/ColumnTranslatedName'
 import columnParentTranslatedName from './../../table/ColumnParentTranslatedName'
 
 export default {
-  components: {ItemListErrors, ApiTable},
+  components: {ItemErrors, ApiTable},
   data: function () {
     return {
       columns: ['id', 'columnTranslatedName', 'columnParentTranslatedName', 'isActive', 'position', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],

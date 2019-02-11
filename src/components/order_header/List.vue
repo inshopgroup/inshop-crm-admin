@@ -10,7 +10,7 @@
         <router-link :to="{ name: 'OrderHeaderCreate' }" class="btn btn-primary pull-right">{{$t('order_header.add')}}</router-link>
       </div>
       <div class="box-body">
-        <item-list-errors :entity="'order_header'"></item-list-errors>
+        <item-errors :entity="'order_header'"></item-errors>
 
         <api-table
                 :entity="'OrderHeader'"
@@ -28,13 +28,13 @@
 </template>
 
 <script>
-import ItemListErrors from '../layout/errors/ItemListErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ApiTable from '../ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 
 export default {
-  components: {ItemListErrors, ApiTable},
+  components: {ItemErrors, ApiTable},
   data: function () {
     return {
       columns: ['id', 'number', 'client.name', 'status.name', 'channel.name', 'channel.currency.name', 'paymentType.name', 'shipmentMethod.name', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],

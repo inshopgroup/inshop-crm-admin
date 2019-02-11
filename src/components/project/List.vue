@@ -10,7 +10,7 @@
         <!--<router-link :to="{ name: 'ProjectCreate' }" class="btn btn-primary pull-right">{{$t('project.add')}}</router-link>-->
       <!--</div>-->
       <div class="box-body">
-        <item-list-errors :entity="'project'"></item-list-errors>
+        <item-errors :entity="'project'"></item-errors>
 
         <api-table
                 :entity="'Project'"
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import ItemListErrors from '../layout/errors/ItemListErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 import ApiTable from '../ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
@@ -47,7 +47,7 @@ import ProjectStatusFilter from '../filters/ProjectStatusFilter'
 import ProjectTypeFilter from '../filters/ProjectTypeFilter'
 
 export default {
-  components: {ProjectTypeFilter, ProjectStatusFilter, ItemListErrors, ApiTable},
+  components: {ProjectTypeFilter, ProjectStatusFilter, ItemErrors, ApiTable},
   data: function () {
     return {
       columns: ['id', 'name', 'client.name', 'status.id', 'type.id', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],

@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-update-errors :entity="'city'" :is-loading="isLoading"></item-update-errors>
+          <item-errors :entity="'city'" :is-loading="isLoading"></item-errors>
 
           <CityForm
             v-if="item && !isLoading"
@@ -25,11 +25,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import CityForm from './Form.vue'
-import ItemUpdateErrors from '../layout/errors/ItemUpdateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemUpdateErrors,
+    ItemErrors,
     CityForm
   },
 

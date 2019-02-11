@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'order_line_status'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'order_line_status'" :is-loading="isLoading"></item-errors>
 
           <OrderLineStatusForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import OrderLineStatusForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('order_line_status/create')
 
 export default {
   components: {
     OrderLineStatusForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {

@@ -7,7 +7,7 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-create-errors :entity="'channel'" :is-loading="isLoading"></item-create-errors>
+          <item-errors :entity="'channel'" :is-loading="isLoading"></item-errors>
 
           <ChannelForm
             :handle-submit="onSendForm"
@@ -26,14 +26,14 @@
 <script>
 import { createNamespacedHelpers } from 'vuex'
 import ChannelForm from './Form'
-import ItemCreateErrors from '../layout/errors/ItemCreateErrors'
+import ItemErrors from '../layout/errors/ItemErrors'
 
 const { mapGetters, mapActions } = createNamespacedHelpers('channel/create')
 
 export default {
   components: {
     ChannelForm,
-    ItemCreateErrors
+    ItemErrors
   },
 
   data () {
