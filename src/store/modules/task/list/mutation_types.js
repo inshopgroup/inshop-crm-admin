@@ -1,5 +1,0 @@
-export const RESET = 'TASK_LIST_RESET'
-export const SET_ITEMS = 'TASK_LIST_SET_ITEMS'
-export const SET_ERROR = 'TASK_LIST_SET_ERROR'
-export const SET_VIEW = 'TASK_LIST_SET_VIEW'
-export const TOGGLE_LOADING = 'TASK_LIST_TOGGLE_LOADING'

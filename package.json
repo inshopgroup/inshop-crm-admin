@@ -27,6 +27,7 @@
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
+    "pluralize": "^7.0.0",
     "vue": "^2.5.11",
     "vue-body-class": "^2.0.0-beta.2",
     "vue-chartjs": "^3.4.0",

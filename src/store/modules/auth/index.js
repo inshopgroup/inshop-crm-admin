@@ -19,7 +19,7 @@ const actions = {
   logout ({ commit }) {
     commit(types.AUTH_RESET)
     router.push({name: 'SignIn'})
-  },
+  }
 }
 
 function initialState () {

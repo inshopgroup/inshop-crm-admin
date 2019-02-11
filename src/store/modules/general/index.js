@@ -1,10 +1,10 @@
 import * as types from './mutation_types'
-
-const actions = {}
+import * as actions from './actions'
 
 function initialState () {
   return {
-    isLoading: 0
+    isLoading: 0,
+    loadingAllow: true,
   }
 }
 
@@ -16,10 +16,19 @@ const getters = {
 
 export const mutations = {
   [types.LOADING_START] (state) {
-    state.isLoading += 1
+    if (state.loadingAllow) {
+      state.isLoading += 1
+    }
   },
   [types.LOADING_STOP] (state) {
-    state.isLoading -= 1
+    state.loadingAllow = true
+
+    if (state.isLoading > 0) {
+      state.isLoading -= 1
+    }
+  },
+  [types.LOADING_ALLOW] (state, value) {
+    state.loadingAllow = value
   }
 }
 

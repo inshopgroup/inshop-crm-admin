@@ -1,16 +1,12 @@
-import list from './list'
-import create from './create'
-import update from './update'
-import show from './show'
-import del from './delete'
+import * as actions from './actions'
+import * as getters from './getters'
+import mutations from './mutations'
+import state from './state'
 
 export default {
   namespaced: true,
-  modules: {
-    list,
-    create,
-    update,
-    show,
-    del
-  }
+  state: state,
+  actions,
+  getters,
+  mutations
 }

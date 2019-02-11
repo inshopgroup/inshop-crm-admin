@@ -1,5 +1,0 @@
-export const RESET = 'VAT_LIST_RESET'
-export const SET_ITEMS = 'VAT_LIST_SET_ITEMS'
-export const SET_ERROR = 'VAT_LIST_SET_ERROR'
-export const SET_VIEW = 'VAT_LIST_SET_VIEW'
-export const TOGGLE_LOADING = 'VAT_LIST_TOGGLE_LOADING'
