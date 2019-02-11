@@ -64,8 +64,8 @@ export default {
   components: {History, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
-    isLoading: 'contact_type/show/isLoading',
-    item: 'contact_type/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'contact_type/item'
   }),
 
   beforeDestroy () {
@@ -73,13 +73,13 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
-      reset: 'contact_type/show/reset',
-      retrieve: 'contact_type/show/retrieve'
+      reset: 'contact_type/reset',
+      getItem: 'contact_type/getItem'
     })
   }
 }

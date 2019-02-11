@@ -73,8 +73,8 @@ import History from '../History'
 export default {
   components: {History, ItemErrors, ItemShowActions},
   computed: mapGetters({
-    isLoading: 'backup/show/isLoading',
-    item: 'backup/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'backup/item'
   }),
 
   beforeDestroy () {
@@ -82,14 +82,14 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
       del: 'backup/del/del',
-      reset: 'backup/show/reset',
-      retrieve: 'backup/show/retrieve'
+      reset: 'backup/reset',
+      getItem: 'backup/getItem'
     }),
 
     deleteItem (item) {

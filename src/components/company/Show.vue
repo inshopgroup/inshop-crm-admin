@@ -72,8 +72,8 @@ export default {
     CompanyProducts
   },
   computed: mapGetters({
-    isLoading: 'company/show/isLoading',
-    item: 'company/show/retrieved',
+    isLoading: 'general/isLoading',
+    item: 'company/item',
     contacts: 'company/show/contacts',
     addresses: 'company/show/addresses',
     documents: 'company/show/documents',
@@ -85,7 +85,7 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
     this.loadContacts()
     this.loadAddresses()
     this.loadDocuments()
@@ -95,8 +95,8 @@ export default {
   methods: {
     ...mapActions({
       del: 'company/del/del',
-      reset: 'company/show/reset',
-      retrieve: 'company/show/retrieve',
+      reset: 'company/reset',
+      getItem: 'company/getItem',
       getContacts: 'company/show/getContacts',
       getAddresses: 'company/show/getAddresses',
       getDocuments: 'company/show/getDocuments',

@@ -110,8 +110,8 @@ export default {
       return tasks
     },
     ... mapGetters({
-      isLoading: 'client/show/isLoading',
-      item: 'client/show/retrieved',
+      isLoading: 'general/isLoading',
+      item: 'client/item',
       documents: 'client/show/documents',
       projects: 'client/show/projects',
       contacts: 'client/show/contacts',
@@ -140,8 +140,8 @@ export default {
   methods: {
     ...mapActions({
       del: 'client/del/del',
-      reset: 'client/show/reset',
-      retrieve: 'client/show/retrieve',
+      reset: 'client/reset',
+      getItem: 'client/getItem',
       getDocuments: 'client/show/getDocuments',
       getProjects: 'client/show/getProjects',
       getContacts: 'client/show/getContacts',
@@ -154,7 +154,7 @@ export default {
       }
     },
     loadUser () {
-      this.retrieve(decodeURIComponent(this.$route.params.id))
+      this.getItem(decodeURIComponent(this.$route.params.id))
     },
     loadDocuments () {
       this.getDocuments(decodeURIComponent(this.$route.params.id))

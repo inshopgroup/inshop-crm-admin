@@ -75,8 +75,8 @@ export default {
   components: {History, ItemErrors, ItemShowActions},
   computed: {
     ...mapGetters({
-      isLoading: 'group/show/isLoading',
-      item: 'group/show/retrieved'
+      isLoading: 'general/isLoading',
+      item: 'group/item'
     }),
 
     modules () {
@@ -89,15 +89,15 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
     this.getModules('/modules?pagination[itemsPerPage]=500')
   },
 
   methods: {
     ...mapActions({
       del: 'group/del/del',
-      reset: 'group/show/reset',
-      retrieve: 'group/show/retrieve',
+      reset: 'group/reset',
+      getItem: 'group/getItem',
       getModules: 'module/list/default'
     }),
 

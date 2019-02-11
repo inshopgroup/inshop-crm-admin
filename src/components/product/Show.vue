@@ -94,8 +94,8 @@ export default {
   },
 
   computed: mapGetters({
-    isLoading: 'product/show/isLoading',
-    item: 'product/show/retrieved',
+    isLoading: 'general/isLoading',
+    item: 'product/item',
     companyProducts: 'product/show/companyProducts',
     productSellPrices: 'product/show/productSellPrices',
   }),
@@ -105,15 +105,15 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
     this.loadCompanyProducts()
     this.loadProductSellPrices()
   },
 
   methods: {
     ...mapActions({
-      reset: 'product/show/reset',
-      retrieve: 'product/show/retrieve',
+      reset: 'product/reset',
+      getItem: 'product/getItem',
       getCompanyProducts: 'product/show/getCompanyProducts',
       getProductSellPrices: 'product/show/getProductSellPrices',
     }),

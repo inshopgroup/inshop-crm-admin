@@ -43,8 +43,8 @@ export default {
   components: {History, ItemErrors, ItemShowActions, TemplateInfo, FilesTable },
 
   computed: mapGetters({
-    isLoading: 'template/show/isLoading',
-    item: 'template/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'template/item'
   }),
 
   beforeDestroy () {
@@ -52,13 +52,13 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
-      reset: 'template/show/reset',
-      retrieve: 'template/show/retrieve'
+      reset: 'template/reset',
+      getItem: 'template/getItem'
     })
   }
 }

@@ -41,7 +41,7 @@ export default {
 
   computed: {
     ...mapGetters({
-      isLoading: 'company/update/isLoading',
+      isLoading: 'general/isLoading',
       deleted: 'company/del/deleted',
       retrieved: 'company/update/retrieved',
       violations: 'company/update/violations'
@@ -64,7 +64,7 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {

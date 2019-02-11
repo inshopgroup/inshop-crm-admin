@@ -48,8 +48,8 @@ import History from '../History'
 export default {
   components: {History, FilesTable, TemplateInfo, ClientProjects, ItemErrors, ItemShowActions},
   computed: mapGetters({
-    isLoading: 'document/show/isLoading',
-    item: 'document/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'document/item'
   }),
 
   beforeDestroy () {
@@ -57,14 +57,14 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
       del: 'document/del/del',
-      reset: 'document/show/reset',
-      retrieve: 'document/show/retrieve'
+      reset: 'document/reset',
+      getItem: 'document/getItem'
     }),
 
     deleteItem (item) {

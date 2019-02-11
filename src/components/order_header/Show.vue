@@ -119,8 +119,8 @@ export default {
   components: {History, Lines, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
-    isLoading: 'order_header/show/isLoading',
-    item: 'order_header/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'order_header/item'
   }),
 
   beforeDestroy () {
@@ -128,13 +128,13 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
-      reset: 'order_header/show/reset',
-      retrieve: 'order_header/show/retrieve',
+      reset: 'order_header/reset',
+      getItem: 'order_header/getItem',
       getLines: 'invoice_header/show/getLines'
     })
   }

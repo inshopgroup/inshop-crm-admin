@@ -64,8 +64,8 @@ export default {
   components: {History, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
-    isLoading: 'invoice_type/show/isLoading',
-    item: 'invoice_type/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'invoice_type/item'
   }),
 
   beforeDestroy () {
@@ -73,13 +73,13 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
-      reset: 'invoice_type/show/reset',
-      retrieve: 'invoice_type/show/retrieve'
+      reset: 'invoice_type/reset',
+      getItem: 'invoice_type/getItem'
     })
   }
 }

@@ -68,8 +68,8 @@ export default {
   components: {History, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
-    isLoading: 'currency/show/isLoading',
-    item: 'currency/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'currency/item'
   }),
 
   beforeDestroy () {
@@ -77,13 +77,13 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
-      reset: 'currency/show/reset',
-      retrieve: 'currency/show/retrieve'
+      reset: 'currency/reset',
+      getItem: 'currency/getItem'
     })
   }
 }

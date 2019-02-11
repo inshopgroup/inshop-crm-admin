@@ -64,8 +64,8 @@ export default {
   components: {History, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
-    isLoading: 'task_status/show/isLoading',
-    item: 'task_status/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'task_status/item'
   }),
 
   beforeDestroy () {
@@ -73,13 +73,13 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
-      reset: 'task_status/show/reset',
-      retrieve: 'task_status/show/retrieve'
+      reset: 'task_status/reset',
+      getItem: 'task_status/getItem'
     })
   }
 }

@@ -86,8 +86,8 @@ export default {
   components: {History, ItemErrors, TasksTable, ItemShowActions},
   computed: {
     ...mapGetters({
-      isLoading: 'user/show/isLoading',
-      item: 'user/show/retrieved'
+      isLoading: 'general/isLoading',
+      item: 'user/item'
     })
   },
 
@@ -96,14 +96,14 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
       del: 'user/del/del',
-      reset: 'user/show/reset',
-      retrieve: 'user/show/retrieve'
+      reset: 'user/reset',
+      getItem: 'user/getItem'
     }),
 
     deleteItem (item) {

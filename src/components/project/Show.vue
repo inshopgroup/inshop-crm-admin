@@ -48,8 +48,8 @@ export default {
   components: {History, ProjectTasksTable, ClientDocuments, ProjectInfo, ItemErrors, ItemShowActions},
   computed: {
     ...mapGetters({
-      isLoading: 'project/show/isLoading',
-      item: 'project/show/retrieved'
+      isLoading: 'general/isLoading',
+      item: 'project/item'
     }),
     projects () {
       return [this.item]
@@ -86,12 +86,12 @@ export default {
   methods: {
     ...mapActions({
       del: 'project/del/del',
-      reset: 'project/show/reset',
-      retrieve: 'project/show/retrieve'
+      reset: 'project/reset',
+      getItem: 'project/getItem'
     }),
 
     loadProject () {
-      this.retrieve(decodeURIComponent(this.$route.params.id))
+      this.getItem(decodeURIComponent(this.$route.params.id))
     },
 
     deleteItem (item) {

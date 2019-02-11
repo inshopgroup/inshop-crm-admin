@@ -91,8 +91,8 @@ import History from '../History'
 export default {
   components: {History, ItemErrors, ItemShowActions},
   computed: mapGetters({
-    isLoading: 'contact/show/isLoading',
-    item: 'contact/show/retrieved'
+    isLoading: 'general/isLoading',
+    item: 'contact/item'
   }),
 
   beforeDestroy () {
@@ -100,14 +100,14 @@ export default {
   },
 
   created () {
-    this.retrieve(decodeURIComponent(this.$route.params.id))
+    this.getItem(decodeURIComponent(this.$route.params.id))
   },
 
   methods: {
     ...mapActions({
       del: 'contact/del/del',
-      reset: 'contact/show/reset',
-      retrieve: 'contact/show/retrieve'
+      reset: 'contact/reset',
+      getItem: 'contact/getItem'
     }),
 
     deleteItem (item) {
