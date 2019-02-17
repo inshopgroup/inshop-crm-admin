@@ -11,15 +11,12 @@
 
           <BrandForm
             :handle-submit="onSendForm"
-
             :item="item"
             :errors="errors"
-
           />
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
@@ -35,37 +32,23 @@ export default {
     BrandForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'BrandUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
-
+  computed: mapGetters({
+    item: 'brand/item',
+    isLoading: 'general/isLoading',
+    errors: 'brand/errors'
+  }),
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'brand/create',
+      reset: 'brand/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'BrandShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

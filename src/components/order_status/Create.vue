@@ -35,37 +35,23 @@ export default {
     OrderStatusForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'OrderStatusUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
-
+  computed: mapGetters({
+    item: 'order_status/item',
+    isLoading: 'general/isLoading',
+    errors: 'order_status/errors'
+  }),
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'order_status/create',
+      reset: 'order_status/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'OrderStatusShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

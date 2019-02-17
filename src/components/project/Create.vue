@@ -28,37 +28,23 @@ export default {
     ItemErrors,
     ProjectForm
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'ProjectUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
-
+  computed: mapGetters({
+    item: 'project/item',
+    isLoading: 'general/isLoading',
+    errors: 'project/errors'
+  }),
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'project/create',
+      reset: 'project/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'ProjectShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

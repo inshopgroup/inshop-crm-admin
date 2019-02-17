@@ -35,37 +35,26 @@ export default {
     CityForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'CityUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
 
+  computed: mapGetters({
+    item: 'city/item',
+    isLoading: 'general/isLoading',
+    errors: 'city/errors'
+  }),
+
   methods: {
-    ...mapActions([
-      'create'
-    ]),
+    ...mapActions({
+      create: 'city/create',
+      reset: 'city/reset'
+    }),
 
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'CityShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

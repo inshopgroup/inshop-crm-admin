@@ -87,16 +87,9 @@ export default {
 
   methods: {
     ...mapActions({
-      del: 'backup/del/del',
       reset: 'backup/reset',
       getItem: 'backup/getItem'
-    }),
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'BackupList' }))
-      }
-    }
+    })
   }
 }
 </script>

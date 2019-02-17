@@ -35,6 +35,9 @@ export default {
     ItemErrors,
     GroupForm
   },
+  beforeDestroy() {
+    this.reset()
+  },
 
   data () {
     return {
@@ -44,34 +47,22 @@ export default {
     }
   },
 
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'GroupUpdate', params: { id: created['@id'] } })
-    }
-  },
+  computed: mapGetters({
+    item: 'group/item',
+    isLoading: 'general/isLoading',
+    errors: 'group/errors'
+  }),
 
   methods: {
-    ...mapActions([
-      'create'
-    ]),
+    ...mapActions({
+      create: 'group/create',
+      reset: 'group/reset'
+    }),
 
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'GroupShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

@@ -59,7 +59,9 @@ export default {
     }),
 
     onSendForm () {
-      this.update()
+      this.update().then(() => {
+        this.$router.push({name: 'ProductShow', params: {id: this.item['@id']}})
+      }).catch(e => {})
     }
   }
 }

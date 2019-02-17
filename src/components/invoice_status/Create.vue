@@ -35,37 +35,25 @@ export default {
     InvoiceStatusForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'InvoiceStatusUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
 
+  computed: mapGetters({
+    item: 'invoice_status/item',
+    isLoading: 'general/isLoading',
+    errors: 'invoice_status/errors'
+  }),
+
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'invoice_status/create',
+      reset: 'invoice_status/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'InvoiceStatusShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

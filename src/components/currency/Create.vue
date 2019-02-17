@@ -35,37 +35,24 @@ export default {
     CurrencyForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'CurrencyUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
 
+  computed: mapGetters({
+    item: 'currency/item',
+    isLoading: 'general/isLoading',
+    errors: 'currency/errors'
+  }),
+
   methods: {
-    ...mapActions([
-      'create'
-    ]),
+    ...mapActions({
+      create: 'currency/create',
+      reset: 'currency/reset'
+    }),
 
     onSendForm () {
       this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
     }
   }
 }

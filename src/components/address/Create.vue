@@ -11,15 +11,12 @@
 
           <AddressForm
             :handle-submit="onSendForm"
-
             :item="item"
             :errors="errors"
-
           />
         </div>
       </div>
     </section>
-
   </div>
 </template>
 

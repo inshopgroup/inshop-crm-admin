@@ -128,7 +128,6 @@ import History from '../History'
 
 export default {
   components: {History, ItemErrors, ItemShowActions },
-
   computed: mapGetters({
     isLoading: 'general/isLoading',
     item: 'address/item'

@@ -28,37 +28,26 @@ export default {
     InvoiceHeaderForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'InvoiceHeaderUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
 
+  computed: mapGetters({
+    item: 'invoice_header/item',
+    isLoading: 'general/isLoading',
+    errors: 'invoice_header/errors'
+  }),
+
   methods: {
-    ...mapActions([
-      'create'
-    ]),
+    ...mapActions({
+      create: 'invoice_header/create',
+      reset: 'invoice_header/reset'
+    }),
 
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'InvoiceHeaderShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

@@ -28,6 +28,9 @@ export default {
     ItemErrors,
     ClientForm
   },
+  beforeDestroy() {
+    this.reset()
+  },
 
   data () {
     return {
@@ -38,34 +41,22 @@ export default {
     }
   },
 
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'ClientUpdate', params: { id: created['@id'] } })
-    }
-  },
+  computed: mapGetters({
+    item: 'client/item',
+    isLoading: 'general/isLoading',
+    errors: 'client/errors'
+  }),
 
   methods: {
-    ...mapActions([
-      'create'
-    ]),
+    ...mapActions({
+      create: 'client/create',
+      reset: 'client/reset'
+    }),
 
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'ClientShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

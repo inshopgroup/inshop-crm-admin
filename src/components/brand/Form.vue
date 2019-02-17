@@ -1,16 +1,6 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <div class="form-group">
-      <label for="brand_name" class="form-control-label">{{$t('brand.name')}}</label>
-      <input
-        id="brand_name"
-        v-model="item.name"
-        :class="['form-control', isInvalid('name') ? 'is-invalid' : '']"
-        type="text"
-        placeholder=""
-        @input="handleUpdateField('name', $event.target.value)">
-      <div v-if="isInvalid('name')" class="invalid-feedback">{{ violations.name }}</div>
-    </div>
+    <form-input :item="item" :errors="errors" :property="'name'" :label="'brand.name'" @fieldUpdated="updateValue"></form-input>
 
     <item-edit-actions :item="item" :entity="'Brand'" :path="'brand'"></item-edit-actions>
   </form>
@@ -18,9 +8,11 @@
 
 <script>
 import ItemEditActions from '../layout/ItemEditActions'
+import FormInput from "../layout/form/FormInput";
 
 export default {
   components: {
+    FormInput,
     ItemEditActions
   },
 
@@ -29,35 +21,18 @@ export default {
       type: Function,
       required: true
     },
-
-
-
     item: {
       type: Object,
       required: true
     },
-
     errors: {
       type: Object,
       default: () => {}
     },
-
-
   },
-
-  computed: {
-    item () {
-      return this.initialValues || this.values
-    },
-
-    violations () {
-      return this.errors || {}
-    }
-  },
-
   methods: {
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
+    updateValue(property, value) {
+      this.$store.commit('brand/BRAND_UPDATE_ITEM', {[property]: value})
     }
   }
 }

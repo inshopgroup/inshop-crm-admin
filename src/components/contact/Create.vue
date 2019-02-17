@@ -35,37 +35,26 @@ export default {
     ContactForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'ContactUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
 
+  computed: mapGetters({
+    item: 'contact/item',
+    isLoading: 'general/isLoading',
+    errors: 'contact/errors'
+  }),
+
   methods: {
-    ...mapActions([
-      'create'
-    ]),
+    ...mapActions({
+      create: 'contact/create',
+      reset: 'contact/reset'
+    }),
 
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'ContactShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

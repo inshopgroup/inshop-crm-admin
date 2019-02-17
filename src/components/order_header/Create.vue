@@ -28,43 +28,32 @@ export default {
     OrderHeaderForm,
     ItemErrors
   },
-
-  data () {
-    return {
-      item: {
-        lines: []
-      }
-    }
+  beforeDestroy() {
+    this.reset()
   },
 
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
+  // data () {
+  //   return {
+  //     item: {
+  //       lines: []
+  //     }
+  //   }
+  // },
 
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'OrderHeaderUpdate', params: { id: created['@id'] } })
-    }
-  },
-
+  computed: mapGetters({
+    item: 'order_header/item',
+    isLoading: 'general/isLoading',
+    errors: 'order_header/errors'
+  }),
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'order_header/create',
+      reset: 'order_header/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'OrderHeaderShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

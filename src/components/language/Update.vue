@@ -62,7 +62,9 @@ export default {
     }),
 
     onSendForm () {
-      this.update()
+      this.update().then(() => {
+        this.$router.push({name: 'LanguageShow', params: {id: this.item['@id']}})
+      }).catch(e => {})
     }
   }
 }

@@ -35,7 +35,9 @@ export default {
     CategoryForm,
     ItemErrors
   },
-
+  beforeDestroy() {
+    this.reset()
+  },
   data () {
     return {
       item: {
@@ -43,35 +45,21 @@ export default {
       }
     }
   },
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'CategoryUpdate', params: { id: created['@id'] } })
-    }
-  },
+  computed: mapGetters({
+    item: 'category/item',
+    isLoading: 'general/isLoading',
+    errors: 'category/errors'
+  }),
 
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'category/create',
+      reset: 'category/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'CategoryShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

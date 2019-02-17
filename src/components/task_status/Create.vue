@@ -35,37 +35,23 @@ export default {
     TaskStatusForm,
     ItemErrors
   },
-
-
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'TaskStatusUpdate', params: { id: created['@id'] } })
-    }
+  beforeDestroy() {
+    this.reset()
   },
-
+  computed: mapGetters({
+    item: 'task_status/item',
+    isLoading: 'general/isLoading',
+    errors: 'task_status/errors'
+  }),
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'task_status/create',
+      reset: 'task_status/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'TaskStatusShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }

@@ -10,9 +10,7 @@
           <item-errors :entity="'vat'" :is-loading="isLoading"></item-errors>
 
           <VatForm
-
             :handle-submit="onSendForm"
-
             :item="item"
             :errors="errors"
             />
@@ -32,9 +30,6 @@ export default {
     ItemErrors,
     VatForm
   },
-
-
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
@@ -43,26 +38,22 @@ export default {
       errors: 'vat/errors'
     })
   },
-
-
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
       getItem: 'vat/getItem',
       reset: 'vat/reset',
       update: 'vat/update',
     }),
-
     onSendForm () {
-      this.update()
+      this.update().then(() => {
+        this.$router.push({name: 'VatShow', params: {id: this.item['@id']}})
+      }).catch(e => {})
     }
   }
 }

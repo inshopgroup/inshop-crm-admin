@@ -35,43 +35,30 @@ export default {
     ProductForm,
     ItemErrors
   },
-
-  data () {
-    return {
-      item: {
-        translations: []
-      }
-    }
+  beforeDestroy() {
+    this.reset()
   },
-
-  computed: mapGetters([
-    'isLoading',
-    'created',
-    'violations'
-  ]),
-
-  watch: {
-    // eslint-disable-next-line object-shorthand,func-names
-    created: function (created) {
-      if (!created) {
-        return
-      }
-
-      this.$router.push({ name: 'ProductUpdate', params: { id: created['@id'] } })
-    }
-  },
-
+  // data () {
+  //   return {
+  //     item: {
+  //       translations: []
+  //     }
+  //   }
+  // },
+  computed: mapGetters({
+    item: 'product/item',
+    isLoading: 'general/isLoading',
+    errors: 'product/errors'
+  }),
   methods: {
-    ...mapActions([
-      'create'
-    ]),
-
+    ...mapActions({
+      create: 'product/create',
+      reset: 'product/reset'
+    }),
     onSendForm () {
-      this.create(this.item)
-    },
-
-    updateField (field, value) {
-      Object.assign(this.item, { [field]: value })
+      this.create().then(created => {
+        this.$router.push({name: 'ProductShow', params: {id: created['@id']}})
+      }).catch(e => {})
     }
   }
 }
