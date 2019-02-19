@@ -75,9 +75,9 @@ export default {
     isLoading: 'general/isLoading',
     item: 'company/item',
     // contacts: 'company/show/contacts',
-    addresses: 'company/show/addresses',
-    documents: 'company/show/documents',
-    companyProducts: 'company/show/companyProducts',
+    // addresses: 'company/show/addresses',
+    // documents: 'company/show/documents',
+    // companyProducts: 'company/show/companyProducts',
   }),
 
   beforeDestroy () {
