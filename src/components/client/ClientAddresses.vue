@@ -111,7 +111,9 @@
       company: null,
       addresses: {
         type: Array,
-        default: []
+        default: function () {
+          return []
+        }
       }
     },
     data () {

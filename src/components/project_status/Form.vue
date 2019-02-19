@@ -1,64 +1,39 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <div class="form-group">
-      <label for="project_status_name" class="form-control-label">{{$t('project_status.name')}}</label>
-      <input
-        id="project_status_name"
-        v-model="item.name"
-        :class="['form-control', isInvalid('name') ? 'is-invalid' : '']"
-        type="text"
-        placeholder=""
-        @input="handleUpdateField('name', $event.target.value)">
-      <div v-if="isInvalid('name')" class="invalid-feedback">{{ violations.name }}</div>
-    </div>
+    <form-input :item="item" :errors="errors" :property="'name'" :label="'project_status.name'" @fieldUpdated="updateValue"></form-input>
 
     <item-edit-actions :item="item" :entity="'ProjectStatus'" :path="'project_status'"></item-edit-actions>
   </form>
 </template>
 
 <script>
-import ItemEditActions from '../layout/ItemEditActions'
+  import ItemEditActions from '../layout/ItemEditActions'
+  import FormInput from "../layout/form/FormInput";
 
-export default {
-  components: {
-    ItemEditActions
-  },
-
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      FormInput,
+      ItemEditActions
+    },
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      },
+      errors: {
+        type: Object,
+        default: () => {}
+      },
     },
 
-
-
-    item: {
-      type: Object,
-      required: true
-    },
-
-    errors: {
-      type: Object,
-      default: () => {}
-    },
-
-
-  },
-
-  computed: {
-    item () {
-      return this.initialValues || this.values
-    },
-
-    violations () {
-      return this.errors || {}
-    }
-  },
-
-  methods: {
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
+    methods: {
+      updateValue(property, value) {
+        this.$store.commit('project_status/PROJECT_STATUS_UPDATE_ITEM', {[property]: value})
+      }
     }
   }
-}
 </script>

@@ -173,9 +173,9 @@ export default {
         })
     },
 
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
-    },
+    updateValue(property, value) {
+this.$store.commit('address/ADDRESS_UPDATE_ITEM', {[property]: value})
+},
   }
 }
 </script>

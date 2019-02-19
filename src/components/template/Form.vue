@@ -1,30 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <div class="form-group">
-      <label for="template_name" class="form-control-label">{{$t('template.name')}}</label>
-      <input
-        id="template_name"
-        v-model="item.name"
-        :class="['form-control', isInvalid('name') ? 'is-invalid' : '']"
-        type="text"
-        placeholder=""
-        @input="handleUpdateField('name', $event.target.value)">
-      <div v-if="isInvalid('name')" class="invalid-feedback">{{ violations.name }}</div>
-    </div>
-
-    <div class="form-group">
-      <label for="template_type" class="form-control-label">{{$t('template.type.name')}}</label>
-
-      <v-select
-              id="template_type"
-              v-model="item.type"
-              :options="templateTypes"
-              :class="['form-control-select2', isInvalid('type') ? 'is-invalid' : '']"
-              label="name"
-      ></v-select>
-
-      <div v-if="isInvalid('type')" class="invalid-feedback">{{ violations.type}}</div>
-    </div>
+    <form-input :item="item" :errors="errors" :property="'name'" :label="'template.name'" @fieldUpdated="updateValue"></form-input>
+    <form-select :item="item" :errors="errors" :property="'type'" :option-property="'template_type'" :label="'template.type.name'" @fieldUpdated="updateValue"></form-select>
 
     <div class="form-group">
       <label for="file" class="form-control-label">{{$t('template.files')}}</label>
@@ -39,120 +16,93 @@
 </template>
 
 <script>
-import vueDropzone from "vue2-dropzone";
-import fetch from '../../utils/fetch'
-import ItemEditActions from '../layout/ItemEditActions'
-import { mapActions } from 'vuex'
+  import vueDropzone from "vue2-dropzone";
+  import fetch from '../../utils/fetch'
+  import ItemEditActions from '../layout/ItemEditActions'
+  import FormInput from "../layout/form/FormInput";
+  import FormSelect from "../layout/form/FormSelect";
 
-export default {
-  components: {
-    vueDropzone, ItemEditActions
-  },
-
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      FormSelect,
+      FormInput,
+      vueDropzone, ItemEditActions
     },
-
-
-
-    item: {
-      type: Object,
-      required: true
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      },
+      errors: {
+        type: Object,
+        default: () => {}
+      },
     },
-
-    errors: {
-      type: Object,
-      default: () => {}
+    computed: {
+      authHeader() {
+        return 'Bearer ' + this.$store.state.auth.token
+      },
     },
+    methods: {
+      updateValue(property, value) {
+        this.$store.commit('template/TEMPLATE_UPDATE_ITEM', {[property]: value})
+      },
 
+      dropOptions() {
+        let _this = this
+        return {
+          url: process.env.API_URL + '/files',
+          paramName: 'file', // MB
+          maxFilesize: 20, // MB
+          maxFiles: 20,
+          createImageThumbnails: false,
+          // thumbnailWidth: 200, // px
+          // thumbnailHeight: 200,
+          addRemoveLinks: true,
+          headers: {
+            'Authorization': this.authHeader
+          },
+          init: function () {
+            let thisDropzone = this;
 
-  },
+            if (_this.$route.params.id) {
+              fetch(decodeURIComponent(_this.$route.params.id) + '/files')
+                .then(response => response.json())
+                .then((data) => {
 
-  computed: {
-    // eslint-disable-next-line
-    authHeader () {
-      return 'Bearer ' + this.$store.state.auth.token
-    },
+                  data['hydra:member'].forEach((file) => {
+                    file.name = file.originalName
 
-    item () {
-      return this.initialValues || this.values
-    },
+                    thisDropzone.emit("addedfile", file);
+                    // thisDropzone.options.thumbnail.call(thisDropzone, file, process.env.API_URL + '/file/' + file.contentUrl);
 
-    violations () {
-      return this.errors || {}
-    },
-
-    templateTypes () {
-      return this.$store.getters['template_type/list/items'] || []
-    },
-  },
-
-  mounted () {
-    this.getTemplateTypes()
-  },
-
-  methods: {
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
-    },
-
-    ...mapActions({
-      getTemplateTypes: 'template_type/list/default',
-    }),
-
-    dropOptions () {
-      let _this = this
-      return {
-        url: process.env.API_URL + '/files',
-        paramName: 'file', // MB
-        maxFilesize: 20, // MB
-        maxFiles: 20,
-        createImageThumbnails: false,
-        // thumbnailWidth: 200, // px
-        // thumbnailHeight: 200,
-        addRemoveLinks: true,
-        headers: {
-          'Authorization': this.authHeader
-        },
-        init: function() {
-          let thisDropzone = this;
-
-          if (_this.$route.params.id) {
-            fetch(decodeURIComponent(_this.$route.params.id) + '/files')
-              .then(response => response.json())
-              .then((data) => {
-
-                data['hydra:member'].forEach((file) => {
-                  file.name = file.originalName
-
-                  thisDropzone.emit("addedfile", file);
-                  // thisDropzone.options.thumbnail.call(thisDropzone, file, process.env.API_URL + '/file/' + file.contentUrl);
-
-                  // Make sure that there is no progress bar, etc...
-                  thisDropzone.emit("complete", file);
+                    // Make sure that there is no progress bar, etc...
+                    thisDropzone.emit("complete", file);
+                  })
                 })
-              })
-              .catch((e) => {
-                console.log('Error uploading', e)
-              })
+                .catch((e) => {
+                  console.log('Error uploading', e)
+                })
+            }
           }
         }
+      },
+
+      uploaded(data) {
+        this.item.files = this.item.files || []
+        this.item.files.push('/files/' + JSON.parse(data.xhr.response).id)
+      },
+
+      removed(data) {
+        this.item.files = this.item.files || []
+        this.item.files = this.item.files.filter(function (el) {
+          return el.id !== data.id;
+        });
       }
-    },
-
-    uploaded (data) {
-      this.item.files = this.item.files || []
-      this.item.files.push('/files/' + JSON.parse(data.xhr.response).id)
-    },
-
-    removed (data) {
-      this.item.files = this.item.files || []
-      this.item.files = this.item.files.filter(function(el) {
-        return el.id !== data.id;
-      });
     }
   }
-}
 </script>

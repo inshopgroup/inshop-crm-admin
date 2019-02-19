@@ -1,52 +1,8 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <div class="form-group">
-      <label
-        for="document_name"
-        class="form-control-label">{{$t('document.name')}}</label>
-      <input
-        id="document_name"
-        v-model="item.name"
-        :class="['form-control', isInvalid('name') ? 'is-invalid' : '']"
-        type="text"
-        placeholder="">
-      <div
-        v-if="isInvalid('name')"
-        class="invalid-feedback">{{ violations.name }}</div>
-    </div>
-
-    <div class="form-group">
-      <label
-        for="document_client"
-        class="form-control-label">{{$t('document.client')}}</label>
-
-      <v-select
-                id="document_client"
-                v-model="item.client"
-                :options="clients"
-                :class="['form-control-select2', isInvalid('client') ? 'is-invalid' : '']"
-                label="name"
-                @search="loadClients"
-      ></v-select>
-
-      <div v-if="isInvalid('client')" class="invalid-feedback">{{ violations.client }}</div>
-    </div>
-
-    <div class="form-group">
-      <label
-        for="document_projects"
-        class="form-control-label">{{$t('document.projects')}}</label>
-
-      <v-select multiple
-                id="document_projects"
-                v-model="item.projects"
-                :options="projects"
-                :class="['form-control-select2', isInvalid('projects') ? 'is-invalid' : '']"
-                label="name"
-      ></v-select>
-
-      <div v-if="isInvalid('projects')" class="invalid-feedback">{{ violations.projects }}</div>
-    </div>
+    <form-input :item="item" :errors="errors" :property="'name'" :label="'document.name'" @fieldUpdated="updateValue"></form-input>
+    <form-select :item="item" :errors="errors" :property="'client'" :option-property="'client'" :label="'document.client'" @fieldUpdated="updateValue"></form-select>
+    <form-select :item="item" :errors="errors" :property="'projects'" :option-property="'project'" :label="'document.projects'" :multiple="true" @fieldUpdated="updateValue"></form-select>
 
     <div class="form-group">
       <label for="file" class="form-control-label">{{$t('document.files')}}</label>
@@ -64,63 +20,38 @@
 import vueDropzone from "vue2-dropzone";
 import fetch from '../../utils/fetch'
 import ItemEditActions from '../layout/ItemEditActions'
-import { mapActions, mapGetters } from 'vuex'
-import lodash from 'lodash'
+import FormInput from "../layout/form/FormInput";
+import FormSelect from "../layout/form/FormSelect";
 
 export default {
   components: {
+    FormSelect,
+    FormInput,
     vueDropzone, ItemEditActions
   },
-
   props: {
     handleSubmit: {
       type: Function,
       required: true
     },
-
     item: {
       type: Object,
       required: true
     },
-
     errors: {
       type: Object,
       default: () => {}
     },
-
-
   },
-
   computed: {
-    // eslint-disable-next-line
     authHeader () {
       return 'Bearer ' + this.$store.state.auth.token
     },
-
-    item () {
-      return this.initialValues || this.values
-    },
-
-    violations () {
-      return this.errors || {}
-    },
-
-    projects () {
-      if (this.item && this.item.client) {
-        return this.item.client.projects
-      }
-    },
-
-    ...mapGetters({
-      clients: 'client/list/items',
-    }),
   },
-
   methods: {
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
+    updateValue(property, value) {
+      this.$store.commit('document/DOCUMENT_UPDATE_ITEM', {[property]: value})
     },
-
     dropOptions () {
       let _this = this
       return {
@@ -160,33 +91,16 @@ export default {
         }
       }
     },
-
     uploaded (data) {
       this.item.files = this.item.files || []
       this.item.files.push('/files/' + JSON.parse(data.xhr.response).id)
     },
-
     removed (data) {
       this.item.files = this.item.files || []
       this.item.files = this.item.files.filter(function(el) {
         return el.id !== data.id;
       });
     },
-
-    ...mapActions({
-      getClients: 'client/list/default'
-    }),
-
-    loadClients (keyword, loading) {
-      loading(true);
-
-      this.search(loading, keyword, this);
-    },
-
-    search: _.debounce((loading, keyword, vm) => {
-      vm.getClients('/clients?name=' + keyword)
-      loading(false);
-    }, 350)
   }
 }
 </script>

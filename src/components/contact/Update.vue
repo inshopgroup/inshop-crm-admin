@@ -10,12 +10,10 @@
           <item-errors :entity="'contact'" :is-loading="isLoading"></item-errors>
 
           <ContactForm
-
             :handle-submit="onSendForm"
-
             :item="item"
             :errors="errors"
-            />
+          />
         </div>
       </div>
     </section>
@@ -32,35 +30,25 @@ export default {
     ItemErrors,
     ContactForm
   },
-
-
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-
       item: 'contact/item',
       errors: 'contact/errors'
     })
   },
-
-
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
       getItem: 'contact/getItem',
       reset: 'contact/reset',
       update: 'contact/update',
     }),
-
     onSendForm () {
       this.update().then(() => {
         this.$router.push({name: 'ContactShow', params: {id: this.item['@id']}})

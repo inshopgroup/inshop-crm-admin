@@ -1,92 +1,41 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <div class="form-group">
-      <label for="contact_value" class="form-control-label">{{$t('contact.value')}}</label>
-      <input
-        id="contact_value"
-        v-model="item.value"
-        :class="['form-control', isInvalid('value') ? 'is-invalid' : '']"
-        type="text"
-        placeholder=""
-        @input="handleUpdateField('value', $event.target.value)">
-      <div v-if="isInvalid('value')" class="invalid-feedback">{{ violations.value }}</div>
-    </div>
-
-
-    <div class="form-group">
-      <label for="contact_contactType" class="form-control-label">{{$t('address.contactType.name')}}</label>
-
-      <v-select
-              id="contact_contactType"
-              v-model="item.contactType"
-              :options="contactTypes"
-              :class="['form-control-select2', isInvalid('contactType') ? 'is-invalid' : '']"
-              label="name"
-      ></v-select>
-
-      <div v-if="isInvalid('contactType')" class="invalid-feedback">{{ violations.contactType }}</div>
-    </div>
+    <form-input :item="item" :errors="errors" :property="'value'" :label="'contact.value'" @fieldUpdated="updateValue"></form-input>
+    <form-select :item="item" :errors="errors" :property="'contactType'" :option-property="'contact_type'" :label="'address.contactType.name'" @fieldUpdated="updateValue"></form-select>
 
     <item-edit-actions :item="item" :entity="'Contact'" :path="'contact'"></item-edit-actions>
   </form>
 </template>
 
 <script>
-import ItemEditActions from '../layout/ItemEditActions'
-import { mapActions } from 'vuex'
+  import ItemEditActions from '../layout/ItemEditActions'
+  import FormSelect from "../layout/form/FormSelect";
+  import FormInput from "../layout/form/FormInput";
 
-export default {
-  components: {
-    ItemEditActions
-  },
-
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      FormInput,
+      FormSelect,
+      ItemEditActions
     },
-
-
-
-    item: {
-      type: Object,
-      required: true
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      },
+      errors: {
+        type: Object,
+        default: () => {}
+      },
     },
-
-    errors: {
-      type: Object,
-      default: () => {}
-    },
-
-
-  },
-
-  computed: {
-    item () {
-      return this.initialValues || this.values
-    },
-
-    violations () {
-      return this.errors || {}
-    },
-
-    contactTypes () {
-      return this.$store.getters['contact_type/list/items'] || []
+    methods: {
+      updateValue(property, value) {
+        this.$store.commit('contact/CONTACT_UPDATE_ITEM', {[property]: value})
+      },
     }
-  },
-
-  mounted () {
-    this.getContactTypes()
-  },
-
-  methods: {
-    ...mapActions({
-      getContactTypes: 'contact_type/list/default',
-    }),
-
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
-    },
   }
-}
 </script>

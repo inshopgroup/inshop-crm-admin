@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     taskStatuses () {
-      return this.$store.getters['task_status/list/items'] || []
+      return this.$store.getters['task_status/items'] || []
     },
     data () {
       let ids = []
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getTaskStatuses: 'task_status/list/default'
+      getTaskStatuses: 'task_status/getItems'
     }),
     filterTable () {
       Event.$emit('vue-tables.filter::status.id', this.data)

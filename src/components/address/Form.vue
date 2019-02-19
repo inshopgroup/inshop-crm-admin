@@ -27,7 +27,6 @@ export default {
     FormSelect,
     ItemEditActions
   },
-
   props: {
     handleSubmit: {
       type: Function,

@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     labels () {
-      return this.$store.getters['label/list/items'] || []
+      return this.$store.getters['label/items'] || []
     },
     data () {
       let ids = []
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getLabels: 'label/list/default'
+      getLabels: 'label/getItems'
     }),
     filterTable () {
       Event.$emit('vue-tables.filter::labels.id', this.data)

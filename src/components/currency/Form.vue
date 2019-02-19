@@ -1,76 +1,39 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <div class="form-group">
-      <label for="currency_name" class="form-control-label">{{$t('currency.name')}}</label>
-      <input
-        id="currency_name"
-        v-model="item.name"
-        :class="['form-control', isInvalid('name') ? 'is-invalid' : '']"
-        type="text"
-        placeholder=""
-        @input="handleUpdateField('name', $event.target.value)">
-      <div v-if="isInvalid('name')" class="invalid-feedback">{{ violations.name }}</div>
-    </div>
-    
-    <div class="form-group">
-      <label for="currency_code" class="form-control-label">{{$t('currency.code')}}</label>
-      <input
-        id="currency_code"
-        v-model="item.code"
-        :class="['form-control', isInvalid('code') ? 'is-invalid' : '']"
-        type="text"
-        placeholder=""
-        @input="handleUpdateField('code', $event.target.value)">
-      <div v-if="isInvalid('code')" class="invalid-feedback">{{ violations.code }}</div>
-    </div>
+    <form-input :item="item" :errors="errors" :property="'name'" :label="'currency.name'" @fieldUpdated="updateValue"></form-input>
+    <form-input :item="item" :errors="errors" :property="'code'" :label="'currency.code'" @fieldUpdated="updateValue"></form-input>
 
     <item-edit-actions :item="item" :entity="'Currency'" :path="'currency'"></item-edit-actions>
   </form>
 </template>
 
 <script>
-import ItemEditActions from '../layout/ItemEditActions'
+  import ItemEditActions from '../layout/ItemEditActions'
+  import FormInput from "../layout/form/FormInput";
 
-export default {
-  components: {
-    ItemEditActions
-  },
-
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      FormInput,
+      ItemEditActions
     },
-
-
-
-    item: {
-      type: Object,
-      required: true
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      },
+      errors: {
+        type: Object,
+        default: () => {}
+      },
     },
-
-    errors: {
-      type: Object,
-      default: () => {}
-    },
-
-
-  },
-
-  computed: {
-    item () {
-      return this.initialValues || this.values
-    },
-
-    violations () {
-      return this.errors || {}
-    }
-  },
-
-  methods: {
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
+    methods: {
+      updateValue(property, value) {
+        this.$store.commit('currency/CURRENCY_UPDATE_ITEM', {[property]: value})
+      }
     }
   }
-}
 </script>

@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     backupStatuses () {
-      return this.$store.getters['backup_status/list/items'] || []
+      return this.$store.getters['backup_status/items'] || []
     },
     data () {
       let ids = []
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getBackupStatuses: 'backup_status/list/default'
+      getBackupStatuses: 'backup_status/getItems'
     }),
     filterTable () {
       Event.$emit('vue-tables.filter::status.id', this.data)

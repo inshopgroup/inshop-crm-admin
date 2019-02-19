@@ -8,7 +8,7 @@
 
     <InvoiceHeaderForm
       :handle-submit="onSendForm"
-
+      :item="item"
       :errors="errors"
       />
   </div>
@@ -24,33 +24,25 @@ export default {
     ItemErrors,
     InvoiceHeaderForm
   },
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-
       item: 'invoice_header/item',
       errors: 'invoice_header/errors'
     })
   },
-
-
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
       getItem: 'invoice_header/getItem',
       reset: 'invoice_header/reset',
       update: 'invoice_header/update',
     }),
-
     onSendForm () {
       this.update().then(() => {
         this.$router.push({name: 'InvoiceHeaderShow', params: {id: this.item['@id']}})

@@ -168,31 +168,31 @@ export default {
         })
     },
 
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
-    },
+    updateValue(property, value) {
+this.$store.commit('address/ADDRESS_UPDATE_ITEM', {[property]: value})
+},
 
-    loadCompanies (keyword, loading) {
-      loading(true);
-
-      this.searchCompanies(loading, keyword, this);
-    },
-
-    searchCompanies: _.debounce((loading, keyword, vm) => {
-      vm.getCompanies('/companies?name=' + keyword)
-      loading(false);
-    }, 350),
-
-    loadProducts (keyword, loading) {
-      loading(true);
-
-      this.searchProducts(loading, keyword, this);
-    },
-
-    searchProducts: _.debounce((loading, keyword, vm) => {
-      vm.getProducts('/products?name=' + keyword)
-      loading(false);
-    }, 350)
+    // loadCompanies (keyword, loading) {
+    //   loading(true);
+    //
+    //   this.searchCompanies(loading, keyword, this);
+    // },
+    //
+    // searchCompanies: _.debounce((loading, keyword, vm) => {
+    //   vm.getCompanies('/companies?name=' + keyword)
+    //   loading(false);
+    // }, 350),
+    //
+    // loadProducts (keyword, loading) {
+    //   loading(true);
+    //
+    //   this.searchProducts(loading, keyword, this);
+    // },
+    //
+    // searchProducts: _.debounce((loading, keyword, vm) => {
+    //   vm.getProducts('/products?name=' + keyword)
+    //   loading(false);
+    // }, 350)
   }
 }
 </script>

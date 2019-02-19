@@ -47,10 +47,10 @@ export default {
   components: {LabelsFilter, ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id'],
-      filterable: ['code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode'],
+      columns: ['id', 'code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'actions'],
+      filterable: ['id', 'code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode'],
       customFilters: ['labels.id'],
-      sortable: ['code', 'name', 'contactPerson'],
+      sortable: ['id', 'code', 'name', 'contactPerson'],
       templates: {
         'contacts.value': columnContacts,
         'addresses.country.name': columnAddressCountry,

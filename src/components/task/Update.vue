@@ -10,16 +10,13 @@
           <item-errors :entity="'task'" :is-loading="isLoading"></item-errors>
 
           <TaskForm
-
             :handle-submit="onSendForm"
-
             :item="item"
             :errors="errors"
             />
         </div>
       </div>
     </section>
-
   </div>
 </template>
 
@@ -33,9 +30,6 @@ export default {
     ItemErrors,
     TaskForm
   },
-
-
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
@@ -44,26 +38,22 @@ export default {
       errors: 'task/errors'
     })
   },
-
-
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
       getItem: 'task/getItem',
       reset: 'task/reset',
       update: 'task/update',
     }),
-
     onSendForm () {
-      this.update()
+      this.update().then(() => {
+        this.$router.push({name: 'TaskShow', params: {id: this.item['@id']}})
+      }).catch(e => {})
     }
   }
 }

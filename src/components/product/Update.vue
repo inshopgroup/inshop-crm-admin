@@ -10,10 +10,8 @@
           <item-errors :entity="'product'" :is-loading="isLoading"></item-errors>
 
           <ProductForm
-
             :handle-submit="onSendForm"
-
-            :item="retrieved"
+            :item="item"
             :errors="errors" />
         </div>
       </div>
@@ -31,33 +29,25 @@ export default {
     ItemErrors,
     ProductForm
   },
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-
       item: 'product/item',
       errors: 'product/errors'
     })
   },
-
-
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
       getItem: 'product/getItem',
       reset: 'product/reset',
       update: 'product/update',
     }),
-
     onSendForm () {
       this.update().then(() => {
         this.$router.push({name: 'ProductShow', params: {id: this.item['@id']}})

@@ -31,7 +31,7 @@
             </router-link>
           </td>
           <td>
-            <router-link v-if="contact" :to="{name: 'ClientShow', params: { id: contact['@id'] }}">
+            <router-link v-if="contact.contactType" :to="{name: 'ClientShow', params: { id: contact['@id'] }}">
               {{ contact['contactType']['name'] }}
             </router-link>
           </td>
@@ -68,7 +68,9 @@
       company: null,
       contacts: {
         type: Array,
-        default: []
+        default: function () {
+          return []
+        }
       }
     },
     data () {
@@ -76,8 +78,8 @@
         modalEdit: {
           title: null,
           item: {},
-          url: null,
-          method: null
+          // url: null,
+          // method: null
         }
       }
     },
@@ -114,8 +116,8 @@
             clients: clients,
             companies: companies
           },
-          url: process.env.API_URL + '/contacts',
-          method: 'post'
+          // url: process.env.API_URL + '/contacts',
+          // method: 'post'
         }
 
         $('#modal-contact-edit').modal('show')
@@ -124,8 +126,8 @@
         this.modalEdit = {
           title: this.$t('contact.edit', {entity: item.value}),
           item: item,
-          url: process.env.API_URL + item['@id'],
-          method: 'put'
+          // url: process.env.API_URL + item['@id'],
+          // method: 'put'
         }
 
         $('#modal-contact-edit').modal('show')

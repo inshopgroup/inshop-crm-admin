@@ -7,13 +7,10 @@
     <item-errors :entity="'order_header'" :is-loading="isLoading"></item-errors>
 
     <OrderHeaderForm
-
       :handle-submit="onSendForm"
-
       :item="item"
       :errors="errors"
-      />
-
+    />
   </div>
 </template>
 
@@ -27,15 +24,6 @@ export default {
     ItemErrors,
     OrderHeaderForm
   },
-
-  data () {
-    return {
-      item: {
-        lines: []
-      }
-    }
-  },
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
@@ -44,24 +32,18 @@ export default {
       errors: 'order_header/errors'
     })
   },
-
-
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
       getItem: 'order_header/getItem',
       reset: 'order_header/reset',
       update: 'order_header/update',
     }),
-
     onSendForm () {
       this.update().then(() => {
         this.$router.push({name: 'OrderHeaderShow', params: {id: this.item['@id']}})

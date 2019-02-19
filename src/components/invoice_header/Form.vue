@@ -8,196 +8,59 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="invoice_header_number" class="form-control-label">{{$t('invoice_header.number')}}</label>
-                <input
-                        id="invoice_header_number"
-                        v-model="item.number"
-                        :class="['form-control', isInvalid('number') ? 'is-invalid' : '']"
-                        type="text"
-                        placeholder=""
-                        @input="handleUpdateField('number', $event.target.value)">
-                <div v-if="isInvalid('number')" class="invalid-feedback">{{ violations.number }}</div>
-              </div>
+              <form-input :item="item" :errors="errors" :property="'number'" :label="'invoice_header.number'" @fieldUpdated="updateValue"></form-input>
             </div>
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="invoice_header_status" class="form-control-label">{{$t('invoice_header.status.name')}}</label>
-                <v-select
-                        id="invoice_header_status"
-                        v-model="item.status"
-                        :options="statuses"
-                        :class="['form-control-select2', isInvalid('status') ? 'is-invalid' : '']"
-                        label="name"
-                ></v-select>
-                <div v-if="isInvalid('status')" class="invalid-feedback">{{ violations.status }}</div>
-              </div>
+              <form-select :item="item" :errors="errors" :property="'status'" :option-property="'invoice_header_status'" :label="'invoice_header.status.name'" @fieldUpdated="updateValue"></form-select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="invoice_header_companyFrom" class="form-control-label">{{$t('invoice_header.companyFrom.name')}}</label>
-
-                <v-select
-                        id="invoice_header_companyFrom"
-                        v-model="item.companyFrom"
-                        :options="companiesFrom"
-                        :class="['form-control-select2', isInvalid('companyFrom') ? 'is-invalid' : '']"
-                        label="name"
-                        @search="loadCompaniesFrom"
-                ></v-select>
-
-                <div v-if="isInvalid('companyFrom')" class="invalid-feedback">{{ violations.companyFrom }}</div>
+                <form-select :item="item" :errors="errors" :property="'companyFrom'" :option-property="'company'" :label="'invoice_header.companyFrom.name'" @fieldUpdated="updateValue"></form-select>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="invoice_header_companyTo" class="form-control-label">{{$t('invoice_header.companyTo.name')}}</label>
-
-                <v-select
-                        id="invoice_header_companyTo"
-                        v-model="item.companyTo"
-                        :options="companiesTo"
-                        :class="['form-control-select2', isInvalid('companyTo') ? 'is-invalid' : '']"
-                        label="name"
-                        @search="loadCompaniesTo"
-                ></v-select>
-
-                <div v-if="isInvalid('companyTo')" class="invalid-feedback">{{ violations.companyTo }}</div>
+                <form-select :item="item" :errors="errors" :property="'companyTo'" :option-property="'company'" :label="'invoice_header.companyTo.name'" @fieldUpdated="updateValue"></form-select>
               </div>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-
-              <div class="form-group">
-                <label for="invoice_header_type" class="form-control-label">{{$t('invoice_header.type.name')}}</label>
-
-                <v-select
-                        id="invoice_header_type"
-                        v-model="item.type"
-                        :options="types"
-                        :class="['form-control-select2', isInvalid('type') ? 'is-invalid' : '']"
-                        label="name"
-                ></v-select>
-
-                <div v-if="isInvalid('type')" class="invalid-feedback">{{ violations.type }}</div>
-              </div>
+              <form-select :item="item" :errors="errors" :property="'type'" :option-property="'invoice_header_type'" :label="'invoice_header.type.name'" @fieldUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="invoice_header_currency" class="form-control-label">{{$t('invoice_header.currency.name')}}</label>
-
-                <v-select
-                        id="invoice_header_currency"
-                        v-model="item.currency"
-                        :options="currencies"
-                        :class="['form-control-select2', isInvalid('currency') ? 'is-invalid' : '']"
-                        label="name"
-                ></v-select>
-
-                <div v-if="isInvalid('currency')" class="invalid-feedback">{{ violations.currency }}</div>
-              </div>
+              <form-select :item="item" :errors="errors" :property="'currency'" :option-property="'currency'" :label="'invoice_header.currency.name'" @fieldUpdated="updateValue"></form-select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="invoice_header_agreement" class="form-control-label">{{$t('invoice_header.agreement.name')}}</label>
-
-                <v-select
-                        id="invoice_header_agreement"
-                        v-model="item.agreement"
-                        :options="agreements"
-                        :class="['form-control-select2', isInvalid('agreement') ? 'is-invalid' : '']"
-                        label="name"
-                ></v-select>
-
-                <div v-if="isInvalid('agreement')" class="invalid-feedback">{{ violations.agreement }}</div>
-              </div>
+              <form-select :item="item" :errors="errors" :property="'agreement'" :option-property="'document'" :label="'invoice_header.agreement.name'" @fieldUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-
-              <div class="form-group">
-                <label for="invoice_header_language" class="form-control-label">{{$t('invoice_header.language.name')}}</label>
-
-                <v-select
-                        id="invoice_header_language"
-                        v-model="item.language"
-                        :options="languages"
-                        :class="['form-control-select2', isInvalid('language') ? 'is-invalid' : '']"
-                        label="name"
-                ></v-select>
-
-                <div v-if="isInvalid('language')" class="invalid-feedback">{{ violations.language }}</div>
-              </div>
+              <form-select :item="item" :errors="errors" :property="'language'" :option-property="'language'" :label="'invoice_header.language.name'" @fieldUpdated="updateValue"></form-select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group" :class="[isInvalid('deadline') ? 'has-error' : '']">
-                <label for="invoice_header_dateOfInvoice" class="form-control-label">{{$t('invoice_header.dateOfInvoice')}}</label>
-
-                <datepicker
-                        id="invoice_header_dateOfInvoice"
-                        v-model="item.dateOfInvoice"
-                        name="dateOfInvoice"
-                        monday-first
-                ></datepicker>
-
-                <div v-if="isInvalid('dateOfInvoice')" class="invalid-feedback">{{ violations.dateOfInvoice }}</div>
-              </div>
+              <form-datepicker :item="item" :errors="errors" :property="'dateOfInvoice'" :label="'invoice_header.dateOfInvoice'" @fieldUpdated="updateValue"></form-datepicker>
             </div>
             <div class="col-md-6">
-              <div class="form-group">
-                <label for="invoice_header_maturity" class="form-control-label">{{$t('invoice_header.maturity')}}</label>
-                <input
-                        id="invoice_header_maturity"
-                        v-model="item.maturity"
-                        :class="['form-control', isInvalid('maturity') ? 'is-invalid' : '']"
-                        type="text"
-                        placeholder=""
-                        @input="handleUpdateField('maturity', $event.target.value)">
-                <div v-if="isInvalid('maturity')" class="invalid-feedback">{{ violations.maturity }}</div>
-              </div>
+              <form-input :item="item" :errors="errors" :property="'maturity'" :label="'invoice_header.maturity'" @fieldUpdated="updateValue"></form-input>
             </div>
           </div>
 
           <div class="row">
         <div class="col-md-6">
-          <div class="form-group" :class="[isInvalid('deadline') ? 'has-error' : '']">
-            <label for="invoice_header_dateOfSale" class="form-control-label">{{$t('invoice_header.dateOfSale')}}</label>
-
-            <datepicker
-                    id="invoice_header_dateOfSale"
-                    v-model="item.dateOfSale"
-                    name="dateOfSale"
-                    monday-first
-            ></datepicker>
-
-            <div v-if="isInvalid('dateOfSale')" class="invalid-feedback">{{ violations.dateOfSale }}</div>
-          </div>
+          <form-datepicker :item="item" :errors="errors" :property="'dateOfSale'" :label="'invoice_header.dateOfSale'" @fieldUpdated="updateValue"></form-datepicker>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="invoice_header_orderHeader" class="form-control-label">{{$t('invoice_header.orderHeader.number')}}</label>
-
-            <v-select
-                    id="invoice_header_orderHeader"
-                    v-model="item.orderHeader"
-                    :options="orderHeaders"
-                    :class="['form-control-select2', isInvalid('orderHeader') ? 'is-invalid' : '']"
-                    label="number"
-                    @search="loadOrderHeaders"
-            ></v-select>
-
-            <div v-if="isInvalid('orderHeader')" class="invalid-feedback">{{ violations.orderHeader }}</div>
-          </div>
+          <form-select :item="item" :errors="errors" :property="'orderHeader'" :option-property="'order_header'" :label="'invoice_header.orderHeader.number'" @fieldUpdated="updateValue"></form-select>
         </div>
       </div>
         </div>
@@ -227,56 +90,20 @@
             </thead>
             <tbody>
             <tr v-for="line in item.lines" :key="line.id">
-
               <td>
-                <v-select
-                        id="invoice_line_product"
-                        v-model="line.product"
-                        :options="products"
-                        :class="['form-control-select2', isInvalid('product') ? 'is-invalid' : '']"
-                        label="name"
-                        @search="loadProducts"
-                        @input="productSelected(line)"
-                ></v-select>
-                <div v-if="isInvalid('product')" class="invalid-feedback">{{ violations.product }}</div>
+                <form-select :item="line" :errors="errors" :property="'product'" :option-property="'product'" :label="'invoice_line.product.name'" @fieldUpdated="updateValue"></form-select>
               </td>
               <td>
-                <input
-                        id="invoice_line_name"
-                        v-model="line.name"
-                        :class="['form-control', isInvalid('name') ? 'is-invalid' : '']"
-                        type="text">
-                <div v-if="isInvalid('name')" class="invalid-feedback">{{ violations.name }}</div>
+                <form-input :item="line" :errors="errors" :property="'name'" :label="'invoice_line.name'" @fieldUpdated="updateValue"></form-input>
               </td>
               <td>
-                <v-select
-                        id="invoice_line_vat"
-                        v-model="line.vat"
-                        :options="vats"
-                        :class="['form-control-select2', isInvalid('vat') ? 'is-invalid' : '']"
-                        label="name"
-                ></v-select>
-                <div v-if="isInvalid('vat')" class="invalid-feedback">{{ violations.vat }}</div>
+                <form-select :item="line" :errors="errors" :property="'vat'" :option-property="'vat'" :label="'invoice_line.vat.name'" @fieldUpdated="updateValue"></form-select>
               </td>
               <td>
-                <input
-                        id="invoice_line_unitPriceNetto"
-                        v-model.number="line.unitPriceNetto"
-                        :class="['form-control', isInvalid('unitPriceNetto') ? 'is-invalid' : '']"
-                        type="number"
-                        step="0.01"
-                >
-                <div v-if="isInvalid('unitPriceNetto')" class="invalid-feedback">{{ violations.unitPriceNetto }}</div>
+                <form-number :item="line" :errors="errors" :property="'unitPriceNetto'" :label="'invoice_line.unitPriceNetto'" @fieldUpdated="updateValue"></form-number>
               </td>
               <td>
-                <input
-                        id="invoice_line_unitsCount"
-                        v-model.number="line.unitsCount"
-                        :class="['form-control', isInvalid('unitsCount') ? 'is-invalid' : '']"
-                        type="number"
-                        step="1"
-                >
-                <div v-if="isInvalid('unitsCount')" class="invalid-feedback">{{ violations.unitsCount }}</div>
+                <form-number :item="line" :errors="errors" :property="'unitsCount'" :label="'invoice_line.unitsCount'" @fieldUpdated="updateValue"></form-number>
               </td>
               <td>
                 <button class="btn btn-info" @click.prevent="removeLine(line)">
@@ -296,179 +123,68 @@
 </template>
 
 <script>
-import ItemEditActions from '../layout/ItemEditActions'
-import { mapActions } from 'vuex'
-import Datepicker from 'vuejs-datepicker';
+  import ItemEditActions from '../layout/ItemEditActions'
+  import FormInput from "../layout/form/FormInput";
+  import FormSelect from "../layout/form/FormSelect";
+  import FormDatepicker from "../layout/form/FormDatepicker";
+  import FormNumber from "../layout/form/FormNumber";
 
-export default {
-  components: {
-    Datepicker,
-    ItemEditActions
-  },
-
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      FormNumber,
+      FormDatepicker,
+      FormSelect,
+      FormInput,
+      ItemEditActions
     },
-
-
-
-    errors: {
-      type: Object,
-      default: () => {}
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      },
+      errors: {
+        type: Object,
+        default: () => {}
+      },
     },
+    methods: {
+      updateValue(property, value) {
+        this.$store.commit('invoice_header/INVOICE_HEADER_UPDATE_ITEM', {[property]: value})
+      },
+      addLine () {
+        this.item.lines.push({uuid: Date.now()})
+      },
+      removeLine (line) {
+        this.item.lines = this.item.lines.filter(function(el) {
+          if (!line.id) {
+            line.id = line.uuid
+          }
 
-
-  },
-
-  computed: {
-    item () {
-      return this.initialValues
-    },
-
-    violations () {
-      return this.errors || {}
-    },
-
-    statuses () {
-      return this.$store.getters['invoice_status/list/items'] || []
-    },
-
-    types () {
-      return this.$store.getters['invoice_type/list/items'] || []
-    },
-
-    languages () {
-      return this.$store.getters['language/list/items'] || []
-    },
-
-    currencies () {
-      return this.$store.getters['currency/list/items'] || []
-    },
-
-    vats () {
-      return this.$store.getters['vat/list/items'] || []
-    },
-
-    products () {
-      return this.$store.getters['product/list/items'] || []
-    },
-
-    orderHeaders () {
-      return this.$store.getters['order_header/list/items'] || []
-    },
-    companiesFrom () {
-      return this.$store.getters['company/list/items'] || []
-    },
-    companiesTo () {
-      return this.$store.getters['company/list/items'] || []
-    },
-    agreements () {
-      return this.item && this.item.companyFrom && this.item.companyFrom.documents || []
-    }
-  },
-
-  created () {
-    this.getStatuses()
-    this.getTypes()
-    this.getCurrencies()
-    this.getLanguages()
-    this.getVats()
-  },
-
-  methods: {
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
-    },
-
-    ...mapActions({
-      getStatuses: 'invoice_status/list/default',
-      getTypes: 'invoice_type/list/default',
-      getCurrencies: 'currency/list/default',
-      getLanguages: 'language/list/default',
-      getOrderHeaders: 'order_header/list/default',
-      getCompanies: 'company/list/default',
-      getProducts: 'product/list/default',
-      getVats: 'vat/list/default',
-    }),
-
-    loadOrderHeaders (keyword, loading) {
-      loading(true);
-
-      this.searchOrderHeaders(loading, keyword, this);
-    },
-
-    searchOrderHeaders: _.debounce((loading, keyword, vm) => {
-      vm.getOrderHeaders('/order_headers?number=' + keyword)
-      loading(false);
-    }, 350),
-
-    loadCompaniesFrom (keyword, loading) {
-      loading(true);
-
-      this.searchCompaniesFrom(loading, keyword, this);
-    },
-
-    searchCompaniesFrom: _.debounce((loading, keyword, vm) => {
-      vm.getCompanies('/companies?name=' + keyword)
-      vm.item.agreement = null
-      loading(false);
-    }, 350),
-
-    loadCompaniesTo (keyword, loading) {
-      loading(true);
-
-      this.searchCompaniesTo(loading, keyword, this);
-    },
-
-    searchCompaniesTo: _.debounce((loading, keyword, vm) => {
-      vm.getCompanies('/companies?name=' + keyword)
-      loading(false);
-    }, 350),
-
-    addLine () {
-      this.item.lines.push({uuid: Date.now()})
-    },
-    removeLine (line) {
-      this.item.lines = this.item.lines.filter(function(el) {
-        if (!line.id) {
-          line.id = line.uuid
+          return line.id !== el.id;
+        })
+      },
+      productSelected (line) {
+        if (!line.name) {
+          line.name = line.product.name
         }
 
-        return line.id !== el.id;
-      })
-    },
+        if (!line.vat) {
+          line.vat = line.product.vat
+        }
 
-    loadProducts (keyword, loading) {
-      loading(true);
+        if (!line.unitsCount) {
+          line.unitsCount = 1
+        }
 
-      this.searchProducts(loading, keyword, this);
-    },
-
-    searchProducts: _.debounce((loading, keyword, vm) => {
-      vm.getProducts('/products?name=' + keyword)
-      loading(false);
-    }, 350),
-
-    productSelected (line) {
-      if (!line.name) {
-        line.name = line.product.name
-      }
-
-      if (!line.vat) {
-        line.vat = line.product.vat
-      }
-
-      if (!line.unitsCount) {
-        line.unitsCount = 1
-      }
-
-      // TODO: add prices to product
-      if (!line.unitPriceNetto) {
-        // line.unitPriceNetto = line.product.price
+        // TODO: add prices to product
+        if (!line.unitPriceNetto) {
+          // line.unitPriceNetto = line.product.price
+        }
       }
     }
   }
-}
 </script>

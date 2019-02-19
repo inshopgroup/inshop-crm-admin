@@ -1,66 +1,38 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <div class="form-group">
-      <label for="contact_type_name" class="form-control-label">{{$t('contact_type.name')}}</label>
-      <input
-        id="contact_type_name"
-        v-model="item.name"
-        :class="['form-control', isInvalid('name') ? 'is-invalid' : '']"
-        type="text"
-        placeholder=""
-        @input="handleUpdateField('name', $event.target.value)">
-      <div v-if="isInvalid('name')" class="invalid-feedback">{{ violations.name }}</div>
-    </div>
+    <form-input :item="item" :errors="errors" :property="'name'" :label="'contact_type.name'" @fieldUpdated="updateValue"></form-input>
 
     <item-edit-actions :item="item" :entity="'ContactType'" :path="'contact_type'"></item-edit-actions>
   </form>
 </template>
 
 <script>
-import vueDropzone from "vue2-dropzone";
-import fetch from '../../utils/fetch'
-import ItemEditActions from '../layout/ItemEditActions'
+  import ItemEditActions from '../layout/ItemEditActions'
+  import FormInput from "../layout/form/FormInput";
 
-export default {
-  components: {
-    vueDropzone, ItemEditActions
-  },
-
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      FormInput,
+      ItemEditActions
     },
-
-
-
-    item: {
-      type: Object,
-      required: true
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      },
+      errors: {
+        type: Object,
+        default: () => {}
+      },
     },
-
-    errors: {
-      type: Object,
-      default: () => {}
-    },
-
-
-  },
-
-  computed: {
-    item () {
-      return this.initialValues || this.values
-    },
-
-    violations () {
-      return this.errors || {}
+    methods: {
+      updateValue(property, value) {
+        this.$store.commit('contact_type/CONTACT_TYPE_UPDATE_ITEM', {[property]: value})
+      },
     }
-  },
-
-  methods: {
-    isInvalid (key) {
-      return Object.keys(this.violations).length > 0 && this.violations[key]
-    },
   }
-}
 </script>

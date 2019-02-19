@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     projectTypes () {
-      return this.$store.getters['project_type/list/items'] || []
+      return this.$store.getters['project_type/items'] || []
     },
     data () {
       let ids = []
@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getProjectTypes: 'project_type/list/default'
+      getProjectTypes: 'project_type/getItems'
     }),
     filterTable () {
       Event.$emit('vue-tables.filter::type.id', this.data)

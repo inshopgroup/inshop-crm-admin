@@ -10,10 +10,8 @@
           <item-errors :entity="'category'" :is-loading="isLoading"></item-errors>
 
           <CategoryForm
-
             :handle-submit="onSendForm"
-
-            :item="retrieved"
+            :item="item"
             :errors="errors" />
         </div>
       </div>
@@ -31,33 +29,25 @@ export default {
     ItemErrors,
     CategoryForm
   },
-
   computed: {
     ...mapGetters({
       isLoading: 'general/isLoading',
-
       item: 'category/item',
       errors: 'category/errors'
     })
   },
-
-
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
       getItem: 'category/getItem',
       reset: 'category/reset',
       update: 'category/update',
     }),
-
     onSendForm () {
       this.update().then(() => {
         this.$router.push({name: 'CategoryShow', params: {id: this.item['@id']}})
