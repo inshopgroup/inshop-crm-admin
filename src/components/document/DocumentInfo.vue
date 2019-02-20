@@ -9,7 +9,7 @@
     <tr>
       <td>{{$t('document.client')}}</td>
       <td>
-        <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client']['id'] }}">
+        <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client'].id }}">
           {{ item['client']['name'] }}
         </router-link>
       </td>

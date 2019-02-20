@@ -12,8 +12,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="log in logs" :key="log['id']">
-          <td>{{ log['id'] }}</td>
+        <tr v-for="log in logs" :key="log.id">
+          <td>{{ log.id }}</td>
           <td>{{ log['version'] }}</td>
           <td>{{ log['action'] }}</td>
           <td>{{ log['username'] }}</td>

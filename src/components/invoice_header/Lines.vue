@@ -14,12 +14,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="line in lines" :key="line['id']">
+      <tr v-for="line in lines" :key="line.id">
         <td>
           {{line.id}}
         </td>
         <td>
-          <router-link v-if="line['product']" :to="{name: 'ProductShow', params: { id: line['product']['id'] }}">
+          <router-link v-if="line['product']" :to="{name: 'ProductShow', params: { id: line['product'].id }}">
             {{ line['product']['name'] }}
           </router-link>
         </td>
@@ -28,7 +28,7 @@
           {{line.name}}
         </td>
         <td>
-          <router-link v-if="line['vat']" :to="{name: 'VatShow', params: { id: line['vat']['id'] }}">
+          <router-link v-if="line['vat']" :to="{name: 'VatShow', params: { id: line['vat'].id }}">
             {{ line['vat']['name'] }}
           </router-link>
         </td>

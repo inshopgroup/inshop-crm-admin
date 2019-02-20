@@ -20,18 +20,18 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="companyProduct in companyProducts" :key="companyProduct['id']">
+      <tr v-for="companyProduct in companyProducts" :key="companyProduct.id">
         <td>
-            {{ companyProduct['id'] }}
+            {{ companyProduct.id }}
         </td>
         <td>
-          <router-link v-if="companyProduct" :to="{name: 'CompanyShow', params: { id: companyProduct['company']['id'] }}">
+          <router-link v-if="companyProduct" :to="{name: 'CompanyShow', params: { id: companyProduct['company'].id }}">
             {{ companyProduct['company']['name'] }}
           </router-link>
         </td>
 
         <td>
-          <router-link v-if="companyProduct" :to="{name: 'ProductShow', params: { id: companyProduct['product']['id'] }}">
+          <router-link v-if="companyProduct" :to="{name: 'ProductShow', params: { id: companyProduct['product'].id }}">
             {{ companyProduct['product']['name'] }}
           </router-link>
         </td>

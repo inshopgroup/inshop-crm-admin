@@ -30,7 +30,7 @@
                 <tr>
                   <td>{{$t('city.country.name')}}</td>
                   <td>
-                    <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country']['id'] }}">
+                    <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country'].id }}">
                       {{ item['country']['name'] }}
                     </router-link>
                   </td>

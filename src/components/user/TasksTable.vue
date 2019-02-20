@@ -21,49 +21,49 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="task in tasks" :key="task['id']">
+        <tr v-for="task in tasks" :key="task.id">
           <td>
-            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task['id'] }}">
-              {{ task['id'] }}
+            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task.id }}">
+              {{ task.id }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task['id'] }}">
+            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task.id }}">
               {{ task['name'] }}
             </router-link>
           </td>
           <td v-if="showProject">
-            <router-link v-if="task['project']" :to="{name: 'ProjectShow', params: { id: task['project']['id'] }}">
+            <router-link v-if="task['project']" :to="{name: 'ProjectShow', params: { id: task['project'].id }}">
               {{ task['project']['name'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="task['assignee']" :to="{name: 'UserShow', params: { id: task['assignee']['id'] }}">
+            <router-link v-if="task['assignee']" :to="{name: 'UserShow', params: { id: task['assignee'].id }}">
               {{ task['assignee']['name'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="task['status']" :to="{name: 'TaskShow', params: { id: task['id'] }}">
+            <router-link v-if="task['status']" :to="{name: 'TaskShow', params: { id: task.id }}">
               {{ task['status']['name'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task['id'] }}">
+            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task.id }}">
               {{ moment(task['deadline']).format('DD-MM-YYYY') }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task['id'] }}">
+            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task.id }}">
               {{ task['timeEstimated'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task['id'] }}">
+            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task.id }}">
               {{ task['timeSpent'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task['id'] }}">
+            <router-link v-if="task" :to="{name: 'TaskShow', params: { id: task.id }}">
               {{ moment(task['createdAt']).format('DD-MM-YYYY HH:mm') }}
             </router-link>
           </td>

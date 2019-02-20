@@ -10,24 +10,24 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="company in companies" :key="company['id']">
+      <tr v-for="company in companies" :key="company.id">
         <td>
-          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company['id'] }}">
-            {{ company['id'] }}
+          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company.id }}">
+            {{ company.id }}
           </router-link>
         </td>
         <td>
-          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company['id'] }}">
+          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company.id }}">
             {{ company['name'] }}
           </router-link>
         </td>
         <td>
-          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company['id'] }}">
+          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company.id }}">
             {{ company['krs'] }}
           </router-link>
         </td>
         <td>
-          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company['id'] }}">
+          <router-link v-if="company" :to="{name: 'ClientShow', params: { id: company.id }}">
             {{ company['nip'] }}
           </router-link>
         </td>

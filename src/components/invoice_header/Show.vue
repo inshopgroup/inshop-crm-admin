@@ -32,7 +32,7 @@
                 <tr>
                   <td>{{$t('invoice_header.status.name')}}</td>
                   <td>
-                    <router-link v-if="item['status']" :to="{name: 'InvoiceStatusShow', params: { id: item['status']['id'] }}">
+                    <router-link v-if="item['status']" :to="{name: 'InvoiceStatusShow', params: { id: item['status'].id }}">
                       {{ item['status']['name'] }}
                     </router-link>
                   </td>
@@ -41,7 +41,7 @@
                 <tr>
                   <td>{{$t('invoice_header.type.name')}}</td>
                   <td>
-                    <router-link v-if="item['type']" :to="{name: 'InvoiceTypeShow', params: { id: item['type']['id'] }}">
+                    <router-link v-if="item['type']" :to="{name: 'InvoiceTypeShow', params: { id: item['type'].id }}">
                       {{ item['type']['name'] }}
                     </router-link>
                   </td>
@@ -50,7 +50,7 @@
                 <tr>
                   <td>{{$t('invoice_header.orderHeader.number')}}</td>
                   <td>
-                    <router-link v-if="item['orderHeader']" :to="{name: 'OrderHeaderShow', params: { id: item['orderHeader']['id'] }}">
+                    <router-link v-if="item['orderHeader']" :to="{name: 'OrderHeaderShow', params: { id: item['orderHeader'].id }}">
                       {{ item['orderHeader']['number'] }}
                     </router-link>
                   </td>
@@ -59,7 +59,7 @@
                 <tr>
                   <td>{{$t('invoice_header.companyFrom.name')}}</td>
                   <td>
-                    <router-link v-if="item['companyFrom']" :to="{name: 'CompanyShow', params: { id: item['companyFrom']['id'] }}">
+                    <router-link v-if="item['companyFrom']" :to="{name: 'CompanyShow', params: { id: item['companyFrom'].id }}">
                       {{ item['companyFrom']['name'] }}
                     </router-link>
                   </td>
@@ -68,7 +68,7 @@
                 <tr>
                   <td>{{$t('invoice_header.companyTo.name')}}</td>
                   <td>
-                    <router-link v-if="item['companyTo']" :to="{name: 'CompanyShow', params: { id: item['companyTo']['id'] }}">
+                    <router-link v-if="item['companyTo']" :to="{name: 'CompanyShow', params: { id: item['companyTo'].id }}">
                       {{ item['companyTo']['name'] }}
                     </router-link>
                   </td>
@@ -77,7 +77,7 @@
                 <tr>
                   <td>{{$t('invoice_header.agreement.name')}}</td>
                   <td>
-                    <router-link v-if="item['agreement']" :to="{name: 'DocumentShow', params: { id: item['agreement']['id'] }}">
+                    <router-link v-if="item['agreement']" :to="{name: 'DocumentShow', params: { id: item['agreement'].id }}">
                       {{ item['agreement']['name'] }}
                     </router-link>
                   </td>
@@ -86,7 +86,7 @@
                 <tr>
                   <td>{{$t('invoice_header.currency.name')}}</td>
                   <td>
-                    <router-link v-if="item['currency']" :to="{name: 'CurrencyShow', params: { id: item['currency']['id'] }}">
+                    <router-link v-if="item['currency']" :to="{name: 'CurrencyShow', params: { id: item['currency'].id }}">
                       {{ item['currency']['name'] }}
                     </router-link>
                   </td>
@@ -95,7 +95,7 @@
                 <tr>
                   <td>{{$t('invoice_header.language.name')}}</td>
                   <td>
-                    <router-link v-if="item['language']" :to="{name: 'LanguageShow', params: { id: item['language']['id'] }}">
+                    <router-link v-if="item['language']" :to="{name: 'LanguageShow', params: { id: item['language'].id }}">
                       {{ item['language']['name'] }}
                     </router-link>
                   </td>

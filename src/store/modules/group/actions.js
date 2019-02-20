@@ -12,7 +12,7 @@ export const getItem = ({ dispatch, commit }, id) => {
 
       let roles = []
       data.roles.forEach(role => {
-        roles.push(role['id'])
+        roles.push(role.id)
       })
       data.roleIds = roles
 

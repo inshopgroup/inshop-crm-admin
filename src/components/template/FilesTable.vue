@@ -12,8 +12,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="file in files" :key="file['id']">
-          <td>{{ file['id'] }}</td>
+        <tr v-for="file in files" :key="file.id">
+          <td>{{ file.id }}</td>
           <td>{{ file['originalName'] }}</td>
           <td>{{ bytes(file['size']) }}</td>
           <td>{{ file['mimeType'] }}</td>
@@ -50,7 +50,7 @@
       },
       download (file) {
         axios({
-          url: process.env.API_URL + '/files/download/' + file['id'],
+          url: process.env.API_URL + '/files/download/' + file.id,
           method: 'GET',
           responseType: 'blob', // important
         }).then((response) => {

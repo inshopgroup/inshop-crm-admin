@@ -15,19 +15,19 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="document in documents" :key="document['id']">
+      <tr v-for="document in documents" :key="document.id">
         <td>
-          <router-link v-if="document" :to="{name: 'DocumentShow', params: { id: document['id'] }}">
-            {{ document['id'] }}
+          <router-link v-if="document" :to="{name: 'DocumentShow', params: { id: document.id }}">
+            {{ document.id }}
           </router-link>
         </td>
         <td>
-          <router-link v-if="document" :to="{name: 'DocumentShow', params: { id: document['id'] }}">
+          <router-link v-if="document" :to="{name: 'DocumentShow', params: { id: document.id }}">
             {{ document['name'] }}
           </router-link>
         </td>
         <td>
-          <router-link v-if="document" :to="{name: 'DocumentShow', params: { id: document['id'] }}">
+          <router-link v-if="document" :to="{name: 'DocumentShow', params: { id: document.id }}">
             {{ moment(document['createdAt']).format('DD-MM-YYYY HH:mm') }}
           </router-link>
         </td>

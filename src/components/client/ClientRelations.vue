@@ -8,14 +8,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="client in clients" :key="client['id']">
+      <tr v-for="client in clients" :key="client.id">
         <td>
-          <router-link v-if="client" :to="{name: 'ClientShow', params: { id: client['id'] }}">
+          <router-link v-if="client" :to="{name: 'ClientShow', params: { id: client.id }}">
             {{ client['name'] }}
           </router-link>
         </td>
         <td>
-          <router-link v-if="client" :to="{name: 'ClientShow', params: { id: client['id'] }}">
+          <router-link v-if="client" :to="{name: 'ClientShow', params: { id: client.id }}">
             {{ client['description'] }}
           </router-link>
         </td>

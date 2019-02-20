@@ -41,7 +41,7 @@
               <tr>
                 <td>{{$t('task.client')}}</td>
                 <td>
-                  <router-link v-if="item['project']['client']" :to="{name: 'ClientShow', params: { id: item['project']['client']['id'] }}">
+                  <router-link v-if="item['project']['client']" :to="{name: 'ClientShow', params: { id: item['project']['client'].id }}">
                     {{ item['project']['client']['name'] }}
                   </router-link>
                 </td>
@@ -49,7 +49,7 @@
               <tr>
                 <td>{{$t('task.project.name')}}</td>
                 <td>
-                  <router-link v-if="item['project']" :to="{name: 'ProjectShow', params: { id: item['project']['id'] }}">
+                  <router-link v-if="item['project']" :to="{name: 'ProjectShow', params: { id: item['project'].id }}">
                     {{ item['project']['name'] }}
                   </router-link>
                 </td>
@@ -57,7 +57,7 @@
               <tr>
                 <td>{{$t('task.assignee.name')}}</td>
                 <td>
-                  <router-link v-if="item['assignee']" :to="{name: 'UserShow', params: { id: item['assignee']['id'] }}">
+                  <router-link v-if="item['assignee']" :to="{name: 'UserShow', params: { id: item['assignee'].id }}">
                     {{ item['assignee']['name'] }}
                   </router-link>
                 </td>

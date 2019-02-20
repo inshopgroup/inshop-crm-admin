@@ -23,8 +23,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="productSellPrice in productSellPrices" :key="productSellPrice['id']">
-        <td>{{ productSellPrice['id'] }}</td>
+      <tr v-for="productSellPrice in productSellPrices" :key="productSellPrice.id">
+        <td>{{ productSellPrice.id }}</td>
         <td>{{ productSellPrice['companyProduct']['company']['name'] }}</td>
         <td>{{ productSellPrice['channel']['name'] }}</td>
         <td>{{ productSellPrice['channel']['currency']['name'] }}</td>

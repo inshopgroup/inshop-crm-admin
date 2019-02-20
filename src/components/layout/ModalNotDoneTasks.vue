@@ -25,7 +25,7 @@
           <tr v-for="task in tasks" :key="task.id">
             <td>
               <a href="#" @click.prtask="goto(task)">
-                {{ task['id'] }}
+                {{ task.id }}
               </a>
             </td>
             <td>

@@ -35,7 +35,7 @@
     <tr>
       <td>{{$t('project.client.name')}}</td>
       <td>
-        <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client']['id'] }}">
+        <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client'].id }}">
           {{ item['client']['name'] }}
         </router-link>
       </td>

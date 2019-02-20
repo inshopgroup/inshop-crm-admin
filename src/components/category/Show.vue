@@ -42,7 +42,7 @@
                 <tr>
                   <td>{{$t('category.parent.name')}}</td>
                   <td>
-                    <router-link v-if="item['parent']" :to="{name: 'CategoryShow', params: { id: item['parent']['id'] }}">
+                    <router-link v-if="item['parent']" :to="{name: 'CategoryShow', params: { id: item['parent'].id }}">
                       {{ item['parent']['name'] }}
                     </router-link>
                   </td>

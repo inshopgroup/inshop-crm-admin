@@ -35,7 +35,7 @@
                 <tr>
                   <td>{{$t('user.groups.name')}}</td>
                   <td>
-                    <div v-for="group in item['groups']" :key="group['id']">
+                    <div v-for="group in item['groups']" :key="group.id">
                       <i class="fa fa-user" aria-hidden="true"></i>
                       {{ group.name }}
                     </div>
