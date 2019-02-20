@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="file in files" :key="file['@id']">
+        <tr v-for="file in files" :key="file['id']">
           <td>{{ file['id'] }}</td>
           <td>{{ file['originalName'] }}</td>
           <td>{{ bytes(file['size']) }}</td>

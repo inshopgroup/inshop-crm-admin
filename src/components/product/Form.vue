@@ -159,7 +159,7 @@ export default {
       let image = JSON.parse(data.xhr.response)
 
       Object.assign(image, {
-        '@id': '/images/' + image.id,
+        'id': '/images/' + image.id,
         '@type': '"http://schema.org/MediaObject"'
       })
 

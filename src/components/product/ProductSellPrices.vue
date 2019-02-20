@@ -23,7 +23,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="productSellPrice in productSellPrices" :key="productSellPrice['@id']">
+      <tr v-for="productSellPrice in productSellPrices" :key="productSellPrice['id']">
         <td>{{ productSellPrice['id'] }}</td>
         <td>{{ productSellPrice['companyProduct']['company']['name'] }}</td>
         <td>{{ productSellPrice['channel']['name'] }}</td>
@@ -114,7 +114,7 @@
         this.modalEdit = {
           title: this.$t('product_sell_price.edit', {product_sell_price: item.name}),
           item: Object.assign({}, item),
-          url: process.env.API_URL + item['@id'],
+          url: process.env.API_URL + item.id,
           method: 'put'
         }
 

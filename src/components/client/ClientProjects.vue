@@ -19,34 +19,34 @@
       </thead>
       <tbody>
         <template v-for="project in projects">
-          <tr :key="project['@id']">
+          <tr :key="project['id']">
             <td>
-              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['@id'] }}">
+              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['id'] }}">
                 {{ project['id'] }}
               </router-link>
             </td>
             <td>
-              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['@id'] }}">
+              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['id'] }}">
                 {{ project['name'] }}
               </router-link>
             </td>
             <td>
-              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['@id'] }}">
+              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['id'] }}">
                 {{ project['description'] }}
               </router-link>
             </td>
             <td>
-              <router-link v-if="project && project['status']" :to="{name: 'ProjectShow', params: { id: project['@id'] }}">
+              <router-link v-if="project && project['status']" :to="{name: 'ProjectShow', params: { id: project['id'] }}">
                 {{ project['status']['name'] }}
               </router-link>
             </td>
             <td>
-              <router-link v-if="project && project['type']" :to="{name: 'ProjectShow', params: { id: project['@id'] }}">
+              <router-link v-if="project && project['type']" :to="{name: 'ProjectShow', params: { id: project['id'] }}">
                 {{ project['type']['name'] }}
               </router-link>
             </td>
             <td>
-              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['@id'] }}">
+              <router-link v-if="project" :to="{name: 'ProjectShow', params: { id: project['id'] }}">
                 {{ moment(project['createdAt']).format('DD-MM-YYYY HH:mm') }}
               </router-link>
             </td>
@@ -140,7 +140,7 @@
         this.modalEdit = {
           title: this.$t('project.edit', {project: item.name}),
           item: item,
-          url: process.env.API_URL + item['@id'],
+          url: process.env.API_URL + item.id,
           method: 'put'
         }
 

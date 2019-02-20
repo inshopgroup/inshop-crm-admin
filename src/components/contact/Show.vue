@@ -36,7 +36,7 @@
                   <td>
                     <ul>
                       <li v-for="client in item['clients']">
-                        <router-link :to="{name: 'ClientShow', params: { id: client['@id'] }}">
+                        <router-link :to="{name: 'ClientShow', params: { id: client['id'] }}">
                           {{ client['name'] }}
                         </router-link>
                       </li>
@@ -48,7 +48,7 @@
                   <td>
                     <ul>
                       <li v-for="company in item['companies']">
-                        <router-link :to="{name: 'CompanyShow', params: { id: company['@id'] }}">
+                        <router-link :to="{name: 'CompanyShow', params: { id: company['id'] }}">
                           {{ company['name'] }}
                         </router-link>
                       </li>
@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Contact'" :path="'contact'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Contact'" :path="'contact'"></history>
           </div>
         </div>
       </div>

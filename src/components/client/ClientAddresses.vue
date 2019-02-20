@@ -27,54 +27,54 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="address in addresses" :key="address['@id']">
+        <tr v-for="address in addresses" :key="address['id']">
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['id'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['postCode'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['country']['name'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['city']['name'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['region'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['district'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['street'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['building'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['apartment'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['@id'] }}">
+            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address['id'] }}">
               {{ address['comment'] }}
             </router-link>
           </td>
@@ -169,7 +169,7 @@
         this.modalEdit = {
           title: this.$t('address.edit', {entity: item.value}),
           item: item,
-          url: process.env.API_URL + item['@id'],
+          url: process.env.API_URL + item.id,
           method: 'put'
         }
 

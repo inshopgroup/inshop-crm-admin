@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'ContactType'" :path="'contact_type'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'ContactType'" :path="'contact_type'"></history>
           </div>
         </div>
       </div>

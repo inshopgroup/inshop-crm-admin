@@ -46,7 +46,7 @@ export default {
     }),
     onSendForm () {
       this.update().then(() => {
-        this.$router.push({name: 'OrderHeaderShow', params: {id: this.item['@id']}})
+        this.$router.push({name: 'OrderHeaderShow', params: {id: this.item.id}})
       }).catch(e => {})
     }
   }

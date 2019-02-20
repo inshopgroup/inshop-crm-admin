@@ -3,12 +3,12 @@
     <v-server-table :columns="columns" :options="options">
       <template slot="actions" slot-scope="props">
         <div class="btn-group" role="group">
-          <router-link v-if="isGranted(role_show)" :to="{name: showRoute, params: { id: props.row['@id'] }}" tag="button" class="btn btn-info">
+          <router-link v-if="isGranted(role_show)" :to="{name: showRoute, params: { id: props.row.id }}" tag="button" class="btn btn-info">
             <span class="fa fa-eye" aria-hidden="true" />
             <span class="sr-only">{{$t('show')}}</span>
           </router-link>
 
-          <router-link v-if="isGranted(role_show) && isGranted(role_edit)" :to="{name: updateRoute, params: { id: props.row['@id'] }}" style="padding-left: 10px;" tag="button" class="btn btn-info">
+          <router-link v-if="isGranted(role_show) && isGranted(role_edit)" :to="{name: updateRoute, params: { id: props.row.id }}" style="padding-left: 10px;" tag="button" class="btn btn-info">
             <span class="fa fa-pencil" aria-hidden="true" />
             <span class="sr-only">{{$t('edit')}}</span>
           </router-link>

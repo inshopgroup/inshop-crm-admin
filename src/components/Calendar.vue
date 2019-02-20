@@ -3,25 +3,25 @@
     <template slot-scope="props">
       <div v-for="(task, index) in props.showEvents" class="event-item">
         <h3 class="title">
-          <router-link  :to="{name: 'TaskShow', params: { id: task['@id'] }}">
+          <router-link  :to="{name: 'TaskShow', params: { id: task['id'] }}">
             {{index + 1}}. {{task.name}}
           </router-link>
         </h3>
         <p class="time">{{moment(task.deadline).format('DD-MM-YYYY')}}</p>
         <p>
           {{$t('task.client')}}:
-          <router-link  :to="{name: 'ClientShow', params: { id: task.project.client['@id'] }}">
+          <router-link  :to="{name: 'ClientShow', params: { id: task.project.client['id'] }}">
             {{task.project.client.name}}
           </router-link>
         </p>
         <p>
           {{$t('task.assignee.name')}}:
-          <router-link  :to="{name: 'UserShow', params: { id: task.assignee['@id'] }}" v-if="task && task['assignee']">
+          <router-link  :to="{name: 'UserShow', params: { id: task.assignee['id'] }}" v-if="task && task['assignee']">
             {{task.assignee.name}}
           </router-link>
         </p>
         <p class="desc">
-          <router-link  :to="{name: 'TaskShow', params: { id: task['@id'] }}">
+          <router-link  :to="{name: 'TaskShow', params: { id: task['id'] }}">
             {{task.description}}
           </router-link>
         </p>
@@ -40,7 +40,7 @@ Vue.prototype.moment = moment
 export default {
   computed: {
     ...mapGetters({
-      tasks: 'task/list/items',
+      tasks: 'task/items',
     }),
     tasksPrepared () {
       this.tasks.forEach((task, index) => {
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getTasks: 'task/list/default'
+      getTasks: 'task/getItems'
     }),
     load (date) {
       this.getTasks('/tasks'

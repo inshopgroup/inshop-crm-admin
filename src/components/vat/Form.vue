@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <form-input :item="item" :errors="errors" :property="'name'" :label="'vat.name'" @fieldUpdated="updateValue"></form-input>
-    <form-input :item="item" :errors="errors" :property="'value'" :label="'vat.value'" @fieldUpdated="updateValue"></form-input>
+    <form-number :item="item" :errors="errors" :property="'value'" :label="'vat.value'" @fieldUpdated="updateValue"></form-number>
 
     <item-edit-actions :item="item" :entity="'Vat'" :path="'vat'"></item-edit-actions>
   </form>
@@ -10,9 +10,11 @@
 <script>
 import ItemEditActions from '../layout/ItemEditActions'
 import FormInput from "../layout/form/FormInput";
+import FormNumber from "../layout/form/FormNumber";
 
 export default {
   components: {
+    FormNumber,
     FormInput,
     ItemEditActions
   },

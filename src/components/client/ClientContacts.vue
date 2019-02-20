@@ -19,19 +19,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="contact in contacts" :key="contact['@id']">
+        <tr v-for="contact in contacts" :key="contact['id']">
           <td>
-            <router-link v-if="contact" :to="{name: 'ClientShow', params: { id: contact['@id'] }}">
+            <router-link v-if="contact" :to="{name: 'ClientShow', params: { id: contact['id'] }}">
               {{ contact['id'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="contact" :to="{name: 'ClientShow', params: { id: contact['@id'] }}">
+            <router-link v-if="contact" :to="{name: 'ClientShow', params: { id: contact['id'] }}">
               {{ contact['value'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="contact.contactType" :to="{name: 'ClientShow', params: { id: contact['@id'] }}">
+            <router-link v-if="contact.contactType" :to="{name: 'ClientShow', params: { id: contact['id'] }}">
               {{ contact['contactType']['name'] }}
             </router-link>
           </td>
@@ -126,7 +126,7 @@
         this.modalEdit = {
           title: this.$t('contact.edit', {entity: item.value}),
           item: item,
-          // url: process.env.API_URL + item['@id'],
+          // url: process.env.API_URL + item.id,
           // method: 'put'
         }
 

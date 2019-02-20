@@ -50,7 +50,7 @@ export default {
     }),
     onSendForm () {
       this.create().then(created => {
-        this.$router.push({name: 'TaskStatusShow', params: {id: created['@id']}})
+        this.$router.push({name: 'TaskStatusShow', params: {id: created['id']}})
       }).catch(e => {})
     }
   }

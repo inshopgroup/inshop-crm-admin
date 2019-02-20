@@ -55,7 +55,7 @@ export default {
 
     onSendForm () {
       this.create().then(created => {
-        this.$router.push({name: 'ClientShow', params: {id: created['@id']}})
+        this.$router.push({name: 'ClientShow', params: {id: created['id']}})
       }).catch(e => {})
     }
   }

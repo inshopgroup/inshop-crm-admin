@@ -60,13 +60,13 @@
             </div>
           </div>
           <div class="tab-pane" id="companyProducts">
-            <company-products :companyProducts="companyProducts" :product="item['@id']" @reloadCompanyProducts="loadCompanyProducts"></company-products>
+            <company-products :companyProducts="companyProducts" :product="item.id" @reloadCompanyProducts="loadCompanyProducts"></company-products>
           </div>
           <div class="tab-pane" id="productSellPrices">
-            <product-sell-prices :productSellPrices="productSellPrices" :product="item['@id']" @reloadProductSellPrices="loadProductSellPrices"></product-sell-prices>
+            <product-sell-prices :productSellPrices="productSellPrices" :product="item.id" @reloadProductSellPrices="loadProductSellPrices"></product-sell-prices>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Product'" :path="'product'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Product'" :path="'product'"></history>
           </div>
         </div>
       </div>

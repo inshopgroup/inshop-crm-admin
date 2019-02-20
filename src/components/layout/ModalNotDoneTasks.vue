@@ -22,7 +22,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr v-for="task in tasks" :key="task['@id']">
+          <tr v-for="task in tasks" :key="task.id">
             <td>
               <a href="#" @click.prtask="goto(task)">
                 {{ task['id'] }}
@@ -92,7 +92,7 @@ export default {
   methods: {
     goto (task) {
       $('#modal-not-done-tasks').modal('hide')
-      this.$router.push({ name: 'TaskShow', params: { id: task['@id'] } })
+      this.$router.push({ name: 'TaskShow', params: { id: task.id } })
     }
   }
 }

@@ -42,7 +42,7 @@
                 <tr>
                   <td>{{$t('category.parent.name')}}</td>
                   <td>
-                    <router-link v-if="item['parent']" :to="{name: 'CategoryShow', params: { id: item['parent']['@id'] }}">
+                    <router-link v-if="item['parent']" :to="{name: 'CategoryShow', params: { id: item['parent']['id'] }}">
                       {{ item['parent']['name'] }}
                     </router-link>
                   </td>
@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Category'" :path="'category'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Category'" :path="'category'"></history>
           </div>
         </div>
       </div>

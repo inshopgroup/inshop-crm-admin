@@ -21,7 +21,7 @@
             <files-table :files="item.files"></files-table>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Template'" :path="'template'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Template'" :path="'template'"></history>
           </div>
         </div>
       </div>

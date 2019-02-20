@@ -38,15 +38,13 @@
     name: 'History',
     components: {},
     props: {
-      item: {
-        type: Object,
-        default: function () {
-          return {}
-        }
+      id: {
+        type: Number,
+        required: true
       },
       entity: {
         type: String,
-        default: null
+        required: true
       },
       path: {
         type: String,
@@ -58,14 +56,12 @@
         logs: []
       }
     },
-    watch: {
-      'item.id': function() {
-        this.load()
-      }
+    mounted () {
+      this.load()
     },
     methods: {
       load () {
-        let url = process.env.API_URL + '/history/' + this.entity + '/' + this.item.id
+        let url = process.env.API_URL + '/history/' + this.entity + '/' + this.id
 
         axios.get(url)
           .then(response => {

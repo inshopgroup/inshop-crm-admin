@@ -53,7 +53,7 @@ export default {
 
     onSendForm () {
       this.create().then(created => {
-        this.$router.push({name: 'LabelShow', params: {id: created['@id']}})
+        this.$router.push({name: 'LabelShow', params: {id: created['id']}})
       }).catch(e => {})
     }
   }

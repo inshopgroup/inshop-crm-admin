@@ -25,7 +25,7 @@
             <project-tasks-table :tasks="item.tasks" :show-project="false" :projects="projects" @reloadProject="reloadProject()"></project-tasks-table>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Project'" :path="'project'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Project'" :path="'project'"></history>
           </div>
         </div>
       </div>

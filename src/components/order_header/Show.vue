@@ -31,7 +31,7 @@
                 <tr>
                   <td>{{$t('order_header.client.name')}}</td>
                   <td>
-                    <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client']['@id'] }}">
+                    <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client']['id'] }}">
                       {{ item['client']['name'] }}
                     </router-link>
                   </td>
@@ -39,7 +39,7 @@
                 <tr>
                   <td>{{$t('order_header.channel.name')}}</td>
                   <td>
-                    <router-link v-if="item['channel']" :to="{name: 'ChannelShow', params: { id: item['channel']['@id'] }}">
+                    <router-link v-if="item['channel']" :to="{name: 'ChannelShow', params: { id: item['channel']['id'] }}">
                       {{ item['channel']['name'] }}
                     </router-link>
                   </td>
@@ -47,7 +47,7 @@
                 <tr>
                   <td>{{$t('order_header.paymentType.name')}}</td>
                   <td>
-                    <router-link v-if="item['paymentType']" :to="{name: 'PaymentTypeShow', params: { id: item['paymentType']['@id'] }}">
+                    <router-link v-if="item['paymentType']" :to="{name: 'PaymentTypeShow', params: { id: item['paymentType']['id'] }}">
                       {{ item['paymentType']['name'] }}
                     </router-link>
                   </td>
@@ -55,7 +55,7 @@
                 <tr>
                   <td>{{$t('order_header.shipmentMethod.name')}}</td>
                   <td>
-                    <router-link v-if="item['shipmentMethod']" :to="{name: 'ShipmentMethodShow', params: { id: item['shipmentMethod']['@id'] }}">
+                    <router-link v-if="item['shipmentMethod']" :to="{name: 'ShipmentMethodShow', params: { id: item['shipmentMethod']['id'] }}">
                       {{ item['shipmentMethod']['name'] }}
                     </router-link>
                   </td>
@@ -63,7 +63,7 @@
                 <tr>
                   <td>{{$t('order_header.status.name')}}</td>
                   <td>
-                    <router-link v-if="item['status']" :to="{name: 'OrderStatusShow', params: { id: item['status']['@id'] }}">
+                    <router-link v-if="item['status']" :to="{name: 'OrderStatusShow', params: { id: item['status']['id'] }}">
                       {{ item['status']['name'] }}
                     </router-link>
                   </td>
@@ -71,7 +71,7 @@
                 <tr>
                   <td>{{$t('order_header.channel.currency.name')}}</td>
                   <td>
-                    <router-link v-if="item['channel'] && item['channel']['currency']" :to="{name: 'CurrencyShow', params: { id: item['channel']['currency']['@id'] }}">
+                    <router-link v-if="item['channel'] && item['channel']['currency']" :to="{name: 'CurrencyShow', params: { id: item['channel']['currency']['id'] }}">
                       {{ item['channel']['currency']['name'] }}
                     </router-link>
                   </td>
@@ -98,7 +98,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'OrderHeader'" :path="'order_header'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'OrderHeader'" :path="'order_header'"></history>
           </div>
         </div>
       </div>

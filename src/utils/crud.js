@@ -5,7 +5,7 @@ import pluralize from "pluralize";
 export const getItem = ({ dispatch, commit }, namespace, id) => {
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.get(API_HOST + id)
+  return axios.get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
     .then(response => response.data)
     .then(data => {
       commit(namespace + '_SET_ITEM', data)
@@ -64,7 +64,7 @@ export const create = ({ dispatch, commit, state }, namespace) => {
 export const update = ({ dispatch, commit, state }, namespace) => {
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.put(API_HOST + state.item['@id'], state.item)
+  return axios.put(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + state.item.id, state.item)
     .then(response => response.data)
     .then(data => {
       return data
@@ -91,7 +91,7 @@ export const update = ({ dispatch, commit, state }, namespace) => {
 }
 
 export const remove = ({ dispatch, commit }, namespace, item) => {
-  return axios.delete(API_HOST + item['@id'])
+  return axios.delete(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + item.id)
     .then(() => {
     })
     .catch((e) => {

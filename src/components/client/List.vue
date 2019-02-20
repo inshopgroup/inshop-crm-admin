@@ -38,9 +38,9 @@ export default {
   components: {ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['name', 'contacts.value', 'description', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['name', 'contacts.value', 'description', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['name', 'description', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'name', 'contacts.value', 'description', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'contacts.value', 'description', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'name', 'description', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         'contacts.value': columnContacts,
         columnCreatedAt,

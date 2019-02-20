@@ -30,7 +30,7 @@
                 <tr>
                   <td>{{$t('city.country.name')}}</td>
                   <td>
-                    <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country']['@id'] }}">
+                    <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country']['id'] }}">
                       {{ item['country']['name'] }}
                     </router-link>
                   </td>
@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'City'" :path="'city'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'City'" :path="'city'"></history>
           </div>
         </div>
       </div>

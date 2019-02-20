@@ -52,7 +52,7 @@ export default {
     }),
     onSendForm () {
       this.update().then(() => {
-        this.$router.push({name: 'VatShow', params: {id: this.item['@id']}})
+        this.$router.push({name: 'VatShow', params: {id: this.item.id}})
       }).catch(e => {})
     }
   }

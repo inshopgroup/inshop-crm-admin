@@ -22,22 +22,22 @@
             <company-info :item="item"></company-info>
           </div>
           <!--<div class="tab-pane show-print" id="contacts">-->
-            <!--<client-contacts :contacts="item.contacts" :company="item['@id']" @reloadContacts="loadItem"></client-contacts>-->
+            <!--<client-contacts :contacts="item.contacts" :company="item.id" @reloadContacts="loadItem"></client-contacts>-->
           <!--</div>-->
           <!--<div class="tab-pane show-print" id="addresses">-->
-            <!--<client-addresses :addresses="addresses" :company="item['@id']" @reloadAddresses="loadAddresses"></client-addresses>-->
+            <!--<client-addresses :addresses="addresses" :company="item.id" @reloadAddresses="loadAddresses"></client-addresses>-->
           <!--</div>-->
           <!--<div class="tab-pane" id="clients">-->
             <!--<company-clients :clients="item.clients"></company-clients>-->
           <!--</div>-->
           <!--<div class="tab-pane" id="documents">-->
-            <!--<client-documents :documents="documents" :company="item['@id']" @reloadDocuments="loadDocuments" :show-projects="false"></client-documents>-->
+            <!--<client-documents :documents="documents" :company="item.id" @reloadDocuments="loadDocuments" :show-projects="false"></client-documents>-->
           <!--</div>-->
           <!--<div class="tab-pane" id="companyProducts">-->
-            <!--<company-products :companyProducts="companyProducts" :company="item['@id'] " @reloadCompanyProducts="loadCompanyProducts"></company-products>-->
+            <!--<company-products :companyProducts="companyProducts" :company="item.id " @reloadCompanyProducts="loadCompanyProducts"></company-products>-->
           <!--</div>-->
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Company'" :path="'company'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Company'" :path="'company'"></history>
           </div>
         </div>
       </div>

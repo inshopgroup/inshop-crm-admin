@@ -24,10 +24,10 @@
             <client-info :item="item"></client-info>
           </div>
           <!--<div class="tab-pane" id="contacts">-->
-            <!--<client-contacts :contacts="contacts" :client="item['@id']" @reloadContacts="loadContacts"></client-contacts>-->
+            <!--<client-contacts :contacts="contacts" :client="item.id" @reloadContacts="loadContacts"></client-contacts>-->
           <!--</div>-->
           <!--<div class="tab-pane" id="addresses">-->
-            <!--<client-addresses :addresses="addresses" :client="item['@id']" @reloadAddresses="loadAddresses"></client-addresses>-->
+            <!--<client-addresses :addresses="addresses" :client="item.id" @reloadAddresses="loadAddresses"></client-addresses>-->
           <!--</div>-->
           <!--<div class="tab-pane" id="companies">-->
             <!--<client-companies :companies="item.companies"></client-companies>-->
@@ -45,7 +45,7 @@
             <!--<client-documents :documents="documents" :client="item" :projects="projectsCleared" @reloadDocuments="loadDocuments" :show-projects="true"></client-documents>-->
           <!--</div>-->
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Client'" :path="'client'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Client'" :path="'client'"></history>
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ export default {
       this.$router.push({ name: this.entity + 'List' })
     },
     showItem (item) {
-      this.$router.push({ name: this.entity + 'Show', params: { id: this.item['@id'] } })
+      this.$router.push({ name: this.entity + 'Show', params: { id: this.item.id } })
     },
     deleteItem (item) {
       if (window.confirm(this.$t('delete_are_you_sure'))) {

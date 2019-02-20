@@ -29,7 +29,7 @@
                   <td>
                     <ul>
                       <li v-for="client in item['clients']">
-                        <router-link :to="{name: 'ClientShow', params: { id: client['@id'] }}">
+                        <router-link :to="{name: 'ClientShow', params: { id: client['id'] }}">
                           {{ client['name'] }}
                         </router-link>
                       </li>
@@ -41,7 +41,7 @@
                   <td>
                     <ul>
                       <li v-for="company in item['companies']">
-                        <router-link :to="{name: 'CompanyShow', params: { id: company['@id'] }}">
+                        <router-link :to="{name: 'CompanyShow', params: { id: company['id'] }}">
                           {{ company['name'] }}
                         </router-link>
                       </li>
@@ -55,7 +55,7 @@
                 <tr>
                   <td>{{$t('address.country.name')}}</td>
                   <td>
-                    <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country']['@id'] }}">
+                    <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country']['id'] }}">
                       {{ item['country']['name'] }}
                     </router-link>
                   </td>
@@ -63,7 +63,7 @@
                 <tr>
                   <td>{{$t('address.city.name')}}</td>
                   <td>
-                    <router-link v-if="item['city']" :to="{name: 'CityShow', params: { id: item['city']['@id'] }}">
+                    <router-link v-if="item['city']" :to="{name: 'CityShow', params: { id: item['city']['id'] }}">
                       {{ item['city']['name'] }}
                     </router-link>
                   </td>
@@ -110,7 +110,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'Address'" :path="'address'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Address'" :path="'address'"></history>
           </div>
         </div>
       </div>

@@ -35,7 +35,7 @@
                 <tr>
                   <td>{{$t('user.groups.name')}}</td>
                   <td>
-                    <div v-for="group in item['groups']" :key="group['@id']">
+                    <div v-for="group in item['groups']" :key="group['id']">
                       <i class="fa fa-user" aria-hidden="true"></i>
                       {{ group.name }}
                     </div>
@@ -65,7 +65,7 @@
             <tasks-table :tasks="item['tasks']"></tasks-table>
           </div>
           <div class="tab-pane" id="history">
-            <history :item="item" :entity="'User'" :path="'user'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'User'" :path="'user'"></history>
           </div>
         </div>
       </div>
