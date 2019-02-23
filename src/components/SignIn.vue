@@ -13,12 +13,10 @@
       <div class="form-group">
         <label>{{$t('auth.username')}}:</label>
         <input type="text" class="form-control" :placeholder="$t('auth.username')" v-model="credentials.username" required autofocus>
-        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div :class="[{ 'has-error': error }, 'form-group']">
         <label>{{$t('auth.password')}}:</label>
         <input type="password" class="form-control" :placeholder="$t('auth.password')" v-model="credentials.password">
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         <span class="help-block">{{ error }}</span>
       </div>
 
