@@ -48,6 +48,7 @@ import label from './modules/label/'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  strict: true,
   modules: {
     backup,
     backup_status,
