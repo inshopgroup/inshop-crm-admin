@@ -39,9 +39,9 @@ export default {
   components: {ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['id', 'columnTranslatedName', 'columnParentTranslatedName', 'isActive', 'position', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'columnTranslatedName', 'columnParentTranslatedName', 'isActive', 'position', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'name', 'parent.name', 'columnTranslatedName', 'columnParentTranslatedName', 'isActive', 'position', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'columnTranslatedName', 'columnParentTranslatedName', 'position', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'columnTranslatedName', 'columnParentTranslatedName', 'position', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'name', 'parent.name', 'columnTranslatedName', 'columnParentTranslatedName', 'position', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         columnTranslatedName,
         columnParentTranslatedName,

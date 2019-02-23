@@ -632,6 +632,8 @@
     "saved": "Category {category} was saved",
     "id": "ID",
     "name": "Name",
+    "columnTranslatedName": "Name",
+    "columnParentTranslatedName": "Parent",
     "description": "Description",
     "parent": {
       "name": "Parent"
