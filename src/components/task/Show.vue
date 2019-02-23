@@ -119,16 +119,9 @@ export default {
 
   methods: {
     ...mapActions({
-      del: 'task/del/del',
       reset: 'task/reset',
       getItem: 'task/getItem'
-    }),
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'TaskList' }))
-      }
-    }
+    })
   }
 }
 </script>

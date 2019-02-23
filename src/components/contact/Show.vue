@@ -105,16 +105,9 @@ export default {
 
   methods: {
     ...mapActions({
-      del: 'contact/del/del',
       reset: 'contact/reset',
       getItem: 'contact/getItem'
     }),
-
-    deleteItem (item) {
-      if (window.confirm('Are you sure you want to delete this item?')) {
-        this.del(item).then(() => this.$router.push({ name: 'ContactList' }))
-      }
-    }
   }
 }
 </script>

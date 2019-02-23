@@ -159,7 +159,7 @@
     },
     methods: {
       ...mapActions({
-        del: 'task/del/del',
+        del: 'task/remove',
       }),
       deleteItem (item) {
         if (window.confirm(this.$t('delete_are_you_sure'))) {

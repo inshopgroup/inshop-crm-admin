@@ -95,17 +95,10 @@ export default {
 
   methods: {
     ...mapActions({
-      del: 'group/del/del',
       reset: 'group/reset',
       getItem: 'group/getItem',
       getModules: 'module/list/default'
-    }),
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'GroupList' }))
-      }
-    }
+    })
   }
 }
 </script>

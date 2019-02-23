@@ -88,7 +88,7 @@
     },
     methods: {
       ...mapActions({
-        del: 'product_sell_price/del/del',
+        del: 'product_sell_price/remove',
       }),
       deleteItem (item) {
         if (window.confirm(this.$t('delete_are_you_sure'))) {

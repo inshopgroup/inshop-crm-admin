@@ -106,7 +106,7 @@
     },
     methods: {
       ...mapActions({
-        del: 'project/del/del',
+        del: 'project/remove',
       }),
       deleteItem (item) {
         if (window.confirm(this.$t('delete_are_you_sure'))) {

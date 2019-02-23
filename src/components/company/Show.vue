@@ -93,7 +93,6 @@ export default {
 
   methods: {
     ...mapActions({
-      // del: 'company/del/del',
       reset: 'company/reset',
       getItem: 'company/getItem',
       // getContacts: 'company/show/getContacts',
@@ -101,12 +100,6 @@ export default {
       // getDocuments: 'company/show/getDocuments',
       // getCompanyProducts: 'company/show/getCompanyProducts',
     }),
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'CompanyList' }))
-      }
-    },
     loadItem () {
       this.getItem(decodeURIComponent(this.$route.params.id))
     },

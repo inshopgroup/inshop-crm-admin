@@ -139,7 +139,6 @@ export default {
 
   methods: {
     ...mapActions({
-      // del: 'client/del/del',
       reset: 'client/reset',
       getItem: 'client/getItem',
       // getDocuments: 'client/show/getDocuments',
@@ -147,12 +146,6 @@ export default {
       // getContacts: 'client/show/getContacts',
       // getAddresses: 'client/show/getAddresses',
     }),
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'ClientList' }))
-      }
-    },
     loadUser () {
       this.getItem(decodeURIComponent(this.$route.params.id))
     },

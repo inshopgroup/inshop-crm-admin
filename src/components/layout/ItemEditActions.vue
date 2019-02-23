@@ -55,7 +55,7 @@ export default {
     },
     deleteItem (item) {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.$store.dispatch(this.path + '/del/del', item)
+        this.$store.dispatch(this.path + '/remove', item)
           .then(() => this.$router.push({ name: this.entity + 'List' }))
       }
     }

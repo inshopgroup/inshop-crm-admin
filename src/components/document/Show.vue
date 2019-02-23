@@ -62,16 +62,9 @@ export default {
 
   methods: {
     ...mapActions({
-      del: 'document/del/del',
       reset: 'document/reset',
       getItem: 'document/getItem'
-    }),
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'DocumentList' }))
-      }
-    }
+    })
   }
 }
 </script>

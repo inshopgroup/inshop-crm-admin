@@ -85,7 +85,6 @@ export default {
 
   methods: {
     ...mapActions({
-      del: 'project/del/del',
       reset: 'project/reset',
       getItem: 'project/getItem'
     }),
@@ -93,13 +92,6 @@ export default {
     loadProject () {
       this.getItem(decodeURIComponent(this.$route.params.id))
     },
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'ProjectList' }))
-      }
-    },
-
     reloadProject () {
       this.loadProject()
     },

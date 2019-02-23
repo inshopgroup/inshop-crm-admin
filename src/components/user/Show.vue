@@ -90,27 +90,17 @@ export default {
       item: 'user/item'
     })
   },
-
   beforeDestroy () {
     this.reset()
   },
-
   created () {
     this.getItem(decodeURIComponent(this.$route.params.id))
   },
-
   methods: {
     ...mapActions({
-      del: 'user/del/del',
       reset: 'user/reset',
       getItem: 'user/getItem'
-    }),
-
-    deleteItem (item) {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.del(item).then(() => this.$router.push({ name: 'UserList' }))
-      }
-    }
+    })
   }
 }
 </script>
