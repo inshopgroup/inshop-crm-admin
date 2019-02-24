@@ -22,7 +22,7 @@
             <client-contacts :contacts="item.contacts" :parent="{clients: [this.item]}" @contactsChanged="loadItem"></client-contacts>
           </div>
           <div class="tab-pane" id="addresses">
-            <client-addresses :addresses="item.addresses" :parent="{clients: [this.item]} @addressesChanged="loadItem"></client-addresses>
+            <client-addresses :addresses="item.addresses" :parent="{clients: [this.item]}" @addressesChanged="loadItem"></client-addresses>
           </div>
           <div class="tab-pane" id="history">
             <history :id="parseInt($route.params.id)" :entity="'Client'" :path="'client'"></history>
