@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   plugins: [
@@ -121,10 +122,17 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        warning: "verbose",
+        ecma: 6,
+        beautify: false,
+        compress: false,
+        comments: false,
+        mangle: false,
+        toplevel: false,
+        keep_classnames: true,
+        keep_fnames: true
       }
     }),
     new webpack.LoaderOptionsPlugin({
