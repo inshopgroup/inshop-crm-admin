@@ -2,9 +2,11 @@ const path = require('path')
 const webpack = require('webpack')
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   plugins: [
+    new VueLoaderPlugin(),
     new Dotenv(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
