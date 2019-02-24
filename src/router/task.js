@@ -1,5 +1,5 @@
 import TaskList from '../components/task/List'
-// import TaskCreate from '../components/task/Create'
+import TaskCreate from '../components/task/Create'
 import TaskUpdate from '../components/task/Update'
 import TaskShow from '../components/task/Show'
 
@@ -9,11 +9,11 @@ export default [
       requiresAuth: true
     }
   },
-  // {
-  //   name: 'TaskCreate', path: '/tasks/create', component: TaskCreate, meta: {
-  //     requiresAuth: true
-  //   }
-  // },
+  {
+    name: 'TaskCreate', path: '/tasks/create', component: TaskCreate, meta: {
+      requiresAuth: true
+    }
+  },
   {
     name: 'TaskUpdate', path: '/tasks/edit/:id', component: TaskUpdate, meta: {
       requiresAuth: true

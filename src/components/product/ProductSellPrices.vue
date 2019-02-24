@@ -52,10 +52,10 @@
       </tbody>
     </table>
 
-    <modal-product-sell-price-form
-      :modal-edit="modalEdit"
-      @productSellPriceCreated="reloadProductSellPrices()"
-    ></modal-product-sell-price-form>
+    <!--<modal-product-sell-price-form-->
+      <!--:modal-edit="modalEdit"-->
+      <!--@productSellPriceCreated="reloadProductSellPrices()"-->
+    <!--&gt;</modal-product-sell-price-form>-->
   </div>
 </template>
 

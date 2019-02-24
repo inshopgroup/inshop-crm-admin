@@ -11,6 +11,12 @@ export default {
   [types.SET_ITEMS] (state, items) {
     Object.assign(state, { items })
   },
+  [types.SET_COMPANY_PRODUCTS] (state, companyProducts) {
+    Object.assign(state, { companyProducts })
+  },
+  [types.SET_PRODUCT_SELL_PRICES] (state, productSellPrices) {
+    Object.assign(state, { productSellPrices })
+  },
   [types.SET_ERROR] (state, error) {
     Object.assign(state, { error })
   },

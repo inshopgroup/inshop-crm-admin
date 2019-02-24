@@ -4,6 +4,8 @@ export default function () {
       translations: []
     },
     items: [],
+    companyProducts: [],
+    productSellPrices: [],
     error: null,
     errors: {}
   }

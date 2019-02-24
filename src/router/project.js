@@ -9,11 +9,11 @@ export default [
       requiresAuth: true
     }
   },
-  // {
-  //   name: 'ProjectCreate', path: '/projects/create', component: ProjectCreate, meta: {
-  //     requiresAuth: true
-  //   }
-  // },
+  {
+    name: 'ProjectCreate', path: '/projects/create', component: ProjectCreate, meta: {
+      requiresAuth: true
+    }
+  },
   {
     name: 'ProjectUpdate', path: '/projects/edit/:id', component: ProjectUpdate, meta: {
       requiresAuth: true
