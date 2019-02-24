@@ -36,6 +36,10 @@ axios.interceptors.response.use(data => {
 }, error => {
   store.commit('general/' + types.LOADING_STOP)
 
+  if (error.response && error.response.status && error.response.status === 401) {
+    router.push({name: 'SignIn'})
+  }
+
   return Promise.reject(error)
 })
 

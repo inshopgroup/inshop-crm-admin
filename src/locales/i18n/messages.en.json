@@ -146,6 +146,7 @@
     "user_time_365": "Spent time - 1 year (hours)"
   },
   "client": {
+    "id": "ID",
     "add": "Add client",
     "edit": "Edit client \"{entity}\"",
     "list": "Client list",

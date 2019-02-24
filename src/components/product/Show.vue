@@ -27,7 +27,7 @@
                 <tbody>
                 <tr>
                   <td>{{$t('product.name')}}</td>
-                  <td>{{ translation(item).name }}</td>
+                  <td>{{ translate(item).name }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('product.ean')}}</td>
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                   <td>{{$t('product.description')}}</td>
-                  <td>{{ translation(item).description }}</td>
+                  <td>{{ translate(item).description }}</td>
                 </tr>
 
                 <tr>

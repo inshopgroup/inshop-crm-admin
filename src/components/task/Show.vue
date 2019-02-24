@@ -32,7 +32,7 @@
               </tr>
               <tr>
                 <td><b>{{$t('task.status.name')}}</b></td>
-                <td><b>{{ item['status']['name'] }}</b></td>
+                <td><b v-if="item.status">{{ item.status.name }}</b></td>
               </tr>
               <tr>
                 <td><b>{{$t('task.deadline')}}</b></td>
@@ -41,8 +41,8 @@
               <tr>
                 <td>{{$t('task.client')}}</td>
                 <td>
-                  <router-link v-if="item['project']['client']" :to="{name: 'ClientShow', params: { id: item['project']['client'].id }}">
-                    {{ item['project']['client']['name'] }}
+                  <router-link v-if="item.project && item.project.client" :to="{name: 'ClientShow', params: { id: item.project.client.id }}">
+                    {{ item.project.client.name }}
                   </router-link>
                 </td>
               </tr>

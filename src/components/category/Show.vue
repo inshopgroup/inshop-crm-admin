@@ -25,11 +25,11 @@
                 <tbody>
                 <tr>
                   <td>{{$t('category.name')}}</td>
-                  <td>{{ translation(item).name }}</td>
+                  <td>{{ translate(item).name }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('category.description')}}</td>
-                  <td>{{ translation(item).description }}</td>
+                  <td>{{ translate(item).description }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('category.isActive')}}</td>
