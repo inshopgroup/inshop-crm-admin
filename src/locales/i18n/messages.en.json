@@ -672,7 +672,7 @@
     "brand": {
       "name": "Brand"
     },
-    "ean": "Ref.",
+    "ean": "EAN",
     "vat": {
       "name": "VAT"
     },
