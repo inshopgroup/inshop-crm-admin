@@ -54,6 +54,14 @@
             <td>{{ item['isVat'] }}</td>
           </tr>
           <tr>
+            <td>{{$t('company.labels.id')}}</td>
+            <td>
+              <template v-for="label in item.labels">
+                <span class="label label-primary">{{ label.name }}</span>
+              </template>
+            </td>
+          </tr>
+          <tr>
             <td>{{$t('company.vatComment')}}</td>
             <td>{{ item['vatComment'] }}</td>
           </tr>

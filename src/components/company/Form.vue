@@ -16,7 +16,7 @@
           <form-input :item="item" :errors="errors" :property="'krs'" :label="'company.krs'" @fieldUpdated="updateValue"></form-input>
           <form-input :item="item" :errors="errors" :property="'nip'" :label="'company.nip'" @fieldUpdated="updateValue"></form-input>
           <form-select :item="item" :errors="errors" :property="'clients'" :option-property="'client'" :label="'company.clients'" :multiple="true" @fieldUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'labels'" :option-property="'label'" :label="'company.labels'" :multiple="true" @fieldUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'labels'" :option-property="'label'" :label="'company.labels.id'" :multiple="true" @fieldUpdated="updateValue"></form-select>
           <form-checkbox :item="item" :errors="errors" :property="'isVat'" :label="'company.isVat'" @fieldUpdated="updateValue"></form-checkbox>
           <form-textarea :item="item" :errors="errors" :property="'vatComment'" :label="'company.vatComment'" @fieldUpdated="updateValue"></form-textarea>
         </div>
