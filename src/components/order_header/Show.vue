@@ -121,18 +121,12 @@ export default {
   computed: mapGetters({
     item: 'order_header/item'
   }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
   },
 
   methods: {
     ...mapActions({
-      reset: 'order_header/reset',
       getItem: 'order_header/getItem',
       getLines: 'invoice_header/show/getLines'
     })

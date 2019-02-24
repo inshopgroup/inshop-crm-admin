@@ -10,7 +10,7 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('product.tabs.general')}}</a></li>
-          <li><a href="#companyProducts" data-toggle="tab" aria-expanded="false">{{$t('product.tabs.companyProducts')}}</a></li>
+          <!--<li><a href="#companyProducts" data-toggle="tab" aria-expanded="false">{{$t('product.tabs.companyProducts')}}</a></li>-->
           <li><a href="#productSellPrices" data-toggle="tab" aria-expanded="false">{{$t('product.tabs.productSellPrices')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
@@ -59,9 +59,9 @@
               </table>
             </div>
           </div>
-          <div class="tab-pane" id="companyProducts">
-            <company-products :companyProducts="companyProducts" :product="item.id" @reloadCompanyProducts="loadCompanyProducts"></company-products>
-          </div>
+          <!--<div class="tab-pane" id="companyProducts">-->
+            <!--<company-products :companyProducts="companyProducts" :product="item.id" @reloadCompanyProducts="loadCompanyProducts"></company-products>-->
+          <!--</div>-->
           <div class="tab-pane" id="productSellPrices">
             <product-sell-prices :productSellPrices="productSellPrices" :product="item.id" @reloadProductSellPrices="loadProductSellPrices"></product-sell-prices>
           </div>
@@ -81,13 +81,13 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../layout/ItemShowActions'
 import ItemErrors from '../layout/errors/ItemErrors'
 import History from '../History'
-import CompanyProducts from '../company/CompanyProducts'
+// import CompanyProducts from '../company/CompanyProducts'
 import ProductSellPrices from './ProductSellPrices'
 
 export default {
   components: {
     ProductSellPrices,
-    CompanyProducts,
+    // CompanyProducts,
     History,
     ItemErrors,
     ItemShowActions
@@ -95,25 +95,19 @@ export default {
 
   computed: mapGetters({
     item: 'product/item',
-    companyProducts: 'product/show/companyProducts',
+    // companyProducts: 'product/show/companyProducts',
     productSellPrices: 'product/show/productSellPrices',
   }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
-    this.loadCompanyProducts()
+    // this.loadCompanyProducts()
     this.loadProductSellPrices()
   },
 
   methods: {
     ...mapActions({
-      reset: 'product/reset',
       getItem: 'product/getItem',
-      getCompanyProducts: 'product/show/getCompanyProducts',
+      // getCompanyProducts: 'product/show/getCompanyProducts',
       getProductSellPrices: 'product/show/getProductSellPrices',
     }),
 

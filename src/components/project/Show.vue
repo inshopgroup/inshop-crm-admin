@@ -10,7 +10,7 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('project.tabs.general')}}</a></li>
-          <li><a href="#documents" data-toggle="tab" aria-expanded="false">{{$t('project.tabs.documents')}}</a></li>
+          <!--<li><a href="#documents" data-toggle="tab" aria-expanded="false">{{$t('project.tabs.documents')}}</a></li>-->
           <li><a href="#tasks" data-toggle="tab" aria-expanded="false">{{$t('project.tabs.tasks')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
@@ -18,9 +18,9 @@
           <div class="tab-pane active" id="general">
             <project-info :item="item"></project-info>
           </div>
-          <div class="tab-pane" id="documents">
-            <client-documents :documents="documents" :projects="projects" :client="item.client" @reloadDocuments="reloadProject()"></client-documents>
-          </div>
+          <!--<div class="tab-pane" id="documents">-->
+            <!--<client-documents :documents="documents" :projects="projects" :client="item.client" @reloadDocuments="reloadProject()"></client-documents>-->
+          <!--</div>-->
           <div class="tab-pane" id="tasks">
             <project-tasks-table :tasks="item.tasks" :show-project="false" :projects="projects" @reloadProject="reloadProject()"></project-tasks-table>
           </div>
@@ -40,12 +40,11 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../layout/ItemShowActions'
 import ItemErrors from '../layout/errors/ItemErrors'
 import ProjectInfo from './ProjectInfo'
-import ClientDocuments from '../client/ClientDocuments'
 import ProjectTasksTable from '../user/TasksTable'
 import History from '../History'
 
 export default {
-  components: {History, ProjectTasksTable, ClientDocuments, ProjectInfo, ItemErrors, ItemShowActions},
+  components: {History, ProjectTasksTable, ProjectInfo, ItemErrors, ItemShowActions},
   computed: {
     ...mapGetters({
       item: 'project/item'
@@ -73,18 +72,12 @@ export default {
       active: 0
     }
   },
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.loadProject()
   },
 
   methods: {
     ...mapActions({
-      reset: 'project/reset',
       getItem: 'project/getItem'
     }),
 

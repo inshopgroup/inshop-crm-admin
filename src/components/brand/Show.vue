@@ -62,22 +62,14 @@ import History from '../History'
 
 export default {
   components: {History, ItemErrors, ItemShowActions },
-
   computed: mapGetters({
     item: 'brand/item'
   }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
   },
-
   methods: {
     ...mapActions({
-      reset: 'brand/reset',
       getItem: 'brand/getItem'
     })
   }

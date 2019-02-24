@@ -32,7 +32,7 @@
           </td>
           <td>
             <router-link v-if="contact.contactType" :to="{name: 'ClientShow', params: { id: contact.id }}">
-              {{ contact['contactType']['name'] }}
+              {{ contact.contactType.name }}
             </router-link>
           </td>
           <td class="hidden-print">
@@ -52,7 +52,7 @@
       </tbody>
     </table>
 
-    <modal-contact-form :modal-edit="modalEdit" @contactCreated="reloadContacts()"></modal-contact-form>
+    <modal-contact-form :callback="callback" :title="title" :item="item" @contactsChanged="$emit('contactsChanged')"></modal-contact-form>
   </div>
 </template>
 
@@ -64,8 +64,10 @@
     name: 'ClientContacts',
     components: {ModalContactForm},
     props: {
-      client: null,
-      company: null,
+      client: {
+        type: Object,
+        required: true
+      },
       contacts: {
         type: Array,
         default: function () {
@@ -75,66 +77,47 @@
     },
     data () {
       return {
-        modalEdit: {
-          title: null,
-          item: {},
-          // url: null,
-          // method: null
-        }
+        title: '',
+        item: {},
+        callback: () => {}
       }
     },
     methods: {
       ...mapActions({
-        del: 'contact/remove',
+        remove: 'contact/remove',
+        updateItem: 'contact/update',
+        createItem: 'contact/create',
       }),
       deleteItem (item) {
         if (window.confirm(this.$t('delete_are_you_sure'))) {
-          this.del(item).then(() => {
+          this.remove(item).then(() => {
             this.$toastr.s(
               this.$t('contact.deleted', {entity: item.value}),
               this.$t('deleted')
             )
-            this.reloadContacts()
+
+            this.$emit('contactsChanged')
           })
         }
       },
       create (button) {
-        let clients = []
-        let companies = []
+        this.$store.commit('contact/CONTACT_SET_ITEM', {clients: [this.client]})
 
-        if (this.client) {
-          clients.push(this.client)
-        }
-
-        if (this.company) {
-          companies.push(this.company)
-        }
-
-        this.modalEdit = {
-          title: this.$t('contact.add'),
-          item: {
-            clients: clients,
-            companies: companies
-          },
-          // url: process.env.API_URL + '/contacts',
-          // method: 'post'
-        }
+        this.title = this.$t('contact.add')
+        this.item = this.$store.getters['contact/item']
+        this.callback = this.createItem
 
         $('#modal-contact-edit').modal('show')
       },
       edit (item, button) {
-        this.modalEdit = {
-          title: this.$t('contact.edit', {entity: item.value}),
-          item: item,
-          // url: process.env.API_URL + item.id,
-          // method: 'put'
-        }
+        this.$store.commit('contact/CONTACT_SET_ITEM', item)
+
+        this.title = this.$t('contact.edit', {entity: item.value})
+        this.item = this.$store.getters['contact/item']
+        this.callback = this.updateItem
 
         $('#modal-contact-edit').modal('show')
       },
-      reloadContacts () {
-        this.$emit('reloadContacts')
-      }
     }
   }
 </script>

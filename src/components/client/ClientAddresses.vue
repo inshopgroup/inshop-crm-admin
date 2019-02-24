@@ -1,6 +1,5 @@
 <template>
   <div class="table-responsive">
-
     <section class="content-header hidden show-print">
       <h1>{{$t('company.tabs.addresses')}}</h1>
     </section>
@@ -39,13 +38,13 @@
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
-              {{ address['country']['name'] }}
+            <router-link v-if="address.country" :to="{name: 'AddressShow', params: { id: address.id }}">
+              {{ address.country.name }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
-              {{ address['city']['name'] }}
+            <router-link v-if="address.city" :to="{name: 'AddressShow', params: { id: address.id }}">
+              {{ address.city.name }}
             </router-link>
           </td>
           <td>
@@ -95,7 +94,7 @@
       </tbody>
     </table>
 
-    <modal-address-form :modal-edit="modalEdit" @addressCreated="reloadAddresses()"></modal-address-form>
+    <modal-address-form :callback="callback" :title="title" :item="item" @addressesChanged="$emit('addressesChanged')"></modal-address-form>
   </div>
 </template>
 
@@ -104,11 +103,13 @@
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'ClientAddress',
+    name: 'ClientAddresses',
     components: {ModalAddressForm},
     props: {
-      client: null,
-      company: null,
+      client: {
+        type: Object,
+        required: true
+      },
       addresses: {
         type: Array,
         default: function () {
@@ -118,66 +119,47 @@
     },
     data () {
       return {
-        modalEdit: {
-          title: null,
-          item: {},
-          url: null,
-          method: null
-        }
+        title: '',
+        item: {},
+        callback: () => {}
       }
     },
     methods: {
       ...mapActions({
-        del: 'address/remove',
+        remove: 'address/remove',
+        updateItem: 'address/update',
+        createItem: 'address/create',
       }),
       deleteItem (item) {
         if (window.confirm(this.$t('delete_are_you_sure'))) {
-          this.del(item).then(() => {
+          this.remove(item).then(() => {
             this.$toastr.s(
               this.$t('address.deleted', {entity: item.value}),
               this.$t('deleted')
             )
-            this.reloadAddresses()
+
+            this.$emit('addressesChanged')
           })
         }
       },
       create (button) {
-        let clients = []
-        let companies = []
+        this.$store.commit('address/ADDRESS_SET_ITEM', {clients: [this.client]})
 
-        if (this.client) {
-          clients.push(this.client)
-        }
-
-        if (this.company) {
-          companies.push(this.company)
-        }
-
-        this.modalEdit = {
-          title: this.$t('address.add'),
-          item: {
-            clients: clients,
-            companies: companies
-          },
-          url: process.env.API_URL + '/addresses',
-          method: 'post'
-        }
+        this.title = this.$t('address.add')
+        this.item = this.$store.getters['address/item']
+        this.callback = this.createItem
 
         $('#modal-address-edit').modal('show')
       },
       edit (item, button) {
-        this.modalEdit = {
-          title: this.$t('address.edit', {entity: item.value}),
-          item: item,
-          url: process.env.API_URL + item.id,
-          method: 'put'
-        }
+        this.$store.commit('address/ADDRESS_SET_ITEM', item)
+
+        this.title = this.$t('address.edit', {entity: item.id})
+        this.item = this.$store.getters['address/item']
+        this.callback = this.updateItem
 
         $('#modal-address-edit').modal('show')
       },
-      reloadAddresses () {
-        this.$emit('reloadAddresses')
-      }
     }
   }
 </script>

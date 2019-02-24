@@ -70,18 +70,12 @@ export default {
   computed: mapGetters({
     item: 'vat/item'
   }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
   },
 
   methods: {
     ...mapActions({
-      reset: 'vat/reset',
       getItem: 'vat/getItem'
     })
   }

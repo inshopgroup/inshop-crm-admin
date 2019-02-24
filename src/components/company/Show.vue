@@ -10,32 +10,12 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs hidden-print">
           <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('company.tabs.general')}}</a></li>
-          <!--<li><a href="#contacts" data-toggle="tab" aria-expanded="false">{{$t('company.tabs.contacts')}}</a></li>-->
-          <!--<li><a href="#addresses" data-toggle="tab" aria-expanded="false">{{$t('company.tabs.addresses')}}</a></li>-->
-          <!--<li><a href="#clients" data-toggle="tab" aria-expanded="false">{{$t('company.tabs.clients')}}</a></li>-->
-          <!--<li><a href="#documents" data-toggle="tab" aria-expanded="false">{{$t('company.tabs.documents')}}</a></li>-->
-          <!--<li><a href="#companyProducts" data-toggle="tab" aria-expanded="false">{{$t('company.tabs.companyProducts')}}</a></li>-->
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active show-print" id="general">
             <company-info :item="item"></company-info>
           </div>
-          <!--<div class="tab-pane show-print" id="contacts">-->
-            <!--<client-contacts :contacts="item.contacts" :company="item.id" @reloadContacts="loadItem"></client-contacts>-->
-          <!--</div>-->
-          <!--<div class="tab-pane show-print" id="addresses">-->
-            <!--<client-addresses :addresses="addresses" :company="item.id" @reloadAddresses="loadAddresses"></client-addresses>-->
-          <!--</div>-->
-          <!--<div class="tab-pane" id="clients">-->
-            <!--<company-clients :clients="item.clients"></company-clients>-->
-          <!--</div>-->
-          <!--<div class="tab-pane" id="documents">-->
-            <!--<client-documents :documents="documents" :company="item.id" @reloadDocuments="loadDocuments" :show-projects="false"></client-documents>-->
-          <!--</div>-->
-          <!--<div class="tab-pane" id="companyProducts">-->
-            <!--<company-products :companyProducts="companyProducts" :company="item.id " @reloadCompanyProducts="loadCompanyProducts"></company-products>-->
-          <!--</div>-->
           <div class="tab-pane" id="history">
             <history :id="parseInt($route.params.id)" :entity="'Company'" :path="'company'"></history>
           </div>
@@ -48,69 +28,32 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import CompanyInfo from './CompanyInfo'
-import CompanyClients from './CompanyClients'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import History from '../History'
-import ClientAddresses from '../client/ClientAddresses'
-import ClientContacts from '../client/ClientContacts'
-import ClientDocuments from '../client/ClientDocuments'
-import CompanyProducts from './CompanyProducts'
+  import {mapActions, mapGetters} from 'vuex'
+  import CompanyInfo from './CompanyInfo'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import History from '../History'
 
-export default {
-  components: {
-    History,
-    ItemErrors,
-    CompanyInfo,
-    CompanyClients,
-    ItemShowActions,
-    ClientAddresses,
-    ClientContacts,
-    ClientDocuments,
-    CompanyProducts
-  },
-  computed: mapGetters({
-    item: 'company/item',
-    // contacts: 'company/show/contacts',
-    // addresses: 'company/show/addresses',
-    // documents: 'company/show/documents',
-    // companyProducts: 'company/show/companyProducts',
-  }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.loadItem()
-    // this.loadAddresses()
-    // this.loadDocuments()
-    // this.loadCompanyProducts()
-  },
-
-  methods: {
-    ...mapActions({
-      reset: 'company/reset',
-      getItem: 'company/getItem',
-      // getContacts: 'company/show/getContacts',
-      // getAddresses: 'company/show/getAddresses',
-      // getDocuments: 'company/show/getDocuments',
-      // getCompanyProducts: 'company/show/getCompanyProducts',
-    }),
-    loadItem () {
-      this.getItem(this.$route.params.id)
+  export default {
+    components: {
+      History,
+      ItemErrors,
+      CompanyInfo,
+      ItemShowActions,
     },
-    // loadAddresses () {
-    //   this.getAddresses(this.$route.params.id)
-    // },
-    // loadDocuments () {
-    //   this.getDocuments(this.$route.params.id)
-    // },
-    // loadCompanyProducts () {
-    //   this.getCompanyProducts(this.$route.params.id)
-    // },
+    computed: mapGetters({
+      item: 'company/item',
+    }),
+    created() {
+      this.loadItem()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'company/getItem',
+      }),
+      loadItem() {
+        this.getItem(this.$route.params.id)
+      },
+    }
   }
-}
 </script>

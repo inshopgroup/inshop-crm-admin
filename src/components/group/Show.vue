@@ -82,11 +82,6 @@ export default {
       return this.$store.getters['module/list/items'] || []
     }
   },
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
     this.getModules('/modules?pagination[itemsPerPage]=500')
@@ -94,7 +89,6 @@ export default {
 
   methods: {
     ...mapActions({
-      reset: 'group/reset',
       getItem: 'group/getItem',
       getModules: 'module/list/default'
     })

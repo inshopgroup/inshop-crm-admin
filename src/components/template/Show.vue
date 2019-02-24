@@ -45,18 +45,12 @@ export default {
   computed: mapGetters({
     item: 'template/item'
   }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
   },
 
   methods: {
     ...mapActions({
-      reset: 'template/reset',
       getItem: 'template/getItem'
     })
   }

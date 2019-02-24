@@ -66,18 +66,12 @@ export default {
   computed: mapGetters({
     item: 'task_status/item'
   }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
   },
 
   methods: {
     ...mapActions({
-      reset: 'task_status/reset',
       getItem: 'task_status/getItem'
     })
   }

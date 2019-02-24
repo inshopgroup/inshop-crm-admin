@@ -101,17 +101,17 @@
       </div>
     </div>
 
-    <modal-task-form :modal-edit="modalEdit" @taskCreated="reloadProject()" :projects="projects"></modal-task-form>
+    <!--<modal-task-form :modal-edit="modalEdit" @taskCreated="reloadProject()" :projects="projects"></modal-task-form>-->
   </div>
 </template>
 
 <script>
   import { mapActions } from 'vuex'
-  import ModalTaskForm from '../client/ModalTaskForm'
+  // import ModalTaskForm from '../client/ModalTaskForm'
 
   export default {
     name: 'ProjectTasksTable',
-    components: {ModalTaskForm},
+    // components: {ModalTaskForm},
     props: {
       projects: {
         type: Array,

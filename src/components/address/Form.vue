@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <item-edit-actions :item="item" :entity="'Address'" :path="'address'"></item-edit-actions>
+      <item-edit-actions :item="item" :entity="'Address'" :path="'address'" v-if="showActions"></item-edit-actions>
     </section>
   </form>
 </template>
@@ -46,6 +46,12 @@
       item: {
         type: Object,
         required: true
+      },
+      showActions: {
+        type: Boolean,
+        default () {
+          return true
+        }
       }
     },
     beforeDestroy () {

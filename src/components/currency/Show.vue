@@ -70,18 +70,12 @@ export default {
   computed: mapGetters({
     item: 'currency/item'
   }),
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
     this.getItem(this.$route.params.id)
   },
 
   methods: {
     ...mapActions({
-      reset: 'currency/reset',
       getItem: 'currency/getItem'
     })
   }
