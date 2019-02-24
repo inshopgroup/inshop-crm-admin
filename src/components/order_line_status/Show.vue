@@ -55,25 +55,28 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import History from '../History'
+  import {mapActions, mapGetters} from 'vuex'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import History from '../History'
 
-export default {
-  components: {History, ItemErrors, ItemShowActions },
+  export default {
+    components: {History, ItemErrors, ItemShowActions},
 
-  computed: mapGetters({
-    item: 'order_line_status/item'
-  }),
-  created () {
-    this.getItem(this.$route.params.id)
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'order_line_status/getItem'
-    })
+    computed: mapGetters({
+      item: 'order_line_status/item'
+    }),
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    beforeDestroy() {
+      this.reset()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'order_line_status/getItem',
+        reset: 'order_line_status/reset'
+      })
+    }
   }
-}
 </script>

@@ -11,8 +11,8 @@
           <form-select :item="item" :errors="errors" :property="'assignee'" :option-property="'user'" :label="'task.assignee.name'" @fieldUpdated="updateValue"></form-select>
           <form-datepicker :item="item" :errors="errors" :property="'deadline'" :label="'task.deadline'" @fieldUpdated="updateValue"></form-datepicker>
           <form-select :item="item" :errors="errors" :property="'project'" :option-property="'project'" :label="'task.project.name'" @fieldUpdated="updateValue"></form-select>
-          <form-input :item="item" :errors="errors" :property="'timeEstimated'" :label="'task.timeEstimated'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'timeSpent'" :label="'task.timeSpent'" @fieldUpdated="updateValue"></form-input>
+          <form-number :item="item" :errors="errors" :property="'timeEstimated'" :label="'task.timeEstimated'" @fieldUpdated="updateValue"></form-number>
+          <form-number :item="item" :errors="errors" :property="'timeSpent'" :label="'task.timeSpent'" @fieldUpdated="updateValue"></form-number>
         </div>
       </div>
 
@@ -28,9 +28,10 @@
   import FormSelect from "../layout/form/FormSelect";
   import FormDatepicker from "../layout/form/FormDatepicker";
   import ItemErrors from "../layout/errors/ItemErrors";
+  import FormNumber from "../layout/form/FormNumber";
 
   export default {
-    components: {ItemErrors, FormDatepicker, FormSelect, FormInput, ItemEditActions},
+    components: {FormNumber, ItemErrors, FormDatepicker, FormSelect, FormInput, ItemEditActions},
     props: {
       handleSubmit: {
         type: Function,

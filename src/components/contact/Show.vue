@@ -83,24 +83,27 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import History from '../History'
+  import {mapActions, mapGetters} from 'vuex'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import History from '../History'
 
-export default {
-  components: {History, ItemErrors, ItemShowActions},
-  computed: mapGetters({
-    item: 'contact/item'
-  }),
-  created () {
-    this.getItem(this.$route.params.id)
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'contact/getItem'
+  export default {
+    components: {History, ItemErrors, ItemShowActions},
+    computed: mapGetters({
+      item: 'contact/item'
     }),
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    beforeDestroy() {
+      this.reset()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'contact/getItem',
+        reset: 'contact/reset'
+      }),
+    }
   }
-}
 </script>

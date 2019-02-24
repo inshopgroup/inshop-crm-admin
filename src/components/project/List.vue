@@ -6,9 +6,9 @@
 
   <section class="content">
     <div class="box box-primary">
-      <!--<div class="box-header with-border">-->
-        <!--<router-link :to="{ name: 'ProjectCreate' }" class="btn btn-primary pull-right">{{$t('project.add')}}</router-link>-->
-      <!--</div>-->
+      <div class="box-header with-border">
+        <router-link :to="{ name: 'ProjectCreate' }" class="btn btn-primary pull-right">{{$t('project.add')}}</router-link>
+      </div>
       <div class="box-body">
         <item-errors :entity="'project'"></item-errors>
 

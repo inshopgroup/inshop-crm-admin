@@ -6,9 +6,9 @@
 
   <section class="content">
     <div class="box box-primary">
-      <!--<div class="box-header with-border">-->
-        <!--<router-link :to="{ name: 'TaskCreate' }" class="btn btn-primary pull-right">{{$t('task.add')}}</router-link>-->
-      <!--</div>-->
+      <div class="box-header with-border">
+        <router-link :to="{ name: 'TaskCreate' }" class="btn btn-primary pull-right">{{$t('task.add')}}</router-link>
+      </div>
       <div class="box-body">
         <item-errors :entity="'task'"></item-errors>
 
@@ -26,23 +26,6 @@
             <task-status-filter></task-status-filter>
           </template>
         </api-table>
-
-        <!--<div class="col-xs-6">-->
-          <!--<div class="table-responsive">-->
-            <!--<table class="table">-->
-              <!--<tbody>-->
-              <!--<tr>-->
-                <!--<th style="width:50%">{{$t('task.timeEstimated')}}:</th>-->
-                <!--<td>0</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<th>{{$t('task.timeSpent')}}:</th>-->
-                <!--<td>0</td>-->
-              <!--</tr>-->
-              <!--</tbody>-->
-            <!--</table>-->
-          <!--</div>-->
-        <!--</div>-->
       </div>
     </div>
   </section>
@@ -62,10 +45,10 @@ export default {
   components: {TaskStatusFilter, ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['id', 'name', 'project.client.name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'project.client.name', 'project.name', 'assignee.name', 'columnDeadline', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'project.name', 'assignee.name', 'columnDeadline', 'columnCreatedAt', 'columnUpdatedAt'],
       customFilters: ['status.id'],
-      sortable: ['id', 'name', 'project.client.name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         columnCreatedAt,
         columnUpdatedAt,

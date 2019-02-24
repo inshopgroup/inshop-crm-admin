@@ -32,27 +32,30 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import FilesTable from './FilesTable'
-import TemplateInfo from './TemplateInfo'
-import History from '../History'
+  import {mapActions, mapGetters} from 'vuex'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import FilesTable from './FilesTable'
+  import TemplateInfo from './TemplateInfo'
+  import History from '../History'
 
-export default {
-  components: {History, ItemErrors, ItemShowActions, TemplateInfo, FilesTable },
+  export default {
+    components: {History, ItemErrors, ItemShowActions, TemplateInfo, FilesTable},
 
-  computed: mapGetters({
-    item: 'template/item'
-  }),
-  created () {
-    this.getItem(this.$route.params.id)
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'template/getItem'
-    })
+    computed: mapGetters({
+      item: 'template/item'
+    }),
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    beforeDestroy() {
+      this.reset()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'template/getItem',
+        reset: 'template/reset'
+      })
+    }
   }
-}
 </script>

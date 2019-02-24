@@ -61,9 +61,13 @@
     created() {
       this.loadItem()
     },
+    beforeDestroy () {
+      this.reset()
+    },
     methods: {
       ...mapActions({
         getItem: 'client/getItem',
+        reset: 'client/reset',
       }),
       loadItem() {
         this.getItem(this.$route.params.id)

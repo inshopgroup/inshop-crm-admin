@@ -150,26 +150,29 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import Lines from './Lines'
-import History from '../History'
+  import {mapActions, mapGetters} from 'vuex'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import Lines from './Lines'
+  import History from '../History'
 
-export default {
-  components: {History, Lines, ItemErrors, ItemShowActions },
+  export default {
+    components: {History, Lines, ItemErrors, ItemShowActions},
 
-  computed: mapGetters({
-    item: 'invoice_header/item',
-  }),
-  created () {
-    this.getItem(this.$route.params.id)
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'invoice_header/getItem',
-    })
+    computed: mapGetters({
+      item: 'invoice_header/item',
+    }),
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    beforeDestroy() {
+      this.reset()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'invoice_header/getItem',
+        reset: 'invoice_header/reset',
+      })
+    }
   }
-}
 </script>

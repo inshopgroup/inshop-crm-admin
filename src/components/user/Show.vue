@@ -10,7 +10,6 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('user.tabs.general')}}</a></li>
-          <li><a href="#tasks" data-toggle="tab" aria-expanded="false">{{$t('user.tabs.tasks')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
@@ -61,9 +60,6 @@
               </table>
             </div>
           </div>
-          <div class="tab-pane" id="tasks">
-            <tasks-table :tasks="item['tasks']"></tasks-table>
-          </div>
           <div class="tab-pane" id="history">
             <history :id="parseInt($route.params.id)" :entity="'User'" :path="'user'"></history>
           </div>
@@ -76,26 +72,29 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import TasksTable from './TasksTable'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import History from '../History'
+  import {mapActions, mapGetters} from 'vuex'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import History from '../History'
 
-export default {
-  components: {History, ItemErrors, TasksTable, ItemShowActions},
-  computed: {
-    ...mapGetters({
-      item: 'user/item'
-    })
-  },
-  created () {
-    this.getItem(this.$route.params.id)
-  },
-  methods: {
-    ...mapActions({
-      getItem: 'user/getItem'
-    })
+  export default {
+    components: {History, ItemErrors, ItemShowActions},
+    computed: {
+      ...mapGetters({
+        item: 'user/item'
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    beforeDestroy() {
+      this.reset()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'user/getItem',
+        reset: 'user/reset'
+      })
+    }
   }
-}
 </script>

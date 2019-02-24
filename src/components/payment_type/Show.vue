@@ -69,10 +69,13 @@ export default {
   created () {
     this.getItem(this.$route.params.id)
   },
-
+  beforeDestroy () {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      getItem: 'payment_type/getItem'
+      getItem: 'payment_type/getItem',
+      reset: 'payment_type/reset'
     })
   }
 }

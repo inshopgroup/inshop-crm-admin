@@ -66,32 +66,34 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import History from '../History'
+  import {mapActions, mapGetters} from 'vuex'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import History from '../History'
 
-export default {
-  components: {History, ItemErrors, ItemShowActions},
-  computed: {
-    ...mapGetters({
-      item: 'group/item'
-    }),
-
-    modules () {
-      return this.$store.getters['module/list/items'] || []
+  export default {
+    components: {History, ItemErrors, ItemShowActions},
+    computed: {
+      ...mapGetters({
+        item: 'group/item'
+      }),
+      modules() {
+        return this.$store.getters['module/items'] || []
+      }
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+      this.getModules('/modules?pagination[itemsPerPage]=500')
+    },
+    beforeDestroy() {
+      this.reset()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'group/getItem',
+        reset: 'group/reset',
+        getModules: 'module/list/default'
+      })
     }
-  },
-  created () {
-    this.getItem(this.$route.params.id)
-    this.getModules('/modules?pagination[itemsPerPage]=500')
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'group/getItem',
-      getModules: 'module/list/default'
-    })
   }
-}
 </script>

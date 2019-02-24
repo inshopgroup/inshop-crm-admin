@@ -39,14 +39,6 @@
                 <td><b>{{ moment(item['deadline']).format('DD-MM-YYYY') }}</b></td>
               </tr>
               <tr>
-                <td>{{$t('task.client')}}</td>
-                <td>
-                  <router-link v-if="item.project && item.project.client" :to="{name: 'ClientShow', params: { id: item.project.client.id }}">
-                    {{ item.project.client.name }}
-                  </router-link>
-                </td>
-              </tr>
-              <tr>
                 <td>{{$t('task.project.name')}}</td>
                 <td>
                   <router-link v-if="item['project']" :to="{name: 'ProjectShow', params: { id: item['project'].id }}">
@@ -97,24 +89,27 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../layout/ItemShowActions'
-import ItemErrors from '../layout/errors/ItemErrors'
-import History from '../History'
+  import {mapActions, mapGetters} from 'vuex'
+  import ItemShowActions from '../layout/ItemShowActions'
+  import ItemErrors from '../layout/errors/ItemErrors'
+  import History from '../History'
 
-export default {
-  components: {History, ItemErrors, ItemShowActions},
-  computed: mapGetters({
-    item: 'task/item'
-  }),
-  created () {
-    this.getItem(this.$route.params.id)
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'task/getItem'
-    })
+  export default {
+    components: {History, ItemErrors, ItemShowActions},
+    computed: mapGetters({
+      item: 'task/item'
+    }),
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    beforeDestroy() {
+      this.reset()
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'task/getItem',
+        reset: 'task/reset'
+      })
+    }
   }
-}
 </script>
