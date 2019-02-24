@@ -10,14 +10,14 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "admin-lte": "^2.4.8",
+    "admin-lte": "^2.4.9",
     "axios": "^0.18.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "bootstrap": "^3.3.7",
-    "chart.js": "^2.7.2",
-    "color": "^3.0.0",
+    "bootstrap": "^3.4.1",
+    "chart.js": "^2.7.3",
+    "color": "^3.1.0",
     "daterangepicker": "^3.0.3",
     "dotenv-webpack": "^1.5.7",
     "filesize": "^3.6.1",
