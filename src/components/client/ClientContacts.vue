@@ -21,17 +21,17 @@
       <tbody>
         <tr v-for="contact in contacts" :key="contact.id">
           <td>
-            <router-link v-if="contact" :to="{name: 'ClientShow', params: { id: contact.id }}">
+            <router-link v-if="contact" :to="{name: 'ContactShow', params: { id: contact.id }}">
               {{ contact.id }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="contact" :to="{name: 'ClientShow', params: { id: contact.id }}">
+            <router-link v-if="contact" :to="{name: 'ContactShow', params: { id: contact.id }}">
               {{ contact['value'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="contact.contactType" :to="{name: 'ClientShow', params: { id: contact.id }}">
+            <router-link v-if="contact.contactType" :to="{name: 'ContactShow', params: { id: contact.id }}">
               {{ contact.contactType.name }}
             </router-link>
           </td>
@@ -61,10 +61,9 @@
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'ClientContacts',
     components: {ModalContactForm},
     props: {
-      client: {
+      parent: {
         type: Object,
         required: true
       },
@@ -101,7 +100,7 @@
         }
       },
       create (button) {
-        this.$store.commit('contact/CONTACT_SET_ITEM', {clients: [this.client]})
+        this.$store.commit('contact/CONTACT_SET_ITEM', this.parent)
 
         this.title = this.$t('contact.add')
         this.item = this.$store.getters['contact/item']

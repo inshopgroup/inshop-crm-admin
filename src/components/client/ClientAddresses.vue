@@ -103,10 +103,9 @@
   import { mapActions } from 'vuex'
 
   export default {
-    name: 'ClientAddresses',
     components: {ModalAddressForm},
     props: {
-      client: {
+      parent: {
         type: Object,
         required: true
       },
@@ -143,7 +142,7 @@
         }
       },
       create (button) {
-        this.$store.commit('address/ADDRESS_SET_ITEM', {clients: [this.client]})
+        this.$store.commit('address/ADDRESS_SET_ITEM', this.parent)
 
         this.title = this.$t('address.add')
         this.item = this.$store.getters['address/item']
