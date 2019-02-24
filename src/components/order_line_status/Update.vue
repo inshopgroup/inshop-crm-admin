@@ -4,66 +4,34 @@
       <h1>{{ $t('order_line_status.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'order_line_status'" :is-loading="isLoading"></item-errors>
-
-          <OrderLineStatusForm
-
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-            />
-        </div>
-      </div>
-    </section>
+    <OrderLineStatusForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import OrderLineStatusForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+import OrderLineStatusForm from './Form'
 
 export default {
   components: {
-    ItemErrors,
     OrderLineStatusForm
   },
-
-
-
   computed: {
     ...mapGetters({
-      isLoading: 'general/isLoading',
-
       item: 'order_line_status/item',
-      errors: 'order_line_status/errors'
     })
   },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
   created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
+    this.getItem(this.$route.params.id)
   },
-
   methods: {
     ...mapActions({
       getItem: 'order_line_status/getItem',
-      reset: 'order_line_status/reset',
       update: 'order_line_status/update',
     }),
-
     onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'OrderLineStatusShow', params: {id: this.item.id}})
+      this.update().then(item => {
+        this.$router.push({name: 'OrderLineStatusShow', params: {id: item.id}})
       }).catch(e => {})
     }
   }

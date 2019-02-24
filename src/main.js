@@ -24,7 +24,7 @@ import store from './store'
 import router from './router'
 
 import Vue from 'vue'
-import App from './App.vue';
+import App from './App';
 // import BootstrapVue from 'bootstrap-vue'
 import vSelect from 'vue-select/dist/vue-select'
 

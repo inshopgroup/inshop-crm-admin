@@ -9,27 +9,25 @@
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   import CategoryForm from './Form'
-  import {mapActions, mapGetters} from 'vuex'
 
   export default {
     components: {
       CategoryForm
     },
-    beforeDestroy() {
-      this.reset()
+    computed: {
+      ...mapGetters({
+        item: 'category/item',
+      })
     },
-    computed: mapGetters({
-      item: 'category/item',
-    }),
     methods: {
       ...mapActions({
         create: 'category/create',
-        reset: 'category/reset'
       }),
       onSendForm() {
-        this.create().then(created => {
-          this.$router.push({name: 'CategoryShow', params: {id: created.id}})
+        this.create().then(item => {
+          this.$router.push({name: 'CategoryShow', params: {id: item.id}})
         }).catch(e => {})
       }
     }

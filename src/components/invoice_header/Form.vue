@@ -1,6 +1,8 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
+      <item-errors :entity="'invoice_header'"></item-errors>
+
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{$t('invoice_header.tabs.general')}}</h3>
@@ -17,14 +19,10 @@
 
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
-                <form-select :item="item" :errors="errors" :property="'companyFrom'" :option-property="'company'" :label="'invoice_header.companyFrom.name'" @fieldUpdated="updateValue"></form-select>
-              </div>
+              <form-select :item="item" :errors="errors" :property="'companyFrom'" :option-property="'company'" :label="'invoice_header.companyFrom.name'" @fieldUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-              <div class="form-group">
-                <form-select :item="item" :errors="errors" :property="'companyTo'" :option-property="'company'" :label="'invoice_header.companyTo.name'" @fieldUpdated="updateValue"></form-select>
-              </div>
+              <form-select :item="item" :errors="errors" :property="'companyTo'" :option-property="'company'" :label="'invoice_header.companyTo.name'" @fieldUpdated="updateValue"></form-select>
             </div>
           </div>
 
@@ -116,21 +114,24 @@
           </table>
         </div>
       </div>
-    </section>
 
-    <item-edit-actions :item="item" :entity="'InvoiceHeader'" :path="'invoice_header'"></item-edit-actions>
+      <item-edit-actions :item="item" :entity="'InvoiceHeader'" :path="'invoice_header'"></item-edit-actions>
+    </section>
   </form>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../layout/ItemEditActions'
   import FormInput from "../layout/form/FormInput";
   import FormSelect from "../layout/form/FormSelect";
   import FormDatepicker from "../layout/form/FormDatepicker";
   import FormNumber from "../layout/form/FormNumber";
+  import ItemErrors from "../layout/errors/ItemErrors";
 
   export default {
     components: {
+      ItemErrors,
       FormNumber,
       FormDatepicker,
       FormSelect,
@@ -145,13 +146,20 @@
       item: {
         type: Object,
         required: true
-      },
-      errors: {
-        type: Object,
-        default: () => {}
-      },
+      }
+    },
+    beforeDestroy () {
+      this.reset()
+    },
+    computed: {
+      ...mapGetters({
+        errors: 'invoice_header/errors'
+      })
     },
     methods: {
+      ...mapActions({
+        reset: 'invoice_header/reset'
+      }),
       updateValue(property, value) {
         this.$store.commit('invoice_header/INVOICE_HEADER_UPDATE_ITEM', {[property]: value})
       },

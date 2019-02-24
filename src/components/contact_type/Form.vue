@@ -1,17 +1,28 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <form-input :item="item" :errors="errors" :property="'name'" :label="'contact_type.name'" @fieldUpdated="updateValue"></form-input>
+    <section class="content">
+      <item-errors :entity="'contact_type'"></item-errors>
 
-    <item-edit-actions :item="item" :entity="'ContactType'" :path="'contact_type'"></item-edit-actions>
+      <div class="box box-primary">
+        <div class="box-body">
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'contact_type.name'" @fieldUpdated="updateValue"></form-input>
+        </div>
+      </div>
+
+      <item-edit-actions :item="item" :entity="'ContactType'" :path="'contact_type'"></item-edit-actions>
+    </section>
   </form>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../layout/ItemEditActions'
   import FormInput from "../layout/form/FormInput";
+  import ItemErrors from "../layout/errors/ItemErrors";
 
   export default {
     components: {
+      ItemErrors,
       FormInput,
       ItemEditActions
     },
@@ -23,13 +34,20 @@
       item: {
         type: Object,
         required: true
-      },
-      errors: {
-        type: Object,
-        default: () => {}
-      },
+      }
+    },
+    beforeDestroy () {
+      this.reset()
+    },
+    computed: {
+      ...mapGetters({
+        errors: 'contact_type/errors'
+      })
     },
     methods: {
+      ...mapActions({
+        reset: 'contact_type/reset'
+      }),
       updateValue(property, value) {
         this.$store.commit('contact_type/CONTACT_TYPE_UPDATE_ITEM', {[property]: value})
       },

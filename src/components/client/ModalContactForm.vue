@@ -40,7 +40,6 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isLoading: 'general/isLoading',
       errors: 'contact/errors'
     })
   },

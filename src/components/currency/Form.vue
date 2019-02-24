@@ -1,18 +1,29 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <form-input :item="item" :errors="errors" :property="'name'" :label="'currency.name'" @fieldUpdated="updateValue"></form-input>
-    <form-input :item="item" :errors="errors" :property="'code'" :label="'currency.code'" @fieldUpdated="updateValue"></form-input>
+    <section class="content">
+      <item-errors :entity="'currency'"></item-errors>
 
-    <item-edit-actions :item="item" :entity="'Currency'" :path="'currency'"></item-edit-actions>
+      <div class="box box-primary">
+        <div class="box-body">
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'currency.name'" @fieldUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'code'" :label="'currency.code'" @fieldUpdated="updateValue"></form-input>
+        </div>
+      </div>
+
+      <item-edit-actions :item="item" :entity="'Currency'" :path="'currency'"></item-edit-actions>
+    </section>
   </form>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../layout/ItemEditActions'
   import FormInput from "../layout/form/FormInput";
+  import ItemErrors from "../layout/errors/ItemErrors";
 
   export default {
     components: {
+      ItemErrors,
       FormInput,
       ItemEditActions
     },
@@ -24,13 +35,20 @@
       item: {
         type: Object,
         required: true
-      },
-      errors: {
-        type: Object,
-        default: () => {}
-      },
+      }
+    },
+    beforeDestroy () {
+      this.reset()
+    },
+    computed: {
+      ...mapGetters({
+        errors: 'currency/errors'
+      })
     },
     methods: {
+      ...mapActions({
+        reset: 'currency/reset'
+      }),
       updateValue(property, value) {
         this.$store.commit('currency/CURRENCY_UPDATE_ITEM', {[property]: value})
       }

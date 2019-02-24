@@ -4,56 +4,36 @@
       <h1>{{ $t('brand.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'brand'" :is-loading="isLoading"></item-errors>
-
-          <BrandForm
-            :handle-submit="onSendForm"
-            :item="item"
-            :errors="errors"
-            />
-        </div>
-      </div>
-    </section>
+    <BrandForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import BrandForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import BrandForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    BrandForm
-  },
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-      item: 'brand/item',
-      errors: 'brand/errors'
-    })
-  },
-  beforeDestroy () {
-    this.reset()
-  },
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-  methods: {
-    ...mapActions({
-      getItem: 'brand/getItem',
-      reset: 'brand/reset',
-      update: 'brand/update',
-    }),
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'BrandShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      BrandForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'brand/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'brand/getItem',
+        update: 'brand/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'BrandShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

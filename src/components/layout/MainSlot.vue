@@ -74,10 +74,10 @@
 </template>
 
 <script>
-import HeaderSlot from '../../components/layout/HeaderSlot.vue'
-import FooterSlot from '../../components/layout/FooterSlot.vue'
-import LeftSidebarSlot from '../../components/layout/LeftSidebarSlot.vue'
-import ControlSidebarSlot from '../../components/layout/ControlSidebarSlot.vue'
+import HeaderSlot from '../../components/layout/HeaderSlot'
+import FooterSlot from '../../components/layout/FooterSlot'
+import LeftSidebarSlot from '../../components/layout/LeftSidebarSlot'
+import ControlSidebarSlot from '../../components/layout/ControlSidebarSlot'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
 

@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="updateTranslations">
     <section class="content">
-      <item-errors :entity="'category'" :is-loading="isLoading"></item-errors>
+      <item-errors :entity="'category'"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -22,10 +22,10 @@
           <form-select :item="item" :errors="errors" :property="'parent'" :option-property="'category'" :label="'category.parent.name'" @fieldUpdated="updateValue"></form-select>
           <form-number :item="item" :errors="errors" :property="'position'" :label="'category.position'" @fieldUpdated="updateValue"></form-number>
           <form-checkbox :item="item" :errors="errors" :property="'isActive'" :label="'category.isActive'" @fieldUpdated="updateValue"></form-checkbox>
-
-          <item-edit-actions :item="item" :entity="'Category'" :path="'category'"></item-edit-actions>
         </div>
       </div>
+
+      <item-edit-actions :item="item" :entity="'Category'" :path="'category'"></item-edit-actions>
     </section>
   </form>
 </template>
@@ -61,7 +61,6 @@
     computed: {
       ...mapGetters({
         errors: 'category/errors',
-        isLoading: 'general/isLoading',
       }),
       languages() {
         return this.$store.getters['language/items'] || []
@@ -92,7 +91,6 @@
 
         this.handleSubmit(this.item)
       },
-
       findItem(language) {
         let translation = {
           language: language,

@@ -4,68 +4,36 @@
       <h1>{{ $t('shipment_method.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'shipment_method'" :is-loading="isLoading"></item-errors>
-
-          <ShipmentMethodForm
-
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-            />
-        </div>
-      </div>
-    </section>
+    <ShipmentMethodForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ShipmentMethodForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import ShipmentMethodForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    ShipmentMethodForm
-  },
-
-
-
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-
-      item: 'shipment_method/item',
-      errors: 'shipment_method/errors'
-    })
-  },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'shipment_method/getItem',
-      reset: 'shipment_method/reset',
-      update: 'shipment_method/update',
-    }),
-
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'ShipmentMethodShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      ShipmentMethodForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'shipment_method/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'shipment_method/getItem',
+        update: 'shipment_method/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'ShipmentMethodShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

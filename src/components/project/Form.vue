@@ -1,7 +1,8 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-
     <section class="content">
+      <item-errors :entity="'project'"></item-errors>
+
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{$t('project.tabs.general')}}</h3>
@@ -57,21 +58,23 @@
           </table>
         </div>
       </div>
-    </section>
 
-    <item-edit-actions :item="item" :entity="'Project'" :path="'project'"></item-edit-actions>
+      <item-edit-actions :item="item" :entity="'Project'" :path="'project'"></item-edit-actions>
+    </section>
   </form>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../layout/ItemEditActions'
   import FormInput from "../layout/form/FormInput";
   import FormSelect from "../layout/form/FormSelect";
   import FormSelectAutocomplete from "../layout/form/FormSelectAutocomplete";
   import FormDatepicker from "../layout/form/FormDatepicker";
+  import ItemErrors from "../layout/errors/ItemErrors";
 
   export default {
-    components: {FormDatepicker, FormSelectAutocomplete, FormSelect, FormInput, ItemEditActions},
+    components: {ItemErrors, FormDatepicker, FormSelectAutocomplete, FormSelect, FormInput, ItemEditActions},
     props: {
       handleSubmit: {
         type: Function,
@@ -80,13 +83,20 @@
       item: {
         type: Object,
         required: true
-      },
-      errors: {
-        type: Object,
-        default: () => {}
-      },
+      }
+    },
+    beforeDestroy () {
+      this.reset()
+    },
+    computed: {
+      ...mapGetters({
+        errors: 'project/errors'
+      })
     },
     methods: {
+      ...mapActions({
+        reset: 'project/reset'
+      }),
       addTask() {
         this.item.tasks.push({uuid: Date.now()})
       },

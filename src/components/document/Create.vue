@@ -1,60 +1,35 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('document.add')}}</h1>
+      <h1>{{ $t('document.add') }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'template'" :is-loading="isLoading"></item-errors>
-
-          <DocumentForm
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-
-          />
-        </div>
-      </div>
-    </section>
+    <DocumentForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
+  import {mapActions, mapGetters} from 'vuex'
+  import DocumentForm from './Form'
 
-import DocumentForm from './Form'
-import ItemErrors from '../layout/errors/ItemErrors'
-
-import {mapActions, mapGetters} from 'vuex'
-
-export default {
-  components: {
-    ItemErrors,
-    DocumentForm
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-
-  computed: mapGetters({
-    item: 'document/item',
-    isLoading: 'general/isLoading',
-    errors: 'document/errors'
-  }),
-
-  methods: {
-    ...mapActions({
-      create: 'document/create',
-      reset: 'document/reset'
-    }),
-
-    onSendForm () {
-      this.create().then(created => {
-        this.$router.push({name: 'DocumentShow', params: {id: created.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      DocumentForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'document/item',
+      })
+    },
+    methods: {
+      ...mapActions({
+        create: 'document/create',
+      }),
+      onSendForm() {
+        this.create().then(item => {
+          this.$router.push({name: 'DocumentShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

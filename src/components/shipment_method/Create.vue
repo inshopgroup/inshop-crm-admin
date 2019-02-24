@@ -1,58 +1,35 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('shipment_method.add')}}</h1>
+      <h1>{{ $t('shipment_method.add') }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'shipment_method'" :is-loading="isLoading"></item-errors>
-
-          <ShipmentMethodForm
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-
-          />
-        </div>
-      </div>
-    </section>
-
+    <ShipmentMethodForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
+  import ShipmentMethodForm from './Form'
 
-import ShipmentMethodForm from './Form'
-import ItemErrors from '../layout/errors/ItemErrors'
-
-import {mapActions, mapGetters} from 'vuex'
-
-export default {
-  components: {
-    ShipmentMethodForm,
-    ItemErrors
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-  computed: mapGetters({
-    item: 'shipment_method/item',
-    isLoading: 'general/isLoading',
-    errors: 'shipment_method/errors'
-  }),
-  methods: {
-    ...mapActions({
-      create: 'shipment_method/create',
-      reset: 'shipment_method/reset'
-    }),
-    onSendForm () {
-      this.create().then(created => {
-        this.$router.push({name: 'ShipmentMethodShow', params: {id: created.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      ShipmentMethodForm,
+    },
+    computed: {
+      ...mapGetters({
+        item: 'shipment_method/item',
+      })
+    },
+    methods: {
+      ...mapActions({
+        create: 'shipment_method/create',
+      }),
+      onSendForm() {
+        this.create().then(item => {
+          this.$router.push({name: 'ShipmentMethodShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

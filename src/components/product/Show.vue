@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-errors :entity="'product'" :is-loading="isLoading"></item-errors>
+      <item-errors :entity="'product'"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -94,7 +94,6 @@ export default {
   },
 
   computed: mapGetters({
-    isLoading: 'general/isLoading',
     item: 'product/item',
     companyProducts: 'product/show/companyProducts',
     productSellPrices: 'product/show/productSellPrices',
@@ -105,7 +104,7 @@ export default {
   },
 
   created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
+    this.getItem(this.$route.params.id)
     this.loadCompanyProducts()
     this.loadProductSellPrices()
   },
@@ -119,11 +118,11 @@ export default {
     }),
 
     loadCompanyProducts () {
-      this.getCompanyProducts(decodeURIComponent(this.$route.params.id))
+      this.getCompanyProducts(this.$route.params.id)
     },
 
     loadProductSellPrices () {
-      this.getProductSellPrices(decodeURIComponent(this.$route.params.id))
+      this.getProductSellPrices(this.$route.params.id)
     },
   }
 }

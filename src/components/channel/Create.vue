@@ -4,54 +4,32 @@
       <h1>{{$t('channel.add')}}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'channel'" :is-loading="isLoading"></item-errors>
-
-          <ChannelForm
-            :handle-submit="onSendForm"
-            :item="item"
-            :errors="errors"
-          />
-        </div>
-      </div>
-    </section>
-
+    <ChannelForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
+  import ChannelForm from './Form'
 
-import ChannelForm from './Form'
-import ItemErrors from '../layout/errors/ItemErrors'
-
-import {mapActions, mapGetters} from 'vuex'
-
-export default {
-  components: {
-    ChannelForm,
-    ItemErrors
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-  computed: mapGetters({
-    item: 'channel/item',
-    isLoading: 'general/isLoading',
-    errors: 'channel/errors'
-  }),
-  methods: {
-    ...mapActions({
-      create: 'channel/create',
-      reset: 'channel/reset'
-    }),
-
-    onSendForm () {
-      this.create().then(created => {
-        this.$router.push({name: 'ChannelShow', params: {id: created.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      ChannelForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'channel/item',
+      })
+    },
+    methods: {
+      ...mapActions({
+        create: 'channel/create',
+      }),
+      onSendForm () {
+        this.create().then(item => {
+          this.$router.push({name: 'ChannelShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

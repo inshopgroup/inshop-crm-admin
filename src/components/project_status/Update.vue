@@ -4,68 +4,36 @@
       <h1>{{ $t('project_status.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'project_status'" :is-loading="isLoading"></item-errors>
-
-          <ProjectStatusForm
-
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-            />
-        </div>
-      </div>
-    </section>
+    <ProjectStatusForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ProjectStatusForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import ProjectStatusForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    ProjectStatusForm
-  },
-
-
-
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-
-      item: 'project_status/item',
-      errors: 'project_status/errors'
-    })
-  },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'project_status/getItem',
-      reset: 'project_status/reset',
-      update: 'project_status/update',
-    }),
-
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'ProjectStatusShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      ProjectStatusForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'project_status/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'project_status/getItem',
+        update: 'project_status/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'ProjectStatusShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

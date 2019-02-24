@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-errors :entity="'backup'" :is-loading="isLoading"></item-errors>
+      <item-errors :entity="'backup'"></item-errors>
 
       <div class="nav-tabs-custom" v-if="item">
         <ul class="nav nav-tabs">
@@ -73,7 +73,6 @@ import History from '../History'
 export default {
   components: {History, ItemErrors, ItemShowActions},
   computed: mapGetters({
-    isLoading: 'general/isLoading',
     item: 'backup/item'
   }),
 
@@ -82,7 +81,7 @@ export default {
   },
 
   created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
+    this.getItem(this.$route.params.id)
   },
 
   methods: {

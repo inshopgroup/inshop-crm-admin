@@ -4,50 +4,36 @@
       <h1>{{ $t('invoice_header.edit', {entity: item && item.number}) }}</h1>
     </section>
 
-    <item-errors :entity="'invoice_header'" :is-loading="isLoading"></item-errors>
-
-    <InvoiceHeaderForm
-      :handle-submit="onSendForm"
-      :item="item"
-      :errors="errors"
-      />
+    <InvoiceHeaderForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import InvoiceHeaderForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import InvoiceHeaderForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    InvoiceHeaderForm
-  },
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-      item: 'invoice_header/item',
-      errors: 'invoice_header/errors'
-    })
-  },
-  beforeDestroy () {
-    this.reset()
-  },
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-  methods: {
-    ...mapActions({
-      getItem: 'invoice_header/getItem',
-      reset: 'invoice_header/reset',
-      update: 'invoice_header/update',
-    }),
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'InvoiceHeaderShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      InvoiceHeaderForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'invoice_header/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'invoice_header/getItem',
+        update: 'invoice_header/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'InvoiceHeaderShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

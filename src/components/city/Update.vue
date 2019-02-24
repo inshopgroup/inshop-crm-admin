@@ -4,68 +4,36 @@
       <h1>{{ $t('city.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'city'" :is-loading="isLoading"></item-errors>
-
-          <CityForm
-
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-            />
-        </div>
-      </div>
-    </section>
+    <CityForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import CityForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import CityForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    CityForm
-  },
-
-
-
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-
-      item: 'city/item',
-      errors: 'city/errors'
-    })
-  },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'city/getItem',
-      reset: 'city/reset',
-      update: 'city/update',
-    }),
-
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'CityShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      CityForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'city/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'city/getItem',
+        update: 'city/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'CityShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

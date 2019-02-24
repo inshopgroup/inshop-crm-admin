@@ -1,58 +1,35 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('user.add')}}</h1>
+      <h1>{{ $t('user.add') }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'user'" :is-loading="isLoading"></item-errors>
-
-          <UserForm
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-
-          />
-        </div>
-      </div>
-    </section>
-
+    <UserForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
 <script>
+  import { mapActions, mapGetters } from 'vuex'
+  import UserForm from './Form'
 
-import UserForm from './Form'
-import ItemErrors from '../layout/errors/ItemErrors'
-
-import {mapActions, mapGetters} from 'vuex'
-
-export default {
-  components: {
-    ItemErrors,
-    UserForm
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-  computed: mapGetters({
-    item: 'user/item',
-    isLoading: 'general/isLoading',
-    errors: 'user/errors'
-  }),
-  methods: {
-    ...mapActions({
-      create: 'user/create',
-      reset: 'user/reset'
-    }),
-    onSendForm () {
-      this.create().then(created => {
-        this.$router.push({name: 'UserShow', params: {id: created.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      UserForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'user/item',
+      })
+    },
+    methods: {
+      ...mapActions({
+        create: 'user/create',
+      }),
+      onSendForm () {
+        this.create().then(item => {
+          this.$router.push({name: 'UserShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

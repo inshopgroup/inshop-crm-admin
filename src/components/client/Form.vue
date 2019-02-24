@@ -1,6 +1,8 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
+      <item-errors :entity="'client'"></item-errors>
+
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{$t('client.tabs.general')}}</h3>
@@ -94,20 +96,22 @@
           <!--</table>-->
         <!--</div>-->
       <!--</div>-->
-    </section>
 
-    <item-edit-actions :item="item" :entity="'Client'" :path="'client'"></item-edit-actions>
+      <item-edit-actions :item="item" :entity="'Client'" :path="'client'"></item-edit-actions>
+    </section>
   </form>
 </template>
 
 <script>
-import ItemEditActions from '../layout/ItemEditActions'
+  import { mapActions, mapGetters } from 'vuex'
+  import ItemEditActions from '../layout/ItemEditActions'
 import FormInput from "../layout/form/FormInput";
 import FormTextarea from "../layout/form/FormTextarea";
 import FormSelect from "../layout/form/FormSelect";
+import ItemErrors from "../layout/errors/ItemErrors";
 
 export default {
-  components: {FormSelect, FormTextarea, FormInput, ItemEditActions },
+  components: {ItemErrors, FormSelect, FormTextarea, FormInput, ItemEditActions },
   props: {
     handleSubmit: {
       type: Function,
@@ -116,13 +120,20 @@ export default {
     item: {
       type: Object,
       required: true
-    },
-    errors: {
-      type: Object,
-      default: () => {}
-    },
+    }
+  },
+  beforeDestroy () {
+    this.reset()
+  },
+  computed: {
+    ...mapGetters({
+      errors: 'client/errors'
+    })
   },
   methods: {
+    ...mapActions({
+      reset: 'client/reset'
+    }),
     // addContact () {
     //   this.item.contacts.push({
     //     uuid: Date.now(),

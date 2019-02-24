@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-errors :entity="'client'" :is-loading="isLoading"></item-errors>
+      <item-errors :entity="'client'"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -110,7 +110,6 @@ export default {
     //   return tasks
     // },
     ... mapGetters({
-      isLoading: 'general/isLoading',
       item: 'client/item',
       // documents: 'client/show/documents',
       // projects: 'client/show/projects',
@@ -147,19 +146,19 @@ export default {
       // getAddresses: 'client/show/getAddresses',
     }),
     loadUser () {
-      this.getItem(decodeURIComponent(this.$route.params.id))
+      this.getItem(this.$route.params.id)
     },
     // loadDocuments () {
-    //   this.getDocuments(decodeURIComponent(this.$route.params.id))
+    //   this.getDocuments(this.$route.params.id)
     // },
     // loadProjects () {
-    //   this.getProjects(decodeURIComponent(this.$route.params.id))
+    //   this.getProjects(this.$route.params.id)
     // },
     // loadContacts () {
-    //   this.getContacts(decodeURIComponent(this.$route.params.id))
+    //   this.getContacts(this.$route.params.id)
     // },
     // loadAddresses () {
-    //   this.getAddresses(decodeURIComponent(this.$route.params.id))
+    //   this.getAddresses(this.$route.params.id)
     // },
     setActiveTab (active) {
       this.active = active

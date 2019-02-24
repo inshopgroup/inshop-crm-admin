@@ -170,7 +170,7 @@ export default {
     }),
 
     // loadCompanyProducts () {
-    //   this.getCompanyProducts(decodeURIComponent(this.$route.params.id))
+    //   this.getCompanyProducts(this.$route.params.id)
     // },
 
     save (item) {

@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-errors :entity="'order_header'" :is-loading="isLoading"></item-errors>
+      <item-errors :entity="'order_header'"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -119,7 +119,6 @@ export default {
   components: {History, Lines, ItemErrors, ItemShowActions },
 
   computed: mapGetters({
-    isLoading: 'general/isLoading',
     item: 'order_header/item'
   }),
 
@@ -128,7 +127,7 @@ export default {
   },
 
   created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
+    this.getItem(this.$route.params.id)
   },
 
   methods: {

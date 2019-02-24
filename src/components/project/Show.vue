@@ -5,7 +5,7 @@
     </section>
 
     <section class="content">
-      <item-errors :entity="'project'" :is-loading="isLoading"></item-errors>
+      <item-errors :entity="'project'"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
@@ -48,7 +48,6 @@ export default {
   components: {History, ProjectTasksTable, ClientDocuments, ProjectInfo, ItemErrors, ItemShowActions},
   computed: {
     ...mapGetters({
-      isLoading: 'general/isLoading',
       item: 'project/item'
     }),
     projects () {
@@ -90,7 +89,7 @@ export default {
     }),
 
     loadProject () {
-      this.getItem(decodeURIComponent(this.$route.params.id))
+      this.getItem(this.$route.params.id)
     },
     reloadProject () {
       this.loadProject()

@@ -4,68 +4,36 @@
       <h1>{{ $t('country.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'country'" :is-loading="isLoading"></item-errors>
-
-          <CountryForm
-
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-            />
-        </div>
-      </div>
-    </section>
+    <CountryForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import CountryForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import CountryForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    CountryForm
-  },
-
-
-
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-
-      item: 'country/item',
-      errors: 'country/errors'
-    })
-  },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'country/getItem',
-      reset: 'country/reset',
-      update: 'country/update',
-    }),
-
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'CountryShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      CountryForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'country/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'country/getItem',
+        update: 'country/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'CountryShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

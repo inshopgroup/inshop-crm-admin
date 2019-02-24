@@ -4,68 +4,36 @@
       <h1>{{ $t('label.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'label'" :is-loading="isLoading"></item-errors>
-
-          <LabelForm
-
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-            />
-        </div>
-      </div>
-    </section>
+    <LabelForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import LabelForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import LabelForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    LabelForm
-  },
-
-
-
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-
-      item: 'label/item',
-      errors: 'label/errors'
-    })
-  },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'label/getItem',
-      reset: 'label/reset',
-      update: 'label/update',
-    }),
-
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'LabelShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      LabelForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'label/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'label/getItem',
+        update: 'label/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'LabelShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

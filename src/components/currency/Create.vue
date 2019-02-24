@@ -4,56 +4,32 @@
       <h1>{{$t('currency.add')}}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'currency'" :is-loading="isLoading"></item-errors>
-
-          <CurrencyForm
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-
-          />
-        </div>
-      </div>
-    </section>
-
+    <CurrencyForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
 <script>
+  import {mapActions, mapGetters} from 'vuex'
+  import CurrencyForm from './Form'
 
-import CurrencyForm from './Form'
-import ItemErrors from '../layout/errors/ItemErrors'
-
-import {mapActions, mapGetters} from 'vuex'
-
-export default {
-  components: {
-    CurrencyForm,
-    ItemErrors
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-
-  computed: mapGetters({
-    item: 'currency/item',
-    isLoading: 'general/isLoading',
-    errors: 'currency/errors'
-  }),
-
-  methods: {
-    ...mapActions({
-      create: 'currency/create',
-      reset: 'currency/reset'
-    }),
-
-    onSendForm () {
-      this.create(this.item)
+  export default {
+    components: {
+      CurrencyForm,
+    },
+    computed: {
+      ...mapGetters({
+        item: 'currency/item',
+      })
+    },
+    methods: {
+      ...mapActions({
+        create: 'currency/create',
+      }),
+      onSendForm() {
+        this.create().then(item => {
+          this.$router.push({name: 'CurrencyShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

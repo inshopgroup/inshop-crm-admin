@@ -1,38 +1,56 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <form-input :item="item" :errors="errors" :property="'name'" :label="'brand.name'" @fieldUpdated="updateValue"></form-input>
+    <section class="content">
+      <item-errors :entity="'brand'"></item-errors>
 
-    <item-edit-actions :item="item" :entity="'Brand'" :path="'brand'"></item-edit-actions>
+      <div class="box box-primary">
+        <div class="box-body">
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'brand.name'" @fieldUpdated="updateValue"></form-input>
+        </div>
+      </div>
+
+      <item-edit-actions :item="item" :entity="'Brand'" :path="'brand'"></item-edit-actions>
+    </section>
   </form>
 </template>
 
 <script>
-import ItemEditActions from '../layout/ItemEditActions'
-import FormInput from "../layout/form/FormInput";
+  import { mapActions, mapGetters } from 'vuex'
+  import ItemEditActions from '../layout/ItemEditActions'
+  import FormInput from "../layout/form/FormInput";
+  import ItemErrors from "../layout/errors/ItemErrors";
 
-export default {
-  components: {
-    FormInput,
-    ItemEditActions
-  },
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      ItemErrors,
+      FormInput,
+      ItemEditActions
     },
-    item: {
-      type: Object,
-      required: true
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      }
     },
-    errors: {
-      type: Object,
-      default: () => {}
+    beforeDestroy () {
+      this.reset()
     },
-  },
-  methods: {
-    updateValue(property, value) {
-      this.$store.commit('brand/BRAND_UPDATE_ITEM', {[property]: value})
+    computed: {
+      ...mapGetters({
+        errors: 'brand/errors'
+      })
+    },
+    methods: {
+      ...mapActions({
+        reset: 'brand/reset'
+      }),
+      updateValue(property, value) {
+        this.$store.commit('brand/BRAND_UPDATE_ITEM', {[property]: value})
+      }
     }
   }
-}
 </script>

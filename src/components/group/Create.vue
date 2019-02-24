@@ -1,69 +1,35 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('group.add')}}</h1>
+      <h1>{{ $t('group.add') }}</h1>
     </section>
 
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors :entity="'group'" :is-loading="isLoading"></item-errors>
-
-          <GroupForm
-            :handle-submit="onSendForm"
-
-            :item="item"
-            :errors="errors"
-
-          />
-        </div>
-      </div>
-    </section>
-
+    <GroupForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
+  import {mapActions, mapGetters} from 'vuex'
+  import GroupForm from './Form'
 
-import GroupForm from './Form'
-import ItemErrors from '../layout/errors/ItemErrors'
-
-import {mapActions, mapGetters} from 'vuex'
-
-export default {
-  components: {
-    ItemErrors,
-    GroupForm
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-
-  data () {
-    return {
-      item: {
-        roles: []
+  export default {
+    components: {
+      GroupForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'group/item',
+      })
+    },
+    methods: {
+      ...mapActions({
+        create: 'group/create',
+      }),
+      onSendForm() {
+        this.create().then(item => {
+          this.$router.push({name: 'GroupShow', params: {id: item.id}})
+        }).catch(e => {})
       }
     }
-  },
-
-  computed: mapGetters({
-    item: 'group/item',
-    isLoading: 'general/isLoading',
-    errors: 'group/errors'
-  }),
-
-  methods: {
-    ...mapActions({
-      create: 'group/create',
-      reset: 'group/reset'
-    }),
-
-    onSendForm () {
-      this.create().then(created => {
-        this.$router.push({name: 'GroupShow', params: {id: created.id}})
-      }).catch(e => {})
-    }
   }
-}
 </script>

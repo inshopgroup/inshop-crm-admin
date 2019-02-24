@@ -4,62 +4,36 @@
       <h1>{{ $t('project.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <item-errors :entity="'project'" :is-loading="isLoading"></item-errors>
-
-    <ProjectForm
-
-      :handle-submit="onSendForm"
-
-      :item="item"
-      :errors="errors"
-      />
+    <ProjectForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ProjectForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import ProjectForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    ProjectForm
-  },
-
-
-
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-
-      item: 'project/item',
-      errors: 'project/errors'
-    })
-  },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'project/getItem',
-      reset: 'project/reset',
-      update: 'project/update',
-    }),
-
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'ProjectShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      ProjectForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'project/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'project/getItem',
+        update: 'project/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'ProjectShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

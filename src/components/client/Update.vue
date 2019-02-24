@@ -4,62 +4,36 @@
       <h1>{{ $t('client.edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <item-errors :entity="'client'" :is-loading="isLoading"></item-errors>
-
-    <ClientForm
-
-      :handle-submit="onSendForm"
-
-      :item="item"
-      :errors="errors"
-      />
+    <ClientForm :handle-submit="onSendForm" :item="item"/>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import ClientForm from './Form.vue'
-import ItemErrors from '../layout/errors/ItemErrors'
+  import {mapActions, mapGetters} from 'vuex'
+  import ClientForm from './Form'
 
-export default {
-  components: {
-    ItemErrors,
-    ClientForm
-  },
-
-
-
-  computed: {
-    ...mapGetters({
-      isLoading: 'general/isLoading',
-
-      item: 'client/item',
-      errors: 'client/errors'
-    })
-  },
-
-
-
-  beforeDestroy () {
-    this.reset()
-  },
-
-  created () {
-    this.getItem(decodeURIComponent(this.$route.params.id))
-  },
-
-  methods: {
-    ...mapActions({
-      getItem: 'client/getItem',
-      reset: 'client/reset',
-      update: 'client/update',
-    }),
-
-    onSendForm () {
-      this.update().then(() => {
-        this.$router.push({name: 'ClientShow', params: {id: this.item.id}})
-      }).catch(e => {})
+  export default {
+    components: {
+      ClientForm
+    },
+    computed: {
+      ...mapGetters({
+        item: 'client/item',
+      })
+    },
+    created() {
+      this.getItem(this.$route.params.id)
+    },
+    methods: {
+      ...mapActions({
+        getItem: 'client/getItem',
+        update: 'client/update',
+      }),
+      onSendForm() {
+        this.update().then(item => {
+          this.$router.push({name: 'ClientShow', params: {id: item.id}})
+        }).catch(e => {})
+      }
     }
   }
-}
 </script>

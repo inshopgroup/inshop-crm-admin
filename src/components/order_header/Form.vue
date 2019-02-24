@@ -1,6 +1,8 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
+      <item-errors :entity="'order_header'"></item-errors>
+
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">{{$t('order_header.tabs.general')}}</h3>
@@ -89,22 +91,25 @@
           </table>
         </div>
       </div>
-    </section>
 
-    <item-edit-actions :item="item" :entity="'OrderHeader'" :path="'order_header'"></item-edit-actions>
+      <item-edit-actions :item="item" :entity="'OrderHeader'" :path="'order_header'"></item-edit-actions>
+    </section>
   </form>
 </template>
 
 <script>
-import ItemEditActions from '../layout/ItemEditActions'
+  import { mapActions, mapGetters } from 'vuex'
+  import ItemEditActions from '../layout/ItemEditActions'
 import axios from '../../interceptor'
 import FormInput from "../layout/form/FormInput";
 import FormSelect from "../layout/form/FormSelect";
 import FormSelectAutocomplete from "../layout/form/FormSelectAutocomplete";
 import FormNumber from "../layout/form/FormNumber";
+import ItemErrors from "../layout/errors/ItemErrors";
 
 export default {
   components: {
+    ItemErrors,
     FormNumber,
     FormSelectAutocomplete,
     FormSelect,
@@ -119,13 +124,15 @@ export default {
     item: {
       type: Object,
       required: true
-    },
-    errors: {
-      type: Object,
-      default: () => {}
-    },
+    }
+  },
+  beforeDestroy () {
+    this.reset()
   },
   computed: {
+    ...mapGetters({
+      errors: 'order_header/errors'
+    }),
     lines () {
       let lines = this.item.lines
 
@@ -140,6 +147,9 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      reset: 'order_header/reset'
+    }),
     updateValue(property, value) {
       this.$store.commit('order_header/ORDER_HEADER_UPDATE_ITEM', {[property]: value})
     },
