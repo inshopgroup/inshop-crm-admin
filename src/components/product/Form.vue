@@ -43,12 +43,12 @@
   import {mapActions, mapGetters} from 'vuex'
   import ItemEditActions from '../layout/ItemEditActions'
   import vueDropzone from "vue2-dropzone";
-  import fetch from '../../utils/fetch'
   import FormSelect from "../layout/form/FormSelect";
   import FormInput from "../layout/form/FormInput";
   import FormSelectAutocomplete from "../layout/form/FormSelectAutocomplete";
   import FormTextarea from "../layout/form/FormTextarea";
   import ItemErrors from "../layout/errors/ItemErrors";
+  import axios from '../../interceptor'
 
   export default {
     components: {
@@ -149,7 +149,7 @@
             let thisDropzone = this;
 
             if (_this.$route.params.id) {
-              fetch(decodeURIComponent(_this.$route.params.id) + '/images')
+              axios.get(process.env.API_URL + '/products/' + _this.$route.params.id + '/images')
                 .then(response => response.json())
                 .then((data) => {
 
@@ -183,7 +183,6 @@
         // this.item.images.push('/images/' + JSON.parse(data.xhr.response).id)
         // console.log('uploaded', this.item.images)
       },
-
       removed(data) {
         this.item.images = this.item.images || []
         this.item.images = this.item.images.filter(function (el) {

@@ -26,11 +26,11 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import vueDropzone from "vue2-dropzone";
-  import fetch from '../../utils/fetch'
   import ItemEditActions from '../layout/ItemEditActions'
   import FormInput from "../layout/form/FormInput";
   import FormSelect from "../layout/form/FormSelect";
   import ItemErrors from "../layout/errors/ItemErrors";
+  import axios from '../../interceptor'
 
   export default {
     components: {
@@ -67,7 +67,6 @@
       updateValue(property, value) {
         this.$store.commit('template/TEMPLATE_UPDATE_ITEM', {[property]: value})
       },
-
       dropOptions() {
         let _this = this
         return {
@@ -86,7 +85,7 @@
             let thisDropzone = this;
 
             if (_this.$route.params.id) {
-              fetch(decodeURIComponent(_this.$route.params.id) + '/files')
+              axios.get(process.env.API_URL + '/templates/' + _this.$route.params.id + '/files')
                 .then(response => response.json())
                 .then((data) => {
 
@@ -107,12 +106,10 @@
           }
         }
       },
-
       uploaded(data) {
         this.item.files = this.item.files || []
         this.item.files.push('/files/' + JSON.parse(data.xhr.response).id)
       },
-
       removed(data) {
         this.item.files = this.item.files || []
         this.item.files = this.item.files.filter(function (el) {
