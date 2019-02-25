@@ -1,7 +1,7 @@
-import TaskList from '../components/task/List'
-import TaskCreate from '../components/task/Create'
-import TaskUpdate from '../components/task/Update'
-import TaskShow from '../components/task/Show'
+import TaskList from '../pages/task/List'
+import TaskCreate from '../pages/task/Create'
+import TaskUpdate from '../pages/task/Update'
+import TaskShow from '../pages/task/Show'
 
 export default [
   {

@@ -1,7 +1,7 @@
-import InvoiceHeaderList from '../components/invoice_header/List'
-import InvoiceHeaderCreate from '../components/invoice_header/Create'
-import InvoiceHeaderUpdate from '../components/invoice_header/Update'
-import InvoiceHeaderShow from '../components/invoice_header/Show'
+import InvoiceHeaderList from '../pages/invoice_header/List'
+import InvoiceHeaderCreate from '../pages/invoice_header/Create'
+import InvoiceHeaderUpdate from '../pages/invoice_header/Update'
+import InvoiceHeaderShow from '../pages/invoice_header/Show'
 
 export default [
   {

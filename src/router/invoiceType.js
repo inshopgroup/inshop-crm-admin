@@ -1,7 +1,7 @@
-import InvoiceTypeList from '../components/invoice_type/List'
-import InvoiceTypeCreate from '../components/invoice_type/Create'
-import InvoiceTypeUpdate from '../components/invoice_type/Update'
-import InvoiceTypeShow from '../components/invoice_type/Show'
+import InvoiceTypeList from '../pages/invoice_type/List'
+import InvoiceTypeCreate from '../pages/invoice_type/Create'
+import InvoiceTypeUpdate from '../pages/invoice_type/Update'
+import InvoiceTypeShow from '../pages/invoice_type/Show'
 
 export default [
   {

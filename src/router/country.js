@@ -1,7 +1,7 @@
-import CountryList from '../components/country/List'
-import CountryCreate from '../components/country/Create'
-import CountryUpdate from '../components/country/Update'
-import CountryShow from '../components/country/Show'
+import CountryList from '../pages/country/List'
+import CountryCreate from '../pages/country/Create'
+import CountryUpdate from '../pages/country/Update'
+import CountryShow from '../pages/country/Show'
 
 export default [
   {

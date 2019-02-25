@@ -1,7 +1,7 @@
-import TemplateTypeList from '../components/template_type/List'
-import TemplateTypeCreate from '../components/template_type/Create'
-import TemplateTypeUpdate from '../components/template_type/Update'
-import TemplateTypeShow from '../components/template_type/Show'
+import TemplateTypeList from '../pages/template_type/List'
+import TemplateTypeCreate from '../pages/template_type/Create'
+import TemplateTypeUpdate from '../pages/template_type/Update'
+import TemplateTypeShow from '../pages/template_type/Show'
 
 export default [
   {

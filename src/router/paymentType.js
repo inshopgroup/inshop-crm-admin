@@ -1,7 +1,7 @@
-import PaymentTypeList from '../components/payment_type/List'
-import PaymentTypeCreate from '../components/payment_type/Create'
-import PaymentTypeUpdate from '../components/payment_type/Update'
-import PaymentTypeShow from '../components/payment_type/Show'
+import PaymentTypeList from '../pages/payment_type/List'
+import PaymentTypeCreate from '../pages/payment_type/Create'
+import PaymentTypeUpdate from '../pages/payment_type/Update'
+import PaymentTypeShow from '../pages/payment_type/Show'
 
 export default [
   {

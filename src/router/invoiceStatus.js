@@ -1,7 +1,7 @@
-import InvoiceStatusList from '../components/invoice_status/List'
-import InvoiceStatusCreate from '../components/invoice_status/Create'
-import InvoiceStatusUpdate from '../components/invoice_status/Update'
-import InvoiceStatusShow from '../components/invoice_status/Show'
+import InvoiceStatusList from '../pages/invoice_status/List'
+import InvoiceStatusCreate from '../pages/invoice_status/Create'
+import InvoiceStatusUpdate from '../pages/invoice_status/Update'
+import InvoiceStatusShow from '../pages/invoice_status/Show'
 
 export default [
   {

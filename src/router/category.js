@@ -1,7 +1,7 @@
-import CategoryList from '../components/category/List'
-import CategoryCreate from '../components/category/Create'
-import CategoryUpdate from '../components/category/Update'
-import CategoryShow from '../components/category/Show'
+import CategoryList from '../pages/category/List'
+import CategoryCreate from '../pages/category/Create'
+import CategoryUpdate from '../pages/category/Update'
+import CategoryShow from '../pages/category/Show'
 
 export default [
   {

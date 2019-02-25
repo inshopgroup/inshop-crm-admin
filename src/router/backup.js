@@ -1,5 +1,5 @@
-import BackupList from '../components/backup/List'
-import BackupShow from '../components/backup/Show'
+import BackupList from '../pages/backup/List'
+import BackupShow from '../pages/backup/Show'
 
 export default [
   {

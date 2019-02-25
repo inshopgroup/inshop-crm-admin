@@ -1,7 +1,7 @@
-import CurrencyList from '../components/currency/List'
-import CurrencyCreate from '../components/currency/Create'
-import CurrencyUpdate from '../components/currency/Update'
-import CurrencyShow from '../components/currency/Show'
+import CurrencyList from '../pages/currency/List'
+import CurrencyCreate from '../pages/currency/Create'
+import CurrencyUpdate from '../pages/currency/Update'
+import CurrencyShow from '../pages/currency/Show'
 
 export default [
   {

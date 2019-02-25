@@ -1,7 +1,7 @@
-import ProjectStatusList from '../components/project_status/List'
-import ProjectStatusCreate from '../components/project_status/Create'
-import ProjectStatusUpdate from '../components/project_status/Update'
-import ProjectStatusShow from '../components/project_status/Show'
+import ProjectStatusList from '../pages/project_status/List'
+import ProjectStatusCreate from '../pages/project_status/Create'
+import ProjectStatusUpdate from '../pages/project_status/Update'
+import ProjectStatusShow from '../pages/project_status/Show'
 
 export default [
   {

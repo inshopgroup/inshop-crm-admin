@@ -1,7 +1,7 @@
-import LanguageList from '../components/language/List'
-import LanguageCreate from '../components/language/Create'
-import LanguageUpdate from '../components/language/Update'
-import LanguageShow from '../components/language/Show'
+import LanguageList from '../pages/language/List'
+import LanguageCreate from '../pages/language/Create'
+import LanguageUpdate from '../pages/language/Update'
+import LanguageShow from '../pages/language/Show'
 
 export default [
   {

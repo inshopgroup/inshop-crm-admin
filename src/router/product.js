@@ -1,7 +1,7 @@
-import ProductList from '../components/product/List'
-import ProductCreate from '../components/product/Create'
-import ProductUpdate from '../components/product/Update'
-import ProductShow from '../components/product/Show'
+import ProductList from '../pages/product/List'
+import ProductCreate from '../pages/product/Create'
+import ProductUpdate from '../pages/product/Update'
+import ProductShow from '../pages/product/Show'
 
 export default [
   {

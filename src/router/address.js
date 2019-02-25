@@ -1,7 +1,7 @@
-import AddressList from '../components/address/List'
-import AddressCreate from '../components/address/Create'
-import AddressUpdate from '../components/address/Update'
-import AddressShow from '../components/address/Show'
+import AddressList from '../pages/address/List'
+import AddressCreate from '../pages/address/Create'
+import AddressUpdate from '../pages/address/Update'
+import AddressShow from '../pages/address/Show'
 
 export default [
   {

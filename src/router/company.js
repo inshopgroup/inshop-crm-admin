@@ -1,7 +1,7 @@
-import CompanyList from '../components/company/List'
-import CompanyCreate from '../components/company/Create'
-import CompanyUpdate from '../components/company/Update'
-import CompanyShow from '../components/company/Show'
+import CompanyList from '../pages/company/List'
+import CompanyCreate from '../pages/company/Create'
+import CompanyUpdate from '../pages/company/Update'
+import CompanyShow from '../pages/company/Show'
 
 export default [
   {

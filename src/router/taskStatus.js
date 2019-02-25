@@ -1,7 +1,7 @@
-import TaskStatusList from '../components/task_status/List'
-import TaskStatusCreate from '../components/task_status/Create'
-import TaskStatusUpdate from '../components/task_status/Update'
-import TaskStatusShow from '../components/task_status/Show'
+import TaskStatusList from '../pages/task_status/List'
+import TaskStatusCreate from '../pages/task_status/Create'
+import TaskStatusUpdate from '../pages/task_status/Update'
+import TaskStatusShow from '../pages/task_status/Show'
 
 export default [
   {

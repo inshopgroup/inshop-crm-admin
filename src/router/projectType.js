@@ -1,7 +1,7 @@
-import ProjectTypeList from '../components/project_type/List'
-import ProjectTypeCreate from '../components/project_type/Create'
-import ProjectTypeUpdate from '../components/project_type/Update'
-import ProjectTypeShow from '../components/project_type/Show'
+import ProjectTypeList from '../pages/project_type/List'
+import ProjectTypeCreate from '../pages/project_type/Create'
+import ProjectTypeUpdate from '../pages/project_type/Update'
+import ProjectTypeShow from '../pages/project_type/Show'
 
 export default [
   {

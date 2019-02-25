@@ -1,7 +1,7 @@
-import OrderStatusList from '../components/order_status/List'
-import OrderStatusCreate from '../components/order_status/Create'
-import OrderStatusUpdate from '../components/order_status/Update'
-import OrderStatusShow from '../components/order_status/Show'
+import OrderStatusList from '../pages/order_status/List'
+import OrderStatusCreate from '../pages/order_status/Create'
+import OrderStatusUpdate from '../pages/order_status/Update'
+import OrderStatusShow from '../pages/order_status/Show'
 
 export default [
   {

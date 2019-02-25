@@ -1,7 +1,7 @@
-import ProjectList from '../components/project/List'
-import ProjectCreate from '../components/project/Create'
-import ProjectUpdate from '../components/project/Update'
-import ProjectShow from '../components/project/Show'
+import ProjectList from '../pages/project/List'
+import ProjectCreate from '../pages/project/Create'
+import ProjectUpdate from '../pages/project/Update'
+import ProjectShow from '../pages/project/Show'
 
 export default [
   {

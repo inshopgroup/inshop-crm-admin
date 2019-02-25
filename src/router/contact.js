@@ -1,7 +1,7 @@
-import ContactList from '../components/contact/List'
-import ContactCreate from '../components/contact/Create'
-import ContactUpdate from '../components/contact/Update'
-import ContactShow from '../components/contact/Show'
+import ContactList from '../pages/contact/List'
+import ContactCreate from '../pages/contact/Create'
+import ContactUpdate from '../pages/contact/Update'
+import ContactShow from '../pages/contact/Show'
 
 export default [
   {

@@ -1,4 +1,4 @@
-import Search from '../components/Search'
+import Search from '../pages/Search'
 
 export default [
   {

@@ -1,7 +1,7 @@
-import ShipmentMethodList from '../components/shipment_method/List'
-import ShipmentMethodCreate from '../components/shipment_method/Create'
-import ShipmentMethodUpdate from '../components/shipment_method/Update'
-import ShipmentMethodShow from '../components/shipment_method/Show'
+import ShipmentMethodList from '../pages/shipment_method/List'
+import ShipmentMethodCreate from '../pages/shipment_method/Create'
+import ShipmentMethodUpdate from '../pages/shipment_method/Update'
+import ShipmentMethodShow from '../pages/shipment_method/Show'
 
 export default [
   {

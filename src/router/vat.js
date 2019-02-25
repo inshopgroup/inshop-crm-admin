@@ -1,7 +1,7 @@
-import VatList from '../components/vat/List'
-import VatCreate from '../components/vat/Create'
-import VatUpdate from '../components/vat/Update'
-import VatShow from '../components/vat/Show'
+import VatList from '../pages/vat/List'
+import VatCreate from '../pages/vat/Create'
+import VatUpdate from '../pages/vat/Update'
+import VatShow from '../pages/vat/Show'
 
 export default [
   {

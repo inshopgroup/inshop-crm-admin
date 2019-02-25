@@ -1,7 +1,7 @@
-import CityList from '../components/city/List'
-import CityCreate from '../components/city/Create'
-import CityUpdate from '../components/city/Update'
-import CityShow from '../components/city/Show'
+import CityList from '../pages/city/List'
+import CityCreate from '../pages/city/Create'
+import CityUpdate from '../pages/city/Update'
+import CityShow from '../pages/city/Show'
 
 export default [
   {

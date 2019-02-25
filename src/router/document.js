@@ -1,7 +1,7 @@
-import DocumentList from '../components/document/List'
-import DocumentCreate from '../components/document/Create'
-import DocumentUpdate from '../components/document/Update'
-import DocumentShow from '../components/document/Show'
+import DocumentList from '../pages/document/List'
+import DocumentCreate from '../pages/document/Create'
+import DocumentUpdate from '../pages/document/Update'
+import DocumentShow from '../pages/document/Show'
 
 export default [
   {

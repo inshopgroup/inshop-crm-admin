@@ -1,4 +1,4 @@
-import Calendar from '../components/Calendar'
+import Calendar from '../pages/Calendar'
 
 export default [
   {

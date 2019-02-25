@@ -1,7 +1,7 @@
-import LabelList from '../components/label/List'
-import LabelCreate from '../components/label/Create'
-import LabelUpdate from '../components/label/Update'
-import LabelShow from '../components/label/Show'
+import LabelList from '../pages/label/List'
+import LabelCreate from '../pages/label/Create'
+import LabelUpdate from '../pages/label/Update'
+import LabelShow from '../pages/label/Show'
 
 export default [
   {

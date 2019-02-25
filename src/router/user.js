@@ -1,7 +1,7 @@
-import UserList from '../components/user/List'
-import UserCreate from '../components/user/Create'
-import UserUpdate from '../components/user/Update'
-import UserShow from '../components/user/Show'
+import UserList from '../pages/user/List'
+import UserCreate from '../pages/user/Create'
+import UserUpdate from '../pages/user/Update'
+import UserShow from '../pages/user/Show'
 
 export default [
   {

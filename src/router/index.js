@@ -40,7 +40,7 @@ import dashboardRoutes from './dashboard'
 import brandRoutes from './brand'
 import channelRoutes from './channel'
 
-import SignIn from '../components/SignIn';
+import SignIn from '../pages/SignIn';
 import MainSlot from '../components/layout/MainSlot';
 import store from '../store';
 

@@ -1,7 +1,7 @@
-import ClientList from '../components/client/List'
-import ClientCreate from '../components/client/Create'
-import ClientUpdate from '../components/client/Update'
-import ClientShow from '../components/client/Show'
+import ClientList from '../pages/client/List'
+import ClientCreate from '../pages/client/Create'
+import ClientUpdate from '../pages/client/Update'
+import ClientShow from '../pages/client/Show'
 
 export default [
   {

@@ -1,7 +1,7 @@
-import BrandList from '../components/brand/List'
-import BrandCreate from '../components/brand/Create'
-import BrandUpdate from '../components/brand/Update'
-import BrandShow from '../components/brand/Show'
+import BrandList from '../pages/brand/List'
+import BrandCreate from '../pages/brand/Create'
+import BrandUpdate from '../pages/brand/Update'
+import BrandShow from '../pages/brand/Show'
 
 export default [
   {

@@ -1,7 +1,7 @@
-import ContactTypeList from '../components/contact_type/List'
-import ContactTypeCreate from '../components/contact_type/Create'
-import ContactTypeUpdate from '../components/contact_type/Update'
-import ContactTypeShow from '../components/contact_type/Show'
+import ContactTypeList from '../pages/contact_type/List'
+import ContactTypeCreate from '../pages/contact_type/Create'
+import ContactTypeUpdate from '../pages/contact_type/Update'
+import ContactTypeShow from '../pages/contact_type/Show'
 
 export default [
   {

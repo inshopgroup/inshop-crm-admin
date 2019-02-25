@@ -1,7 +1,7 @@
-import ChannelList from '../components/channel/List'
-import ChannelCreate from '../components/channel/Create'
-import ChannelUpdate from '../components/channel/Update'
-import ChannelShow from '../components/channel/Show'
+import ChannelList from '../pages/channel/List'
+import ChannelCreate from '../pages/channel/Create'
+import ChannelUpdate from '../pages/channel/Update'
+import ChannelShow from '../pages/channel/Show'
 
 export default [
   {

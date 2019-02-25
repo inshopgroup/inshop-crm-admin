@@ -1,7 +1,7 @@
-import GroupList from '../components/group/List'
-import GroupCreate from '../components/group/Create'
-import GroupUpdate from '../components/group/Update'
-import GroupShow from '../components/group/Show'
+import GroupList from '../pages/group/List'
+import GroupCreate from '../pages/group/Create'
+import GroupUpdate from '../pages/group/Update'
+import GroupShow from '../pages/group/Show'
 
 export default [
   {

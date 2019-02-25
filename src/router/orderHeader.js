@@ -1,7 +1,7 @@
-import OrderHeaderList from '../components/order_header/List'
-import OrderHeaderCreate from '../components/order_header/Create'
-import OrderHeaderUpdate from '../components/order_header/Update'
-import OrderHeaderShow from '../components/order_header/Show'
+import OrderHeaderList from '../pages/order_header/List'
+import OrderHeaderCreate from '../pages/order_header/Create'
+import OrderHeaderUpdate from '../pages/order_header/Update'
+import OrderHeaderShow from '../pages/order_header/Show'
 
 export default [
   {

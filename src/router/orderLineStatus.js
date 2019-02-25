@@ -1,7 +1,7 @@
-import OrderLineStatusList from '../components/order_line_status/List'
-import OrderLineStatusCreate from '../components/order_line_status/Create'
-import OrderLineStatusUpdate from '../components/order_line_status/Update'
-import OrderLineStatusShow from '../components/order_line_status/Show'
+import OrderLineStatusList from '../pages/order_line_status/List'
+import OrderLineStatusCreate from '../pages/order_line_status/Create'
+import OrderLineStatusUpdate from '../pages/order_line_status/Update'
+import OrderLineStatusShow from '../pages/order_line_status/Show'
 
 export default [
   {
