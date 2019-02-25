@@ -66,34 +66,33 @@
 </template>
 
 <script>
-import BarBox from '../components/chart/box/BarBox'
-import DoughnutBox from '../components/chart/box/DoughnutBox'
-import axios from '../interceptor'
+  import BarBox from '../components/chart/box/BarBox'
+  import DoughnutBox from '../components/chart/box/DoughnutBox'
+  import axios from '../interceptor'
 
-export default {
-  components: {DoughnutBox, BarBox},
-  data () {
-    return {
-      data: {},
-    }
-  },
-  mounted () {
-    if (!this.isGranted('ROLE_USER_DASHBOARD')) {
-      this.$router.push('/')
-    }
+  export default {
+    components: {DoughnutBox, BarBox},
+    data() {
+      return {
+        data: {},
+      }
+    },
+    mounted() {
+      if (!this.isGranted('ROLE_USER_DASHBOARD')) {
+        this.$router.push('/')
+      }
 
-    this.getData()
-  },
-  methods: {
-    getData () {
-      let url = process.env.API_URL + '/users/dashboard'
-      // let url = process.env.API_URL + '/users/dashboard?XDEBUG_SESSION_START=PHPSTORM'
+      this.getData()
+    },
+    methods: {
+      getData() {
+        let url = process.env.API_URL + '/users/dashboard'
 
-      axios.get(url)
-        .then(response => {
-          this.data = response.data['hydra:member'][0]
-        })
+        axios.get(url)
+          .then(response => {
+            this.data = response.data['hydra:member'][0]
+          })
+      }
     }
   }
-}
 </script>

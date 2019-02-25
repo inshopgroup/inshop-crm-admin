@@ -34,31 +34,30 @@
 </template>
 
 <script>
+  import * as types from '../store/modules/search/mutation_types'
 
-import * as types from '../store/modules/search/mutation_types'
-
-export default {
-  computed: {
-    q: {
-      set (q) {
-        this.$store.commit('search/' + types.SEARCH_UPDATE_QUERY, q)
+  export default {
+    computed: {
+      q: {
+        set(q) {
+          this.$store.commit('search/' + types.SEARCH_UPDATE_QUERY, q)
+        },
+        get() {
+          return this.$store.getters['search/query']
+        }
       },
-      get () {
-        return this.$store.getters['search/query']
+      results() {
+        let results = this.$store.getters['search/results']
+
+        return results && results.documents || []
       }
     },
-    results () {
-      let results = this.$store.getters['search/results']
-
-      return results && results.documents || []
-    }
-  },
-  methods: {
-    search () {
-      this.$store.dispatch('search/search', this.q)
+    methods: {
+      search() {
+        this.$store.dispatch('search/search', this.q)
+      }
     }
   }
-}
 </script>
 
 <style scoped>

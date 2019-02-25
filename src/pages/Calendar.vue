@@ -31,62 +31,51 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-import moment from 'moment'
-import Vue from 'vue'
+  import {mapActions, mapGetters} from 'vuex'
+  import moment from 'moment'
+  import Vue from 'vue'
 
-Vue.prototype.moment = moment
+  Vue.prototype.moment = moment
 
-export default {
-  computed: {
-    ...mapGetters({
-      tasks: 'task/items',
-    }),
-    tasksPrepared () {
-      this.tasks.forEach((task, index) => {
-        task.date = moment(task.deadline).format('YYYY/M/D')
-        task.title = task.name
-      })
+  export default {
+    computed: {
+      ...mapGetters({
+        tasks: 'task/items',
+      }),
+      tasksPrepared() {
+        this.tasks.forEach((task, index) => {
+          task.date = moment(task.deadline).format('YYYY/M/D')
+          task.title = task.name
+        })
 
-      return this.tasks
-    }
-  },
-  created () {
-    this.load(moment().format('M/Y'));
-  },
-  methods: {
-    ...mapActions({
-      getTasks: 'task/getItems'
-    }),
-    load (date) {
-      this.getTasks('/tasks'
-        + '?deadline[after]=' + moment(date, 'M/Y').format('DD-MM-YYYY')
-        + '&deadline[before]=' + moment(date, 'M/Y').endOf('month').add(1, 'day').format('DD-MM-YYYY')
-        + '&order[deadline]=asc'
-        + '&status.id[]=1'
-        + '&status.id[]=2'
-        + '&pagination[itemsPerPage]=500'
-      )
+        return this.tasks
+      }
+    },
+    created() {
+      this.load(moment().format('M/Y'));
+    },
+    methods: {
+      ...mapActions({
+        getTasks: 'task/getItems'
+      }),
+      load(date) {
+        this.getTasks('/tasks'
+          + '?deadline[after]=' + moment(date, 'M/Y').format('DD-MM-YYYY')
+          + '&deadline[before]=' + moment(date, 'M/Y').endOf('month').add(1, 'day').format('DD-MM-YYYY')
+          + '&order[deadline]=asc'
+          + '&status.id[]=1'
+          + '&status.id[]=2'
+          + '&pagination[itemsPerPage]=500'
+        )
+      }
     }
   }
-}
 </script>
 
 <style scoped>
   p.desc {
     width: 370px;
   }
-
-  /*p.assignee {*/
-    /*background: rgb(242, 149, 67);*/
-    /*padding: 3px 10px;*/
-    /*border-radius: 5px;*/
-  /*}*/
-
-  /*p.assignee a {*/
-    /*color: #ffffff !important;*/
-    /*font-size: 14px;*/
-  /*}*/
 
   p.desc a {
     color: #9b9b9b;
