@@ -1,18 +1,18 @@
 <template>
-  <form @submit.prevent="updateTranslations">
+  <form @submit.prevent="handleSubmit">
     <section class="content">
       <item-errors :entity="'category'"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li :class="{active: i === 0}" v-for="(translation, i) in translations" :key="translation.language.id">
-            <a :href="'#' + translation.language.code" data-toggle="tab" aria-expanded="false">{{translation.language.name}}</a>
+          <li :class="{active: i === 0}" v-for="(language, i) in languages" :key="'header_' + language.id">
+            <a :href="'#' + language.code" data-toggle="tab" aria-expanded="false">{{language.name}}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div :class="['tab-pane', {active: i === 0}]" :id="translation.language.code" v-for="(translation, i) in translations" :key="translation.language.id">
-            <form-input :item="translation" :errors="errors" :property="'name'" :label="'category.name'" @fieldUpdated="updateValue"></form-input>
-            <form-input :item="translation" :errors="errors" :property="'description'" :label="'category.description'" @fieldUpdated="updateValue"></form-input>
+          <div :class="['tab-pane', {active: i === 0}]" :id="language.code" v-for="(language, i) in languages" :key="'content_' + language.id">
+            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="'category.name'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
+            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="'category.description'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
           </div>
         </div>
       </div>
@@ -38,9 +38,11 @@
   import FormCheckbox from "../../components/layout/form/FormCheckbox";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
   import FormNumber from "../../components/layout/form/FormNumber";
+  import FormTextarea from "../../components/layout/form/FormTextarea";
 
   export default {
     components: {
+      FormTextarea,
       FormNumber,
       ItemErrors,
       FormCheckbox,
@@ -57,6 +59,9 @@
         type: Object,
         required: true
       }
+    },
+    beforeDestroy() {
+      this.reset()
     },
     computed: {
       ...mapGetters({
@@ -84,13 +89,9 @@
       this.getLanguages()
     },
     methods: {
-      updateTranslations() {
-        this.item.translations = this.translations.filter(translation => {
-          return translation.name && translation.name !== ''
-        })
-
-        this.handleSubmit(this.item)
-      },
+      ...mapActions({
+        reset: 'category/reset'
+      }),
       findItem(language) {
         let translation = {
           language: language,
@@ -106,6 +107,13 @@
       },
       updateValue(property, value) {
         this.$store.commit('category/CATEGORY_UPDATE_ITEM', {[property]: value})
+      },
+      updateTranslatedValue(property, value, language) {
+        this.$store.commit('category/CATEGORY_UPDATE_ITEM_TRANSLATION', {
+          property: property,
+          value: value,
+          language: language,
+        })
       },
       ...mapActions({
         getLanguages: 'language/getItems',

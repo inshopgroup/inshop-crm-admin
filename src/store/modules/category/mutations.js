@@ -8,6 +8,13 @@ export default {
   [types.UPDATE_ITEM] (state, item) {
     state.item = Object.assign({}, state.item, item)
   },
+  [types.UPDATE_ITEM_TRANSLATION] (state, params) {
+    state.item.translations.some(translation => {
+      if (translation.language.code === params.language.code) {
+        translation[params.property] = params.value
+      }
+    })
+  },
   [types.SET_ITEMS] (state, items) {
     Object.assign(state, { items })
   },

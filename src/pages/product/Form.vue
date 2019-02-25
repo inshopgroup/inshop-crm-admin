@@ -1,18 +1,18 @@
 <template>
-  <form @submit.prevent="updateTranslations">
+  <form @submit.prevent="handleSubmit">
     <section class="content">
       <item-errors :entity="'product'"></item-errors>
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li :class="{active: i === 0}" v-for="(translation, i) in translations" :key="translation.language.id">
-            <a :href="'#' + translation.language.code" data-toggle="tab" aria-expanded="false">{{translation.language.name}}</a>
+          <li :class="{active: i === 0}" v-for="(language, i) in languages" :key="'header_' + language.id">
+            <a :href="'#' + language.code" data-toggle="tab" aria-expanded="false">{{language.name}}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div :class="['tab-pane', {active: i === 0}]" :id="translation.language.code" v-for="(translation, i) in translations" :key="translation.language.id">
-            <form-input :item="translation" :errors="errors" :property="'name'" :label="'product.name'" @fieldUpdated="updateValue"></form-input>
-            <form-textarea :item="translation" :errors="errors" :property="'description'" :label="'product.description'" @fieldUpdated="updateValue"></form-textarea>
+          <div :class="['tab-pane', {active: i === 0}]" :id="language.code" v-for="(language, i) in languages" :key="'content_' + language.id">
+            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="'product.name'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
+            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="'product.description'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
           </div>
         </div>
       </div>
@@ -105,13 +105,6 @@
       ...mapActions({
         reset: 'product/reset'
       }),
-      updateTranslations() {
-        this.item.translations = this.translations.filter(translation => {
-          return translation.name && translation.name !== ''
-        })
-
-        this.handleSubmit(this.item)
-      },
       findItem(language) {
         let translation = {
           language: language,
@@ -127,6 +120,13 @@
       },
       updateValue(property, value) {
         this.$store.commit('product/PRODUCT_UPDATE_ITEM', {[property]: value})
+      },
+      updateTranslatedValue(property, value, language) {
+        this.$store.commit('product/PRODUCT_UPDATE_ITEM_TRANSLATION', {
+          property: property,
+          value: value,
+          language: language,
+        })
       },
       ...mapActions({
         getLanguages: 'language/getItems',
@@ -180,17 +180,12 @@
 
         this.item.images = this.item.images || []
         this.item.images.push(image)
-        // this.item.images.push('/images/' + JSON.parse(data.xhr.response).id)
-        // console.log('uploaded', this.item.images)
       },
       removed(data) {
         this.item.images = this.item.images || []
         this.item.images = this.item.images.filter(function (el) {
           return el.id !== JSON.parse(data.xhr.response).id
         });
-        // console.log('removed data', data)
-        // console.log('removed data', JSON.parse(data.xhr.response).id)
-        // console.log('removed', this.item.images)
       }
     }
   }
