@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     backToList (item) {
-      this.$router.push({ name: this.entity + 'List' })
+      this.$router.go(-1)
     },
     editItem (item) {
       this.$router.push({ name: this.entity + 'Update', params: { id: this.item.id } })

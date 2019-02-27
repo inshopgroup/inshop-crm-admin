@@ -69,6 +69,9 @@
     },
     data: function () {
       return {
+        orderBy: {},
+        initFilters: {},
+        initialPage	: 1,
         dateColumns: {
           'columnCreatedAt': 'createdAt',
           'columnUpdatedAt': 'updatedAt',
@@ -78,6 +81,23 @@
           'columnTranslatedName': 'translations.name',
           'columnParentTranslatedName': 'parent.translations.name'
         },
+      }
+    },
+    created () {
+      let query = this.$route.query
+
+      this.initFilters = query
+
+      if (query.page) {
+        this.initialPage = query.page
+      }
+
+      if (query['orderBy.ascending']) {
+        this.orderBy.ascending = query['orderBy.ascending']
+      }
+
+      if (query['orderBy.column']) {
+        this.orderBy.column = query['orderBy.column']
       }
     },
     computed: {
@@ -117,10 +137,15 @@
           perPageValues: [],
           templates: this.templates,
           headings: this.headings,
+          initFilters: this.initFilters,
+          initialPage: this.initialPage,
+          orderBy: this.orderBy,
           requestFunction: (params) => {
             return new Promise((resolve, reject) => {
-              let queryParams = {
-                page: params.page,
+              let queryParams = {}
+
+              if (params.page !== 1) {
+                queryParams.page = params.page
               }
 
               // filtering
@@ -144,6 +169,8 @@
                 }
               })
 
+              let queryParamsUrl = Object.assign({}, queryParams)
+
               // Sorting
               if (typeof params.orderBy !== 'undefined') {
                 let key
@@ -157,6 +184,9 @@
                 }
 
                 queryParams['order[' + key + ']'] = params.ascending === 1 ? 'ASC' : 'DESC'
+
+                queryParamsUrl['orderBy.ascending'] = params.ascending
+                queryParamsUrl['orderBy.column'] = key
               }
 
               // clear error
@@ -164,6 +194,8 @@
                 this.path + '/' + decamelize(this.entity).toUpperCase() + '_SET_ERROR',
                 null
               )
+
+              this.$router.push({query: queryParamsUrl})
 
               axios.get(process.env.API_URL + '/' + this.route, {params: queryParams})
                 .then(response => {
