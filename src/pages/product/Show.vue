@@ -66,7 +66,7 @@
             <product-sell-prices :productSellPrices="productSellPrices" :product="item.id" @reloadProductSellPrices="loadProductSellPrices"></product-sell-prices>
           </div>
           <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Product'" :path="'product'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Product'" :path="'product'" :key="historyKey"></history>
           </div>
         </div>
       </div>
@@ -91,6 +91,11 @@
       History,
       ItemErrors,
       ItemShowActions
+    },
+    data () {
+      return {
+        historyKey: 1,
+      }
     },
     computed: mapGetters({
       item: 'product/item',

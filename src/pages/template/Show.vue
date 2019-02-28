@@ -21,7 +21,7 @@
             <files-table :files="item.files"></files-table>
           </div>
           <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Template'" :path="'template'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Template'" :path="'template'" :key="historyKey"></history>
           </div>
         </div>
       </div>
@@ -41,7 +41,11 @@
 
   export default {
     components: {History, ItemErrors, ItemShowActions, TemplateInfo, FilesTable},
-
+    data () {
+      return {
+        historyKey: 1,
+      }
+    },
     computed: mapGetters({
       item: 'template/item'
     }),

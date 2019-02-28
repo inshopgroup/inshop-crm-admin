@@ -86,7 +86,7 @@
 
             if (_this.$route.params.id) {
               axios.get(process.env.API_URL + '/templates/' + _this.$route.params.id + '/files')
-                .then(response => response.json())
+                .then(response => response.data)
                 .then((data) => {
 
                   data['hydra:member'].forEach((file) => {

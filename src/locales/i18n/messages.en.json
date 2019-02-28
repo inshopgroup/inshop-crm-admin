@@ -524,6 +524,7 @@
     "saved": "Document {document} was saved",
     "id": "ID",
     "name": "Name",
+    "clients": "Clients",
     "projects": "Projects",
     "files": "Files",
     "columnCreatedAt": "Created at",

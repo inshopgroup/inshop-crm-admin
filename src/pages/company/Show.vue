@@ -25,7 +25,7 @@
             <client-addresses :addresses="item.addresses" :parent="{companies: [this.item]}" @addressesChanged="loadItem"></client-addresses>
           </div>
           <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Company'" :path="'company'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Company'" :path="'company'" :key="historyKey"></history>
           </div>
         </div>
       </div>
@@ -52,6 +52,11 @@
       ItemErrors,
       CompanyInfo,
       ItemShowActions,
+    },
+    data () {
+      return {
+        historyKey: 1,
+      }
     },
     computed: mapGetters({
       item: 'company/item',

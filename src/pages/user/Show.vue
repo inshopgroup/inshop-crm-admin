@@ -61,7 +61,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'User'" :path="'user'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'User'" :path="'user'" :key="historyKey"></history>
           </div>
         </div>
       </div>
@@ -79,6 +79,11 @@
 
   export default {
     components: {History, ItemErrors, ItemShowActions},
+    data () {
+      return {
+        historyKey: 1,
+      }
+    },
     computed: {
       ...mapGetters({
         item: 'user/item'

@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'ShipmentMethod'" :path="'shipment_method'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'ShipmentMethod'" :path="'shipment_method'" :key="historyKey"></history>
           </div>
         </div>
       </div>
@@ -62,7 +62,11 @@
 
   export default {
     components: {History, ItemErrors, ItemShowActions},
-
+    data () {
+      return {
+        historyKey: 1,
+      }
+    },
     computed: mapGetters({
       item: 'shipment_method/item'
     }),

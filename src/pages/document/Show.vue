@@ -16,13 +16,13 @@
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
-            <template-info :item="item"></template-info>
+            <document-info :item="item"></document-info>
           </div>
           <div class="tab-pane" id="files">
             <files-table :files="item.files"></files-table>
           </div>
           <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Document'" :path="'document'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Document'" :path="'document'" :key="historyKey"></history>
           </div>
         </div>
       </div>
@@ -36,12 +36,17 @@
   import {mapActions, mapGetters} from 'vuex'
   import ItemShowActions from '../../components/layout/ItemShowActions'
   import ItemErrors from '../../components/layout/errors/ItemErrors'
-  import TemplateInfo from '../template/TemplateInfo'
   import FilesTable from '../template/FilesTable'
   import History from '../../components/History'
+  import DocumentInfo from "./DocumentInfo";
 
   export default {
-    components: {History, FilesTable, TemplateInfo, ItemErrors, ItemShowActions},
+    components: {DocumentInfo, History, FilesTable, ItemErrors, ItemShowActions},
+    data () {
+      return {
+        historyKey: 1,
+      }
+    },
     computed: mapGetters({
       item: 'document/item'
     }),

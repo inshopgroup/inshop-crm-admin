@@ -17,7 +17,7 @@
             <project-info :item="item"></project-info>
           </div>
           <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Project'" :path="'project'"></history>
+            <history :id="parseInt($route.params.id)" :entity="'Project'" :path="'project'" :key="historyKey"></history>
           </div>
         </div>
       </div>
@@ -36,6 +36,11 @@
 
   export default {
     components: {History, ProjectInfo, ItemErrors, ItemShowActions},
+    data () {
+      return {
+        historyKey: 1,
+      }
+    },
     computed: {
       ...mapGetters({
         item: 'project/item'

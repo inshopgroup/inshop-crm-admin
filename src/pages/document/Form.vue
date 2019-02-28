@@ -6,7 +6,7 @@
       <div class="box box-primary">
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" :label="'document.name'" @fieldUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'client'" :option-property="'client'" :label="'document.client'" @fieldUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'client'" :option-property="'client'" :label="'document.clients'" :multiple="true" @fieldUpdated="updateValue"></form-select>
           <form-select :item="item" :errors="errors" :property="'projects'" :option-property="'project'" :label="'document.projects'" :multiple="true" @fieldUpdated="updateValue"></form-select>
 
           <div class="form-group">
@@ -87,7 +87,7 @@
 
             if (_this.$route.params.id) {
               axios.get(process.env.API_URL + '/documents/' + _this.$route.params.id + '/files')
-                .then(response => response.json())
+                .then(response => response.data)
                 .then((data) => {
 
                   data['hydra:member'].forEach((file) => {
