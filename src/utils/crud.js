@@ -9,6 +9,8 @@ export const getItem = ({ dispatch, commit }, namespace, id) => {
     .then(response => response.data)
     .then(data => {
       commit(namespace + '_SET_ITEM', data)
+
+      return data
     })
     .catch(e => {
       commit(namespace + '_SET_ERROR', e.message)
@@ -26,6 +28,8 @@ export const getItems = ({ dispatch, commit }, namespace, url) => {
     .then(response => response.data)
     .then(data => {
       commit(namespace + '_SET_ITEMS', data['hydra:member'])
+
+      return data['hydra:member']
     })
     .catch(e => {
       commit(namespace + '_SET_ERROR', e.message)
@@ -37,12 +41,6 @@ export const create = ({ dispatch, commit, state }, namespace) => {
 
   return axios.post(API_HOST + '/' + pluralize(namespace.toLowerCase()), state.item)
     .then(response => response.data)
-    .then(data => {
-      return data
-    })
-    .catch(e => {
-      throw e.response.data
-    })
     .catch(data => {
       if (data.violations) {
         let errors = {}
@@ -66,12 +64,6 @@ export const update = ({ dispatch, commit, state }, namespace) => {
 
   return axios.put(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + state.item.id, state.item)
     .then(response => response.data)
-    .then(data => {
-      return data
-    })
-    .catch(e => {
-      throw e.response.data
-    })
     .catch(data => {
       if (data.violations) {
         let errors = {}
@@ -92,10 +84,10 @@ export const update = ({ dispatch, commit, state }, namespace) => {
 
 export const remove = ({ dispatch, commit }, namespace, item) => {
   return axios.delete(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + item.id)
-    .then(() => {
-    })
-    .catch((e) => {
+    .catch(e => {
       commit(namespace + '_SET_ERROR', e.message)
+
+      throw e
     })
 }
 

@@ -1,49 +1,76 @@
 <template>
   <v-select
-          v-model="filter"
-          id="task_status"
-          :options="taskStatuses"
-          label="name"
-          :multiple="true"
-          @input="filterTable"
+      :value="value"
+      id="task_status"
+      :options="options"
+      label="name"
+      :multiple="true"
+      @input="filterTable"
   ></v-select>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import { Event } from 'vue-tables-2'
+  import {mapActions} from 'vuex'
+  import {Event} from 'vue-tables-2'
 
-export default {
-  name: 'TaskStatusFilter',
-  data:function () {
-    return {
-      filter: []
-    }
-  },
-  mounted () {
-    this.getTaskStatuses()
-  },
-  computed: {
-    taskStatuses () {
-      return this.$store.getters['task_status/items'] || []
+  export default {
+    name: 'TaskStatusFilter',
+    data: function () {
+      return {
+        value: [],
+        initialised: 1
+      }
     },
-    data () {
-      let ids = []
+    created() {
+      this.getOptions()
+        .then(options => {
+          let selected = []
 
-      this.filter.forEach(item => {
-        ids.push(item.id)
-      })
+          if (this.$route.query['status.id']) {
+            let params = []
 
-      return ids
-    }
-  },
-  methods: {
-    ...mapActions({
-      getTaskStatuses: 'task_status/getItems'
-    }),
-    filterTable () {
-      Event.$emit('vue-tables.filter::status.id', this.data)
+            if (this.$route.query['status.id'].length > 1) {
+              params = this.$route.query['status.id']
+            } else {
+              params.push(this.$route.query['status.id'])
+            }
+
+            params.forEach(id => {
+              options.some(element => {
+                if (element.id === parseInt(id)) {
+                  selected.push(element)
+                }
+              })
+            })
+          }
+
+          this.value = selected
+        })
+    },
+    computed: {
+      options() {
+        return this.$store.getters['task_status/items'] || []
+      }
+    },
+    methods: {
+      ...mapActions({
+        getOptions: 'task_status/getItems',
+      }),
+      filterTable(data) {
+        if (this.initialised > 2) {
+          let ids = []
+
+          if (data.length) {
+            data.forEach(item => {
+              ids.push(item.id)
+            })
+          }
+
+          Event.$emit('vue-tables.filter::status.id', ids)
+        }
+
+        this.initialised++
+      }
     }
   }
-}
 </script>
