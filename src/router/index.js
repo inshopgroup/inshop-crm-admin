@@ -39,6 +39,7 @@ import taskStatusRoutes from './taskStatus'
 import dashboardRoutes from './dashboard'
 import brandRoutes from './brand'
 import channelRoutes from './channel'
+import textRoutes from './text'
 
 import SignIn from '../pages/SignIn';
 import MainSlot from '../components/layout/MainSlot';
@@ -62,6 +63,7 @@ const router = new VueRouter({
       path: '/',
       component: MainSlot,
       children: [
+        ...textRoutes,
         ...backupRoutes,
         ...labelRoutes,
         ...paymentTypeRoutes,

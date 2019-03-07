@@ -77,12 +77,11 @@
 import HeaderSlot from '../../components/layout/HeaderSlot'
 import FooterSlot from '../../components/layout/FooterSlot'
 import LeftSidebarSlot from '../../components/layout/LeftSidebarSlot'
-import ControlSidebarSlot from '../../components/layout/ControlSidebarSlot'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
 
 export default {
-  components: {ModalNotDoneTasks, LeftSidebarSlot, ControlSidebarSlot, FooterSlot, HeaderSlot},
+  components: {ModalNotDoneTasks, LeftSidebarSlot, FooterSlot, HeaderSlot},
   name: 'MainSlot',
   data () {
     return {

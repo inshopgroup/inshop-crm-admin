@@ -44,12 +44,14 @@ import backup from './modules/backup/'
 import backup_status from './modules/backup_status/'
 import backup_type from './modules/backup_type/'
 import label from './modules/label/'
+import text from './modules/text/'
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   modules: {
+    text,
     backup,
     backup_status,
     backup_type,

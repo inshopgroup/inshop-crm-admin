@@ -94,6 +94,8 @@
     "calendar": "Calendar"
   },
   "menu": {
+    "cms": "CMS",
+    "text": "Texts",
     "dictionaries": "Dictionaries",
     "maintenance": "Maintenance",
     "backup": "Backups",
@@ -1067,6 +1069,28 @@
     "active_to": "Active to",
     "createdAt": "Created at",
     "updatedAt": "Updated at"
+  },
+  "text": {
+    "list": "Text list",
+    "add": "Add text",
+    "edit": "Edit text \"{entity}\"",
+    "show": "Text \"{entity}\"",
+    "id": "ID",
+    "title": "Title",
+    "slug": "Slug",
+    "content": "Content",
+    "seoTitle": "SEO title",
+    "seoDescription": "SEO Description",
+    "seoKeywords": "SEO keywords",
+    "columnCreatedAt": "Created at",
+    "columnUpdatedAt": "Updated at",
+    "createdAt": "Created at",
+    "updatedAt": "Updated at",
+    "updatedBy": "Updated by",
+    "actions": "Actions",
+    "tabs": {
+      "general": "General information"
+    }
   },
   "history": {
     "id": "ID",

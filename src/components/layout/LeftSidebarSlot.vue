@@ -69,6 +69,18 @@
         </ul>
       </li>
 
+      <li class="treeview" v-if="isGranted('ROLE_TEXT_LIST')">
+        <a href="#">
+          <i class="fa fa-edit"></i> <span>{{$t('menu.cms')}}</span>
+          <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+          <li v-if="isGranted('ROLE_TEXT_LIST')"><router-link :to="{ name: 'TextList' }"><i class="fa fa-file-text-o"></i> <span>{{$t('menu.text')}}</span></router-link></li>
+        </ul>
+      </li>
+
       <li class="treeview"
           v-if="isGranted('ROLE_PROJECT_LIST') || isGranted('ROLE_TASK_LIST')"
       >
