@@ -12,8 +12,9 @@ const actions = {
     const link = url.includes(API_PATH) ? API_HOST + url : API_HOST + API_PATH + url
 
     axios.get(link)
-      .then((response) => {
-        commit(types.SEARCH_UPDATE_RESULTS, response.data)
+      .then(response => {
+        commit(types.SEARCH_UPDATE_RESULTS, response.data['hydra:member'])
+        commit(types.SEARCH_UPDATE_TOTAL, response.data['hydra:totalItems'])
         router.push({name: 'Search'})
       })
       .catch((error) => {
@@ -27,6 +28,7 @@ function initialState () {
     error: null,
     query: null,
     results: [],
+    total: 0,
   }
 }
 
@@ -35,6 +37,7 @@ const state = initialState()
 const getters = {
   error: state => state.error,
   results: state => state.results,
+  total: state => state.total,
   query: state => state.query,
 }
 
@@ -44,6 +47,9 @@ const mutations = {
   },
   [types.SEARCH_UPDATE_RESULTS] (state, results) {
     state.results = results
+  },
+  [types.SEARCH_UPDATE_TOTAL] (state, total) {
+    state.total = total
   },
   [types.SEARCH_ERROR_CHANGE] (state, error) {
     state.error = error

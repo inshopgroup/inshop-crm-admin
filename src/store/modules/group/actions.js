@@ -2,11 +2,12 @@ import * as crud from '../../../utils/crud'
 import {namespace} from "./mutation_types";
 import axios from "../../../interceptor";
 import {API_HOST} from "../../../config/_entrypoint";
+import pluralize from "pluralize";
 
 export const getItem = ({ dispatch, commit }, id) => {
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.get(API_HOST + id)
+  return axios.get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
     .then(response => response.data)
     .then(data => {
 

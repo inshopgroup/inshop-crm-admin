@@ -19,12 +19,12 @@
       <div class="box box-solid" v-for="result in results">
         <div class="box-header with-border">
           <i class="fa fa-text-width"></i>
-          <h3 class="box-title">{{result._data.type}}</h3>
+          <h3 class="box-title">{{result.type}}</h3>
         </div>
         <div class="box-body">
-          <router-link :to="{ name: result._data.type + 'Show', params: { id: result._data.iri }}">
+          <router-link :to="{ name: result.type + 'Show', params: { id: result.entityId }}">
             <blockquote>
-              <p>{{result._data.text}}</p>
+              <p>{{result.text}}</p>
             </blockquote>
           </router-link>
         </div>
@@ -47,9 +47,10 @@
         }
       },
       results() {
-        let results = this.$store.getters['search/results']
-
-        return results && results.documents || []
+        return this.$store.getters['search/results']
+      },
+      total() {
+        return this.$store.getters['search/total']
       }
     },
     methods: {
