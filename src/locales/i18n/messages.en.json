@@ -551,6 +551,8 @@
   "search": {
     "list": "Search results",
     "keyword": "Keyword",
+    "q": "Keyword",
+    "type": "Type",
     "show": "Show"
   },
   "address": {

@@ -217,27 +217,17 @@
 </template>
 
 <script>
-import * as types from '../../store/modules/search/mutation_types'
-
-export default {
-  name: 'LeftSidebarSlot',
-  data () {
-    return {}
-  },
-  computed: {
-    q: {
-      set (q) {
-        this.$store.commit('search/' + types.SEARCH_UPDATE_QUERY, q)
-      },
-      get () {
-        return this.$store.getters['search/query']
+  export default {
+    name: 'LeftSidebarSlot',
+    data() {
+      return {
+        q: null
+      }
+    },
+    methods: {
+      search() {
+        this.$router.push({name: 'Search', query: {q: this.q}})
       }
     }
-  },
-  methods: {
-    search () {
-      this.$store.dispatch('search/search', this.q)
-    }
   }
-}
 </script>
