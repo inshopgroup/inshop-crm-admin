@@ -32,7 +32,8 @@
 </template>
 
 <script>
-  import axios from '../interceptor'
+  import moment from 'moment'
+  import {mapActions, mapGetters} from 'vuex'
 
   export default {
     name: 'History',
@@ -53,21 +54,24 @@
     },
     data () {
       return {
-        logs: []
+        moment: moment,
       }
     },
     mounted () {
-      this.load()
+      this.getItems({
+        entity: this.entity,
+        id: this.id,
+      })
+    },
+    computed: {
+      ...mapGetters({
+        logs: 'history/items',
+      })
     },
     methods: {
-      load () {
-        let url = process.env.API_URL + '/history/' + this.entity + '/' + this.id
-
-        axios.get(url)
-          .then(response => {
-            this.logs = response.data
-          })
-      }
+      ...mapActions({
+        getItems: 'history/getItems',
+      }),
     }
   }
 </script>

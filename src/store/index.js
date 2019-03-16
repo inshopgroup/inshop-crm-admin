@@ -21,6 +21,7 @@ import payment_type from './modules/payment_type/'
 import shipment_method from './modules/shipment_method/'
 import role from './modules/role/'
 import group from './modules/group/'
+import history from './modules/history/'
 import user from './modules/user/'
 import brand from './modules/brand/'
 import channel from './modules/channel/'
@@ -91,6 +92,7 @@ export default new Vuex.Store({
     payment_type,
     role,
     group,
+    history,
     user,
     label,
     module
