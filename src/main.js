@@ -30,7 +30,7 @@ import vSelect from 'vue-select/dist/vue-select'
 
 import 'vue-event-calendar/dist/style.css' //^1.1.10, CSS has been extracted as one file, so you can easily update it.
 import vueEventCalendar from 'vue-event-calendar'
-import 'vue2-dropzone/dist/vue2Dropzone.css'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 import {ServerTable} from 'vue-tables-2';
 import Toastr from 'vue-toastr';
 import 'vue-toastr/src/vue-toastr.scss'
