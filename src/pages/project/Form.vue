@@ -27,11 +27,10 @@
   import FormInput from "../../components/layout/form/FormInput";
   import FormSelect from "../../components/layout/form/FormSelect";
   import FormSelectAutocomplete from "../../components/layout/form/FormSelectAutocomplete";
-  import FormDatepicker from "../../components/layout/form/FormDatepicker";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
   export default {
-    components: {ItemErrors, FormDatepicker, FormSelectAutocomplete, FormSelect, FormInput, ItemEditActions},
+    components: {ItemErrors, FormSelectAutocomplete, FormSelect, FormInput, ItemEditActions},
     props: {
       handleSubmit: {
         type: Function,

@@ -46,7 +46,7 @@
 
           <div class="row">
             <div class="col-md-6">
-              <form-datepicker :item="item" :errors="errors" :property="'dateOfInvoice'" :label="'invoice_header.dateOfInvoice'" @fieldUpdated="updateValue"></form-datepicker>
+              <form-date-picker :item="item" :errors="errors" :property="'dateOfInvoice'" :label="'invoice_header.dateOfInvoice'" @fieldUpdated="updateValue"></form-date-picker>
             </div>
             <div class="col-md-6">
               <form-input :item="item" :errors="errors" :property="'maturity'" :label="'invoice_header.maturity'" @fieldUpdated="updateValue"></form-input>
@@ -55,7 +55,7 @@
 
           <div class="row">
         <div class="col-md-6">
-          <form-datepicker :item="item" :errors="errors" :property="'dateOfSale'" :label="'invoice_header.dateOfSale'" @fieldUpdated="updateValue"></form-datepicker>
+          <form-date-picker :item="item" :errors="errors" :property="'dateOfSale'" :label="'invoice_header.dateOfSale'" @fieldUpdated="updateValue"></form-date-picker>
         </div>
         <div class="col-md-6">
           <form-select :item="item" :errors="errors" :property="'orderHeader'" :option-property="'order_header'" :label="'invoice_header.orderHeader.number'" @fieldUpdated="updateValue"></form-select>
@@ -125,15 +125,15 @@
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import FormInput from "../../components/layout/form/FormInput";
   import FormSelect from "../../components/layout/form/FormSelect";
-  import FormDatepicker from "../../components/layout/form/FormDatepicker";
   import FormNumber from "../../components/layout/form/FormNumber";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
+  import FormDatePicker from "../../components/layout/form/date/FormDatePicker";
 
   export default {
     components: {
+      FormDatePicker,
       ItemErrors,
       FormNumber,
-      FormDatepicker,
       FormSelect,
       FormInput,
       ItemEditActions

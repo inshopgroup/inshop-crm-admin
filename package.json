@@ -31,6 +31,7 @@
     "vue": "^2.6.7",
     "vue-body-class": "^2.0.0-beta.2",
     "vue-chartjs": "^3.4.0",
+    "vue-ctk-date-time-picker": "^2.0.9",
     "vue-event-calendar": "^1.5.2",
     "vue-i18n": "^8.8.2",
     "vue-password": "^1.1.2",
@@ -40,7 +41,6 @@
     "vue-toastr": "^2.0.16",
     "vue2-dropzone": "^3.5.2",
     "vue2-sentry": "^1.2.1",
-    "vuejs-datepicker": "^1.5.4",
     "vuex": "^3.1.0",
     "xregexp": "^4.2.4"
   },

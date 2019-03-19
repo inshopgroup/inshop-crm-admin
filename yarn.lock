@@ -2138,6 +2138,13 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
+d@1:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/d/-/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
+  integrity sha1-dUu1v+VUUdpppYuU1F9MWwRi1Y8=
+  dependencies:
+    es5-ext "^0.10.9"
+
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/dashdash/-/dashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -2536,6 +2543,32 @@ es-to-primitive@^1.1.1:
     is-callable "^1.1.1"
     is-date-object "^1.0.1"
     is-symbol "^1.0.1"
+
+es5-ext@^0.10.35, es5-ext@^0.10.9, es5-ext@~0.10.14:
+  version "0.10.49"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.49.tgz#059a239de862c94494fec28f8150c977028c6c5e"
+  integrity sha512-3NMEhi57E31qdzmYp2jwRArIUsj1HI/RxbQ4bgnSB+AIKIxsAmTiK83bYMifIcpWvEc3P1X30DhUKOqEtF/kvg==
+  dependencies:
+    es6-iterator "~2.0.3"
+    es6-symbol "~3.1.1"
+    next-tick "^1.0.0"
+
+es6-iterator@~2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/es6-iterator/-/es6-iterator-2.0.3.tgz#a7de889141a05a94b0854403b2d0a0fbfa98f3b7"
+  integrity sha1-p96IkUGgWpSwhUQDstCg+/qY87c=
+  dependencies:
+    d "1"
+    es5-ext "^0.10.35"
+    es6-symbol "^3.1.1"
+
+es6-symbol@^3.1.0, es6-symbol@^3.1.1, es6-symbol@~3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/es6-symbol/-/es6-symbol-3.1.1.tgz#bf00ef4fdab6ba1b46ecb7b629b4c7ed5715cc77"
+  integrity sha1-vwDvT9q2uhtG7Le2KbTH7VcVzHc=
+  dependencies:
+    d "1"
+    es5-ext "~0.10.14"
 
 escape-html@~1.0.3:
   version "1.0.3"
@@ -4405,6 +4438,13 @@ module-deps@^6.0.0:
     through2 "^2.0.0"
     xtend "^4.0.0"
 
+moment-range@^4.0.1:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/moment-range/-/moment-range-4.0.2.tgz#f7c3863df2a1ed7fd1822ba5a7bcf53a78701be9"
+  integrity sha512-n8sceWwSTjmz++nFHzeNEUsYtDqjgXgcOBzsHi+BoXQU2FW+eU92LUaK8gqOiSu5PG57Q9sYj1Fz4LRDj4FtKA==
+  dependencies:
+    es6-symbol "^3.1.0"
+
 moment@^2.10.2, moment@^2.22.2, moment@^2.9.0:
   version "2.22.2"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
@@ -4485,6 +4525,11 @@ negotiator@0.6.1:
 neo-async@^2.5.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.5.1.tgz#acb909e327b1e87ec9ef15f41b8a269512ad41ee"
+
+next-tick@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
+  integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
 
 nice-try@^1.0.4:
   version "1.0.4"
@@ -6737,6 +6782,11 @@ uuid@^3.0.1, uuid@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
+v-click-outside@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/v-click-outside/-/v-click-outside-2.0.2.tgz#7312e80ef72b979ff5144a08f36ebab24b5a2f8b"
+  integrity sha512-4dDekJloLi7WbVUM6IC/Gdv8qYaE+a2LY3sLUkzJc2WBf92kL0VPHGCTxVkTzZjHLVdkcjX0haiLXofrhZfHXA==
+
 v8-compile-cache@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.0.2.tgz#a428b28bb26790734c4fc8bc9fa106fccebf6a6c"
@@ -6783,6 +6833,16 @@ vue-body-class@^2.0.0-beta.2:
 vue-chartjs@^3.4.0:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.4.0.tgz#669e4453be0676605fc9290b3b581867ccd15c88"
+
+vue-ctk-date-time-picker@^2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/vue-ctk-date-time-picker/-/vue-ctk-date-time-picker-2.0.9.tgz#c08a300839b02e35d7888678552543ae5807e4b9"
+  integrity sha512-jM8iK9hm09k1Dp4+f1KcnQYTwECkeHRy7xe8OgtcDjiUkwmvoGq5mgxbT7XlhcI4pHc6DfDNdjo7urGeN8mxLg==
+  dependencies:
+    moment "^2.24.0"
+    moment-range "^4.0.1"
+    v-click-outside "^2.0.2"
+    vue "^2.5.22"
 
 vue-event-calendar@^1.5.2:
   version "1.5.2"
@@ -6898,15 +6958,15 @@ vue@>=2.0.0, vue@^2.1.8, vue@^2.5.0, vue@^2.5.2:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
+vue@^2.5.22:
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.9.tgz#415c1cc1a5ed00c8f0acdd0a948139d12b7ea6b3"
+  integrity sha512-t1+tvH8hybPM86oNne3ZozCD02zj/VoZIiojOBPJLjwBn7hxYU5e1gBObFpq8ts1NEn1VhPf/hVXBDAJ3X5ljg==
+
 vue@^2.6.7:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.7.tgz#254f188e7621d2d19ee28d0c0442c6d21b53ae2d"
   integrity sha512-g7ADfQ82QU+j6F/bVDioVQf2ccIMYLuR4E8ev+RsDBlmwRkhGO3HhgF4PF9vpwjdPpxyb1zzLur2nQ2oIMAMEg==
-
-vuejs-datepicker@^1.5.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/vuejs-datepicker/-/vuejs-datepicker-1.5.4.tgz#dacdb5eb5ef44342c67cb59b93a0d5da9c1809b3"
-  integrity sha512-AVzgu3pb/fF/Sj3qu8YPnp7KhtsXkm8TSnBEcyYsWb1bMJr5FdPCxuIzISgw5kq0It7HkVJUGXQ4CiCwq9hhww==
 
 vuex@^2.0.0:
   version "2.5.0"
