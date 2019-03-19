@@ -41,7 +41,9 @@ export const create = ({ dispatch, commit, state }, namespace) => {
 
   return axios.post(API_HOST + '/' + pluralize(namespace.toLowerCase()), state.item)
     .then(response => response.data)
-    .catch(data => {
+    .catch(e => {
+      let data = e.response.data
+
       if (data.violations) {
         let errors = {}
 
@@ -64,7 +66,9 @@ export const update = ({ dispatch, commit, state }, namespace) => {
 
   return axios.put(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + state.item.id, state.item)
     .then(response => response.data)
-    .catch(data => {
+    .catch(e => {
+      let data = e.response.data
+
       if (data.violations) {
         let errors = {}
 
