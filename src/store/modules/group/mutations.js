@@ -8,6 +8,17 @@ export default {
   [types.UPDATE_ITEM] (state, item) {
     state.item = Object.assign({}, state.item, item)
   },
+  [types.UPDATE_ITEM_ROLES] (state, params) {
+    if (params.value) {
+      state.item.roleIRIs.push(params.iri)
+    } else {
+      let index = state.item.roleIRIs.indexOf(params.iri);
+
+      if (index > -1) {
+        state.item.roleIRIs.splice(index, 1);
+      }
+    }
+  },
   [types.SET_ITEMS] (state, items) {
     Object.assign(state, { items })
   },

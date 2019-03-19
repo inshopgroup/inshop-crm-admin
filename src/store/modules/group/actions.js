@@ -10,12 +10,11 @@ export const getItem = ({ dispatch, commit }, id) => {
   return axios.get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
     .then(response => response.data)
     .then(data => {
-
       let roles = []
       data.roles.forEach(role => {
-        roles.push(role.id)
+        roles.push(role['@id'])
       })
-      data.roleIds = roles
+      data.roleIRIs= roles
 
       commit(namespace + '_SET_ITEM', data)
     })
@@ -29,18 +28,26 @@ export const getItems = ({ dispatch, commit }, url) => {
   return crud.getItems({ dispatch, commit }, namespace, url)
 }
 
-// TODO
 export const create = ({ dispatch, commit, state }) => {
-  // item.roles = item.roleIds
+  commit(namespace + '_UPDATE_ITEM', {roles: state.item.roleIRIs})
 
   return crud.create({ dispatch, commit, state }, namespace)
+    .then(data => {
+      commit(namespace + '_RESET')
+
+      return data
+    })
 }
 
-// TODO
 export const update = ({ dispatch, commit, state }) => {
-  // item.roles = item.roleIds
+  commit(namespace + '_UPDATE_ITEM', {roles: state.item.roleIRIs})
 
   return crud.update({ dispatch, commit, state }, namespace,)
+    .then(data => {
+      commit(namespace + '_RESET')
+
+      return data
+    })
 }
 
 export const remove = ({ dispatch, commit }, item) => {

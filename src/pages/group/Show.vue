@@ -97,7 +97,7 @@
       ...mapActions({
         getItem: 'group/getItem',
         reset: 'group/reset',
-        getModules: 'module/list/default'
+        getModules: 'module/getItems'
       })
     }
   }

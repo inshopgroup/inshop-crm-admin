@@ -11,7 +11,7 @@
           <h2>{{$t('module.' + module.name.replace(/\s+/g, '_').toLowerCase())}}</h2>
 
           <template v-for="role in module.roles" style="margin-left: 20px;">
-            <form-checkbox :item="item" :errors="errors" :property="'roles'" :label="'role.' + role.name.toLowerCase()" @fieldUpdated="updateValue"></form-checkbox>
+            <form-checkbox :id="role['@id']" :item="{value: item.roleIRIs.includes(role['@id'])}" :errors="errors" :property="'value'" :label="role.name.toLowerCase()" @fieldUpdated="updateRole"></form-checkbox>
           </template>
         </div>
       </div>
@@ -63,6 +63,9 @@
       }),
       updateValue(property, value) {
         this.$store.commit('group/GROUP_UPDATE_ITEM', {[property]: value})
+      },
+      updateRole(property, value, iri) {
+        this.$store.commit('group/GROUP_UPDATE_ITEM_ROLES', {iri: iri, value: value})
       }
     }
   }

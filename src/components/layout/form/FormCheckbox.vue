@@ -1,13 +1,13 @@
 <template>
   <div :class="['form-check', isInvalid() ? 'has-error' : '']" style="margin-bottom: 20px;">
     <input
-        :id="property"
+        :id="'id_' + (id || property)"
         :checked="item[property]"
         :class="['form-check-input', isInvalid('isActive') ? 'is-invalid' : '']"
         type="checkbox"
-        @input="$emit('fieldUpdated', property, $event.target.checked)"
+        @input="$emit('fieldUpdated', property, $event.target.checked, id)"
     />
-    <label :for="property" class="form-control-label">{{$t(label)}}</label>
+    <label :for="'id_' + (id || property)" class="form-control-label">{{$t(label)}}</label>
     <div v-if="isInvalid()" class="help-block">{{ errors[property] }}</div>
   </div>
 </template>
@@ -29,6 +29,10 @@
         default: null
       },
       label: {
+        type: String,
+        default: null
+      },
+      id: {
         type: String,
         default: null
       }
