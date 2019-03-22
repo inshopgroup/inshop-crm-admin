@@ -40,6 +40,9 @@
         type: String,
         required: true
       },
+      store: {
+        type: String,
+      },
       searchField: {
         type: String,
         default: 'name'
@@ -59,7 +62,10 @@
     },
     computed: {
       options() {
-        return this.$store.getters[this.property + '/items'] || []
+        return this.$store.getters[this.storePath + '/items'] || []
+      },
+      storePath() {
+        return this.store || this.property
       },
       path() {
         return this.multiple ? pluralize(this.property) : this.property;
@@ -72,7 +78,7 @@
       },
       search: _.debounce((loading, keyword, vm) => {
         vm.$store.dispatch('general/loadingAllow', false)
-        vm.$store.dispatch(vm.property + '/getItems', '/' + pluralize(vm.optionProperty) + '?' + vm.searchField + '=' + keyword)
+        vm.$store.dispatch(vm.storePath + '/getItems', '/' + pluralize(vm.optionProperty) + '?' + vm.searchField + '=' + keyword)
         loading(false);
       }, 800),
       isInvalid() {
