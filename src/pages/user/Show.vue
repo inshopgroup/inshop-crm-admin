@@ -41,6 +41,13 @@
                   </td>
                 </tr>
                 <tr>
+                  <td>{{$t('isActive')}}</td>
+                  <td>
+                    <span class="label label-success" v-if="item.isActive">{{ $t('yes') }}</span>
+                    <span class="label label-danger" v-else>{{ $t('no') }}</span>
+                  </td>
+                </tr>
+                <tr>
                   <td>{{$t('user.language.name')}}</td>
                   <td v-if="item['language']">{{ item['language']['name'] }}</td>
                 </tr>
