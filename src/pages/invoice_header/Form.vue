@@ -70,7 +70,7 @@
         </div>
         <div class="box-body">
 
-          <button class="btn btn-info" @click.prevent="addLine()">
+          <button type="button" class="btn btn-info" @click.prevent="addLine()">
             <span class="fa fa-plus" aria-hidden="true" />
             <span>{{$t('invoice_line.add')}}</span>
           </button>
@@ -104,7 +104,7 @@
                 <form-number :item="line" :errors="errors" :property="'unitsCount'" :label="'invoice_line.unitsCount'" @fieldUpdated="updateValue"></form-number>
               </td>
               <td>
-                <button class="btn btn-info" @click.prevent="removeLine(line)">
+                <button type="button" class="btn btn-info" @click.prevent="removeLine(line)">
                   <span class="fa fa-remove" aria-hidden="true" />
                   <span class="sr-only">{{$t('delete')}}</span>
                 </button>
