@@ -1,6 +1,8 @@
 export default function () {
   return {
-    item: {},
+    item: {
+      files: []
+    },
     items: [],
     error: null,
     errors: {}

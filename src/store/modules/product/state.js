@@ -1,6 +1,7 @@
 export default function () {
   return {
     item: {
+      images: [],
       translations: []
     },
     items: [],

@@ -23,14 +23,7 @@
           <form-input :item="item" :errors="errors" :property="'ean'" :label="'product.ean'" @fieldUpdated="updateValue"></form-input>
           <form-select-autocomplete :item="item" :errors="errors" :property="'category'" :option-property="'category'" :label="'product.category.name'" @fieldUpdated="updateValue"></form-select-autocomplete>
           <form-input :item="item" :errors="errors" :property="'video'" :label="'product.video'" @fieldUpdated="updateValue"></form-input>
-
-          <div class="form-group">
-            <label for="product_images" class="form-control-label">{{$t('product.images')}}</label>
-
-            <div id="app">
-              <vue-dropzone id="product_images" :options="dropOptions()" @vdropzone-success="uploaded" @vdropzone-removed-file="removed"></vue-dropzone>
-            </div>
-          </div>
+          <form-files :item="item" itemProperty="images" formProperty="image" route="images" :multiple="true" label="images"></form-files>
         </div>
       </div>
 
@@ -42,23 +35,22 @@
 <script>
   import {mapActions, mapGetters} from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import vueDropzone from "vue2-dropzone";
   import FormSelect from "../../components/layout/form/FormSelect";
   import FormInput from "../../components/layout/form/FormInput";
   import FormSelectAutocomplete from "../../components/layout/form/FormSelectAutocomplete";
   import FormTextarea from "../../components/layout/form/FormTextarea";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
-  import axios from '../../interceptor'
+  import FormFiles from "../../components/layout/form/FormFiles";
 
   export default {
     components: {
+      FormFiles,
       ItemErrors,
       FormTextarea,
       FormSelectAutocomplete,
       FormInput,
       FormSelect,
       ItemEditActions,
-      vueDropzone
     },
     props: {
       handleSubmit: {
@@ -131,62 +123,6 @@
       ...mapActions({
         getLanguages: 'language/getItems',
       }),
-      dropOptions() {
-        let _this = this
-        return {
-          url: process.env.API_URL + '/images',
-          paramName: 'image', // MB
-          maxFilesize: 20, // MB
-          maxFiles: 20,
-          createImageThumbnails: true,
-          thumbnailWidth: 200, // px
-          thumbnailHeight: 150,
-          addRemoveLinks: true,
-          headers: {
-            'Authorization': this.authHeader
-          },
-          init: function () {
-            let thisDropzone = this;
-
-            if (_this.$route.params.id) {
-              axios.get(process.env.API_URL + '/products/' + _this.$route.params.id + '/images')
-                .then(response => response.json())
-                .then((data) => {
-
-                  data['hydra:member'].forEach((file) => {
-                    file.name = file.originalName
-
-                    thisDropzone.emit("addedfile", file);
-                    thisDropzone.options.thumbnail.call(thisDropzone, file, process.env.API_URL + '/images/200/' + file.contentUrl);
-
-                    // Make sure that there is no progress bar, etc...
-                    thisDropzone.emit("complete", file);
-                  })
-                })
-                .catch((e) => {
-                  console.log('Error uploading', e)
-                })
-            }
-          }
-        }
-      },
-      uploaded(data) {
-        let image = JSON.parse(data.xhr.response)
-
-        Object.assign(image, {
-          'id': '/images/' + image.id,
-          '@type': '"http://schema.org/MediaObject"'
-        })
-
-        this.item.images = this.item.images || []
-        this.item.images.push(image)
-      },
-      removed(data) {
-        this.item.images = this.item.images || []
-        this.item.images = this.item.images.filter(function (el) {
-          return el.id !== JSON.parse(data.xhr.response).id
-        });
-      }
     }
   }
 </script>
