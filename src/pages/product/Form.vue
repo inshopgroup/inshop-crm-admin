@@ -36,9 +36,7 @@
   import {mapActions, mapGetters} from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import FormSelect from "../../components/layout/form/FormSelect";
-  import FormInput from "../../components/layout/form/FormInput";
   import FormSelectAutocomplete from "../../components/layout/form/FormSelectAutocomplete";
-  import FormTextarea from "../../components/layout/form/FormTextarea";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
   import FormFiles from "../../components/layout/form/FormFiles";
 
@@ -46,9 +44,7 @@
     components: {
       FormFiles,
       ItemErrors,
-      FormTextarea,
       FormSelectAutocomplete,
-      FormInput,
       FormSelect,
       ItemEditActions,
     },

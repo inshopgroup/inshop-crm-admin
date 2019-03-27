@@ -20,7 +20,6 @@
 <script>
   import {mapActions, mapGetters} from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import FormInput from "../../components/layout/form/FormInput";
   import FormSelect from "../../components/layout/form/FormSelect";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
   import FormFiles from "../../components/layout/form/FormFiles";
@@ -30,7 +29,6 @@
       FormFiles,
       ItemErrors,
       FormSelect,
-      FormInput,
       ItemEditActions
     },
     props: {

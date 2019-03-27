@@ -23,14 +23,15 @@
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import VuePassword from 'vue-password'
-  import FormInput from "../../components/layout/form/FormInput";
-  import FormPassword from "../../components/layout/form/FormPassword";
   import FormSelect from "../../components/layout/form/FormSelect";
-  import FormCheckbox from "../../components/layout/form/FormCheckbox";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
   export default {
-    components: {ItemErrors, FormCheckbox, FormSelect, FormPassword, FormInput, VuePassword, ItemEditActions},
+    components: {
+      ItemErrors,
+      FormSelect,
+      ItemEditActions
+    },
     props: {
       handleSubmit: {
         type: Function,

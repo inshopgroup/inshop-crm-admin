@@ -24,14 +24,15 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import FormInput from "../../components/layout/form/FormInput";
   import FormSelect from "../../components/layout/form/FormSelect";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
-  import FormNumber from "../../components/layout/form/FormNumber";
-  import FormDatePicker from "../../components/layout/form/date/FormDatePicker";
 
   export default {
-    components: {FormDatePicker, FormNumber, ItemErrors, FormSelect, FormInput, ItemEditActions},
+    components: {
+      ItemErrors,
+      FormSelect,
+      ItemEditActions
+    },
     props: {
       handleSubmit: {
         type: Function,

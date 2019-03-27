@@ -34,19 +34,11 @@
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import {mapActions, mapGetters} from 'vuex'
   import FormSelect from "../../components/layout/form/FormSelect";
-  import FormInput from "../../components/layout/form/FormInput";
-  import FormCheckbox from "../../components/layout/form/FormCheckbox";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
-  import FormNumber from "../../components/layout/form/FormNumber";
-  import FormTextarea from "../../components/layout/form/FormTextarea";
 
   export default {
     components: {
-      FormTextarea,
-      FormNumber,
       ItemErrors,
-      FormCheckbox,
-      FormInput,
       FormSelect,
       ItemEditActions
     },

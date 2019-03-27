@@ -123,19 +123,13 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import FormInput from "../../components/layout/form/FormInput";
   import FormSelect from "../../components/layout/form/FormSelect";
-  import FormNumber from "../../components/layout/form/FormNumber";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
-  import FormDatePicker from "../../components/layout/form/date/FormDatePicker";
 
   export default {
     components: {
-      FormDatePicker,
       ItemErrors,
-      FormNumber,
       FormSelect,
-      FormInput,
       ItemEditActions
     },
     props: {

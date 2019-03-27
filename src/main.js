@@ -1,11 +1,4 @@
-// import 'bootstrap/dist/css/bootstrap.css'
-// import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'font-awesome/css/font-awesome.css'
-
-// import jQuery from 'jquery'
-
-// import 'bootstrap/dist/js/bootstrap.js'
-
 import 'bootstrap'
 import 'admin-lte'
 import 'jquery'
@@ -25,7 +18,6 @@ import router from './router'
 
 import Vue from 'vue'
 import App from './App';
-// import BootstrapVue from 'bootstrap-vue'
 import vSelect from 'vue-select/dist/vue-select'
 
 import 'vue-event-calendar/dist/style.css' //^1.1.10, CSS has been extracted as one file, so you can easily update it.
@@ -40,22 +32,20 @@ import vbclass from 'vue-body-class'
 import Security from './mixin/Security'
 import Translate from './mixin/Translate'
 import VueI18n from 'vue-i18n'
+import FormComponents from '@inshopgroup/vue-inshop-crm-form-components'
 
-Vue.use( vbclass, router )
-
-// window.jQuery = jQuery
-window.$ = jQuery
-window.moment = moment
-
-Vue.use(VueI18n)
-Vue.use(Toastr)
-Vue.use(ServerTable, {}, false, 'bootstrap4', 'default');
-Vue.use(vueEventCalendar, {locale: 'en', weekStartOn: 1}) //locale can be 'zh' , 'en' , 'es', 'pt-br', 'ja', 'ko', 'fr', 'it', 'ru', 'de', 'vi', 'ua'
-// Vue.use(BootstrapVue);
+Object.keys(FormComponents).forEach(name => {
+  Vue.component(name, FormComponents[name])
+})
 
 Vue.component('v-select', vSelect)
 Vue.component(VuePassword)
 
+Vue.use( vbclass, router )
+Vue.use(VueI18n)
+Vue.use(Toastr)
+Vue.use(ServerTable, {}, false, 'bootstrap4', 'default');
+Vue.use(vueEventCalendar, {locale: 'en', weekStartOn: 1}) //locale can be 'zh' , 'en' , 'es', 'pt-br', 'ja', 'ko', 'fr', 'it', 'ru', 'de', 'vi', 'ua'
 Vue.use(VueSentry, {
   enable: process.env.NODE_ENV === 'production' && process.env.SENTRY_PUBLIC_KEY !== '',
   key: process.env.SENTRY_PUBLIC_KEY,
@@ -70,16 +60,12 @@ let i18n = new VueI18n({
   messages
 })
 
-$(function () {
-  $('input').iCheck({
-    checkboxClass: 'icheckbox_square-blue',
-    radioClass: 'iradio_square-blue',
-    increaseArea: '20%' /* optional */
-  });
-});
-
 Vue.mixin(Security)
 Vue.mixin(Translate)
+
+// window.jQuery = jQuery
+window.$ = jQuery
+window.moment = moment
 
 new Vue({
   el: '#app',

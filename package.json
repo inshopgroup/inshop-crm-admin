@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "@inshopgroup/vue-inshop-crm-form-components": "^1.0.2",
     "admin-lte": "^2.4.9",
     "axios": "^0.18.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",

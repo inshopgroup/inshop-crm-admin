@@ -101,19 +101,15 @@
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
 import axios from '../../interceptor'
-import FormInput from "../../components/layout/form/FormInput";
 import FormSelect from "../../components/layout/form/FormSelect";
 import FormSelectAutocomplete from "../../components/layout/form/FormSelectAutocomplete";
-import FormNumber from "../../components/layout/form/FormNumber";
 import ItemErrors from "../../components/layout/errors/ItemErrors";
 
 export default {
   components: {
     ItemErrors,
-    FormNumber,
     FormSelectAutocomplete,
     FormSelect,
-    FormInput,
     ItemEditActions
   },
   props: {

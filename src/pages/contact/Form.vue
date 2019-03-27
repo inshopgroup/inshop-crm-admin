@@ -19,13 +19,11 @@
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import FormSelect from "../../components/layout/form/FormSelect";
-  import FormInput from "../../components/layout/form/FormInput";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
   export default {
     components: {
       ItemErrors,
-      FormInput,
       FormSelect,
       ItemEditActions
     },

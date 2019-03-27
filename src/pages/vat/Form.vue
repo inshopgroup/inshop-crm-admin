@@ -18,15 +18,11 @@
 <script>
   import {mapActions, mapGetters} from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import FormInput from "../../components/layout/form/FormInput";
-  import FormNumber from "../../components/layout/form/FormNumber";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
   export default {
     components: {
       ItemErrors,
-      FormNumber,
-      FormInput,
       ItemEditActions
     },
     props: {

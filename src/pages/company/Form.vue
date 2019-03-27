@@ -30,15 +30,15 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import FormInput from "../../components/layout/form/FormInput";
-  import FormNumber from "../../components/layout/form/FormNumber";
-  import FormTextarea from "../../components/layout/form/FormTextarea";
   import FormSelect from "../../components/layout/form/FormSelect";
-  import FormCheckbox from "../../components/layout/form/FormCheckbox";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
   export default {
-    components: {ItemErrors, FormCheckbox, FormSelect, FormTextarea, FormNumber, FormInput, ItemEditActions},
+    components: {
+      ItemErrors,
+      FormSelect,
+      ItemEditActions
+    },
     props: {
       handleSubmit: {
         type: Function,

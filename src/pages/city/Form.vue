@@ -18,7 +18,6 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import FormInput from "../../components/layout/form/FormInput";
   import FormSelectAutocomplete from "../../components/layout/form/FormSelectAutocomplete";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
@@ -26,7 +25,6 @@
     components: {
       ItemErrors,
       FormSelectAutocomplete,
-      FormInput,
       ItemEditActions
     },
 
