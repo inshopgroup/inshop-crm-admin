@@ -33,13 +33,11 @@
 <script>
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import {mapActions, mapGetters} from 'vuex'
-  import FormSelect from "../../components/layout/form/FormSelect";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
   export default {
     components: {
       ItemErrors,
-      FormSelect,
       ItemEditActions
     },
     props: {
