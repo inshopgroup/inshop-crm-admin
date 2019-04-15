@@ -25,14 +25,15 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@inshopgroup/vue-inshop-crm-form-components@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.2.tgz#8c6c3ab4cb0e18f286d0e612d8c2dfd76174a599"
-  integrity sha512-EnJ0478CD3cMMJdVtba5jczIkEmT0cswe7GXEKCl3WOykNJsQbbHsHiLhGIy0lhQUz3P5nxu2cm7KR2UYPXwAA==
+"@inshopgroup/vue-inshop-crm-form-components@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.4.tgz#7bf435f70d3609013a83902df4a2eda71978089c"
+  integrity sha512-zE7q3nM9cZRM1aJbwCLpTZHaL24N8/jRXKSrpkuMPWEN/o2PS1wyWPqM2rGY9M5lY/LzrUzGgXmLG4GkSfEszg==
   dependencies:
+    filesize "^4.1.2"
     lodash.debounce "^4.0.8"
-    pluralize "^7.0.0"
-    vue "^2.6.6"
+    moment "^2.24.0"
+    vue "^2.6.10"
     vue-ctk-date-time-picker "^2.0.9"
     vue-password "^1.2.0"
     vue-select "^2.6.3"
@@ -2819,6 +2820,11 @@ filename-regex@^2.0.0:
 filesize@^3.6.1:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-3.6.1.tgz#090bb3ee01b6f801a8a8be99d31710b3422bb317"
+
+filesize@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/filesize/-/filesize-4.1.2.tgz#fcd570af1353cea97897be64f56183adb995994b"
+  integrity sha512-iSWteWtfNcrWQTkQw8ble2bnonSl7YJImsn9OZKpE2E4IHhXI78eASpDYUljXZZdYj36QsEKjOs/CsiDqmKMJw==
 
 fill-range@^2.1.0:
   version "2.2.4"
@@ -6968,7 +6974,7 @@ vue@^2.5.22:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.9.tgz#415c1cc1a5ed00c8f0acdd0a948139d12b7ea6b3"
   integrity sha512-t1+tvH8hybPM86oNne3ZozCD02zj/VoZIiojOBPJLjwBn7hxYU5e1gBObFpq8ts1NEn1VhPf/hVXBDAJ3X5ljg==
 
-vue@^2.6.6:
+vue@^2.6.10:
   version "2.6.10"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
