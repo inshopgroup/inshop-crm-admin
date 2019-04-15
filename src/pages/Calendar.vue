@@ -59,13 +59,13 @@
         getTasks: 'task/getItems'
       }),
       load(date) {
-        this.getTasks('/tasks'
-          + '?deadline[after]=' + moment(date, 'M/Y').format('DD-MM-YYYY')
-          + '&deadline[before]=' + moment(date, 'M/Y').endOf('month').add(1, 'day').format('DD-MM-YYYY')
-          + '&order[deadline]=asc'
-          + '&status.id[]=1'
-          + '&status.id[]=2'
-          + '&pagination[itemsPerPage]=500'
+        this.getTasks({
+          'deadline[after]=': moment(date, 'M/Y').format('DD-MM-YYYY'),
+          'deadline[before]=': moment(date, 'M/Y').endOf('month').add(1, 'day').format('DD-MM-YYYY'),
+          'order[deadline]': 'asc',
+          'status.id[]': '1',
+          'itemsPerPage': '500'
+          }
         )
       }
     }

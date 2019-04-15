@@ -88,7 +88,9 @@
     },
     created() {
       this.getItem(this.$route.params.id)
-      this.getModules('/modules?pagination[itemsPerPage]=500')
+      this.getModules({
+        itemsPerPage: 500
+      })
     },
     beforeDestroy() {
       this.reset()

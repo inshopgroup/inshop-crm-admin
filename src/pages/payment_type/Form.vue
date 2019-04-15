@@ -5,7 +5,7 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'payment_type.name'" @fieldUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'payment_type.name'" @formUpdated="updateValue"></form-input>
         </div>
       </div>
 

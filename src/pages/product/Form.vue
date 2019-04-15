@@ -11,19 +11,19 @@
         </ul>
         <div class="tab-content">
           <div :class="['tab-pane', {active: i === 0}]" :id="language.code" v-for="(language, i) in languages" :key="'content_' + language.id">
-            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="'product.name'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
-            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="'product.description'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
+            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="'product.name'" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
+            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="'product.description'" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
           </div>
         </div>
       </div>
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-select :item="item" :errors="errors" :property="'brand'" :option-property="'brand'" :label="'product.brand.name'" @fieldUpdated="updateValue"></form-select>
-          <form-input :item="item" :errors="errors" :property="'ean'" :label="'product.ean'" @fieldUpdated="updateValue"></form-input>
-          <form-select-autocomplete :item="item" :errors="errors" :property="'category'" :option-property="'category'" :label="'product.category.name'" @fieldUpdated="updateValue"></form-select-autocomplete>
-          <form-input :item="item" :errors="errors" :property="'video'" :label="'product.video'" @fieldUpdated="updateValue"></form-input>
-          <form-files :item="item" itemProperty="images" formProperty="image" route="images" :multiple="true" label="images"></form-files>
+          <form-select :item="item" :errors="errors" :property="'brand'" :option-store="'brand'" :label="'product.brand.name'" @formUpdated="updateValue"></form-select>
+          <form-input :item="item" :errors="errors" :property="'ean'" :label="'product.ean'" @formUpdated="updateValue"></form-input>
+          <form-select-autocomplete :item="item" :errors="errors" :property="'category'" :option-store="'category'" :label="'product.category.name'" @formUpdated="updateValue"></form-select-autocomplete>
+          <form-input :item="item" :errors="errors" :property="'video'" :label="'product.video'" @formUpdated="updateValue"></form-input>
+          <form-file :axios="axios" :errors="errors" :item="item" property="images" formProperty="image" route="images" :multiple="true" label="images"></form-file>
         </div>
       </div>
 
@@ -50,6 +50,11 @@
       item: {
         type: Object,
         required: true
+      }
+    },
+    data() {
+      return {
+        axios: axios,
       }
     },
     beforeDestroy() {

@@ -5,13 +5,13 @@
 
     <div class="box box-primary">
       <div class="box-body">
-        <form-input :item="item" :errors="errors" :property="'name'" :label="'group.name'" @fieldUpdated="updateValue"></form-input>
+        <form-input :item="item" :errors="errors" :property="'name'" :label="'group.name'" @formUpdated="updateValue"></form-input>
 
         <div class="form-group" v-for="module in modules">
           <h2>{{$t('module.' + module.name.replace(/\s+/g, '_').toLowerCase())}}</h2>
 
           <template v-for="role in module.roles" style="margin-left: 20px;">
-            <form-checkbox :id="role['@id']" :item="{value: item.roleIRIs.includes(role['@id'])}" :errors="errors" :property="'value'" :label="role.name.toLowerCase()" @fieldUpdated="updateRole"></form-checkbox>
+            <form-checkbox :id="role['@id']" :item="{value: item.roleIRIs.includes(role['@id'])}" :errors="errors" :property="'value'" :label="role.name.toLowerCase()" @formUpdated="updateRole"></form-checkbox>
           </template>
         </div>
       </div>
@@ -54,7 +54,9 @@
       },
     },
     created() {
-      this.getModules('/modules?pagination[itemsPerPage]=500')
+      this.getModules({
+        itemsPerPage: 500
+      })
     },
     methods: {
       ...mapActions({

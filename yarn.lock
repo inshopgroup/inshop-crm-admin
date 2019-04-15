@@ -25,10 +25,10 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@inshopgroup/vue-inshop-crm-form-components@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.4.tgz#7bf435f70d3609013a83902df4a2eda71978089c"
-  integrity sha512-zE7q3nM9cZRM1aJbwCLpTZHaL24N8/jRXKSrpkuMPWEN/o2PS1wyWPqM2rGY9M5lY/LzrUzGgXmLG4GkSfEszg==
+"@inshopgroup/vue-inshop-crm-form-components@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.9.tgz#3183110e7a7b1e41381750389e222d06311b829f"
+  integrity sha512-5q61RiraTmej8VC3mFRlDOwQPWcPS0wQNntU6JTzXzu0DtdME0e12L9O09/pPho726V44ZSmDOaB3S2USwi9fA==
   dependencies:
     filesize "^4.1.2"
     lodash.debounce "^4.0.8"
@@ -6892,7 +6892,7 @@ vue-pagination-2@^1.6:
     vue ">=2.0.0"
     vuex "^2.0.0"
 
-vue-password@^1.1.2, vue-password@^1.2.0:
+vue-password@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/vue-password/-/vue-password-1.2.0.tgz#1b1e5268e39a1e49f2fb547b2ae655ad1f199df2"
   dependencies:

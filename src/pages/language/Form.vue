@@ -5,8 +5,8 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'language.name'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'code'" :label="'language.code'" @fieldUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'language.name'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'code'" :label="'language.code'" @formUpdated="updateValue"></form-input>
         </div>
       </div>
 

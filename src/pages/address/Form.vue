@@ -5,15 +5,15 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-select :item="item" :errors="errors" :property="'country'" :option-property="'country'" :label="'address.country.name'" @fieldUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'city'" :option-property="'city'" :label="'address.city.name'" @fieldUpdated="updateValue"></form-select>
-          <form-input :item="item" :errors="errors" :property="'region'" :label="'address.region'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'district'" :label="'address.district'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'postCode'" :label="'address.postCode'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'street'" :label="'address.street'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'building'" :label="'address.building'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'apartment'" :label="'address.apartment'" @fieldUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'comment'" :label="'address.comment'" @fieldUpdated="updateValue"></form-textarea>
+          <form-select :item="item" :errors="errors" :property="'country'" :option-store="'country'" :label="'address.country.name'" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'city'" :option-store="'city'" :label="'address.city.name'" @formUpdated="updateValue"></form-select>
+          <form-input :item="item" :errors="errors" :property="'region'" :label="'address.region'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'district'" :label="'address.district'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'postCode'" :label="'address.postCode'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'street'" :label="'address.street'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'building'" :label="'address.building'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'apartment'" :label="'address.apartment'" @formUpdated="updateValue"></form-input>
+          <form-textarea :item="item" :errors="errors" :property="'comment'" :label="'address.comment'" @formUpdated="updateValue"></form-textarea>
         </div>
       </div>
 

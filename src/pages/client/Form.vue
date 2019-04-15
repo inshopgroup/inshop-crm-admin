@@ -8,10 +8,10 @@
           <h3 class="box-title">{{$t('client.tabs.general')}}</h3>
         </div>
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'client.name'" @fieldUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'description'" :label="'client.description'" @fieldUpdated="updateValue"></form-textarea>
-          <form-select :item="item" :errors="errors" :property="'clients'" :option-property="'client'" :label="'client.clients'" :multiple="true" @fieldUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'companies'" :option-property="'company'" :label="'client.companies'" :multiple="true" @fieldUpdated="updateValue"></form-select>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'client.name'" @formUpdated="updateValue"></form-input>
+          <form-textarea :item="item" :errors="errors" :property="'description'" :label="'client.description'" @formUpdated="updateValue"></form-textarea>
+          <form-select :item="item" :errors="errors" :property="'clients'" :option-store="'client'" :label="'client.clients'" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'companies'" :option-store="'company'" :label="'client.companies'" :multiple="true" @formUpdated="updateValue"></form-select>
         </div>
       </div>
 
@@ -37,10 +37,10 @@
             <!--<tbody>-->
               <!--<tr v-for="contact in item.contacts" :key="contact.id">-->
                 <!--<td>-->
-                  <!--<form-input :item="contact" :errors="errors" :property="'value'" :label="'contact.value'" @fieldUpdated="updateValue"></form-input>-->
+                  <!--<form-input :item="contact" :errors="errors" :property="'value'" :label="'contact.value'" @formUpdated="updateValue"></form-input>-->
                 <!--</td>-->
                 <!--<td>-->
-                  <!--<form-select :item="contact" :errors="errors" :property="'contactType'" :option-property="'contactType'" :label="'contact.contactType'" @fieldUpdated="updateValue"></form-select>-->
+                  <!--<form-select :item="contact" :errors="errors" :property="'contactType'" :option-store="'contactType'" :label="'contact.contactType'" @formUpdated="updateValue"></form-select>-->
                 <!--</td>-->
                 <!--<td>-->
                   <!--<button class="btn btn-info" @click.prevent="removeContact(contact)">-->
@@ -77,13 +77,13 @@
             <!--<tbody>-->
               <!--<tr v-for="project in item.projects" :key="project.id">-->
                 <!--<td>-->
-                  <!--<form-input :item="project" :errors="errors" :property="'name'" :label="'project.name'" @fieldUpdated="updateValue"></form-input>-->
+                  <!--<form-input :item="project" :errors="errors" :property="'name'" :label="'project.name'" @formUpdated="updateValue"></form-input>-->
                 <!--</td>-->
                 <!--<td>-->
-                  <!--<form-select :item="project" :errors="errors" :property="'type'" :option-property="'project_type'" :label="'project.type'" @fieldUpdated="updateValue"></form-select>-->
+                  <!--<form-select :item="project" :errors="errors" :property="'type'" :option-store="'project_type'" :label="'project.type'" @formUpdated="updateValue"></form-select>-->
                 <!--</td>-->
                 <!--<td>-->
-                  <!--<form-select :item="project" :errors="errors" :property="'status'" :option-property="'project_status'" :label="'project.status'" @fieldUpdated="updateValue"></form-select>-->
+                  <!--<form-select :item="project" :errors="errors" :property="'status'" :option-store="'project_status'" :label="'project.status'" @formUpdated="updateValue"></form-select>-->
                 <!--</td>-->
                 <!--<td>-->
                   <!--<button class="btn btn-info" @click.prevent="removeProject(project)">-->

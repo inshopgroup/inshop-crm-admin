@@ -17,9 +17,11 @@ export const getItem = ({ dispatch, commit }, namespace, id) => {
     })
 }
 
-export const getItems = ({ dispatch, commit }, namespace, url) => {
-  if (!url) {
-    url = '/' + pluralize(namespace.toLowerCase())
+export const getItems = ({ dispatch, commit }, namespace, query) => {
+  let url = '/' + pluralize(namespace.toLowerCase())
+
+  if (query) {
+    url += '?' + Object.keys(query).map(key => key + '=' + query[key]).join('&')
   }
 
   commit(namespace + '_SET_ERROR', null)

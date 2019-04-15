@@ -10,28 +10,28 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
-              <form-input :item="item" :errors="errors" :property="'number'" :label="'order_header.number'" @fieldUpdated="updateValue"></form-input>
+              <form-input :item="item" :errors="errors" :property="'number'" :label="'order_header.number'" @formUpdated="updateValue"></form-input>
             </div>
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'status'" :option-property="'order_header_status'" :label="'order_header.status.name'" @fieldUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'status'" :option-store="'order_header_status'" :label="'order_header.status.name'" @formUpdated="updateValue"></form-select>
             </div>
           </div>
           
           <div class="row">
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'channel'" :option-property="'channel'" :label="'order_header.channel.name'" @fieldUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'channel'" :option-store="'channel'" :label="'order_header.channel.name'" @formUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-              <form-select-autocomplete :item="item" :errors="errors" :property="'client'" :option-property="'channel'" :label="'order_header.client.name'" @fieldUpdated="updateValue"></form-select-autocomplete>
+              <form-select-autocomplete :item="item" :errors="errors" :property="'client'" :option-store="'channel'" :label="'order_header.client.name'" @formUpdated="updateValue"></form-select-autocomplete>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'paymentType'" :option-property="'payment_type'" :label="'order_header.paymentType.name'" @fieldUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'paymentType'" :option-store="'payment_type'" :label="'order_header.paymentType.name'" @formUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'shipmentMethod'" :option-property="'shipment_method'" :label="'order_header.shipmentMethod.name'" @fieldUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'shipmentMethod'" :option-store="'shipment_method'" :label="'order_header.shipmentMethod.name'" @formUpdated="updateValue"></form-select>
             </div>
           </div>
         </div>
@@ -63,22 +63,22 @@
             <tbody>
             <tr v-for="line in lines" :key="line.id">
               <td>
-                <form-select :item="line" :errors="errors" :property="'status'" :option-property="'order_line_status'" :label="'order_line.status.name'" @fieldUpdated="updateValue"></form-select>
+                <form-select :item="line" :errors="errors" :property="'status'" :option-store="'order_line_status'" :label="'order_line.status.name'" @formUpdated="updateValue"></form-select>
               </td>
               <td>
-                <form-select :item="line" :errors="errors" :property="'product'" :option-property="'product'" :label="'order_line.product.name'" @fieldUpdated="updateValue" @input="productSelected(line)"></form-select>
+                <form-select :item="line" :errors="errors" :property="'product'" :option-store="'product'" :label="'order_line.product.name'" @formUpdated="updateValue" @input="productSelected(line)"></form-select>
               </td>
               <td>
-                <form-select :item="line" :errors="errors" :property="'productSellPrice'" :option-property="'product_sell_price'" :label="'order_line.productSellPrice.name'" @fieldUpdated="updateValue" @input="productSelected(line)"></form-select>
+                <form-select :item="line" :errors="errors" :property="'productSellPrice'" :option-store="'product_sell_price'" :label="'order_line.productSellPrice.name'" @formUpdated="updateValue" @input="productSelected(line)"></form-select>
               </td>
               <td>
-                <form-input :item="line" :errors="errors" :property="'name'" :label="'order_line.name'" @fieldUpdated="updateValue"></form-input>
+                <form-input :item="line" :errors="errors" :property="'name'" :label="'order_line.name'" @formUpdated="updateValue"></form-input>
               </td>
               <td>
-                <form-select :item="line" :errors="errors" :property="'vat'" :option-property="'vat'" :label="'order_line.vat.name'" @fieldUpdated="updateValue" @input="productSelected(line)"></form-select>
+                <form-select :item="line" :errors="errors" :property="'vat'" :option-store="'vat'" :label="'order_line.vat.name'" @formUpdated="updateValue" @input="productSelected(line)"></form-select>
               </td>
               <td>
-                <form-number :item="line" :errors="errors" :property="'priceSellBrutto'" :label="'order_line.priceSellBrutto'" @fieldUpdated="updateValue"></form-number>
+                <form-number :item="line" :errors="errors" :property="'priceSellBrutto'" :label="'order_line.priceSellBrutto'" @formUpdated="updateValue"></form-number>
               </td>
               <td>
                 <button type="button" class="btn btn-info" @click.prevent="removeLine(line)">

@@ -5,11 +5,11 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'title'" :label="'text.title'" @fieldUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'content'" :label="'text.content'" @fieldUpdated="updateValue"></form-textarea>
-          <form-input :item="item" :errors="errors" :property="'seoTitle'" :label="'text.seoTitle'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'seoDescription'" :label="'text.seoDescription'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'seoKeywords'" :label="'text.seoKeywords'" @fieldUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'title'" :label="'text.title'" @formUpdated="updateValue"></form-input>
+          <form-textarea :item="item" :errors="errors" :property="'content'" :label="'text.content'" @formUpdated="updateValue"></form-textarea>
+          <form-input :item="item" :errors="errors" :property="'seoTitle'" :label="'text.seoTitle'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'seoDescription'" :label="'text.seoDescription'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'seoKeywords'" :label="'text.seoKeywords'" @formUpdated="updateValue"></form-input>
         </div>
       </div>
 

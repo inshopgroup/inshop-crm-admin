@@ -8,11 +8,11 @@
           <h3 class="box-title">{{$t('project.tabs.general')}}</h3>
         </div>
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'project.name'" @fieldUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'description'" :label="'project.description'" @fieldUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'type'" :option-property="'project_type'" :label="'project.type.name'" @fieldUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'status'" :option-property="'project_status'" :label="'project.status.name'" @fieldUpdated="updateValue"></form-select>
-          <form-select-autocomplete :item="item" :errors="errors" :property="'client'" :option-property="'client'" :label="'project.client.name'" @fieldUpdated="updateValue"></form-select-autocomplete>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'project.name'" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'description'" :label="'project.description'" @formUpdated="updateValue"></form-input>
+          <form-select :item="item" :errors="errors" :property="'type'" :option-store="'project_type'" :label="'project.type.name'" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'status'" :option-store="'project_status'" :label="'project.status.name'" @formUpdated="updateValue"></form-select>
+          <form-select-autocomplete :item="item" :errors="errors" :property="'client'" :option-store="'client'" :label="'project.client.name'" @formUpdated="updateValue"></form-select-autocomplete>
         </div>
       </div>
 

@@ -5,8 +5,8 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'city.name'" @fieldUpdated="updateValue"></form-input>
-          <form-select-autocomplete :item="item" :errors="errors" :property="'country'" :option-property="'country'" :label="'city.country.name'" @fieldUpdated="updateValue"></form-select-autocomplete>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'city.name'" @formUpdated="updateValue"></form-input>
+          <form-select-autocomplete :item="item" :errors="errors" :property="'country'" :option-store="'country'" :label="'city.country.name'" @formUpdated="updateValue"></form-select-autocomplete>
         </div>
       </div>
 

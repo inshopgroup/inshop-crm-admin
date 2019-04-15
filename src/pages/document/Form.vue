@@ -5,10 +5,10 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'document.name'" @fieldUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'client'" :option-property="'client'" :label="'document.clients'" :multiple="true" @fieldUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'projects'" :option-property="'project'" :label="'document.projects'" :multiple="true" @fieldUpdated="updateValue"></form-select>
-          <form-files :item="item" itemProperty="files" formProperty="file" route="files" :multiple="true" label="files"></form-files>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="'document.name'" @formUpdated="updateValue"></form-input>
+          <form-select :item="item" :errors="errors" :property="'client'" :option-store="'client'" :label="'document.clients'" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'projects'" :option-store="'project'" :label="'document.projects'" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-file :axios="axios" :errors="errors" :item="item" property="files" formProperty="file" route="files" :multiple="true" label="files"></form-file>
         </div>
       </div>
 
@@ -35,6 +35,11 @@
       item: {
         type: Object,
         required: true
+      }
+    },
+    data() {
+      return {
+        axios: axios,
       }
     },
     beforeDestroy() {

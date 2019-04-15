@@ -11,17 +11,17 @@
         </ul>
         <div class="tab-content">
           <div :class="['tab-pane', {active: i === 0}]" :id="language.code" v-for="(language, i) in languages" :key="'content_' + language.id">
-            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="'category.name'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
-            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="'category.description'" @fieldUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
+            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="'category.name'" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
+            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="'category.description'" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
           </div>
         </div>
       </div>
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-select :item="item" :errors="errors" :property="'parent'" :option-property="'category'" :label="'category.parent.name'" @fieldUpdated="updateValue"></form-select>
-          <form-number :item="item" :errors="errors" :property="'position'" :label="'category.position'" @fieldUpdated="updateValue"></form-number>
-          <form-checkbox :item="item" :errors="errors" :property="'isActive'" :label="'category.isActive'" @fieldUpdated="updateValue"></form-checkbox>
+          <form-select :item="item" :errors="errors" :property="'parent'" :option-store="'category'" :label="'category.parent.name'" @formUpdated="updateValue"></form-select>
+          <form-number :item="item" :errors="errors" :property="'position'" :label="'category.position'" @formUpdated="updateValue"></form-number>
+          <form-checkbox :item="item" :errors="errors" :property="'isActive'" :label="'category.isActive'" @formUpdated="updateValue"></form-checkbox>
         </div>
       </div>
 
