@@ -35,17 +35,11 @@
 <script>
   import {mapActions, mapGetters} from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-  import FormSelect from "../../components/layout/form/FormSelect";
-  import FormSelectAutocomplete from "../../components/layout/form/FormSelectAutocomplete";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
-  import FormFiles from "../../components/layout/form/FormFiles";
 
   export default {
     components: {
-      FormFiles,
       ItemErrors,
-      FormSelectAutocomplete,
-      FormSelect,
       ItemEditActions,
     },
     props: {

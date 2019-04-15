@@ -23,13 +23,11 @@
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import VuePassword from 'vue-password'
-  import FormSelect from "../../components/layout/form/FormSelect";
   import ItemErrors from "../../components/layout/errors/ItemErrors";
 
   export default {
     components: {
       ItemErrors,
-      FormSelect,
       ItemEditActions
     },
     props: {
