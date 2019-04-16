@@ -25,10 +25,10 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@inshopgroup/vue-inshop-crm-form-components@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.9.tgz#3183110e7a7b1e41381750389e222d06311b829f"
-  integrity sha512-5q61RiraTmej8VC3mFRlDOwQPWcPS0wQNntU6JTzXzu0DtdME0e12L9O09/pPho726V44ZSmDOaB3S2USwi9fA==
+"@inshopgroup/vue-inshop-crm-form-components@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.11.tgz#b869fa43d7a8d9af40bfe4c4ee17885db3935c44"
+  integrity sha512-FpR36ieTftj4XrKND6fxILVEQsnStg+As7tcaIZ2gEPxzRlqLIsow5SNz751Woc85fxDESspPHSiOcHL1xQyjg==
   dependencies:
     filesize "^4.1.2"
     lodash.debounce "^4.0.8"
