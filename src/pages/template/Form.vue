@@ -7,7 +7,18 @@
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" :label="'template.name'" @formUpdated="updateValue"></form-input>
           <form-select :item="item" :errors="errors" :property="'type'" :option-store="'template_type'" :label="'template.type.name'" @formUpdated="updateValue"></form-select>
-          <form-file :axios="axios" :errors="errors" :item="item" property="files" formProperty="file" route="files" :multiple="true" label="files"></form-file>
+          <form-file
+              :axios="axios"
+              :errors="errors"
+              :item="item"
+              property="files"
+              formProperty="file"
+              :route="route"
+              :multiple="true"
+              label="files"
+              @formFileUploaded="formFileUploaded"
+              @formFileDeleted="formFileDeleted"
+          ></form-file>
         </div>
       </div>
 
@@ -40,6 +51,7 @@
     data() {
       return {
         axios: axios,
+        route: process.env.API_URL + '/files'
       }
     },
     beforeDestroy () {
@@ -59,6 +71,12 @@
       }),
       updateValue(property, value) {
         this.$store.commit('template/TEMPLATE_UPDATE_ITEM', {[property]: value})
+      },
+      formFileUploaded(file) {
+        this.$store.commit('template/TEMPLATE_ADD_FILE', file)
+      },
+      formFileDeleted(value) {
+        this.$store.commit('template/TEMPLATE_DELETE_FILE', value)
       },
     }
   }

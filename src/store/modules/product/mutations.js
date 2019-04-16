@@ -32,5 +32,11 @@ export default {
   },
   [types.RESET] (state) {
     Object.assign(state, defaultState())
+  },
+  [types.ADD_FILE] (state, file) {
+    state.item.images.push(file)
+  },
+  [types.DELETE_FILE] (state, fileId) {
+    state.item.images = state.item.images.filter(file => file.id !== fileId)
   }
 }

@@ -23,7 +23,18 @@
           <form-input :item="item" :errors="errors" :property="'ean'" :label="'product.ean'" @formUpdated="updateValue"></form-input>
           <form-select-autocomplete :item="item" :errors="errors" :property="'category'" :option-store="'category'" :label="'product.category.name'" @formUpdated="updateValue"></form-select-autocomplete>
           <form-input :item="item" :errors="errors" :property="'video'" :label="'product.video'" @formUpdated="updateValue"></form-input>
-          <form-file :axios="axios" :errors="errors" :item="item" property="images" formProperty="image" route="images" :multiple="true" label="images"></form-file>
+          <form-file
+              :axios="axios"
+              :errors="errors"
+              :item="item"
+              property="images"
+              formProperty="image"
+              :route="route"
+              :multiple="true"
+              label="files"
+              @formFileUploaded="formFileUploaded"
+              @formFileDeleted="formFileDeleted"
+          ></form-file>
         </div>
       </div>
 
@@ -36,6 +47,7 @@
   import {mapActions, mapGetters} from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import ItemErrors from "../../components/layout/errors/ItemErrors";
+  import axios from "../../interceptor";
 
   export default {
     components: {
@@ -55,6 +67,7 @@
     data() {
       return {
         axios: axios,
+        route: process.env.API_URL + '/images'
       }
     },
     beforeDestroy() {
@@ -118,6 +131,12 @@
       ...mapActions({
         getLanguages: 'language/getItems',
       }),
+      formFileUploaded(file) {
+        this.$store.commit('product/PRODUCT_ADD_FILE', file)
+      },
+      formFileDeleted(value) {
+        this.$store.commit('product/PRODUCT_DELETE_FILE', value)
+      },
     }
   }
 </script>

@@ -19,5 +19,11 @@ export default {
   },
   [types.RESET] (state) {
     Object.assign(state, defaultState())
+  },
+  [types.ADD_FILE] (state, file) {
+    state.item.files.push(file)
+  },
+  [types.DELETE_FILE] (state, fileId) {
+    state.item.files = state.item.files.filter(file => file.id !== fileId)
   }
 }
