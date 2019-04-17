@@ -140,6 +140,9 @@
           initFilters: this.initFilters,
           initialPage: this.initialPage,
           orderBy: this.orderBy,
+          texts: {
+            filterBy: "{column}",
+          },
           requestFunction: (params) => {
             return new Promise((resolve, reject) => {
               let queryParams = {}
