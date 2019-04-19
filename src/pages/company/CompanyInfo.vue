@@ -10,10 +10,6 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{$t('company.code')}}</td>
-            <td>{{ item['code'] }}</td>
-          </tr>
-          <tr>
             <td>{{$t('company.name')}}</td>
             <td>{{ item['name'] }}</td>
           </tr>
@@ -28,10 +24,6 @@
           <tr>
             <td>{{$t('company.description')}}</td>
             <td>{{ item['description'] }}</td>
-          </tr>
-          <tr>
-            <td>{{$t('company.comment')}}</td>
-            <td>{{ item['comment'] }}</td>
           </tr>
           <tr>
             <td>{{$t('company.bankName')}}</td>
@@ -54,16 +46,16 @@
             <td>{{ item['isVat'] }}</td>
           </tr>
           <tr>
+            <td>{{$t('company.vatComment')}}</td>
+            <td>{{ item['vatComment'] }}</td>
+          </tr>
+          <tr>
             <td>{{$t('company.labels.id')}}</td>
             <td>
               <template v-for="label in item.labels">
                 <span class="label label-primary">{{ label.name }}</span>
               </template>
             </td>
-          </tr>
-          <tr>
-            <td>{{$t('company.vatComment')}}</td>
-            <td>{{ item['vatComment'] }}</td>
           </tr>
           <tr>
             <td>{{$t('company.createdAt')}}</td>
