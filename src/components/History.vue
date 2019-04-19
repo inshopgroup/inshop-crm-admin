@@ -3,12 +3,12 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{$t('history.id')}}</th>
-          <th>{{$t('history.version')}}</th>
-          <th>{{$t('history.action')}}</th>
-          <th>{{$t('history.username')}}</th>
-          <th>{{$t('history.logged_at')}}</th>
-          <th>{{$t('history.changes')}}</th>
+          <th style="width: 75px;">{{$t('id')}}</th>
+          <th>{{$t('version')}}</th>
+          <th>{{$t('action')}}</th>
+          <th>{{$t('username')}}</th>
+          <th>{{$t('logged_at')}}</th>
+          <th>{{$t('changes')}}</th>
         </tr>
       </thead>
       <tbody>

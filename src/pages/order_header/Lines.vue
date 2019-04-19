@@ -3,13 +3,13 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th style="width: 75px;">{{$t('order_line.id')}}</th>
-        <th>{{$t('order_line.status.name')}}</th>
-        <th>{{$t('order_line.product.name')}}</th>
-        <th>{{$t('order_line.vat.name')}}</th>
-        <th>{{$t('order_line.price_sell_brutto')}}</th>
-        <th>{{$t('order_line.createdAt')}}</th>
-        <th>{{$t('order_line.updatedAt')}}</th>
+        <th style="width: 75px;">{{$t('id')}}</th>
+        <th>{{$t('status.name')}}</th>
+        <th>{{$t('product.name')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('price_sell_brutto')}}</th>
+        <th>{{$t('createdAt')}}</th>
+        <th>{{$t('updatedAt')}}</th>
       </tr>
       </thead>
       <tbody>

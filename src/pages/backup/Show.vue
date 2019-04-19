@@ -9,7 +9,7 @@
 
       <div class="nav-tabs-custom" v-if="item">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('backup.tabs.general')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
@@ -23,31 +23,31 @@
               </thead>
               <tbody>
               <tr>
-                <td>{{$t('backup.name')}}</td>
+                <td>{{$t('name')}}</td>
                 <td>{{ item['name'] }}</td>
               </tr>
               <tr>
-                <td>{{$t('backup.size')}}</td>
+                <td>{{$t('size')}}</td>
                 <td>{{ item['size'] }}</td>
               </tr>
               <tr>
-                <td>{{$t('backup.status.name')}}</td>
+                <td>{{$t('status.name')}}</td>
                 <td><span v-if="item['status']">{{ item['status']['name'] }}</span></td>
               </tr>
               <tr>
-                <td>{{$t('backup.type.name')}}</td>
+                <td>{{$t('type.name')}}</td>
                 <td><span v-if="item['type']">{{ item['type']['name'] }}</span></td>
               </tr>
               <tr>
-                <td>{{$t('backup.createdAt')}}</td>
+                <td>{{$t('createdAt')}}</td>
                 <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
               </tr>
               <tr>
-                <td>{{$t('backup.updatedAt')}}</td>
+                <td>{{$t('updatedAt')}}</td>
                 <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
               </tr>
               <tr>
-                <td>{{$t('backup.updatedBy')}}</td>
+                <td>{{$t('updatedBy')}}</td>
                 <td>{{ item['updatedBy'] }}</td>
               </tr>
               </tbody>

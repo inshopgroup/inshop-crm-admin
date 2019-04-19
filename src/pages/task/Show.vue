@@ -9,7 +9,7 @@
 
       <div class="nav-tabs-custom" v-if="item">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('task.tabs.general')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
@@ -23,23 +23,23 @@
               </thead>
               <tbody>
               <tr>
-                <td>{{$t('task.name')}}</td>
+                <td>{{$t('name')}}</td>
                 <td>{{ item['name'] }}</td>
               </tr>
               <tr>
-                <td>{{$t('task.description')}}</td>
+                <td>{{$t('description')}}</td>
                 <td>{{ item['description'] }}</td>
               </tr>
               <tr>
-                <td><b>{{$t('task.status.name')}}</b></td>
+                <td><b>{{$t('status.name')}}</b></td>
                 <td><b v-if="item.status">{{ item.status.name }}</b></td>
               </tr>
               <tr>
-                <td><b>{{$t('task.deadline')}}</b></td>
+                <td><b>{{$t('deadline')}}</b></td>
                 <td><b>{{ moment(item['deadline']).format('DD-MM-YYYY') }}</b></td>
               </tr>
               <tr>
-                <td>{{$t('task.project.name')}}</td>
+                <td>{{$t('name')}}</td>
                 <td>
                   <router-link v-if="item['project']" :to="{name: 'ProjectShow', params: { id: item['project'].id }}">
                     {{ item['project']['name'] }}
@@ -47,7 +47,7 @@
                 </td>
               </tr>
               <tr>
-                <td>{{$t('task.assignee.name')}}</td>
+                <td>{{$t('assignee.name')}}</td>
                 <td>
                   <router-link v-if="item['assignee']" :to="{name: 'UserShow', params: { id: item['assignee'].id }}">
                     {{ item['assignee']['name'] }}
@@ -55,23 +55,23 @@
                 </td>
               </tr>
               <tr>
-                <td>{{$t('task.timeEstimated')}}</td>
+                <td>{{$t('timeEstimated')}}</td>
                 <td>{{ item['timeEstimated'] }}</td>
               </tr>
               <tr>
-                <td>{{$t('task.timeSpent')}}</td>
+                <td>{{$t('timeSpent')}}</td>
                 <td>{{ item['timeSpent'] }}</td>
               </tr>
               <tr>
-                <td>{{$t('task.createdAt')}}</td>
+                <td>{{$t('createdAt')}}</td>
                 <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
               </tr>
               <tr>
-                <td>{{$t('task.updatedAt')}}</td>
+                <td>{{$t('updatedAt')}}</td>
                 <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
               </tr>
               <tr>
-                <td>{{$t('task.updatedBy')}}</td>
+                <td>{{$t('updatedBy')}}</td>
                 <td>{{ item['updatedBy'] }}</td>
               </tr>
               </tbody>

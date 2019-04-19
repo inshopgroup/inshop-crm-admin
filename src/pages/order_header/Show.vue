@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('order_header.tabs.general')}}</a></li>
-          <li><a href="#lines" data-toggle="tab" aria-expanded="false">{{$t('order_header.tabs.lines')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
+          <li><a href="#lines" data-toggle="tab" aria-expanded="false">{{$t('tabs.lines')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
@@ -25,11 +25,11 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('order_header.number')}}</td>
+                  <td>{{$t('number')}}</td>
                   <td>{{ item['number'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.client.name')}}</td>
+                  <td>{{$t('client.name')}}</td>
                   <td>
                     <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client'].id }}">
                       {{ item['client']['name'] }}
@@ -37,7 +37,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.channel.name')}}</td>
+                  <td>{{$t('channel.name')}}</td>
                   <td>
                     <router-link v-if="item['channel']" :to="{name: 'ChannelShow', params: { id: item['channel'].id }}">
                       {{ item['channel']['name'] }}
@@ -45,7 +45,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.paymentType.name')}}</td>
+                  <td>{{$t('paymentType.name')}}</td>
                   <td>
                     <router-link v-if="item['paymentType']" :to="{name: 'PaymentTypeShow', params: { id: item['paymentType'].id }}">
                       {{ item['paymentType']['name'] }}
@@ -53,7 +53,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.shipmentMethod.name')}}</td>
+                  <td>{{$t('name')}}</td>
                   <td>
                     <router-link v-if="item['shipmentMethod']" :to="{name: 'ShipmentMethodShow', params: { id: item['shipmentMethod'].id }}">
                       {{ item['shipmentMethod']['name'] }}
@@ -61,7 +61,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.status.name')}}</td>
+                  <td>{{$t('status.name')}}</td>
                   <td>
                     <router-link v-if="item['status']" :to="{name: 'OrderStatusShow', params: { id: item['status'].id }}">
                       {{ item['status']['name'] }}
@@ -69,7 +69,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.channel.currency.name')}}</td>
+                  <td>{{$t('channel.currency.name')}}</td>
                   <td>
                     <router-link v-if="item['channel'] && item['channel']['currency']" :to="{name: 'CurrencyShow', params: { id: item['channel']['currency'].id }}">
                       {{ item['channel']['currency']['name'] }}
@@ -77,15 +77,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('order_header.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updatedBy'] }}</td>
                 </tr>
                 </tbody>

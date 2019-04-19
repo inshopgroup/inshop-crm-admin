@@ -9,9 +9,9 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('client.tabs.general')}}</a></li>
-          <li><a href="#contacts" data-toggle="tab" aria-expanded="false">{{$t('client.tabs.contacts')}}</a></li>
-          <li><a href="#addresses" data-toggle="tab" aria-expanded="false">{{$t('client.tabs.addresses')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('general')}}</a></li>
+          <li><a href="#contacts" data-toggle="tab" aria-expanded="false">{{$t('contacts')}}</a></li>
+          <li><a href="#addresses" data-toggle="tab" aria-expanded="false">{{$t('addresses')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">

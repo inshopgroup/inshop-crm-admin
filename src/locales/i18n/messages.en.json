@@ -7,13 +7,11 @@
   "submit": "Submit",
   "field": "Field",
   "value": "Value",
-  "auth": {
-    "username": "Email address",
-    "password": "Password",
-    "signin": "Sign in",
-    "signout": "Sign out",
-    "start_session": "Sign in to start the session"
-  },
+  "username": "Email address",
+  "password": "Password",
+  "signin": "Sign in",
+  "signout": "Sign out",
+  "start_session": "Sign in to start the session",
   "back_to_list": "Back to list",
   "show": "Show",
   "delete": "Delete",
@@ -25,1081 +23,164 @@
   "edit": "Edit",
   "delete_are_you_sure": "Are you sure you want to delete this item?",
   "error_occurred": "Error occurred",
-  "tabs": {
-    "history": "History"
-  },
-  "module": {
-    "address": "Address",
-    "category": "Category",
-    "city": "City",
-    "company": "Company",
-    "country": "Country",
-    "currency": "Currency",
-    "invoice_header": "Invoice header",
-    "invoice_line": "Invoice line",
-    "invoice_status": "Invoice status",
-    "invoice_type": "Invoice type",
-    "language": "Language",
-    "order_header": "Order header",
-    "order_line": "Order line",
-    "order_line_status": "Order line status",
-    "order_status": "Order status",
-    "payment_type": "Shipment method",
-    "product": "Product",
-    "purchase_order_header": "Purchase order header",
-    "purchase_order_line": "Purchase order line",
-    "purchase_order_status": "Purchase order status",
-    "shipment_method": "Shipment method",
-    "purchase_order_line_status": "Purchase order line status",
-    "client": "Client",
-    "vat": "Vat",
-    "warehouse": "Warehouse",
-    "contact": "Contact",
-    "contact_type": "Contact type",
-    "document": "Document",
-    "file": "File",
-    "group": "Group",
-    "project": "Project",
-    "project_status": "Project status",
-    "project_type": "Project type",
-    "task": "Task",
-    "task_status": "Task status",
-    "task_type": "Task type",
-    "role": "Role",
-    "template": "Template",
-    "template_type": "Template type",
-    "user": "User",
-    "other": "Other",
-    "stock_line": "Stock line",
-    "stock_line_status": "Stock line status",
-    "shipping_notice_header": "Shipping notice header",
-    "shipping_notice_line": "Shipping notice line",
-    "shipping_notice_line_status": "Shipping notice line status",
-    "shipping_notice_status": "Shipping notice status",
-    "brand": "Brand",
-    "channel": "Channel",
-    "module": "Module"
-  },
-  "role": {
-    "list": "List",
-    "create": "Create",
-    "show": "Show",
-    "delete": "Delete",
-    "update": "Update",
-    "history": "History",
-    "search": "Search",
-    "dashboard": "Dashboard",
-    "deadline": "Deadline",
-    "download": "Download",
-    "calendar": "Calendar"
-  },
-  "menu": {
-    "cms": "CMS",
-    "text": "Texts",
-    "dictionaries": "Dictionaries",
-    "maintenance": "Maintenance",
-    "backup": "Backups",
-    "dashboard": "Dashboard",
-    "title": "Navigation",
-    "calendar": "Calendar",
-    "clients": "Clients",
-    "companies": "Companies",
-    "contacts": "Contacts",
-    "documents": "Documents",
-    "templates": "Templates",
-    "template_types": "Template types",
-    "tasks": "Tasks",
-    "projects": "Projects",
-    "users": "Users",
-    "address": "Addresses",
-    "country": "Countries",
-    "city": "Cities",
-    "category": "Categories",
-    "product": "Products",
-    "order_header": "Orders",
-    "order_status": "Order statuses",
-    "order_line_status": "Order line statuses",
-    "invoice_header": "Invoices",
-    "invoice_status": "Invoice statuses",
-    "invoice_type": "Invoice types",
-    "language": "Languages",
-    "vat": "Vat",
-    "currency": "Currencies",
-    "contact_type": "Contact types",
-    "project_type": "Project types",
-    "project_status": "Project statuses",
-    "task_status": "Task statuses",
-    "groups": "User groups",
-    "brand": "Brands",
-    "label": "Labels",
-    "paymentType": "Payment types",
-    "shipmentMethod": "Shipment methods",
-    "channel": "Channels"
-  },
-  "dashboard": {
-    "title": "Dashboard",
-    "clients_30": "New client for last 30 days",
-    "events_30": "Closed tasks for last 30 days",
-    "user_7": "Closed tasks per user - 7 days",
-    "user_30": "Closed tasks per user - 30 days",
-    "user_365": "Closed tasks per user - 1 year",
-    "user_time_7": "Spent time - 7 days (hours)",
-    "user_time_30": "Spent time - 30 days (hours)",
-    "user_time_365": "Spent time - 1 year (hours)"
-  },
-  "client": {
-    "id": "ID",
-    "add": "Add client",
-    "edit": "Edit client \"{entity}\"",
-    "list": "Client list",
-    "name": "Name",
-    "clients": "Client relations",
-    "companies": "Company relations",
-    "columnContacts": "Contacts",
-    "address": "Address",
-    "description": "Description",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "contacts": {
-      "value": "Contacts"
-    },
-    "tabs": {
-      "general": "General information",
-      "contacts": "Contacts",
-      "addresses": "Addresses",
-      "clients": "Clients",
-      "companies": "Companies",
-      "projects": "Projects",
-      "tasks": "Tasks",
-      "documents": "Documents"
-    }
-  },
-  "template": {
-    "add": "Add template",
-    "edit": "Edit template \"{entity}\"",
-    "list": "Template list",
-    "id": "ID",
-    "name": "Name",
-    "type": {
-      "name": "Type"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "files": "Files"
-    }
-  },
-  "template_type": {
-    "list": "Template type list",
-    "add": "Add template type",
-    "edit": "Edit template type {entity}",
-    "deleted": "Template type {entity} was deleted",
-    "saved": "Template type {entity} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "payment_type": {
-    "list": "Shipment method list",
-    "add": "Add shipment method",
-    "edit": "Edit shipment method {entity}",
-    "deleted": "Shipment method {entity} was deleted",
-    "saved": "Shipment method {entity} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-    "shipment_method": {
-      "list": "Shipment method list",
-      "add": "Add shipment method",
-      "edit": "Edit shipment method {entity}",
-      "deleted": "Shipment method {entity} was deleted",
-      "saved": "Shipment method {entity} was saved",
-      "id": "ID",
-      "name": "Name",
-      "columnCreatedAt": "Created at",
-      "columnUpdatedAt": "Updated at",
-      "createdAt": "Created at",
-      "updatedAt": "Updated at",
-      "updatedBy": "Updated by",
-      "actions": "Actions",
-      "tabs": {
-        "general": "General information"
-      }
-    },
-  "brand": {
-    "list": "Brand list",
-    "add": "Add brand",
-    "edit": "Edit brand {entity}",
-    "deleted": "Brand {entity} was deleted",
-    "saved": "Brand {entity} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "label": {
-    "list": "Label list",
-    "add": "Add label",
-    "edit": "Edit label {entity}",
-    "deleted": "Label {entity} was deleted",
-    "saved": "Label {entity} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "backup": {
-    "list": "Backup list",
-    "add": "Add backup",
-    "edit": "Edit backup {entity}",
-    "deleted": "Backup {entity} was deleted",
-    "saved": "Backup {entity} was saved",
-    "id": "ID",
-    "name": "Name",
-    "size": "Size",
-    "type": {
-      "id": "Type",
-      "name": "Type"
-    },
-    "status": {
-      "id": "Status",
-      "name": "Status"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "channel": {
-    "list": "Channel list",
-    "add": "Add channel",
-    "edit": "Edit channel {entity}",
-    "deleted": "Channel {entity} was deleted",
-    "saved": "Channel {entity} was saved",
-    "id": "ID",
-    "name": "Name",
-    "currency": {
-      "name": "Currency"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "task": {
-    "add": "Add task",
-    "edit": "Edit task \"{entity}\"",
-    "list": "Tasks list",
-    "saved": "Task {task} saved",
-    "id": "ID",
-    "name": "Name",
-    "client": "Client",
-    "description": "Description",
-    "deadline": "Deadline",
-    "notification_deadline": "Reminders about deadlines",
-    "timeEstimated": "Estimated time",
-    "timeSpent": "Spent time",
-    "status": {
-      "id": "Status",
-      "name": "Status"
-    },
-    "project": {
-      "name": "Project",
-      "client": {
-        "name": "Client"
-      }
-    },
-    "assignee": {
-      "name": "Assignee"
-    },
-    "columnDeadline": "Deadline",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "project": {
-    "add": "Add project",
-    "edit": "Edit project \"{entity}\"",
-    "list": "Projects list",
-    "deleted": "Project {project} was deleted",
-    "saved": "Project {project} was saved",
-    "id": "ID",
-    "name": "Name",
-    "description": "Description",
-    "status": {
-      "id": "Status",
-      "name": "Status"
-    },
-    "type": {
-      "id": "Project type",
-      "name": "Project type"
-    },
-    "client": {
-      "name": "Client"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "documents": "Documents",
-      "tasks": "Tasks"
-    }
-  },
-  "user": {
-    "add": "Add user",
-    "edit": "Edit user \"{entity}\"",
-    "list": "Users list",
-    "id": "ID",
-    "name": "Name",
-    "password": "Password",
-    "isActive": "Is active",
-    "email": "Email",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "groups": {
-      "name": "Groups"
-    },
-    "language": {
-      "name": "Language"
-    },
-    "tabs": {
-      "general": "General information",
-      "tasks": "Deadlines"
-    }
-  },
-  "group": {
-    "add": "Add group",
-    "edit": "Edit group \"{entity}\"",
-    "list": "Groups list",
-    "id": "ID",
-    "name": "Name",
-    "roles": "Roles",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "roles": "Roles"
-    }
-  },
-  "company": {
-    "add": "Add company",
-    "edit": "Edit company \"{entity}\"",
-    "list": "Companies list",
-    "id": "ID",
-    "code": "Code",
-    "name": "Name",
-    "contactPerson": "Contact person",
-    "fullName": "Full name",
-    "isVat": "Is VAT registered",
-    "vatComment": "VAT additional info",
-    "bankName": "Bank name",
-    "bankAccountNumber": "Bank account number",
-    "description": "Description",
-    "contacts": {
-      "value": "Contacts"
-    },
-    "labels": {
-      "id": "Labels"
-    },
-    "addresses": {
-      "country": {
-        "name": "Country"
-      },
-      "city": {
-        "name": "City"
-      },
-      "postCode": "Post code"
-    },
-    "krs": "KRS",
-    "nip": "NIP",
-    "clients": "Clients",
-    "comment": "Comment",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "contacts": "Contacts",
-      "addresses": "Addresses",
-      "documents": "Documents",
-      "companyProducts": "Products",
-      "clients": "Clients"
-    }
-  },
-  "contact": {
-    "list": "Contacts list",
-    "edit": "Edit contact \"{entity}\"",
-    "add": "Add contact",
-    "deleted": "Contact {entity} was deleted",
-    "saved": "Contact {entity} was saved",
-    "id": "ID",
-    "value": "Contact",
-    "clients": "Clients",
-    "companies": "Companies",
-    "contactType": {
-      "name": "Type"
-    },
-    "client": "Client",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions"
-  },
-  "document": {
-    "list": "Documents list",
-    "edit": "Edit document \"{entity}\"",
-    "add": "Add document",
-    "deleted": "Document {document} was deleted",
-    "saved": "Document {document} was saved",
-    "id": "ID",
-    "name": "Name",
-    "clients": "Clients",
-    "projects": "Projects",
-    "files": "Files",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "projects": "Projects",
-      "files": "Files"
-    }
-  },
-  "file": {
-    "id": "ID",
-    "size": "Size",
-    "mimeType": "Mime type",
-    "originalName": "Original name",
-    "createdAt": "Created at"
-  },
-  "search": {
-    "list": "Search results",
-    "keyword": "Keyword",
-    "q": "Keyword",
-    "type": "Type",
-    "show": "Show"
-  },
-  "address": {
-    "list": "Address list",
-    "edit": "Edit address \"{entity}\"",
-    "add": "Add address",
-    "deleted": "Address {entity} was deleted",
-    "saved": "Address {entity} was saved",
-    "id": "ID",
-    "name": "Name",
-    "contactType": {
-      "name": "Type"
-    },
-    "clients": "Clients",
-    "companies": "Companies",
-    "postCode": "Postcode",
-    "region": "Region",
-    "district": "District",
-    "street": "Street",
-    "building": "Building",
-    "apartment": "Apartment",
-    "comment": "Comment",
-    "country": {
-      "name": "Country"
-    },
-    "city": {
-      "name": "City"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "country": {
-    "list": "Country list",
-    "add": "Add country",
-    "edit": "Edit country \"{entity}\"",
-    "deleted": "Country {country} was deleted",
-    "saved": "Country {country} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "city": {
-    "list": "City list",
-    "add": "Add city",
-    "edit": "Edit city \"{entity}\"",
-    "deleted": "City {city} was deleted",
-    "saved": "City {city} was saved",
-    "id": "ID",
-    "name": "Name",
-    "country": {
-      "name": "Country"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "category": {
-    "list": "Category list",
-    "add": "Add category",
-    "edit": "Edit category \"{entity}\"",
-    "deleted": "Category {category} was deleted",
-    "saved": "Category {category} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnTranslatedName": "Name",
-    "columnParentTranslatedName": "Parent",
-    "description": "Description",
-    "parent": {
-      "name": "Parent"
-    },
-    "isActive": "Is active",
-    "position": "Position",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "product": {
-    "list": "Product list",
-    "add": "Add product",
-    "edit": "Edit product \"{entity}\"",
-    "deleted": "Product {product} was deleted",
-    "saved": "Product {product} was saved",
-    "id": "ID",
-    "name": "Name",
-    "description": "Description",
-    "age": "Age",
-    "images": "Images",
-    "video": "Video",
-    "machineType": "Machine Type",
-    "condition": "Condition",
-    "columnTranslatedName": "Name",
-    "category": {
-      "name": "Category"
-    },
-    "brand": {
-      "name": "Brand"
-    },
-    "ean": "EAN",
-    "vat": {
-      "name": "VAT"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "companyProducts": "Suppliers",
-      "productSellPrices": "Sell prices"
-    }
-  },
-  "order_header": {
-    "list": "Order header list",
-    "add": "Add order",
-    "edit": "Edit order \"{entity}\"",
-    "deleted": "Order {order_header} was deleted",
-    "saved": "Order {order_header} was saved",
-    "id": "ID",
-    "number": "Number",
-    "client": {
-      "name": "Client"
-    },
-    "channel": {
-      "name": "Channel",
-      "currency": {
-        "name": "Currency"
-      }
-    },
-    "status": {
-      "name": "Status"
-    },
-    "paymentType": {
-      "name": "Shipment method"
-    },
-    "shipmentMethod": {
-      "name": "Shipment method"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "lines": "Lines"
-    }
-  },
-  "order_line": {
-    "list": "Order line list",
-    "add": "Add order line",
-    "edit": "Edit order line \"{entity}\"",
-    "deleted": "Order line {order_line} was deleted",
-    "saved": "Order line {order_line} was saved",
-    "id": "ID",
-    "name": "Name",
-    "price_sell_brutto": "Price sell brutto",
-    "product_sell_price": "Product sell prices",
-    "status": {
-      "name": "Status"
-    },
-    "vat": {
-      "name": "Vat"
-    },
-    "product": {
-      "name": "Product"
-    },
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by"
-  },
-  "order_status": {
-    "list": "Order status list",
-    "add": "Add order status",
-    "edit": "Edit order status \"{entity}\"",
-    "deleted": "Order status {order_status} was deleted",
-    "saved": "Order status {order_status} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "order_line_status": {
-    "list": "Order line status list",
-    "add": "Add order line status",
-    "edit": "Edit order line status \"{entity}\"",
-    "deleted": "Order line status {order_line_status} was deleted",
-    "saved": "Order line status {order_line_status} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "invoice_header": {
-    "list": "Invoice list",
-    "add": "Add invoice",
-    "edit": "Edit invoice \"{entity}\"",
-    "deleted": "Invoice {invoice_header} was deleted",
-    "saved": "Invoice {invoice_header} was saved",
-    "id": "ID",
-    "name": "Name",
-    "number": "Number",
-    "maturity": "Maturity",
-    "dateOfInvoice": "Date of invoice",
-    "dateOfSale": "Date of sale",
-    "status": {
-      "name": "Status"
-    },
-    "type": {
-      "name": "Type"
-    },
-    "companyFrom": {
-      "name": "Company from"
-    },
-    "companyTo": {
-      "name": "Company to"
-    },
-    "agreement": {
-      "name": "Agreement"
-    },
-    "currency": {
-      "name": "Currency"
-    },
-    "language": {
-      "name": "Language"
-    },
-    "orderHeader": {
-      "number": "Order number"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "lines": "Lines"
-    }
-  },
-  "invoice_status": {
-    "list": "Invoice status list",
-    "add": "Add invoice status",
-    "edit": "Edit invoice status \"{entity}\"",
-    "deleted": "Invoice status {invoice_status} was deleted",
-    "saved": "Invoice status {invoice_status} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "invoice_type": {
-    "list": "Invoice type list",
-    "add": "Add invoice type",
-    "edit": "Edit invoice type \"{entity}\"",
-    "deleted": "Invoice type {invoice_type} was deleted",
-    "saved": "Invoice type {invoice_type} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "language": {
-    "list": "Language list",
-    "add": "Add language",
-    "edit": "Edit language \"{entity}\"",
-    "deleted": "Language {language} was deleted",
-    "saved": "Language {language} was saved",
-    "id": "ID",
-    "name": "Name",
-    "code": "Code",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "vat": {
-    "list": "Vat list",
-    "add": "Add vat",
-    "edit": "Edit vat \"{entity}\"",
-    "deleted": "Vat {vat} was deleted",
-    "saved": "Vat {vat} was saved",
-    "id": "ID",
-    "name": "Name",
-    "value": "Value",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "currency": {
-    "list": "Currency list",
-    "add": "Add currency",
-    "edit": "Edit currency \"{entity}\"",
-    "deleted": "Currency {currency} was deleted",
-    "saved": "Currency {currency} was saved",
-    "id": "ID",
-    "name": "Name",
-    "code": "Code",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "contact_type": {
-    "list": "Contact type list",
-    "add": "Add contact_type",
-    "edit": "Edit contact_type \"{entity}\"",
-    "deleted": "Contact type {contact_type} was deleted",
-    "saved": "Contact type {contact_type} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "project_type": {
-    "list": "Project type list",
-    "add": "Add project type",
-    "edit": "Edit project type \"{entity}\"",
-    "deleted": "Project type {project_type} was deleted",
-    "saved": "Project type {project_type} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "project_status": {
-    "list": "Project status list",
-    "add": "Add project status",
-    "edit": "Edit project status \"{entity}\"",
-    "deleted": "Project status {project_status} was deleted",
-    "saved": "Project status {project_status} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "task_status": {
-    "list": "Task status list",
-    "add": "Add task_status",
-    "edit": "Edit task_status \"{entity}\"",
-    "deleted": "Task status {task_status} was deleted",
-    "saved": "Task status {task_status} was saved",
-    "id": "ID",
-    "name": "Name",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "invoice_line": {
-    "list": "Invoice line list",
-    "add": "Add invoice line",
-    "edit": "Edit invoice line \"{entity}\"",
-    "deleted": "Invoice line {invoice_line} was deleted",
-    "saved": "Invoice line {invoice_line} was saved",
-    "id": "ID",
-    "name": "Name",
-    "unitPriceNetto": "Unit price netto",
-    "unitsCount": "Units count",
-    "product": {
-      "name": "Product"
-    },
-    "vat": {
-      "name": "VAT"
-    },
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "company_product" : {
-    "add": "Add",
-    "edit": "Edit product \"{entity}\"",
-    "deleted": "Product {invoice_line} was deleted",
-    "saved": "Product {invoice_line} was saved",
-    "id": "ID",
-    "company": {
-      "name": "Supplier"
-    },
-    "product": {
-      "name": "Product"
-    },
-    "currency": {
-      "name": "Currency"
-    },
-    "price_buy_netto": "Price buy netto",
-    "availability": "Availability",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at"
-  },
-  "product_sell_price" : {
-    "add": "Add sell price",
-    "edit": "Edit product sell price {product_sell_price}",
-    "deleted": "Product sell price {product_sell_price} was deleted",
-    "saved": "Product sell price {product_sell_price} was saved",
-    "id": "ID",
-    "company_product": {
-      "name": "Supplier"
-    },
-    "vat": {
-      "name": "Vat"
-    },
-    "channel": {
-      "name": "Channel"
-    },
-    "currency": {
-      "name": "Currency"
-    },
-    "price_sell_brutto": "Price sell brutto",
-    "price_old_sell_brutto": "Price old sell brutto",
-    "active_from": "Active from",
-    "active_to": "Active to",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at"
-  },
-  "text": {
-    "list": "Text list",
-    "add": "Add text",
-    "edit": "Edit text \"{entity}\"",
-    "show": "Text \"{entity}\"",
-    "id": "ID",
-    "title": "Title",
-    "slug": "Slug",
-    "content": "Content",
-    "seoTitle": "SEO title",
-    "seoDescription": "SEO Description",
-    "seoKeywords": "SEO keywords",
-    "columnCreatedAt": "Created at",
-    "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
-  },
-  "history": {
-    "id": "ID",
-    "version": "Version",
-    "action": "Action",
-    "username": "Username",
-    "logged_at": "Logged at",
-    "changes": "Changes"
-  }
+  "address": "Address",
+  "category": "Category",
+  "city": "City",
+  "company": "Company",
+  "country": "Country",
+  "currency": "Currency",
+  "invoice_header": "Invoice header",
+  "invoice_line": "Invoice line",
+  "invoice_status": "Invoice status",
+  "invoice_type": "Invoice type",
+  "language": "Language",
+  "order_header": "Order header",
+  "order_line": "Order line",
+  "order_line_status": "Order line status",
+  "order_status": "Order status",
+  "payment_type": "Shipment method",
+  "product": "Product",
+  "purchase_order_header": "Purchase order header",
+  "purchase_order_line": "Purchase order line",
+  "purchase_order_status": "Purchase order status",
+  "shipment_method": "Shipment method",
+  "purchase_order_line_status": "Purchase order line status",
+  "client": "Client",
+  "vat": "Vat",
+  "warehouse": "Warehouse",
+  "contact": "Contact",
+  "contact_type": "Contact type",
+  "document": "Document",
+  "file": "File",
+  "group": "Group",
+  "project": "Project",
+  "project_status": "Project status",
+  "project_type": "Project type",
+  "task": "Task",
+  "task_status": "Task status",
+  "task_type": "Task type",
+  "role": "Role",
+  "template": "Template",
+  "template_type": "Template type",
+  "user": "User",
+  "other": "Other",
+  "stock_line": "Stock line",
+  "stock_line_status": "Stock line status",
+  "shipping_notice_header": "Shipping notice header",
+  "shipping_notice_line": "Shipping notice line",
+  "shipping_notice_line_status": "Shipping notice line status",
+  "shipping_notice_status": "Shipping notice status",
+  "brand": "Brand",
+  "channel": "Channel",
+  "module": "Module",
+  "list": "List",
+  "update": "Update",
+  "history": "History",
+  "search": "Search",
+  "dashboard": "Dashboard",
+  "deadline": "Deadline",
+  "download": "Download",
+  "calendar": "Calendar",
+  "cms": "CMS",
+  "text": "Texts",
+  "dictionaries": "Dictionaries",
+  "maintenance": "Maintenance",
+  "backup": "Backups",
+  "clients": "Clients",
+  "companies": "Companies",
+  "contacts": "Contacts",
+  "documents": "Documents",
+  "templates": "Templates",
+  "template_types": "Template types",
+  "tasks": "Tasks",
+  "projects": "Projects",
+  "users": "Users",
+  "groups": "User groups",
+  "label": "Labels",
+  "paymentType": "Payment types",
+  "shipmentMethod": "Shipment methods",
+  "clients_30": "New client for last 30 days",
+  "events_30": "Closed tasks for last 30 days",
+  "user_7": "Closed tasks per user - 7 days",
+  "user_30": "Closed tasks per user - 30 days",
+  "user_365": "Closed tasks per user - 1 year",
+  "user_time_7": "Spent time - 7 days (hours)",
+  "user_time_30": "Spent time - 30 days (hours)",
+  "user_time_365": "Spent time - 1 year (hours)",
+  "id": "ID",
+  "add": "Add client",
+  "name": "Name",
+  "columnContacts": "Contacts",
+  "description": "Description",
+  "columnCreatedAt": "Created at",
+  "columnUpdatedAt": "Updated at",
+  "createdAt": "Created at",
+  "updatedAt": "Updated at",
+  "updatedBy": "Updated by",
+  "actions": "Actions",
+  "general": "General information",
+  "addresses": "Addresses",
+  "files": "Files",
+  "size": "Size",
+  "notification_deadline": "Reminders about deadlines",
+  "timeEstimated": "Estimated time",
+  "timeSpent": "Spent time",
+  "columnDeadline": "Deadline",
+  "isActive": "Is active",
+  "email": "Email",
+  "code": "Code",
+  "contactPerson": "Contact person",
+  "fullName": "Full name",
+  "isVat": "Is VAT registered",
+  "vatComment": "VAT additional info",
+  "bankName": "Bank name",
+  "bankAccountNumber": "Bank account number",
+  "postCode": "Post code",
+  "krs": "KRS",
+  "nip": "NIP",
+  "comment": "Comment",
+  "companyProducts": "Products",
+  "mimeType": "Mime type",
+  "originalName": "Original name",
+  "keyword": "Keyword",
+  "q": "Keyword",
+  "type": "Type",
+  "region": "Region",
+  "district": "District",
+  "street": "Street",
+  "building": "Building",
+  "apartment": "Apartment",
+  "columnTranslatedName": "Name",
+  "columnParentTranslatedName": "Parent",
+  "position": "Position",
+  "age": "Age",
+  "images": "Images",
+  "video": "Video",
+  "machineType": "Machine Type",
+  "condition": "Condition",
+  "ean": "EAN",
+  "productSellPrices": "Sell prices",
+  "number": "Number",
+  "lines": "Lines",
+  "product_sell_price": "Product sell prices",
+  "maturity": "Maturity",
+  "dateOfInvoice": "Date of invoice",
+  "dateOfSale": "Date of sale",
+  "unitPriceNetto": "Unit price netto",
+  "unitsCount": "Units count",
+  "price_buy_netto": "Price buy netto",
+  "availability": "Availability",
+  "price_sell_brutto": "Price sell brutto",
+  "price_old_sell_brutto": "Price old sell brutto",
+  "active_from": "Active from",
+  "active_to": "Active to",
+  "slug": "Slug",
+  "content": "Content",
+  "seoTitle": "SEO title",
+  "seoDescription": "SEO Description",
+  "seoKeywords": "SEO keywords",
+  "version": "Version",
+  "action": "Action",
+  "logged_at": "Logged at",
+  "changes": "Changes"
 }

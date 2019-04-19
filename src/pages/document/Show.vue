@@ -10,8 +10,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('document.tabs.general')}}</a></li>
-          <li><a href="#files" data-toggle="tab" aria-expanded="false">{{$t('document.tabs.files')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
+          <li><a href="#files" data-toggle="tab" aria-expanded="false">{{$t('tabs.files')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">

@@ -9,15 +9,15 @@
     </thead>
     <tbody>
     <tr>
-      <td>{{$t('project.name')}}</td>
+      <td>{{$t('name')}}</td>
       <td>{{ item['name'] }}</td>
     </tr>
     <tr>
-      <td>{{$t('project.description')}}</td>
+      <td>{{$t('description')}}</td>
       <td>{{ item['description'] }}</td>
     </tr>
     <tr>
-      <td>{{$t('project.type.name')}}</td>
+      <td>{{$t('name')}}</td>
       <td>
         <span v-if="item && item['type']">
           {{ item['type']['name'] }}
@@ -25,7 +25,7 @@
       </td>
     </tr>
     <tr>
-      <td>{{$t('project.status.name')}}</td>
+      <td>{{$t('status.name')}}</td>
       <td>
         <span v-if="item && item['type']">
           {{ item['status']['name'] }}
@@ -33,7 +33,7 @@
       </td>
     </tr>
     <tr>
-      <td>{{$t('project.client.name')}}</td>
+      <td>{{$t('name')}}</td>
       <td>
         <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client'].id }}">
           {{ item['client']['name'] }}
@@ -41,15 +41,15 @@
       </td>
     </tr>
     <tr>
-      <td>{{$t('project.createdAt')}}</td>
+      <td>{{$t('createdAt')}}</td>
       <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
     </tr>
     <tr>
-      <td>{{$t('project.updatedAt')}}</td>
+      <td>{{$t('updatedAt')}}</td>
       <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
     </tr>
     <tr>
-      <td>{{$t('project.updatedBy')}}</td>
+      <td>{{$t('updatedBy')}}</td>
       <td>{{ item['updatedBy'] }}</td>
     </tr>
     </tbody>

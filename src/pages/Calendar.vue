@@ -9,13 +9,13 @@
         </h3>
         <p class="time">{{moment(task.deadline).format('DD-MM-YYYY')}}</p>
         <p>
-          {{$t('task.client')}}:
+          {{$t('client')}}:
           <router-link  :to="{name: 'ClientShow', params: { id: task.project.client.id }}">
             {{task.project.client.name}}
           </router-link>
         </p>
         <p>
-          {{$t('task.assignee.name')}}:
+          {{$t('assignee.name')}}:
           <router-link  :to="{name: 'UserShow', params: { id: task.assignee.id }}" v-if="task && task['assignee']">
             {{task.assignee.name}}
           </router-link>

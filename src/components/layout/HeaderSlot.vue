@@ -12,7 +12,7 @@
           <ul class="dropdown-menu">
             <li class="user-footer">
               <div class="pull-right">
-                <a href="#" class="btn btn-default btn-flat" @click.prevent="SignOut">{{$t('auth.signout')}}</a>
+                <a href="#" class="btn btn-default btn-flat" @click.prevent="SignOut">{{$t('signout')}}</a>
               </div>
             </li>
           </ul>

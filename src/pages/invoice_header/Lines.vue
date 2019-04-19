@@ -3,14 +3,14 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th style="width: 75px;">{{$t('invoice_line.id')}}</th>
-        <th>{{$t('invoice_line.product.name')}}</th>
-        <th>{{$t('invoice_line.name')}}</th>
-        <th>{{$t('invoice_line.vat.name')}}</th>
-        <th>{{$t('invoice_line.unitPriceNetto')}}</th>
-        <th>{{$t('invoice_line.unitsCount')}}</th>
-        <th>{{$t('invoice_line.createdAt')}}</th>
-        <th>{{$t('invoice_line.updatedAt')}}</th>
+        <th style="width: 75px;">{{$t('id')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('unitPriceNetto')}}</th>
+        <th>{{$t('unitsCount')}}</th>
+        <th>{{$t('createdAt')}}</th>
+        <th>{{$t('updatedAt')}}</th>
       </tr>
       </thead>
       <tbody>

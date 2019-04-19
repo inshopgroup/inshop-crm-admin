@@ -1,13 +1,13 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('shipment_method.list')}}</h1>
+    <h1>{{$t('list')}}</h1>
   </section>
 
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <router-link :to="{ name: 'ShipmentMethodCreate' }" class="btn btn-primary pull-right">{{$t('shipment_method.add')}}</router-link>
+        <router-link :to="{ name: 'ShipmentMethodCreate' }" class="btn btn-primary pull-right">{{$t('add')}}</router-link>
       </div>
       <div class="box-body">
         <item-errors :entity="'shipment_method'"></item-errors>

@@ -10,23 +10,23 @@
         </thead>
         <tbody>
           <tr>
-            <td>{{$t('client.name')}}</td>
+            <td>{{$t('name')}}</td>
             <td>{{ item['name'] }}</td>
           </tr>
           <tr>
-            <td>{{$t('client.description')}}</td>
+            <td>{{$t('description')}}</td>
             <td>{{ item['description'] }}</td>
           </tr>
           <tr>
-            <td>{{$t('client.createdAt')}}</td>
+            <td>{{$t('createdAt')}}</td>
             <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
           </tr>
           <tr>
-            <td>{{$t('client.updatedAt')}}</td>
+            <td>{{$t('updatedAt')}}</td>
             <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
           </tr>
           <tr>
-            <td>{{$t('client.updatedBy')}}</td>
+            <td>{{$t('updatedBy')}}</td>
             <td>{{ item['updatedBy'] }}</td>
           </tr>
         </tbody>

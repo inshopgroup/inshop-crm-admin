@@ -9,7 +9,7 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('category.tabs.general')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
@@ -24,23 +24,23 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('category.name')}}</td>
+                  <td>{{$t('name')}}</td>
                   <td>{{ translate(item).name }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('category.description')}}</td>
+                  <td>{{$t('description')}}</td>
                   <td>{{ translate(item).description }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('category.isActive')}}</td>
+                  <td>{{$t('isActive')}}</td>
                   <td>{{ item.isActive ? $t('yes') : $t('no') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('category.position')}}</td>
+                  <td>{{$t('position')}}</td>
                   <td>{{ item.position }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('category.parent.name')}}</td>
+                  <td>{{$t('parent.name')}}</td>
                   <td>
                     <router-link v-if="item['parent']" :to="{name: 'CategoryShow', params: { id: item['parent'].id }}">
                       {{ item['parent']['name'] }}
@@ -48,15 +48,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('category.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('category.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('category.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updatedBy'] }}</td>
                 </tr>
                 </tbody>

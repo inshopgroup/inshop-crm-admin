@@ -1,10 +1,10 @@
 <template>
   <div class="table-responsive">
     <section class="content-header hidden show-print">
-      <h1>{{$t('company.tabs.addresses')}}</h1>
+      <h1>{{$t('tabs.addresses')}}</h1>
     </section>
 
-    <button class="btn btn-primary hidden-print" @click="create($event.target)">{{$t('address.add')}}</button>
+    <button class="btn btn-primary hidden-print" @click="create($event.target)">{{$t('add')}}</button>
 
     <br>
     <br>
@@ -12,16 +12,16 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{$t('address.id')}}</th>
-          <th>{{$t('address.postCode')}}</th>
-          <th>{{$t('address.country.name')}}</th>
-          <th>{{$t('address.city.name')}}</th>
-          <th>{{$t('address.region')}}</th>
-          <th>{{$t('address.district')}}</th>
-          <th>{{$t('address.street')}}</th>
-          <th>{{$t('address.building')}}</th>
-          <th>{{$t('address.apartment')}}</th>
-          <th>{{$t('address.comment')}}</th>
+          <th style="width: 75px;">{{$t('id')}}</th>
+          <th>{{$t('postCode')}}</th>
+          <th>{{$t('name')}}</th>
+          <th>{{$t('name')}}</th>
+          <th>{{$t('region')}}</th>
+          <th>{{$t('district')}}</th>
+          <th>{{$t('street')}}</th>
+          <th>{{$t('building')}}</th>
+          <th>{{$t('apartment')}}</th>
+          <th>{{$t('comment')}}</th>
           <th class="hidden-print" style="width: 100px;" />
         </tr>
       </thead>
@@ -133,7 +133,7 @@
         if (window.confirm(this.$t('delete_are_you_sure'))) {
           this.remove(item).then(() => {
             this.$toastr.s(
-              this.$t('address.deleted', {entity: item.value}),
+              this.$t('deleted', {entity: item.value}),
               this.$t('deleted')
             )
 
@@ -144,7 +144,7 @@
       create (button) {
         this.$store.commit('address/ADDRESS_SET_ITEM', this.parent)
 
-        this.title = this.$t('address.add')
+        this.title = this.$t('add')
         this.item = this.$store.getters['address/item']
         this.callback = this.createItem
 
@@ -153,7 +153,7 @@
       edit (item, button) {
         this.$store.commit('address/ADDRESS_SET_ITEM', item)
 
-        this.title = this.$t('address.edit', {entity: item.id})
+        this.title = this.$t('edit', {entity: item.id})
         this.item = this.$store.getters['address/item']
         this.callback = this.updateItem
 

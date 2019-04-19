@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('invoice_status.add') }}</h1>
+      <h1>{{ $t('add') }}</h1>
     </section>
 
     <InvoiceStatusForm :handle-submit="onSendForm" :item="item"/>

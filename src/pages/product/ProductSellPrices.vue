@@ -3,17 +3,17 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th style="width: 75px;">{{$t('product_sell_price.id')}}</th>
-        <th>{{$t('product_sell_price.company_product.name')}}</th>
-        <th>{{$t('product_sell_price.channel.name')}}</th>
-        <th>{{$t('product_sell_price.currency.name')}}</th>
-        <th>{{$t('product_sell_price.vat.name')}}</th>
-        <th>{{$t('product_sell_price.price_sell_brutto')}}</th>
-        <th>{{$t('product_sell_price.price_old_sell_brutto')}}</th>
-        <th>{{$t('product_sell_price.active_from')}}</th>
-        <th>{{$t('product_sell_price.active_to')}}</th>
-        <th>{{$t('product_sell_price.createdAt')}}</th>
-        <th>{{$t('product_sell_price.updatedAt')}}</th>
+        <th style="width: 75px;">{{$t('id')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('name')}}</th>
+        <th>{{$t('price_sell_brutto')}}</th>
+        <th>{{$t('price_old_sell_brutto')}}</th>
+        <th>{{$t('active_from')}}</th>
+        <th>{{$t('active_to')}}</th>
+        <th>{{$t('createdAt')}}</th>
+        <th>{{$t('updatedAt')}}</th>
       </tr>
       </thead>
       <tbody>

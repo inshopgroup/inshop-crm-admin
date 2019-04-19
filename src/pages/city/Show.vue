@@ -9,7 +9,7 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('city.tabs.general')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
@@ -24,11 +24,11 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('city.name')}}</td>
+                  <td>{{$t('name')}}</td>
                   <td>{{ item['name'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('city.country.name')}}</td>
+                  <td>{{$t('name')}}</td>
                   <td>
                     <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country'].id }}">
                       {{ item['country']['name'] }}
@@ -36,15 +36,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('city.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('city.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('city.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updatedBy'] }}</td>
                 </tr>
                 </tbody>

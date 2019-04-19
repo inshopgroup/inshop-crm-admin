@@ -3,11 +3,11 @@
   <table class="table table-striped table-hover">
     <tbody>
     <tr>
-      <td>{{$t('document.name')}}</td>
+      <td>{{$t('name')}}</td>
       <td>{{ item['name'] }}</td>
     </tr>
     <tr>
-      <td>{{$t('document.clients')}}</td>
+      <td>{{$t('clients')}}</td>
       <td>
         <div v-if="item.clients" v-for="client in item.clients">
           <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
@@ -17,7 +17,7 @@
       </td>
     </tr>
     <tr>
-      <td>{{$t('document.projects')}}</td>
+      <td>{{$t('projects')}}</td>
       <td>
         <div v-if="item.projects" v-for="project in item.projects">
           <router-link :to="{name: 'ProjectShow', params: { id: project.id }}">
@@ -27,15 +27,15 @@
       </td>
     </tr>
     <tr>
-      <td>{{$t('document.createdAt')}}</td>
+      <td>{{$t('createdAt')}}</td>
       <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
     </tr>
     <tr>
-      <td>{{$t('document.updatedAt')}}</td>
+      <td>{{$t('updatedAt')}}</td>
       <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
     </tr>
     <tr>
-      <td>{{$t('document.updatedBy')}}</td>
+      <td>{{$t('updatedBy')}}</td>
       <td>{{ item['updatedBy'] }}</td>
     </tr>
     </tbody>

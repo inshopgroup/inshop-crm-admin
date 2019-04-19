@@ -9,7 +9,7 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('text.tabs.general')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
           <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
         </ul>
         <div class="tab-content">
@@ -24,39 +24,39 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('text.title')}}</td>
+                  <td>{{$t('title')}}</td>
                   <td>{{ item.title }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.slug')}}</td>
+                  <td>{{$t('slug')}}</td>
                   <td>{{ item.slug }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.content')}}</td>
+                  <td>{{$t('content')}}</td>
                   <td>{{ item.content }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.seoTitle')}}</td>
+                  <td>{{$t('seoTitle')}}</td>
                   <td>{{ item.seoTitle }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.seoDescription')}}</td>
+                  <td>{{$t('seoDescription')}}</td>
                   <td>{{ item.seoDescription }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.seoKeywords')}}</td>
+                  <td>{{$t('seoKeywords')}}</td>
                   <td>{{ item.seoKeywords }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('text.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updatedBy'] }}</td>
                 </tr>
                 </tbody>
