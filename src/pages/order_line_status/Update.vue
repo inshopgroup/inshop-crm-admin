@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('order_line_status.edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('order_line_status_edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <OrderLineStatusForm :handle-submit="onSendForm" :item="item" />

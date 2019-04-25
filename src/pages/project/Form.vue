@@ -5,7 +5,7 @@
 
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{$t('project.tabs.general')}}</h3>
+          <h3 class="box-title">{{$t('tabs_general')}}</h3>
         </div>
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" :label="'project.name'" @formUpdated="updateValue"></form-input>

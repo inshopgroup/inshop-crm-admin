@@ -5,7 +5,7 @@
 
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{$t('invoice_header.tabs.general')}}</h3>
+          <h3 class="box-title">{{$t('tabs_general')}}</h3>
         </div>
         <div class="box-body">
           <div class="row">
@@ -66,23 +66,23 @@
 
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{$t('invoice_header.tabs.lines')}}</h3>
+          <h3 class="box-title">{{$t('tabs_lines')}}</h3>
         </div>
         <div class="box-body">
 
           <button type="button" class="btn btn-info" @click.prevent="addLine()">
             <span class="fa fa-plus" aria-hidden="true" />
-            <span>{{$t('invoice_line.add')}}</span>
+            <span>{{$t('invoice_line_add')}}</span>
           </button>
 
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>{{$t('invoice_line.product.name')}}</th>
-                <th>{{$t('invoice_line.name')}}</th>
-                <th>{{$t('invoice_line.vat.name')}}</th>
-                <th>{{$t('invoice_line.unitPriceNetto')}}</th>
-                <th>{{$t('invoice_line.unitsCount')}}</th>
+                <th>{{$t('product_name')}}</th>
+                <th>{{$t('name')}}</th>
+                <th>{{$t('vat_name')}}</th>
+                <th>{{$t('unitPriceNetto')}}</th>
+                <th>{{$t('unitsCount')}}</th>
                 <th width="60px;"></th>
               </tr>
             </thead>

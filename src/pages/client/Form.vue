@@ -5,7 +5,7 @@
 
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{$t('client.tabs.general')}}</h3>
+          <h3 class="box-title">{{$t('tabs_general')}}</h3>
         </div>
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" :label="'client.name'" @formUpdated="updateValue"></form-input>
@@ -17,20 +17,20 @@
 
       <!--<div class="box box-primary">-->
         <!--<div class="box-header with-border">-->
-          <!--<h3 class="box-title">{{$t('client.tabs.contacts')}}</h3>-->
+          <!--<h3 class="box-title">{{$t('tabs_contacts')}}</h3>-->
         <!--</div>-->
         <!--<div class="box-body">-->
 
           <!--<button class="btn btn-info" @click.prevent="addContact()">-->
             <!--<span class="fa fa-plus" aria-hidden="true" />-->
-            <!--<span>{{$t('contact.add')}}</span>-->
+            <!--<span>{{$t('contact_add')}}</span>-->
           <!--</button>-->
 
           <!--<table class="table table-striped">-->
             <!--<thead>-->
               <!--<tr>-->
-                <!--<th>{{$t('contact.value')}}</th>-->
-                <!--<th>{{$t('contact.contactType.name')}}</th>-->
+                <!--<th>{{$t('contact_value')}}</th>-->
+                <!--<th>{{$t('contactType_name')}}</th>-->
                 <!--<th width="60px;"></th>-->
               <!--</tr>-->
             <!--</thead>-->
@@ -56,21 +56,21 @@
 
       <!--<div class="box box-primary">-->
         <!--<div class="box-header with-border">-->
-          <!--<h3 class="box-title">{{$t('client.tabs.projects')}}</h3>-->
+          <!--<h3 class="box-title">{{$t('tabs_projects')}}</h3>-->
         <!--</div>-->
         <!--<div class="box-body">-->
 
           <!--<button class="btn btn-info" @click.prevent="addProject()">-->
             <!--<span class="fa fa-plus" aria-hidden="true" />-->
-            <!--<span>{{$t('project.add')}}</span>-->
+            <!--<span>{{$t('project_add')}}</span>-->
           <!--</button>-->
 
           <!--<table class="table table-striped">-->
             <!--<thead>-->
               <!--<tr>-->
-                <!--<th>{{$t('project.name')}}</th>-->
-                <!--<th>{{$t('project.type.name')}}</th>-->
-                <!--<th>{{$t('project.status.name')}}</th>-->
+                <!--<th>{{$t('name')}}</th>-->
+                <!--<th>{{$t('type_name')}}</th>-->
+                <!--<th>{{$t('status_name')}}</th>-->
                 <!--<th width="60px;"></th>-->
               <!--</tr>-->
             <!--</thead>-->

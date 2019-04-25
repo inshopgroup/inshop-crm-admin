@@ -9,11 +9,11 @@
       </thead>
       <tbody>
       <tr>
-        <td>{{$t('template.name')}}</td>
+        <td>{{$t('name')}}</td>
         <td>{{ item['name'] }}</td>
       </tr>
       <tr>
-        <td>{{$t('template.type.name')}}</td>
+        <td>{{$t('type_name')}}</td>
         <td>
           <div v-if="item['type']">
             {{ item['type']['name'] }}
@@ -21,15 +21,15 @@
         </td>
       </tr>
       <tr>
-        <td>{{$t('template.createdAt')}}</td>
+        <td>{{$t('createdAt')}}</td>
         <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
       </tr>
       <tr>
-        <td>{{$t('template.updatedAt')}}</td>
+        <td>{{$t('updatedAt')}}</td>
         <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
       </tr>
       <tr>
-        <td>{{$t('template.updatedBy')}}</td>
+        <td>{{$t('updatedBy')}}</td>
         <td>{{ item['updatedBy'] }}</td>
       </tr>
       </tbody>

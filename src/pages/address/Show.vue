@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('address.tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -25,7 +25,7 @@
                 <tbody>
 
                 <tr>
-                  <td>{{$t('address.clients')}}</td>
+                  <td>{{$t('clients')}}</td>
                   <td>
                     <ul>
                       <li v-for="client in item['clients']">
@@ -37,7 +37,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.companies')}}</td>
+                  <td>{{$t('companies')}}</td>
                   <td>
                     <ul>
                       <li v-for="company in item['companies']">
@@ -49,11 +49,11 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.postCode')}}</td>
+                  <td>{{$t('postCode')}}</td>
                   <td>{{ item['postCode'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.country.name')}}</td>
+                  <td>{{$t('country_name')}}</td>
                   <td>
                     <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country'].id }}">
                       {{ item['country']['name'] }}
@@ -61,7 +61,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.city.name')}}</td>
+                  <td>{{$t('city_name')}}</td>
                   <td>
                     <router-link v-if="item['city']" :to="{name: 'CityShow', params: { id: item['city'].id }}">
                       {{ item['city']['name'] }}
@@ -70,39 +70,39 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('address.region')}}</td>
+                  <td>{{$t('region')}}</td>
                   <td>{{ item['region'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.district')}}</td>
+                  <td>{{$t('district')}}</td>
                   <td>{{ item['district'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.street')}}</td>
+                  <td>{{$t('street')}}</td>
                   <td>{{ item['street'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.building')}}</td>
+                  <td>{{$t('building')}}</td>
                   <td>{{ item['building'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.apartment')}}</td>
+                  <td>{{$t('apartment')}}</td>
                   <td>{{ item['apartment'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.comment')}}</td>
+                  <td>{{$t('comment')}}</td>
                   <td>{{ item['comment'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('address.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updatedBy'] }}</td>
                 </tr>
                 </tbody>

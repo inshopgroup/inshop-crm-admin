@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('label.tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -24,19 +24,19 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('label.name')}}</td>
+                  <td>{{$t('name')}}</td>
                   <td>{{ item['name'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('label.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('label.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('label.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updatedBy'] }}</td>
                 </tr>
                 </tbody>

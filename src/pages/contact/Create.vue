@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('contact.add') }}</h1>
+      <h1>{{ $t('contact_add') }}</h1>
     </section>
 
     <ContactForm :handle-submit="onSendForm" :item="item"/>

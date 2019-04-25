@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('payment_type.add') }}</h1>
+      <h1>{{ $t('payment_type_add') }}</h1>
     </section>
 
     <PaymentTypeForm :handle-submit="onSendForm" :item="item"/>

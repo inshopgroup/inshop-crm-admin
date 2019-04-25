@@ -3,11 +3,11 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{$t('file.id')}}</th>
-          <th>{{$t('file.originalName')}}</th>
-          <th>{{$t('file.size')}}</th>
-          <th>{{$t('file.mimeType')}}</th>
-          <th>{{$t('file.createdAt')}}</th>
+          <th style="width: 75px;">{{$t('id')}}</th>
+          <th>{{$t('originalName')}}</th>
+          <th>{{$t('size')}}</th>
+          <th>{{$t('mimeType')}}</th>
+          <th>{{$t('createdAt')}}</th>
           <th />
         </tr>
       </thead>

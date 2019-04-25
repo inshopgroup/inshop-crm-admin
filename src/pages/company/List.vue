@@ -1,13 +1,13 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('company.list')}}</h1>
+    <h1>{{$t('company_list')}}</h1>
   </section>
 
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <router-link :to="{ name: 'CompanyCreate' }" class="btn btn-primary pull-right">{{$t('company.add')}}</router-link>
+        <router-link :to="{ name: 'CompanyCreate' }" class="btn btn-primary pull-right">{{$t('company_add')}}</router-link>
       </div>
       <div class="box-body">
         <item-errors :entity="'company'"></item-errors>

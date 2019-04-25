@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('channel.add')}}</h1>
+      <h1>{{$t('channel_add')}}</h1>
     </section>
 
     <ChannelForm :handle-submit="onSendForm" :item="item" />

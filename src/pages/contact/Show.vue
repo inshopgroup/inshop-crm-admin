@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('contact.value')}} "{{ item && item['value'] }}"</h1>
+      <h1>{{$t('contact_value')}} "{{ item && item['value'] }}"</h1>
     </section>
 
     <section class="content">
@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('vat.tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -24,15 +24,15 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('contact.value')}}</td>
+                  <td>{{$t('contact_value')}}</td>
                   <td>{{ item['value'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('contact.contactType.name')}}</td>
+                  <td>{{$t('contactType_name')}}</td>
                   <td>{{ item['contactType']['name'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('contact.clients')}}</td>
+                  <td>{{$t('clients')}}</td>
                   <td>
                     <ul>
                       <li v-for="client in item['clients']">
@@ -44,7 +44,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('contact.companies')}}</td>
+                  <td>{{$t('companies')}}</td>
                   <td>
                     <ul>
                       <li v-for="company in item['companies']">
@@ -56,15 +56,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('contact.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('contact.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('contact.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updateBy'] }}</td>
                 </tr>
                 </tbody>

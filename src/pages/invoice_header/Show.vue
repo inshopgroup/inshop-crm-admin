@@ -9,9 +9,9 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('invoice_header.tabs.general')}}</a></li>
-          <li><a href="#lines" data-toggle="tab" aria-expanded="false">{{$t('invoice_header.tabs.lines')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#lines" data-toggle="tab" aria-expanded="false">{{$t('tabs_lines')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -25,12 +25,12 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('invoice_header.number')}}</td>
+                  <td>{{$t('number')}}</td>
                   <td>{{ item['number'] }}</td>
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.status.name')}}</td>
+                  <td>{{$t('status_name')}}</td>
                   <td>
                     <router-link v-if="item['status']" :to="{name: 'InvoiceStatusShow', params: { id: item['status'].id }}">
                       {{ item['status']['name'] }}
@@ -39,7 +39,7 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.type.name')}}</td>
+                  <td>{{$t('type_name')}}</td>
                   <td>
                     <router-link v-if="item['type']" :to="{name: 'InvoiceTypeShow', params: { id: item['type'].id }}">
                       {{ item['type']['name'] }}
@@ -48,7 +48,7 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.orderHeader.number')}}</td>
+                  <td>{{$t('orderHeader_number')}}</td>
                   <td>
                     <router-link v-if="item['orderHeader']" :to="{name: 'OrderHeaderShow', params: { id: item['orderHeader'].id }}">
                       {{ item['orderHeader']['number'] }}
@@ -57,7 +57,7 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.companyFrom.name')}}</td>
+                  <td>{{$t('companyFrom_name')}}</td>
                   <td>
                     <router-link v-if="item['companyFrom']" :to="{name: 'CompanyShow', params: { id: item['companyFrom'].id }}">
                       {{ item['companyFrom']['name'] }}
@@ -66,7 +66,7 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.companyTo.name')}}</td>
+                  <td>{{$t('companyTo_name')}}</td>
                   <td>
                     <router-link v-if="item['companyTo']" :to="{name: 'CompanyShow', params: { id: item['companyTo'].id }}">
                       {{ item['companyTo']['name'] }}
@@ -75,7 +75,7 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.agreement.name')}}</td>
+                  <td>{{$t('agreement_name')}}</td>
                   <td>
                     <router-link v-if="item['agreement']" :to="{name: 'DocumentShow', params: { id: item['agreement'].id }}">
                       {{ item['agreement']['name'] }}
@@ -84,7 +84,7 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.currency.name')}}</td>
+                  <td>{{$t('currency_name')}}</td>
                   <td>
                     <router-link v-if="item['currency']" :to="{name: 'CurrencyShow', params: { id: item['currency'].id }}">
                       {{ item['currency']['name'] }}
@@ -93,7 +93,7 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.language.name')}}</td>
+                  <td>{{$t('language_name')}}</td>
                   <td>
                     <router-link v-if="item['language']" :to="{name: 'LanguageShow', params: { id: item['language'].id }}">
                       {{ item['language']['name'] }}
@@ -102,30 +102,30 @@
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.dateOfInvoice')}}</td>
+                  <td>{{$t('dateOfInvoice')}}</td>
                   <td>{{ moment(item['dateOfInvoice']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.dateOfSale')}}</td>
+                  <td>{{$t('dateOfSale')}}</td>
                   <td>{{ moment(item['dateOfSale']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.maturity')}}</td>
+                  <td>{{$t('maturity')}}</td>
                   <td>{{ item['maturity'] }}</td>
                 </tr>
 
                 <tr>
-                  <td>{{$t('invoice_header.createdAt')}}</td>
+                  <td>{{$t('createdAt')}}</td>
                   <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('invoice_header.updatedAt')}}</td>
+                  <td>{{$t('updatedAt')}}</td>
                   <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('invoice_header.updatedBy')}}</td>
+                  <td>{{$t('updatedBy')}}</td>
                   <td>{{ item['updatedBy'] }}</td>
                 </tr>
                 </tbody>

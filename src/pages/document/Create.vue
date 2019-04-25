@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('document.add') }}</h1>
+      <h1>{{ $t('document_add') }}</h1>
     </section>
 
     <DocumentForm :handle-submit="onSendForm" :item="item"/>

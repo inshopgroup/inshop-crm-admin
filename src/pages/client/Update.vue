@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('client.edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('client_edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <ClientForm :handle-submit="onSendForm" :item="item"/>

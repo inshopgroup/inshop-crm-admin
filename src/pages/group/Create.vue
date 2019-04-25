@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('group.add') }}</h1>
+      <h1>{{ $t('group_add') }}</h1>
     </section>
 
     <GroupForm :handle-submit="onSendForm" :item="item"/>

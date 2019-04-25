@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('invoice_status.edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('invoice_status_edit', {entity: item && item.name}) }}</h1>
     </section>
 
     <InvoiceStatusForm :handle-submit="onSendForm" :item="item"/>

@@ -3,13 +3,13 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th style="width: 75px;">{{$t('company_product.id')}}</th>
-        <th>{{$t('company_product.company.name')}}</th>
-        <th>{{$t('company_product.currency.name')}}</th>
-        <th>{{$t('company_product.price_buy_netto')}}</th>
-        <th>{{$t('company_product.availability')}}</th>
-        <th>{{$t('company_product.createdAt')}}</th>
-        <th>{{$t('company_product.updatedAt')}}</th>
+        <th style="width: 75px;">{{$t('id')}}</th>
+        <th>{{$t('company_name')}}</th>
+        <th>{{$t('currency_name')}}</th>
+        <th>{{$t('price_buy_netto')}}</th>
+        <th>{{$t('availability')}}</th>
+        <th>{{$t('createdAt')}}</th>
+        <th>{{$t('updatedAt')}}</th>
       </tr>
       </thead>
       <tbody>

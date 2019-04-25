@@ -6,23 +6,23 @@
       </a>
     </div>
     <div class="login-box-body">
-      <p class="login-box-msg">{{$t('auth.start_session')}}</p>
+      <p class="login-box-msg">{{$t('start_session')}}</p>
 
       <form method="post" @submit.prevent="signIn">
         <div class="form-group">
-          <label>{{$t('auth.username')}}:</label>
-          <input type="text" class="form-control" :placeholder="$t('auth.username')" v-model="credentials.username" required autofocus>
+          <label>{{$t('username')}}:</label>
+          <input type="text" class="form-control" :placeholder="$t('username')" v-model="credentials.username" required autofocus>
         </div>
         <div :class="[{ 'has-error': error }, 'form-group']">
-          <label>{{$t('auth.password')}}:</label>
-          <input type="password" class="form-control" :placeholder="$t('auth.password')" v-model="credentials.password">
+          <label>{{$t('password')}}:</label>
+          <input type="password" class="form-control" :placeholder="$t('password')" v-model="credentials.password">
           <span class="help-block">{{ error }}</span>
         </div>
 
         <div class="row">
           <div class="col-xs-8"></div>
           <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">{{$t('auth.signin')}}</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat">{{$t('signin')}}</button>
           </div>
         </div>
       </form>

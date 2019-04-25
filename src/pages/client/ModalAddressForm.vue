@@ -42,7 +42,7 @@
     methods: {
       onSendForm() {
         this.callback().then(item => {
-          this.$toastr.s(this.$t('address.saved', {address: item.value}), this.$t('saved'))
+          this.$toastr.s(this.$t('address_saved', {address: item.value}), this.$t('saved'))
           this.$emit('addressesChanged', item)
 
           $('#modal-address-edit').modal('hide')
