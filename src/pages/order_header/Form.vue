@@ -5,7 +5,7 @@
 
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{$t('tabs.general')}}</h3>
+          <h3 class="box-title">{{$t('tabs_general')}}</h3>
         </div>
         <div class="box-body">
           <div class="row">
@@ -39,23 +39,23 @@
 
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{$t('tabs.lines')}}</h3>
+          <h3 class="box-title">{{$t('tabs_lines')}}</h3>
         </div>
         <div class="box-body">
 
           <button type="button" class="btn btn-info" @click.prevent="addLine()">
             <span class="fa fa-plus" aria-hidden="true" />
-            <span>{{$t('add')}}</span>
+            <span>{{$t('order_line_add')}}</span>
           </button>
 
           <table class="table table-striped">
             <thead>
             <tr>
-              <th>{{$t('status.name')}}</th>
-              <th>{{$t('product.name')}}</th>
+              <th>{{$t('status_name')}}</th>
+              <th>{{$t('product_name')}}</th>
               <th>{{$t('product_sell_price')}}</th>
               <th>{{$t('name')}}</th>
-              <th>{{$t('name')}}</th>
+              <th>{{$t('vat_name')}}</th>
               <th>{{$t('price_sell_brutto')}}</th>
               <th width="60px;"></th>
             </tr>

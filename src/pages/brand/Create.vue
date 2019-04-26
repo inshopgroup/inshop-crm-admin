@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('add')}}</h1>
+      <h1>{{$t('brand_add')}}</h1>
     </section>
 
     <BrandForm :handle-submit="onSendForm" :item="item" />

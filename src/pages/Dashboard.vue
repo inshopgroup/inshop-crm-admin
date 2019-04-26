@@ -2,7 +2,7 @@
  <div>
    <section class="content-header">
      <h1>
-       {{$t('title')}}
+       {{$t('dashboard_title')}}
      </h1>
    </section>
 

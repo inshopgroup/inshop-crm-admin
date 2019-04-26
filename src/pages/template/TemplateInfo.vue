@@ -13,7 +13,7 @@
         <td>{{ item['name'] }}</td>
       </tr>
       <tr>
-        <td>{{$t('name')}}</td>
+        <td>{{$t('type_name')}}</td>
         <td>
           <div v-if="item['type']">
             {{ item['type']['name'] }}

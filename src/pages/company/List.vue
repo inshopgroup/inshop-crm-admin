@@ -1,13 +1,13 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('list')}}</h1>
+    <h1>{{$t('company_list')}}</h1>
   </section>
 
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <router-link :to="{ name: 'CompanyCreate' }" class="btn btn-primary pull-right">{{$t('add')}}</router-link>
+        <router-link :to="{ name: 'CompanyCreate' }" class="btn btn-primary pull-right">{{$t('company_add')}}</router-link>
       </div>
       <div class="box-body">
         <item-errors :entity="'company'"></item-errors>
@@ -36,6 +36,7 @@
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnContacts from './../../table/ColumnContacts'
+import columnCode from './../../table/ColumnCode'
 import columnLabels from './../../table/ColumnLabels'
 import columnAddressCountry from './../../table/ColumnAddressCountry'
 import columnAddressCity from './../../table/ColumnAddressCity'
@@ -46,16 +47,17 @@ export default {
   components: {LabelsFilter, ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'actions'],
-      filterable: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode'],
+      columns: ['id', 'code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'actions'],
+      filterable: ['id', 'code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode'],
       customFilters: ['labels.id'],
-      sortable: ['id', 'name', 'contactPerson'],
+      sortable: ['id', 'code', 'name', 'contactPerson'],
       templates: {
         'contacts.value': columnContacts,
         'addresses.country.name': columnAddressCountry,
         'addresses.city.name': columnAddressCity,
         'addresses.postCode': columnAddressPostCode,
         'labels.id': columnLabels,
+        'code': columnCode,
       }
     }
   },

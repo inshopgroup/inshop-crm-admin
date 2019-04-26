@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('value')}} "{{ item && item['value'] }}"</h1>
+      <h1>{{$t('contact_value')}} "{{ item && item['value'] }}"</h1>
     </section>
 
     <section class="content">
@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -24,11 +24,11 @@
                 </thead>
                 <tbody>
                 <tr>
-                  <td>{{$t('value')}}</td>
+                  <td>{{$t('contact_value')}}</td>
                   <td>{{ item['value'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('name')}}</td>
+                  <td>{{$t('contactType_name')}}</td>
                   <td>{{ item['contactType']['name'] }}</td>
                 </tr>
                 <tr>

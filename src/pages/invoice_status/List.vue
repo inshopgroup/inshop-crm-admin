@@ -1,13 +1,13 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('list')}}</h1>
+    <h1>{{$t('invoice_status_list')}}</h1>
   </section>
 
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <router-link :to="{ name: 'InvoiceStatusCreate' }" class="btn btn-primary pull-right">{{$t('add')}}</router-link>
+        <router-link :to="{ name: 'InvoiceStatusCreate' }" class="btn btn-primary pull-right">{{$t('invoice_status_add')}}</router-link>
       </div>
       <div class="box-body">
         <item-errors :entity="'invoice_status'"></item-errors>

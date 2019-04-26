@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -53,7 +53,7 @@
                   <td>{{ item['postCode'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('name')}}</td>
+                  <td>{{$t('country_name')}}</td>
                   <td>
                     <router-link v-if="item['country']" :to="{name: 'CountryShow', params: { id: item['country'].id }}">
                       {{ item['country']['name'] }}
@@ -61,7 +61,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('name')}}</td>
+                  <td>{{$t('city_name')}}</td>
                   <td>
                     <router-link v-if="item['city']" :to="{name: 'CityShow', params: { id: item['city'].id }}">
                       {{ item['city']['name'] }}

@@ -42,7 +42,7 @@
     methods: {
       onSendForm() {
         this.callback().then(item => {
-          this.$toastr.s(this.$t('saved', {contact: item.value}), this.$t('saved'))
+          this.$toastr.s(this.$t('contact_saved', {contact: item.value}), this.$t('saved'))
           this.$emit('contactsChanged', item)
 
           $('#modal-contact-edit').modal('hide')

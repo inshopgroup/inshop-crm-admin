@@ -4,10 +4,10 @@
       <thead>
       <tr>
         <th style="width: 75px;">{{$t('id')}}</th>
-        <th>{{$t('name')}}</th>
-        <th>{{$t('name')}}</th>
-        <th>{{$t('name')}}</th>
-        <th>{{$t('name')}}</th>
+        <th>{{$t('company_product_name')}}</th>
+        <th>{{$t('channel_name')}}</th>
+        <th>{{$t('currency_name')}}</th>
+        <th>{{$t('vat_name')}}</th>
         <th>{{$t('price_sell_brutto')}}</th>
         <th>{{$t('price_old_sell_brutto')}}</th>
         <th>{{$t('active_from')}}</th>

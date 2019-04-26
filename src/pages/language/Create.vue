@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('language.add') }}</h1>
+      <h1>{{ $t('language_add') }}</h1>
     </section>
 
     <LanguageForm :handle-submit="onSendForm" :item="item"/>

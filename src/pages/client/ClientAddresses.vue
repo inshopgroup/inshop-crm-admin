@@ -1,10 +1,10 @@
 <template>
   <div class="table-responsive">
     <section class="content-header hidden show-print">
-      <h1>{{$t('tabs.addresses')}}</h1>
+      <h1>{{$t('tabs_addresses')}}</h1>
     </section>
 
-    <button class="btn btn-primary hidden-print" @click="create($event.target)">{{$t('add')}}</button>
+    <button class="btn btn-primary hidden-print" @click="create($event.target)">{{$t('address_add')}}</button>
 
     <br>
     <br>
@@ -14,8 +14,8 @@
         <tr>
           <th style="width: 75px;">{{$t('id')}}</th>
           <th>{{$t('postCode')}}</th>
-          <th>{{$t('name')}}</th>
-          <th>{{$t('name')}}</th>
+          <th>{{$t('country_name')}}</th>
+          <th>{{$t('city_name')}}</th>
           <th>{{$t('region')}}</th>
           <th>{{$t('district')}}</th>
           <th>{{$t('street')}}</th>
@@ -133,7 +133,7 @@
         if (window.confirm(this.$t('delete_are_you_sure'))) {
           this.remove(item).then(() => {
             this.$toastr.s(
-              this.$t('deleted', {entity: item.value}),
+              this.$t('address_deleted', {entity: item.value}),
               this.$t('deleted')
             )
 
@@ -144,7 +144,7 @@
       create (button) {
         this.$store.commit('address/ADDRESS_SET_ITEM', this.parent)
 
-        this.title = this.$t('add')
+        this.title = this.$t('address_add')
         this.item = this.$store.getters['address/item']
         this.callback = this.createItem
 
@@ -153,7 +153,7 @@
       edit (item, button) {
         this.$store.commit('address/ADDRESS_SET_ITEM', item)
 
-        this.title = this.$t('edit', {entity: item.id})
+        this.title = this.$t('address_edit', {entity: item.id})
         this.item = this.$store.getters['address/item']
         this.callback = this.updateItem
 

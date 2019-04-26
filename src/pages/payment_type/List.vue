@@ -1,13 +1,13 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('payment_type.list')}}</h1>
+    <h1>{{$t('payment_type_list')}}</h1>
   </section>
 
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <router-link :to="{ name: 'PaymentTypeCreate' }" class="btn btn-primary pull-right">{{$t('payment_type.add')}}</router-link>
+        <router-link :to="{ name: 'PaymentTypeCreate' }" class="btn btn-primary pull-right">{{$t('payment_type_add')}}</router-link>
       </div>
       <div class="box-body">
         <item-errors :entity="'payment_type'"></item-errors>

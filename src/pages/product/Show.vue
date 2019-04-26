@@ -9,10 +9,10 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
-          <li><a href="#companyProducts" data-toggle="tab" aria-expanded="false">{{$t('tabs.companyProducts')}}</a></li>
-          <li><a href="#productSellPrices" data-toggle="tab" aria-expanded="false">{{$t('tabs.productSellPrices')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#companyProducts" data-toggle="tab" aria-expanded="false">{{$t('tabs_companyProducts')}}</a></li>
+          <li><a href="#productSellPrices" data-toggle="tab" aria-expanded="false">{{$t('tabs_productSellPrices')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">

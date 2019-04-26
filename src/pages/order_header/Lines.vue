@@ -4,9 +4,9 @@
       <thead>
       <tr>
         <th style="width: 75px;">{{$t('id')}}</th>
-        <th>{{$t('status.name')}}</th>
-        <th>{{$t('product.name')}}</th>
-        <th>{{$t('name')}}</th>
+        <th>{{$t('status_name')}}</th>
+        <th>{{$t('product_name')}}</th>
+        <th>{{$t('vat_name')}}</th>
         <th>{{$t('price_sell_brutto')}}</th>
         <th>{{$t('createdAt')}}</th>
         <th>{{$t('updatedAt')}}</th>

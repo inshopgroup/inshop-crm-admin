@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom" v-if="item">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -31,11 +31,11 @@
                 <td>{{ item['size'] }}</td>
               </tr>
               <tr>
-                <td>{{$t('status.name')}}</td>
+                <td>{{$t('status_name')}}</td>
                 <td><span v-if="item['status']">{{ item['status']['name'] }}</span></td>
               </tr>
               <tr>
-                <td>{{$t('type.name')}}</td>
+                <td>{{$t('type_name')}}</td>
                 <td><span v-if="item['type']">{{ item['type']['name'] }}</span></td>
               </tr>
               <tr>

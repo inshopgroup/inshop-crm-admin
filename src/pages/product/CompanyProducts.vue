@@ -4,8 +4,8 @@
       <thead>
       <tr>
         <th style="width: 75px;">{{$t('id')}}</th>
-        <th>{{$t('name')}}</th>
-        <th>{{$t('currency.name')}}</th>
+        <th>{{$t('company_name')}}</th>
+        <th>{{$t('currency_name')}}</th>
         <th>{{$t('price_buy_netto')}}</th>
         <th>{{$t('availability')}}</th>
         <th>{{$t('createdAt')}}</th>

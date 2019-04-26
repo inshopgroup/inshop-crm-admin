@@ -17,7 +17,7 @@
       <td>{{ item['description'] }}</td>
     </tr>
     <tr>
-      <td>{{$t('name')}}</td>
+      <td>{{$t('type_name')}}</td>
       <td>
         <span v-if="item && item['type']">
           {{ item['type']['name'] }}
@@ -25,7 +25,7 @@
       </td>
     </tr>
     <tr>
-      <td>{{$t('status.name')}}</td>
+      <td>{{$t('status_name')}}</td>
       <td>
         <span v-if="item && item['type']">
           {{ item['status']['name'] }}
@@ -33,7 +33,7 @@
       </td>
     </tr>
     <tr>
-      <td>{{$t('name')}}</td>
+      <td>{{$t('client_name')}}</td>
       <td>
         <router-link v-if="item['client']" :to="{name: 'ClientShow', params: { id: item['client'].id }}">
           {{ item['client']['name'] }}

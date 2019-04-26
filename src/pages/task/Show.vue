@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom" v-if="item">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -31,7 +31,7 @@
                 <td>{{ item['description'] }}</td>
               </tr>
               <tr>
-                <td><b>{{$t('status.name')}}</b></td>
+                <td><b>{{$t('status_name')}}</b></td>
                 <td><b v-if="item.status">{{ item.status.name }}</b></td>
               </tr>
               <tr>
@@ -39,7 +39,7 @@
                 <td><b>{{ moment(item['deadline']).format('DD-MM-YYYY') }}</b></td>
               </tr>
               <tr>
-                <td>{{$t('name')}}</td>
+                <td>{{$t('project_name')}}</td>
                 <td>
                   <router-link v-if="item['project']" :to="{name: 'ProjectShow', params: { id: item['project'].id }}">
                     {{ item['project']['name'] }}
@@ -47,7 +47,7 @@
                 </td>
               </tr>
               <tr>
-                <td>{{$t('assignee.name')}}</td>
+                <td>{{$t('assignee_name')}}</td>
                 <td>
                   <router-link v-if="item['assignee']" :to="{name: 'UserShow', params: { id: item['assignee'].id }}">
                     {{ item['assignee']['name'] }}

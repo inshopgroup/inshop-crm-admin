@@ -15,7 +15,7 @@
           </router-link>
         </p>
         <p>
-          {{$t('assignee.name')}}:
+          {{$t('assignee_name')}}:
           <router-link  :to="{name: 'UserShow', params: { id: task.assignee.id }}" v-if="task && task['assignee']">
             {{task.assignee.name}}
           </router-link>

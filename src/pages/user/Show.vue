@@ -9,8 +9,8 @@
 
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs.general')}}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs.history')}}</a></li>
+          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
+          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{$t('tabs_history')}}</a></li>
         </ul>
         <div class="tab-content">
           <div class="tab-pane active" id="general">
@@ -32,7 +32,7 @@
                   <td>{{ item['email'] }}</td>
                 </tr>
                 <tr>
-                  <td>{{$t('groups.name')}}</td>
+                  <td>{{$t('groups_name')}}</td>
                   <td>
                     <div v-for="group in item['groups']" :key="group.id">
                       <i class="fa fa-user" aria-hidden="true"></i>
@@ -48,7 +48,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{$t('language.name')}}</td>
+                  <td>{{$t('language_name')}}</td>
                   <td v-if="item['language']">{{ item['language']['name'] }}</td>
                 </tr>
                 <tr>
