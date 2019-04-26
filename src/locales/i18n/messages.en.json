@@ -7,7 +7,6 @@
   "submit": "Submit",
   "field": "Field",
   "value": "Value",
-
   "username": "Email address",
   "password": "Password",
   "signin": "Sign in",
@@ -100,14 +99,11 @@
     "dashboard": "Dashboard",
     "title": "Navigation",
     "calendar": "Calendar",
-    "clients": "Clients",
-    "companies": "Companies",
     "contacts": "Contacts",
     "documents": "Documents",
     "templates": "Templates",
     "template_types": "Template types",
     "tasks": "Tasks",
-    "projects": "Projects",
     "users": "Users",
     "address": "Addresses",
     "country": "Countries",
@@ -136,8 +132,6 @@
   },
 
   "client": {
-    "id": "ID",
-    "clients": "Client relations",
     "companies": "Company relations",
     "columnContacts": "Contacts",
     "address": "Address",
@@ -145,8 +139,6 @@
     "columnUpdatedAt": "Updated at",
     "actions": "Actions",
     "tabs": {
-      "contacts": "Contacts",
-      "addresses": "Addresses",
       "clients": "Clients",
       "companies": "Companies",
       "tasks": "Tasks",
@@ -185,8 +177,7 @@
 
 
 
-
-
+  "company_add": "Add company",
   "address_add": "Add address",
   "backup_add": "Add backup",
   "brand_add": "Add brand",
@@ -221,7 +212,9 @@
   "template_type_add": "Add template type",
   "text_add": "Add text",
   "vat_add": "Add vat",
-
+  "user_add": "Add user",
+  
+  "company_list": "Companies list",
   "address_list": "Address list",
   "project_list": "Projects list",
   "backup_list": "Backup list",
@@ -256,7 +249,9 @@
   "text_list": "Text list",
   "vat_list": "Vat list",
   "search_list": "Search results",
+  "user_list": "Users list",
 
+  "company_edit": "Edit company \"{entity}\"",
   "address_edit": "Edit address \"{entity}\"",
   "brand_edit": "Edit brand {entity}",
   "category_edit": "Edit category \"{entity}\"",
@@ -288,6 +283,7 @@
   "template_type_edit": "Edit template type {entity}",
   "text_edit": "Edit text \"{entity}\"",
   "vat_edit": "Edit vat \"{entity}\"",
+  "user_edit": "Edit user \"{entity}\"",
 
   "address_deleted": "Address {entity} was deleted",
   "contact_deleted": "Contact {entity} was deleted",
@@ -403,6 +399,7 @@
 
   "vat_name": "VAT",
 
+  "groups_name": "Groups",
 
 
 
@@ -411,6 +408,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+  
 
 
   "template_type": {
@@ -424,16 +431,9 @@
   "payment_type": {
     "deleted": "Shipment method {entity} was deleted",
     "saved": "Shipment method {entity} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "shipment_method": {
@@ -447,32 +447,23 @@
   "brand": {
     "deleted": "Brand {entity} was deleted",
     "saved": "Brand {entity} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "label": {
     "deleted": "Label {entity} was deleted",
     "saved": "Label {entity} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "backup": {
     "edit": "Edit backup {entity}",
     "deleted": "Backup {entity} was deleted",
     "saved": "Backup {entity} was saved",
-    "id": "ID",
     "type": {
       "id": "Type"
     },
@@ -487,13 +478,9 @@
   "channel": {
     "deleted": "Channel {entity} was deleted",
     "saved": "Channel {entity} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "task": {
@@ -502,11 +489,6 @@
     "notification_deadline": "Reminders about deadlines",
     "status": {
       "id": "Status"
-    },
-    "project": {
-      "client": {
-        "name": "Client"
-      }
     },
     "columnDeadline": "Deadline",
     "columnCreatedAt": "Created at",
@@ -517,7 +499,6 @@
   "project": {
     "deleted": "Project {project} was deleted",
     "saved": "Project {project} was saved",
-    "id": "ID",
     "status": {
       "id": "Status"
     },
@@ -532,66 +513,33 @@
       "tasks": "Tasks"
     }
   },
-
-  "user_add": "Add user",
-  "user_list": "Users list",
-  "groups_name": "Groups",
-  "language_name": "Language",
-  "user_edit": "Edit user \"{entity}\"",
   "user": {
     "password": "Password",
     "email": "Email",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
     "actions": "Actions",
     "tabs": {
-      "general": "General information",
       "tasks": "Deadlines"
     }
   },
 
   "group": {
-    "id": "ID",
     "roles": "Roles",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
-  "company_add": "Add company",
-  "company_list": "Companies list",
-  "company_edit": "Edit company \"{entity}\"",
   "company": {
-    "id": "ID",
     "contacts": {
       "value": "Contacts"
     },
-    "addresses": {
-      "country": {
-        "name": "Country"
-      },
-      "city": {
-        "name": "City"
-      },
-      "postCode": "Post code"
-    },
-    "clients": "Clients",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
     "actions": "Actions",
     "tabs": {
-      "general": "General information",
       "documents": "Documents",
-      "companyProducts": "Products",
       "clients": "Clients"
     }
   },
@@ -606,15 +554,10 @@
   "document": {
     "deleted": "Document {document} was deleted",
     "saved": "Document {document} was saved",
-    "id": "ID",
     "files": "Files",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information",
-      "projects": "Projects"
-    }
+    "actions": "Actions"
   },
   
   "search": {
@@ -625,9 +568,6 @@
   },
 
   "address": {
-    "contactType": {
-      "name": "Type"
-    },
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
     "actions": "Actions"
@@ -636,22 +576,14 @@
   "country": {
     "deleted": "Country {country} was deleted",
     "saved": "Country {country} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "city": {
     "deleted": "City {city} was deleted",
     "saved": "City {city} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
     "actions": "Actions"
@@ -660,24 +592,16 @@
   "category": {
     "deleted": "Category {category} was deleted",
     "saved": "Category {category} was saved",
-    "id": "ID",
     "columnTranslatedName": "Name",
     "columnParentTranslatedName": "Parent",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "product": {
     "deleted": "Product {product} was deleted",
     "saved": "Product {product} was saved",
-    "id": "ID",
     "age": "Age",
     "images": "Images",
     "machineType": "Machine Type",
@@ -689,21 +613,14 @@
     "brand": {
       "name": "Brand"
     },
-    "vat": {
-      "name": "VAT"
-    },
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "createdAt": "Created at",
-    "updatedAt": "Updated at",
-    "updatedBy": "Updated by",
     "actions": "Actions"
   },
 
   "order_header": {
     "deleted": "Order {order_header} was deleted",
     "saved": "Order {order_header} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
     "actions": "Actions"
@@ -719,7 +636,6 @@
   "order_status": {
     "deleted": "Order status {order_status} was deleted",
     "saved": "Order status {order_status} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
     "actions": "Actions"
@@ -728,20 +644,14 @@
   "order_line_status": {
     "deleted": "Order line status {order_line_status} was deleted",
     "saved": "Order line status {order_line_status} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "invoice_header": {
     "deleted": "Invoice {invoice_header} was deleted",
     "saved": "Invoice {invoice_header} was saved",
-    "id": "ID",
-    "name": "Name",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
     "actions": "Actions"
@@ -750,19 +660,14 @@
   "invoice_status": {
     "deleted": "Invoice status {invoice_status} was deleted",
     "saved": "Invoice status {invoice_status} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "invoice_type": {
     "deleted": "Invoice type {invoice_type} was deleted",
     "saved": "Invoice type {invoice_type} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
     "actions": "Actions"
@@ -771,13 +676,9 @@
   "language": {
     "deleted": "Language {language} was deleted",
     "saved": "Language {language} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "vat": {
@@ -791,25 +692,17 @@
   "currency": {
     "deleted": "Currency {currency} was deleted",
     "saved": "Currency {currency} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "contact_type": {
     "deleted": "Contact type {contact_type} was deleted",
     "saved": "Contact type {contact_type} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "project_type": {
@@ -842,23 +735,16 @@
     "edit": "Edit invoice line \"{entity}\"",
     "deleted": "Invoice line {invoice_line} was deleted",
     "saved": "Invoice line {invoice_line} was saved",
-    "id": "ID",
     "columnCreatedAt": "Created at",
     "columnUpdatedAt": "Updated at",
-    "actions": "Actions",
-    "tabs": {
-      "general": "General information"
-    }
+    "actions": "Actions"
   },
 
   "company_product" : {
     "add": "Add",
     "edit": "Edit product \"{entity}\"",
     "deleted": "Product {invoice_line} was deleted",
-    "saved": "Product {invoice_line} was saved",
-    "product": {
-      "name": "Product"
-    }
+    "saved": "Product {invoice_line} was saved"
   },
 
   "product_sell_price" : {
@@ -875,7 +761,6 @@
     "actions": "Actions"
   },
   "history": {
-    "id": "ID",
     "version": "Version",
     "action": "Action",
     "username": "Username",
