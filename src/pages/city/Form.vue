@@ -20,11 +20,9 @@
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
   import ItemErrors from '../../components/layout/errors/ItemErrors'
-  import FormSelectAutocomplete from './FormSelectAutocomplete'
 
   export default {
     components: {
-      FormSelectAutocomplete,
       ItemErrors,
       ItemEditActions
     },

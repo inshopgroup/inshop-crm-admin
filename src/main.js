@@ -1,8 +1,6 @@
 import 'font-awesome/css/font-awesome.css'
 import 'bootstrap'
 import 'admin-lte'
-import 'jquery'
-import 'icheck'
 import moment from 'moment'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
@@ -18,14 +16,12 @@ import router from './router'
 
 import Vue from 'vue'
 import App from './App';
-import vSelect from 'vue-select/dist/vue-select'
 
 import 'vue-event-calendar/dist/style.css' //^1.1.10, CSS has been extracted as one file, so you can easily update it.
 import vueEventCalendar from 'vue-event-calendar'
 import {ServerTable} from 'vue-tables-2';
 import Toastr from 'vue-toastr';
 import 'vue-toastr/src/vue-toastr.scss'
-import VuePassword from 'vue-password'
 import {messages} from './locales'
 import VueSentry from 'vue2-sentry'
 import vbclass from 'vue-body-class'
@@ -38,9 +34,6 @@ import '@inshopgroup/vue-inshop-crm-form-components/dist/vue-inshop-crm-form-com
 Object.keys(FormComponents).forEach(name => {
   Vue.component(name, FormComponents[name])
 })
-
-Vue.component('v-select', vSelect)
-Vue.component(VuePassword)
 
 Vue.use( vbclass, router )
 Vue.use(VueI18n)
@@ -64,8 +57,6 @@ let i18n = new VueI18n({
 Vue.mixin(Security)
 Vue.mixin(Translate)
 
-// window.jQuery = jQuery
-window.$ = jQuery
 window.moment = moment
 
 new Vue({

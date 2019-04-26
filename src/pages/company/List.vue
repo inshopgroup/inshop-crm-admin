@@ -36,7 +36,6 @@
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnContacts from './../../table/ColumnContacts'
-import columnCode from './../../table/ColumnCode'
 import columnLabels from './../../table/ColumnLabels'
 import columnAddressCountry from './../../table/ColumnAddressCountry'
 import columnAddressCity from './../../table/ColumnAddressCity'
@@ -47,17 +46,16 @@ export default {
   components: {LabelsFilter, ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['id', 'code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'actions'],
-      filterable: ['id', 'code', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode'],
+      columns: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'actions'],
+      filterable: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode'],
       customFilters: ['labels.id'],
-      sortable: ['id', 'code', 'name', 'contactPerson'],
+      sortable: ['id', 'name', 'contactPerson'],
       templates: {
         'contacts.value': columnContacts,
         'addresses.country.name': columnAddressCountry,
         'addresses.city.name': columnAddressCity,
         'addresses.postCode': columnAddressPostCode,
         'labels.id': columnLabels,
-        'code': columnCode,
       }
     }
   },
