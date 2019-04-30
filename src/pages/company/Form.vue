@@ -5,17 +5,17 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'company.name'" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'fullName'" :label="'company.fullName'" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'contactPerson'" :label="'company.contactPerson'" @formUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'description'" :label="'company.description'" @formUpdated="updateValue"></form-textarea>
-          <form-input :item="item" :errors="errors" :property="'bankName'" :label="'company.bankName'" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'bankAccountNumber'" :label="'company.bankAccountNumber'" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'krs'" :label="'company.krs'" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'nip'" :label="'company.nip'" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'labels'" :option-store="'label'" :label="'company.labels.id'" :multiple="true" @formUpdated="updateValue"></form-select>
-          <form-checkbox :item="item" :errors="errors" :property="'isVat'" :label="'company.isVat'" @formUpdated="updateValue"></form-checkbox>
-          <form-textarea :item="item" :errors="errors" :property="'vatComment'" :label="'company.vatComment'" @formUpdated="updateValue"></form-textarea>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="$t('name')" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'fullName'" :label="$t('fullName')" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'contactPerson'" :label="$t('contactPerson')" @formUpdated="updateValue"></form-input>
+          <form-textarea :item="item" :errors="errors" :property="'description'" :label="$t('description')" @formUpdated="updateValue"></form-textarea>
+          <form-input :item="item" :errors="errors" :property="'bankName'" :label="$t('bankName')" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'bankAccountNumber'" :label="$t('bankAccountNumber')" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'krs'" :label="$t('krs')" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'nip'" :label="$t('nip')" @formUpdated="updateValue"></form-input>
+          <form-select :item="item" :errors="errors" :property="'labels'" :option-store="'label'" :label="$t('labels_id')" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-checkbox :item="item" :errors="errors" :property="'isVat'" :label="$t('isVat')" @formUpdated="updateValue"></form-checkbox>
+          <form-textarea :item="item" :errors="errors" :property="'vatComment'" :label="$t('vatComment')" @formUpdated="updateValue"></form-textarea>
         </div>
       </div>
 

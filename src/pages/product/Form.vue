@@ -11,18 +11,18 @@
         </ul>
         <div class="tab-content">
           <div :class="['tab-pane', {active: i === 0}]" :id="language.code" v-for="(language, i) in languages" :key="'content_' + language.id">
-            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="'product.name'" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
-            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="'product.description'" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
+            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="$t('name')" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
+            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="$t('description')" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
           </div>
         </div>
       </div>
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-select :item="item" :errors="errors" :property="'brand'" :option-store="'brand'" :label="'product.brand.name'" @formUpdated="updateValue"></form-select>
-          <form-input :item="item" :errors="errors" :property="'ean'" :label="'product.ean'" @formUpdated="updateValue"></form-input>
-          <form-select-autocomplete :item="item" :errors="errors" :property="'category'" :option-store="'category'" :label="'product.category.name'" @formUpdated="updateValue"></form-select-autocomplete>
-          <form-input :item="item" :errors="errors" :property="'video'" :label="'product.video'" @formUpdated="updateValue"></form-input>
+          <form-select :item="item" :errors="errors" :property="'brand'" :option-store="'brand'" :label="$t('brand_name')" @formUpdated="updateValue"></form-select>
+          <form-input :item="item" :errors="errors" :property="'ean'" :label="$t('ean')" @formUpdated="updateValue"></form-input>
+          <form-select-autocomplete :item="item" :errors="errors" :property="'category'" :option-store="'category'" :label="$t('category_name')" @formUpdated="updateValue"></form-select-autocomplete>
+          <form-input :item="item" :errors="errors" :property="'video'" :label="$t('video')" @formUpdated="updateValue"></form-input>
           <form-file
               :axios="axios"
               :errors="errors"

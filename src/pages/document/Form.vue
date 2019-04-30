@@ -5,9 +5,9 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'document.name'" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'client'" :option-store="'client'" :label="'document.clients'" :multiple="true" @formUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'projects'" :option-store="'project'" :label="'document.projects'" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-input :item="item" :errors="errors" :property="'name'" :label="$t('name')" @formUpdated="updateValue"></form-input>
+          <form-select :item="item" :errors="errors" :property="'client'" :option-store="'client'" :label="$t('clients')" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'projects'" :option-store="'project'" :label="$t('projects')" :multiple="true" @formUpdated="updateValue"></form-select>
           <form-file
               :axios="axios"
               :errors="errors"

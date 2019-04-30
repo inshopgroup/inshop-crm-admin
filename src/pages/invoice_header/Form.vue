@@ -10,55 +10,55 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
-              <form-input :item="item" :errors="errors" :property="'number'" :label="'invoice_header.number'" @formUpdated="updateValue"></form-input>
+              <form-input :item="item" :errors="errors" :property="'number'" :label="$t('number')" @formUpdated="updateValue"></form-input>
             </div>
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'status'" :option-store="'invoice_header_status'" :label="'invoice_header.status.name'" @formUpdated="updateValue"></form-select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'companyFrom'" :option-store="'company'" :label="'invoice_header.companyFrom.name'" @formUpdated="updateValue"></form-select>
-            </div>
-            <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'companyTo'" :option-store="'company'" :label="'invoice_header.companyTo.name'" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'status'" :option-store="'invoice_header_status'" :label="$t('status_name')" @formUpdated="updateValue"></form-select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'type'" :option-store="'invoice_header_type'" :label="'invoice_header.type.name'" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'companyFrom'" :option-store="'company'" :label="$t('companyFrom_name')" @formUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'currency'" :option-store="'currency'" :label="'invoice_header.currency.name'" @formUpdated="updateValue"></form-select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'agreement'" :option-store="'document'" :label="'invoice_header.agreement.name'" @formUpdated="updateValue"></form-select>
-            </div>
-            <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'language'" :option-store="'language'" :label="'invoice_header.language.name'" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'companyTo'" :option-store="'company'" :label="$t('companyTo_name')" @formUpdated="updateValue"></form-select>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <form-date-picker :item="item" :errors="errors" :property="'dateOfInvoice'" :label="'invoice_header.dateOfInvoice'" @formUpdated="updateValue"></form-date-picker>
+              <form-select :item="item" :errors="errors" :property="'type'" :option-store="'invoice_header_type'" :label="$t('type_name')" @formUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-              <form-input :item="item" :errors="errors" :property="'maturity'" :label="'invoice_header.maturity'" @formUpdated="updateValue"></form-input>
+              <form-select :item="item" :errors="errors" :property="'currency'" :option-store="'currency'" :label="$t('currency_name')" @formUpdated="updateValue"></form-select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <form-select :item="item" :errors="errors" :property="'agreement'" :option-store="'document'" :label="$t('agreement_name')" @formUpdated="updateValue"></form-select>
+            </div>
+            <div class="col-md-6">
+              <form-select :item="item" :errors="errors" :property="'language'" :option-store="'language'" :label="$t('language_name')" @formUpdated="updateValue"></form-select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <form-date-picker :item="item" :errors="errors" :property="'dateOfInvoice'" :label="$t('dateOfInvoice')" @formUpdated="updateValue"></form-date-picker>
+            </div>
+            <div class="col-md-6">
+              <form-input :item="item" :errors="errors" :property="'maturity'" :label="$t('maturity')" @formUpdated="updateValue"></form-input>
             </div>
           </div>
 
           <div class="row">
         <div class="col-md-6">
-          <form-date-picker :item="item" :errors="errors" :property="'dateOfSale'" :label="'invoice_header.dateOfSale'" @formUpdated="updateValue"></form-date-picker>
+          <form-date-picker :item="item" :errors="errors" :property="'dateOfSale'" :label="$t('dateOfSale')" @formUpdated="updateValue"></form-date-picker>
         </div>
         <div class="col-md-6">
-          <form-select :item="item" :errors="errors" :property="'orderHeader'" :option-store="'order_header'" :label="'invoice_header.orderHeader.number'" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'orderHeader'" :option-store="'order_header'" :label="$t('orderHeader_number')" @formUpdated="updateValue"></form-select>
         </div>
       </div>
         </div>
@@ -89,19 +89,19 @@
             <tbody>
             <tr v-for="line in item.lines" :key="line.id">
               <td>
-                <form-select :item="line" :errors="errors" :property="'product'" :option-store="'product'" :label="'invoice_line.product.name'" @formUpdated="updateValue"></form-select>
+                <form-select :item="line" :errors="errors" :property="'product'" :option-store="'product'" :label="$t('product_name')" @formUpdated="updateValue"></form-select>
               </td>
               <td>
-                <form-input :item="line" :errors="errors" :property="'name'" :label="'invoice_line.name'" @formUpdated="updateValue"></form-input>
+                <form-input :item="line" :errors="errors" :property="'name'" :label="$t('name')" @formUpdated="updateValue"></form-input>
               </td>
               <td>
-                <form-select :item="line" :errors="errors" :property="'vat'" :option-store="'vat'" :label="'invoice_line.vat.name'" @formUpdated="updateValue"></form-select>
+                <form-select :item="line" :errors="errors" :property="'vat'" :option-store="'vat'" :label="$t('vat_name')" @formUpdated="updateValue"></form-select>
               </td>
               <td>
-                <form-number :item="line" :errors="errors" :property="'unitPriceNetto'" :label="'invoice_line.unitPriceNetto'" @formUpdated="updateValue"></form-number>
+                <form-number :item="line" :errors="errors" :property="'unitPriceNetto'" :label="$t('unitPriceNetto')" @formUpdated="updateValue"></form-number>
               </td>
               <td>
-                <form-number :item="line" :errors="errors" :property="'unitsCount'" :label="'invoice_line.unitsCount'" @formUpdated="updateValue"></form-number>
+                <form-number :item="line" :errors="errors" :property="'unitsCount'" :label="$t('unitsCount')" @formUpdated="updateValue"></form-number>
               </td>
               <td>
                 <button type="button" class="btn btn-info" @click.prevent="removeLine(line)">

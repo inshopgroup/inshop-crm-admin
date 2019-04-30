@@ -5,7 +5,7 @@
 
     <div class="box box-primary">
       <div class="box-body">
-        <form-input :item="item" :errors="errors" :property="'name'" :label="'group.name'" @formUpdated="updateValue"></form-input>
+        <form-input :item="item" :errors="errors" :property="'name'" :label="$t('name')" @formUpdated="updateValue"></form-input>
 
         <div class="form-group" v-for="module in modules">
           <h2>{{$t('module.' + module.name.replace(/\s+/g, '_').toLowerCase())}}</h2>

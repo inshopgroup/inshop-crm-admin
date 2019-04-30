@@ -18,6 +18,14 @@ export default {
   background: none;
 }
 
+.table > a {
+  white-space: nowrap;
+}
+
+/* .VueTables__sortable  {
+  width: 200px;
+} */
+
 @media print {
   .show-print {
     color: red;

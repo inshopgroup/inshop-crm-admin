@@ -15,8 +15,8 @@
             <th>{{$t('name')}}</th>
             <th>{{$t('name')}}</th>
             <th>{{$t('client')}}</th>
-            <th>{{$t('assignee.name')}}</th>
-            <th>{{$t('status.name')}}</th>
+            <th>{{$t('assignee_name')}}</th>
+            <th>{{$t('status_name')}}</th>
             <th>{{$t('deadline')}}</th>
             <!--<th>{{$t('createdAt')}}</th>-->
           </tr>
