@@ -8,10 +8,10 @@
           <h3 class="box-title">{{$t('tabs_general')}}</h3>
         </div>
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="'client.name'" @formUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'description'" :label="'client.description'" @formUpdated="updateValue"></form-textarea>
-          <form-select :item="item" :errors="errors" :property="'clients'" :option-store="'client'" :label="'client.clients'" :multiple="true" @formUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'companies'" :option-store="'company'" :label="'client.companies'" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
+          <form-textarea :item="item" :errors="errors" :property="'description'" label="description" @formUpdated="updateValue"></form-textarea>
+          <form-select :item="item" :errors="errors" :property="'clients'" :option-store="'client'" label="clients" :multiple="true" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'companies'" :option-store="'company'" label="companies" :multiple="true" @formUpdated="updateValue"></form-select>
         </div>
       </div>
 
