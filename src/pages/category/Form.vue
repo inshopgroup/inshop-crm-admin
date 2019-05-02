@@ -11,17 +11,17 @@
         </ul>
         <div class="tab-content">
           <div :class="['tab-pane', {active: i === 0}]" :id="language.code" v-for="(language, i) in languages" :key="'content_' + language.id">
-            <form-input :item="findItem(language)" :errors="errors" :property="'name'" :label="$t('name')" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
-            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" :label="$t('description')" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
+            <form-input :item="findItem(language)" :errors="errors" :property="'name'" label="name" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
+            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" label="description" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
           </div>
         </div>
       </div>
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-select :item="item" :errors="errors" :property="'parent'" :option-store="'category'" :label="$t('parent_name')" @formUpdated="updateValue"></form-select>
-          <form-number :item="item" :errors="errors" :property="'position'" :label="$t('position')" @formUpdated="updateValue"></form-number>
-          <form-checkbox :item="item" :errors="errors" :property="'isActive'" :label="$t('isActive')" @formUpdated="updateValue"></form-checkbox>
+          <form-select :item="item" :errors="errors" :property="'parent'" :option-store="'category'" label="parent_name" @formUpdated="updateValue"></form-select>
+          <form-number :item="item" :errors="errors" :property="'position'" label="position" @formUpdated="updateValue"></form-number>
+          <form-checkbox :item="item" :errors="errors" :property="'isActive'" label="isActive" @formUpdated="updateValue"></form-checkbox>
         </div>
       </div>
 

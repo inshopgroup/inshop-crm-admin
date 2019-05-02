@@ -5,8 +5,8 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" :label="$t('name')" @formUpdated="updateValue"></form-input>
-          <form-select-autocomplete :item="item" :errors="errors" :property="'country'" :store-path="'country'" :label="$t('country_name')" @formUpdated="updateValue"></form-select-autocomplete>
+          <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
+          <form-select-autocomplete :item="item" :errors="errors" :property="'country'" :store-path="'country'" label="country_name" @formUpdated="updateValue"></form-select-autocomplete>
         </div>
       </div>
 

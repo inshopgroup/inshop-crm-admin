@@ -5,8 +5,8 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'value'" :label="$t('value')" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'contactType'" :option-store="'contact_type'" :label="$t('contactType_name')" @formUpdated="updateValue"></form-select>
+          <form-input :item="item" :errors="errors" :property="'value'" label="value" @formUpdated="updateValue"></form-input>
+          <form-select :item="item" :errors="errors" :property="'contactType'" :option-store="'contact_type'" label="contactType_name" @formUpdated="updateValue"></form-select>
         </div>
       </div>
 

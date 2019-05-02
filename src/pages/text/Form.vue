@@ -5,11 +5,11 @@
 
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'title'" :label="$t('text_title')" @formUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'content'" :label="$t('content')" @formUpdated="updateValue"></form-textarea>
-          <form-input :item="item" :errors="errors" :property="'seoTitle'" :label="$t('seoTitle')" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'seoDescription'" :label="$t('seoDescription')" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'seoKeywords'" :label="$t('seoKeywords')" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'title'" label="text_title" @formUpdated="updateValue"></form-input>
+          <form-textarea :item="item" :errors="errors" :property="'content'" label="content" @formUpdated="updateValue"></form-textarea>
+          <form-input :item="item" :errors="errors" :property="'seoTitle'" label="seoTitle" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'seoDescription'" label="seoDescription" @formUpdated="updateValue"></form-input>
+          <form-input :item="item" :errors="errors" :property="'seoKeywords'" label="seoKeywords" @formUpdated="updateValue"></form-input>
         </div>
       </div>
 
