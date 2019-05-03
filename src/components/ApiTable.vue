@@ -111,7 +111,9 @@
         let headings = {};
 
         this.columns.forEach(key => {
-          headings[key] = this.$t(this.path + '.' + key)
+          let _key = key.replace('.', '_')
+
+          headings[key] = this.$t(_key)
         })
 
         return headings
@@ -218,7 +220,7 @@
             })
           }
         }
-      }
+      },
     }
   }
 </script>
