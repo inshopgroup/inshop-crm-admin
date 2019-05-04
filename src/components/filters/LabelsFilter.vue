@@ -1,12 +1,13 @@
 <template>
-  <v-select
-      :value="value"
+  <field-select
+      :item="{value: value}"
+      property="value"
       id="label"
       :options="options"
-      label="name"
+      option-label="name"
       :multiple="true"
-      @input="filterTable"
-  ></v-select>
+      @fieldUpdated="filterTable"
+  ></field-select>
 </template>
 
 <script>
@@ -56,7 +57,7 @@
       ...mapActions({
         getOptions: 'label/getItems',
       }),
-      filterTable(data) {
+      filterTable(property, data) {
         if (this.initialised > 2) {
           let ids = []
 

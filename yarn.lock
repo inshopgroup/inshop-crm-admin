@@ -25,10 +25,10 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@inshopgroup/vue-inshop-crm-form-components@^1.0.18":
-  version "1.0.18"
-  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.18.tgz#5b8f40d79fb7acb620d45aa000ae3162337e3d6b"
-  integrity sha512-nQ/09Gnw1Iiq8V6NpcVhzuEoDpaQ1sdHXQ3560yqxaiALcx5BmvLwPg574cMnyEMvvfB7Ca5x/Bv8z3llVoLfw==
+"@inshopgroup/vue-inshop-crm-form-components@^1.0.19":
+  version "1.0.19"
+  resolved "https://registry.yarnpkg.com/@inshopgroup/vue-inshop-crm-form-components/-/vue-inshop-crm-form-components-1.0.19.tgz#c238793978701149ad5eb5fb205b4e54a90c1a21"
+  integrity sha512-vJJBzPodNcZ3x3lZBciZ+KTxElLkulXds4c3bMwEQaAlZYLgS4JiXyMo2zBCDUWUU4TLpHmlZiPUppVJopBXow==
   dependencies:
     fecha "^3.0.3"
     filesize "^4.1.2"
@@ -6917,11 +6917,6 @@ vue-router@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.2.tgz#dedc67afe6c4e2bc25682c8b1c2a8c0d7c7e56be"
   integrity sha512-opKtsxjp9eOcFWdp6xLQPLmRGgfM932Tl56U9chYTnoWqKxQ8M20N7AkdEbM5beUh6wICoFGYugAX9vQjyJLFg==
-
-vue-select@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/vue-select/-/vue-select-2.5.1.tgz#9886e7123150a52dc8dbfe3202d0387268835aaa"
-  integrity sha512-Hs+arh7+0gLJoYiM3r9V/5CRn5XsAT8tVkouTkpDAWb923KFgraWrKDLSqz3ROedZUkuVIwkFuYq8+baHUf+bg==
 
 vue-select@^2.6.3:
   version "2.6.3"

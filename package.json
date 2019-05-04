@@ -10,7 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "@inshopgroup/vue-inshop-crm-form-components": "^1.0.18",
+    "@inshopgroup/vue-inshop-crm-form-components": "^1.0.19",
     "admin-lte": "^2.4.9",
     "axios": "^0.18.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
@@ -34,7 +34,6 @@
     "vue-event-calendar": "^1.5.2",
     "vue-i18n": "^8.8.2",
     "vue-router": "^3.0.2",
-    "vue-select": "^2.5.1",
     "vue-tables-2": "^1.4.70",
     "vue-toastr": "^2.0.16",
     "vue2-sentry": "^1.2.1",
