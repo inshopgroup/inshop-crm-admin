@@ -19,7 +19,6 @@
     data: function () {
       return {
         value: [],
-        initialised: 1
       }
     },
     created() {
@@ -58,19 +57,15 @@
         getOptions: 'project_status/getItems',
       }),
       filterTable(property, data) {
-        if (this.initialised > 2) {
-          let ids = []
+        let ids = []
 
-          if (data.length) {
-            data.forEach(item => {
-              ids.push(item.id)
-            })
-          }
-
-          Event.$emit('vue-tables.filter::status.id', ids)
+        if (data.length) {
+          data.forEach(item => {
+            ids.push(item.id)
+          })
         }
 
-        this.initialised++
+        Event.$emit('vue-tables.filter::status.id', ids)
       }
     }
   }
