@@ -111,7 +111,7 @@
         let headings = {};
 
         this.columns.forEach(key => {
-          let _key = key.replace('.', '_')
+          let _key = key.split('.').join('_');
 
           headings[key] = this.$t(_key)
         })

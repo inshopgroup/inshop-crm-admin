@@ -10,8 +10,6 @@
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
           <form-textarea :item="item" :errors="errors" :property="'description'" label="description" @formUpdated="updateValue"></form-textarea>
-          <form-select :item="item" :errors="errors" :property="'clients'" :option-store="'client'" label="clients" :multiple="true" @formUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'companies'" :option-store="'company'" label="companies" :multiple="true" @formUpdated="updateValue"></form-select>
         </div>
       </div>
 

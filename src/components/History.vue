@@ -21,7 +21,6 @@
           <td>
             <ul>
               <li v-for="(value, property) in log['data']">
-                <!-- <b>{{ $t(path + '.' + property) }}:</b> {{value}} -->
                 <b>{{ $t(property) }}:</b> {{value}}
               </li>
             </ul>
