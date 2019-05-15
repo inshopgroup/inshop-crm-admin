@@ -22,7 +22,8 @@
           <td>{{ file.originalName }}</td>
           <td>{{ filesize(file.size) }}</td>
           <td>{{ file.mimeType }}</td>
-          <td>{{ moment(file.createdAt).format('DD-MM-YYYY HH:mm') }}</td>
+          <td>{{ fecha.format(fecha.parse(file.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
+          
           <td>
             <button type="button" @click.prevent="deleteFile(file.id)">Delete</button>
           </td>
@@ -42,7 +43,8 @@
 <script>
   import "../../sass/styles.scss"
   import filesize from "filesize"
-  import moment from "moment"
+  import fecha from 'fecha'
+  // import moment from "moment"
 
   export default {
     name: 'FormFile',
@@ -91,7 +93,8 @@
     data() {
       return {
         filesize: filesize,
-        moment: moment,
+        fecha: fecha,
+        // moment: moment,
       }
     },
     computed: {

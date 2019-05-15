@@ -25,10 +25,10 @@
         <td>{{ productSellPrice['vat']['name'] }}</td>
         <td>{{ productSellPrice['priceSellBrutto'] }}</td>
         <td>{{ productSellPrice['priceOldSellBrutto'] }}</td>
-        <td>{{ moment(productSellPrice['activeFrom']).format('DD-MM-YYYY HH:mm') }}</td>
-        <td>{{ moment(productSellPrice['activeTo']).format('DD-MM-YYYY HH:mm') }}</td>
-        <td>{{ moment(productSellPrice['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
-        <td>{{ moment(productSellPrice['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
+        <td>{{ fecha.format(fecha.parse(productSellPrice['activeFrom'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
+        <td>{{ fecha.format(fecha.parse(productSellPrice['activeTo'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
+        <td>{{ fecha.format(fecha.parse(productSellPrice['createdAt'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
+        <td>{{ fecha.format(fecha.parse(productSellPrice['updatedAt'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
       </tr>
       </tbody>
     </table>
