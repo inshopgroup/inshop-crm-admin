@@ -36,10 +36,10 @@
           {{line.priceSellBrutto}}
         </td>
         <td>
-          {{ moment(line['createdAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ fecha.format(fecha.parse(item.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}
         </td>
         <td>
-          {{ moment(line['updatedAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ fecha.format(fecha.parse(item.updatedAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}
         </td>
       </tr>
       </tbody>
@@ -48,8 +48,15 @@
 </template>
 
 <script>
+  import fecha from 'fecha'
+
   export default {
     name: 'Lines',
+    data () {
+      return {
+        fecha: fecha,
+      }
+    },
     props: {
       lines: {
         type: Array,

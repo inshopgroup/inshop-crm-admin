@@ -103,12 +103,12 @@
 
                 <tr>
                   <td>{{$t('dateOfInvoice')}}</td>
-                  <td>{{ moment(item['dateOfInvoice']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ fecha.format(fecha.parse(item.dateOfInvoice, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
                 </tr>
 
                 <tr>
                   <td>{{$t('dateOfSale')}}</td>
-                  <td>{{ moment(item['dateOfSale']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ fecha.format(fecha.parse(item.dateOfSale, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
                 </tr>
 
                 <tr>
@@ -118,11 +118,11 @@
 
                 <tr>
                   <td>{{$t('createdAt')}}</td>
-                  <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ fecha.format(fecha.parse(item.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedAt')}}</td>
-                  <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ fecha.format(fecha.parse(item.updatedAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedBy')}}</td>
@@ -155,12 +155,14 @@
   import ItemErrors from '../../components/layout/errors/ItemErrors'
   import Lines from './Lines'
   import History from '../../components/History'
+  import fecha from 'fecha'
 
   export default {
     components: {History, Lines, ItemErrors, ItemShowActions},
     data () {
       return {
         historyKey: 1,
+        fecha: fecha,
       }
     },
     computed: mapGetters({

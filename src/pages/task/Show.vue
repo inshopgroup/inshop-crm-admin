@@ -36,7 +36,7 @@
               </tr>
               <tr>
                 <td><b>{{$t('deadline')}}</b></td>
-                <td><b>{{ moment(item['deadline']).format('DD-MM-YYYY') }}</b></td>
+                <td><b>{{ fecha.format(fecha.parse(item.deadline, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</b></td>
               </tr>
               <tr>
                 <td>{{$t('project_name')}}</td>
@@ -64,11 +64,11 @@
               </tr>
               <tr>
                 <td>{{$t('createdAt')}}</td>
-                <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                <td>{{ fecha.format(fecha.parse(item.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
               </tr>
               <tr>
                 <td>{{$t('updatedAt')}}</td>
-                <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                <td>{{ fecha.format(fecha.parse(item.updatedAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
               </tr>
               <tr>
                 <td>{{$t('updatedBy')}}</td>
@@ -93,12 +93,14 @@
   import ItemShowActions from '../../components/layout/ItemShowActions'
   import ItemErrors from '../../components/layout/errors/ItemErrors'
   import History from '../../components/History'
+  import fecha from 'fecha'
 
   export default {
     components: {History, ItemErrors, ItemShowActions},
     data () {
       return {
         historyKey: 1,
+        fecha: fecha,
       }
     },
     computed: mapGetters({

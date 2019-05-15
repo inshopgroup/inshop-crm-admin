@@ -32,10 +32,10 @@
           {{ companyProduct['availability'] }}
         </td>
         <td>
-          {{ moment(companyProduct['createdAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ fecha.format(fecha.parse(item.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}
         </td>
         <td>
-          {{ moment(companyProduct['updatedAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ fecha.format(fecha.parse(item.updatedAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}
         </td>
       </tr>
       </tbody>
@@ -44,8 +44,15 @@
 </template>
 
 <script>
+  import fecha from 'fecha'
+
   export default {
     name: 'CompanyProducts',
+    data () {
+      return {
+        fecha: fecha,
+      }
+    },
     props: {
       companyProducts: {
         type: Array,

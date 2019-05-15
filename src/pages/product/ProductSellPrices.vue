@@ -36,8 +36,15 @@
 </template>
 
 <script>
+  import fecha from 'fecha'
+
   export default {
     name: 'ProductSellPrices',
+    data () {
+      return {
+        fecha: fecha,
+      }
+    },
     props: {
       productSellPrices: {
         type: Array,
