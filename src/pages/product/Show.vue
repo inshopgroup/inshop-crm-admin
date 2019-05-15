@@ -45,11 +45,11 @@
 
                 <tr>
                   <td>{{$t('createdAt')}}</td>
-                  <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ fecha.format(fecha.parse(item.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedAt')}}</td>
-                  <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ fecha.format(fecha.parse(item.updatedAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedBy')}}</td>
@@ -83,6 +83,7 @@
   import History from '../../components/History'
   import CompanyProducts from './CompanyProducts'
   import ProductSellPrices from './ProductSellPrices'
+  import fecha from 'fecha'
 
   export default {
     components: {
@@ -95,6 +96,7 @@
     data () {
       return {
         historyKey: 1,
+        fecha: fecha,
       }
     },
     computed: mapGetters({

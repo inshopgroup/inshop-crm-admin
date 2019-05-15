@@ -2,6 +2,7 @@ import 'font-awesome/css/font-awesome.css'
 import 'bootstrap'
 import 'admin-lte'
 import moment from 'moment'
+// import fecha from 'fecha'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/admin-lte/dist/css/AdminLTE.css'
@@ -27,6 +28,7 @@ import VueSentry from 'vue2-sentry'
 import vbclass from 'vue-body-class'
 import Security from './mixin/Security'
 import Translate from './mixin/Translate'
+import DateMixin from './mixin/DateMixin'
 import VueI18n from 'vue-i18n'
 import FormComponents from '@inshopgroup/vue-inshop-crm-form-components'
 import '@inshopgroup/vue-inshop-crm-form-components/dist/vue-inshop-crm-form-components.css'
@@ -39,6 +41,7 @@ Vue.use( vbclass, router )
 Vue.use(VueI18n)
 Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default');
+// Vue.use(fecha)
 Vue.use(vueEventCalendar, {locale: 'en', weekStartOn: 1}) //locale can be 'zh' , 'en' , 'es', 'pt-br', 'ja', 'ko', 'fr', 'it', 'ru', 'de', 'vi', 'ua'
 Vue.use(VueSentry, {
   enable: process.env.NODE_ENV === 'production' && process.env.SENTRY_PUBLIC_KEY !== '',
@@ -56,6 +59,7 @@ let i18n = new VueI18n({
 
 Vue.mixin(Security)
 Vue.mixin(Translate)
+Vue.mixin(DateMixin)
 
 window.moment = moment
 

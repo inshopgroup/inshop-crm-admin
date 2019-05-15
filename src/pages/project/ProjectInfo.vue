@@ -42,11 +42,11 @@
     </tr>
     <tr>
       <td>{{$t('createdAt')}}</td>
-      <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
+      <td>{{ fecha.format(fecha.parse(item.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
     </tr>
     <tr>
       <td>{{$t('updatedAt')}}</td>
-      <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
+      <td>{{ fecha.format(fecha.parse(item.updatedAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
     </tr>
     <tr>
       <td>{{$t('updatedBy')}}</td>
@@ -58,8 +58,15 @@
 </template>
 
 <script>
+  import fecha from 'fecha'
+
   export default {
     name: 'ProjectInfo',
+    data () {
+      return {
+        fecha: fecha,
+      }
+    },
     props: {
       item: null,
     }
