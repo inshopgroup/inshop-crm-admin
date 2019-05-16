@@ -1,8 +1,10 @@
 <script>
+  import fecha from 'fecha'
+
   export default {
     methods: {
       dateFormat (date) {
-        fecha.format(date, 'YYYY-MM-DD hh:mm')
+        return fecha.format(fecha.parse(date, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm')
       }
     }
   }

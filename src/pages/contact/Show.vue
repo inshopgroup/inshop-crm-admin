@@ -57,11 +57,11 @@
                 </tr>
                 <tr>
                   <td>{{$t('createdAt')}}</td>
-                  <td>{{ fecha.format(fecha.parse(item.createdAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.createdAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedAt')}}</td>
-                  <td>{{ fecha.format(fecha.parse(item.updatedAt, 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.updatedAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedBy')}}</td>
@@ -87,14 +87,12 @@
   import ItemShowActions from '../../components/layout/ItemShowActions'
   import ItemErrors from '../../components/layout/errors/ItemErrors'
   import History from '../../components/History'
-  import fecha from 'fecha'
 
   export default {
     components: {History, ItemErrors, ItemShowActions},
     data () {
       return {
         historyKey: 1,
-        fecha: fecha,
       }
     },
     computed: mapGetters({

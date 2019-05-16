@@ -25,10 +25,10 @@
         <td>{{ productSellPrice['vat']['name'] }}</td>
         <td>{{ productSellPrice['priceSellBrutto'] }}</td>
         <td>{{ productSellPrice['priceOldSellBrutto'] }}</td>
-        <td>{{ fecha.format(fecha.parse(productSellPrice['activeFrom'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
-        <td>{{ fecha.format(fecha.parse(productSellPrice['activeTo'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
-        <td>{{ fecha.format(fecha.parse(productSellPrice['createdAt'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
-        <td>{{ fecha.format(fecha.parse(productSellPrice['updatedAt'], 'YYYY-MM-DDTHH:mm:ss'), 'DD-MM-YYYY HH:mm') }}</td>
+        <td>{{ dateFormat(productSellPrice['activeFrom']) }}</td>
+        <td>{{ dateFormat(productSellPrice['activeTo']) }}</td>
+        <td>{{ dateFormat(productSellPrice['createdAt']) }}</td>
+        <td>{{ dateFormat(productSellPrice['updatedAt']) }}</td>
       </tr>
       </tbody>
     </table>
@@ -36,15 +36,9 @@
 </template>
 
 <script>
-  import fecha from 'fecha'
 
   export default {
     name: 'ProductSellPrices',
-    data () {
-      return {
-        fecha: fecha,
-      }
-    },
     props: {
       productSellPrices: {
         type: Array,
