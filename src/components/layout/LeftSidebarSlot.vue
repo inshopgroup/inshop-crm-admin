@@ -224,10 +224,28 @@
         q: null
       }
     },
+    mounted() {
+      this.showSubmenuByActiveLink()
+    },
     methods: {
       search() {
         this.$router.push({name: 'Search', query: {q: this.q}})
-      }
-    }
+      },
+      showSubmenuByActiveLink() {
+        $('.treeview').each(function () {
+          if ($(this).find('a.router-link-active').length) {
+            $(this).addClass('menu-open')
+            $(this).children('.treeview-menu').css('display', 'block')
+          }
+        })
+      },
+    },
   }
 </script>
+
+<style scoped>
+  a.router-link-active {
+    color: #fff !important;
+    background-color: #367fa9;
+  }
+</style>
