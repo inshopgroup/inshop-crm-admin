@@ -3,13 +3,13 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th style="width: 75px;">{{$t('id')}}</th>
-        <th>{{$t('company_name')}}</th>
-        <th>{{$t('currency_name')}}</th>
-        <th>{{$t('price_buy_netto')}}</th>
-        <th>{{$t('availability')}}</th>
-        <th>{{$t('createdAt')}}</th>
-        <th>{{$t('updatedAt')}}</th>
+        <th style="width: 75px;">{{ $t('id') }}</th>
+        <th>{{ $t('company_name') }}</th>
+        <th>{{ $t('currency_name') }}</th>
+        <th>{{ $t('price_buy_netto') }}</th>
+        <th>{{ $t('availability') }}</th>
+        <th>{{ $t('createdAt') }}</th>
+        <th>{{ $t('updatedAt') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -44,15 +44,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'CompanyProducts',
-    props: {
-      companyProducts: {
-        type: Array,
-        default: function () {
-          return []
-        }
-      },
+export default {
+  name: 'CompanyProducts',
+  props: {
+    companyProducts: {
+      type: Array,
+      default: function () {
+        return []
+      }
     }
   }
+}
 </script>

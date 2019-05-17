@@ -2,17 +2,15 @@
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
       <item-errors :entity="'client'"></item-errors>
-
       <div class="box box-primary">
         <div class="box-header with-border">
-          <h3 class="box-title">{{$t('tabs_general')}}</h3>
+          <h3 class="box-title">{{ $t('tabs_general') }}</h3>
         </div>
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
           <form-textarea :item="item" :errors="errors" :property="'description'" label="description" @formUpdated="updateValue"></form-textarea>
         </div>
       </div>
-
       <!--<div class="box box-primary">-->
         <!--<div class="box-header with-border">-->
           <!--<h3 class="box-title">{{$t('tabs_contacts')}}</h3>-->
@@ -94,16 +92,15 @@
           <!--</table>-->
         <!--</div>-->
       <!--</div>-->
-
       <item-edit-actions :item="item" :entity="'Client'" :path="'client'"></item-edit-actions>
     </section>
   </form>
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import ItemEditActions from '../../components/layout/ItemEditActions'
-  import ItemErrors from "../../components/layout/errors/ItemErrors";
+import { mapActions, mapGetters } from 'vuex'
+import ItemEditActions from '../../components/layout/ItemEditActions'
+import ItemErrors from "../../components/layout/errors/ItemErrors"
 
 export default {
   components: {

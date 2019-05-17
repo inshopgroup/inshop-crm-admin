@@ -2,7 +2,6 @@
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
       <item-errors :entity="'text'"></item-errors>
-
       <div class="box box-primary">
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'title'" label="text_title" @formUpdated="updateValue"></form-input>
@@ -12,47 +11,46 @@
           <form-input :item="item" :errors="errors" :property="'seoKeywords'" label="seoKeywords" @formUpdated="updateValue"></form-input>
         </div>
       </div>
-
       <item-edit-actions :item="item" :entity="'Text'" :path="'text'"></item-edit-actions>
     </section>
   </form>
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import ItemEditActions from '../../components/layout/ItemEditActions'
-  import ItemErrors from "../../components/layout/errors/ItemErrors";
+import { mapActions, mapGetters } from 'vuex'
+import ItemEditActions from '../../components/layout/ItemEditActions'
+import ItemErrors from "../../components/layout/errors/ItemErrors"
 
-  export default {
-    components: {
-      ItemErrors,
-      ItemEditActions
+export default {
+  components: {
+    ItemErrors,
+    ItemEditActions
+  },
+  props: {
+    handleSubmit: {
+      type: Function,
+      required: true
     },
-    props: {
-      handleSubmit: {
-        type: Function,
-        required: true
-      },
-      item: {
-        type: Object,
-        required: true
-      }
-    },
-    beforeDestroy () {
-      this.reset()
-    },
-    computed: {
-      ...mapGetters({
-        errors: 'text/errors'
-      })
-    },
-    methods: {
-      ...mapActions({
-        reset: 'text/reset'
-      }),
-      updateValue(property, value) {
-        this.$store.commit('text/TEXT_UPDATE_ITEM', {[property]: value})
-      }
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  beforeDestroy () {
+    this.reset()
+  },
+  computed: {
+    ...mapGetters({
+      errors: 'text/errors'
+    })
+  },
+  methods: {
+    ...mapActions({
+      reset: 'text/reset'
+    }),
+    updateValue(property, value) {
+      this.$store.commit('text/TEXT_UPDATE_ITEM', {[property]: value})
     }
   }
+}
 </script>

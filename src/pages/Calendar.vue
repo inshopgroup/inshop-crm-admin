@@ -31,45 +31,45 @@
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex'
-  import moment from 'moment'
-  import Vue from 'vue'
+import {mapActions, mapGetters} from 'vuex'
+import moment from 'moment'
+import Vue from 'vue'
 
-  Vue.prototype.moment = moment
+Vue.prototype.moment = moment
 
-  export default {
-    computed: {
-      ...mapGetters({
-        tasks: 'task/items',
-      }),
-      tasksPrepared() {
-        this.tasks.forEach((task, index) => {
-          task.date = moment(task.deadline).format('YYYY/M/D')
-          task.title = task.name
-        })
+export default {
+  computed: {
+    ...mapGetters({
+      tasks: 'task/items',
+    }),
+    tasksPrepared() {
+      this.tasks.forEach((task, index) => {
+        task.date = moment(task.deadline).format('YYYY/M/D')
+        task.title = task.name
+      })
 
-        return this.tasks
-      }
-    },
-    created() {
-      this.load(moment().format('M/Y'));
-    },
-    methods: {
-      ...mapActions({
-        getTasks: 'task/getItems'
-      }),
-      load(date) {
-        this.getTasks({
-          'deadline[after]=': moment(date, 'M/Y').format('DD-MM-YYYY'),
-          'deadline[before]=': moment(date, 'M/Y').endOf('month').add(1, 'day').format('DD-MM-YYYY'),
-          'order[deadline]': 'asc',
-          'status.id[]': '1',
-          'itemsPerPage': '500'
-          }
-        )
-      }
+      return this.tasks
+    }
+  },
+  created() {
+    this.load(moment().format('M/Y'));
+  },
+  methods: {
+    ...mapActions({
+      getTasks: 'task/getItems'
+    }),
+    load(date) {
+      this.getTasks({
+        'deadline[after]=': moment(date, 'M/Y').format('DD-MM-YYYY'),
+        'deadline[before]=': moment(date, 'M/Y').endOf('month').add(1, 'day').format('DD-MM-YYYY'),
+        'order[deadline]': 'asc',
+        'status.id[]': '1',
+        'itemsPerPage': '500'
+        }
+      )
     }
   }
+}
 </script>
 
 <style scoped>

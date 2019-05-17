@@ -5,22 +5,34 @@ import ProjectStatusShow from '../pages/project_status/Show'
 
 export default [
   {
-    name: 'ProjectStatusList', path: '/project_statuses/', component: ProjectStatusList, meta: {
+    name: 'ProjectStatusList',
+    path: '/project_statuses/',
+    component: ProjectStatusList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ProjectStatusCreate', path: '/project_statuses/create', component: ProjectStatusCreate, meta: {
+    name: 'ProjectStatusCreate',
+    path: '/project_statuses/create',
+    component: ProjectStatusCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ProjectStatusUpdate', path: '/project_statuses/edit/:id', component: ProjectStatusUpdate, meta: {
+    name: 'ProjectStatusUpdate',
+    path: '/project_statuses/edit/:id',
+    component: ProjectStatusUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ProjectStatusShow', path: '/project_statuses/show/:id', component: ProjectStatusShow, meta: {
+    name: 'ProjectStatusShow',
+    path: '/project_statuses/show/:id',
+    component: ProjectStatusShow,
+    meta: {
       requiresAuth: true
     }
   }

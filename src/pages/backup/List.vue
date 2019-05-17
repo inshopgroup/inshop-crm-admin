@@ -11,21 +11,19 @@
       <!--</div>-->
       <div class="box-body">
         <item-errors :entity="'backup'"></item-errors>
-
         <api-table
-                :entity="'Backup'"
-                :route="'backups'"
-                :path="'backup'"
-                :filterable="filterable"
-                :customFilters="customFilters"
-                :sortable="sortable"
-                :columns="columns"
-                :templates="templates"
+          :entity="'Backup'"
+          :route="'backups'"
+          :path="'backup'"
+          :filterable="filterable"
+          :customFilters="customFilters"
+          :sortable="sortable"
+          :columns="columns"
+          :templates="templates"
         >
           <template slot="filter__status.id">
             <backup-status-filter></backup-status-filter>
           </template>
-
           <template slot="filter__type.id">
             <backup-type-filter></backup-type-filter>
           </template>

@@ -18,7 +18,7 @@ const actions = {
   },
   logout ({ commit }) {
     commit(types.AUTH_RESET)
-    router.push({name: 'SignIn'})
+    router.push({ name: 'SignIn' })
   }
 }
 
@@ -27,7 +27,7 @@ function initialState () {
     token: localStorage.getItem('token'),
     roles: localStorage.getItem('roles') || [],
     language: localStorage.getItem('language') || 'en',
-    error: null,
+    error: null
   }
 }
 
@@ -42,7 +42,7 @@ const getters = {
   },
   roles: state => state.roles,
   language: state => state.language,
-  error: state => state.error,
+  error: state => state.error
 }
 
 const mutations = {

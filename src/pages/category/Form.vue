@@ -2,7 +2,6 @@
   <form @submit.prevent="handleSubmit">
     <section class="content">
       <item-errors :entity="'category'"></item-errors>
-
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li :class="{active: i === 0}" v-for="(language, i) in languages" :key="'header_' + language.id">
@@ -16,7 +15,6 @@
           </div>
         </div>
       </div>
-
       <div class="box box-primary">
         <div class="box-body">
           <form-select :item="item" :errors="errors" :property="'parent'" :option-store="'category'" label="parent_name" @formUpdated="updateValue"></form-select>
@@ -24,90 +22,89 @@
           <form-checkbox :item="item" :errors="errors" :property="'isActive'" label="isActive" @formUpdated="updateValue"></form-checkbox>
         </div>
       </div>
-
       <item-edit-actions :item="item" :entity="'Category'" :path="'category'"></item-edit-actions>
     </section>
   </form>
 </template>
 
 <script>
-  import ItemEditActions from '../../components/layout/ItemEditActions'
-  import {mapActions, mapGetters} from 'vuex'
-  import ItemErrors from "../../components/layout/errors/ItemErrors";
+import ItemEditActions from '../../components/layout/ItemEditActions'
+import { mapActions, mapGetters } from 'vuex'
+import ItemErrors from "../../components/layout/errors/ItemErrors"
 
-  export default {
-    components: {
-      ItemErrors,
-      ItemEditActions
+export default {
+  components: {
+    ItemErrors,
+    ItemEditActions
+  },
+  props: {
+    handleSubmit: {
+      type: Function,
+      required: true
     },
-    props: {
-      handleSubmit: {
-        type: Function,
-        required: true
-      },
-      item: {
-        type: Object,
-        required: true
-      }
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  beforeDestroy() {
+    this.reset()
+  },
+  computed: {
+    ...mapGetters({
+      errors: 'category/errors'
+    }),
+    languages() {
+      return this.$store.getters['language/items'] || []
     },
-    beforeDestroy() {
-      this.reset()
-    },
-    computed: {
-      ...mapGetters({
-        errors: 'category/errors',
-      }),
-      languages() {
-        return this.$store.getters['language/items'] || []
-      },
-      translations: {
-        get() {
-          let translations = [];
+    translations: {
+      get() {
+        let translations = [];
 
-          this.languages.forEach(language => {
-            translations.push(this.findItem(language))
-          });
-
-          return translations
-        },
-        set(v) {
-          console.log('set', v)
-        }
-      },
-    },
-    created() {
-      this.getLanguages()
-    },
-    methods: {
-      ...mapActions({
-        reset: 'category/reset'
-      }),
-      findItem(language) {
-        let translation = {
-          language: language,
-        };
-
-        this.item.translations.some(element => {
-          if (element.language.code === language.code) {
-            translation = element
-          }
+        this.languages.forEach(language => {
+          translations.push(this.findItem(language))
         });
 
-        return translation
+        return translations
       },
-      updateValue(property, value) {
-        this.$store.commit('category/CATEGORY_UPDATE_ITEM', {[property]: value})
-      },
-      updateTranslatedValue(property, value, language) {
-        this.$store.commit('category/CATEGORY_UPDATE_ITEM_TRANSLATION', {
-          property: property,
-          value: value,
-          language: language,
-        })
-      },
-      ...mapActions({
-        getLanguages: 'language/getItems',
-      }),
-    }
+      set(v) {
+        console.log('set', v)
+      }
+    },
+  },
+  created() {
+    this.getLanguages()
+  },
+  methods: {
+    ...mapActions({
+      reset: 'category/reset'
+    }),
+    findItem(language) {
+      let translation = {
+        language: language,
+      };
+
+      this.item.translations.some(element => {
+        if (element.language.code === language.code) {
+          translation = element
+        }
+      });
+
+      return translation
+    },
+    updateValue(property, value) {
+      this.$store.commit('category/CATEGORY_UPDATE_ITEM', {[property]: value})
+    },
+    updateTranslatedValue(property, value, language) {
+      this.$store.commit('category/CATEGORY_UPDATE_ITEM_TRANSLATION', {
+        property: property,
+        value: value,
+        language: language
+      })
+    },
+    ...mapActions({
+      getLanguages: 'language/getItems'
+    }),
   }
+}
 </script>

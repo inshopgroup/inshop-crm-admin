@@ -1,9 +1,8 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('brand_list')}}</h1>
+    <h1>{{ $t('brand_list') }}</h1>
   </section>
-
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -11,15 +10,14 @@
       </div>
       <div class="box-body">
         <item-errors :entity="'brand'"></item-errors>
-
         <api-table
-                :entity="'Brand'"
-                :route="'brands'"
-                :path="'brand'"
-                :filterable="filterable"
-                :sortable="sortable"
-                :columns="columns"
-                :templates="templates"
+          :entity="'Brand'"
+          :route="'brands'"
+          :path="'brand'"
+          :filterable="filterable"
+          :sortable="sortable"
+          :columns="columns"
+          :templates="templates"
         ></api-table>
       </div>
     </div>
@@ -34,7 +32,7 @@ import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 
 export default {
-  components: {ItemErrors, ApiTable},
+  components: { ItemErrors, ApiTable },
   data: function () {
     return {
       columns: ['id', 'name', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],

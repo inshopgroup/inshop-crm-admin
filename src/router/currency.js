@@ -5,22 +5,34 @@ import CurrencyShow from '../pages/currency/Show'
 
 export default [
   {
-    name: 'CurrencyList', path: '/currencies/', component: CurrencyList, meta: {
+    name: 'CurrencyList',
+    path: '/currencies/',
+    component: CurrencyList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'CurrencyCreate', path: '/currencies/create', component: CurrencyCreate, meta: {
+    name: 'CurrencyCreate',
+    path: '/currencies/create',
+    component: CurrencyCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'CurrencyUpdate', path: '/currencies/edit/:id', component: CurrencyUpdate, meta: {
+    name: 'CurrencyUpdate',
+    path: '/currencies/edit/:id',
+    component: CurrencyUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'CurrencyShow', path: '/currencies/show/:id', component: CurrencyShow, meta: {
+    name: 'CurrencyShow',
+    path: '/currencies/show/:id',
+    component: CurrencyShow,
+    meta: {
       requiresAuth: true
     }
   }

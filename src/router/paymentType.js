@@ -5,22 +5,34 @@ import PaymentTypeShow from '../pages/payment_type/Show'
 
 export default [
   {
-    name: 'PaymentTypeList', path: '/payment_types/', component: PaymentTypeList, meta: {
+    name: 'PaymentTypeList',
+    path: '/payment_types/',
+    component: PaymentTypeList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'PaymentTypeCreate', path: '/payment_types/create', component: PaymentTypeCreate, meta: {
+    name: 'PaymentTypeCreate',
+    path: '/payment_types/create',
+    component: PaymentTypeCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'PaymentTypeUpdate', path: '/payment_types/edit/:id', component: PaymentTypeUpdate, meta: {
+    name: 'PaymentTypeUpdate',
+    path: '/payment_types/edit/:id',
+    component: PaymentTypeUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'PaymentTypeShow', path: '/payment_types/show/:id', component: PaymentTypeShow, meta: {
+    name: 'PaymentTypeShow',
+    path: '/payment_types/show/:id',
+    component: PaymentTypeShow,
+    meta: {
       requiresAuth: true
     }
   }

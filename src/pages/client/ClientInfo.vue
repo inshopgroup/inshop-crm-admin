@@ -36,10 +36,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'ClientInfo',
-    props: {
-      item: null,
-    }
+export default {
+  name: 'ClientInfo',
+  props: {
+    item: null
   }
+}
 </script>

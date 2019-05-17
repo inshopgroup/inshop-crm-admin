@@ -5,22 +5,34 @@ import InvoiceStatusShow from '../pages/invoice_status/Show'
 
 export default [
   {
-    name: 'InvoiceStatusList', path: '/invoice_status/', component: InvoiceStatusList, meta: {
+    name: 'InvoiceStatusList',
+    path: '/invoice_status/',
+    component: InvoiceStatusList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'InvoiceStatusCreate', path: '/invoice_status/create', component: InvoiceStatusCreate, meta: {
+    name: 'InvoiceStatusCreate',
+    path: '/invoice_status/create',
+    component: InvoiceStatusCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'InvoiceStatusUpdate', path: '/invoice_status/edit/:id', component: InvoiceStatusUpdate, meta: {
+    name: 'InvoiceStatusUpdate',
+    path: '/invoice_status/edit/:id',
+    component: InvoiceStatusUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'InvoiceStatusShow', path: '/invoice_status/show/:id', component: InvoiceStatusShow, meta: {
+    name: 'InvoiceStatusShow',
+    path: '/invoice_status/show/:id',
+    component: InvoiceStatusShow,
+    meta: {
       requiresAuth: true
     }
   }

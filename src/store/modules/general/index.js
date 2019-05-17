@@ -4,14 +4,14 @@ import * as actions from './actions'
 function initialState () {
   return {
     isLoading: 0,
-    loadingAllow: true,
+    loadingAllow: true
   }
 }
 
 const state = initialState()
 
 const getters = {
-  isLoading: state => state.isLoading !== 0,
+  isLoading: state => state.isLoading !== 0
 }
 
 export const mutations = {

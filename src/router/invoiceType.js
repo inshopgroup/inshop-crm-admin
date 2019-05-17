@@ -5,22 +5,34 @@ import InvoiceTypeShow from '../pages/invoice_type/Show'
 
 export default [
   {
-    name: 'InvoiceTypeList', path: '/invoice_types/', component: InvoiceTypeList, meta: {
+    name: 'InvoiceTypeList',
+    path: '/invoice_types/',
+    component: InvoiceTypeList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'InvoiceTypeCreate', path: '/invoice_types/create', component: InvoiceTypeCreate, meta: {
+    name: 'InvoiceTypeCreate',
+    path: '/invoice_types/create',
+    component: InvoiceTypeCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'InvoiceTypeUpdate', path: '/invoice_types/edit/:id', component: InvoiceTypeUpdate, meta: {
+    name: 'InvoiceTypeUpdate',
+    path: '/invoice_types/edit/:id',
+    component: InvoiceTypeUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'InvoiceTypeShow', path: '/invoice_types/show/:id', component: InvoiceTypeShow, meta: {
+    name: 'InvoiceTypeShow',
+    path: '/invoice_types/show/:id',
+    component: InvoiceTypeShow,
+    meta: {
       requiresAuth: true
     }
   }

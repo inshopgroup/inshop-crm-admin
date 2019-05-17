@@ -1,26 +1,24 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('company_list')}}</h1>
+    <h1>{{ $t('company_list') }}</h1>
   </section>
-
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <router-link :to="{ name: 'CompanyCreate' }" class="btn btn-primary pull-right">{{$t('company_add')}}</router-link>
+        <router-link :to="{ name: 'CompanyCreate' }" class="btn btn-primary pull-right">{{ $t('company_add') }}</router-link>
       </div>
       <div class="box-body">
         <item-errors :entity="'company'"></item-errors>
-
         <api-table
-                :entity="'Company'"
-                :route="'companies'"
-                :path="'company'"
-                :filterable="filterable"
-                :customFilters="customFilters"
-                :sortable="sortable"
-                :columns="columns"
-                :templates="templates"
+          :entity="'Company'"
+          :route="'companies'"
+          :path="'company'"
+          :filterable="filterable"
+          :customFilters="customFilters"
+          :sortable="sortable"
+          :columns="columns"
+          :templates="templates"
         >
           <template slot="filter__labels.id">
             <labels-filter></labels-filter>
@@ -43,7 +41,7 @@ import columnAddressPostCode from './../../table/ColumnAddressPostCode'
 import LabelsFilter from '../../components/filters/LabelsFilter'
 
 export default {
-  components: {LabelsFilter, ItemErrors, ApiTable},
+  components: { LabelsFilter, ItemErrors, ApiTable },
   data: function () {
     return {
       columns: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'actions'],
@@ -55,9 +53,9 @@ export default {
         'addresses.country.name': columnAddressCountry,
         'addresses.city.name': columnAddressCity,
         'addresses.postCode': columnAddressPostCode,
-        'labels.id': columnLabels,
+        'labels.id': columnLabels
       }
     }
-  },
+  }
 }
 </script>

@@ -5,22 +5,34 @@ import AddressShow from '../pages/address/Show'
 
 export default [
   {
-    name: 'AddressList', path: '/addresses/', component: AddressList, meta: {
+    name: 'AddressList',
+    path: '/addresses/',
+    component: AddressList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'AddressCreate', path: '/addresses/create', component: AddressCreate, meta: {
+    name: 'AddressCreate',
+    path: '/addresses/create',
+    component: AddressCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'AddressUpdate', path: '/addresses/edit/:id', component: AddressUpdate, meta: {
+    name: 'AddressUpdate',
+    path: '/addresses/edit/:id',
+    component: AddressUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'AddressShow', path: '/addresses/show/:id', component: AddressShow, meta: {
+    name: 'AddressShow',
+    path: '/addresses/show/:id',
+    component: AddressShow,
+    meta: {
       requiresAuth: true
     }
   }

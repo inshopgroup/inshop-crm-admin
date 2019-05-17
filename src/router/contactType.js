@@ -5,22 +5,34 @@ import ContactTypeShow from '../pages/contact_type/Show'
 
 export default [
   {
-    name: 'ContactTypeList', path: '/contact_types/', component: ContactTypeList, meta: {
+    name: 'ContactTypeList',
+    path: '/contact_types/',
+    component: ContactTypeList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ContactTypeCreate', path: '/contact_types/create', component: ContactTypeCreate, meta: {
+    name: 'ContactTypeCreate',
+    path: '/contact_types/create',
+    component: ContactTypeCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ContactTypeUpdate', path: '/contact_types/edit/:id', component: ContactTypeUpdate, meta: {
+    name: 'ContactTypeUpdate',
+    path: '/contact_types/edit/:id',
+    component: ContactTypeUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ContactTypeShow', path: '/contact_types/show/:id', component: ContactTypeShow, meta: {
+    name: 'ContactTypeShow',
+    path: '/contact_types/show/:id',
+    component: ContactTypeShow,
+    meta: {
       requiresAuth: true
     }
   }
