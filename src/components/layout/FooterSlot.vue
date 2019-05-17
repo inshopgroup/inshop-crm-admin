@@ -12,10 +12,5 @@
 <script>
 export default {
   name: 'FooterSlot',
-  data () {
-    return {
-      now: new Date
-    }
-  }
 }
 </script>

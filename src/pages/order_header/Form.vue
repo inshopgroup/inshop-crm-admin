@@ -100,76 +100,76 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-import axios from '../../interceptor'
-import ItemErrors from "../../components/layout/errors/ItemErrors";
+  import axios from '../../interceptor'
+  import ItemErrors from "../../components/layout/errors/ItemErrors";
 
-export default {
-  components: {
-    ItemErrors,
-    ItemEditActions
-  },
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      ItemErrors,
+      ItemEditActions
     },
-    item: {
-      type: Object,
-      required: true
-    }
-  },
-  beforeDestroy () {
-    this.reset()
-  },
-  computed: {
-    ...mapGetters({
-      errors: 'order_header/errors'
-    }),
-    lines () {
-      let lines = this.item.lines
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      }
+    },
+    beforeDestroy () {
+      this.reset()
+    },
+    computed: {
+      ...mapGetters({
+        errors: 'order_header/errors'
+      }),
+      lines () {
+        let lines = this.item.lines
 
-      lines.forEach(line => {
-        line.product = line.productSellPrice.product
-      })
-
-      return lines
-    },
-    isLoading () {
-      return this.$store.getters['general/isLoading']
-    },
-  },
-  methods: {
-    ...mapActions({
-      reset: 'order_header/reset'
-    }),
-    updateValue(property, value) {
-      this.$store.commit('order_header/ORDER_HEADER_UPDATE_ITEM', {[property]: value})
-    },
-    productSelected (line) {
-      axios.get(process.env.API_URL + line.product.id + '/product_sell_prices').then((data) => {
-        line.productSellPrices = data['data']['hydra:member'].filter(value => {
-          return value.channel.id === this.item.channel.id
+        lines.forEach(line => {
+          line.product = line.productSellPrice.product
         })
-      })
 
-      line.name = line.product.name
+        return lines
+      },
+      isLoading () {
+        return this.$store.getters['general/isLoading']
+      },
     },
-    productSellPriceSelected (line) {
-      line.vat = line.productSellPrice.vat
-      line.priceSellBrutto= line.productSellPrice.priceSellBrutto
-    },
-    addLine () {
-      this.item.lines.push({uuid: Date.now()})
-    },
-    removeLine (line) {
-      this.item.lines = this.item.lines.filter(function(el) {
-        if (!line.id) {
-          line.id = line.uuid
-        }
+    methods: {
+      ...mapActions({
+        reset: 'order_header/reset'
+      }),
+      updateValue(property, value) {
+        this.$store.commit('order_header/ORDER_HEADER_UPDATE_ITEM', {[property]: value})
+      },
+      productSelected (line) {
+        axios.get(process.env.API_URL + line.product.id + '/product_sell_prices').then((data) => {
+          line.productSellPrices = data['data']['hydra:member'].filter(value => {
+            return value.channel.id === this.item.channel.id
+          })
+        })
 
-        return line.id !== el.id;
-      })
-    },
+        line.name = line.product.name
+      },
+      productSellPriceSelected (line) {
+        line.vat = line.productSellPrice.vat
+        line.priceSellBrutto= line.productSellPrice.priceSellBrutto
+      },
+      addLine () {
+        this.item.lines.push({uuid: Date.now()})
+      },
+      removeLine (line) {
+        this.item.lines = this.item.lines.filter(function(el) {
+          if (!line.id) {
+            line.id = line.uuid
+          }
+
+          return line.id !== el.id;
+        })
+      },
+    }
   }
-}
 </script>

@@ -38,7 +38,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'TemplateInfo',
     props: {

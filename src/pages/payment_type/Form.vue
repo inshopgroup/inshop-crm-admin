@@ -17,38 +17,38 @@
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import ItemEditActions from '../../components/layout/ItemEditActions'
-import ItemErrors from "../../components/layout/errors/ItemErrors";
+  import ItemErrors from "../../components/layout/errors/ItemErrors";
 
-export default {
-  components: {
-    ItemErrors,
-    ItemEditActions
-  },
-  props: {
-    handleSubmit: {
-      type: Function,
-      required: true
+  export default {
+    components: {
+      ItemErrors,
+      ItemEditActions
     },
-    item: {
-      type: Object,
-      required: true
-    }
-  },
-  beforeDestroy () {
-    this.reset()
-  },
-  computed: {
-    ...mapGetters({
-      errors: 'payment_type/errors'
-    })
-  },
-  methods: {
-    ...mapActions({
-      reset: 'payment_type/reset'
-    }),
-    updateValue(property, value) {
-      this.$store.commit('payment_type/PAYMENT_TYPE_UPDATE_ITEM', {[property]: value})
+    props: {
+      handleSubmit: {
+        type: Function,
+        required: true
+      },
+      item: {
+        type: Object,
+        required: true
+      }
+    },
+    beforeDestroy () {
+      this.reset()
+    },
+    computed: {
+      ...mapGetters({
+        errors: 'payment_type/errors'
+      })
+    },
+    methods: {
+      ...mapActions({
+        reset: 'payment_type/reset'
+      }),
+      updateValue(property, value) {
+        this.$store.commit('payment_type/PAYMENT_TYPE_UPDATE_ITEM', {[property]: value})
+      }
     }
   }
-}
 </script>

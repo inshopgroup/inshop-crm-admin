@@ -44,7 +44,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'DocumentInfo',
     props: {

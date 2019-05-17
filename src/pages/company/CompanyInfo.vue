@@ -84,7 +84,6 @@
 </template>
 
 <script>
-
   export default {
     name: 'CompanyInfo',
     props: {
