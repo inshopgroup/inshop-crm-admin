@@ -17,7 +17,7 @@
           <td>{{ file['originalName'] }}</td>
           <td>{{ bytes(file['size']) }}</td>
           <td>{{ file['mimeType'] }}</td>
-          <td>{{ moment(file['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
+          <td>{{ dateFormat(file.createdAt) }}</td>
           <td>
             <a href="#" @click.stop="download(file)">
               <span class="fa fa-download" aria-hidden="true" />

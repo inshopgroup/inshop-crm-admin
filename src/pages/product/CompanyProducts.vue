@@ -32,10 +32,10 @@
           {{ companyProduct['availability'] }}
         </td>
         <td>
-          {{ moment(companyProduct['createdAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ dateFormat(item.createdAt) }}
         </td>
         <td>
-          {{ moment(companyProduct['updatedAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ dateFormat(item.updatedAt) }}
         </td>
       </tr>
       </tbody>

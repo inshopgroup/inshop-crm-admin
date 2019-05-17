@@ -1,7 +1,7 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('backup_list')}}</h1>
+    <h1>{{ $t('backup_list') }}</h1>
   </section>
 
   <section class="content">

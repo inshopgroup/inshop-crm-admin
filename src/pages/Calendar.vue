@@ -21,7 +21,7 @@
           </router-link>
         </p>
         <p class="desc">
-          <router-link  :to="{name: 'TaskShow', params: { id: task.id }}">
+          <router-link  :to="{ name: 'TaskShow', params: { id: task.id } }">
             {{task.description}}
           </router-link>
         </p>

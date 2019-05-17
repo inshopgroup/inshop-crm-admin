@@ -41,10 +41,10 @@
           {{line.unitsCount}}
         </td>
         <td>
-          {{ moment(line['createdAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ dateFormat(item.createdAt) }}
         </td>
         <td>
-          {{ moment(line['updatedAt']).format('DD-MM-YYYY HH:mm') }}
+          {{ dateFormat(item.updatedAt) }}
         </td>
       </tr>
       </tbody>

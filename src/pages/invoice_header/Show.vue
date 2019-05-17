@@ -103,12 +103,12 @@
 
                 <tr>
                   <td>{{$t('dateOfInvoice')}}</td>
-                  <td>{{ moment(item['dateOfInvoice']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.dateOfInvoice) }}</td>
                 </tr>
 
                 <tr>
                   <td>{{$t('dateOfSale')}}</td>
-                  <td>{{ moment(item['dateOfSale']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.dateOfSale) }}</td>
                 </tr>
 
                 <tr>
@@ -118,11 +118,11 @@
 
                 <tr>
                   <td>{{$t('createdAt')}}</td>
-                  <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.createdAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedAt')}}</td>
-                  <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.updatedAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedBy')}}</td>

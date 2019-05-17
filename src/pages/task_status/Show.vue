@@ -29,11 +29,11 @@
                 </tr>
                 <tr>
                   <td>{{$t('createdAt')}}</td>
-                  <td>{{ moment(item['createdAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.createdAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedAt')}}</td>
-                  <td>{{ moment(item['updatedAt']).format('DD-MM-YYYY HH:mm') }}</td>
+                  <td>{{ dateFormat(item.updatedAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{$t('updatedBy')}}</td>
