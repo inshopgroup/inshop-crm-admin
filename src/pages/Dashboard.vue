@@ -86,7 +86,7 @@
     },
     methods: {
       getData() {
-        let url = process.env.API_URL + '/users/dashboard'
+        let url = process.env.VUE_APP_API_URL + '/users/dashboard'
 
         axios.get(url)
           .then(response => {

@@ -202,7 +202,7 @@
 
               this.$router.push({query: queryParamsUrl})
 
-              axios.get(process.env.API_URL + '/' + this.route, {params: queryParams})
+              axios.get(process.env.VUE_APP_API_URL + '/' + this.route, {params: queryParams})
                 .then(response => {
                   let data = {
                     data: response.data['hydra:member'],

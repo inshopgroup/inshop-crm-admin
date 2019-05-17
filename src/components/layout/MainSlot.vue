@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     getTasks () {
-      let url = process.env.API_URL + '/tasks/deadline'
+      let url = process.env.VUE_APP_API_URL + '/tasks/deadline'
 
       axios.get(url)
         .then(response => {

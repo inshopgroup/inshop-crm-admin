@@ -6,7 +6,6 @@ import moment from 'moment'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/admin-lte/dist/css/AdminLTE.css'
 import '../node_modules/admin-lte/dist/css/skins/skin-blue.css'
-import '../node_modules/icheck/skins/square/blue.css'
 
 import '../node_modules/daterangepicker/daterangepicker'
 import '../node_modules/daterangepicker/daterangepicker.css'
@@ -36,7 +35,7 @@ Object.keys(FormComponents).forEach(name => {
   Vue.component(name, FormComponents[name])
 })
 
-Vue.use( vbclass, router )
+Vue.use(vbclass, router)
 Vue.use(VueI18n)
 Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default');
@@ -61,10 +60,11 @@ Vue.mixin(DateMixin)
 
 window.moment = moment
 
+Vue.config.productionTip = false
+
 new Vue({
-  el: '#app',
   store,
   router,
   i18n,
   render: h => h(App)
-})
+}).$mount('#app')

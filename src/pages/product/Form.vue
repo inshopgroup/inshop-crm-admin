@@ -67,7 +67,7 @@
     data() {
       return {
         axios: axios,
-        route: process.env.API_URL + '/images'
+        route: process.env.VUE_APP_API_URL + '/images'
       }
     },
     beforeDestroy() {

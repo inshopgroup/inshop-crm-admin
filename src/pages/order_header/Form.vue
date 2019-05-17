@@ -146,7 +146,7 @@
         this.$store.commit('order_header/ORDER_HEADER_UPDATE_ITEM', {[property]: value})
       },
       productSelected (line) {
-        axios.get(process.env.API_URL + line.product.id + '/product_sell_prices').then((data) => {
+        axios.get(process.env.VUE_APP_API_URL + line.product.id + '/product_sell_prices').then((data) => {
           line.productSellPrices = data['data']['hydra:member'].filter(value => {
             return value.channel.id === this.item.channel.id
           })

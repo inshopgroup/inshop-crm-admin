@@ -1,7 +1,7 @@
 'use strict';
 const xRegExp = require('xregexp');
 
-module.exports = (text, separator) => {
+export default (text, separator) => {
 	if (typeof text !== 'string') {
 		throw new TypeError('Expected a string');
 	}

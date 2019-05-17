@@ -2,7 +2,7 @@ import {namespace} from "./mutation_types";
 import axios from "../../../interceptor";
 
 export const getItems = ({ dispatch, commit }, params) => {
-  let url = process.env.API_URL + '/histories/' + params.entity + '/' + params.id
+  let url = process.env.VUE_APP_API_URL + '/histories/' + params.entity + '/' + params.id
 
   return axios.get(url)
     .then(response => {
