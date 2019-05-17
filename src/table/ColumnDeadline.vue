@@ -1,11 +1,10 @@
 <template>
   <div>
-    {{ moment(data['deadline']).format('DD-MM-YYYY') }}
+    {{ dateFormat(data['deadline']) }}
   </div>
 </template>
 
 <script>
-import moment from 'moment'
 export default {
   props: ['data', 'index', 'column']
 }

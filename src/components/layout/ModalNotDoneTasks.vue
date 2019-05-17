@@ -55,12 +55,12 @@
             </td>
             <td>
               <a href="#" @click.prtask="goto(task)">
-                {{ moment(task['deadline']).format('DD-MM-YYYY') }}
+                {{ dateFormat(task['deadline']) }}
               </a>
             </td>
             <!--<td>-->
               <!--<a href="#" @click.prtask="goto(task)">-->
-                <!--{{ moment(task['createdAt']).format('DD-MM-YYYY HH:mm') }}-->
+                <!--{{ dateFormat(task['createdAt']) }}-->
               <!--</a>-->
             <!--</td>-->
           </tr>

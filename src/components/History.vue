@@ -3,12 +3,12 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{$t('id')}}</th>
-          <th>{{$t('version')}}</th>
-          <th>{{$t('action')}}</th>
-          <th>{{$t('username')}}</th>
-          <th>{{$t('logged_at')}}</th>
-          <th>{{$t('changes')}}</th>
+          <th style="width: 75px;">{{ $t('id') }}</th>
+          <th>{{ $t('version') }}</th>
+          <th>{{ $t('action') }}</th>
+          <th>{{ $t('username') }}</th>
+          <th>{{ $t('logged_at') }}</th>
+          <th>{{ $t('changes') }}</th>
         </tr>
       </thead>
       <tbody>
@@ -17,7 +17,7 @@
           <td>{{ log['version'] }}</td>
           <td>{{ log['action'] }}</td>
           <td>{{ log['username'] }}</td>
-          <td>{{ moment(log['logged_at']).format('DD-MM-YYYY HH:mm') }}</td>
+          <td>{{ dateFormat(log['loggedAt']) }}</td>
           <td>
             <ul>
               <li v-for="(value, property) in log['data']">
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-  import moment from 'moment'
   import {mapActions, mapGetters} from 'vuex'
 
   export default {
@@ -50,11 +49,6 @@
       path: {
         type: String,
         default: null
-      }
-    },
-    data () {
-      return {
-        moment: moment,
       }
     },
     mounted () {

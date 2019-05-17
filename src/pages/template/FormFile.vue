@@ -43,7 +43,6 @@
 <script>
   import "../../sass/styles.scss"
   import filesize from "filesize"
-  // import moment from "moment"
 
   export default {
     name: 'FormFile',
@@ -92,7 +91,6 @@
     data() {
       return {
         filesize: filesize,
-        // moment: moment,
       }
     },
     computed: {
