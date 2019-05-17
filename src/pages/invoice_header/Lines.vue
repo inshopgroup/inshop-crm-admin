@@ -3,14 +3,14 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th style="width: 75px;">{{$t('invoice_line.id')}}</th>
-        <th>{{$t('product_name')}}</th>
-        <th>{{$t('name')}}</th>
-        <th>{{$t('vat_name')}}</th>
-        <th>{{$t('unitPriceNetto')}}</th>
-        <th>{{$t('unitsCount')}}</th>
-        <th>{{$t('createdAt')}}</th>
-        <th>{{$t('updatedAt')}}</th>
+        <th style="width: 75px;">{{ $t('invoice_line.id') }}</th>
+        <th>{{ $t('product_name') }}</th>
+        <th>{{ $t('name') }}</th>
+        <th>{{ $t('vat_name') }}</th>
+        <th>{{ $t('unitPriceNetto') }}</th>
+        <th>{{ $t('unitsCount') }}</th>
+        <th>{{ $t('createdAt') }}</th>
+        <th>{{ $t('updatedAt') }}</th>
       </tr>
       </thead>
       <tbody>
@@ -32,13 +32,11 @@
             {{ line['vat']['name'] }}
           </router-link>
         </td>
-
         <td>
-          {{line.unitPriceNetto}}
+          {{ line.unitPriceNetto }}
         </td>
-
         <td>
-          {{line.unitsCount}}
+          {{ line.unitsCount }}
         </td>
         <td>
           {{ dateFormat(item.createdAt) }}
@@ -53,15 +51,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'Lines',
-    props: {
-      lines: {
-        type: Array,
-        default: function () {
-          return []
-        }
+export default {
+  name: 'Lines',
+  props: {
+    lines: {
+      type: Array,
+      default: function () {
+        return []
       }
     }
   }
+}
 </script>

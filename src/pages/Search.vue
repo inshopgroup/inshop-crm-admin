@@ -24,20 +24,20 @@
 </template>
 
 <script>
-  import ApiTable from "../components/ApiTable";
-  import ItemErrors from "../components/layout/errors/ItemErrors";
-  import q from './../table/ColumnQ'
+import ApiTable from "../components/ApiTable"
+import ItemErrors from "../components/layout/errors/ItemErrors"
+import q from './../table/ColumnQ'
 
-  export default {
-    components: {ItemErrors, ApiTable},
-    data: function () {
-      return {
-        columns: ['q', 'type'],
-        filterable: ['q', 'type'],
-        templates: {
-          q,
-        }
+export default {
+  components: {ItemErrors, ApiTable},
+  data: function () {
+    return {
+      columns: ['q', 'type'],
+      filterable: ['q', 'type'],
+      templates: {
+        q,
       }
     }
   }
+}
 </script>

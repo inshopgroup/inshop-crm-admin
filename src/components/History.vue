@@ -32,40 +32,40 @@
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
-  export default {
-    name: 'History',
-    components: {},
-    props: {
-      id: {
-        type: Number,
-        required: true
-      },
-      entity: {
-        type: String,
-        required: true
-      },
-      path: {
-        type: String,
-        default: null
-      }
+export default {
+  name: 'History',
+  components: {},
+  props: {
+    id: {
+      type: Number,
+      required: true
     },
-    mounted () {
-      this.getItems({
-        entity: this.entity,
-        id: this.id,
-      })
+    entity: {
+      type: String,
+      required: true
     },
-    computed: {
-      ...mapGetters({
-        logs: 'history/items',
-      })
-    },
-    methods: {
-      ...mapActions({
-        getItems: 'history/getItems',
-      }),
+    path: {
+      type: String,
+      default: null
     }
+  },
+  mounted () {
+    this.getItems({
+      entity: this.entity,
+      id: this.id
+    })
+  },
+  computed: {
+    ...mapGetters({
+      logs: 'history/items'
+    })
+  },
+  methods: {
+    ...mapActions({
+      getItems: 'history/getItems'
+    })
   }
+}
 </script>

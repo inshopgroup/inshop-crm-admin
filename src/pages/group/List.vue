@@ -1,17 +1,15 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('group_list')}}</h1>
+      <h1>{{ $t('group_list') }}</h1>
     </section>
-
     <section class="content">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <router-link :to="{ name: 'GroupCreate' }" class="btn btn-primary pull-right">{{$t('group_add')}}</router-link>
+          <router-link :to="{ name: 'GroupCreate' }" class="btn btn-primary pull-right">{{ $t('group_add') }}</router-link>
         </div>
         <div class="box-body">
           <item-errors :entity="'group'"></item-errors>
-
           <api-table
             :entity="'Group'"
             :route="'groups'"
@@ -35,7 +33,7 @@ import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnGroups from './../../table/ColumnGroups'
 
 export default {
-  components: {ItemErrors, ApiTable},
+  components: { ItemErrors, ApiTable },
   data: function () {
     return {
       columns: ['id', 'name', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
@@ -47,6 +45,6 @@ export default {
         'groups.name': columnGroups
       }
     }
-  },
+  }
 }
 </script>

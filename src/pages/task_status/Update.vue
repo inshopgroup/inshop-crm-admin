@@ -3,7 +3,6 @@
     <section class="content-header">
       <h1>{{ $t('task_status_edit', {entity: item && item.name}) }}</h1>
     </section>
-
     <TaskStatusForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
@@ -18,7 +17,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'task_status/item',
+      item: 'task_status/item'
     })
   },
   created () {
@@ -27,11 +26,11 @@ export default {
   methods: {
     ...mapActions({
       getItem: 'task_status/getItem',
-      update: 'task_status/update',
+      update: 'task_status/update'
     }),
     onSendForm () {
       this.update().then(item => {
-        this.$router.push({name: 'TaskStatusShow', params: {id: item.id}})
+        this.$router.push({ name: 'TaskStatusShow', params: {id: item.id}})
       }).catch(e => {})
     }
   }

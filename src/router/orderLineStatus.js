@@ -5,22 +5,34 @@ import OrderLineStatusShow from '../pages/order_line_status/Show'
 
 export default [
   {
-    name: 'OrderLineStatusList', path: '/order_line_statuses/', component: OrderLineStatusList, meta: {
+    name: 'OrderLineStatusList',
+    path: '/order_line_statuses/',
+    component: OrderLineStatusList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'OrderLineStatusCreate', path: '/order_line_statuses/create', component: OrderLineStatusCreate, meta: {
+    name: 'OrderLineStatusCreate',
+    path: '/order_line_statuses/create',
+    component: OrderLineStatusCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'OrderLineStatusUpdate', path: '/order_line_statuses/edit/:id', component: OrderLineStatusUpdate, meta: {
+    name: 'OrderLineStatusUpdate',
+    path: '/order_line_statuses/edit/:id',
+    component: OrderLineStatusUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'OrderLineStatusShow', path: '/order_line_statuses/show/:id', component: OrderLineStatusShow, meta: {
+    name: 'OrderLineStatusShow',
+    path: '/order_line_statuses/show/:id',
+    component: OrderLineStatusShow,
+    meta: {
       requiresAuth: true
     }
   }

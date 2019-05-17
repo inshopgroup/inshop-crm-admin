@@ -20,34 +20,34 @@
 </template>
 
 <script>
-  import AddressForm from "../address/Form";
+import AddressForm from "../address/Form"
 
-  export default {
-    name: 'ModalAddressForm',
-    components: {AddressForm},
-    props: {
-      title: {
-        type: String,
-        required :true
-      },
-      item: {
-        type: Object,
-        required :true
-      },
-      callback: {
-        type: Function,
-        required :true
-      }
+export default {
+  name: 'ModalAddressForm',
+  components: {AddressForm},
+  props: {
+    title: {
+      type: String,
+      required :true
     },
-    methods: {
-      onSendForm() {
-        this.callback().then(item => {
-          this.$toastr.s(this.$t('address_saved', {address: item.value}), this.$t('saved'))
-          this.$emit('addressesChanged', item)
+    item: {
+      type: Object,
+      required :true
+    },
+    callback: {
+      type: Function,
+      required :true
+    }
+  },
+  methods: {
+    onSendForm() {
+      this.callback().then(item => {
+        this.$toastr.s(this.$t('address_saved', {address: item.value}), this.$t('saved'))
+        this.$emit('addressesChanged', item)
 
-          $('#modal-address-edit').modal('hide')
-        }).catch(e => {})
-      }
+        $('#modal-address-edit').modal('hide')
+      }).catch(e => {})
     }
   }
+}
 </script>

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  export default {
-    props: ['data', 'index', 'column']
-  }
+export default {
+  props: ['data', 'index', 'column']
+}
 </script>

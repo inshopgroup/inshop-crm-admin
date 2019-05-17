@@ -3,10 +3,8 @@
     <section class="content-header">
       <h1>{{ item && item['name'] }}</h1>
     </section>
-
     <section class="content">
       <item-errors :entity="'backup'"></item-errors>
-
       <div class="nav-tabs-custom" v-if="item">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{$t('tabs_general')}}</a></li>
@@ -58,39 +56,38 @@
           </div>
         </div>
       </div>
-
       <item-show-actions :item="item" :entity="'Backup'" :path="'backup'"></item-show-actions>
     </section>
   </div>
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex'
-  import ItemShowActions from '../../components/layout/ItemShowActions'
-  import ItemErrors from '../../components/layout/errors/ItemErrors'
-  import History from '../../components/History'
+import { mapActions, mapGetters } from 'vuex'
+import ItemShowActions from '../../components/layout/ItemShowActions'
+import ItemErrors from '../../components/layout/errors/ItemErrors'
+import History from '../../components/History'
 
-  export default {
-    components: {History, ItemErrors, ItemShowActions},
-    data () {
-      return {
-        historyKey: 1,
-      }
-    },
-    computed: mapGetters({
-      item: 'backup/item'
-    }),
-    created() {
-      this.getItem(this.$route.params.id)
-    },
-    beforeDestroy() {
-      this.reset()
-    },
-    methods: {
-      ...mapActions({
-        getItem: 'backup/getItem',
-        reset: 'backup/reset'
-      })
+export default {
+  components: { History, ItemErrors, ItemShowActions },
+  data () {
+    return {
+      historyKey: 1
     }
+  },
+  computed: mapGetters({
+    item: 'backup/item'
+  }),
+  created() {
+    this.getItem(this.$route.params.id)
+  },
+  beforeDestroy() {
+    this.reset()
+  },
+  methods: {
+    ...mapActions({
+      getItem: 'backup/getItem',
+      reset: 'backup/reset'
+    })
   }
+}
 </script>

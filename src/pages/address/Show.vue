@@ -3,10 +3,8 @@
     <section class="content-header">
       <h1>{{ item && item['name'] }}</h1>
     </section>
-
     <section class="content">
       <item-errors :entity="'address'"></item-errors>
-
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{ $t('tabs_general') }}</a></li>
@@ -23,7 +21,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 <tr>
                   <td>{{ $t('clients') }}</td>
                   <td>
@@ -68,7 +65,6 @@
                     </router-link>
                   </td>
                 </tr>
-
                 <tr>
                   <td>{{ $t('region') }}</td>
                   <td>{{ item['region'] }}</td>
@@ -114,39 +110,38 @@
           </div>
         </div>
       </div>
-
       <item-show-actions :item="item" :entity="'Address'" :path="'address'"></item-show-actions>
     </section>
   </div>
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex'
-  import ItemShowActions from '../../components/layout/ItemShowActions'
-  import ItemErrors from '../../components/layout/errors/ItemErrors'
-  import History from '../../components/History'
+import { mapActions, mapGetters } from 'vuex'
+import ItemShowActions from '../../components/layout/ItemShowActions'
+import ItemErrors from '../../components/layout/errors/ItemErrors'
+import History from '../../components/History'
 
-  export default {
-    components: {History, ItemErrors, ItemShowActions},
-    data () {
-      return {
-        historyKey: 1,
-      }
-    },
-    computed: mapGetters({
-      item: 'address/item'
-    }),
-    created() {
-      this.getItem(this.$route.params.id)
-    },
-    beforeDestroy() {
-      this.reset()
-    },
-    methods: {
-      ...mapActions({
-        getItem: 'address/getItem',
-        reset: 'address/reset'
-      })
+export default {
+  components: { History, ItemErrors, ItemShowActions },
+  data () {
+    return {
+      historyKey: 1
     }
+  },
+  computed: mapGetters({
+    item: 'address/item'
+  }),
+  created() {
+    this.getItem(this.$route.params.id)
+  },
+  beforeDestroy() {
+    this.reset()
+  },
+  methods: {
+    ...mapActions({
+      getItem: 'address/getItem',
+      reset: 'address/reset'
+    })
   }
+}
 </script>

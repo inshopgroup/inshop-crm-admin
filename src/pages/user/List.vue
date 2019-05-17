@@ -1,17 +1,15 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('user_list')}}</h1>
+      <h1>{{ $t('user_list') }}</h1>
     </section>
-
     <section class="content">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <router-link :to="{ name: 'UserCreate' }" class="btn btn-primary pull-right">{{$t('user_add')}}</router-link>
+          <router-link :to="{ name: 'UserCreate' }" class="btn btn-primary pull-right">{{ $t('user_add') }}</router-link>
         </div>
         <div class="box-body">
           <item-errors :entity="'user'"></item-errors>
-
           <api-table
             :entity="'User'"
             :route="'users'"
@@ -36,7 +34,7 @@ import columnGroups from './../../table/ColumnGroups'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: {ItemErrors, ApiTable},
+  components: { ItemErrors, ApiTable },
   data: function () {
     return {
       columns: ['id', 'name', 'email', 'groups.name', 'language.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
@@ -49,6 +47,6 @@ export default {
         'isActive': columnIsActive
       }
     }
-  },
+  }
 }
 </script>

@@ -20,34 +20,34 @@
 </template>
 
 <script>
-  import ContactForm from "../contact/Form";
+import ContactForm from "../contact/Form"
 
-  export default {
-    name: 'ModalContactForm',
-    components: {ContactForm},
-    props: {
-      title: {
-        type: String,
-        required :true
-      },
-      item: {
-        type: Object,
-        required :true
-      },
-      callback: {
-        type: Function,
-        required :true
-      }
+export default {
+  name: 'ModalContactForm',
+  components: { ContactForm },
+  props: {
+    title: {
+      type: String,
+      required :true
     },
-    methods: {
-      onSendForm() {
-        this.callback().then(item => {
-          this.$toastr.s(this.$t('contact_saved', {contact: item.value}), this.$t('saved'))
-          this.$emit('contactsChanged', item)
+    item: {
+      type: Object,
+      required :true
+    },
+    callback: {
+      type: Function,
+      required :true
+    }
+  },
+  methods: {
+    onSendForm() {
+      this.callback().then(item => {
+        this.$toastr.s(this.$t('contact_saved', {contact: item.value}), this.$t('saved'))
+        this.$emit('contactsChanged', item)
 
-          $('#modal-contact-edit').modal('hide')
-        }).catch(e => {})
-      }
+        $('#modal-contact-edit').modal('hide')
+      }).catch(e => {})
     }
   }
+}
 </script>

@@ -9,27 +9,27 @@
 </template>
 
 <script>
-  import {mapActions, mapGetters} from 'vuex'
-  import DocumentForm from './Form'
+import { mapActions, mapGetters } from 'vuex'
+import DocumentForm from './Form'
 
-  export default {
-    components: {
-      DocumentForm
-    },
-    computed: {
-      ...mapGetters({
-        item: 'document/item',
-      })
-    },
-    methods: {
-      ...mapActions({
-        create: 'document/create',
-      }),
-      onSendForm() {
-        this.create().then(item => {
-          this.$router.push({name: 'DocumentShow', params: {id: item.id}})
-        }).catch(e => {})
-      }
+export default {
+  components: {
+    DocumentForm
+  },
+  computed: {
+    ...mapGetters({
+      item: 'document/item'
+    })
+  },
+  methods: {
+    ...mapActions({
+      create: 'document/create'
+    }),
+    onSendForm() {
+      this.create().then(item => {
+        this.$router.push({name: 'DocumentShow', params: {id: item.id}})
+      }).catch(e => {})
     }
   }
+}
 </script>

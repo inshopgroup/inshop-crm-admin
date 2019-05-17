@@ -1,8 +1,8 @@
 import * as crud from '../../../utils/crud'
-import {namespace} from "./mutation_types";
-import axios from "../../../interceptor";
-import {API_HOST} from "../../../config/_entrypoint";
-import pluralize from "pluralize";
+import {namespace} from "./mutation_types"
+import axios from "../../../interceptor"
+import {API_HOST} from "../../../config/_entrypoint"
+import pluralize from "pluralize"
 
 export const getItem = ({ dispatch, commit }, id) => {
   commit(namespace + '_SET_ERROR', null)

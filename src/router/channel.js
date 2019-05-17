@@ -5,22 +5,34 @@ import ChannelShow from '../pages/channel/Show'
 
 export default [
   {
-    name: 'ChannelList', path: '/channels/', component: ChannelList, meta: {
+    name: 'ChannelList',
+    path: '/channels/',
+    component: ChannelList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ChannelCreate', path: '/channels/create', component: ChannelCreate, meta: {
+    name: 'ChannelCreate',
+    path: '/channels/create',
+    component: ChannelCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ChannelUpdate', path: '/channels/edit/:id', component: ChannelUpdate, meta: {
+    name: 'ChannelUpdate',
+    path: '/channels/edit/:id',
+    component: ChannelUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'ChannelShow', path: '/channels/show/:id', component: ChannelShow, meta: {
+    name: 'ChannelShow',
+    path: '/channels/show/:id',
+    component: ChannelShow,
+    meta: {
       requiresAuth: true
     }
   }

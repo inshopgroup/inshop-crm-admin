@@ -1,5 +1,5 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
 import taskRoutes from './task'
 import backupRoutes from './backup'
@@ -41,11 +41,11 @@ import brandRoutes from './brand'
 import channelRoutes from './channel'
 import textRoutes from './text'
 
-import SignIn from '../pages/SignIn';
-import MainSlot from '../components/layout/MainSlot';
-import store from '../store';
+import SignIn from '../pages/SignIn'
+import MainSlot from '../components/layout/MainSlot'
+import store from '../store'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
@@ -109,7 +109,7 @@ const router = new VueRouter({
       }
     }
   ]
-});
+})
 
 router.beforeEach((to, from, next) => {
   let token = store.getters['auth/jwtDecoded'] || null
@@ -117,11 +117,11 @@ router.beforeEach((to, from, next) => {
 
   if (authorized) {
     if (to.matched.some(record => !record.meta.requiresAuth)) {
-      next({name: 'Dashboard'})
+      next({ name: 'Dashboard' })
     }
   } else {
     if (to.matched.some(record => record.meta.requiresAuth)) {
-      next({name: 'SignIn'})
+      next({ name: 'SignIn' })
     }
   }
 

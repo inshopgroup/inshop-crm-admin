@@ -5,22 +5,34 @@ import UserShow from '../pages/user/Show'
 
 export default [
   {
-    name: 'UserList', path: '/users/', component: UserList, meta: {
+    name: 'UserList',
+    path: '/users/',
+    component: UserList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'UserCreate', path: '/users/create', component: UserCreate, meta: {
+    name: 'UserCreate',
+    path: '/users/create',
+    component: UserCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'UserUpdate', path: '/users/edit/:id', component: UserUpdate, meta: {
+    name: 'UserUpdate',
+    path: '/users/edit/:id',
+    component: UserUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'UserShow', path: '/users/show/:id', component: UserShow, meta: {
+    name: 'UserShow',
+    path: '/users/show/:id',
+    component: UserShow,
+    meta: {
       requiresAuth: true
     }
   }

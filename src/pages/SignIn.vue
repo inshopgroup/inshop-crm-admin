@@ -33,41 +33,41 @@
 </template>
 
 <script>
-  import * as types from '../store/modules/auth/mutation_types'
-  import {messages} from '../locales'
+import * as types from '../store/modules/auth/mutation_types'
+import {messages} from '../locales'
 
-  export default {
-    name: 'SignIn',
-    data() {
-      return {
-        credentials: {
-          username: 'demo',
-          password: 'demo'
-        }
-      }
-    },
-    computed: {
-      error() {
-        return this.$store.getters['auth/error']
-      }
-    },
-    methods: {
-      signIn() {
-        this.$store.dispatch('auth/login', this.credentials)
-          .then((response) => {
-            this.$store.commit('auth/' + types.AUTH_UPDATE_TOKEN, response.data)
-            this.$router.push({name: 'Dashboard'})
-
-            let lang = response.data.language;
-
-            if (lang && messages[lang]) {
-              this.$store.commit('auth/' + types.AUTH_UPDATE_LANGUAGE, lang)
-              this.$i18n.locale = lang
-            }
-          })
+export default {
+  name: 'SignIn',
+  data() {
+    return {
+      credentials: {
+        username: 'demo',
+        password: 'demo'
       }
     }
+  },
+  computed: {
+    error() {
+      return this.$store.getters['auth/error']
+    }
+  },
+  methods: {
+    signIn() {
+      this.$store.dispatch('auth/login', this.credentials)
+        .then((response) => {
+          this.$store.commit('auth/' + types.AUTH_UPDATE_TOKEN, response.data)
+          this.$router.push({name: 'Dashboard'})
+
+          let lang = response.data.language;
+
+          if (lang && messages[lang]) {
+            this.$store.commit('auth/' + types.AUTH_UPDATE_LANGUAGE, lang)
+            this.$i18n.locale = lang
+          }
+        })
+    }
   }
+}
 </script>
 
 <style>

@@ -6,15 +6,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'ItemErrors',
-    props: {
-      entity: null
-    },
-    computed: {
-      error() {
-        return this.$store.getters[this.entity + '/error']
-      }
-    },
-  }
+export default {
+  name: 'ItemErrors',
+  props: {
+    entity: null
+  },
+  computed: {
+    error() {
+      return this.$store.getters[this.entity + '/error']
+    }
+  },
+}
 </script>

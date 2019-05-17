@@ -5,22 +5,34 @@ import CompanyShow from '../pages/company/Show'
 
 export default [
   {
-    name: 'CompanyList', path: '/companies/', component: CompanyList, meta: {
+    name: 'CompanyList',
+    path: '/companies/',
+    component: CompanyList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'CompanyCreate', path: '/companies/create', component: CompanyCreate, meta: {
+    name: 'CompanyCreate',
+    path: '/companies/create',
+    component: CompanyCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'CompanyUpdate', path: '/companies/edit/:id', component: CompanyUpdate, meta: {
+    name: 'CompanyUpdate',
+    path: '/companies/edit/:id',
+    component: CompanyUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'CompanyShow', path: '/companies/show/:id', component: CompanyShow, meta: {
+    name: 'CompanyShow',
+    path: '/companies/show/:id',
+    component: CompanyShow,
+    meta: {
       requiresAuth: true
     }
   }

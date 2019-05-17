@@ -1,9 +1,8 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('task_list')}}</h1>
+    <h1>{{ $t('task_list') }}</h1>
   </section>
-
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
@@ -11,16 +10,15 @@
       </div>
       <div class="box-body">
         <item-errors :entity="'task'"></item-errors>
-
         <api-table
-                :entity="'Task'"
-                :route="'tasks'"
-                :path="'task'"
-                :filterable="filterable"
-                :customFilters="customFilters"
-                :sortable="sortable"
-                :columns="columns"
-                :templates="templates"
+          :entity="'Task'"
+          :route="'tasks'"
+          :path="'task'"
+          :filterable="filterable"
+          :customFilters="customFilters"
+          :sortable="sortable"
+          :columns="columns"
+          :templates="templates"
         >
           <template slot="filter__status.id">
             <task-status-filter></task-status-filter>
@@ -42,7 +40,7 @@ import columnStatus from './../../table/ColumnStatus'
 import TaskStatusFilter from '../../components/filters/TaskStatusFilter'
 
 export default {
-  components: {TaskStatusFilter, ItemErrors, ApiTable},
+  components: { TaskStatusFilter, ItemErrors, ApiTable },
   data: function () {
     return {
       columns: ['id', 'name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],

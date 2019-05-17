@@ -2,7 +2,6 @@
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
       <item-errors :entity="'address'"></item-errors>
-
       <div class="box box-primary">
         <div class="box-body">
           <form-select :item="item" :errors="errors" :property="'country'" :option-store="'country'" label="country" @formUpdated="updateValue"></form-select>
@@ -16,53 +15,52 @@
           <form-textarea :item="item" :errors="errors" :property="'comment'" label="comment" @formUpdated="updateValue"></form-textarea>
         </div>
       </div>
-
       <item-edit-actions :item="item" :entity="'Address'" :path="'address'" v-if="showActions"></item-edit-actions>
     </section>
   </form>
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import ItemEditActions from '../../components/layout/ItemEditActions'
-  import ItemErrors from "../../components/layout/errors/ItemErrors";
+import { mapActions, mapGetters } from 'vuex'
+import ItemEditActions from '../../components/layout/ItemEditActions'
+import ItemErrors from "../../components/layout/errors/ItemErrors";
 
-  export default {
-    components: {
-      ItemErrors,
-      ItemEditActions
+export default {
+  components: {
+    ItemErrors,
+    ItemEditActions
+  },
+  props: {
+    handleSubmit: {
+      type: Function,
+      required: true
     },
-    props: {
-      handleSubmit: {
-        type: Function,
-        required: true
-      },
-      item: {
-        type: Object,
-        required: true
-      },
-      showActions: {
-        type: Boolean,
-        default () {
-          return true
-        }
-      }
+    item: {
+      type: Object,
+      required: true
     },
-    beforeDestroy () {
-      this.reset()
-    },
-    computed: {
-      ...mapGetters({
-        errors: 'address/errors'
-      })
-    },
-    methods: {
-      ...mapActions({
-        reset: 'address/reset'
-      }),
-      updateValue(property, value) {
-        this.$store.commit('address/ADDRESS_UPDATE_ITEM', {[property]: value})
+    showActions: {
+      type: Boolean,
+      default () {
+        return true
       }
     }
+  },
+  beforeDestroy () {
+    this.reset()
+  },
+  computed: {
+    ...mapGetters({
+      errors: 'address/errors'
+    })
+  },
+  methods: {
+    ...mapActions({
+      reset: 'address/reset'
+    }),
+    updateValue(property, value) {
+      this.$store.commit('address/ADDRESS_UPDATE_ITEM', {[property]: value})
+    }
   }
+}
 </script>

@@ -1,25 +1,23 @@
 <template>
 <div>
   <section class="content-header">
-    <h1>{{$t('product_list')}}</h1>
+    <h1>{{ $t('product_list') }}</h1>
   </section>
-
   <section class="content">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <router-link :to="{ name: 'ProductCreate' }" class="btn btn-primary pull-right">{{$t('product_add')}}</router-link>
+        <router-link :to="{ name: 'ProductCreate' }" class="btn btn-primary pull-right">{{ $t('product_add') }}</router-link>
       </div>
       <div class="box-body">
         <item-errors :entity="'product'"></item-errors>
-
         <api-table
-                :entity="'Product'"
-                :route="'products'"
-                :path="'product'"
-                :filterable="filterable"
-                :sortable="sortable"
-                :columns="columns"
-                :templates="templates"
+          :entity="'Product'"
+          :route="'products'"
+          :path="'product'"
+          :filterable="filterable"
+          :sortable="sortable"
+          :columns="columns"
+          :templates="templates"
         ></api-table>
       </div>
     </div>
@@ -47,6 +45,6 @@ export default {
         columnUpdatedAt
       }
     }
-  },
+  }
 }
 </script>

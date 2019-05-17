@@ -11,6 +11,6 @@
 
 <script>
 export default {
-  name: 'FooterSlot',
+  name: 'FooterSlot'
 }
 </script>

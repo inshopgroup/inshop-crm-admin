@@ -1,5 +1,5 @@
 import * as crud from '../../../utils/crud'
-import {namespace} from "./mutation_types";
+import {namespace} from "./mutation_types"
 
 export const getItem = ({ dispatch, commit }, id) => {
   return crud.getItem({ dispatch, commit }, namespace, id)

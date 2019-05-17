@@ -217,30 +217,30 @@
 </template>
 
 <script>
-  export default {
-    name: 'LeftSidebarSlot',
-    data() {
-      return {
-        q: null
-      }
+export default {
+  name: 'LeftSidebarSlot',
+  data() {
+    return {
+      q: null
+    }
+  },
+  mounted() {
+    this.showSubmenuByActiveLink()
+  },
+  methods: {
+    search() {
+      this.$router.push({name: 'Search', query: {q: this.q}})
     },
-    mounted() {
-      this.showSubmenuByActiveLink()
+    showSubmenuByActiveLink() {
+      $('.treeview').each(function () {
+        if ($(this).find('a.router-link-active').length) {
+          $(this).addClass('menu-open')
+          $(this).children('.treeview-menu').css('display', 'block')
+        }
+      })
     },
-    methods: {
-      search() {
-        this.$router.push({name: 'Search', query: {q: this.q}})
-      },
-      showSubmenuByActiveLink() {
-        $('.treeview').each(function () {
-          if ($(this).find('a.router-link-active').length) {
-            $(this).addClass('menu-open')
-            $(this).children('.treeview-menu').css('display', 'block')
-          }
-        })
-      },
-    },
-  }
+  },
+}
 </script>
 
 <style scoped>

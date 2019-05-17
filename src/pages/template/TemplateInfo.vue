@@ -3,17 +3,17 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th width="20%">{{$t('field')}}</th>
-        <th>{{$t('value')}}</th>
+        <th width="20%">{{ $t('field') }}</th>
+        <th>{{ $t('value') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr>
-        <td>{{$t('name')}}</td>
+        <td>{{ $t('name') }}</td>
         <td>{{ item['name'] }}</td>
       </tr>
       <tr>
-        <td>{{$t('type_name')}}</td>
+        <td>{{ $t('type_name') }}</td>
         <td>
           <div v-if="item['type']">
             {{ item['type']['name'] }}
@@ -21,15 +21,15 @@
         </td>
       </tr>
       <tr>
-        <td>{{$t('createdAt')}}</td>
+        <td>{{ $t('createdAt') }}</td>
         <td>{{ dateFormat(item.createdAt) }}</td>
       </tr>
       <tr>
-        <td>{{$t('updatedAt')}}</td>
+        <td>{{ $t('updatedAt') }}</td>
         <td>{{ dateFormat(item.updatedAt) }}</td>
       </tr>
       <tr>
-        <td>{{$t('updatedBy')}}</td>
+        <td>{{ $t('updatedBy') }}</td>
         <td>{{ item['updatedBy'] }}</td>
       </tr>
       </tbody>
@@ -38,10 +38,10 @@
 </template>
 
 <script>
-  export default {
-    name: 'TemplateInfo',
-    props: {
-      item: null,
-    }
+export default {
+  name: 'TemplateInfo',
+  props: {
+    item: null
   }
+}
 </script>

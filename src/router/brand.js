@@ -5,22 +5,34 @@ import BrandShow from '../pages/brand/Show'
 
 export default [
   {
-    name: 'BrandList', path: '/brands/', component: BrandList, meta: {
+    name: 'BrandList',
+    path: '/brands/',
+    component: BrandList,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'BrandCreate', path: '/brands/create', component: BrandCreate, meta: {
+    name: 'BrandCreate',
+    path: '/brands/create',
+    component: BrandCreate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'BrandUpdate', path: '/brands/edit/:id', component: BrandUpdate, meta: {
+    name: 'BrandUpdate',
+    path: '/brands/edit/:id',
+    component: BrandUpdate,
+    meta: {
       requiresAuth: true
     }
   },
   {
-    name: 'BrandShow', path: '/brands/show/:id', component: BrandShow, meta: {
+    name: 'BrandShow',
+    path: '/brands/show/:id',
+    component: BrandShow,
+    meta: {
       requiresAuth: true
     }
   }

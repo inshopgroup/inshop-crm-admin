@@ -1,5 +1,5 @@
-import {namespace} from "./mutation_types";
-import axios from "../../../interceptor";
+import {namespace} from "./mutation_types"
+import axios from "../../../interceptor"
 
 export const getItems = ({ dispatch, commit }, params) => {
   let url = process.env.API_URL + '/histories/' + params.entity + '/' + params.id

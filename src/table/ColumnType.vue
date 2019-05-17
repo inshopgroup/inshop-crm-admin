@@ -1,6 +1,6 @@
 <template>
   <span v-if="data['type']">
-    {{data['type']['name']}}
+    {{ data['type']['name'] }}
   </span>
 </template>
 

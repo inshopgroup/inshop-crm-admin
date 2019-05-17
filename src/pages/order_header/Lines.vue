@@ -3,19 +3,19 @@
     <table class="table table-striped table-hover">
       <thead>
       <tr>
-        <th style="width: 75px;">{{$t('id')}}</th>
-        <th>{{$t('status_name')}}</th>
-        <th>{{$t('product_name')}}</th>
-        <th>{{$t('vat_name')}}</th>
-        <th>{{$t('price_sell_brutto')}}</th>
-        <th>{{$t('createdAt')}}</th>
-        <th>{{$t('updatedAt')}}</th>
+        <th style="width: 75px;">{{ $t('id') }}</th>
+        <th>{{ $t('status_name') }}</th>
+        <th>{{ $t('product_name') }}</th>
+        <th>{{ $t('vat_name') }}</th>
+        <th>{{ $t('price_sell_brutto') }}</th>
+        <th>{{ $t('createdAt') }}</th>
+        <th>{{ $t('updatedAt') }}</th>
       </tr>
       </thead>
       <tbody>
       <tr v-for="line in lines" :key="line.id">
         <td>
-          {{line.id}}
+          {{ line.id }}
         </td>
         <td>
           <router-link v-if="line['status']" :to="{name: 'OrderLineStatusShow', params: { id: line['status'].id }}">
@@ -48,15 +48,15 @@
 </template>
 
 <script>
-  export default {
-    name: 'Lines',
-    props: {
-      lines: {
-        type: Array,
-        default: function () {
-          return []
-        }
+export default {
+  name: 'Lines',
+  props: {
+    lines: {
+      type: Array,
+      default: function () {
+        return []
       }
     }
   }
+}
 </script>

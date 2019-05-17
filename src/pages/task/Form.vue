@@ -2,7 +2,6 @@
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
       <item-errors :entity="'task'"></item-errors>
-
       <div class="box box-primary">
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
@@ -15,47 +14,46 @@
           <form-number :item="item" :errors="errors" :property="'timeSpent'" label="timeSpent" @formUpdated="updateValue"></form-number>
         </div>
       </div>
-
       <item-edit-actions :item="item" :entity="'Task'" :path="'task'"></item-edit-actions>
     </section>
   </form>
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  import ItemEditActions from '../../components/layout/ItemEditActions'
-  import ItemErrors from "../../components/layout/errors/ItemErrors";
+import { mapActions, mapGetters } from 'vuex'
+import ItemEditActions from '../../components/layout/ItemEditActions'
+import ItemErrors from "../../components/layout/errors/ItemErrors"
 
-  export default {
-    components: {
-      ItemErrors,
-      ItemEditActions
+export default {
+  components: {
+    ItemErrors,
+    ItemEditActions
+  },
+  props: {
+    handleSubmit: {
+      type: Function,
+      required: true
     },
-    props: {
-      handleSubmit: {
-        type: Function,
-        required: true
-      },
-      item: {
-        type: Object,
-        required: true
-      }
-    },
-    beforeDestroy () {
-      this.reset()
-    },
-    computed: {
-      ...mapGetters({
-        errors: 'task/errors'
-      })
-    },
-    methods: {
-      ...mapActions({
-        reset: 'task/reset'
-      }),
-      updateValue(property, value) {
-        this.$store.commit('task/TASK_UPDATE_ITEM', {[property]: value})
-      },
+    item: {
+      type: Object,
+      required: true
+    }
+  },
+  beforeDestroy () {
+    this.reset()
+  },
+  computed: {
+    ...mapGetters({
+      errors: 'task/errors'
+    })
+  },
+  methods: {
+    ...mapActions({
+      reset: 'task/reset'
+    }),
+    updateValue(property, value) {
+      this.$store.commit('task/TASK_UPDATE_ITEM', {[property]: value})
     }
   }
+}
 </script>

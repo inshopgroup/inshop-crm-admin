@@ -3,7 +3,6 @@
     <section class="content-header">
       <h1>{{ $t('user_edit', {entity: item && item.name}) }}</h1>
     </section>
-
     <UserForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
@@ -18,7 +17,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'user/item',
+      item: 'user/item'
     })
   },
   created () {
@@ -27,11 +26,11 @@ export default {
   methods: {
     ...mapActions({
       getItem: 'user/getItem',
-      update: 'user/update',
+      update: 'user/update'
     }),
     onSendForm () {
       this.update().then(item => {
-        this.$router.push({name: 'UserShow', params: {id: item.id}})
+        this.$router.push({ name: 'UserShow', params: { id: item.id}} )
       }).catch(e => {})
     }
   }
