@@ -2,7 +2,7 @@
     <footer class="main-footer">
       <!-- To the right -->
       <div class="pull-right hidden-xs">
-        {{ moment().format('YYYY') }}, <a href="https://inshopcrm.com" target="_blank">Inshop CRM, v1.3.2</a>
+        {{ fecha.format(new Date(), 'YYYY') }}, <a href="https://inshopcrm.com" target="_blank">Inshop CRM, v1.3.2</a>
       </div>
       <!-- Default to the left -->
       {{ $t('powered_by') }} <a href="https://inshopgroup.com" target="_blank">Inshop Group</a>
@@ -10,7 +10,14 @@
 </template>
 
 <script>
+  import fecha from 'fecha'
+
 export default {
   name: 'FooterSlot',
+  data () {
+    return {
+      fecha
+    }
+  },
 }
 </script>

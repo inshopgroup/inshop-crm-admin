@@ -24,7 +24,6 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
-    "moment": "^2.22.2",
     "pluralize": "^7.0.0",
     "vue": "^2.6.10",
     "vue-body-class": "^2.0.0-beta.2",

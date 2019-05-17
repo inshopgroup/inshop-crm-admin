@@ -1,7 +1,6 @@
 import 'font-awesome/css/font-awesome.css'
 import 'bootstrap'
 import 'admin-lte'
-import moment from 'moment'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/admin-lte/dist/css/AdminLTE.css'
@@ -57,8 +56,6 @@ let i18n = new VueI18n({
 Vue.mixin(Security)
 Vue.mixin(Translate)
 Vue.mixin(DateMixin)
-
-window.moment = moment
 
 Vue.config.productionTip = false
 
