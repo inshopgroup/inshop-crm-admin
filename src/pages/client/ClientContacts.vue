@@ -94,23 +94,23 @@ export default {
         })
       }
     },
-    create (button) {
+    create () {
       this.$store.commit('contact/CONTACT_SET_ITEM', this.parent)
 
       this.title = this.$t('contact_add')
       this.item = this.$store.getters['contact/item']
       this.callback = this.createItem
 
-      $('#modal-contact-edit').modal('show')
+      window.$('#modal-contact-edit').modal('show')
     },
-    edit (item, button) {
+    edit (item) {
       this.$store.commit('contact/CONTACT_SET_ITEM', item)
 
       this.title = this.$t('contact_edit', {entity: item.value})
       this.item = this.$store.getters['contact/item']
       this.callback = this.updateItem
 
-      $('#modal-contact-edit').modal('show')
+      window.$('#modal-contact-edit').modal('show')
     },
   }
 }

@@ -37,7 +37,7 @@ axios.interceptors.response.use(data => {
   store.commit('general/' + types.LOADING_STOP)
 
   if (error.response && error.response.status && error.response.status === 401) {
-    router.push({name: 'SignIn'})
+    window.location.href = '/signin'
   }
 
   return Promise.reject(error)

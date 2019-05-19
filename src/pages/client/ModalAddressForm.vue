@@ -45,8 +45,8 @@ export default {
         this.$toastr.s(this.$t('address_saved', {address: item.value}), this.$t('saved'))
         this.$emit('addressesChanged', item)
 
-        $('#modal-address-edit').modal('hide')
-      }).catch(e => {})
+        window.$('#modal-address-edit').modal('hide')
+      }).catch()
     }
   }
 }

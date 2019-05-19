@@ -12,7 +12,7 @@
               <form-input :item="item" :errors="errors" :property="'number'" label="number" @formUpdated="updateValue"></form-input>
             </div>
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'status'" :option-store="'invoice_header_status'" label="status_name" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'status'" :option-store="'invoiceHeaderStatus'" label="status_name" @formUpdated="updateValue"></form-select>
             </div>
           </div>
           <div class="row">
@@ -25,7 +25,7 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'type'" :option-store="'invoice_header_type'" label="type_name" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'type'" :option-store="'invoiceHeaderType'" label="type_name" @formUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
               <form-select :item="item" :errors="errors" :property="'currency'" :option-store="'currency'" label="currency_name" @formUpdated="updateValue"></form-select>
@@ -52,7 +52,7 @@
           <form-date-picker :item="item" :errors="errors" :property="'dateOfSale'" label="dateOfSale" @formUpdated="updateValue"></form-date-picker>
         </div>
         <div class="col-md-6">
-          <form-select :item="item" :errors="errors" :property="'orderHeader'" :option-store="'order_header'" label="orderHeader_number" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'orderHeader'" :option-store="'orderHeader'" label="orderHeader_number" @formUpdated="updateValue"></form-select>
         </div>
       </div>
         </div>

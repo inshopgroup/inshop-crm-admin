@@ -5,7 +5,7 @@
       <div class="box box-primary">
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'type'" :option-store="'template_type'" label="type_name" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'type'" :option-store="'templateType'" label="type_name" @formUpdated="updateValue"></form-select>
           <form-file
             :axios="axios"
             :errors="errors"

@@ -31,7 +31,7 @@ export default {
     onSendForm() {
       this.update().then(item => {
         this.$router.push({name: 'PaymentTypeShow', params: {id: item.id}})
-      }).catch(e => {})
+      }).catch()
     }
   }
 }

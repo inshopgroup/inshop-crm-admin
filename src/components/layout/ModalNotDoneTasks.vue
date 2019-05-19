@@ -24,42 +24,42 @@
           <tbody>
           <tr v-for="task in tasks" :key="task.id">
             <td>
-              <a href="#" @click.prtask="goto(task)">
+              <a href="#" @click="goto(task)">
                 {{ task.id }}
               </a>
             </td>
             <td>
-              <a href="#" @click.prtask="goto(task)">
+              <a href="#" @click="goto(task)">
                 {{ task['name'] }}
               </a>
             </td>
             <td>
-              <a href="#" @click.prtask="goto(task)" v-if="task && task['assignee']">
+              <a href="#" @click="goto(task)" v-if="task && task['assignee']">
                 {{ task['project']['name'] }}
               </a>
             </td>
             <td>
-              <a href="#" @click.prtask="goto(task)">
+              <a href="#" @click="goto(task)">
                 {{ task['project']['client']['name'] }}
               </a>
             </td>
             <td>
-              <a href="#" @click.prtask="goto(task)">
+              <a href="#" @click="goto(task)">
                 {{ task['assignee']['name'] }}
               </a>
             </td>
             <td>
-              <a href="#" @click.prtask="goto(task)">
+              <a href="#" @click="goto(task)">
                 {{ task['status']['name'] }}
               </a>
             </td>
             <td>
-              <a href="#" @click.prtask="goto(task)">
+              <a href="#" @click="goto(task)">
                 {{ dateFormat(task['deadline']) }}
               </a>
             </td>
             <!--<td>-->
-              <!--<a href="#" @click.prtask="goto(task)">-->
+              <!--<a href="#" @click="goto(task)">-->
                 <!--{{ dateFormat(task['createdAt']) }}-->
               <!--</a>-->
             <!--</td>-->
@@ -91,7 +91,7 @@ export default {
   },
   methods: {
     goto (task) {
-      $('#modal-not-done-tasks').modal('hide')
+      window.$('#modal-not-done-tasks').modal('hide')
       this.$router.push({ name: 'TaskShow', params: { id: task.id } })
     }
   }

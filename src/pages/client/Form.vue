@@ -76,10 +76,10 @@
                   <!--<form-input :item="project" :errors="errors" :property="'name'" :label="'project.name'" @formUpdated="updateValue"></form-input>-->
                 <!--</td>-->
                 <!--<td>-->
-                  <!--<form-select :item="project" :errors="errors" :property="'type'" :option-store="'project_type'" :label="'project.type'" @formUpdated="updateValue"></form-select>-->
+                  <!--<form-select :item="project" :errors="errors" :property="'type'" :option-store="'projectType'" :label="'project.type'" @formUpdated="updateValue"></form-select>-->
                 <!--</td>-->
                 <!--<td>-->
-                  <!--<form-select :item="project" :errors="errors" :property="'status'" :option-store="'project_status'" :label="'project.status'" @formUpdated="updateValue"></form-select>-->
+                  <!--<form-select :item="project" :errors="errors" :property="'status'" :option-store="'projectStatus'" :label="'project.status'" @formUpdated="updateValue"></form-select>-->
                 <!--</td>-->
                 <!--<td>-->
                   <!--<button class="btn btn-info" @click.prevent="removeProject(project)">-->

@@ -17,17 +17,17 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'contact_type/item'
+      item: 'contactType/item'
     })
   },
   methods: {
     ...mapActions({
-      create: 'contact_type/create'
+      create: 'contactType/create'
     }),
     onSendForm() {
       this.create().then(item => {
         this.$router.push({name: 'ContactTypeShow', params: {id: item.id}})
-      }).catch(e => {})
+      }).catch()
     }
   }
 }

@@ -9,21 +9,25 @@
     <tr>
       <td>{{ $t('clients') }}</td>
       <td>
-        <div v-if="item.clients" v-for="client in item.clients">
-          <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
-            {{ client.name }}
-          </router-link>
-        </div>
+        <template v-if="item.clients">
+          <div v-for="client in item.clients" :key="client.id">
+            <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
+              {{ client.name }}
+            </router-link>
+          </div>
+        </template>
       </td>
     </tr>
     <tr>
       <td>{{ $t('projects') }}</td>
       <td>
-        <div v-if="item.projects" v-for="project in item.projects">
-          <router-link :to="{name: 'ProjectShow', params: { id: project.id }}">
-            {{ project.name }}
-          </router-link>
-        </div>
+        <template v-if="item.projects">
+          <div v-for="project in item.projects" :key="project.id">
+            <router-link :to="{name: 'ProjectShow', params: { id: project.id }}">
+              {{ project.name }}
+            </router-link>
+          </div>
+        </template>
       </td>
     </tr>
     <tr>

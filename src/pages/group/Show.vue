@@ -43,14 +43,14 @@
           </div>
         </div>
         <div class="tab-pane" id="roles">
-          <template v-for="module in modules">
-          <h2>{{$t('module.' + module.name.replace(/\s+/g, '_').toLowerCase())}}</h2>
-          <ul v-if="item && item['roles']">
-            <li v-for="role in item['roles']" v-if="role.module.id === module.id">
-              {{$t('role.' + role.name.toLowerCase())}}
-            </li>
-          </ul>
-          </template>
+          <div v-for="module in modules" :key="module.id">
+            <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
+            <ul v-if="item && item['roles']">
+              <li v-for="role in roles(module)" :key="role.id">
+                {{ $t(role.name.toLowerCase()) }}
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="tab-pane" id="history">
           <history :id="parseInt($route.params.id)" :entity="'Group'" :path="'group'" :key="historyKey"></history>
@@ -97,7 +97,10 @@ export default {
       getItem: 'group/getItem',
       reset: 'group/reset',
       getModules: 'module/getItems'
-    })
+    }),
+    roles(module) {
+      return this.item.roles.filter(role => role.module.id === module.id)
+    }
   }
 }
 </script>

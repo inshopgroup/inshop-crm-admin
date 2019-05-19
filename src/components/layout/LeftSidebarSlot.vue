@@ -232,10 +232,10 @@ export default {
       this.$router.push({name: 'Search', query: {q: this.q}})
     },
     showSubmenuByActiveLink() {
-      $('.treeview').each(function () {
-        if ($(this).find('a.router-link-active').length) {
-          $(this).addClass('menu-open')
-          $(this).children('.treeview-menu').css('display', 'block')
+      window.$('.treeview').each(function () {
+        if (window.$(this).find('a.router-link-active').length) {
+          window.$(this).addClass('menu-open')
+          window. $(this).children('.treeview-menu').css('display', 'block')
         }
       })
     },

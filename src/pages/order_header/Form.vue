@@ -12,7 +12,7 @@
               <form-input :item="item" :errors="errors" :property="'number'" label="number" @formUpdated="updateValue"></form-input>
             </div>
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'status'" :option-store="'order_header_status'" label="status_name" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'status'" :option-store="'orderHeaderStatus'" label="status_name" @formUpdated="updateValue"></form-select>
             </div>
           </div>
           <div class="row">
@@ -25,10 +25,10 @@
           </div>
           <div class="row">
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'paymentType'" :option-store="'payment_type'" label="paymentType_name" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'paymentType'" :option-store="'paymentType'" label="paymentType_name" @formUpdated="updateValue"></form-select>
             </div>
             <div class="col-md-6">
-              <form-select :item="item" :errors="errors" :property="'shipmentMethod'" :option-store="'shipment_method'" label="shipmentMethod_name" @formUpdated="updateValue"></form-select>
+              <form-select :item="item" :errors="errors" :property="'shipmentMethod'" :option-store="'shipmentMethod'" label="shipmentMethod_name" @formUpdated="updateValue"></form-select>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
             <tbody>
             <tr v-for="line in lines" :key="line.id">
               <td>
-                <form-select :item="line" :errors="errors" :property="'status'" :option-store="'order_line_status'" label="status_name" @formUpdated="updateValue"></form-select>
+                <form-select :item="line" :errors="errors" :property="'status'" :option-store="'orderLineStatus'" label="status_name" @formUpdated="updateValue"></form-select>
               </td>
               <td>
                 <form-select :item="line" :errors="errors" :property="'product'" :option-store="'product'" label="product_name" @formUpdated="updateValue" @input="productSelected(line)"></form-select>

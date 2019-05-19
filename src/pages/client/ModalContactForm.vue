@@ -45,8 +45,8 @@ export default {
         this.$toastr.s(this.$t('contact_saved', {contact: item.value}), this.$t('saved'))
         this.$emit('contactsChanged', item)
 
-        $('#modal-contact-edit').modal('hide')
-      }).catch(e => {})
+        window.$('#modal-contact-edit').modal('hide')
+      }).catch()
     }
   }
 }

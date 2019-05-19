@@ -1,6 +1,6 @@
 <template>
   <div id="list-table">
-    <v-server-table :columns="columns" :options="options">
+    <v-server-table :columns="columns" :options="options()">
       <template slot="actions" slot-scope="props">
         <div class="btn-group" role="group">
           <router-link v-if="isGranted(role_show)" :to="{name: showRoute, params: { id: props.row.id }}" tag="button" class="btn btn-info">
@@ -15,7 +15,7 @@
         </div>
       </template>
 
-      <template v-for="customFilter in customFilters" :slot="'filter__' + customFilter"><slot :name="'filter__' + customFilter"></slot></template>
+      <div v-for="customFilter in customFilters" :key="customFilter" :slot="'filter__' + customFilter"><slot :name="'filter__' + customFilter"></slot></div>
     </v-server-table>
   </div>
 </template>
@@ -123,8 +123,10 @@ export default {
     },
     updateRoute () {
       return this.entity + 'Update'
-    },
-    options () {
+    }
+  },
+  methods: {
+    options() {
       return {
         dateColumns: Object.keys(this.dateColumns),
         datepickerOptions: {
@@ -146,7 +148,7 @@ export default {
           filterBy: "{column}",
         },
         requestFunction: (params) => {
-          return new Promise((resolve, reject) => {
+          return new Promise(resolve => {
             let queryParams = {}
 
             if (params.page !== 1) {
@@ -168,7 +170,7 @@ export default {
             })
 
             // custom filtering
-            this.options.customFilters.forEach(key => {
+            this.options().customFilters.forEach(key => {
               if (typeof params[key] !== 'undefined' && params[key] !== '') {
                 queryParams[key] = params[key]
               }
@@ -220,7 +222,7 @@ export default {
           })
         }
       }
-    },
+    }
   }
 }
 </script>

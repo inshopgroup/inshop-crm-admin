@@ -37,15 +37,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'contact_type/errors'
+      errors: 'contactType/errors'
     })
   },
   methods: {
     ...mapActions({
-      reset: 'contact_type/reset'
+      reset: 'contactType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('contact_type/CONTACT_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('contactType/CONTACT_TYPE_UPDATE_ITEM', {[property]: value})
     }
   }
 }

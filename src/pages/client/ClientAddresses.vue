@@ -136,23 +136,23 @@ export default {
         })
       }
     },
-    create (button) {
+    create () {
       this.$store.commit('address/ADDRESS_SET_ITEM', this.parent)
 
       this.title = this.$t('address_add')
       this.item = this.$store.getters['address/item']
       this.callback = this.createItem
 
-      $('#modal-address-edit').modal('show')
+      window.$('#modal-address-edit').modal('show')
     },
-    edit (item, button) {
+    edit (item) {
       this.$store.commit('address/ADDRESS_SET_ITEM', item)
 
       this.title = this.$t('address_edit', {entity: item.id})
       this.item = this.$store.getters['address/item']
       this.callback = this.updateItem
 
-      $('#modal-address-edit').modal('show')
+      window.$('#modal-address-edit').modal('show')
     },
   }
 }

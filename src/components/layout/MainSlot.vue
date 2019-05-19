@@ -89,8 +89,8 @@ export default {
     }
   },
   mounted () {
-    $('ul').tree({})
-    $('body').resize()
+    window.$('ul').tree({})
+    window.$('body').resize()
 
     if (this.isGranted('ROLE_TASK_LIST')) {
       this.getTasks()
@@ -105,7 +105,7 @@ export default {
           this.tasks = response.data['hydra:member']
 
           if (this.tasks.length) {
-            $('#modal-not-done-tasks').modal('show')
+            window.$('#modal-not-done-tasks').modal('show')
           }
         })
     }

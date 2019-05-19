@@ -20,7 +20,7 @@
           <td>{{ dateFormat(log['loggedAt']) }}</td>
           <td>
             <ul>
-              <li v-for="(value, property) in log['data']">
+              <li v-for="(value, property) in log['data']" :key="property">
                 <b>{{ $t(property) }}:</b> {{value}}
               </li>
             </ul>

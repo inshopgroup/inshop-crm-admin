@@ -86,9 +86,6 @@ export default {
         });
 
         return translations
-      },
-      set(v) {
-        console.log('set', v)
       }
     },
     authHeader() {

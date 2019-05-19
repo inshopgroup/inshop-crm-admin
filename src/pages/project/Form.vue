@@ -9,8 +9,8 @@
         <div class="box-body">
           <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
           <form-input :item="item" :errors="errors" :property="'description'" label="description" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'type'" :option-store="'project_type'" label="type_name" @formUpdated="updateValue"></form-select>
-          <form-select :item="item" :errors="errors" :property="'status'" :option-store="'project_status'" label="status_name" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'type'" :option-store="'projectType'" label="type_name" @formUpdated="updateValue"></form-select>
+          <form-select :item="item" :errors="errors" :property="'status'" :option-store="'projectStatus'" label="status_name" @formUpdated="updateValue"></form-select>
           <form-select-autocomplete :item="item" :errors="errors" :property="'client'" :option-store="'client'" label="client_name" @formUpdated="updateValue"></form-select-autocomplete>
         </div>
       </div>

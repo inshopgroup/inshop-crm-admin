@@ -1,7 +1,7 @@
 <template>
   <vue-event-calendar :events="tasksPrepared" @month-changed="load($event)">
     <template slot-scope="props">
-      <div v-for="(task, index) in props.showEvents" class="event-item">
+      <div v-for="(task, index) in props.showEvents" class="event-item" :key="task.id">
         <h3 class="title">
           <router-link  :to="{name: 'TaskShow', params: { id: task.id }}">
             {{index + 1}}. {{task.name}}
@@ -43,7 +43,7 @@ export default {
       tasks: 'task/items',
     }),
     tasksPrepared() {
-      this.tasks.forEach((task, index) => {
+      this.tasks.forEach(task => {
         task.date = moment(task.deadline).format('YYYY/M/D')
         task.title = task.name
       })

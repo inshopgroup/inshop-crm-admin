@@ -33,7 +33,7 @@
                   <td>{{ $t('clients') }}</td>
                   <td>
                     <ul>
-                      <li v-for="client in item['clients']">
+                      <li v-for="client in item['clients']" :key="client.id">
                         <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
                           {{ client['name'] }}
                         </router-link>
@@ -45,7 +45,7 @@
                   <td>{{ $t('companies') }}</td>
                   <td>
                     <ul>
-                      <li v-for="company in item['companies']">
+                      <li v-for="company in item['companies']" :key="company.id">
                         <router-link :to="{name: 'CompanyShow', params: { id: company.id }}">
                           {{ company['name'] }}
                         </router-link>

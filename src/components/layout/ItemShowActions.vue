@@ -5,9 +5,9 @@
       </div>
       <div class="col-md-6">
         <div class="pull-right">
-          <button type="button" class="btn btn-info" @click="backToList(item)" v-if="btnBackToList && isGranted(role_list)">{{$t('back_to_list')}}</button>
-          <button type="button" class="btn btn-primary" @click="editItem(item)" v-if="btnEdit && isGranted(role_update)">{{$t('edit')}}</button>
-          <button type="button" class="btn btn-danger" @click="deleteItem(item)" v-if="btnDelete && isGranted(role_delete)">{{$t('delete')}}</button>
+          <button type="button" class="btn btn-info" @click="backToList()" v-if="btnBackToList && isGranted(role_list)">{{$t('back_to_list')}}</button>
+          <button type="button" class="btn btn-primary" @click="editItem()" v-if="btnEdit && isGranted(role_update)">{{$t('edit')}}</button>
+          <button type="button" class="btn btn-danger" @click="deleteItem()" v-if="btnDelete && isGranted(role_delete)">{{$t('delete')}}</button>
         </div>
       </div>
     </div>
@@ -46,15 +46,15 @@ export default {
     }
   },
   methods: {
-    backToList (item) {
+    backToList () {
       this.$router.push({ name: this.entity + 'List' })
     },
-    editItem (item) {
+    editItem () {
       this.$router.push({ name: this.entity + 'Update', params: { id: this.item.id } })
     },
-    deleteItem (item) {
+    deleteItem () {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.$store.dispatch(this.path + '/remove', item)
+        this.$store.dispatch(this.path + '/remove', this.item)
           .then(() => this.$router.push({ name: this.entity + 'List' }))
       }
     }

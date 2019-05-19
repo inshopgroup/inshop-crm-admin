@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="contact in data.contacts">
+    <div v-for="contact in data.contacts" :key="contact.id">
       <i class="fa fa-phone" aria-hidden="true" v-if="contact.contactType.id == 1"></i>
       <i class="fa fa-mobile" aria-hidden="true" v-if="contact.contactType.id == 2"></i>
       <i class="fa fa-fax" aria-hidden="true" v-if="contact.contactType.id == 3"></i>

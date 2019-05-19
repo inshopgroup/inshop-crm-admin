@@ -56,9 +56,9 @@
           <tr>
             <td>{{ $t('labels_id') }}</td>
             <td>
-              <template v-for="label in item.labels">
+              <div v-for="label in item.labels" :key="label.id">
                 <span class="label label-primary">{{ label.name }}</span>
-              </template>
+              </div>
             </td>
           </tr>
           <tr>

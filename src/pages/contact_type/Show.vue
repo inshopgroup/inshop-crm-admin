@@ -65,7 +65,7 @@ export default {
     }
   },
   computed: mapGetters({
-    item: 'contact_type/item'
+    item: 'contactType/item'
   }),
   created() {
     this.getItem(this.$route.params.id)
@@ -75,8 +75,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'contact_type/getItem',
-      reset: 'contact_type/reset'
+      getItem: 'contactType/getItem',
+      reset: 'contactType/reset'
     })
   }
 }

@@ -17,7 +17,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'contact_type/item'
+      item: 'contactType/item'
     })
   },
   created() {
@@ -25,13 +25,13 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'contact_type/getItem',
-      update: 'contact_type/update'
+      getItem: 'contactType/getItem',
+      update: 'contactType/update'
     }),
     onSendForm() {
       this.update().then(item => {
         this.$router.push({name: 'ContactTypeShow', params: {id: item.id}})
-      }).catch(e => {})
+      }).catch()
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="group in data.groups">
+    <div v-for="group in data.groups" :key="group.id">
       <i class="fa fa-user" aria-hidden="true"></i>
 
       {{group.name}}

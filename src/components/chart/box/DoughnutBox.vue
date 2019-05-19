@@ -10,7 +10,7 @@
   </div>
   <div class="box-footer">
     <ul class="chart-legend clearfix">
-      <li v-for="(item, key) in labels">
+      <li v-for="(item, key) in labels" :key="item.id">
         <i class="fa fa-circle-o" :style="{color: colorByKey(key)}"></i>
         {{item}}
         <span class="pull-right">{{values[key]}}</span>

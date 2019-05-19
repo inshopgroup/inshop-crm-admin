@@ -12,7 +12,7 @@ const actions = {
     const link = url.includes(API_PATH) ? API_HOST + url : API_HOST + API_PATH + url
 
     return axios.post(link, data)
-      .catch((error) => {
+      .catch(() => {
         commit(types.AUTH_ERROR_CHANGE, 'Wprowadzony login lub hasło są nieprawidłowe')
       })
   },

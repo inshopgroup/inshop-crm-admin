@@ -5,11 +5,11 @@
     <div class="box box-primary">
       <div class="box-body">
         <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
-        <div class="form-group" v-for="module in modules">
+        <div class="form-group" v-for="module in modules" :key="module.id">
           <h2>{{ $t('module.' + module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
-          <template v-for="role in module.roles" style="margin-left: 20px;">
+          <span v-for="role in module.roles" style="margin-left: 20px;" :key="role.id">
             <form-checkbox :id="role['@id']" :item="{value: item.roleIRIs.includes(role['@id'])}" :errors="errors" :property="'value'" :label="role.name.toLowerCase()" @formUpdated="updateRole"></form-checkbox>
-          </template>
+          </span>
         </div>
       </div>
     </div>

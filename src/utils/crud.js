@@ -2,7 +2,7 @@ import axios from '../interceptor'
 import {API_HOST} from "../config/_entrypoint";
 import pluralize from "pluralize";
 
-export const getItem = ({ dispatch, commit }, namespace, id) => {
+export const getItem = ({ commit }, namespace, id) => {
   commit(namespace + '_SET_ERROR', null)
 
   return axios.get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
@@ -17,7 +17,7 @@ export const getItem = ({ dispatch, commit }, namespace, id) => {
     })
 }
 
-export const getItems = ({ dispatch, commit }, namespace, query) => {
+export const getItems = ({ commit }, namespace, query) => {
   let url = '/' + pluralize(namespace.toLowerCase())
 
   if (query) {
@@ -38,7 +38,7 @@ export const getItems = ({ dispatch, commit }, namespace, query) => {
     })
 }
 
-export const create = ({ dispatch, commit, state }, namespace) => {
+export const create = ({ commit, state }, namespace) => {
   commit(namespace + '_SET_ERROR', null)
 
   return axios.post(API_HOST + '/' + pluralize(namespace.toLowerCase()), state.item)
@@ -63,7 +63,7 @@ export const create = ({ dispatch, commit, state }, namespace) => {
     })
 }
 
-export const update = ({ dispatch, commit, state }, namespace) => {
+export const update = ({ commit, state }, namespace) => {
   commit(namespace + '_SET_ERROR', null)
 
   return axios.put(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + state.item.id, state.item)
@@ -88,7 +88,7 @@ export const update = ({ dispatch, commit, state }, namespace) => {
     })
 }
 
-export const remove = ({ dispatch, commit }, namespace, item) => {
+export const remove = ({ commit }, namespace, item) => {
   return axios.delete(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + item.id)
     .catch(e => {
       commit(namespace + '_SET_ERROR', e.message)

@@ -27,7 +27,7 @@ export default {
     onSendForm() {
       this.create().then(item => {
         this.$router.push({name: 'ClientShow', params: {id: item.id}})
-      }).catch(e => {})
+      }).catch()
     }
   }
 }
