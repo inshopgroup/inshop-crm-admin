@@ -3,13 +3,20 @@
     <section class="content-header hidden show-print">
       <h1>{{ $t('tabs_addresses') }}</h1>
     </section>
-    <button class="btn btn-primary hidden-print" @click="create($event.target)">{{ $t('address_add') }}</button>
+    <button
+      class="btn btn-primary hidden-print"
+      @click="create($event.target)"
+    >
+      {{ $t('address_add') }}
+    </button>
     <br>
     <br>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{ $t('id') }}</th>
+          <th style="width: 75px;">
+            {{ $t('id') }}
+          </th>
           <th>{{ $t('postCode') }}</th>
           <th>{{ $t('country_name') }}</th>
           <th>{{ $t('city_name') }}</th>
@@ -19,69 +26,120 @@
           <th>{{ $t('building') }}</th>
           <th>{{ $t('apartment') }}</th>
           <th>{{ $t('comment') }}</th>
-          <th class="hidden-print" style="width: 100px;" />
+          <th
+            class="hidden-print"
+            style="width: 100px;"
+          />
         </tr>
       </thead>
       <tbody>
-        <tr v-for="address in addresses" :key="address.id">
+        <tr
+          v-for="address in addresses"
+          :key="address.id"
+        >
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address.id }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address['postCode'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address.country" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address.country"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address.country.name }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address.city" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address.city"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address.city.name }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address['region'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address['district'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address['street'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address['building'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address['apartment'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="address" :to="{name: 'AddressShow', params: { id: address.id }}">
+            <router-link
+              v-if="address"
+              :to="{name: 'AddressShow', params: { id: address.id }}"
+            >
               {{ address['comment'] }}
             </router-link>
           </td>
           <td class="hidden-print">
-            <div class="btn-group" role="group">
-              <button class="btn btn-info" @click="edit(address, $event.target)">
-                <span class="fa fa-pencil" aria-hidden="true" />
+            <div
+              class="btn-group"
+              role="group"
+            >
+              <button
+                class="btn btn-info"
+                @click="edit(address, $event.target)"
+              >
+                <span
+                  class="fa fa-pencil"
+                  aria-hidden="true"
+                />
                 <span class="sr-only">{{ $t('edit') }}</span>
               </button>
-              <button class="btn btn-info" @click="deleteItem(address)">
-                <span class="fa fa-remove" aria-hidden="true" />
+              <button
+                class="btn btn-info"
+                @click="deleteItem(address)"
+              >
+                <span
+                  class="fa fa-remove"
+                  aria-hidden="true"
+                />
                 <span class="sr-only">{{ $t('delete') }}</span>
               </button>
             </div>
@@ -89,7 +147,12 @@
         </tr>
       </tbody>
     </table>
-    <modal-address-form :callback="callback" :title="title" :item="item" @addressesChanged="$emit('addressesChanged')"></modal-address-form>
+    <modal-address-form
+      :callback="callback"
+      :title="title"
+      :item="item"
+      @addressesChanged="$emit('addressesChanged')"
+    />
   </div>
 </template>
 

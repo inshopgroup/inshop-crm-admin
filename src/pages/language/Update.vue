@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('language_edit', {entity: item && item.name}) }}</h1>
     </section>
-    <LanguageForm :handle-submit="onSendForm" :item="item"/>
+    <LanguageForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

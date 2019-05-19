@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('channel_add') }}</h1>
     </section>
-    <ChannelForm :handle-submit="onSendForm" :item="item" />
+    <ChannelForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

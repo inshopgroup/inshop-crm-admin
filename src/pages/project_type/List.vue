@@ -1,28 +1,33 @@
 <template>
-<div>
-  <section class="content-header">
-    <h1>{{ $t('project_type_list') }}</h1>
-  </section>
-  <section class="content">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <router-link :to="{ name: 'ProjectTypeCreate' }" class="btn btn-primary pull-right">{{ $t('project_type_add') }}</router-link>
+  <div>
+    <section class="content-header">
+      <h1>{{ $t('project_type_list') }}</h1>
+    </section>
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <router-link
+            :to="{ name: 'ProjectTypeCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('project_type_add') }}
+          </router-link>
+        </div>
+        <div class="box-body">
+          <item-errors :entity="'project_type'" />
+          <api-table
+            :entity="'ProjectType'"
+            :route="'project_types'"
+            :path="'project_type'"
+            :filterable="filterable"
+            :sortable="sortable"
+            :columns="columns"
+            :templates="templates"
+          />
+        </div>
       </div>
-      <div class="box-body">
-        <item-errors :entity="'project_type'"></item-errors>
-        <api-table
-          :entity="'ProjectType'"
-          :route="'project_types'"
-          :path="'project_type'"
-          :filterable="filterable"
-          :sortable="sortable"
-          :columns="columns"
-          :templates="templates"
-        ></api-table>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>

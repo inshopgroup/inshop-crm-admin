@@ -1,41 +1,96 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <section class="content">
-      <item-errors :entity="'product'"></item-errors>
+      <item-errors :entity="'product'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li :class="{active: i === 0}" v-for="(language, i) in languages" :key="'header_' + language.id">
-            <a :href="'#' + language.code" data-toggle="tab" aria-expanded="false">{{language.name}}</a>
+          <li
+            :class="{active: i === 0}"
+            v-for="(language, i) in languages"
+            :key="'header_' + language.id"
+          >
+            <a
+              :href="'#' + language.code"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ language.name }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div :class="['tab-pane', {active: i === 0}]" :id="language.code" v-for="(language, i) in languages" :key="'content_' + language.id">
-            <form-input :item="findItem(language)" :errors="errors" :property="'name'" label="name" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-input>
-            <form-textarea :item="findItem(language)" :errors="errors" :property="'description'" label="description" @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"></form-textarea>
+          <div
+            :class="['tab-pane', {active: i === 0}]"
+            :id="language.code"
+            v-for="(language, i) in languages"
+            :key="'content_' + language.id"
+          >
+            <form-input
+              :item="findItem(language)"
+              :errors="errors"
+              :property="'name'"
+              label="name"
+              @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"
+            />
+            <form-textarea
+              :item="findItem(language)"
+              :errors="errors"
+              :property="'description'"
+              label="description"
+              @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"
+            />
           </div>
         </div>
       </div>
       <div class="box box-primary">
         <div class="box-body">
-          <form-select :item="item" :errors="errors" :property="'brand'" :option-store="'brand'" label="brand_name" @formUpdated="updateValue"></form-select>
-          <form-input :item="item" :errors="errors" :property="'ean'" label="ean" @formUpdated="updateValue"></form-input>
-          <form-select-autocomplete :item="item" :errors="errors" :property="'category'" :option-store="'category'" label="category_name" @formUpdated="updateValue"></form-select-autocomplete>
-          <form-input :item="item" :errors="errors" :property="'video'" label="video" @formUpdated="updateValue"></form-input>
+          <form-select
+            :item="item"
+            :errors="errors"
+            :property="'brand'"
+            :option-store="'brand'"
+            label="brand_name"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'ean'"
+            label="ean"
+            @formUpdated="updateValue"
+          />
+          <form-select-autocomplete
+            :item="item"
+            :errors="errors"
+            :property="'category'"
+            :option-store="'category'"
+            label="category_name"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'video'"
+            label="video"
+            @formUpdated="updateValue"
+          />
           <form-file
             :axios="axios"
             :errors="errors"
             :item="item"
             property="images"
-            formProperty="image"
+            form-property="image"
             :route="route"
             :multiple="true"
             label="files"
             @formFileUploaded="formFileUploaded"
             @formFileDeleted="formFileDeleted"
-          ></form-file>
+          />
         </div>
       </div>
-      <item-edit-actions :item="item" :entity="'Product'" :path="'product'"></item-edit-actions>
+      <item-edit-actions
+        :item="item"
+        :entity="'Product'"
+        :path="'product'"
+      />
     </section>
   </form>
 </template>

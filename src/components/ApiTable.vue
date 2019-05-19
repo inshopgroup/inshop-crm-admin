@@ -1,21 +1,53 @@
 <template>
   <div id="list-table">
-    <v-server-table :columns="columns" :options="options()">
-      <template slot="actions" slot-scope="props">
-        <div class="btn-group" role="group">
-          <router-link v-if="isGranted(role_show)" :to="{name: showRoute, params: { id: props.row.id }}" tag="button" class="btn btn-info">
-            <span class="fa fa-eye" aria-hidden="true" />
+    <v-server-table
+      :columns="columns"
+      :options="options()"
+    >
+      <template
+        slot="actions"
+        slot-scope="props"
+      >
+        <div
+          class="btn-group"
+          role="group"
+        >
+          <router-link
+            v-if="isGranted(role_show)"
+            :to="{name: showRoute, params: { id: props.row.id }}"
+            tag="button"
+            class="btn btn-info"
+          >
+            <span
+              class="fa fa-eye"
+              aria-hidden="true"
+            />
             <span class="sr-only">{{ $t('show') }}</span>
           </router-link>
 
-          <router-link v-if="isGranted(role_show) && isGranted(role_edit)" :to="{name: updateRoute, params: { id: props.row.id }}" style="padding-left: 10px;" tag="button" class="btn btn-info">
-            <span class="fa fa-pencil" aria-hidden="true" />
+          <router-link
+            v-if="isGranted(role_show) && isGranted(role_edit)"
+            :to="{name: updateRoute, params: { id: props.row.id }}"
+            style="padding-left: 10px;"
+            tag="button"
+            class="btn btn-info"
+          >
+            <span
+              class="fa fa-pencil"
+              aria-hidden="true"
+            />
             <span class="sr-only">{{ $t('edit') }}</span>
           </router-link>
         </div>
       </template>
 
-      <div v-for="customFilter in customFilters" :key="customFilter" :slot="'filter__' + customFilter"><slot :name="'filter__' + customFilter"></slot></div>
+      <div
+        v-for="customFilter in customFilters"
+        :key="customFilter"
+        :slot="'filter__' + customFilter"
+      >
+        <slot :name="'filter__' + customFilter" />
+      </div>
     </v-server-table>
   </div>
 </template>

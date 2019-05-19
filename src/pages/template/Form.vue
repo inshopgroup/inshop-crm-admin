@@ -1,26 +1,43 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'template'"></item-errors>
+      <item-errors :entity="'template'" />
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'type'" :option-store="'templateType'" label="type_name" @formUpdated="updateValue"></form-select>
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'name'"
+            label="name"
+            @formUpdated="updateValue"
+          />
+          <form-select
+            :item="item"
+            :errors="errors"
+            :property="'type'"
+            :option-store="'templateType'"
+            label="type_name"
+            @formUpdated="updateValue"
+          />
           <form-file
             :axios="axios"
             :errors="errors"
             :item="item"
             property="files"
-            formProperty="file"
+            form-property="file"
             :route="route"
             :multiple="true"
             label="files"
             @formFileUploaded="formFileUploaded"
             @formFileDeleted="formFileDeleted"
-          ></form-file>
+          />
         </div>
       </div>
-      <item-edit-actions :item="item" :entity="'Template'" :path="'template'"></item-edit-actions>
+      <item-edit-actions
+        :item="item"
+        :entity="'Template'"
+        :path="'template'"
+      />
     </section>
   </form>
 </template>

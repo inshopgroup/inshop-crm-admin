@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('brand_add') }}</h1>
     </section>
-    <BrandForm :handle-submit="onSendForm" :item="item" />
+    <BrandForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

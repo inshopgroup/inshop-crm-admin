@@ -1,28 +1,33 @@
 <template>
-<div>
-  <section class="content-header">
-    <h1>{{ $t('brand_list') }}</h1>
-  </section>
-  <section class="content">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <router-link :to="{ name: 'BrandCreate' }" class="btn btn-primary pull-right">{{$t('brand_add')}}</router-link>
+  <div>
+    <section class="content-header">
+      <h1>{{ $t('brand_list') }}</h1>
+    </section>
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <router-link
+            :to="{ name: 'BrandCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('brand_add') }}
+          </router-link>
+        </div>
+        <div class="box-body">
+          <item-errors :entity="'brand'" />
+          <api-table
+            :entity="'Brand'"
+            :route="'brands'"
+            :path="'brand'"
+            :filterable="filterable"
+            :sortable="sortable"
+            :columns="columns"
+            :templates="templates"
+          />
+        </div>
       </div>
-      <div class="box-body">
-        <item-errors :entity="'brand'"></item-errors>
-        <api-table
-          :entity="'Brand'"
-          :route="'brands'"
-          :path="'brand'"
-          :filterable="filterable"
-          :sortable="sortable"
-          :columns="columns"
-          :templates="templates"
-        ></api-table>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>

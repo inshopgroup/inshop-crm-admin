@@ -6,10 +6,15 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <router-link :to="{ name: 'UserCreate' }" class="btn btn-primary pull-right">{{ $t('user_add') }}</router-link>
+          <router-link
+            :to="{ name: 'UserCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('user_add') }}
+          </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'user'"></item-errors>
+          <item-errors :entity="'user'" />
           <api-table
             :entity="'User'"
             :route="'users'"
@@ -18,7 +23,7 @@
             :sortable="sortable"
             :columns="columns"
             :templates="templates"
-          ></api-table>
+          />
         </div>
       </div>
     </section>

@@ -4,35 +4,52 @@
     <div v-if="item[property]">
       <table class="table table-striped table-hover">
         <thead>
-        <tr>
-          <th>Preview</th>
-          <th>Name</th>
-          <th>Size</th>
-          <th>Mime type</th>
-          <th>Create at</th>
-          <th></th>
-        </tr>
+          <tr>
+            <th>Preview</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Mime type</th>
+            <th>Create at</th>
+            <th />
+          </tr>
         </thead>
         <tbody>
-        <tr v-for="file in item[property]" :key="file.id">
-          <td>
-            Preview
-          </td>
-          <td>{{ file.originalName }}</td>
-          <td>{{ filesize(file.size) }}</td>
-          <td>{{ file.mimeType }}</td>
-          <td>{{ dateFormat(file.createdAt) }}</td>
-          <td>
-            <button type="button" @click.prevent="deleteFile(file.id)">Delete</button>
-          </td>
-        </tr>
+          <tr
+            v-for="file in item[property]"
+            :key="file.id"
+          >
+            <td>
+              Preview
+            </td>
+            <td>{{ file.originalName }}</td>
+            <td>{{ filesize(file.size) }}</td>
+            <td>{{ file.mimeType }}</td>
+            <td>{{ dateFormat(file.createdAt) }}</td>
+            <td>
+              <button
+                type="button"
+                @click.prevent="deleteFile(file.id)"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
     <div>
-      <input type="file" :multiple="multiple" @change="fileSelected($event.target.files)"/>
+      <input
+        type="file"
+        :multiple="multiple"
+        @change="fileSelected($event.target.files)"
+      >
     </div>
-    <div v-if="isInvalid" class="inshop-errors">{{ errors[property] }}</div>
+    <div
+      v-if="isInvalid"
+      class="inshop-errors"
+    >
+      {{ errors[property] }}
+    </div>
   </div>
 </template>
 

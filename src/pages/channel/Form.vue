@@ -1,14 +1,31 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'channel'"></item-errors>
+      <item-errors :entity="'channel'" />
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'currency'" :option-store="'currency'" label="currency_name" @formUpdated="updateValue"></form-select>
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'name'"
+            label="name"
+            @formUpdated="updateValue"
+          />
+          <form-select
+            :item="item"
+            :errors="errors"
+            :property="'currency'"
+            :option-store="'currency'"
+            label="currency_name"
+            @formUpdated="updateValue"
+          />
         </div>
       </div>
-      <item-edit-actions :item="item" :entity="'Channel'" :path="'channel'"></item-edit-actions>
+      <item-edit-actions
+        :item="item"
+        :entity="'Channel'"
+        :path="'channel'"
+      />
     </section>
   </form>
 </template>

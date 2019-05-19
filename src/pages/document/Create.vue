@@ -4,7 +4,10 @@
       <h1>{{ $t('document_add') }}</h1>
     </section>
 
-    <DocumentForm :handle-submit="onSendForm" :item="item"/>
+    <DocumentForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

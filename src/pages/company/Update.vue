@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('company_edit', {entity: item && item.name}) }}</h1>
     </section>
-    <CompanyForm :handle-submit="onSendForm" :item="item"/>
+    <CompanyForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

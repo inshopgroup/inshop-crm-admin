@@ -1,28 +1,33 @@
 <template>
-<div>
-  <section class="content-header">
-    <h1>{{ $t('invoice_header_list') }}</h1>
-  </section>
-  <section class="content">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <router-link :to="{ name: 'InvoiceHeaderCreate' }" class="btn btn-primary pull-right">{{ $t('invoice_header_add') }}</router-link>
+  <div>
+    <section class="content-header">
+      <h1>{{ $t('invoice_header_list') }}</h1>
+    </section>
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <router-link
+            :to="{ name: 'InvoiceHeaderCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('invoice_header_add') }}
+          </router-link>
+        </div>
+        <div class="box-body">
+          <item-errors :entity="'invoice_header'" />
+          <api-table
+            :entity="'InvoiceHeader'"
+            :route="'invoice_headers'"
+            :path="'invoice_header'"
+            :filterable="filterable"
+            :sortable="sortable"
+            :columns="columns"
+            :templates="templates"
+          />
+        </div>
       </div>
-      <div class="box-body">
-        <item-errors :entity="'invoice_header'"></item-errors>
-        <api-table
-          :entity="'InvoiceHeader'"
-          :route="'invoice_headers'"
-          :path="'invoice_header'"
-          :filterable="filterable"
-          :sortable="sortable"
-          :columns="columns"
-          :templates="templates"
-        ></api-table>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>

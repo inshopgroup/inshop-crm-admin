@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('project_type_add') }}</h1>
     </section>
-    <ProjectTypeForm :handle-submit="onSendForm" :item="item" />
+    <ProjectTypeForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

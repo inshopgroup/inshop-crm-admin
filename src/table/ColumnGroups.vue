@@ -1,9 +1,15 @@
 <template>
   <div>
-    <div v-for="group in data.groups" :key="group.id">
-      <i class="fa fa-user" aria-hidden="true"></i>
+    <div
+      v-for="group in data.groups"
+      :key="group.id"
+    >
+      <i
+        class="fa fa-user"
+        aria-hidden="true"
+      />
 
-      {{group.name}}
+      {{ group.name }}
     </div>
   </div>
 </template>

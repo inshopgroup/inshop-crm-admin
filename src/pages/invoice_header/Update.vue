@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('invoice_header_edit', {entity: item && item.number}) }}</h1>
     </section>
-    <InvoiceHeaderForm :handle-submit="onSendForm" :item="item"/>
+    <InvoiceHeaderForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

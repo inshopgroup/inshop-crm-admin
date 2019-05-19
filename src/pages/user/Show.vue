@@ -4,73 +4,119 @@
       <h1>{{ item && item['name'] }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'user'"></item-errors>
+      <item-errors :entity="'user'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{ $t('tabs_general') }}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{ $t('tabs_history') }}</a></li>
+          <li class="active">
+            <a
+              href="#general"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_general') }}</a>
+          </li>
+          <li>
+            <a
+              href="#history"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_history') }}</a>
+          </li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active" id="general">
-            <div v-if="item" class="table-responsive">
+          <div
+            class="tab-pane active"
+            id="general"
+          >
+            <div
+              v-if="item"
+              class="table-responsive"
+            >
               <table class="table table-striped table-hover">
                 <thead>
-                <tr>
-                  <th width="20%">{{ $t('field') }}</th>
-                  <th>{{ $t('value') }}</th>
-                </tr>
+                  <tr>
+                    <th width="20%">
+                      {{ $t('field') }}
+                    </th>
+                    <th>{{ $t('value') }}</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>{{ $t('name') }}</td>
-                  <td>{{ item['name'] }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('email') }}</td>
-                  <td>{{ item['email'] }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('groups_name') }}</td>
-                  <td>
-                    <div v-for="group in item['groups']" :key="group.id">
-                      <i class="fa fa-user" aria-hidden="true"></i>
-                      {{ group.name }}
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>{{ $t('isActive') }}</td>
-                  <td>
-                    <span class="label label-success" v-if="item.isActive">{{ $t('yes') }}</span>
-                    <span class="label label-danger" v-else>{{ $t('no') }}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>{{ $t('language_name') }}</td>
-                  <td v-if="item['language']">{{ item['language']['name'] }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('createdAt') }}</td>
-                  <td>{{ dateFormat(item.createdAt) }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('updatedAt') }}</td>
-                  <td>{{ dateFormat(item.updatedAt) }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('updatedBy') }}</td>
-                  <td>{{ item['updatedBy'] }}</td>
-                </tr>
+                  <tr>
+                    <td>{{ $t('name') }}</td>
+                    <td>{{ item['name'] }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('email') }}</td>
+                    <td>{{ item['email'] }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('groups_name') }}</td>
+                    <td>
+                      <div
+                        v-for="group in item['groups']"
+                        :key="group.id"
+                      >
+                        <i
+                          class="fa fa-user"
+                          aria-hidden="true"
+                        />
+                        {{ group.name }}
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('isActive') }}</td>
+                    <td>
+                      <span
+                        class="label label-success"
+                        v-if="item.isActive"
+                      >{{ $t('yes') }}</span>
+                      <span
+                        class="label label-danger"
+                        v-else
+                      >{{ $t('no') }}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('language_name') }}</td>
+                    <td v-if="item['language']">
+                      {{ item['language']['name'] }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('createdAt') }}</td>
+                    <td>{{ dateFormat(item.createdAt) }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('updatedAt') }}</td>
+                    <td>{{ dateFormat(item.updatedAt) }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('updatedBy') }}</td>
+                    <td>{{ item['updatedBy'] }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'User'" :path="'user'" :key="historyKey"></history>
+          <div
+            class="tab-pane"
+            id="history"
+          >
+            <history
+              :id="parseInt($route.params.id)"
+              :entity="'User'"
+              :path="'user'"
+              :key="historyKey"
+            />
           </div>
         </div>
       </div>
-      <item-show-actions :item="item" :entity="'User'" :path="'user'"></item-show-actions>
+      <item-show-actions
+        :item="item"
+        :entity="'User'"
+        :path="'user'"
+      />
     </section>
   </div>
 </template>

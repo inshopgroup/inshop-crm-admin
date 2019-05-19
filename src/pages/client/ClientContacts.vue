@@ -3,43 +3,80 @@
     <section class="content-header hidden show-print">
       <h1>{{ $t('tabs_contacts') }}</h1>
     </section>
-    <button class="btn btn-primary hidden-print" @click="create($event.target)">{{$t('contact_add')}}</button>
+    <button
+      class="btn btn-primary hidden-print"
+      @click="create($event.target)"
+    >
+      {{ $t('contact_add') }}
+    </button>
     <br>
     <br>
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{ $t('id') }}</th>
+          <th style="width: 75px;">
+            {{ $t('id') }}
+          </th>
           <th>{{ $t('contact_value') }}</th>
           <th>{{ $t('contactType_name') }}</th>
-          <th class="hidden-print" style="width: 100px;" />
+          <th
+            class="hidden-print"
+            style="width: 100px;"
+          />
         </tr>
       </thead>
       <tbody>
-        <tr v-for="contact in contacts" :key="contact.id">
+        <tr
+          v-for="contact in contacts"
+          :key="contact.id"
+        >
           <td>
-            <router-link v-if="contact" :to="{name: 'ContactShow', params: { id: contact.id }}">
+            <router-link
+              v-if="contact"
+              :to="{name: 'ContactShow', params: { id: contact.id }}"
+            >
               {{ contact.id }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="contact" :to="{name: 'ContactShow', params: { id: contact.id }}">
+            <router-link
+              v-if="contact"
+              :to="{name: 'ContactShow', params: { id: contact.id }}"
+            >
               {{ contact['value'] }}
             </router-link>
           </td>
           <td>
-            <router-link v-if="contact.contactType" :to="{name: 'ContactShow', params: { id: contact.id }}">
+            <router-link
+              v-if="contact.contactType"
+              :to="{name: 'ContactShow', params: { id: contact.id }}"
+            >
               {{ contact.contactType.name }}
             </router-link>
           </td>
           <td class="hidden-print">
-            <div class="btn-group" role="group">
-              <button class="btn btn-info" @click="edit(contact, $event.target)">
-                <span class="fa fa-pencil" aria-hidden="true" />
+            <div
+              class="btn-group"
+              role="group"
+            >
+              <button
+                class="btn btn-info"
+                @click="edit(contact, $event.target)"
+              >
+                <span
+                  class="fa fa-pencil"
+                  aria-hidden="true"
+                />
                 <span class="sr-only">{{ $t('edit') }}</span>
               </button>
-              <button class="btn btn-info" @click="deleteItem(contact)">
-                <span class="fa fa-remove" aria-hidden="true" />
+              <button
+                class="btn btn-info"
+                @click="deleteItem(contact)"
+              >
+                <span
+                  class="fa fa-remove"
+                  aria-hidden="true"
+                />
                 <span class="sr-only">{{ $t('delete') }}</span>
               </button>
             </div>
@@ -47,7 +84,12 @@
         </tr>
       </tbody>
     </table>
-    <modal-contact-form :callback="callback" :title="title" :item="item" @contactsChanged="$emit('contactsChanged')"></modal-contact-form>
+    <modal-contact-form
+      :callback="callback"
+      :title="title"
+      :item="item"
+      @contactsChanged="$emit('contactsChanged')"
+    />
   </div>
 </template>
 

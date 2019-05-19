@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('vat_edit', {entity: item && item.name}) }}</h1>
     </section>
-    <VatForm :handle-submit="onSendForm" :item="item"/>
+    <VatForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

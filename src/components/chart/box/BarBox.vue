@@ -1,11 +1,18 @@
 <template>
   <div class="box box-default">
     <div class="box-header with-border">
-      <h3 class="box-title">{{title}}</h3>
+      <h3 class="box-title">
+        {{ title }}
+      </h3>
     </div>
     <div class="box-body">
       <div class="chart-responsive">
-        <bar-chart :height="200" :chartData="dataset" :labels="labels" :options="options"></bar-chart>
+        <bar-chart
+          :height="200"
+          :chart-data="dataset"
+          :labels="labels"
+          :options="options"
+        />
       </div>
     </div>
   </div>

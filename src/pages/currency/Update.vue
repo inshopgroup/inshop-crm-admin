@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('currency_edit', {entity: item && item.name}) }}</h1>
     </section>
-    <CurrencyForm :handle-submit="onSendForm" :item="item"/>
+    <CurrencyForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

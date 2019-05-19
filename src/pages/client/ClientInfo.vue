@@ -1,10 +1,15 @@
 <template>
   <div>
-    <div v-if="item" class="table-responsive">
+    <div
+      v-if="item"
+      class="table-responsive"
+    >
       <table class="table table-striped table-hover">
         <thead>
           <tr>
-            <th width="20%">{{ $t('field') }}</th>
+            <th width="20%">
+              {{ $t('field') }}
+            </th>
             <th>{{ $t('value') }}</th>
           </tr>
         </thead>

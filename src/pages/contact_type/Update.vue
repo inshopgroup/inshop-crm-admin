@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('contact_type_edit', {entity: item && item.name}) }}</h1>
     </section>
-    <ContactTypeForm :handle-submit="onSendForm" :item="item"/>
+    <ContactTypeForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

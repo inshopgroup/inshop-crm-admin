@@ -1,28 +1,29 @@
 <template>
-<div class="wrapper">
+  <div class="wrapper">
+    <!-- Main Header -->
+    <header class="main-header">
+      <!-- Logo -->
+      <a
+        href="/"
+        class="logo"
+      >
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <!--<span class="logo-mini"><b>A</b>LT</span>-->
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">{{ $t('title') }}</span>
+      </a>
 
-  <!-- Main Header -->
-  <header class="main-header">
+      <!-- Header Navbar -->
+      <header-slot />
+    </header>
 
-    <!-- Logo -->
-    <a href="/" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <!--<span class="logo-mini"><b>A</b>LT</span>-->
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg">{{$t('title')}}</span>
-    </a>
+    <left-sidebar-slot />
 
-    <!-- Header Navbar -->
-    <header-slot></header-slot>
-  </header>
-
-  <left-sidebar-slot></left-sidebar-slot>
-
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <section class="content container-fluid">
-      <router-view></router-view>
-    </section>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <section class="content container-fluid">
+        <router-view />
+      </section>
 
     <!--&lt;!&ndash; Content Header (Page header) &ndash;&gt;-->
     <!--<section class="content-header">-->
@@ -45,20 +46,20 @@
 
     <!--</section>-->
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+    </div>
+    <!-- /.content-wrapper -->
 
-  <footer-slot></footer-slot>
+    <footer-slot />
 
-  <!--<control-sidebar-slot></control-sidebar-slot>-->
+    <!--<control-sidebar-slot></control-sidebar-slot>-->
 
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
+    <!-- /.control-sidebar -->
+    <!-- Add the sidebar's background. This div must be placed
   immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+    <div class="control-sidebar-bg" />
 
-  <modal-not-done-tasks :tasks="tasks"></modal-not-done-tasks>
-</div>
+    <modal-not-done-tasks :tasks="tasks" />
+  </div>
 <!--<div class="container-fluid">-->
 <!--<header-slot></header-slot>-->
 <!--<div class="row">-->

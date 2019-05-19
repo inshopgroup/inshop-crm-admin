@@ -1,13 +1,23 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'project_status'"></item-errors>
+      <item-errors :entity="'project_status'" />
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'name'"
+            label="name"
+            @formUpdated="updateValue"
+          />
         </div>
       </div>
-      <item-edit-actions :item="item" :entity="'ProjectStatus'" :path="'project_status'"></item-edit-actions>
+      <item-edit-actions
+        :item="item"
+        :entity="'ProjectStatus'"
+        :path="'project_status'"
+      />
     </section>
   </form>
 </template>

@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('payment_type_add') }}</h1>
     </section>
-    <PaymentTypeForm :handle-submit="onSendForm" :item="item"/>
+    <PaymentTypeForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

@@ -4,22 +4,49 @@
       <h1>"{{ item && item['name'] }}"</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'project'"></item-errors>
+      <item-errors :entity="'project'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{ $t('tabs_general') }}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{ $t('tabs_history') }}</a></li>
+          <li class="active">
+            <a
+              href="#general"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_general') }}</a>
+          </li>
+          <li>
+            <a
+              href="#history"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_history') }}</a>
+          </li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active" id="general">
-            <project-info :item="item"></project-info>
+          <div
+            class="tab-pane active"
+            id="general"
+          >
+            <project-info :item="item" />
           </div>
-          <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Project'" :path="'project'" :key="historyKey"></history>
+          <div
+            class="tab-pane"
+            id="history"
+          >
+            <history
+              :id="parseInt($route.params.id)"
+              :entity="'Project'"
+              :path="'project'"
+              :key="historyKey"
+            />
           </div>
         </div>
       </div>
-      <item-show-actions :item="item" :entity="'Project'" :path="'project'"></item-show-actions>
+      <item-show-actions
+        :item="item"
+        :entity="'Project'"
+        :path="'project'"
+      />
     </section>
   </div>
 </template>

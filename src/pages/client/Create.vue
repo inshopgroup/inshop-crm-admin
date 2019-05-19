@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('client_add') }}</h1>
     </section>
-    <ClientForm :handle-submit="onSendForm" :item="item"/>
+    <ClientForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

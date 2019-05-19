@@ -4,7 +4,10 @@
       <h1>{{ $t('category_add') }}</h1>
     </section>
 
-    <CategoryForm :handle-submit="onSendForm" :item="item" />
+    <CategoryForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

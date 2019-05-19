@@ -1,23 +1,36 @@
 <template>
-<div class="box box-default">
-  <div class="box-header with-border">
-    <h3 class="box-title">{{title}}</h3>
-  </div>
-  <div class="box-body">
-    <div class="chart-responsive">
-      <doughnut-chart :height="200" :chartData="dataset" :labels="labels" :options="options"></doughnut-chart>
+  <div class="box box-default">
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        {{ title }}
+      </h3>
+    </div>
+    <div class="box-body">
+      <div class="chart-responsive">
+        <doughnut-chart
+          :height="200"
+          :chart-data="dataset"
+          :labels="labels"
+          :options="options"
+        />
+      </div>
+    </div>
+    <div class="box-footer">
+      <ul class="chart-legend clearfix">
+        <li
+          v-for="(item, key) in labels"
+          :key="item.id"
+        >
+          <i
+            class="fa fa-circle-o"
+            :style="{color: colorByKey(key)}"
+          />
+          {{ item }}
+          <span class="pull-right">{{ values[key] }}</span>
+        </li>
+      </ul>
     </div>
   </div>
-  <div class="box-footer">
-    <ul class="chart-legend clearfix">
-      <li v-for="(item, key) in labels" :key="item.id">
-        <i class="fa fa-circle-o" :style="{color: colorByKey(key)}"></i>
-        {{item}}
-        <span class="pull-right">{{values[key]}}</span>
-      </li>
-    </ul>
-  </div>
-</div>
 </template>
 
 <script>

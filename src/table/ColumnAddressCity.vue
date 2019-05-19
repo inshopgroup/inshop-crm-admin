@@ -1,7 +1,10 @@
 <template>
   <div>
-    <div v-for="address in data.addresses" :key="address.id">
-      <div>{{address.city.name}}</div>
+    <div
+      v-for="address in data.addresses"
+      :key="address.id"
+    >
+      <div>{{ address.city.name }}</div>
     </div>
   </div>
 </template>

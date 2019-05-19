@@ -1,13 +1,13 @@
 <template>
   <field-select
-      :item="{value: value}"
-      property="value"
-      id="project_type"
-      :options="options"
-      option-label="name"
-      :multiple="true"
-      @fieldUpdated="filterTable"
-  ></field-select>
+    :item="{value: value}"
+    property="value"
+    id="project_type"
+    :options="options"
+    option-label="name"
+    :multiple="true"
+    @fieldUpdated="filterTable"
+  />
 </template>
 
 <script>

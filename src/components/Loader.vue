@@ -1,5 +1,8 @@
 <template>
-  <div class="ajax-loader" v-if="isLoading"></div>
+  <div
+    class="ajax-loader"
+    v-if="isLoading"
+  />
 </template>
 
 <script>

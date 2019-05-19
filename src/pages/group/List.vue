@@ -6,10 +6,15 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <router-link :to="{ name: 'GroupCreate' }" class="btn btn-primary pull-right">{{ $t('group_add') }}</router-link>
+          <router-link
+            :to="{ name: 'GroupCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('group_add') }}
+          </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'group'"></item-errors>
+          <item-errors :entity="'group'" />
           <api-table
             :entity="'Group'"
             :route="'groups'"
@@ -18,7 +23,7 @@
             :sortable="sortable"
             :columns="columns"
             :templates="templates"
-          ></api-table>
+          />
         </div>
       </div>
     </section>

@@ -1,8 +1,8 @@
 <template>
-<div>
-  <router-view></router-view>
-  <loader></loader>
-</div>
+  <div>
+    <router-view />
+    <loader />
+  </div>
 </template>
 
 <script>

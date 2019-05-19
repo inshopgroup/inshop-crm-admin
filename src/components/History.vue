@@ -3,7 +3,9 @@
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{ $t('id') }}</th>
+          <th style="width: 75px;">
+            {{ $t('id') }}
+          </th>
           <th>{{ $t('version') }}</th>
           <th>{{ $t('action') }}</th>
           <th>{{ $t('username') }}</th>
@@ -12,7 +14,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="log in logs" :key="log.id">
+        <tr
+          v-for="log in logs"
+          :key="log.id"
+        >
           <td>{{ log.id }}</td>
           <td>{{ log['version'] }}</td>
           <td>{{ log['action'] }}</td>
@@ -20,8 +25,11 @@
           <td>{{ dateFormat(log['loggedAt']) }}</td>
           <td>
             <ul>
-              <li v-for="(value, property) in log['data']" :key="property">
-                <b>{{ $t(property) }}:</b> {{value}}
+              <li
+                v-for="(value, property) in log['data']"
+                :key="property"
+              >
+                <b>{{ $t(property) }}:</b> {{ value }}
               </li>
             </ul>
           </td>

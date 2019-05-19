@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('task_add') }}</h1>
     </section>
-    <TaskForm :handle-submit="onSendForm" :item="item" />
+    <TaskForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

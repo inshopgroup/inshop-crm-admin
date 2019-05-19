@@ -1,12 +1,17 @@
 <template>
   <div>
-    <div v-if="item" class="table-responsive">
+    <div
+      v-if="item"
+      class="table-responsive"
+    >
       <table class="table table-striped table-hover">
         <thead>
-        <tr>
-          <th width="20%">{{ $t('field') }}</th>
-          <th>{{ $t('value') }}</th>
-        </tr>
+          <tr>
+            <th width="20%">
+              {{ $t('field') }}
+            </th>
+            <th>{{ $t('value') }}</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
@@ -56,7 +61,10 @@
           <tr>
             <td>{{ $t('labels_id') }}</td>
             <td>
-              <div v-for="label in item.labels" :key="label.id">
+              <div
+                v-for="label in item.labels"
+                :key="label.id"
+              >
                 <span class="label label-primary">{{ label.name }}</span>
               </div>
             </td>

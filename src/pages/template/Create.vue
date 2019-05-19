@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('template_add') }}</h1>
     </section>
-    <TemplateForm :handle-submit="onSendForm" :item="item" />
+    <TemplateForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

@@ -1,17 +1,51 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'text'"></item-errors>
+      <item-errors :entity="'text'" />
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'title'" label="text_title" @formUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'content'" label="content" @formUpdated="updateValue"></form-textarea>
-          <form-input :item="item" :errors="errors" :property="'seoTitle'" label="seoTitle" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'seoDescription'" label="seoDescription" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'seoKeywords'" label="seoKeywords" @formUpdated="updateValue"></form-input>
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'title'"
+            label="text_title"
+            @formUpdated="updateValue"
+          />
+          <form-textarea
+            :item="item"
+            :errors="errors"
+            :property="'content'"
+            label="content"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'seoTitle'"
+            label="seoTitle"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'seoDescription'"
+            label="seoDescription"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'seoKeywords'"
+            label="seoKeywords"
+            @formUpdated="updateValue"
+          />
         </div>
       </div>
-      <item-edit-actions :item="item" :entity="'Text'" :path="'text'"></item-edit-actions>
+      <item-edit-actions
+        :item="item"
+        :entity="'Text'"
+        :path="'text'"
+      />
     </section>
   </form>
 </template>

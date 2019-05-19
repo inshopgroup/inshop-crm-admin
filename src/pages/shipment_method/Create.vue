@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('shipment_method_add') }}</h1>
     </section>
-    <ShipmentMethodForm :handle-submit="onSendForm" :item="item"/>
+    <ShipmentMethodForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

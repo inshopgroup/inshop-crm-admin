@@ -1,28 +1,33 @@
 <template>
-<div>
-  <section class="content-header">
-    <h1>{{ $t('task_status_list') }}</h1>
-  </section>
-  <section class="content">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <router-link :to="{ name: 'TaskStatusCreate' }" class="btn btn-primary pull-right">{{$t('task_status_add')}}</router-link>
+  <div>
+    <section class="content-header">
+      <h1>{{ $t('task_status_list') }}</h1>
+    </section>
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <router-link
+            :to="{ name: 'TaskStatusCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('task_status_add') }}
+          </router-link>
+        </div>
+        <div class="box-body">
+          <item-errors :entity="'task_status'" />
+          <api-table
+            :entity="'TaskStatus'"
+            :route="'task_statuses'"
+            :path="'task_status'"
+            :filterable="filterable"
+            :sortable="sortable"
+            :columns="columns"
+            :templates="templates"
+          />
+        </div>
       </div>
-      <div class="box-body">
-        <item-errors :entity="'task_status'"></item-errors>
-        <api-table
-          :entity="'TaskStatus'"
-          :route="'task_statuses'"
-          :path="'task_status'"
-          :filterable="filterable"
-          :sortable="sortable"
-          :columns="columns"
-          :templates="templates"
-        ></api-table>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>

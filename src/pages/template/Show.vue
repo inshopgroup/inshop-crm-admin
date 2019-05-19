@@ -4,26 +4,62 @@
       <h1>{{ item && item['name'] }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'template'"></item-errors>
+      <item-errors :entity="'template'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{ $t('tabs_general') }}</a></li>
-          <li><a href="#files" data-toggle="tab" aria-expanded="false">{{ $t('tabs_files') }}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{ $t('tabs_history') }}</a></li>
+          <li class="active">
+            <a
+              href="#general"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_general') }}</a>
+          </li>
+          <li>
+            <a
+              href="#files"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_files') }}</a>
+          </li>
+          <li>
+            <a
+              href="#history"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_history') }}</a>
+          </li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active" id="general">
-            <template-info :item="item"></template-info>
+          <div
+            class="tab-pane active"
+            id="general"
+          >
+            <template-info :item="item" />
           </div>
-          <div class="tab-pane" id="files">
-            <files-table :files="item.files"></files-table>
+          <div
+            class="tab-pane"
+            id="files"
+          >
+            <files-table :files="item.files" />
           </div>
-          <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Template'" :path="'template'" :key="historyKey"></history>
+          <div
+            class="tab-pane"
+            id="history"
+          >
+            <history
+              :id="parseInt($route.params.id)"
+              :entity="'Template'"
+              :path="'template'"
+              :key="historyKey"
+            />
           </div>
         </div>
       </div>
-      <item-show-actions :item="item" :entity="'Template'" :path="'template'"></item-show-actions>
+      <item-show-actions
+        :item="item"
+        :entity="'Template'"
+        :path="'template'"
+      />
     </section>
   </div>
 </template>

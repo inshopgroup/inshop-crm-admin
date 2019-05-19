@@ -1,27 +1,32 @@
 <template>
-<div>
-  <section class="content-header">
-    <h1>{{ $t('order_status_list') }}</h1>
-  </section>
-  <section class="content">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <router-link :to="{ name: 'OrderStatusCreate' }" class="btn btn-primary pull-right">{{ $t('order_status_add') }}</router-link>
+  <div>
+    <section class="content-header">
+      <h1>{{ $t('order_status_list') }}</h1>
+    </section>
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <router-link
+            :to="{ name: 'OrderStatusCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('order_status_add') }}
+          </router-link>
+        </div>
+        <div class="box-body">
+          <item-errors :entity="'order_status'" />
+          <api-table
+            :entity="'OrderStatus'"
+            :route="'order_statuses'"
+            :path="'order_status'"
+            :filterable="filterable"
+            :columns="columns"
+            :templates="templates"
+          />
+        </div>
       </div>
-      <div class="box-body">
-        <item-errors :entity="'order_status'"></item-errors>
-        <api-table
-          :entity="'OrderStatus'"
-          :route="'order_statuses'"
-          :path="'order_status'"
-          :filterable="filterable"
-          :columns="columns"
-          :templates="templates"
-        ></api-table>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>

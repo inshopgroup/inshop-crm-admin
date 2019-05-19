@@ -1,28 +1,33 @@
 <template>
-<div>
-  <section class="content-header">
-    <h1>{{ $t('label_list') }}</h1>
-  </section>
-  <section class="content">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <router-link :to="{ name: 'LabelCreate' }" class="btn btn-primary pull-right">{{ $t('label_add') }}</router-link>
+  <div>
+    <section class="content-header">
+      <h1>{{ $t('label_list') }}</h1>
+    </section>
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <router-link
+            :to="{ name: 'LabelCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('label_add') }}
+          </router-link>
+        </div>
+        <div class="box-body">
+          <item-errors :entity="'label'" />
+          <api-table
+            :entity="'Label'"
+            :route="'labels'"
+            :path="'label'"
+            :filterable="filterable"
+            :sortable="sortable"
+            :columns="columns"
+            :templates="templates"
+          />
+        </div>
       </div>
-      <div class="box-body">
-        <item-errors :entity="'label'"></item-errors>
-        <api-table
-          :entity="'Label'"
-          :route="'labels'"
-          :path="'label'"
-          :filterable="filterable"
-          :sortable="sortable"
-          :columns="columns"
-          :templates="templates"
-        ></api-table>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>

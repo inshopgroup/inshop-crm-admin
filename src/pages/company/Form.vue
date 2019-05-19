@@ -1,23 +1,95 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'company'"></item-errors>
+      <item-errors :entity="'company'" />
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'fullName'" label="fullName" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'contactPerson'" label="contactPerson" @formUpdated="updateValue"></form-input>
-          <form-textarea :item="item" :errors="errors" :property="'description'" label="description" @formUpdated="updateValue"></form-textarea>
-          <form-input :item="item" :errors="errors" :property="'bankName'" label="bankName" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'bankAccountNumber'" label="bankAccountNumber" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'krs'" label="krs" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'nip'" label="nip" @formUpdated="updateValue"></form-input>
-          <form-select :item="item" :errors="errors" :property="'labels'" :option-store="'label'" label="labels_id" :multiple="true" @formUpdated="updateValue"></form-select>
-          <form-checkbox :item="item" :errors="errors" :property="'isVat'" label="isVat" @formUpdated="updateValue"></form-checkbox>
-          <form-textarea :item="item" :errors="errors" :property="'vatComment'" label="vatComment" @formUpdated="updateValue"></form-textarea>
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'name'"
+            label="name"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'fullName'"
+            label="fullName"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'contactPerson'"
+            label="contactPerson"
+            @formUpdated="updateValue"
+          />
+          <form-textarea
+            :item="item"
+            :errors="errors"
+            :property="'description'"
+            label="description"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'bankName'"
+            label="bankName"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'bankAccountNumber'"
+            label="bankAccountNumber"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'krs'"
+            label="krs"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'nip'"
+            label="nip"
+            @formUpdated="updateValue"
+          />
+          <form-select
+            :item="item"
+            :errors="errors"
+            :property="'labels'"
+            :option-store="'label'"
+            label="labels_id"
+            :multiple="true"
+            @formUpdated="updateValue"
+          />
+          <form-checkbox
+            :item="item"
+            :errors="errors"
+            :property="'isVat'"
+            label="isVat"
+            @formUpdated="updateValue"
+          />
+          <form-textarea
+            :item="item"
+            :errors="errors"
+            :property="'vatComment'"
+            label="vatComment"
+            @formUpdated="updateValue"
+          />
         </div>
       </div>
-      <item-edit-actions :item="item" :entity="'Company'" :path="'company'"></item-edit-actions>
+      <item-edit-actions
+        :item="item"
+        :entity="'Company'"
+        :path="'company'"
+      />
     </section>
   </form>
 </template>

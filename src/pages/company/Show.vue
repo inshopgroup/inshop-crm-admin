@@ -4,30 +4,83 @@
       <h1>{{ item && item['name'] }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'company'"></item-errors>
+      <item-errors :entity="'company'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs hidden-print">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{ $t('tabs_general') }}</a></li>
-          <li><a href="#contacts" data-toggle="tab" aria-expanded="false">{{ $t('tabs_contacts') }}</a></li>
-          <li><a href="#addresses" data-toggle="tab" aria-expanded="false">{{ $t('tabs_addresses') }}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{ $t('tabs_history') }}</a></li>
+          <li class="active">
+            <a
+              href="#general"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_general') }}</a>
+          </li>
+          <li>
+            <a
+              href="#contacts"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_contacts') }}</a>
+          </li>
+          <li>
+            <a
+              href="#addresses"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_addresses') }}</a>
+          </li>
+          <li>
+            <a
+              href="#history"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_history') }}</a>
+          </li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active show-print" id="general">
-            <company-info :item="item"></company-info>
+          <div
+            class="tab-pane active show-print"
+            id="general"
+          >
+            <company-info :item="item" />
           </div>
-          <div class="tab-pane" id="contacts">
-            <client-contacts :contacts="item.contacts" :parent="{companies: [this.item]}" @contactsChanged="loadItem"></client-contacts>
+          <div
+            class="tab-pane"
+            id="contacts"
+          >
+            <client-contacts
+              :contacts="item.contacts"
+              :parent="{companies: [this.item]}"
+              @contactsChanged="loadItem"
+            />
           </div>
-          <div class="tab-pane" id="addresses">
-            <client-addresses :addresses="item.addresses" :parent="{companies: [this.item]}" @addressesChanged="loadItem"></client-addresses>
+          <div
+            class="tab-pane"
+            id="addresses"
+          >
+            <client-addresses
+              :addresses="item.addresses"
+              :parent="{companies: [this.item]}"
+              @addressesChanged="loadItem"
+            />
           </div>
-          <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Company'" :path="'company'" :key="historyKey"></history>
+          <div
+            class="tab-pane"
+            id="history"
+          >
+            <history
+              :id="parseInt($route.params.id)"
+              :entity="'Company'"
+              :path="'company'"
+              :key="historyKey"
+            />
           </div>
         </div>
       </div>
-      <item-show-actions :item="item" :entity="'Company'" :path="'company'"></item-show-actions>
+      <item-show-actions
+        :item="item"
+        :entity="'Company'"
+        :path="'company'"
+      />
     </section>
   </div>
 </template>

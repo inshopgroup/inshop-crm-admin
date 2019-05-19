@@ -4,7 +4,10 @@
       <h1>{{ $t('order_line_status_edit', {entity: item && item.name}) }}</h1>
     </section>
 
-    <OrderLineStatusForm :handle-submit="onSendForm" :item="item" />
+    <OrderLineStatusForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('invoice_type_add') }}</h1>
     </section>
-    <InvoiceTypeForm :handle-submit="onSendForm" :item="item"/>
+    <InvoiceTypeForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

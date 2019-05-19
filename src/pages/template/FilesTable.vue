@@ -1,9 +1,14 @@
 <template>
-  <div class="table-responsive" style="">
+  <div
+    class="table-responsive"
+    style=""
+  >
     <table class="table table-striped table-hover">
       <thead>
         <tr>
-          <th style="width: 75px;">{{ $t('id') }}</th>
+          <th style="width: 75px;">
+            {{ $t('id') }}
+          </th>
           <th>{{ $t('originalName') }}</th>
           <th>{{ $t('size') }}</th>
           <th>{{ $t('mimeType') }}</th>
@@ -12,16 +17,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="file in files" :key="file.id">
+        <tr
+          v-for="file in files"
+          :key="file.id"
+        >
           <td>{{ file.id }}</td>
           <td>{{ file['originalName'] }}</td>
           <td>{{ bytes(file['size']) }}</td>
           <td>{{ file['mimeType'] }}</td>
           <td>{{ dateFormat(file.createdAt) }}</td>
           <td>
-            <a href="#" @click.stop="download(file)">
-              <span class="fa fa-download" aria-hidden="true" />
-              <span class="sr-only">{{$t('file.download')}}</span>
+            <a
+              href="#"
+              @click.stop="download(file)"
+            >
+              <span
+                class="fa fa-download"
+                aria-hidden="true"
+              />
+              <span class="sr-only">{{ $t('file.download') }}</span>
             </a>
           </td>
         </tr>

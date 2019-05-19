@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('group_edit', {entity: item && item.name}) }}</h1>
     </section>
-    <GroupForm :handle-submit="onSendForm" :item="item"/>
+    <GroupForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

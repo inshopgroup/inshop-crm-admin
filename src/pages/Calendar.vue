@@ -1,28 +1,40 @@
 <template>
-  <vue-event-calendar :events="tasksPrepared" @month-changed="load($event)">
+  <vue-event-calendar
+    :events="tasksPrepared"
+    @month-changed="load($event)"
+  >
     <template slot-scope="props">
-      <div v-for="(task, index) in props.showEvents" class="event-item" :key="task.id">
+      <div
+        v-for="(task, index) in props.showEvents"
+        class="event-item"
+        :key="task.id"
+      >
         <h3 class="title">
-          <router-link  :to="{name: 'TaskShow', params: { id: task.id }}">
-            {{index + 1}}. {{task.name}}
+          <router-link :to="{name: 'TaskShow', params: { id: task.id }}">
+            {{ index + 1 }}. {{ task.name }}
           </router-link>
         </h3>
-        <p class="time">{{moment(task.deadline).format('DD-MM-YYYY')}}</p>
+        <p class="time">
+          {{ moment(task.deadline).format('DD-MM-YYYY') }}
+        </p>
         <p>
-          {{$t('client')}}:
-          <router-link  :to="{name: 'ClientShow', params: { id: task.project.client.id }}">
-            {{task.project.client.name}}
+          {{ $t('client') }}:
+          <router-link :to="{name: 'ClientShow', params: { id: task.project.client.id }}">
+            {{ task.project.client.name }}
           </router-link>
         </p>
         <p>
-          {{$t('assignee_name')}}:
-          <router-link  :to="{name: 'UserShow', params: { id: task.assignee.id }}" v-if="task && task['assignee']">
-            {{task.assignee.name}}
+          {{ $t('assignee_name') }}:
+          <router-link
+            :to="{name: 'UserShow', params: { id: task.assignee.id }}"
+            v-if="task && task['assignee']"
+          >
+            {{ task.assignee.name }}
           </router-link>
         </p>
         <p class="desc">
-          <router-link  :to="{ name: 'TaskShow', params: { id: task.id } }">
-            {{task.description}}
+          <router-link :to="{ name: 'TaskShow', params: { id: task.id } }">
+            {{ task.description }}
           </router-link>
         </p>
       </div>

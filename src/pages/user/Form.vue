@@ -1,18 +1,55 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'user'"></item-errors>
+      <item-errors :entity="'user'" />
       <div class="box box-primary">
         <div class="box-body">
-          <form-input :item="item" :errors="errors" :property="'name'" label="name" @formUpdated="updateValue"></form-input>
-          <form-input :item="item" :errors="errors" :property="'username'" label="email" @formUpdated="updateValue"></form-input>
-<!--      <form-password :item="item" :errors="errors" :property="'plainPassword'" label="password" @formUpdated="updateValue"></form-password>-->
-          <form-select :item="item" :errors="errors" :property="'groups'" :option-store="'group'" label="groups_name" :multiple="true" @formUpdated="updateValue"></form-select>
-          <form-checkbox :item="item" :errors="errors" :property="'isActive'" label="isActive" @formUpdated="updateValue"></form-checkbox>
-          <form-select :item="item" :errors="errors" :property="'language'" :option-store="'language'" label="language_name" @formUpdated="updateValue"></form-select>
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'name'"
+            label="name"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
+            :property="'username'"
+            label="email"
+            @formUpdated="updateValue"
+          />
+          <!--      <form-password :item="item" :errors="errors" :property="'plainPassword'" label="password" @formUpdated="updateValue"></form-password>-->
+          <form-select
+            :item="item"
+            :errors="errors"
+            :property="'groups'"
+            :option-store="'group'"
+            label="groups_name"
+            :multiple="true"
+            @formUpdated="updateValue"
+          />
+          <form-checkbox
+            :item="item"
+            :errors="errors"
+            :property="'isActive'"
+            label="isActive"
+            @formUpdated="updateValue"
+          />
+          <form-select
+            :item="item"
+            :errors="errors"
+            :property="'language'"
+            :option-store="'language'"
+            label="language_name"
+            @formUpdated="updateValue"
+          />
         </div>
       </div>
-      <item-edit-actions :item="item" :entity="'User'" :path="'user'"></item-edit-actions>
+      <item-edit-actions
+        :item="item"
+        :entity="'User'"
+        :path="'user'"
+      />
     </section>
   </form>
 </template>

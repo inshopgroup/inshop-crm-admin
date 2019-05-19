@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('city_add') }}</h1>
     </section>
-    <CityForm :handle-submit="onSendForm" :item="item"/>
+    <CityForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

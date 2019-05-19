@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('order_status_add') }}</h1>
     </section>
-    <OrderStatusForm :handle-submit="onSendForm" :item="item"/>
+    <OrderStatusForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

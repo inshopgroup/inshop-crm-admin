@@ -3,7 +3,10 @@
     <section class="content-header">
       <h1>{{ $t('product_edit', {entity: item && item.ean}) }}</h1>
     </section>
-    <ProductForm :handle-submit="onSendForm" :item="item"/>
+    <ProductForm
+      :handle-submit="onSendForm"
+      :item="item"
+    />
   </div>
 </template>
 

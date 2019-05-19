@@ -1,22 +1,22 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{$t('search_list')}}</h1>
+      <h1>{{ $t('search_list') }}</h1>
     </section>
 
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-errors :entity="'text'"></item-errors>
+          <item-errors :entity="'text'" />
 
           <api-table
-              :entity="'Search'"
-              :route="'search'"
-              :path="'search'"
-              :filterable="filterable"
-              :columns="columns"
-              :templates="templates"
-          ></api-table>
+            :entity="'Search'"
+            :route="'search'"
+            :path="'search'"
+            :filterable="filterable"
+            :columns="columns"
+            :templates="templates"
+          />
         </div>
       </div>
     </section>

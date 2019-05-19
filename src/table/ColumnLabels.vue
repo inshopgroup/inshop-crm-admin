@@ -1,9 +1,12 @@
 <template>
-<div>
-  <div v-for="label in data.labels" :key="label.id">
-    <span class="label label-primary">{{label.name}}</span>
+  <div>
+    <div
+      v-for="label in data.labels"
+      :key="label.id"
+    >
+      <span class="label label-primary">{{ label.name }}</span>
+    </div>
   </div>
-</div>
 </template>
 
 <script>

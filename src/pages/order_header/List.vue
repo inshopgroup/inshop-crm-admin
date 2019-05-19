@@ -1,28 +1,33 @@
 <template>
-<div>
-  <section class="content-header">
-    <h1>{{ $t('order_header_list') }}</h1>
-  </section>
-  <section class="content">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <router-link :to="{ name: 'OrderHeaderCreate' }" class="btn btn-primary pull-right">{{ $t('order_header_add') }}</router-link>
+  <div>
+    <section class="content-header">
+      <h1>{{ $t('order_header_list') }}</h1>
+    </section>
+    <section class="content">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <router-link
+            :to="{ name: 'OrderHeaderCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('order_header_add') }}
+          </router-link>
+        </div>
+        <div class="box-body">
+          <item-errors :entity="'order_header'" />
+          <api-table
+            :entity="'OrderHeader'"
+            :route="'order_headers'"
+            :path="'order_header'"
+            :filterable="filterable"
+            :sortable="sortable"
+            :columns="columns"
+            :templates="templates"
+          />
+        </div>
       </div>
-      <div class="box-body">
-        <item-errors :entity="'order_header'"></item-errors>
-        <api-table
-          :entity="'OrderHeader'"
-          :route="'order_headers'"
-          :path="'order_header'"
-          :filterable="filterable"
-          :sortable="sortable"
-          :columns="columns"
-          :templates="templates"
-        ></api-table>
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 </template>
 
 <script>

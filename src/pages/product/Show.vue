@@ -4,69 +4,132 @@
       <h1>{{ item && item['name'] }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'product'"></item-errors>
+      <item-errors :entity="'product'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#general" data-toggle="tab" aria-expanded="false">{{ $t('tabs_general') }}</a></li>
-          <li><a href="#companyProducts" data-toggle="tab" aria-expanded="false">{{ $t('tabs_companyProducts') }}</a></li>
-          <li><a href="#productSellPrices" data-toggle="tab" aria-expanded="false">{{ $t('tabs_productSellPrices') }}</a></li>
-          <li><a href="#history" data-toggle="tab" aria-expanded="false">{{ $t('tabs_history') }}</a></li>
+          <li class="active">
+            <a
+              href="#general"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_general') }}</a>
+          </li>
+          <li>
+            <a
+              href="#companyProducts"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_companyProducts') }}</a>
+          </li>
+          <li>
+            <a
+              href="#productSellPrices"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_productSellPrices') }}</a>
+          </li>
+          <li>
+            <a
+              href="#history"
+              data-toggle="tab"
+              aria-expanded="false"
+            >{{ $t('tabs_history') }}</a>
+          </li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane active" id="general">
-            <div v-if="item" class="table-responsive">
+          <div
+            class="tab-pane active"
+            id="general"
+          >
+            <div
+              v-if="item"
+              class="table-responsive"
+            >
               <table class="table table-striped table-hover">
                 <thead>
-                <tr>
-                  <th width="20%">{{ $t('field') }}</th>
-                  <th>{{ $t('value') }}</th>
-                </tr>
+                  <tr>
+                    <th width="20%">
+                      {{ $t('field') }}
+                    </th>
+                    <th>{{ $t('value') }}</th>
+                  </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>{{ $t('name') }}</td>
-                  <td>{{ translate(item).name }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('ean') }}</td>
-                  <td>{{ item['ean'] }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('video') }}</td>
-                  <td><a target="_blank" :href="item['video']">{{ item['video'] }}</a> </td>
-                </tr>
-                <tr>
-                  <td>{{ $t('description') }}</td>
-                  <td>{{ translate(item).description }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('createdAt') }}</td>
-                  <td>{{ dateFormat(item.createdAt) }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('updatedAt') }}</td>
-                  <td>{{ dateFormat(item.updatedAt) }}</td>
-                </tr>
-                <tr>
-                  <td>{{ $t('updatedBy') }}</td>
-                  <td>{{ item['updatedBy'] }}</td>
-                </tr>
+                  <tr>
+                    <td>{{ $t('name') }}</td>
+                    <td>{{ translate(item).name }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('ean') }}</td>
+                    <td>{{ item['ean'] }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('video') }}</td>
+                    <td>
+                      <a
+                        target="_blank"
+                        :href="item['video']"
+                      >{{ item['video'] }}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('description') }}</td>
+                    <td>{{ translate(item).description }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('createdAt') }}</td>
+                    <td>{{ dateFormat(item.createdAt) }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('updatedAt') }}</td>
+                    <td>{{ dateFormat(item.updatedAt) }}</td>
+                  </tr>
+                  <tr>
+                    <td>{{ $t('updatedBy') }}</td>
+                    <td>{{ item['updatedBy'] }}</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
           </div>
-          <div class="tab-pane" id="companyProducts">
-            <company-products :companyProducts="companyProducts" :product="item.id" @reloadCompanyProducts="loadCompanyProducts"></company-products>
+          <div
+            class="tab-pane"
+            id="companyProducts"
+          >
+            <company-products
+              :company-products="companyProducts"
+              :product="item.id"
+              @reloadCompanyProducts="loadCompanyProducts"
+            />
           </div>
-          <div class="tab-pane" id="productSellPrices">
-            <product-sell-prices :productSellPrices="productSellPrices" :product="item.id" @reloadProductSellPrices="loadProductSellPrices"></product-sell-prices>
+          <div
+            class="tab-pane"
+            id="productSellPrices"
+          >
+            <product-sell-prices
+              :product-sell-prices="productSellPrices"
+              :product="item.id"
+              @reloadProductSellPrices="loadProductSellPrices"
+            />
           </div>
-          <div class="tab-pane" id="history">
-            <history :id="parseInt($route.params.id)" :entity="'Product'" :path="'product'" :key="historyKey"></history>
+          <div
+            class="tab-pane"
+            id="history"
+          >
+            <history
+              :id="parseInt($route.params.id)"
+              :entity="'Product'"
+              :path="'product'"
+              :key="historyKey"
+            />
           </div>
         </div>
       </div>
-      <item-show-actions :item="item" :entity="'Product'" :path="'product'"></item-show-actions>
+      <item-show-actions
+        :item="item"
+        :entity="'Product'"
+        :path="'product'"
+      />
     </section>
   </div>
 </template>

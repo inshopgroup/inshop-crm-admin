@@ -6,10 +6,15 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-header with-border">
-          <router-link :to="{ name: 'TextCreate' }" class="btn btn-primary pull-right">{{ $t('text_add') }}</router-link>
+          <router-link
+            :to="{ name: 'TextCreate' }"
+            class="btn btn-primary pull-right"
+          >
+            {{ $t('text_add') }}
+          </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'text'"></item-errors>
+          <item-errors :entity="'text'" />
           <api-table
             :entity="'Text'"
             :route="'texts'"
@@ -18,7 +23,7 @@
             :sortable="sortable"
             :columns="columns"
             :templates="templates"
-          ></api-table>
+          />
         </div>
       </div>
     </section>
