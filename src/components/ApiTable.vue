@@ -59,9 +59,18 @@ import decamelize from '../utils/decamelize'
 export default {
   name: 'ApiTable',
   props: {
-    entity: null,
-    path: null,
-    route: null,
+    entity: {
+      type: String,
+      default: null
+    },
+    path: {
+      type: String,
+      default: null
+    },
+    route: {
+      type: String,
+      default: null
+    },
     columns: {
       type: Array,
       default: function() {

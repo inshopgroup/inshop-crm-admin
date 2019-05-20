@@ -69,7 +69,10 @@
 export default {
   name: 'ProjectInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

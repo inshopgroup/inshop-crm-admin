@@ -9,7 +9,7 @@
 import Loader from './components/Loader'
 export default {
   name: 'App',
-  components: {Loader}
+  components: { Loader }
 }
 </script>
 

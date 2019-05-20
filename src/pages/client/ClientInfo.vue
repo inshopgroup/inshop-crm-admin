@@ -44,7 +44,10 @@
 export default {
   name: 'ClientInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

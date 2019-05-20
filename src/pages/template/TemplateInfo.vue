@@ -46,7 +46,10 @@
 export default {
   name: 'TemplateInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

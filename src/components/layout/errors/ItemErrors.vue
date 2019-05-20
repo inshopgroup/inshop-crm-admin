@@ -12,12 +12,15 @@
 export default {
   name: 'ItemErrors',
   props: {
-    entity: null
+    entity: {
+      type: String,
+      default: null
+    }
   },
   computed: {
     error() {
       return this.$store.getters[this.entity + '/error']
     }
-  },
+  }
 }
 </script>

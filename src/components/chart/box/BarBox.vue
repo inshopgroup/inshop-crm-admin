@@ -24,7 +24,10 @@ import BarChart from '../BarChart'
 export default {
   components: {BarChart},
   props: {
-    title: null,
+    title: {
+      type: String,
+      default: null
+    },
     data: {
       type: Array,
       default: function () {

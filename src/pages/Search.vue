@@ -29,13 +29,13 @@ import ItemErrors from "../components/layout/errors/ItemErrors"
 import q from './../table/ColumnQ'
 
 export default {
-  components: {ItemErrors, ApiTable},
+  components: { ItemErrors, ApiTable },
   data: function () {
     return {
       columns: ['q', 'type'],
       filterable: ['q', 'type'],
       templates: {
-        q,
+        q
       }
     }
   }

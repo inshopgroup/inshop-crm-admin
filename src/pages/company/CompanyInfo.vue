@@ -95,7 +95,10 @@
 export default {
   name: 'CompanyInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

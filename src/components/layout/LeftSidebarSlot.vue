@@ -415,8 +415,8 @@ export default {
           window. $(this).children('.treeview-menu').css('display', 'block')
         }
       })
-    },
-  },
+    }
+  }
 }
 </script>
 

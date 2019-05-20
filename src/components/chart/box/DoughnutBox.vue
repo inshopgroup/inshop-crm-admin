@@ -40,7 +40,10 @@ import Color from 'color'
 export default {
   components: {DoughnutChart},
   props: {
-    title: null,
+    title: {
+      type: String,
+      default: null
+    },
     data: {
       type: Array,
       default: function () {

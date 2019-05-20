@@ -71,7 +71,7 @@ import DoughnutBox from '../components/chart/box/DoughnutBox'
 import axios from '../interceptor'
 
 export default {
-  components: {DoughnutBox, BarBox},
+  components: { DoughnutBox, BarBox },
   data() {
     return {
       data: {},

@@ -60,7 +60,10 @@
 export default {
   name: 'DocumentInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

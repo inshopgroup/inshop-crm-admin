@@ -128,7 +128,7 @@ export default {
     }),
     updateValue(property, value) {
       this.$store.commit('company/COMPANY_UPDATE_ITEM', {[property]: value})
-    },
+    }
   }
 }
 </script>

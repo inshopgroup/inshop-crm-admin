@@ -52,7 +52,7 @@ Vue.prototype.moment = moment
 export default {
   computed: {
     ...mapGetters({
-      tasks: 'task/items',
+      tasks: 'task/items'
     }),
     tasksPrepared() {
       this.tasks.forEach(task => {

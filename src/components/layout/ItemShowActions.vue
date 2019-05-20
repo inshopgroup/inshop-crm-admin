@@ -38,9 +38,18 @@
 export default {
   name: 'ItemShowActions',
   props: {
-    item: {},
-    entity: null,
-    path: null,
+    item: {
+      type: Object,
+      default: null
+    },
+    entity: {
+      type: String,
+      default: null
+    },
+    path: {
+      type: String,
+      default: null
+    },
     btnBackToList: {
       type: Boolean,
       default: true
