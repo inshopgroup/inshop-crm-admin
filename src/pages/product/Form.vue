@@ -28,14 +28,14 @@
               :errors="errors"
               :property="'name'"
               label="name"
-              @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"
+              @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
             />
             <form-textarea
               :item="findItem(language)"
               :errors="errors"
               :property="'description'"
               label="description"
-              @formUpdated="(property, value) => {updateTranslatedValue(property, value, language)}"
+              @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
             />
           </div>
         </div>
