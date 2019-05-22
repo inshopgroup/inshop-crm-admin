@@ -65,9 +65,9 @@
                 v-for="label in item.labels"
                 :key="label.id"
               >
-                <template class="label label-primary">
+                <span class="label label-primary">
                   {{ label.name }}
-                </template>
+                </span>
               </div>
             </td>
           </tr>
