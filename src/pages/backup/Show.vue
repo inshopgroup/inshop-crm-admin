@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
       <item-errors :entity="'backup'" />
@@ -42,19 +42,27 @@
               <tbody>
                 <tr>
                   <td>{{ $t('name') }}</td>
-                  <td>{{ item['name'] }}</td>
+                  <td>{{ item.name }}</td>
                 </tr>
                 <tr>
                   <td>{{ $t('size') }}</td>
-                  <td>{{ item['size'] }}</td>
+                  <td>{{ item.size }}</td>
                 </tr>
                 <tr>
                   <td>{{ $t('status_name') }}</td>
-                  <td><span v-if="item['status']">{{ item['status']['name'] }}</span></td>
+                  <td>
+                    <template v-if="item.status">
+                      {{ item.status.name }}
+                    </template>
+                  </td>
                 </tr>
                 <tr>
                   <td>{{ $t('type_name') }}</td>
-                  <td><span v-if="item['type']">{{ item['type']['name'] }}</span></td>
+                  <td>
+                    <template v-if="item.type">
+                      {{ item.type.name }}
+                    </template>
+                  </td>
                 </tr>
                 <tr>
                   <td>{{ $t('createdAt') }}</td>
@@ -66,7 +74,7 @@
                 </tr>
                 <tr>
                   <td>{{ $t('updatedBy') }}</td>
-                  <td>{{ item['updatedBy'] }}</td>
+                  <td>{{ item.updatedBy }}</td>
                 </tr>
               </tbody>
             </table>

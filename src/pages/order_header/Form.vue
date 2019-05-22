@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'order_header'" />
+      <item-errors :entity="'orderHeader'" />
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">
@@ -193,7 +193,7 @@
       <item-edit-actions
         :item="item"
         :entity="'OrderHeader'"
-        :path="'order_header'"
+        :path="'orderHeader'"
       />
     </section>
   </form>
@@ -225,7 +225,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'order_header/errors'
+      errors: 'orderHeader/errors'
     }),
     lines () {
       let lines = this.item.lines
@@ -242,10 +242,10 @@ export default {
   },
   methods: {
     ...mapActions({
-      reset: 'order_header/reset'
+      reset: 'orderHeader/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('order_header/ORDER_HEADER_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('orderHeader/ORDER_HEADER_UPDATE_ITEM', {[property]: value})
     },
     productSelected (line) {
       axios.get(process.env.VUE_APP_API_URL + line.product.id + '/product_sell_prices').then((data) => {

@@ -75,7 +75,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>

@@ -15,36 +15,36 @@
       <tbody>
         <tr>
           <td>{{ $t('name') }}</td>
-          <td>{{ item['name'] }}</td>
+          <td>{{ item.name }}</td>
         </tr>
         <tr>
           <td>{{ $t('description') }}</td>
-          <td>{{ item['description'] }}</td>
+          <td>{{ item.description }}</td>
         </tr>
         <tr>
           <td>{{ $t('type_name') }}</td>
           <td>
-            <span v-if="item && item['type']">
-              {{ item['type']['name'] }}
-            </span>
+            <template v-if="item && item.type">
+              {{ item.type.name }}
+            </template>
           </td>
         </tr>
         <tr>
           <td>{{ $t('status_name') }}</td>
           <td>
-            <span v-if="item && item['type']">
-              {{ item['status']['name'] }}
-            </span>
+            <template v-if="item && item.type">
+              {{ item.status.name }}
+            </template>
           </td>
         </tr>
         <tr>
           <td>{{ $t('client_name') }}</td>
           <td>
             <router-link
-              v-if="item['client']"
-              :to="{name: 'ClientShow', params: { id: item['client'].id }}"
+              v-if="item.client"
+              :to="{name: 'ClientShow', params: { id: item.client.id }}"
             >
-              {{ item['client']['name'] }}
+              {{ item.client.name }}
             </router-link>
           </td>
         </tr>
@@ -58,7 +58,7 @@
         </tr>
         <tr>
           <td>{{ $t('updatedBy') }}</td>
-          <td>{{ item['updatedBy'] }}</td>
+          <td>{{ item.updatedBy }}</td>
         </tr>
       </tbody>
     </table>

@@ -20,12 +20,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'project_type/item'
+      item: 'projectType/item'
     })
   },
   methods: {
     ...mapActions({
-      create: 'project_type/create'
+      create: 'projectType/create'
     }),
     onSendForm() {
       this.create().then(item => {

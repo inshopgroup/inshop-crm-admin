@@ -20,12 +20,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'invoice_type/item'
+      item: 'invoiceType/item'
     })
   },
   methods: {
     ...mapActions({
-      create: 'invoice_type/create'
+      create: 'invoiceType/create'
     }),
     onSendForm() {
       this.create().then(item => {

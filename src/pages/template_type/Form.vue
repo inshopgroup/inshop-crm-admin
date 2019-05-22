@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'template_type'" />
+      <item-errors :entity="'templateType'" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         :entity="'TemplateType'"
-        :path="'template_type'"
+        :path="'templateType'"
       />
     </section>
   </form>
@@ -47,15 +47,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'template_type/errors'
+      errors: 'templateType/errors'
     })
   },
   methods: {
     ...mapActions({
-      reset: 'template_type/reset'
+      reset: 'templateType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('template_type/TEMPLATE_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('templateType/TEMPLATE_TYPE_UPDATE_ITEM', {[property]: value})
     }
   }
 }

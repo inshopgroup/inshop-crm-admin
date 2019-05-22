@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('contact_value') }} "{{ item && item['value'] }}"</h1>
+      <h1>{{ $t('contact_value') }} "{{ item && item.value }}"</h1>
     </section>
     <section class="content">
       <item-errors :entity="'contact'" />
@@ -41,25 +41,29 @@
                     <th>{{ $t('value') }}</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody> 
                   <tr>
                     <td>{{ $t('contact_value') }}</td>
-                    <td>{{ item['value'] }}</td>
+                    <td>{{ item.value }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('contactType_name') }}</td>
-                    <td>{{ item['contactType']['name'] }}</td>
+                    <td>
+                      <template v-if="item.contactType">
+                        {{ item.contactType.name }}
+                      </template>
+                    </td>
                   </tr>
                   <tr>
                     <td>{{ $t('clients') }}</td>
                     <td>
                       <ul>
                         <li
-                          v-for="client in item['clients']"
+                          v-for="client in item.clients"
                           :key="client.id"
                         >
                           <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
-                            {{ client['name'] }}
+                            {{ client.name }}
                           </router-link>
                         </li>
                       </ul>
@@ -70,11 +74,11 @@
                     <td>
                       <ul>
                         <li
-                          v-for="company in item['companies']"
+                          v-for="company in item.companies"
                           :key="company.id"
                         >
                           <router-link :to="{name: 'CompanyShow', params: { id: company.id }}">
-                            {{ company['name'] }}
+                            {{ company.name }}
                           </router-link>
                         </li>
                       </ul>
@@ -90,7 +94,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updateBy'] }}</td>
+                    <td>{{ item.updateBy }}</td>
                   </tr>
                 </tbody>
               </table>

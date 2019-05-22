@@ -25,19 +25,19 @@
           <td>
             <router-link
               v-if="companyProduct"
-              :to="{name: 'CompanyShow', params: { id: companyProduct['company'].id }}"
+              :to="{name: 'CompanyShow', params: { id: companyProduct.company.id }}"
             >
-              {{ companyProduct['company']['name'] }}
+              {{ companyProduct.company.name }}
             </router-link>
           </td>
           <td>
-            {{ companyProduct['currency']['name'] }}
+            {{ companyProduct.currency.name }}
           </td>
           <td>
-            {{ companyProduct['priceBuyNetto'] }}
+            {{ companyProduct.priceBuyNetto }}
           </td>
           <td>
-            {{ companyProduct['availability'] }}
+            {{ companyProduct.availability }}
           </td>
           <td>
             {{ dateFormat(companyProduct.createdAt) }}

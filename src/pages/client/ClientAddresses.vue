@@ -50,7 +50,7 @@
               v-if="address"
               :to="{name: 'AddressShow', params: { id: address.id }}"
             >
-              {{ address['postCode'] }}
+              {{ address.postCode }}
             </router-link>
           </td>
           <td>
@@ -74,7 +74,7 @@
               v-if="address"
               :to="{name: 'AddressShow', params: { id: address.id }}"
             >
-              {{ address['region'] }}
+              {{ address.region }}
             </router-link>
           </td>
           <td>
@@ -82,7 +82,7 @@
               v-if="address"
               :to="{name: 'AddressShow', params: { id: address.id }}"
             >
-              {{ address['district'] }}
+              {{ address.district }}
             </router-link>
           </td>
           <td>
@@ -90,7 +90,7 @@
               v-if="address"
               :to="{name: 'AddressShow', params: { id: address.id }}"
             >
-              {{ address['street'] }}
+              {{ address.street }}
             </router-link>
           </td>
           <td>
@@ -98,7 +98,7 @@
               v-if="address"
               :to="{name: 'AddressShow', params: { id: address.id }}"
             >
-              {{ address['building'] }}
+              {{ address.building }}
             </router-link>
           </td>
           <td>
@@ -106,7 +106,7 @@
               v-if="address"
               :to="{name: 'AddressShow', params: { id: address.id }}"
             >
-              {{ address['apartment'] }}
+              {{ address.apartment }}
             </router-link>
           </td>
           <td>
@@ -114,7 +114,7 @@
               v-if="address"
               :to="{name: 'AddressShow', params: { id: address.id }}"
             >
-              {{ address['comment'] }}
+              {{ address.comment }}
             </router-link>
           </td>
           <td class="hidden-print">

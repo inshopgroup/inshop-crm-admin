@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'invoice_header'" />
+      <item-errors :entity="'invoiceHeader'" />
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">
@@ -241,7 +241,7 @@
       <item-edit-actions
         :item="item"
         :entity="'InvoiceHeader'"
-        :path="'invoice_header'"
+        :path="'invoiceHeader'"
       />
     </section>
   </form>
@@ -272,15 +272,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'invoice_header/errors'
+      errors: 'invoiceHeader/errors'
     })
   },
   methods: {
     ...mapActions({
-      reset: 'invoice_header/reset'
+      reset: 'invoiceHeader/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('invoice_header/INVOICE_HEADER_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('invoiceHeader/INVOICE_HEADER_UPDATE_ITEM', {[property]: value})
     },
     addLine () {
       this.item.lines.push({uuid: Date.now()})

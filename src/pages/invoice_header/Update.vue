@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'invoice_header/item'
+      item: 'invoiceHeader/item'
     })
   },
   created() {
@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'invoice_header/getItem',
-      update: 'invoice_header/update'
+      getItem: 'invoiceHeader/getItem',
+      update: 'invoiceHeader/update'
     }),
     onSendForm() {
       this.update().then(item => {

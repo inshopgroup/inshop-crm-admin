@@ -40,7 +40,7 @@ export default {
   props: {
     item: {
       type: Object,
-      default: null
+      default: () => {}
     },
     entity: {
       type: String,

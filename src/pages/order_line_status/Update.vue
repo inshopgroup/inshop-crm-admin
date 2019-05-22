@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'order_line_status/item'
+      item: 'orderLineStatus/item'
     })
   },
   created () {
@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'order_line_status/getItem',
-      update: 'order_line_status/update'
+      getItem: 'orderLineStatus/getItem',
+      update: 'orderLineStatus/update'
     }),
     onSendForm () {
       this.update().then(item => {

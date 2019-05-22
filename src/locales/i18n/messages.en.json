@@ -38,7 +38,6 @@
   "invoice_line_add": "Add invoice line",
   "product_sell_price_add": "Add sell price",
   "company_product_add": "Add",
-
   "company_list": "Companies list",
   "address_list": "Address list",
   "project_list": "Projects list",
@@ -77,7 +76,6 @@
   "user_list": "Users list",
   "invoice_line_list": "Invoice line list",
   "order_line_list": "Order line list",
-
   "company_edit": "Edit company \"{entity}\"",
   "address_edit": "Edit address \"{entity}\"",
   "brand_edit": "Edit brand {entity}",
@@ -116,7 +114,6 @@
   "invoice_line_edit": "Edit invoice line \"{entity}\"",
   "order_line_edit": "Edit order line \"{entity}\"",
   "company_product_edit": "Edit product \"{entity}\"",
-
   "address_deleted": "Address {entity} was deleted",
   "contact_deleted": "Contact {entity} was deleted",
   "product_sell_price_deleted": "Product sell price {product_sell_price} was deleted",
@@ -149,7 +146,6 @@
   "product_deleted": "Product {product} was deleted",
   "category_deleted": "Category {category} was deleted",
   "order_status_deleted": "Order status {order_status} was deleted",
-
   "address_saved": "Address {entity} was saved",
   "contact_saved": "Contact {entity} was saved",
   "product_sell_price_saved": "Product sell price {product_sell_price} was saved",
@@ -183,7 +179,6 @@
   "order_line_saved": "Order line {order_line} was saved",
   "category_saved": "Category {category} was saved",
   "city_saved": "City {city} was saved",
-
   "tabs_history": "History",
   "tabs_general": "General information",
   "tabs_addresses": "Addresses",
@@ -198,7 +193,6 @@
   "tabs_tasks": "Tasks",
   "tabs_clients": "Clients",
   "tabs_companies": "Companies",
-
   "contact_value": "Contact",
   "client_companies": "Company relations",
   "columnContacts": "Contacts",
@@ -416,5 +410,25 @@
   "yes": "Yes",
   "no": "No",
   "title": "Inshop CRM",
-  "text_title": "Title"
+  "text_title": "Title",
+  "signout": "Signout",
+  "tokenCreatedAt": "Token created at",
+  "addresses": "Addresses",
+  "addresses_country_name": "Country",
+  "addresses_city_name": "City",
+  "addresses_postCode": "Post code",
+  "bank_name": "Bank name",
+  "bank_account_number": "Bank account number",
+  "labels": "Labels",
+  "contactType": "Contact type",
+  "translations": "Translations",
+  "companyProducts": "Company products",
+  "status": "Status",
+  "assignee": "Assignee",
+  "file_download": "File download",
+  "isPublic": "Public",
+  "company_product": "Company product",
+  "image": "Image",
+  "backup_type": "Backup type",
+  "backup_status": "Backup status"
 }

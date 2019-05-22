@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'shipment_method'" />
+      <item-errors :entity="'shipmentMethod'" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         :entity="'ShipmentMethod'"
-        :path="'shipment_method'"
+        :path="'shipmentMethod'"
       />
     </section>
   </form>

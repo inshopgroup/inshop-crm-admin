@@ -1,10 +1,10 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['number'] }}</h1>
+      <h1>{{ item && item.number }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'invoice_header'" />
+      <item-errors :entity="'invoiceHeader'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
@@ -50,16 +50,16 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('number') }}</td>
-                    <td>{{ item['number'] }}</td>
+                    <td>{{ item.number }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('status_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['status']"
-                        :to="{name: 'InvoiceStatusShow', params: { id: item['status'].id }}"
+                        v-if="item.status"
+                        :to="{name: 'InvoiceStatusShow', params: { id: item.status.id }}"
                       >
-                        {{ item['status']['name'] }}
+                        {{ item.status.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -67,10 +67,10 @@
                     <td>{{ $t('type_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['type']"
-                        :to="{name: 'InvoiceTypeShow', params: { id: item['type'].id }}"
+                        v-if="item.type"
+                        :to="{name: 'InvoiceTypeShow', params: { id: item.type.id }}"
                       >
-                        {{ item['type']['name'] }}
+                        {{ item.type.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -79,10 +79,10 @@
                     <td>{{ $t('orderHeader_number') }}</td>
                     <td>
                       <router-link
-                        v-if="item['orderHeader']"
-                        :to="{name: 'OrderHeaderShow', params: { id: item['orderHeader'].id }}"
+                        v-if="item.orderHeader"
+                        :to="{name: 'OrderHeaderShow', params: { id: item.orderHeader.id }}"
                       >
-                        {{ item['orderHeader']['number'] }}
+                        {{ item.orderHeader.number }}
                       </router-link>
                     </td>
                   </tr>
@@ -90,10 +90,10 @@
                     <td>{{ $t('companyFrom_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['companyFrom']"
-                        :to="{name: 'CompanyShow', params: { id: item['companyFrom'].id }}"
+                        v-if="item.companyFrom"
+                        :to="{name: 'CompanyShow', params: { id: item.companyFrom.id }}"
                       >
-                        {{ item['companyFrom']['name'] }}
+                        {{ item.companyFrom.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -101,10 +101,10 @@
                     <td>{{ $t('companyTo_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['companyTo']"
-                        :to="{name: 'CompanyShow', params: { id: item['companyTo'].id }}"
+                        v-if="item.companyTo"
+                        :to="{name: 'CompanyShow', params: { id: item.companyTo.id }}"
                       >
-                        {{ item['companyTo']['name'] }}
+                        {{ item.companyTo.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -113,10 +113,10 @@
                     <td>{{ $t('agreement_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['agreement']"
-                        :to="{name: 'DocumentShow', params: { id: item['agreement'].id }}"
+                        v-if="item.agreement"
+                        :to="{name: 'DocumentShow', params: { id: item.agreement.id }}"
                       >
-                        {{ item['agreement']['name'] }}
+                        {{ item.agreement.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -124,10 +124,10 @@
                     <td>{{ $t('currency_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['currency']"
-                        :to="{name: 'CurrencyShow', params: { id: item['currency'].id }}"
+                        v-if="item.currency"
+                        :to="{name: 'CurrencyShow', params: { id: item.currency.id }}"
                       >
-                        {{ item['currency']['name'] }}
+                        {{ item.currency.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -135,10 +135,10 @@
                     <td>{{ $t('language_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['language']"
-                        :to="{name: 'LanguageShow', params: { id: item['language'].id }}"
+                        v-if="item.language"
+                        :to="{name: 'LanguageShow', params: { id: item.language.id }}"
                       >
-                        {{ item['language']['name'] }}
+                        {{ item.language.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -152,7 +152,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('maturity') }}</td>
-                    <td>{{ item['maturity'] }}</td>
+                    <td>{{ item.maturity }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('createdAt') }}</td>
@@ -164,7 +164,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -188,7 +188,7 @@
             <history
               :id="parseInt($route.params.id)"
               :entity="'InvoiceHeader'"
-              :path="'invoice_header'"
+              :path="'invoiceHeader'"
               :key="historyKey"
             />
           </div>
@@ -197,7 +197,7 @@
       <item-show-actions
         :item="item"
         :entity="'InvoiceHeader'"
-        :path="'invoice_header'"
+        :path="'invoiceHeader'"
       />
     </section>
   </div>
@@ -218,7 +218,7 @@ export default {
     }
   },
   computed: mapGetters({
-    item: 'invoice_header/item'
+    item: 'invoiceHeader/item'
   }),
   created() {
     this.getItem(this.$route.params.id)
@@ -228,8 +228,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'invoice_header/getItem',
-      reset: 'invoice_header/reset'
+      getItem: 'invoiceHeader/getItem',
+      reset: 'invoiceHeader/reset'
     })
   }
 }

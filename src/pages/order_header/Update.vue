@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'order_header/item'
+      item: 'orderHeader/item'
     })
   },
   created() {
@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'order_header/getItem',
-      update: 'order_header/update'
+      getItem: 'orderHeader/getItem',
+      update: 'orderHeader/update'
     }),
     onSendForm() {
       this.update().then(item => {

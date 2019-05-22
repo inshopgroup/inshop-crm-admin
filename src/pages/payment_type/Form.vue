@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'payment_type'" />
+      <item-errors :entity="'paymentType'" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         :entity="'PaymentType'"
-        :path="'payment_type'"
+        :path="'paymentType'"
       />
     </section>
   </form>
@@ -47,15 +47,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'payment_type/errors'
+      errors: 'paymentType/errors'
     })
   },
   methods: {
     ...mapActions({
-      reset: 'payment_type/reset'
+      reset: 'paymentType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('payment_type/PAYMENT_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('paymentType/PAYMENT_TYPE_UPDATE_ITEM', {[property]: value})
     }
   }
 }

@@ -1,10 +1,10 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'project_status'" />
+      <item-errors :entity="'projectStatus'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
@@ -43,7 +43,7 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('name') }}</td>
-                    <td>{{ item['name'] }}</td>
+                    <td>{{ item.name }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('createdAt') }}</td>
@@ -55,7 +55,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -68,7 +68,7 @@
             <history
               :id="parseInt($route.params.id)"
               :entity="'ProjectStatus'"
-              :path="'project_status'"
+              :path="'projectStatus'"
               :key="historyKey"
             />
           </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         :entity="'ProjectStatus'"
-        :path="'project_status'"
+        :path="'projectStatus'"
       />
     </section>
   </div>
@@ -97,7 +97,7 @@ export default {
     }
   },
   computed: mapGetters({
-    item: 'project_status/item'
+    item: 'projectStatus/item'
   }),
   created() {
     this.getItem(this.$route.params.id)
@@ -107,8 +107,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'project_status/getItem',
-      reset: 'project_status/reset'
+      getItem: 'projectStatus/getItem',
+      reset: 'projectStatus/reset'
     })
   }
 }

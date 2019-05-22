@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'project_type'" />
+      <item-errors :entity="'projectType'" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         :entity="'ProjectType'"
-        :path="'project_type'"
+        :path="'projectType'"
       />
     </section>
   </form>
@@ -47,15 +47,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'project_type/errors'
+      errors: 'projectType/errors'
     })
   },
   methods: {
     ...mapActions({
-      reset: 'project_type/reset'
+      reset: 'projectType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('project_type/PROJECT_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('projectType/PROJECT_TYPE_UPDATE_ITEM', {[property]: value})
     }
   }
 }

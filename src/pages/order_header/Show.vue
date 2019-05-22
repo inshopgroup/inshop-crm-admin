@@ -1,10 +1,10 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['number'] }}</h1>
+      <h1>{{ item && item.number }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'order_header'" />
+      <item-errors :entity="'orderHeader'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
@@ -50,16 +50,16 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('number') }}</td>
-                    <td>{{ item['number'] }}</td>
+                    <td>{{ item.number }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('client_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['client']"
-                        :to="{name: 'ClientShow', params: { id: item['client'].id }}"
+                        v-if="item.client"
+                        :to="{name: 'ClientShow', params: { id: item.client.id }}"
                       >
-                        {{ item['client']['name'] }}
+                        {{ item.client.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -67,10 +67,10 @@
                     <td>{{ $t('channel_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['channel']"
-                        :to="{name: 'ChannelShow', params: { id: item['channel'].id }}"
+                        v-if="item.channel"
+                        :to="{name: 'ChannelShow', params: { id: item.channel.id }}"
                       >
-                        {{ item['channel']['name'] }}
+                        {{ item.channel.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -78,10 +78,10 @@
                     <td>{{ $t('paymentType_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['paymentType']"
-                        :to="{name: 'PaymentTypeShow', params: { id: item['paymentType'].id }}"
+                        v-if="item.paymentType"
+                        :to="{name: 'PaymentTypeShow', params: { id: item.paymentType.id }}"
                       >
-                        {{ item['paymentType']['name'] }}
+                        {{ item.paymentType.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -89,10 +89,10 @@
                     <td>{{ $t('shipmentMethod_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['shipmentMethod']"
-                        :to="{name: 'ShipmentMethodShow', params: { id: item['shipmentMethod'].id }}"
+                        v-if="item.shipmentMethod"
+                        :to="{name: 'ShipmentMethodShow', params: { id: item.shipmentMethod.id }}"
                       >
-                        {{ item['shipmentMethod']['name'] }}
+                        {{ item.shipmentMethod.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -100,10 +100,10 @@
                     <td>{{ $t('status_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['status']"
-                        :to="{name: 'OrderStatusShow', params: { id: item['status'].id }}"
+                        v-if="item.status"
+                        :to="{name: 'OrderStatusShow', params: { id: item.status.id }}"
                       >
-                        {{ item['status']['name'] }}
+                        {{ item.status.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -111,10 +111,10 @@
                     <td>{{ $t('channel_currency_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['channel'] && item['channel']['currency']"
-                        :to="{name: 'CurrencyShow', params: { id: item['channel']['currency'].id }}"
+                        v-if="item.channel && item.channel.currency"
+                        :to="{name: 'CurrencyShow', params: { id: item.channel.currency.id }}"
                       >
-                        {{ item['channel']['currency']['name'] }}
+                        {{ item.channel.currency.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -128,7 +128,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -152,7 +152,7 @@
             <history
               :id="parseInt($route.params.id)"
               :entity="'OrderHeader'"
-              :path="'order_header'"
+              :path="'orderHeader'"
               :key="historyKey"
             />
           </div>
@@ -161,7 +161,7 @@
       <item-show-actions
         :item="item"
         :entity="'OrderHeader'"
-        :path="'order_header'"
+        :path="'orderHeader'"
       />
     </section>
   </div>
@@ -182,7 +182,7 @@ export default {
     }
   },
   computed: mapGetters({
-    item: 'order_header/item'
+    item: 'orderHeader/item'
   }),
   created() {
     this.getItem(this.$route.params.id)
@@ -192,8 +192,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'order_header/getItem',
-      reset: 'order_header/reset'
+      getItem: 'orderHeader/getItem',
+      reset: 'orderHeader/reset'
     })
   }
 }

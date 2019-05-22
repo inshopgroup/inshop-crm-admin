@@ -14,11 +14,11 @@
           </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'order_line_status'" />
+          <item-errors :entity="'orderLineStatus'" />
           <api-table
             :entity="'OrderLineStatus'"
             :route="'order_line_statuses'"
-            :path="'order_line_status'"
+            :path="'orderLineStatus'"
             :filterable="filterable"
             :columns="columns"
             :templates="templates"

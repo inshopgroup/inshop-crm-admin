@@ -24,16 +24,16 @@
           :key="productSellPrice.id"
         >
           <td>{{ productSellPrice.id }}</td>
-          <td>{{ productSellPrice['companyProduct']['company']['name'] }}</td>
-          <td>{{ productSellPrice['channel']['name'] }}</td>
-          <td>{{ productSellPrice['channel']['currency']['name'] }}</td>
-          <td>{{ productSellPrice['vat']['name'] }}</td>
-          <td>{{ productSellPrice['priceSellBrutto'] }}</td>
-          <td>{{ productSellPrice['priceOldSellBrutto'] }}</td>
-          <td>{{ dateFormat(productSellPrice['activeFrom']) }}</td>
-          <td>{{ dateFormat(productSellPrice['activeTo']) }}</td>
-          <td>{{ dateFormat(productSellPrice['createdAt']) }}</td>
-          <td>{{ dateFormat(productSellPrice['updatedAt']) }}</td>
+          <td>{{ productSellPrice.companyProduct.company.name }}</td>
+          <td>{{ productSellPrice.channel.name }}</td>
+          <td>{{ productSellPrice.channel.currency.name }}</td>
+          <td>{{ productSellPrice.vat.name }}</td>
+          <td>{{ productSellPrice.priceSellBrutto }}</td>
+          <td>{{ productSellPrice.priceOldSellBrutto }}</td>
+          <td>{{ dateFormat(productSellPrice.activeFrom) }}</td>
+          <td>{{ dateFormat(productSellPrice.activeTo) }}</td>
+          <td>{{ dateFormat(productSellPrice.createdAt) }}</td>
+          <td>{{ dateFormat(productSellPrice.updatedAt) }}</td>
         </tr>
       </tbody>
     </table>

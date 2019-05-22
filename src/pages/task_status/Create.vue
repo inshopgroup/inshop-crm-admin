@@ -20,12 +20,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'task_status/item'
+      item: 'taskStatus/item'
     })
   },
   methods: {
     ...mapActions({
-      create: 'task_status/create'
+      create: 'taskStatus/create'
     }),
     onSendForm( ) {
       this.create().then(item => {
