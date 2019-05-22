@@ -27,7 +27,7 @@
           {{ $t('assignee_name') }}:
           <router-link
             :to="{name: 'UserShow', params: { id: task.assignee.id }}"
-            v-if="task && task['assignee']"
+            v-if="task && task.assignee"
           >
             {{ task.assignee.name }}
           </router-link>
@@ -52,7 +52,7 @@ Vue.prototype.moment = moment
 export default {
   computed: {
     ...mapGetters({
-      tasks: 'task/items',
+      tasks: 'task/items'
     }),
     tasksPrepared() {
       this.tasks.forEach(task => {

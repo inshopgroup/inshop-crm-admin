@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'payment_type/item'
+      item: 'paymentType/item'
     })
   },
   created() {
@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'payment_type/getItem',
-      update: 'payment_type/update'
+      getItem: 'paymentType/getItem',
+      update: 'paymentType/update'
     }),
     onSendForm() {
       this.update().then(item => {

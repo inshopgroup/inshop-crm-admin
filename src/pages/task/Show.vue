@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
       <item-errors :entity="'task'" />
@@ -42,11 +42,11 @@
               <tbody>
                 <tr>
                   <td>{{ $t('name') }}</td>
-                  <td>{{ item['name'] }}</td>
+                  <td>{{ item.name }}</td>
                 </tr>
                 <tr>
                   <td>{{ $t('description') }}</td>
-                  <td>{{ item['description'] }}</td>
+                  <td>{{ item.description }}</td>
                 </tr>
                 <tr>
                   <td><b>{{ $t('status_name') }}</b></td>
@@ -60,10 +60,10 @@
                   <td>{{ $t('project_name') }}</td>
                   <td>
                     <router-link
-                      v-if="item['project']"
-                      :to="{name: 'ProjectShow', params: { id: item['project'].id }}"
+                      v-if="item.project"
+                      :to="{name: 'ProjectShow', params: { id: item.project.id }}"
                     >
-                      {{ item['project']['name'] }}
+                      {{ item.project.name }}
                     </router-link>
                   </td>
                 </tr>
@@ -71,20 +71,20 @@
                   <td>{{ $t('assignee_name') }}</td>
                   <td>
                     <router-link
-                      v-if="item['assignee']"
-                      :to="{name: 'UserShow', params: { id: item['assignee'].id }}"
+                      v-if="item.assignee"
+                      :to="{name: 'UserShow', params: { id: item.assignee.id }}"
                     >
-                      {{ item['assignee']['name'] }}
+                      {{ item.assignee.name }}
                     </router-link>
                   </td>
                 </tr>
                 <tr>
                   <td>{{ $t('timeEstimated') }}</td>
-                  <td>{{ item['timeEstimated'] }}</td>
+                  <td>{{ item.timeEstimated }}</td>
                 </tr>
                 <tr>
                   <td>{{ $t('timeSpent') }}</td>
-                  <td>{{ item['timeSpent'] }}</td>
+                  <td>{{ item.timeSpent }}</td>
                 </tr>
                 <tr>
                   <td>{{ $t('createdAt') }}</td>
@@ -96,7 +96,7 @@
                 </tr>
                 <tr>
                   <td>{{ $t('updatedBy') }}</td>
-                  <td>{{ item['updatedBy'] }}</td>
+                  <td>{{ item.updatedBy }}</td>
                 </tr>
               </tbody>
             </table>

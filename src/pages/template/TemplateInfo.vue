@@ -15,13 +15,13 @@
       <tbody>
         <tr>
           <td>{{ $t('name') }}</td>
-          <td>{{ item['name'] }}</td>
+          <td>{{ item.name }}</td>
         </tr>
         <tr>
           <td>{{ $t('type_name') }}</td>
           <td>
-            <div v-if="item['type']">
-              {{ item['type']['name'] }}
+            <div v-if="item.type">
+              {{ item.type.name }}
             </div>
           </td>
         </tr>
@@ -35,7 +35,7 @@
         </tr>
         <tr>
           <td>{{ $t('updatedBy') }}</td>
-          <td>{{ item['updatedBy'] }}</td>
+          <td>{{ item.updatedBy }}</td>
         </tr>
       </tbody>
     </table>
@@ -46,7 +46,10 @@
 export default {
   name: 'TemplateInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

@@ -2,7 +2,7 @@
   <field-select
     :item="{value: value}"
     property="value"
-    id="task_status"
+    id="taskStatus"
     :options="options"
     option-label="name"
     :multiple="true"
@@ -49,12 +49,12 @@ export default {
   },
   computed: {
     options() {
-      return this.$store.getters['task_status/items'] || []
+      return this.$store.getters['taskStatus/items'] || []
     }
   },
   methods: {
     ...mapActions({
-      getOptions: 'task_status/getItems',
+      getOptions: 'taskStatus/getItems',
     }),
     filterTable(property, data) {
       let ids = []

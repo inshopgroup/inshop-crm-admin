@@ -22,9 +22,9 @@
           :key="file.id"
         >
           <td>{{ file.id }}</td>
-          <td>{{ file['originalName'] }}</td>
-          <td>{{ bytes(file['size']) }}</td>
-          <td>{{ file['mimeType'] }}</td>
+          <td>{{ file.originalName }}</td>
+          <td>{{ bytes(file.size) }}</td>
+          <td>{{ file.mimeType }}</td>
           <td>{{ dateFormat(file.createdAt) }}</td>
           <td>
             <a
@@ -35,7 +35,7 @@
                 class="fa fa-download"
                 aria-hidden="true"
               />
-              <span class="sr-only">{{ $t('file.download') }}</span>
+              <span class="sr-only">{{ $t('file_download') }}</span>
             </a>
           </td>
         </tr>

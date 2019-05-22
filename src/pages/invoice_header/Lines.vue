@@ -25,10 +25,10 @@
           </td>
           <td>
             <router-link
-              v-if="line['product']"
-              :to="{name: 'ProductShow', params: { id: line['product'].id }}"
+              v-if="line.product"
+              :to="{name: 'ProductShow', params: { id: line.product.id }}"
             >
-              {{ line['product']['name'] }}
+              {{ line.product.name }}
             </router-link>
           </td>
 
@@ -37,10 +37,10 @@
           </td>
           <td>
             <router-link
-              v-if="line['vat']"
-              :to="{name: 'VatShow', params: { id: line['vat'].id }}"
+              v-if="line.vat"
+              :to="{name: 'VatShow', params: { id: line.vat.id }}"
             >
-              {{ line['vat']['name'] }}
+              {{ line.vat.name }}
             </router-link>
           </td>
           <td>

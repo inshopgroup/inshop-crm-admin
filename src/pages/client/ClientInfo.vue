@@ -16,11 +16,11 @@
         <tbody>
           <tr>
             <td>{{ $t('name') }}</td>
-            <td>{{ item['name'] }}</td>
+            <td>{{ item.name }}</td>
           </tr>
           <tr>
             <td>{{ $t('description') }}</td>
-            <td>{{ item['description'] }}</td>
+            <td>{{ item.description }}</td>
           </tr>
           <tr>
             <td>{{ $t('createdAt') }}</td>
@@ -32,7 +32,7 @@
           </tr>
           <tr>
             <td>{{ $t('updatedBy') }}</td>
-            <td>{{ item['updatedBy'] }}</td>
+            <td>{{ item.updatedBy }}</td>
           </tr>
         </tbody>
       </table>
@@ -44,7 +44,10 @@
 export default {
   name: 'ClientInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

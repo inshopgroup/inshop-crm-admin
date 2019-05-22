@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
       <item-errors :entity="'address'" />
@@ -46,11 +46,11 @@
                     <td>
                       <ul>
                         <li
-                          v-for="client in item['clients']"
+                          v-for="client in item.clients"
                           :key="client.id"
                         >
                           <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
-                            {{ client['name'] }}
+                            {{ client.name }}
                           </router-link>
                         </li>
                       </ul>
@@ -61,11 +61,11 @@
                     <td>
                       <ul>
                         <li
-                          v-for="company in item['companies']"
+                          v-for="company in item.companies"
                           :key="company.id"
                         >
                           <router-link :to="{name: 'CompanyShow', params: { id: company.id }}">
-                            {{ company['name'] }}
+                            {{ company.name }}
                           </router-link>
                         </li>
                       </ul>
@@ -73,16 +73,16 @@
                   </tr>
                   <tr>
                     <td>{{ $t('postCode') }}</td>
-                    <td>{{ item['postCode'] }}</td>
+                    <td>{{ item.postCode }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('country_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['country']"
-                        :to="{name: 'CountryShow', params: { id: item['country'].id }}"
+                        v-if="item.country"
+                        :to="{name: 'CountryShow', params: { id: item.country.id }}"
                       >
-                        {{ item['country']['name'] }}
+                        {{ item.country.name }}
                       </router-link>
                     </td>
                   </tr>
@@ -90,36 +90,36 @@
                     <td>{{ $t('city_name') }}</td>
                     <td>
                       <router-link
-                        v-if="item['city']"
-                        :to="{name: 'CityShow', params: { id: item['city'].id }}"
+                        v-if="item.city"
+                        :to="{name: 'CityShow', params: { id: item.city.id }}"
                       >
-                        {{ item['city']['name'] }}
+                        {{ item.city.name }}
                       </router-link>
                     </td>
                   </tr>
                   <tr>
                     <td>{{ $t('region') }}</td>
-                    <td>{{ item['region'] }}</td>
+                    <td>{{ item.region }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('district') }}</td>
-                    <td>{{ item['district'] }}</td>
+                    <td>{{ item.district }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('street') }}</td>
-                    <td>{{ item['street'] }}</td>
+                    <td>{{ item.street }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('building') }}</td>
-                    <td>{{ item['building'] }}</td>
+                    <td>{{ item.building }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('apartment') }}</td>
-                    <td>{{ item['apartment'] }}</td>
+                    <td>{{ item.apartment }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('comment') }}</td>
-                    <td>{{ item['comment'] }}</td>
+                    <td>{{ item.comment }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('createdAt') }}</td>
@@ -131,7 +131,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>

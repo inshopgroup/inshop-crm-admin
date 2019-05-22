@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
       <item-errors :entity="'channel'" />
@@ -43,14 +43,14 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('name') }}</td>
-                    <td>{{ item['name'] }}</td>
+                    <td>{{ item.name }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('currency_name') }}</td>
                     <td>
-                      <span v-if="item['currency']">
-                        {{ item['currency']['name'] }}
-                      </span>
+                      <template v-if="item.currency">
+                        {{ item.currency.name }}
+                      </template>
                     </td>
                   </tr>
                   <tr>
@@ -63,7 +63,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>

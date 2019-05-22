@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
       <item-errors :entity="'country'" />
@@ -43,7 +43,7 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('name') }}</td>
-                    <td>{{ item['name'] }}</td>
+                    <td>{{ item.name }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('createdAt') }}</td>
@@ -55,7 +55,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>

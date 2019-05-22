@@ -43,7 +43,7 @@
               v-if="contact"
               :to="{name: 'ContactShow', params: { id: contact.id }}"
             >
-              {{ contact['value'] }}
+              {{ contact.value }}
             </router-link>
           </td>
           <td>

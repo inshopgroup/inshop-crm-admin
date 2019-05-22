@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
       <item-errors :entity="'product'" />
@@ -61,15 +61,15 @@
                   </tr>
                   <tr>
                     <td>{{ $t('ean') }}</td>
-                    <td>{{ item['ean'] }}</td>
+                    <td>{{ item.ean }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('video') }}</td>
                     <td>
                       <a
                         target="_blank"
-                        :href="item['video']"
-                      >{{ item['video'] }}</a>
+                        :href="item.video"
+                      >{{ item.video }}</a>
                     </td>
                   </tr>
                   <tr>
@@ -86,7 +86,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>

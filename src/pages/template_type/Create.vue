@@ -20,12 +20,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'template_type/item'
+      item: 'templateType/item'
     })
   },
   methods: {
     ...mapActions({
-      create: 'template_type/create'
+      create: 'templateType/create'
     }),
     onSendForm() {
       this.create().then(item => {

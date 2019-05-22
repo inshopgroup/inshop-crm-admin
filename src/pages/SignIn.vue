@@ -67,7 +67,7 @@
 
 <script>
 import * as types from '../store/modules/auth/mutation_types'
-import {messages} from '../locales'
+import { messages } from '../locales'
 
 export default {
   name: 'SignIn',

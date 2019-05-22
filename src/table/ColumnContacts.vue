@@ -37,6 +37,11 @@
 
 <script>
 export default {
-  props: ['data', 'index', 'column']
+  props: {
+    data: {
+      type: Object,
+      default: () => {}
+    }
+  } 
 }
 </script>

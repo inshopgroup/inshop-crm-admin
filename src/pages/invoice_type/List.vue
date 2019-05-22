@@ -14,11 +14,11 @@
           </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'invoice_type'" />
+          <item-errors :entity="'invoiceType'" />
           <api-table
             :entity="'InvoiceType'"
             :route="'invoice_types'"
-            :path="'invoice_type'"
+            :path="'invoiceType'"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

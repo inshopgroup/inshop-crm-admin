@@ -16,47 +16,47 @@
         <tbody>
           <tr>
             <td>{{ $t('code') }}</td>
-            <td>{{ item['code'] }}</td>
+            <td>{{ item.code }}</td>
           </tr>
           <tr>
             <td>{{ $t('name') }}</td>
-            <td>{{ item['name'] }}</td>
+            <td>{{ item.name }}</td>
           </tr>
           <tr>
             <td>{{ $t('fullName') }}</td>
-            <td>{{ item['fullName'] }}</td>
+            <td>{{ item.fullName }}</td>
           </tr>
           <tr>
             <td>{{ $t('contactPerson') }}</td>
-            <td>{{ item['contactPerson'] }}</td>
+            <td>{{ item.contactPerson }}</td>
           </tr>
           <tr>
             <td>{{ $t('description') }}</td>
-            <td>{{ item['description'] }}</td>
+            <td>{{ item.description }}</td>
           </tr>
           <tr>
             <td>{{ $t('comment') }}</td>
-            <td>{{ item['comment'] }}</td>
+            <td>{{ item.comment }}</td>
           </tr>
           <tr>
             <td>{{ $t('bankName') }}</td>
-            <td>{{ item['bankName'] }}</td>
+            <td>{{ item.bankName }}</td>
           </tr>
           <tr>
             <td>{{ $t('bankAccountNumber') }}</td>
-            <td>{{ item['bankAccountNumber'] }}</td>
+            <td>{{ item.bankAccountNumber }}</td>
           </tr>
           <tr>
             <td>{{ $t('krs') }}</td>
-            <td>{{ item['krs'] }}</td>
+            <td>{{ item.krs }}</td>
           </tr>
           <tr>
             <td>{{ $t('nip') }}</td>
-            <td>{{ item['nip'] }}</td>
+            <td>{{ item.nip }}</td>
           </tr>
           <tr>
             <td>{{ $t('isVat') }}</td>
-            <td>{{ item['isVat'] }}</td>
+            <td>{{ item.isVat }}</td>
           </tr>
           <tr>
             <td>{{ $t('labels_id') }}</td>
@@ -65,13 +65,15 @@
                 v-for="label in item.labels"
                 :key="label.id"
               >
-                <span class="label label-primary">{{ label.name }}</span>
+                <template class="label label-primary">
+                  {{ label.name }}
+                </template>
               </div>
             </td>
           </tr>
           <tr>
             <td>{{ $t('vatComment') }}</td>
-            <td>{{ item['vatComment'] }}</td>
+            <td>{{ item.vatComment }}</td>
           </tr>
           <tr>
             <td>{{ $t('createdAt') }}</td>
@@ -83,7 +85,7 @@
           </tr>
           <tr>
             <td>{{ $t('updatedBy') }}</td>
-            <td>{{ item['updatedBy'] }}</td>
+            <td>{{ item.updatedBy }}</td>
           </tr>
         </tbody>
       </table>
@@ -95,7 +97,10 @@
 export default {
   name: 'CompanyInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

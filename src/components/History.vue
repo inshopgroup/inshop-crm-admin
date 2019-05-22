@@ -19,14 +19,14 @@
           :key="log.id"
         >
           <td>{{ log.id }}</td>
-          <td>{{ log['version'] }}</td>
-          <td>{{ log['action'] }}</td>
-          <td>{{ log['username'] }}</td>
-          <td>{{ dateFormat(log['loggedAt']) }}</td>
+          <td>{{ log.version }}</td>
+          <td>{{ log.action }}</td>
+          <td>{{ log.username }}</td>
+          <td>{{ dateFormat(log.loggedAt) }}</td>
           <td>
             <ul>
               <li
-                v-for="(value, property) in log['data']"
+                v-for="(value, property) in log.data"
                 :key="property"
               >
                 <b>{{ $t(property) }}:</b> {{ value }}

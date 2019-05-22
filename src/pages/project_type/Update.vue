@@ -20,7 +20,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'project_type/item'
+      item: 'projectType/item'
     })
   },
   created() {
@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'project_type/getItem',
-      update: 'project_type/update'
+      getItem: 'projectType/getItem',
+      update: 'projectType/update'
     }),
     onSendForm() {
       this.update().then(item => {

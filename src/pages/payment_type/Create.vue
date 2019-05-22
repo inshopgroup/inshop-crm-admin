@@ -20,12 +20,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'payment_type/item'
+      item: 'paymentType/item'
     })
   },
   methods: {
     ...mapActions({
-      create: 'payment_type/create'
+      create: 'paymentType/create'
     }),
     onSendForm() {
       this.create().then(item => {

@@ -1,7 +1,7 @@
 <template>
   <div :class="['inshop-form', isInvalid ? 'is-invalid' : '']">
     <label :for="fieldId"><span v-if="required">* </span>{{ label }}</label>
-    <div v-if="item[property]">
+    <div v-if="item.property">
       <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -15,7 +15,7 @@
         </thead>
         <tbody>
           <tr
-            v-for="file in item[property]"
+            v-for="file in item.property"
             :key="file.id"
           >
             <td>
@@ -48,7 +48,7 @@
       v-if="isInvalid"
       class="inshop-errors"
     >
-      {{ errors[property] }}
+      {{ errors.property }}
     </div>
   </div>
 </template>

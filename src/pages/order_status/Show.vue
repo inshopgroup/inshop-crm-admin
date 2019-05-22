@@ -1,10 +1,10 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'order_status'" />
+      <item-errors :entity="'orderStatus'" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
@@ -43,7 +43,7 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('name') }}</td>
-                    <td>{{ item['name'] }}</td>
+                    <td>{{ item.name }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('createdAt') }}</td>
@@ -55,7 +55,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -68,7 +68,7 @@
             <history
               :id="parseInt($route.params.id)"
               :entity="'OrderStatus'"
-              :path="'order_status'"
+              :path="'orderStatus'"
               :key="historyKey"
             />
           </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         :entity="'OrderStatus'"
-        :path="'order_status'"
+        :path="'orderStatus'"
       />
     </section>
   </div>
@@ -97,7 +97,7 @@ export default {
     }
   },
   computed: mapGetters({
-    item: 'order_status/item'
+    item: 'orderStatus/item'
   }),
   created() {
     this.getItem(this.$route.params.id)
@@ -107,8 +107,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'order_status/getItem',
-      reset: 'order_status/reset'
+      getItem: 'orderStatus/getItem',
+      reset: 'orderStatus/reset'
     })
   }
 }

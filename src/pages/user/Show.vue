@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item['name'] }}</h1>
+      <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
       <item-errors :entity="'user'" />
@@ -43,17 +43,17 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('name') }}</td>
-                    <td>{{ item['name'] }}</td>
+                    <td>{{ item.name }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('email') }}</td>
-                    <td>{{ item['email'] }}</td>
+                    <td>{{ item.email }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('groups_name') }}</td>
                     <td>
                       <div
-                        v-for="group in item['groups']"
+                        v-for="group in item.groups"
                         :key="group.id"
                       >
                         <i
@@ -79,8 +79,8 @@
                   </tr>
                   <tr>
                     <td>{{ $t('language_name') }}</td>
-                    <td v-if="item['language']">
-                      {{ item['language']['name'] }}
+                    <td v-if="item.language">
+                      {{ item.language.name }}
                     </td>
                   </tr>
                   <tr>
@@ -93,7 +93,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item['updatedBy'] }}</td>
+                    <td>{{ item.updatedBy }}</td>
                   </tr>
                 </tbody>
               </table>

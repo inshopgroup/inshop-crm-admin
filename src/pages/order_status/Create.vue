@@ -20,12 +20,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'order_status/item'
+      item: 'orderStatus/item'
     })
   },
   methods: {
     ...mapActions({
-      create: 'order_status/create'
+      create: 'orderStatus/create'
     }),
     onSendForm() {
       this.create().then(item => {

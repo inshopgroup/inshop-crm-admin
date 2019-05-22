@@ -7,7 +7,7 @@
       <tbody>
         <tr>
           <td>{{ $t('name') }}</td>
-          <td>{{ item['name'] }}</td>
+          <td>{{ item.name }}</td>
         </tr>
         <tr>
           <td>{{ $t('clients') }}</td>
@@ -49,7 +49,7 @@
         </tr>
         <tr>
           <td>{{ $t('updatedBy') }}</td>
-          <td>{{ item['updatedBy'] }}</td>
+          <td>{{ item.updatedBy }}</td>
         </tr>
       </tbody>
     </table>
@@ -60,7 +60,10 @@
 export default {
   name: 'DocumentInfo',
   props: {
-    item: null
+    item: {
+      type: Object,
+      default: null
+    }
   }
 }
 </script>

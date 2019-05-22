@@ -2,7 +2,7 @@
   <field-select
     :item="{value: value}"
     property="value"
-    id="backup_type"
+    id="backupType"
     :options="options"
     option-label="name"
     :multiple="true"
@@ -49,12 +49,12 @@ export default {
   },
   computed: {
     options() {
-      return this.$store.getters['backup_type/items'] || []
+      return this.$store.getters['backupType/items'] || []
     }
   },
   methods: {
     ...mapActions({
-      getOptions: 'backup_type/getItems',
+      getOptions: 'backupType/getItems',
     }),
     filterTable(property, data) {
       let ids = []

@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'order_status'" />
+      <item-errors :entity="'orderStatus'" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         :entity="'OrderStatus'"
-        :path="'order_status'"
+        :path="'orderStatus'"
       />
     </section>
   </form>
@@ -47,15 +47,15 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'order_status/errors'
+      errors: 'orderStatus/errors'
     })
   },
   methods: {
     ...mapActions({
-      reset: 'order_status/reset'
+      reset: 'orderStatus/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('order_status/ORDER_STATUS_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('orderStatus/ORDER_STATUS_UPDATE_ITEM', {[property]: value})
     }
   }
 }
