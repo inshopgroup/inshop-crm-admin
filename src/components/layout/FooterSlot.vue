@@ -5,7 +5,7 @@
       {{ moment().format('YYYY') }}, <a
         href="https://inshopcrm.com"
         target="_blank"
-      >Inshop CRM, v1.3.2</a>
+      >Inshop CRM, v1.4.0</a>
     </div>
     <!-- Default to the left -->
     {{ $t('powered_by') }} <a
