@@ -55,7 +55,7 @@ export default {
       reset: 'shipmentMethod/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('shipmentMethod/SHIPMENT_STATUS_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('shipment_status/SHIPMENT_STATUS_UPDATE_ITEM', {[property]: value})
     }
   }
 }
