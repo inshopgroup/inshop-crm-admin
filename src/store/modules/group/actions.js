@@ -14,7 +14,7 @@ export const getItem = ({ commit }, id) => {
       data.roles.forEach(role => {
         roles.push(role['@id'])
       })
-      data.roleIRIs= roles
+      data.roleIRIs = roles
 
       commit(namespace + '_SET_ITEM', data)
     })

@@ -66,7 +66,7 @@
   "project_status_list": "Project status list",
   "project_type_list": "Project type list",
   "shipment_method_list": "Shipment method list",
-  "task_list": "Edit task \"{entity}\"",
+  "task_list": "Task list",
   "task_status_list": "Task status list",
   "template_list": "Template list",
   "template_type_list": "Template type list",
@@ -430,5 +430,7 @@
   "company_product": "Company product",
   "image": "Image",
   "backup_type": "Backup type",
-  "backup_status": "Backup status"
+  "backup_status": "Backup status",
+  "task_edit": "Task edit",
+  "module_address": "Module address"
 }

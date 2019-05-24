@@ -16,7 +16,7 @@
         <div class="box-body">
           <item-errors :entity="'shipmentMethod'" />
           <api-table
-            :entity="'ShipmentMethod'"
+            :entity="'shipmentMethod'"
             :route="'shipment_methods'"
             :path="'shipmentMethod'"
             :filterable="filterable"

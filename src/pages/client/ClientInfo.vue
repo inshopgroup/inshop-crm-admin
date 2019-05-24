@@ -32,7 +32,7 @@
           </tr>
           <tr>
             <td>{{ $t('updatedBy') }}</td>
-            <td>{{ item.updatedBy }}</td>
+            <td>{{ dateFormat(item.updatedBy) }}</td>
           </tr>
         </tbody>
       </table>
@@ -43,6 +43,11 @@
 <script>
 export default {
   name: 'ClientInfo',
+  data: function() {
+    return {
+      real: true
+    }
+  },
   props: {
     item: {
       type: Object,

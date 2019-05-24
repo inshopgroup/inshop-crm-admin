@@ -24,7 +24,7 @@
                 :item="item"
                 :errors="errors"
                 :property="'status'"
-                :option-store="'invoiceHeaderStatus'"
+                :option-store="'invoiceStatus'"
                 label="status_name"
                 @formUpdated="updateValue"
               />
@@ -58,7 +58,7 @@
                 :item="item"
                 :errors="errors"
                 :property="'type'"
-                :option-store="'invoiceHeaderType'"
+                :option-store="'invoiceType'"
                 label="type_name"
                 @formUpdated="updateValue"
               />
