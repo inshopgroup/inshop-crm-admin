@@ -229,11 +229,9 @@ export default {
     }),
     lines () {
       let lines = this.item.lines
-      // console.log(this.item.lines)
-      // lines.forEach(line => {
-      //   line.product = line.productSellPrice.product
-      // })
-
+      lines.forEach(line => {
+        line.product = line.productSellPrice.product
+      })
       return lines
     },
     isLoading () {
