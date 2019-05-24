@@ -24,7 +24,7 @@
                 :item="item"
                 :errors="errors"
                 :property="'status'"
-                :option-store="'orderHeaderStatus'"
+                :option-store="'orderStatus'"
                 label="status_name"
                 @formUpdated="updateValue"
               />
@@ -229,11 +229,9 @@ export default {
     }),
     lines () {
       let lines = this.item.lines
-
       lines.forEach(line => {
         line.product = line.productSellPrice.product
       })
-
       return lines
     },
     isLoading () {

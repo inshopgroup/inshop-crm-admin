@@ -47,12 +47,12 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'shipment_status/errors'
+      errors: 'shipmentMethod/errors'
     })
   },
   methods: {
     ...mapActions({
-      reset: 'shipment_status/reset'
+      reset: 'shipmentMethod/reset'
     }),
     updateValue(property, value) {
       this.$store.commit('shipment_status/SHIPMENT_STATUS_UPDATE_ITEM', {[property]: value})

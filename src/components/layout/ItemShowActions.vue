@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6" />
       <div class="col-md-6">
-        <div class="pull-right">
+        <div class="pull-right btn-toolbar">
           <button
             type="button"
             class="btn btn-info"

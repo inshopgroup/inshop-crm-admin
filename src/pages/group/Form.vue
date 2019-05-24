@@ -16,7 +16,7 @@
             v-for="module in modules"
             :key="module.id"
           >
-            <h2>{{ $t('module.' + module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
+            <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
             <span
               v-for="role in module.roles"
               style="margin-left: 20px;"

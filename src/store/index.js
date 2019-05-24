@@ -25,7 +25,6 @@ import history from './modules/history/'
 import user from './modules/user/'
 import brand from './modules/brand/'
 import channel from './modules/channel/'
-
 import address from './modules/address/'
 import category from './modules/category/'
 import city from './modules/city/'
