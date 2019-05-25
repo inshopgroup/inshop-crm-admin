@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import store from '../store'
+import SignIn from '../pages/SignIn'
+import MainSlot from '../components/layout/MainSlot'
+
 import taskRoutes from './task'
 import backupRoutes from './backup'
 import companyRoutes from './company'
@@ -17,7 +21,6 @@ import userRoutes from './user'
 import groupRoutes from './group'
 import contactRoutes from './contact'
 import contactTypeRoutes from './contactType'
-
 import labelRoutes from './label'
 import addressRoutes from './address'
 import categoryRoutes from './category'
@@ -40,10 +43,7 @@ import dashboardRoutes from './dashboard'
 import brandRoutes from './brand'
 import channelRoutes from './channel'
 import textRoutes from './text'
-
-import SignIn from '../pages/SignIn'
-import MainSlot from '../components/layout/MainSlot'
-import store from '../store'
+import historyRoutes from './history'
 
 Vue.use(VueRouter)
 
@@ -84,7 +84,6 @@ const router = new VueRouter({
         ...contactTypeRoutes,
         ...groupRoutes,
         ...channelRoutes,
-
         ...addressRoutes,
         ...categoryRoutes,
         ...cityRoutes,
@@ -101,6 +100,7 @@ const router = new VueRouter({
         ...projectStatusRoutes,
         ...projectTypeRoutes,
         ...taskStatusRoutes,
+        ...historyRoutes,
         ...vatRoutes
       ],
       meta: {

@@ -372,7 +372,7 @@
 
         <li
           class="treeview"
-          v-if="isGranted('ROLE_BACKUP_LIST')"
+          v-if="isGranted('ROLE_BACKUP_LIST') || isGranted('ROLE_HISTORY_LIST')"
         >
           <a href="#">
             <i class="fa fa-cogs" /> <span>{{ $t('maintenance') }}</span>
@@ -384,6 +384,11 @@
             <li v-if="isGranted('ROLE_BACKUP_LIST')">
               <router-link :to="{ name: 'BackupList' }">
                 <i class="fa fa-database" /> <span>{{ $t('backup') }}</span>
+              </router-link>
+            </li>
+            <li v-if="isGranted('ROLE_HISTORY_LIST')">
+              <router-link :to="{ name: 'HistoryList' }">
+                <i class="fa fa-hourglass" /> <span>{{ $t('history') }}</span>
               </router-link>
             </li>
           </ul>
