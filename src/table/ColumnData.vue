@@ -1,7 +1,10 @@
 <template>
   <div style="width: 400px;">
     <ul>
-      <li v-for="(value, property) in data.data" :key="property + data.id">
+      <li
+        v-for="(value, property) in data.data"
+        :key="property + data.id"
+      >
         <b>{{ propName(property) }}:</b> {{ value }}
       </li>
     </ul>

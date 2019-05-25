@@ -44,16 +44,11 @@ export default {
   computed: {
     username() {
       return this.$store.getters['auth/jwtDecoded']['name']
-    },
-    language() {
-      return this.$store.getters['auth/language']
     }
   },
   methods: {
     SignOut() {
-      this.$store.dispatch('auth/logout').then(() => {
-        this.$i18n.locale = this.language
-      })
+      this.$store.dispatch('auth/logout')
     }
   }
 }
