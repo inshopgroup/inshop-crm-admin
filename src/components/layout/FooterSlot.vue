@@ -1,22 +1,28 @@
 <template>
   <footer class="main-footer">
-    <!-- To the right -->
     <div class="pull-right hidden-xs">
-      {{ moment().format('YYYY') }}, <a
-        href="https://inshopcrm.com"
-        target="_blank"
+      {{ fecha.format(new Date(), 'YYYY') }},
+      <a
+          href="https://inshopcrm.com"
+          target="_blank"
       >Inshop CRM, v1.4.0</a>
     </div>
-    <!-- Default to the left -->
-    {{ $t('powered_by') }} <a
-      href="https://inshopgroup.com"
-      target="_blank"
+    {{ $t('powered_by') }}
+    <a
+        href="https://inshopgroup.com"
+        target="_blank"
     >Inshop Group</a>
   </footer>
 </template>
 
 <script>
-export default {
-  name: 'FooterSlot'
-}
+  import fecha from 'fecha'
+  export default {
+    name: 'FooterSlot',
+    data () {
+      return {
+        fecha: fecha
+      }
+    }
+  }
 </script>

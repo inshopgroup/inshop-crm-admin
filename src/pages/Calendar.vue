@@ -15,7 +15,7 @@
           </router-link>
         </h3>
         <p class="time">
-          {{ moment(task.deadline).format('DD-MM-YYYY') }}
+          {{ dateFormat(task.deadline, 'YYYY-MM-DD') }}
         </p>
         <p>
           {{ $t('client') }}:
@@ -56,7 +56,7 @@ export default {
     }),
     tasksPrepared() {
       this.tasks.forEach(task => {
-        task.date = moment(task.deadline).format('YYYY/M/D')
+        task.date = this.dateFormat(task.deadline, 'YYYY/M/D')
         task.title = task.name
       })
 
