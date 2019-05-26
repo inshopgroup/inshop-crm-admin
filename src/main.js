@@ -41,7 +41,7 @@ Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default')
 Vue.use(vueEventCalendar, { locale: 'en', weekStartOn: 1 }) //locale can be 'zh' , 'en' , 'es', 'pt-br', 'ja', 'ko', 'fr', 'it', 'ru', 'de', 'vi', 'ua'
 Vue.use(VueSentry, {
-  enable: process.env.NODE_ENV === 'production' && process.env.SENTRY_PUBLIC_KEY !== '',
+  enable: process.env.SENTRY_PUBLIC_KEY !== '',
   key: process.env.SENTRY_PUBLIC_KEY,
   project: process.env.SENTRY_PROJECT_ID,
   server: process.env.SENTRY_SERVER,
