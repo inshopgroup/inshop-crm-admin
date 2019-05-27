@@ -10,11 +10,11 @@
         <!--<router-link :to="{ name: 'BackupCreate' }" class="btn btn-primary pull-right">{{$t('backup_add')}}</router-link>-->
         <!--</div>-->
         <div class="box-body">
-          <item-errors :entity="'backup'" />
+          <item-errors entity="backup" />
           <api-table
-            :entity="'Backup'"
-            :route="'backups'"
-            :path="'backup'"
+            entity="Backup"
+            route="backups"
+            path="backup"
             :filterable="filterable"
             :custom-filters="customFilters"
             :sortable="sortable"

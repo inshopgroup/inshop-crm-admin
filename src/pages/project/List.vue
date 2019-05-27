@@ -14,11 +14,11 @@
           </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'project'" />
+          <item-errors entity="project" />
           <api-table
-            :entity="'Project'"
-            :route="'projects'"
-            :path="'project'"
+            entity="Project"
+            route="projects"
+            path="project"
             :filterable="filterable"
             :custom-filters="customFilters"
             :sortable="sortable"

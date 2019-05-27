@@ -1,71 +1,71 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'address'" />
+      <item-errors entity="address" />
       <div class="box box-primary">
         <div class="box-body">
           <form-select
             :item="item"
             :errors="errors"
-            :property="'country'"
-            :option-store="'country'"
+            property="country"
+            option-store="country"
             label="country"
             @formUpdated="updateValue"
           />
           <form-select
             :item="item"
             :errors="errors"
-            :property="'city'"
-            :option-store="'city'"
+            property="city"
+            option-store="city"
             label="city"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'region'"
+            property="region"
             label="region"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'district'"
+            property="district"
             label="district"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'postCode'"
+            property="postCode"
             label="postCode"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'street'"
+            property="street"
             label="street"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'building'"
+            property="building"
             label="building"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'apartment'"
+            property="apartment"
             label="apartment"
             @formUpdated="updateValue"
           />
           <form-textarea
             :item="item"
             :errors="errors"
-            :property="'comment'"
+            property="comment"
             label="comment"
             @formUpdated="updateValue"
           />
@@ -73,8 +73,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Address'"
-        :path="'address'"
+        entity="Address"
+        path="address"
         v-if="showActions"
       />
     </section>

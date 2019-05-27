@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'group'" />
+      <item-errors entity="group" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
@@ -26,7 +26,7 @@
                 :id="role['@id']"
                 :item="{value: item.roleIRIs.includes(role['@id'])}"
                 :errors="errors"
-                :property="'value'"
+                property="value"
                 :label="role.name.toLowerCase()"
                 @formUpdated="updateRole"
               />
@@ -36,8 +36,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Group'"
-        :path="'group'"
+        entity="Group"
+        path="group"
       />
     </section>
   </form>

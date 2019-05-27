@@ -4,7 +4,7 @@
       <h1>{{ $t('contact_value') }} "{{ item && item.value }}"</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'contact'" />
+      <item-errors entity="contact" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
@@ -106,8 +106,8 @@
           >
             <history
               :id="parseInt($route.params.id)"
-              :entity="'Contact'"
-              :path="'contact'"
+              entity="Contact"
+              path="contact"
               :key="historyKey"
             />
           </div>
@@ -115,8 +115,8 @@
       </div>
       <item-show-actions
         :item="item"
-        :entity="'Contact'"
-        :path="'contact'"
+        entity="Contact"
+        path="contact"
       />
     </section>
   </div>

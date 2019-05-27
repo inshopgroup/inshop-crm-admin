@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'client'" />
+      <item-errors entity="client" />
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">
@@ -12,14 +12,14 @@
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
           <form-textarea
             :item="item"
             :errors="errors"
-            :property="'description'"
+            property="description"
             label="description"
             @formUpdated="updateValue"
           />
@@ -47,10 +47,10 @@
       <!--<tbody>-->
       <!--<tr v-for="contact in item.contacts" :key="contact.id">-->
       <!--<td>-->
-      <!--<form-input :item="contact" :errors="errors" :property="'value'" :label="'contact.value'" @formUpdated="updateValue"></form-input>-->
+      <!--<form-input :item="contact" :errors="errors" property="value" label="contact.value" @formUpdated="updateValue"></form-input>-->
       <!--</td>-->
       <!--<td>-->
-      <!--<form-select :item="contact" :errors="errors" :property="'contactType'" :option-store="'contactType'" :label="'contact.contactType'" @formUpdated="updateValue"></form-select>-->
+      <!--<form-select :item="contact" :errors="errors" property="contactType" option-store="contactType'" :label="contact.contactType" @formUpdated="updateValue"></form-select>-->
       <!--</td>-->
       <!--<td>-->
       <!--<button class="btn btn-info" @click.prevent="removeContact(contact)">-->
@@ -87,13 +87,13 @@
       <!--<tbody>-->
       <!--<tr v-for="project in item.projects" :key="project.id">-->
       <!--<td>-->
-      <!--<form-input :item="project" :errors="errors" :property="'name'" :label="'project.name'" @formUpdated="updateValue"></form-input>-->
+      <!--<form-input :item="project" :errors="errors" property="name" label="project.name" @formUpdated="updateValue"></form-input>-->
       <!--</td>-->
       <!--<td>-->
-      <!--<form-select :item="project" :errors="errors" :property="'type'" :option-store="'projectType'" :label="'project.type'" @formUpdated="updateValue"></form-select>-->
+      <!--<form-select :item="project" :errors="errors" property="type" option-store="projectType" label="project.type" @formUpdated="updateValue"></form-select>-->
       <!--</td>-->
       <!--<td>-->
-      <!--<form-select :item="project" :errors="errors" :property="'status'" :option-store="'projectStatus'" :label="'project.status'" @formUpdated="updateValue"></form-select>-->
+      <!--<form-select :item="project" :errors="errors" property="status" option-store="projectStatus" label="project.status" @formUpdated="updateValue"></form-select>-->
       <!--</td>-->
       <!--<td>-->
       <!--<button class="btn btn-info" @click.prevent="removeProject(project)">-->
@@ -108,8 +108,8 @@
       <!--</div>-->
       <item-edit-actions
         :item="item"
-        :entity="'Client'"
-        :path="'client'"
+        entity="Client"
+        path="client"
       />
     </section>
   </form>

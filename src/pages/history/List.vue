@@ -7,12 +7,12 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-list-errors :entity="'history'" />
+          <item-list-errors entity="history" />
 
           <api-table
-            :entity="'History'"
-            :route="'histories'"
-            :path="'history'"
+            entity="History"
+            route="histories"
+            path="history"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

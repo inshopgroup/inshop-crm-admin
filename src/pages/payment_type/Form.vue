@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'paymentType'" />
+      <item-errors entity="paymentType" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
@@ -15,8 +15,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'PaymentType'"
-        :path="'paymentType'"
+        entity="PaymentType"
+        path="paymentType"
       />
     </section>
   </form>

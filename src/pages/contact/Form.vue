@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'contact'" />
+      <item-errors entity="contact" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -23,8 +23,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Contact'"
-        :path="'contact'"
+        entity="Contact"
+        path="contact"
         v-if="showActions"
       />
     </section>

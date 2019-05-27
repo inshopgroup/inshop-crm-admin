@@ -14,11 +14,11 @@
           </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'paymentType'" />
+          <item-errors entity="paymentType" />
           <api-table
-            :entity="'PaymentType'"
-            :route="'payment_types'"
-            :path="'paymentType'"
+            entity="PaymentType"
+            route="payment_types"
+            path="paymentType"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

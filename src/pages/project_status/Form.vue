@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'projectStatus'" />
+      <item-errors entity="projectStatus" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
@@ -15,8 +15,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'ProjectStatus'"
-        :path="'projectStatus'"
+        entity="ProjectStatus"
+        path="projectStatus"
       />
     </section>
   </form>

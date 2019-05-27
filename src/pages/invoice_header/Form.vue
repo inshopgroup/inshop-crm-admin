@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'invoiceHeader'" />
+      <item-errors entity="invoiceHeader" />
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">
@@ -14,7 +14,7 @@
               <form-input
                 :item="item"
                 :errors="errors"
-                :property="'number'"
+                property="number"
                 label="number"
                 @formUpdated="updateValue"
               />
@@ -23,8 +23,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'status'"
-                :option-store="'invoiceStatus'"
+                property="status"
+                option-store="invoiceStatus"
                 label="status_name"
                 @formUpdated="updateValue"
               />
@@ -35,8 +35,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'companyFrom'"
-                :option-store="'company'"
+                property="companyFrom"
+                option-store="company"
                 label="companyFrom_name"
                 @formUpdated="updateValue"
               />
@@ -45,8 +45,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'companyTo'"
-                :option-store="'company'"
+                property="companyTo"
+                option-store="company"
                 label="companyTo_name"
                 @formUpdated="updateValue"
               />
@@ -57,8 +57,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'type'"
-                :option-store="'invoiceType'"
+                property="type"
+                option-store="invoiceType"
                 label="type_name"
                 @formUpdated="updateValue"
               />
@@ -67,8 +67,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'currency'"
-                :option-store="'currency'"
+                property="currency"
+                option-store="currency"
                 label="currency_name"
                 @formUpdated="updateValue"
               />
@@ -79,8 +79,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'agreement'"
-                :option-store="'document'"
+                property="agreement"
+                option-store="document"
                 label="agreement_name"
                 @formUpdated="updateValue"
               />
@@ -89,8 +89,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'language'"
-                :option-store="'language'"
+                property="language"
+                option-store="language"
                 label="language_name"
                 @formUpdated="updateValue"
               />
@@ -101,7 +101,7 @@
               <form-date-picker
                 :item="item"
                 :errors="errors"
-                :property="'dateOfInvoice'"
+                property="dateOfInvoice"
                 label="dateOfInvoice"
                 @formUpdated="updateValue"
               />
@@ -110,7 +110,7 @@
               <form-input
                 :item="item"
                 :errors="errors"
-                :property="'maturity'"
+                property="maturity"
                 label="maturity"
                 @formUpdated="updateValue"
               />
@@ -121,7 +121,7 @@
               <form-date-picker
                 :item="item"
                 :errors="errors"
-                :property="'dateOfSale'"
+                property="dateOfSale"
                 label="dateOfSale"
                 @formUpdated="updateValue"
               />
@@ -130,8 +130,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'orderHeader'"
-                :option-store="'orderHeader'"
+                property="orderHeader"
+                option-store="orderHeader"
                 label="orderHeader_number"
                 @formUpdated="updateValue"
               />
@@ -177,8 +177,8 @@
                   <form-select
                     :item="line"
                     :errors="errors"
-                    :property="'product'"
-                    :option-store="'product'"
+                    property="product"
+                    option-store="product"
                     label="product_name"
                     @formUpdated="updateValue"
                   />
@@ -187,7 +187,7 @@
                   <form-input
                     :item="line"
                     :errors="errors"
-                    :property="'name'"
+                    property="name"
                     label="name"
                     @formUpdated="updateValue"
                   />
@@ -196,8 +196,8 @@
                   <form-select
                     :item="line"
                     :errors="errors"
-                    :property="'vat'"
-                    :option-store="'vat'"
+                    property="vat"
+                    option-store="vat"
                     label="vat_name"
                     @formUpdated="updateValue"
                   />
@@ -206,7 +206,7 @@
                   <form-number
                     :item="line"
                     :errors="errors"
-                    :property="'unitPriceNetto'"
+                    property="unitPriceNetto"
                     label="unitPriceNetto"
                     @formUpdated="updateValue"
                   />
@@ -215,7 +215,7 @@
                   <form-number
                     :item="line"
                     :errors="errors"
-                    :property="'unitsCount'"
+                    property="unitsCount"
                     label="unitsCount"
                     @formUpdated="updateValue"
                   />
@@ -240,8 +240,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'InvoiceHeader'"
-        :path="'invoiceHeader'"
+        entity="InvoiceHeader"
+        path="invoiceHeader"
       />
     </section>
   </form>
