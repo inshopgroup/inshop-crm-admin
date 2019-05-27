@@ -1,21 +1,21 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'template'" />
+      <item-errors entity="template" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
           <form-select
             :item="item"
             :errors="errors"
-            :property="'type'"
-            :option-store="'templateType'"
+            property="type"
+            option-store="templateType"
             label="type_name"
             @formUpdated="updateValue"
           />
@@ -35,8 +35,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Template'"
-        :path="'template'"
+        entity="Template"
+        path="template"
       />
     </section>
   </form>

@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'orderHeader'" />
+      <item-errors entity="orderHeader" />
       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">
@@ -14,7 +14,7 @@
               <form-input
                 :item="item"
                 :errors="errors"
-                :property="'number'"
+                property="number"
                 label="number"
                 @formUpdated="updateValue"
               />
@@ -23,8 +23,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'status'"
-                :option-store="'orderStatus'"
+                property="status"
+                option-store="orderStatus"
                 label="status_name"
                 @formUpdated="updateValue"
               />
@@ -35,8 +35,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'channel'"
-                :option-store="'channel'"
+                property="channel"
+                option-store="channel"
                 label="channel_name"
                 @formUpdated="updateValue"
               />
@@ -45,8 +45,8 @@
               <form-select-autocomplete
                 :item="item"
                 :errors="errors"
-                :property="'client'"
-                :option-store="'channel'"
+                property="client"
+                option-store="channel"
                 label="client_name"
                 @formUpdated="updateValue"
               />
@@ -57,8 +57,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'paymentType'"
-                :option-store="'paymentType'"
+                property="paymentType"
+                option-store="paymentType"
                 label="paymentType_name"
                 @formUpdated="updateValue"
               />
@@ -67,8 +67,8 @@
               <form-select
                 :item="item"
                 :errors="errors"
-                :property="'shipmentMethod'"
-                :option-store="'shipmentMethod'"
+                property="shipmentMethod"
+                option-store="shipmentMethod"
                 label="shipmentMethod_name"
                 @formUpdated="updateValue"
               />
@@ -115,8 +115,8 @@
                   <form-select
                     :item="line"
                     :errors="errors"
-                    :property="'status'"
-                    :option-store="'orderLineStatus'"
+                    property="status"
+                    option-store="orderLineStatus"
                     label="status_name"
                     @formUpdated="updateValue"
                   />
@@ -125,8 +125,8 @@
                   <form-select
                     :item="line"
                     :errors="errors"
-                    :property="'product'"
-                    :option-store="'product'"
+                    property="product"
+                    option-store="product"
                     label="product_name"
                     @formUpdated="updateValue"
                     @input="productSelected(line)"
@@ -136,8 +136,8 @@
                   <form-select
                     :item="line"
                     :errors="errors"
-                    :property="'productSellPrice'"
-                    :option-store="'product_sell_price'"
+                    property="productSellPrice"
+                    option-store="product_sell_price"
                     label="productSellPrice_name"
                     @formUpdated="updateValue"
                     @input="productSelected(line)"
@@ -147,7 +147,7 @@
                   <form-input
                     :item="line"
                     :errors="errors"
-                    :property="'name'"
+                    property="name"
                     label="name"
                     @formUpdated="updateValue"
                   />
@@ -156,8 +156,8 @@
                   <form-select
                     :item="line"
                     :errors="errors"
-                    :property="'vat'"
-                    :option-store="'vat'"
+                    property="vat"
+                    option-store="vat"
                     label="vat_name"
                     @formUpdated="updateValue"
                     @input="productSelected(line)"
@@ -167,7 +167,7 @@
                   <form-number
                     :item="line"
                     :errors="errors"
-                    :property="'priceSellBrutto'"
+                    property="priceSellBrutto"
                     label="priceSellBrutto"
                     @formUpdated="updateValue"
                   />
@@ -192,8 +192,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'OrderHeader'"
-        :path="'orderHeader'"
+        entity="OrderHeader"
+        path="orderHeader"
       />
     </section>
   </form>

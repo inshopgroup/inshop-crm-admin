@@ -1,21 +1,21 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'document'" />
+      <item-errors entity="document" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
           <form-select
             :item="item"
             :errors="errors"
-            :property="'client'"
-            :option-store="'client'"
+            property="client"
+            option-store="client"
             label="clients"
             :multiple="true"
             @formUpdated="updateValue"
@@ -23,8 +23,8 @@
           <form-select
             :item="item"
             :errors="errors"
-            :property="'projects'"
-            :option-store="'project'"
+            property="projects"
+            option-store="project"
             label="projects"
             :multiple="true"
             @formUpdated="updateValue"
@@ -45,8 +45,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Document'"
-        :path="'document'"
+        entity="Document"
+        path="document"
       />
     </section>
   </form>

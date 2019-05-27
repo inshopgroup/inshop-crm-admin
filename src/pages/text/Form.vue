@@ -1,41 +1,41 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'text'" />
+      <item-errors entity="text" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'title'"
+            property="title"
             label="text_title"
             @formUpdated="updateValue"
           />
           <form-textarea
             :item="item"
             :errors="errors"
-            :property="'content'"
+            property="content"
             label="content"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'seoTitle'"
+            property="seoTitle"
             label="seoTitle"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'seoDescription'"
+            property="seoDescription"
             label="seoDescription"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'seoKeywords'"
+            property="seoKeywords"
             label="seoKeywords"
             @formUpdated="updateValue"
           />
@@ -43,8 +43,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Text'"
-        :path="'text'"
+        entity="Text"
+        path="text"
       />
     </section>
   </form>

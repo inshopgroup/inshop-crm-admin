@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <section class="content">
-      <item-errors :entity="'product'" />
+      <item-errors entity="product" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li
@@ -26,14 +26,14 @@
             <form-input
               :item="findItem(language)"
               :errors="errors"
-              :property="'name'"
+              property="name"
               label="name"
               @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
             />
             <form-textarea
               :item="findItem(language)"
               :errors="errors"
-              :property="'description'"
+              property="description"
               label="description"
               @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
             />
@@ -45,30 +45,30 @@
           <form-select
             :item="item"
             :errors="errors"
-            :property="'brand'"
-            :option-store="'brand'"
+            property="brand"
+            option-store="brand"
             label="brand_name"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'ean'"
+            property="ean"
             label="ean"
             @formUpdated="updateValue"
           />
           <form-select-autocomplete
             :item="item"
             :errors="errors"
-            :property="'category'"
-            :option-store="'category'"
+            property="category"
+            option-store="category"
             label="category_name"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'video'"
+            property="video"
             label="video"
             @formUpdated="updateValue"
           />
@@ -88,8 +88,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Product'"
-        :path="'product'"
+        entity="Product"
+        path="product"
       />
     </section>
   </form>

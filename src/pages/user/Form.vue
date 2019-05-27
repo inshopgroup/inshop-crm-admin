@@ -1,29 +1,29 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'user'" />
+      <item-errors entity="user" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'username'"
+            property="username"
             label="email"
             @formUpdated="updateValue"
           />
-          <!--      <form-password :item="item" :errors="errors" :property="'plainPassword'" label="password" @formUpdated="updateValue"></form-password>-->
+          <!--      <form-password :item="item" :errors="errors" property="plainPassword" label="password" @formUpdated="updateValue"></form-password>-->
           <form-select
             :item="item"
             :errors="errors"
-            :property="'groups'"
-            :option-store="'group'"
+            property="groups"
+            option-store="group"
             label="groups_name"
             :multiple="true"
             @formUpdated="updateValue"
@@ -31,15 +31,15 @@
           <form-checkbox
             :item="item"
             :errors="errors"
-            :property="'isActive'"
+            property="isActive"
             label="isActive"
             @formUpdated="updateValue"
           />
           <form-select
             :item="item"
             :errors="errors"
-            :property="'language'"
-            :option-store="'language'"
+            property="language"
+            option-store="language"
             label="language_name"
             @formUpdated="updateValue"
           />
@@ -47,8 +47,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'User'"
-        :path="'user'"
+        entity="User"
+        path="user"
       />
     </section>
   </form>

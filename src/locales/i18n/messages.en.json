@@ -437,5 +437,9 @@
   "backup_type": "Backup type",
   "backup_status": "Backup status",
   "task_edit": "Task edit",
-  "module_address": "Module address"
+  "module_address": "Module address",
+  "header": "Header",
+  "companyFrom": "Company from",
+  "companyTo": "Company to",
+  "agreement": "Agreement"
 }

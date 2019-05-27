@@ -14,11 +14,11 @@
           </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'taskStatus'" />
+          <item-errors entity="taskStatus" />
           <api-table
-            :entity="'TaskStatus'"
-            :route="'task_statuses'"
-            :path="'taskStatus'"
+            entity="TaskStatus"
+            route="task_statuses"
+            path="taskStatus"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

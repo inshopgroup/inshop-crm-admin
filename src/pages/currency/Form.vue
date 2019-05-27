@@ -1,20 +1,20 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'currency'" />
+      <item-errors entity="currency" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
             :item="item"
             :errors="errors"
-            :property="'name'"
+            property="name"
             label="name"
             @formUpdated="updateValue"
           />
           <form-input
             :item="item"
             :errors="errors"
-            :property="'code'"
+            property="code"
             label="code"
             @formUpdated="updateValue"
           />
@@ -22,8 +22,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Currency'"
-        :path="'currency'"
+        entity="Currency"
+        path="currency"
       />
     </section>
   </form>

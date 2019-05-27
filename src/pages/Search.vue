@@ -7,12 +7,12 @@
     <section class="content">
       <div class="box box-primary">
         <div class="box-body">
-          <item-errors :entity="'text'" />
+          <item-errors entity="text" />
 
           <api-table
-            :entity="'Search'"
-            :route="'search'"
-            :path="'search'"
+            entity="Search"
+            route="search"
+            path="search"
             :filterable="filterable"
             :columns="columns"
             :templates="templates"

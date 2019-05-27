@@ -4,7 +4,7 @@
       <h1>{{ item && item.name }}</h1>
     </section>
     <section class="content">
-      <item-errors :entity="'task'" />
+      <item-errors entity="task" />
       <div
         class="nav-tabs-custom"
         v-if="item"
@@ -107,8 +107,8 @@
           >
             <history
               :id="parseInt($route.params.id)"
-              :entity="'Task'"
-              :path="'task'"
+              entity="Task"
+              path="task"
               :key="historyKey"
             />
           </div>
@@ -116,8 +116,8 @@
       </div>
       <item-show-actions
         :item="item"
-        :entity="'Task'"
-        :path="'task'"
+        entity="Task"
+        path="task"
       />
     </section>
   </div>

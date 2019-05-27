@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <section class="content">
-      <item-errors :entity="'category'" />
+      <item-errors entity="category" />
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li
@@ -26,14 +26,14 @@
             <form-input
               :item="findItem(language)"
               :errors="errors"
-              :property="'name'"
+              property="name"
               label="name"
               @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
             />
             <form-textarea
               :item="findItem(language)"
               :errors="errors"
-              :property="'description'"
+              property="description"
               label="description"
               @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
             />
@@ -45,22 +45,22 @@
           <form-select
             :item="item"
             :errors="errors"
-            :property="'parent'"
-            :option-store="'category'"
+            property="parent"
+            option-store="category"
             label="parent_name"
             @formUpdated="updateValue"
           />
           <form-number
             :item="item"
             :errors="errors"
-            :property="'position'"
+            property="position"
             label="position"
             @formUpdated="updateValue"
           />
           <form-checkbox
             :item="item"
             :errors="errors"
-            :property="'isActive'"
+            property="isActive"
             label="isActive"
             @formUpdated="updateValue"
           />
@@ -68,8 +68,8 @@
       </div>
       <item-edit-actions
         :item="item"
-        :entity="'Category'"
-        :path="'category'"
+        entity="Category"
+        path="category"
       />
     </section>
   </form>

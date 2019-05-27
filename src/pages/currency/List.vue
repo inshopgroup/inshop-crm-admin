@@ -14,11 +14,11 @@
           </router-link>
         </div>
         <div class="box-body">
-          <item-errors :entity="'currency'" />
+          <item-errors entity="currency" />
           <api-table
-            :entity="'Currency'"
-            :route="'currencies'"
-            :path="'currency'"
+            entity="Currency"
+            route="currencies"
+            path="currency"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"
