@@ -16,7 +16,7 @@
     props: {
       data: {
         type: Object,
-        default: () => {}
+        default: () => ({})
       }
     },
     methods: {
