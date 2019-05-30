@@ -3,7 +3,7 @@ import fecha from 'fecha'
 
 export default {
   methods: {
-    dateFormat(date, format = 'DD-MM-YYYY HH:mm') {
+    crmDateFormat(date, format = 'DD-MM-YYYY HH:mm') {
       if (date) {
         return fecha.format(fecha.parse(date, 'YYYY-MM-DDTHH:mm:ss'), format)
       }

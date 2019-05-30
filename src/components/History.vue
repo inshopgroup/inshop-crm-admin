@@ -22,7 +22,7 @@
           <td>{{ log.version }}</td>
           <td>{{ log.action }}</td>
           <td>{{ log.username }}</td>
-          <td>{{ dateFormat(log.loggedAt) }}</td>
+          <td>{{ crmDateFormat(log.loggedAt) }}</td>
           <td>
             <ul>
               <li

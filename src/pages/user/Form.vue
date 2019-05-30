@@ -18,7 +18,13 @@
             label="email"
             @formUpdated="updateValue"
           />
-          <!--      <form-password :item="item" :errors="errors" property="plainPassword" label="password" @formUpdated="updateValue"></form-password>-->
+          <form-password
+            :item="item"
+            :errors="errors"
+            property="plainPassword"
+            label="password"
+            @formUpdated="updateValue"
+          />
           <form-select
             :item="item"
             :errors="errors"
@@ -57,7 +63,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
-import ItemErrors from "../../components/layout/errors/ItemErrors"
+import ItemErrors from '../../components/layout/errors/ItemErrors'
 
 export default {
   components: {

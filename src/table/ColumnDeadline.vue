@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ dateFormat(data['deadline']) }}
+    {{ crmDateFormat(data['deadline']) }}
   </div>
 </template>
 

@@ -54,7 +54,7 @@
                 </tr>
                 <tr>
                   <td><b>{{ $t('deadline') }}</b></td>
-                  <td><b>{{ dateFormat(item.deadline) }}</b></td>
+                  <td><b>{{ crmDateFormat(item.deadline) }}</b></td>
                 </tr>
                 <tr>
                   <td>{{ $t('project_name') }}</td>
@@ -88,11 +88,11 @@
                 </tr>
                 <tr>
                   <td>{{ $t('createdAt') }}</td>
-                  <td>{{ dateFormat(item.createdAt) }}</td>
+                  <td>{{ crmDateFormat(item.createdAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{ $t('updatedAt') }}</td>
-                  <td>{{ dateFormat(item.updatedAt) }}</td>
+                  <td>{{ crmDateFormat(item.updatedAt) }}</td>
                 </tr>
                 <tr>
                   <td>{{ $t('updatedBy') }}</td>

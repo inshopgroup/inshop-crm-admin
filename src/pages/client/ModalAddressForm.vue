@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import AddressForm from "../address/Form"
+import AddressForm from '../address/Form'
 
 export default {
   name: 'ModalAddressForm',

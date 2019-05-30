@@ -15,7 +15,7 @@
             :item="item"
             :errors="errors"
             property="country"
-            store-path="country"
+            option-store="country"
             label="country_name"
             @formUpdated="updateValue"
           />

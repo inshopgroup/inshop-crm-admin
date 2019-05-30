@@ -78,7 +78,7 @@
 <script>
 import ItemEditActions from '../../components/layout/ItemEditActions'
 import { mapActions, mapGetters } from 'vuex'
-import ItemErrors from "../../components/layout/errors/ItemErrors"
+import ItemErrors from '../../components/layout/errors/ItemErrors'
 
 export default {
   components: {

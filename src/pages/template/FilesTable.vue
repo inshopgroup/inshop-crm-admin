@@ -25,7 +25,7 @@
           <td>{{ file.originalName }}</td>
           <td>{{ bytes(file.size) }}</td>
           <td>{{ file.mimeType }}</td>
-          <td>{{ dateFormat(file.createdAt) }}</td>
+          <td>{{ crmDateFormat(file.createdAt) }}</td>
           <td>
             <a
               href="#"

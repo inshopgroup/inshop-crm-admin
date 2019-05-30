@@ -30,10 +30,10 @@
           <td>{{ productSellPrice.vat.name }}</td>
           <td>{{ productSellPrice.priceSellBrutto }}</td>
           <td>{{ productSellPrice.priceOldSellBrutto }}</td>
-          <td>{{ dateFormat(productSellPrice.activeFrom) }}</td>
-          <td>{{ dateFormat(productSellPrice.activeTo) }}</td>
-          <td>{{ dateFormat(productSellPrice.createdAt) }}</td>
-          <td>{{ dateFormat(productSellPrice.updatedAt) }}</td>
+          <td>{{ crmDateFormat(productSellPrice.activeFrom) }}</td>
+          <td>{{ crmDateFormat(productSellPrice.activeTo) }}</td>
+          <td>{{ crmDateFormat(productSellPrice.createdAt) }}</td>
+          <td>{{ crmDateFormat(productSellPrice.updatedAt) }}</td>
         </tr>
       </tbody>
     </table>

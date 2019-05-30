@@ -15,7 +15,7 @@
           </router-link>
         </h3>
         <p class="time">
-          {{ dateFormat(task.deadline, 'YYYY-MM-DD') }}
+          {{ crmDateFormat(task.deadline, 'YYYY-MM-DD') }}
         </p>
         <p>
           {{ $t('client') }}:
@@ -56,7 +56,7 @@ export default {
     }),
     tasksPrepared() {
       this.tasks.forEach(task => {
-        task.date = this.dateFormat(task.deadline, 'YYYY/M/D')
+        task.date = this.crmDateFormat(task.deadline, 'YYYY/M/D')
         task.title = task.name
       })
 

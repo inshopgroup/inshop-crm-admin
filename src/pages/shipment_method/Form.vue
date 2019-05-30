@@ -25,7 +25,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
-import ItemErrors from "../../components/layout/errors/ItemErrors"
+import ItemErrors from '../../components/layout/errors/ItemErrors'
 
 export default {
   components: {
@@ -55,7 +55,7 @@ export default {
       reset: 'shipmentMethod/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('shipment_status/SHIPMENT_STATUS_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('shipmentMethod/SHIPMENT_METHOD_UPDATE_ITEM', { [property]: value })
     }
   }
 }

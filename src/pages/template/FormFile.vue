@@ -24,7 +24,7 @@
             <td>{{ file.originalName }}</td>
             <td>{{ filesize(file.size) }}</td>
             <td>{{ file.mimeType }}</td>
-            <td>{{ dateFormat(file.createdAt) }}</td>
+            <td>{{ crmDateFormat(file.createdAt) }}</td>
             <td>
               <button
                 type="button"
@@ -54,8 +54,8 @@
 </template>
 
 <script>
-import "../../sass/styles.scss"
-import filesize from "filesize"
+import '../../sass/styles.scss'
+import filesize from 'filesize'
 
 export default {
   name: 'FormFile',

@@ -11,7 +11,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@inshopgroup/vue-inshop-crm-form-components": "^1.0.19",
+    "@inshopgroup/vue-inshop-crm-form-components": "^1.0.20",
     "admin-lte": "^2.4.9",
     "axios": "^0.18.0",
     "bootstrap": "^3.4.1",
