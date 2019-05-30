@@ -25,6 +25,15 @@
             label="password"
             @formUpdated="updateValue"
           />
+          <form-select
+            :item="item"
+            :errors="errors"
+            property="groups"
+            option-store="group"
+            label="groups_name"
+            :multiple="true"
+            @formUpdated="updateValue"
+          />
           <form-checkbox
             :item="item"
             :errors="errors"

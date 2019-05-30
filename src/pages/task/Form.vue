@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors :entity="'task'" />
+      <item-errors entity="task" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
