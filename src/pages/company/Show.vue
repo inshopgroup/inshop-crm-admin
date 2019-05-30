@@ -91,8 +91,8 @@ import CompanyInfo from './CompanyInfo'
 import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
-import ClientContacts from "../client/ClientContacts"
-import ClientAddresses from "../client/ClientAddresses"
+import ClientContacts from '../client/ClientContacts'
+import ClientAddresses from '../client/ClientAddresses'
 
 export default {
   components: {

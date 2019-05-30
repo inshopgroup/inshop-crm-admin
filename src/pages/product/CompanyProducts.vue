@@ -40,10 +40,10 @@
             {{ companyProduct.availability }}
           </td>
           <td>
-            {{ dateFormat(companyProduct.createdAt) }}
+            {{ crmDateFormat(companyProduct.createdAt) }}
           </td>
           <td>
-            {{ dateFormat(companyProduct.updatedAt) }}
+            {{ crmDateFormat(companyProduct.updatedAt) }}
           </td>
         </tr>
       </tbody>

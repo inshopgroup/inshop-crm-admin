@@ -118,7 +118,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
-import ItemErrors from "../../components/layout/errors/ItemErrors"
+import ItemErrors from '../../components/layout/errors/ItemErrors'
 
 export default {
   components: {
@@ -175,7 +175,7 @@ export default {
     //   })
     // },
     updateValue(property, value) {
-      this.$store.commit('client/CLIENT_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('client/CLIENT_UPDATE_ITEM', { [property]: value })
     },
   }
 }

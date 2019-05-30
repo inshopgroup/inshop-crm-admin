@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ dateFormat(data.loggedAt) }}
+    {{ crmDateFormat(data.loggedAt) }}
   </div>
 </template>
 

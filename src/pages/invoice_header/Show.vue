@@ -144,11 +144,11 @@
                   </tr>
                   <tr>
                     <td>{{ $t('dateOfInvoice') }}</td>
-                    <td>{{ dateFormat(item.dateOfInvoice) }}</td>
+                    <td>{{ crmDateFormat(item.dateOfInvoice) }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('dateOfSale') }}</td>
-                    <td>{{ dateFormat(item.dateOfSale) }}</td>
+                    <td>{{ crmDateFormat(item.dateOfSale) }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('maturity') }}</td>
@@ -156,11 +156,11 @@
                   </tr>
                   <tr>
                     <td>{{ $t('createdAt') }}</td>
-                    <td>{{ dateFormat(item.createdAt) }}</td>
+                    <td>{{ crmDateFormat(item.createdAt) }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('updatedAt') }}</td>
-                    <td>{{ dateFormat(item.updatedAt) }}</td>
+                    <td>{{ crmDateFormat(item.updatedAt) }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>

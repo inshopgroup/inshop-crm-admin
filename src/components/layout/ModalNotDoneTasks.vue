@@ -93,12 +93,12 @@
                     href="#"
                     @click="goto(task)"
                   >
-                    {{ dateFormat(task['deadline']) }}
+                    {{ crmDateFormat(task['deadline']) }}
                   </a>
                 </td>
                 <!--<td>-->
               <!--<a href="#" @click="goto(task)">-->
-                <!--{{ dateFormat(task['createdAt']) }}-->
+                <!--{{ crmDateFormat(task['createdAt']) }}-->
               <!--</a>-->
                 <!--</td>-->
               </tr>

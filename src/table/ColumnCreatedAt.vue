@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ dateFormat(data['createdAt']) }}
+    {{ crmDateFormat(data['createdAt']) }}
   </div>
 </template>
 

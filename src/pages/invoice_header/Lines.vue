@@ -50,10 +50,10 @@
             {{ line.unitsCount }}
           </td>
           <td>
-            {{ dateFormat(item.createdAt) }}
+            {{ crmDateFormat(item.createdAt) }}
           </td>
           <td>
-            {{ dateFormat(item.updatedAt) }}
+            {{ crmDateFormat(item.updatedAt) }}
           </td>
         </tr>
       </tbody>

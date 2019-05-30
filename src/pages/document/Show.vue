@@ -70,7 +70,7 @@ import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import FilesTable from '../template/FilesTable'
 import History from '../../components/History'
-import DocumentInfo from "./DocumentInfo"
+import DocumentInfo from './DocumentInfo'
 
 export default {
   components: { DocumentInfo, History, FilesTable, ItemErrors, ItemShowActions },

@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import ContactForm from "../contact/Form"
+import ContactForm from '../contact/Form'
 
 export default {
   name: 'ModalContactForm',

@@ -45,8 +45,8 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
-import ItemErrors from "../../components/layout/errors/ItemErrors"
-import axios from "../../interceptor"
+import ItemErrors from '../../components/layout/errors/ItemErrors'
+import axios from '../../interceptor'
 
 export default {
   components: {

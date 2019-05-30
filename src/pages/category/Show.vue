@@ -70,11 +70,11 @@
                   </tr>
                   <tr>
                     <td>{{ $t('createdAt') }}</td>
-                    <td>{{ dateFormat(item.createdAt) }}</td>
+                    <td>{{ crmDateFormat(item.createdAt) }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('updatedAt') }}</td>
-                    <td>{{ dateFormat(item.updatedAt) }}</td>
+                    <td>{{ crmDateFormat(item.updatedAt) }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('updatedBy') }}</td>
