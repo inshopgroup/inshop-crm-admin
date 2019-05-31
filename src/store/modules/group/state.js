@@ -2,7 +2,7 @@ export default function () {
   return {
     item: {
       roles: [],
-      roleIds: []
+      roleIRIs: []
     },
     items: [],
     error: null,
