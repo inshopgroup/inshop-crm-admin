@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="user-groups">
     <section class="content-header">
       <h1>{{ $t('group_add') }}</h1>
     </section>
