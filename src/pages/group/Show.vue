@@ -75,6 +75,7 @@
             <div
               v-for="module in modules"
               :key="module.id"
+              class="role"
             >
               <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
               <ul v-if="item && item.roles">
@@ -151,3 +152,19 @@ export default {
   }
 }
 </script>
+
+<style>
+  .role {
+    display: inline-block;
+    margin: 15px;
+    width: 22%;
+    vertical-align: top;
+  }
+  .role h2 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .role ul {
+    padding-left: 18px;
+  }
+</style>

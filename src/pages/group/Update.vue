@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="user-groups">
     <section class="content-header">
       <h1>{{ $t('group_edit', {entity: item && item.name}) }}</h1>
     </section>
@@ -39,3 +39,26 @@ export default {
   }
 }
 </script>
+
+<style>
+  .user-groups .inshop-form {
+    padding: 0;
+  }
+  .user-groups .form-group {
+    display: inline-block;
+    margin: 15px;
+    width: 22%;
+    vertical-align: top;
+  }
+  .user-groups .form-group h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .user-groups #roles h2 {
+    font-size: 20px;
+  }
+  .user-groups .inshop-form label.checkbox {
+    font-size: 17px;
+    font-weight: normal;
+  }
+</style>
