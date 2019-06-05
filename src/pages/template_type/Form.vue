@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         entity="TemplateType"
-        path="templateType"
+        path="template_type"
       />
     </section>
   </form>

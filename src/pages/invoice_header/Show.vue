@@ -188,7 +188,7 @@
             <history
               :id="parseInt($route.params.id)"
               entity="InvoiceHeader"
-              path="invoiceHeader"
+              path="invoice_header"
               :key="historyKey"
             />
           </div>
@@ -197,7 +197,7 @@
       <item-show-actions
         :item="item"
         entity="InvoiceHeader"
-        path="invoiceHeader"
+        path="invoice_header"
       />
     </section>
   </div>

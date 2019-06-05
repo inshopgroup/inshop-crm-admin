@@ -18,7 +18,7 @@
           <api-table
             entity="OrderHeader"
             route="order_headers"
-            path="orderHeader"
+            path="order_header"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

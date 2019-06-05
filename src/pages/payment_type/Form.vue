@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         entity="PaymentType"
-        path="paymentType"
+        path="payment_type"
       />
     </section>
   </form>

@@ -68,7 +68,7 @@
             <history
               :id="parseInt($route.params.id)"
               entity="ProjectStatus"
-              path="projectStatus"
+              path="project_status"
               :key="historyKey"
             />
           </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         entity="ProjectStatus"
-        path="projectStatus"
+        path="project_status"
       />
     </section>
   </div>

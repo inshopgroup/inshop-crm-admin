@@ -18,7 +18,7 @@
           <api-table
             entity="ProjectType"
             route="project_types"
-            path="projectType"
+            path="project_type"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

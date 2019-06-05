@@ -18,7 +18,7 @@
           <api-table
             entity="InvoiceType"
             route="invoice_types"
-            path="invoiceType"
+            path="invoice_type"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

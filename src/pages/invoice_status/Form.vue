@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         entity="InvoiceStatus"
-        path="invoiceStatus"
+        path="invoice_status"
       />
     </section>
   </form>

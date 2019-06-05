@@ -12,6 +12,13 @@
           <form-input
             :item="item"
             :errors="errors"
+            property="username"
+            label="email"
+            @formUpdated="updateValue"
+          />
+          <form-input
+            :item="item"
+            :errors="errors"
             property="name"
             label="name"
             @formUpdated="updateValue"

@@ -18,7 +18,7 @@
           <api-table
             entity="ContactType"
             route="contact_types"
-            path="contactType"
+            path="contact_type"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

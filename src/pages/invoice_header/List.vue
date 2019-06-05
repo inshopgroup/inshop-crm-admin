@@ -18,7 +18,7 @@
           <api-table
             entity="InvoiceHeader"
             route="invoice_headers"
-            path="invoiceHeader"
+            path="invoice_header"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

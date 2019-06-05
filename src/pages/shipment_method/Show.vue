@@ -68,7 +68,7 @@
             <history
               :id="parseInt($route.params.id)"
               entity="ShipmentMethod"
-              path="shipmentMethod"
+              path="shipment_method"
               :key="historyKey"
             />
           </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         entity="ShipmentMethod"
-        path="shipmentMethod"
+        path="shipment_method"
       />
     </section>
   </div>

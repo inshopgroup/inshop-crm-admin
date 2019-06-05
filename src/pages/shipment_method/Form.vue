@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         entity="ShipmentMethod"
-        path="shipmentMethod"
+        path="shipment_method"
       />
     </section>
   </form>

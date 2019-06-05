@@ -18,7 +18,7 @@
           <api-table
             entity="PaymentType"
             route="payment_types"
-            path="paymentType"
+            path="payment_type"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

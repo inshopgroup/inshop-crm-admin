@@ -18,7 +18,7 @@
           <api-table
             entity="ProjectStatus"
             route="project_statuses"
-            path="projectStatus"
+            path="project_status"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

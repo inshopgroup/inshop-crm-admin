@@ -18,7 +18,7 @@
           <api-table
             entity="TaskStatus"
             route="task_statuses"
-            path="taskStatus"
+            path="task_status"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

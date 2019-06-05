@@ -68,7 +68,7 @@
             <history
               :id="parseInt($route.params.id)"
               entity="TemplateType"
-              path="templateType"
+              path="template_type"
               :key="historyKey"
             />
           </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         entity="TemplateType"
-        path="templateType"
+        path="template_type"
       />
     </section>
   </div>

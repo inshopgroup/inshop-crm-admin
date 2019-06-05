@@ -18,7 +18,7 @@
           <api-table
             entity="InvoiceStatus"
             route="invoice_statuses"
-            path="invoiceStatus"
+            path="invoice_status"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

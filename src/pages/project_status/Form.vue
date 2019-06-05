@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         entity="ProjectStatus"
-        path="projectStatus"
+        path="project_status"
       />
     </section>
   </form>
