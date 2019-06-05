@@ -69,7 +69,7 @@
           <history
             :id="parseInt($route.params.id)"
             entity="OrderLineStatus"
-            path="orderLineStatus"
+            path="order_line_status"
             :key="historyKey"
           />
         </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         entity="OrderLineStatus"
-        path="orderLineStatus"
+        path="order_line_status"
       />
     </section>
   </div>

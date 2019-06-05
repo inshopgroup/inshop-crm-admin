@@ -68,7 +68,7 @@
             <history
               :id="parseInt($route.params.id)"
               entity="TaskStatus"
-              path="taskStatus"
+              path="task_status"
               :key="historyKey"
             />
           </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         entity="TaskStatus"
-        path="taskStatus"
+        path="task_status"
       />
     </section>
   </div>

@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         entity="OrderStatus"
-        path="orderStatus"
+        path="order_status"
       />
     </section>
   </form>

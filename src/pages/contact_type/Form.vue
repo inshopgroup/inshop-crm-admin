@@ -16,7 +16,7 @@
       <item-edit-actions
         :item="item"
         entity="ContactType"
-        path="contactType"
+        path="contact_type"
       />
     </section>
   </form>

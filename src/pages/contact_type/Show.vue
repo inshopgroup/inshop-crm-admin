@@ -68,7 +68,7 @@
             <history
               :id="parseInt($route.params.id)"
               entity="ContactType"
-              path="contactType"
+              path="contact_type"
               :key="historyKey"
             />
           </div>
@@ -77,7 +77,7 @@
       <item-show-actions
         :item="item"
         entity="ContactType"
-        path="contactType"
+        path="contact_type"
       />
     </section>
   </div>

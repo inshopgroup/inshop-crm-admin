@@ -152,7 +152,7 @@
             <history
               :id="parseInt($route.params.id)"
               entity="OrderHeader"
-              path="orderHeader"
+              path="order_header"
               :key="historyKey"
             />
           </div>
@@ -161,7 +161,7 @@
       <item-show-actions
         :item="item"
         entity="OrderHeader"
-        path="orderHeader"
+        path="order_header"
       />
     </section>
   </div>

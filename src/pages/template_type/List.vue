@@ -18,7 +18,7 @@
           <api-table
             entity="TemplateType"
             route="template_types"
-            path="templateType"
+            path="template_type"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

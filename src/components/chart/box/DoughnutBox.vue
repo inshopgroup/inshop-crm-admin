@@ -56,7 +56,7 @@ export default {
       options: {
         legend: {
           display: false
-        },
+        }
       }
     }
   },
@@ -92,7 +92,7 @@ export default {
       return values
     },
     colors () {
-      let colors = [];
+      let colors = []
       let pieces = this.data.length
       let color = new Color('#8A56E2')
 
@@ -101,7 +101,7 @@ export default {
         colors.push(color.rotate((240 / pieces) * i++ % 240))
       })
 
-      return colors;
+      return colors
     }
   },
   methods: {

@@ -18,7 +18,7 @@
           <api-table
             entity="OrderLineStatus"
             route="order_line_statuses"
-            path="orderLineStatus"
+            path="order_line_status"
             :filterable="filterable"
             :columns="columns"
             :templates="templates"

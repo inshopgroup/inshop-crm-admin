@@ -74,7 +74,7 @@ export default {
   components: { DoughnutBox, BarBox },
   data() {
     return {
-      data: {},
+      data: {}
     }
   },
   mounted() {

@@ -241,7 +241,7 @@
       <item-edit-actions
         :item="item"
         entity="InvoiceHeader"
-        path="invoiceHeader"
+        path="invoice_header"
       />
     </section>
   </form>

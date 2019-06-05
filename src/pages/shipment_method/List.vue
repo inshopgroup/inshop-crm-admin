@@ -18,7 +18,7 @@
           <api-table
             entity="ShipmentMethod"
             route="shipment_methods"
-            path="shipmentMethod"
+            path="shipment_method"
             :filterable="filterable"
             :sortable="sortable"
             :columns="columns"

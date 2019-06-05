@@ -193,7 +193,7 @@
       <item-edit-actions
         :item="item"
         entity="OrderHeader"
-        path="orderHeader"
+        path="order_header"
       />
     </section>
   </form>
