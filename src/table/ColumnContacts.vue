@@ -5,29 +5,29 @@
       :key="contact.id"
     >
       <i
+        v-if="contact.contactType.id == 1"
         class="fa fa-phone"
         aria-hidden="true"
-        v-if="contact.contactType.id == 1"
       />
       <i
+        v-if="contact.contactType.id == 2"
         class="fa fa-mobile"
         aria-hidden="true"
-        v-if="contact.contactType.id == 2"
       />
       <i
+        v-if="contact.contactType.id == 3"
         class="fa fa-fax"
         aria-hidden="true"
-        v-if="contact.contactType.id == 3"
       />
       <i
+        v-if="contact.contactType.id == 4"
         class="fa fa-envelope"
         aria-hidden="true"
-        v-if="contact.contactType.id == 4"
       />
       <i
+        v-if="contact.contactType.id == 5"
         class="fa fa-internet-explorer"
         aria-hidden="true"
-        v-if="contact.contactType.id == 5"
       />
 
       {{ contact.value }}

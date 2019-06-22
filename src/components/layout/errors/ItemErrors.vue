@@ -1,7 +1,7 @@
 <template>
   <div
-    class="callout callout-danger"
     v-if="error"
+    class="callout callout-danger"
   >
     <h4>Warning!</h4>
     <p>{{ error }}</p>

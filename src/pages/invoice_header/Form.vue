@@ -303,7 +303,7 @@ export default {
           line.id = line.uuid
         }
 
-        return line.id !== el.id;
+        return line.id !== el.id
       })
     },
     productSelected (line) {

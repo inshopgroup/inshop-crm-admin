@@ -50,10 +50,10 @@
 </template>
 
 <script>
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive";
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt";
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt";
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy";
+import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
+import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
+import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
+import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
 export default {
   name: 'DocumentInfo',
   components: {

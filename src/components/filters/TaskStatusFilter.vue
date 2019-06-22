@@ -1,8 +1,8 @@
 <template>
   <field-select
+    id="taskStatus"
     :item="{value: value}"
     property="value"
-    id="taskStatus"
     :options="options"
     option-label="name"
     :multiple="true"
@@ -19,6 +19,11 @@ export default {
   data: function () {
     return {
       value: [],
+    }
+  },
+  computed: {
+    options() {
+      return this.$store.getters['taskStatus/items'] || []
     }
   },
   created() {
@@ -46,11 +51,6 @@ export default {
 
         this.value = selected
       })
-  },
-  computed: {
-    options() {
-      return this.$store.getters['taskStatus/items'] || []
-    }
   },
   methods: {
     ...mapActions({

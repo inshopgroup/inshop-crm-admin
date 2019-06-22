@@ -35,6 +35,22 @@ export default {
       }
     }
   },
+  data () {
+    return {
+      options: {
+        legend: {
+          display: false
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    }
+  },
   computed: {
     dataset () {
       return {
@@ -64,22 +80,6 @@ export default {
       })
 
       return values
-    }
-  },
-  data () {
-    return {
-      options: {
-        legend: {
-          display: false
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
-            }
-          }]
-        }
-      }
     }
   }
 }

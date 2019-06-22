@@ -10,9 +10,7 @@
 </template>
 
 <script>
-  import ShowRow from "./ShowRow";
   export default {
-    components: {ShowRow},
     props: {
       item: {
         type: Object,

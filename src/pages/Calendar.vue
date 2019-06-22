@@ -6,8 +6,8 @@
     <template slot-scope="props">
       <div
         v-for="(task, index) in props.showEvents"
-        class="event-item"
         :key="task.id"
+        class="event-item"
       >
         <h3 class="title">
           <router-link :to="{name: 'TaskShow', params: { id: task.id }}">
@@ -26,8 +26,8 @@
         <p>
           {{ $t('assignee_name') }}:
           <router-link
-            :to="{name: 'UserShow', params: { id: task.assignee.id }}"
             v-if="task && task.assignee"
+            :to="{name: 'UserShow', params: { id: task.assignee.id }}"
           >
             {{ task.assignee.name }}
           </router-link>
@@ -64,7 +64,7 @@ export default {
     }
   },
   created() {
-    this.load(moment().format('M/Y'));
+    this.load(moment().format('M/Y'))
   },
   methods: {
     ...mapActions({

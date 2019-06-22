@@ -5,26 +5,26 @@
       <div class="col-md-6">
         <div class="pull-right btn-toolbar">
           <button
+            v-if="btnBackToList && isGranted(role_list)"
             type="button"
             class="btn btn-info"
             @click="backToList()"
-            v-if="btnBackToList && isGranted(role_list)"
           >
             {{ $t('back_to_list') }}
           </button>
           <button
+            v-if="btnEdit && isGranted(role_update)"
             type="button"
             class="btn btn-primary"
             @click="editItem()"
-            v-if="btnEdit && isGranted(role_update)"
           >
             {{ $t('edit') }}
           </button>
           <button
+            v-if="btnDelete && isGranted(role_delete)"
             type="button"
             class="btn btn-danger"
             @click="deleteItem()"
-            v-if="btnDelete && isGranted(role_delete)"
           >
             {{ $t('delete') }}
           </button>

@@ -38,8 +38,8 @@
         </ul>
         <div class="tab-content">
           <div
-            class="tab-pane active"
             id="general"
+            class="tab-pane active"
           >
             <div
               v-if="item"
@@ -86,8 +86,8 @@
             </div>
           </div>
           <div
-            class="tab-pane"
             id="companyProducts"
+            class="tab-pane"
           >
             <company-products
               :company-products="companyProducts"
@@ -96,8 +96,8 @@
             />
           </div>
           <div
-            class="tab-pane"
             id="productSellPrices"
+            class="tab-pane"
           >
             <product-sell-prices
               :product-sell-prices="productSellPrices"
@@ -106,14 +106,14 @@
             />
           </div>
           <div
-            class="tab-pane"
             id="history"
+            class="tab-pane"
           >
             <history
               :id="parseInt($route.params.id)"
+              :key="historyKey"
               entity="Product"
               path="product"
-              :key="historyKey"
             />
           </div>
         </div>
@@ -134,10 +134,10 @@ import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
 import CompanyProducts from './CompanyProducts'
 import ProductSellPrices from './ProductSellPrices'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive";
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt";
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt";
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy";
+import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
+import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
+import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
+import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
 
 export default {
   components: {

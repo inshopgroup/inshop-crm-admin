@@ -17,10 +17,10 @@
 
       <!-- search form (Optional) -->
       <form
-        @submit.prevent="search"
+        v-if="isGranted('ROLE_OTHER_SEARCH')"
         method="get"
         class="sidebar-form"
-        v-if="isGranted('ROLE_OTHER_SEARCH')"
+        @submit.prevent="search"
       >
         <div class="input-group">
           <input
@@ -32,9 +32,9 @@
           >
           <span class="input-group-btn">
             <button
+              id="search-btn"
               type="submit"
               name="search"
-              id="search-btn"
               class="btn btn-flat"
             >
               <i class="fa fa-search" />
@@ -106,8 +106,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_CATEGORY_LIST') || isGranted('ROLE_PRODUCT_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-product-hunt" /> <span>{{ $t('product') }}</span>
@@ -130,8 +130,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_TEXT_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-edit" /> <span>{{ $t('cms') }}</span>
@@ -149,8 +149,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_PROJECT_LIST') || isGranted('ROLE_TASK_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-folder-open" /> <span>{{ $t('projects') }}</span>
@@ -173,8 +173,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_DOCUMENT_LIST') || isGranted('ROLE_TEMPLATE_LIST') || isGranted('ROLE_TEMPLATE_TYPE_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-file-o" /> <span>{{ $t('documents') }}</span>
@@ -202,8 +202,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_ORDER_HEADER_LIST') || isGranted('ROLE_ORDER_STATUS_LIST') || isGranted('ROLE_ORDER_LINE_STATUS_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-dashboard" /> <span>{{ $t('order_header') }}</span>
@@ -231,8 +231,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_INVOICE_HEADER_LIST') || isGranted('ROLE_INVOICE_STATUS_LIST') || isGranted('ROLE_INVOICE_TYPE_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-dashboard" /> <span>{{ $t('invoice_header') }}</span>
@@ -260,7 +260,6 @@
         </li>
 
         <li
-          class="treeview"
           v-if="
             isGranted('ROLE_LANGUAGE_LIST') ||
               isGranted('ROLE_VAT_LIST') ||
@@ -275,6 +274,7 @@
               isGranted('ROLE_PAYMENT_TYPE_LIST') ||
               isGranted('ROLE_SHIPMENT_METHOD_LIST')
           "
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-list" /> <span>{{ $t('dictionaries') }}</span>
@@ -347,8 +347,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_USER_LIST') || isGranted('ROLE_GROUP_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-shield" /> <span>{{ $t('users') }}</span>
@@ -371,8 +371,8 @@
         </li>
 
         <li
-          class="treeview"
           v-if="isGranted('ROLE_BACKUP_LIST') || isGranted('ROLE_HISTORY_LIST')"
+          class="treeview"
         >
           <a href="#">
             <i class="fa fa-cogs" /> <span>{{ $t('maintenance') }}</span>

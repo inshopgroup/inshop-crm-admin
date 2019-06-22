@@ -6,7 +6,7 @@
 </template>
 
 <script>
-  import ShowRow from "./ShowRow";
+  import ShowRow from "./ShowRow"
   export default {
     components: {ShowRow},
     props: {

@@ -25,10 +25,10 @@
         <div class="form-group">
           <label>{{ $t('username') }}:</label>
           <input
+            v-model="credentials.username"
             type="text"
             class="form-control"
             :placeholder="$t('username')"
-            v-model="credentials.username"
             required
             autofocus
           >
@@ -36,10 +36,10 @@
         <div :class="[{ 'has-error': error }, 'form-group']">
           <label>{{ $t('password') }}:</label>
           <input
+            v-model="credentials.password"
             type="password"
             class="form-control"
             :placeholder="$t('password')"
-            v-model="credentials.password"
           >
           <span class="help-block">{{ error }}</span>
         </div>
@@ -91,7 +91,7 @@ export default {
           this.$store.commit('auth/' + types.AUTH_UPDATE_TOKEN, response.data)
           this.$router.push({name: 'Dashboard'})
 
-          let lang = response.data.language;
+          let lang = response.data.language
 
           if (lang && messages[lang]) {
             this.$store.commit('auth/' + types.AUTH_UPDATE_LANGUAGE, lang)

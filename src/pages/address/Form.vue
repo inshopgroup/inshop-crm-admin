@@ -79,10 +79,10 @@
         </div>
       </div>
       <item-edit-actions
+        v-if="showActions"
         :item="item"
         entity="Address"
         path="address"
-        v-if="showActions"
       />
     </section>
   </form>

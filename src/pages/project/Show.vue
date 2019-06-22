@@ -24,20 +24,20 @@
         </ul>
         <div class="tab-content">
           <div
-            class="tab-pane active"
             id="general"
+            class="tab-pane active"
           >
             <project-info :item="item" />
           </div>
           <div
-            class="tab-pane"
             id="history"
+            class="tab-pane"
           >
             <history
               :id="parseInt($route.params.id)"
+              :key="historyKey"
               entity="Project"
               path="project"
-              :key="historyKey"
             />
           </div>
         </div>

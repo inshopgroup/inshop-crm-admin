@@ -19,15 +19,15 @@
             @formUpdated="updateValue"
           />
           <div
-            class="form-group"
             v-for="module in modules"
             :key="module.id"
+            class="form-group"
           >
             <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
             <span
               v-for="role in module.roles"
-              style="margin-left: 20px;"
               :key="role.id"
+              style="margin-left: 20px;"
             >
               <form-checkbox
                 :id="role['@id']"

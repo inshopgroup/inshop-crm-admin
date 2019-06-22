@@ -13,6 +13,7 @@
         required: true
       },
       value: {
+        type: String,
         required: true
       },
     }

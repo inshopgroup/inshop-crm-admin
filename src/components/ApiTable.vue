@@ -124,6 +124,31 @@ export default {
       },
     }
   },
+  computed: {
+    role_show () {
+      return 'ROLE_' + this.path.toUpperCase() + '_SHOW'
+    },
+    role_edit () {
+      return 'ROLE_' + this.path.toUpperCase() + '_UPDATE'
+    },
+    headings () {
+      let headings = {}
+
+      this.columns.forEach(key => {
+        let _key = key.split('.').join('_')
+
+        headings[key] = this.$t(_key)
+      })
+
+      return headings
+    },
+    showRoute () {
+      return this.entity + 'Show'
+    },
+    updateRoute () {
+      return this.entity + 'Update'
+    }
+  },
   created () {
     let query = this.$route.query
 
@@ -139,31 +164,6 @@ export default {
 
     if (query['orderBy.column']) {
       this.orderBy.column = query['orderBy.column']
-    }
-  },
-  computed: {
-    role_show () {
-      return 'ROLE_' + this.path.toUpperCase() + '_SHOW'
-    },
-    role_edit () {
-      return 'ROLE_' + this.path.toUpperCase() + '_UPDATE'
-    },
-    headings () {
-      let headings = {};
-
-      this.columns.forEach(key => {
-        let _key = key.split('.').join('_');
-
-        headings[key] = this.$t(_key)
-      })
-
-      return headings
-    },
-    showRoute () {
-      return this.entity + 'Show'
-    },
-    updateRoute () {
-      return this.entity + 'Update'
     }
   },
   methods: {

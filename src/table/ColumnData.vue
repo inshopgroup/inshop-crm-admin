@@ -19,6 +19,15 @@
         default: () => ({})
       }
     },
+    computed: {
+      path() {
+        if (this.data.objectClass) {
+          return this.data.objectClass.split('\\').slice(-1)[0].toLowerCase()
+        }
+
+        return ''
+      }
+    },
     methods: {
       propName(property) {
         let label = this.$t(property)
@@ -32,15 +41,6 @@
         }
 
         return label
-      }
-    },
-    computed: {
-      path() {
-        if (this.data.objectClass) {
-          return this.data.objectClass.split('\\').slice(-1)[0].toLowerCase()
-        }
-
-        return ''
       }
     }
   }

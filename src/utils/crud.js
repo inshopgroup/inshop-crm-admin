@@ -1,6 +1,6 @@
 import axios from '../interceptor'
-import {API_HOST} from "../config/_entrypoint";
-import pluralize from "pluralize";
+import {API_HOST} from "../config/_entrypoint"
+import pluralize from "pluralize"
 
 export const getItem = ({ commit }, namespace, id) => {
   commit(namespace + '_SET_ERROR', null)

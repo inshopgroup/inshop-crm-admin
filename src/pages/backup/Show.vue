@@ -6,8 +6,8 @@
     <section class="content">
       <item-errors entity="backup" />
       <div
-        class="nav-tabs-custom"
         v-if="item"
+        class="nav-tabs-custom"
       >
         <ul class="nav nav-tabs">
           <li class="active">
@@ -27,8 +27,8 @@
         </ul>
         <div class="tab-content">
           <div
-            class="tab-pane active"
             id="general"
+            class="tab-pane active"
           >
             <table class="table table-striped table-hover">
               <thead>
@@ -73,14 +73,14 @@
             </table>
           </div>
           <div
-            class="tab-pane"
             id="history"
+            class="tab-pane"
           >
             <history
               :id="parseInt($route.params.id)"
+              :key="historyKey"
               entity="Backup"
               path="backup"
-              :key="historyKey"
             />
           </div>
         </div>
@@ -99,10 +99,10 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive";
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt";
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt";
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy";
+import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
+import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
+import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
+import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
 
 export default {
   components: {

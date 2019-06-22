@@ -29,10 +29,10 @@
         </div>
       </div>
       <item-edit-actions
+        v-if="showActions"
         :item="item"
         entity="Contact"
         path="contact"
-        v-if="showActions"
       />
     </section>
   </form>

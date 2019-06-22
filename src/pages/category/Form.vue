@@ -5,9 +5,9 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li
-            :class="{active: i === 0}"
             v-for="(language, i) in languages"
             :key="'header_' + language.id"
+            :class="{active: i === 0}"
           >
             <a
               :href="'#' + language.code"
@@ -18,10 +18,10 @@
         </ul>
         <div class="tab-content">
           <div
-            :class="['tab-pane', {active: i === 0}]"
-            :id="language.code"
             v-for="(language, i) in languages"
+            :id="language.code"
             :key="'content_' + language.id"
+            :class="['tab-pane', {active: i === 0}]"
           >
             <form-input
               :item="findItem(language)"
@@ -107,11 +107,11 @@ export default {
     },
     translations: {
       get() {
-        let translations = [];
+        let translations = []
 
         this.languages.forEach(language => {
           translations.push(this.findItem(language))
-        });
+        })
 
         return translations
       }
@@ -127,13 +127,13 @@ export default {
     findItem(language) {
       let translation = {
         language: language,
-      };
+      }
 
       this.item.translations.some(element => {
         if (element.language.code === language.code) {
           translation = element
         }
-      });
+      })
 
       return translation
     },

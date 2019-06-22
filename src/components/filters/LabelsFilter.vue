@@ -1,8 +1,8 @@
 <template>
   <field-select
+    id="label"
     :item="{value: value}"
     property="value"
-    id="label"
     :options="options"
     option-label="name"
     :multiple="true"
@@ -19,6 +19,11 @@ export default {
   data: function () {
     return {
       value: [],
+    }
+  },
+  computed: {
+    options() {
+      return this.$store.getters['label/items'] || []
     }
   },
   created() {
@@ -46,11 +51,6 @@ export default {
 
         this.value = selected
       })
-  },
-  computed: {
-    options() {
-      return this.$store.getters['label/items'] || []
-    }
   },
   methods: {
     ...mapActions({

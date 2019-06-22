@@ -12,10 +12,10 @@ export default {
     if (params.value) {
       state.item.roleIRIs.push(params.iri)
     } else {
-      let index = state.item.roleIRIs.indexOf(params.iri);
+      let index = state.item.roleIRIs.indexOf(params.iri)
 
       if (index > -1) {
-        state.item.roleIRIs.splice(index, 1);
+        state.item.roleIRIs.splice(index, 1)
       }
     }
   },

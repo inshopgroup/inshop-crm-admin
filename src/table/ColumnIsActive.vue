@@ -1,12 +1,12 @@
 <template>
   <div>
     <span
-      class="label label-success"
       v-if="data.isActive"
+      class="label label-success"
     >{{ $t('yes') }}</span>
     <span
-      class="label label-danger"
       v-else
+      class="label label-danger"
     >{{ $t('no') }}</span>
   </div>
 </template>

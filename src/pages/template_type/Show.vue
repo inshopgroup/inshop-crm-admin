@@ -24,8 +24,8 @@
         </ul>
         <div class="tab-content">
           <div
-            class="tab-pane active"
             id="general"
+            class="tab-pane active"
           >
             <div
               v-if="item"
@@ -55,14 +55,14 @@
             </div>
           </div>
           <div
-            class="tab-pane"
             id="history"
+            class="tab-pane"
           >
             <history
               :id="parseInt($route.params.id)"
+              :key="historyKey"
               entity="TemplateType"
               path="template_type"
-              :key="historyKey"
             />
           </div>
         </div>
@@ -81,10 +81,10 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive";
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt";
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt";
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy";
+import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
+import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
+import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
+import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
 
 export default {
   components: {

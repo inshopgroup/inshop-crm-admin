@@ -38,14 +38,14 @@
         </ul>
         <div class="tab-content">
           <div
-            class="tab-pane active show-print"
             id="general"
+            class="tab-pane active show-print"
           >
             <company-info :item="item" />
           </div>
           <div
-            class="tab-pane"
             id="contacts"
+            class="tab-pane"
           >
             <client-contacts
               :contacts="item.contacts"
@@ -54,8 +54,8 @@
             />
           </div>
           <div
-            class="tab-pane"
             id="addresses"
+            class="tab-pane"
           >
             <client-addresses
               :addresses="item.addresses"
@@ -64,14 +64,14 @@
             />
           </div>
           <div
-            class="tab-pane"
             id="history"
+            class="tab-pane"
           >
             <history
               :id="parseInt($route.params.id)"
+              :key="historyKey"
               entity="Company"
               path="company"
-              :key="historyKey"
             />
           </div>
         </div>

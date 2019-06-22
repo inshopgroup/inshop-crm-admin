@@ -31,26 +31,26 @@
         </ul>
         <div class="tab-content">
           <div
-            class="tab-pane active"
             id="general"
+            class="tab-pane active"
           >
             <template-info :item="item" />
           </div>
           <div
-            class="tab-pane"
             id="files"
+            class="tab-pane"
           >
             <files-table :files="item.files" />
           </div>
           <div
-            class="tab-pane"
             id="history"
+            class="tab-pane"
           >
             <history
               :id="parseInt($route.params.id)"
+              :key="historyKey"
               entity="Template"
               path="template"
-              :key="historyKey"
             />
           </div>
         </div>

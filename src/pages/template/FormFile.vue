@@ -119,7 +119,7 @@ export default {
       if (this.axios) {
         Array.from(files).forEach(file => {
           let config = {header: {'Content-Type': 'multipart/form-data'}}
-          let data = new FormData();
+          let data = new FormData()
 
           data.append(this.formProperty, file)
 

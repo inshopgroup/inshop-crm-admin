@@ -82,8 +82,8 @@ import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
 
 export default {
-  components: {ModalNotDoneTasks, LeftSidebarSlot, FooterSlot, HeaderSlot},
   name: 'MainSlot',
+  components: {ModalNotDoneTasks, LeftSidebarSlot, FooterSlot, HeaderSlot},
   data () {
     return {
       tasks: []

@@ -1,7 +1,7 @@
 <template>
   <div
-    class="modal fade"
     id="modal-not-done-tasks"
+    class="modal fade"
   >
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -57,9 +57,9 @@
                 </td>
                 <td>
                   <a
+                    v-if="task && task['assignee']"
                     href="#"
                     @click="goto(task)"
-                    v-if="task && task['assignee']"
                   >
                     {{ task['project']['name'] }}
                   </a>
@@ -122,9 +122,6 @@
 <script>
 export default {
   name: 'ModalNotDoneTasks',
-  data () {
-    return {}
-  },
   props: {
     tasks: {
       type: Array,
@@ -132,6 +129,9 @@ export default {
         return []
       }
     }
+  },
+  data () {
+    return {}
   },
   methods: {
     goto (task) {
