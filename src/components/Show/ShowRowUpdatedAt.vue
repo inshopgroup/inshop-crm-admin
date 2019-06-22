@@ -1,5 +1,8 @@
 <template>
-  <show-row label="updatedAt" :value="crmDateFormat(item.updatedAt)"></show-row>
+  <show-row
+    label="updatedAt"
+    :value="crmDateFormat(item.updatedAt)"
+  />
 </template>
 
 <script>

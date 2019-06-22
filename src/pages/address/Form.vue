@@ -70,11 +70,11 @@
             @formUpdated="updateValue"
           />
           <form-checkbox
-              :item="item"
-              :errors="errors"
-              property="isActive"
-              label="isActive"
-              @formUpdated="updateValue"
+            :item="item"
+            :errors="errors"
+            property="isActive"
+            label="isActive"
+            @formUpdated="updateValue"
           />
         </div>
       </div>

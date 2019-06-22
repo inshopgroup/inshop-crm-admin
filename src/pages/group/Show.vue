@@ -53,10 +53,10 @@
                     <td>{{ item.name }}</td>
                   </tr>
 
-                  <show-row-is-active :item="item"></show-row-is-active>
-                  <show-row-created-at :item="item"></show-row-created-at>
-                  <show-row-updated-at :item="item"></show-row-updated-at>
-                  <show-row-updated-by :item="item"></show-row-updated-by>
+                  <show-row-is-active :item="item" />
+                  <show-row-created-at :item="item" />
+                  <show-row-updated-at :item="item" />
+                  <show-row-updated-by :item="item" />
                 </tbody>
               </table>
             </div>

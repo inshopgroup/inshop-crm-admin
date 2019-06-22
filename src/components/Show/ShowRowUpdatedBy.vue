@@ -1,5 +1,8 @@
 <template>
-  <show-row label="updatedBy" :value="item.updatedBy"></show-row>
+  <show-row
+    label="updatedBy"
+    :value="item.updatedBy"
+  />
 </template>
 
 <script>
