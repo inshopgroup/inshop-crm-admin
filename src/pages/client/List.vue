@@ -36,18 +36,20 @@ import ApiTable from '../../components/ApiTable'
 import columnContacts from './../../table/ColumnContacts'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
+import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: { ItemErrors, ApiTable },
   data: function () {
     return {
-      columns: ['id', 'name', 'contacts.value', 'description', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'contacts.value', 'description', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'name', 'description', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'name', 'contacts.value', 'description', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'contacts.value', 'description', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'name', 'description', 'columnCreatedAt', 'isActive', 'columnUpdatedAt'],
       templates: {
         'contacts.value': columnContacts,
         columnCreatedAt,
-        columnUpdatedAt
+        columnUpdatedAt,
+        'isActive': columnIsActive
       }
     }
   }

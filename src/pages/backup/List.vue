@@ -44,6 +44,7 @@ import columnStatus from './../../table/ColumnStatus'
 import columnType from './../../table/ColumnType'
 import BackupStatusFilter from '../../components/filters/BackupStatusFilter'
 import BackupTypeFilter from '../../components/filters/BackupTypeFilter'
+import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: {
@@ -54,16 +55,17 @@ export default {
   },
   data: function () {
     return {
-      columns: ['id', 'type.id', 'name', 'size', 'status.id', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'size', 'columnDeadline', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'type.id', 'name', 'size', 'status.id', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'size', 'columnDeadline', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       customFilters: ['type.id', 'status.id'],
-      sortable: ['type.id', 'id', 'name', 'size', 'status.id', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['type.id', 'id', 'name', 'size', 'status.id', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         columnCreatedAt,
         columnUpdatedAt,
         columnDeadline,
         'status.id': columnStatus,
-        'type.id': columnType
+        'type.id': columnType,
+        'isActive': columnIsActive
       }
     }
   }

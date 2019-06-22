@@ -73,7 +73,13 @@ import History from '../../components/History'
 import DocumentInfo from './DocumentInfo'
 
 export default {
-  components: { DocumentInfo, History, FilesTable, ItemErrors, ItemShowActions },
+  components: {
+    DocumentInfo,
+    History,
+    FilesTable,
+    ItemErrors,
+    ItemShowActions
+  },
   data () {
     return {
       historyKey: 1

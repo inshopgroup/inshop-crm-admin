@@ -11,6 +11,13 @@
             label="name"
             @formUpdated="updateValue"
           />
+          <form-checkbox
+              :item="item"
+              :errors="errors"
+              property="isActive"
+              label="isActive"
+              @formUpdated="updateValue"
+          />
           <div
             class="form-group"
             v-for="module in modules"

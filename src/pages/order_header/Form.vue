@@ -74,6 +74,18 @@
               />
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-6">
+              <form-checkbox
+                  :item="item"
+                  :errors="errors"
+                  property="isActive"
+                  label="isActive"
+                  @formUpdated="updateValue"
+              />
+            </div>
+            <div class="col-md-6"></div>
+          </div>
         </div>
       </div>
       <div class="box box-primary">

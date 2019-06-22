@@ -44,21 +44,23 @@ import columnAddressCountry from './../../table/ColumnAddressCountry'
 import columnAddressCity from './../../table/ColumnAddressCity'
 import columnAddressPostCode from './../../table/ColumnAddressPostCode'
 import LabelsFilter from '../../components/filters/LabelsFilter'
+import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: { LabelsFilter, ItemErrors, ApiTable },
   data: function () {
     return {
-      columns: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'actions'],
-      filterable: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode'],
+      columns: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'labels.id', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'contacts.value', 'contactPerson', 'addresses.country.name', 'addresses.city.name', 'addresses.postCode', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       customFilters: ['labels.id'],
-      sortable: ['id', 'name', 'contactPerson'],
+      sortable: ['id', 'name', 'contactPerson', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         'contacts.value': columnContacts,
         'addresses.country.name': columnAddressCountry,
         'addresses.city.name': columnAddressCity,
         'addresses.postCode': columnAddressPostCode,
-        'labels.id': columnLabels
+        'labels.id': columnLabels,
+        'isActive': columnIsActive
       }
     }
   }

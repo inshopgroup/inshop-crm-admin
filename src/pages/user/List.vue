@@ -43,8 +43,8 @@ export default {
   data: function () {
     return {
       columns: ['id', 'name', 'email', 'groups.name', 'language.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'email', 'groups.name', 'language.name', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'name', 'email', 'groups.name', 'language.name', 'columnCreatedAt', 'columnUpdatedAt'],
+      filterable: ['id', 'name', 'email', 'groups.name', 'language.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'name', 'email', 'groups.name', 'language.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         columnCreatedAt,
         columnUpdatedAt,

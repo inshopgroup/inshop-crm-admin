@@ -35,17 +35,19 @@ import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
+import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: {ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['id', 'name', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'name', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         columnCreatedAt,
-        columnUpdatedAt
+        columnUpdatedAt,
+        'isActive': columnIsActive
       }
     }
   }

@@ -154,18 +154,11 @@
                     <td>{{ $t('maturity') }}</td>
                     <td>{{ item.maturity }}</td>
                   </tr>
-                  <tr>
-                    <td>{{ $t('createdAt') }}</td>
-                    <td>{{ crmDateFormat(item.createdAt) }}</td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('updatedAt') }}</td>
-                    <td>{{ crmDateFormat(item.updatedAt) }}</td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('updatedBy') }}</td>
-                    <td>{{ item.updatedBy }}</td>
-                  </tr>
+
+                  <show-row-is-active :item="item"></show-row-is-active>
+                  <show-row-created-at :item="item"></show-row-created-at>
+                  <show-row-updated-at :item="item"></show-row-updated-at>
+                  <show-row-updated-by :item="item"></show-row-updated-by>
                 </tbody>
               </table>
             </div>
@@ -209,9 +202,22 @@ import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import Lines from './Lines'
 import History from '../../components/History'
+import ShowRowIsActive from "../../components/Show/ShowRowIsActive";
+import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt";
+import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt";
+import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy";
 
 export default {
-  components: { History, Lines, ItemErrors, ItemShowActions },
+  components: {
+    ShowRowUpdatedBy,
+    ShowRowUpdatedAt,
+    ShowRowCreatedAt,
+    ShowRowIsActive,
+    History,
+    Lines,
+    ItemErrors,
+    ItemShowActions
+  },
   data () {
     return {
       historyKey: 1

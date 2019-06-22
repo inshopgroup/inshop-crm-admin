@@ -43,20 +43,22 @@ import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnDeadline from './../../table/ColumnDeadline'
 import columnStatus from './../../table/ColumnStatus'
 import TaskStatusFilter from '../../components/filters/TaskStatusFilter'
+import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: { TaskStatusFilter, ItemErrors, ApiTable },
   data: function () {
     return {
-      columns: ['id', 'name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'project.name', 'assignee.name', 'columnDeadline', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'name', 'project.name', 'assignee.name', 'columnDeadline', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       customFilters: ['status.id'],
-      sortable: ['id', 'name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'name', 'status.id', 'project.name', 'assignee.name', 'columnDeadline', 'timeEstimated', 'timeSpent', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         columnCreatedAt,
         columnUpdatedAt,
         columnDeadline,
-        'status.id': columnStatus
+        'status.id': columnStatus,
+        'isActive': columnIsActive
       }
     }
   }

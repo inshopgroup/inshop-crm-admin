@@ -36,17 +36,19 @@ import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
+import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: {ItemErrors, ApiTable},
   data: function () {
     return {
-      columns: ['id', 'postCode', 'country.name', 'city.name', 'region', 'district', 'street', 'building', 'apartment', 'comment', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'postCode', 'country.name', 'city.name', 'region', 'district', 'street', 'building', 'apartment', 'comment', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'postCode', 'country.name', 'city.name', 'region', 'district', 'street', 'building', 'apartment', 'comment', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: ['id', 'postCode', 'country.name', 'city.name', 'region', 'district', 'street', 'building', 'apartment', 'comment', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
+      filterable: ['id', 'postCode', 'country.name', 'city.name', 'region', 'district', 'street', 'building', 'apartment', 'comment', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: ['id', 'postCode', 'country.name', 'city.name', 'region', 'district', 'street', 'building', 'apartment', 'comment', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
       templates: {
         columnCreatedAt,
-        columnUpdatedAt
+        columnUpdatedAt,
+        'isActive': columnIsActive
       }
     }
   },
