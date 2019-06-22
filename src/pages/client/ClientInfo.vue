@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="item"
-      class="table-responsive"
-    >
+    <div v-if="item" class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -34,10 +31,10 @@
 </template>
 
 <script>
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 export default {
   name: 'ClientInfo',
   components: {

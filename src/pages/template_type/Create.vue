@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('template_type_add') }}</h1>
     </section>
-    <TemplateTypeForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <TemplateTypeForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,14 @@ export default {
       create: 'templateType/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'TemplateTypeShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({
+            name: 'TemplateTypeShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

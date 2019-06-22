@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('invoice_status_add') }}</h1>
     </section>
-    <InvoiceStatusForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <InvoiceStatusForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,14 @@ export default {
       create: 'invoiceStatus/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'InvoiceStatusShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({
+            name: 'InvoiceStatusShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

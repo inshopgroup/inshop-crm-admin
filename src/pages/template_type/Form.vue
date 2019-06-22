@@ -54,7 +54,7 @@ export default {
       errors: 'templateType/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +62,9 @@ export default {
       reset: 'templateType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('templateType/TEMPLATE_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('templateType/TEMPLATE_TYPE_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

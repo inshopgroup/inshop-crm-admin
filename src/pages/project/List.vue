@@ -52,18 +52,44 @@ import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: { ProjectTypeFilter, ProjectStatusFilter, ItemErrors, ApiTable },
-  data: function () {
+  data: function() {
     return {
-      columns: ['id', 'name', 'client.name', 'status.id', 'type.id', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'client.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: [
+        'id',
+        'name',
+        'client.name',
+        'status.id',
+        'type.id',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt',
+        'actions'
+      ],
+      filterable: [
+        'id',
+        'name',
+        'client.name',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
       customFilters: ['status.id', 'type.id'],
-      sortable: ['id', 'name', 'client.name', 'status.id', 'type.id', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      sortable: [
+        'id',
+        'name',
+        'client.name',
+        'status.id',
+        'type.id',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
       templates: {
         columnCreatedAt,
         columnUpdatedAt,
         'status.id': columnStatus,
         'type.id': columnType,
-        'isActive': columnIsActive
+        isActive: columnIsActive
       }
     }
   }

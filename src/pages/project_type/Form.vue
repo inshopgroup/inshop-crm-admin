@@ -54,7 +54,7 @@ export default {
       errors: 'projectType/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +62,9 @@ export default {
       reset: 'projectType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('projectType/PROJECT_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('projectType/PROJECT_TYPE_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

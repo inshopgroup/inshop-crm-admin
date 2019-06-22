@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('product_edit', {entity: item && item.ean}) }}</h1>
+      <h1>{{ $t('product_edit', { entity: item && item.ean }) }}</h1>
     </section>
-    <ProductForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <ProductForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -32,9 +29,11 @@ export default {
       update: 'product/update'
     }),
     onSendForm() {
-      this.update().then(item => {
-        this.$router.push({name: 'ProductShow', params: {id: item.id}})
-      }).catch()
+      this.update()
+        .then(item => {
+          this.$router.push({ name: 'ProductShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

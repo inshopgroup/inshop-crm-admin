@@ -3,15 +3,12 @@
     <section class="content-header">
       <h1>{{ $t('address_add') }}</h1>
     </section>
-    <AddressForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <AddressForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import AddressForm from './Form'
 
 export default {
@@ -28,9 +25,11 @@ export default {
       create: 'address/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'AddressShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'AddressShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

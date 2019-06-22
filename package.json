@@ -18,7 +18,6 @@
     "chart.js": "2.7.2",
     "color": "^3.1.0",
     "core-js": "^2.6.5",
-    "daterangepicker": "^3.0.3",
     "fecha": "^3.0.3",
     "filesize": "^3.6.1",
     "font-awesome": "^4.7.0",
@@ -44,8 +43,12 @@
     "@vue/cli-service": "^3.7.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "daterangepicker": "^3.0.3",
     "node-sass": "^4.11.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.5.21"
   },
@@ -56,18 +59,27 @@
     },
     "extends": [
       "plugin:vue/recommended",
-      "eslint:recommended"
+      "eslint:recommended",
+      "prettier/vue",
+      "plugin:prettier/recommended"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
     "rules": {
       "semi": [
-        2,
+        "error",
         "never"
       ],
-      "vue/block-spacing": "error",
-      "vue/script-indent": "error"
+      "vue/script-indent": "error",
+      "prettier/prettier": [
+        "warn",
+        {
+          "singleQuote": true,
+          "semi": false,
+          "trailingComma": "none"
+        }
+      ]
     }
   },
   "postcss": {

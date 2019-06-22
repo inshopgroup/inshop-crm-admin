@@ -8,29 +8,19 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
-            <div
-              v-if="item"
-              class="table-responsive"
-            >
+          <div id="general" class="tab-pane active">
+            <div v-if="item" class="table-responsive">
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -52,14 +42,8 @@
                   <tr>
                     <td>{{ $t('groups_name') }}</td>
                     <td>
-                      <div
-                        v-for="group in item.groups"
-                        :key="group.id"
-                      >
-                        <i
-                          class="fa fa-user"
-                          aria-hidden="true"
-                        />
+                      <div v-for="group in item.groups" :key="group.id">
+                        <i class="fa fa-user" aria-hidden="true" />
                         {{ group.name }}
                       </div>
                     </td>
@@ -79,10 +63,7 @@
               </table>
             </div>
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -92,11 +73,7 @@
           </div>
         </div>
       </div>
-      <item-show-actions
-        :item="item"
-        entity="User"
-        path="user"
-      />
+      <item-show-actions :item="item" entity="User" path="user" />
     </section>
   </div>
 </template>
@@ -106,10 +83,10 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
 
 export default {
   components: {
@@ -121,7 +98,7 @@ export default {
     ItemErrors,
     ItemShowActions
   },
-  data () {
+  data() {
     return {
       historyKey: 1
     }

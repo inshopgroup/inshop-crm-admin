@@ -14,10 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr
-            v-for="file in item.property"
-            :key="file.id"
-          >
+          <tr v-for="file in item.property" :key="file.id">
             <td>
               Preview
             </td>
@@ -26,10 +23,7 @@
             <td>{{ file.mimeType }}</td>
             <td>{{ crmDateFormat(file.createdAt) }}</td>
             <td>
-              <button
-                type="button"
-                @click.prevent="deleteFile(file.id)"
-              >
+              <button type="button" @click.prevent="deleteFile(file.id)">
                 Delete
               </button>
             </td>
@@ -42,12 +36,9 @@
         type="file"
         :multiple="multiple"
         @change="fileSelected($event.target.files)"
-      >
+      />
     </div>
-    <div
-      v-if="isInvalid"
-      class="inshop-errors"
-    >
+    <div v-if="isInvalid" class="inshop-errors">
       {{ errors.property }}
     </div>
   </div>
@@ -118,12 +109,13 @@ export default {
     fileSelected(files) {
       if (this.axios) {
         Array.from(files).forEach(file => {
-          let config = {header: {'Content-Type': 'multipart/form-data'}}
+          let config = { header: { 'Content-Type': 'multipart/form-data' } }
           let data = new FormData()
 
           data.append(this.formProperty, file)
 
-          this.axios.post(this.route, data, config)
+          this.axios
+            .post(this.route, data, config)
             .then(response => {
               this.$emit('formFileUploaded', response.data)
             })

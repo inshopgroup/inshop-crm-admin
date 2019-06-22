@@ -113,7 +113,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   let token = store.getters['auth/jwtDecoded'] || null
-  let authorized = (token && token.exp > Date.now() / 1000)
+  let authorized = token && token.exp > Date.now() / 1000
 
   if (authorized) {
     if (to.matched.some(record => !record.meta.requiresAuth)) {

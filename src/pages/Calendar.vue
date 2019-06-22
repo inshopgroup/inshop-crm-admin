@@ -1,8 +1,5 @@
 <template>
-  <vue-event-calendar
-    :events="tasksPrepared"
-    @month-changed="load($event)"
-  >
+  <vue-event-calendar :events="tasksPrepared" @month-changed="load($event)">
     <template slot-scope="props">
       <div
         v-for="(task, index) in props.showEvents"
@@ -10,7 +7,7 @@
         class="event-item"
       >
         <h3 class="title">
-          <router-link :to="{name: 'TaskShow', params: { id: task.id }}">
+          <router-link :to="{ name: 'TaskShow', params: { id: task.id } }">
             {{ index + 1 }}. {{ task.name }}
           </router-link>
         </h3>
@@ -19,7 +16,9 @@
         </p>
         <p>
           {{ $t('client') }}:
-          <router-link :to="{name: 'ClientShow', params: { id: task.project.client.id }}">
+          <router-link
+            :to="{ name: 'ClientShow', params: { id: task.project.client.id } }"
+          >
             {{ task.project.client.name }}
           </router-link>
         </p>
@@ -27,7 +26,7 @@
           {{ $t('assignee_name') }}:
           <router-link
             v-if="task && task.assignee"
-            :to="{name: 'UserShow', params: { id: task.assignee.id }}"
+            :to="{ name: 'UserShow', params: { id: task.assignee.id } }"
           >
             {{ task.assignee.name }}
           </router-link>
@@ -43,7 +42,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import moment from 'moment'
 import Vue from 'vue'
 
@@ -73,10 +72,13 @@ export default {
     load(date) {
       this.getTasks({
         'deadline[after]=': moment(date, 'M/Y').format('DD-MM-YYYY'),
-        'deadline[before]=': moment(date, 'M/Y').endOf('month').add(1, 'day').format('DD-MM-YYYY'),
+        'deadline[before]=': moment(date, 'M/Y')
+          .endOf('month')
+          .add(1, 'day')
+          .format('DD-MM-YYYY'),
         'order[deadline]': 'asc',
         'status.id[]': '1',
-        'itemsPerPage': '500'
+        itemsPerPage: '500'
       })
     }
   }
@@ -84,17 +86,17 @@ export default {
 </script>
 
 <style scoped>
-  p.desc {
-    width: 370px;
-  }
+p.desc {
+  width: 370px;
+}
 
-  p.desc a {
-    color: #9b9b9b;
-    font-size: 14px;
-  }
+p.desc a {
+  color: #9b9b9b;
+  font-size: 14px;
+}
 
-  h3.title a {
-    color: #323232;
-    font-size: 14px;
-  }
+h3.title a {
+  color: #323232;
+  font-size: 14px;
+}
 </style>

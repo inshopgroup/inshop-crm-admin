@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      v-if="item"
-      class="table-responsive"
-    >
+    <div v-if="item" class="table-responsive">
       <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -61,10 +58,7 @@
           <tr>
             <td>{{ $t('labels_id') }}</td>
             <td>
-              <div
-                v-for="label in item.labels"
-                :key="label.id"
-              >
+              <div v-for="label in item.labels" :key="label.id">
                 <span class="label label-primary">
                   {{ label.name }}
                 </span>
@@ -87,10 +81,10 @@
 </template>
 
 <script>
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 export default {
   name: 'CompanyInfo',
   components: {

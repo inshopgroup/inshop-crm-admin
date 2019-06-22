@@ -22,7 +22,7 @@
 import BarChart from '../BarChart'
 
 export default {
-  components: {BarChart},
+  components: { BarChart },
   props: {
     title: {
       type: String,
@@ -30,29 +30,31 @@ export default {
     },
     data: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
       }
     }
   },
-  data () {
+  data() {
     return {
       options: {
         legend: {
           display: false
         },
         scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              }
             }
-          }]
+          ]
         }
       }
     }
   },
   computed: {
-    dataset () {
+    dataset() {
       return {
         labels: this.labels,
         datasets: [
@@ -63,7 +65,7 @@ export default {
         ]
       }
     },
-    labels () {
+    labels() {
       let labels = []
 
       this.data.forEach(item => {
@@ -72,7 +74,7 @@ export default {
 
       return labels
     },
-    values () {
+    values() {
       let values = []
 
       this.data.forEach(item => {

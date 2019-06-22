@@ -95,15 +95,8 @@
           </h3>
         </div>
         <div class="box-body">
-          <button
-            type="button"
-            class="btn btn-info"
-            @click.prevent="addLine()"
-          >
-            <span
-              class="fa fa-plus"
-              aria-hidden="true"
-            />
+          <button type="button" class="btn btn-info" @click.prevent="addLine()">
+            <span class="fa fa-plus" aria-hidden="true" />
             <span>{{ $t('order_line_add') }}</span>
           </button>
           <table class="table table-striped">
@@ -119,10 +112,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="line in lines"
-                :key="line.id"
-              >
+              <tr v-for="line in lines" :key="line.id">
                 <td>
                   <form-select
                     :item="line"
@@ -190,10 +180,7 @@
                     class="btn btn-info"
                     @click.prevent="removeLine(line)"
                   >
-                    <span
-                      class="fa fa-remove"
-                      aria-hidden="true"
-                    />
+                    <span class="fa fa-remove" aria-hidden="true" />
                     <span class="sr-only">{{ $t('delete') }}</span>
                   </button>
                 </td>
@@ -236,18 +223,18 @@ export default {
     ...mapGetters({
       errors: 'orderHeader/errors'
     }),
-    lines () {
+    lines() {
       let lines = this.item.lines
       lines.forEach(line => {
         line.product = line.productSellPrice.product
       })
       return lines
     },
-    isLoading () {
+    isLoading() {
       return this.$store.getters['general/isLoading']
-    },
+    }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -255,25 +242,33 @@ export default {
       reset: 'orderHeader/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('orderHeader/ORDER_HEADER_UPDATE_ITEM', {[property]: value})
-    },
-    productSelected (line) {
-      axios.get(process.env.VUE_APP_API_URL + line.product.id + '/product_sell_prices').then((data) => {
-        line.productSellPrices = data['data']['hydra:member'].filter(value => {
-          return value.channel.id === this.item.channel.id
-        })
+      this.$store.commit('orderHeader/ORDER_HEADER_UPDATE_ITEM', {
+        [property]: value
       })
+    },
+    productSelected(line) {
+      axios
+        .get(
+          process.env.VUE_APP_API_URL + line.product.id + '/product_sell_prices'
+        )
+        .then(data => {
+          line.productSellPrices = data['data']['hydra:member'].filter(
+            value => {
+              return value.channel.id === this.item.channel.id
+            }
+          )
+        })
 
       line.name = line.product.name
     },
-    productSellPriceSelected (line) {
+    productSellPriceSelected(line) {
       line.vat = line.productSellPrice.vat
-      line.priceSellBrutto= line.productSellPrice.priceSellBrutto
+      line.priceSellBrutto = line.productSellPrice.priceSellBrutto
     },
-    addLine () {
-      this.item.lines.push({uuid: Date.now()})
+    addLine() {
+      this.item.lines.push({ uuid: Date.now() })
     },
-    removeLine (line) {
+    removeLine(line) {
       this.item.lines = this.item.lines.filter(function(el) {
         if (!line.id) {
           line.id = line.uuid

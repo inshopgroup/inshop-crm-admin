@@ -1,10 +1,16 @@
-import {namespace} from "./mutation_types"
-import axios from "../../../interceptor"
+import { namespace } from './mutation_types'
+import axios from '../../../interceptor'
 
 export const getItems = ({ commit }, params) => {
-  let url = process.env.VUE_APP_API_URL + '/histories/' + params.entity + '/' + params.id
+  let url =
+    process.env.VUE_APP_API_URL +
+    '/histories/' +
+    params.entity +
+    '/' +
+    params.id
 
-  return axios.get(url)
+  return axios
+    .get(url)
     .then(response => {
       return response.data
     })

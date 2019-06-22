@@ -15,17 +15,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="line in lines"
-          :key="line.id"
-        >
+        <tr v-for="line in lines" :key="line.id">
           <td>
             {{ line.id }}
           </td>
           <td>
             <router-link
               v-if="line.status"
-              :to="{name: 'OrderLineStatusShow', params: { id: line.status.id }}"
+              :to="{
+                name: 'OrderLineStatusShow',
+                params: { id: line.status.id }
+              }"
             >
               {{ line.status.name }}
             </router-link>
@@ -33,7 +33,10 @@
           <td>
             <router-link
               v-if="line.productSellPrice && line.productSellPrice.product"
-              :to="{name: 'ProductShow', params: { id: line.productSellPrice.product.id }}"
+              :to="{
+                name: 'ProductShow',
+                params: { id: line.productSellPrice.product.id }
+              }"
             >
               {{ line.productSellPrice.product.name }}
             </router-link>
@@ -41,7 +44,7 @@
           <td>
             <router-link
               v-if="line.vat"
-              :to="{name: 'VatShow', params: { id: line.vat.id }}"
+              :to="{ name: 'VatShow', params: { id: line.vat.id } }"
             >
               {{ line.vat.name }}
             </router-link>
@@ -67,7 +70,7 @@ export default {
   props: {
     lines: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
       }
     }

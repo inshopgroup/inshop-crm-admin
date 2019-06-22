@@ -24,13 +24,13 @@
 </template>
 
 <script>
-import ApiTable from "../components/ApiTable"
-import ItemErrors from "../components/layout/errors/ItemErrors"
+import ApiTable from '../components/ApiTable'
+import ItemErrors from '../components/layout/errors/ItemErrors'
 import q from './../table/ColumnQ'
 
 export default {
   components: { ItemErrors, ApiTable },
-  data: function () {
+  data: function() {
     return {
       columns: ['q', 'type'],
       filterable: ['q', 'type'],

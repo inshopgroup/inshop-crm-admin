@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('label_edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('label_edit', { entity: item && item.name }) }}</h1>
     </section>
-    <LabelForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <LabelForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -32,9 +29,11 @@ export default {
       update: 'label/update'
     }),
     onSendForm() {
-      this.update().then(item => {
-        this.$router.push({name: 'LabelShow', params: {id: item.id}})
-      }).catch()
+      this.update()
+        .then(item => {
+          this.$router.push({ name: 'LabelShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

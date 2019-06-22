@@ -120,11 +120,7 @@
       <!--</table>-->
       <!--</div>-->
       <!--</div>-->
-      <item-edit-actions
-        :item="item"
-        entity="Client"
-        path="client"
-      />
+      <item-edit-actions :item="item" entity="Client" path="client" />
     </section>
   </form>
 </template>
@@ -154,7 +150,7 @@ export default {
       errors: 'client/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -190,7 +186,7 @@ export default {
     // },
     updateValue(property, value) {
       this.$store.commit('client/CLIENT_UPDATE_ITEM', { [property]: value })
-    },
+    }
   }
 }
 </script>

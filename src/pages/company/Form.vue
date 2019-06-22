@@ -92,11 +92,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Company"
-        path="company"
-      />
+      <item-edit-actions :item="item" entity="Company" path="company" />
     </section>
   </form>
 </template>
@@ -126,7 +122,7 @@ export default {
       errors: 'company/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -134,7 +130,7 @@ export default {
       reset: 'company/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('company/COMPANY_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('company/COMPANY_UPDATE_ITEM', { [property]: value })
     }
   }
 }

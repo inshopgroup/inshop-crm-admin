@@ -4,10 +4,7 @@
       <h1>{{ $t('category_add') }}</h1>
     </section>
 
-    <CategoryForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <CategoryForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -29,9 +26,11 @@ export default {
       create: 'category/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'CategoryShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'CategoryShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

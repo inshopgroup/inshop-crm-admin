@@ -20,11 +20,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Country"
-        path="country"
-      />
+      <item-edit-actions :item="item" entity="Country" path="country" />
     </section>
   </form>
 </template>
@@ -54,7 +50,7 @@ export default {
       errors: 'country/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +58,7 @@ export default {
       reset: 'country/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('country/COUNTRY_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('country/COUNTRY_UPDATE_ITEM', { [property]: value })
     }
   }
 }

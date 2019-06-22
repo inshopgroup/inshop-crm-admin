@@ -59,7 +59,7 @@ export default {
     },
     showActions: {
       type: Boolean,
-      default () {
+      default() {
         return true
       }
     }
@@ -69,7 +69,7 @@ export default {
       errors: 'contact/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -77,7 +77,7 @@ export default {
       reset: 'contact/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('contact/CONTACT_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('contact/CONTACT_UPDATE_ITEM', { [property]: value })
     }
   }
 }

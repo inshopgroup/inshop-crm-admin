@@ -1,41 +1,26 @@
 <template>
   <div id="list-table">
-    <v-server-table
-      :columns="columns"
-      :options="options()"
-    >
-      <template
-        slot="actions"
-        slot-scope="props"
-      >
-        <div
-          class="btn-group"
-          role="group"
-        >
+    <v-server-table :columns="columns" :options="options()">
+      <template slot="actions" slot-scope="props">
+        <div class="btn-group" role="group">
           <router-link
             v-if="isGranted(role_show)"
-            :to="{name: showRoute, params: { id: props.row.id }}"
+            :to="{ name: showRoute, params: { id: props.row.id } }"
             tag="button"
             class="btn btn-info"
           >
-            <span
-              class="fa fa-eye"
-              aria-hidden="true"
-            />
+            <span class="fa fa-eye" aria-hidden="true" />
             <span class="sr-only">{{ $t('show') }}</span>
           </router-link>
 
           <router-link
             v-if="isGranted(role_show) && isGranted(role_edit)"
-            :to="{name: updateRoute, params: { id: props.row.id }}"
+            :to="{ name: updateRoute, params: { id: props.row.id } }"
             style="padding-left: 10px;"
             tag="button"
             class="btn btn-info"
           >
-            <span
-              class="fa fa-pencil"
-              aria-hidden="true"
-            />
+            <span class="fa fa-pencil" aria-hidden="true" />
             <span class="sr-only">{{ $t('edit') }}</span>
           </router-link>
         </div>
@@ -108,30 +93,30 @@ export default {
       }
     }
   },
-  data: function () {
+  data: function() {
     return {
       orderBy: {},
       initFilters: {},
-      initialPage	: 1,
+      initialPage: 1,
       dateColumns: {
-        'columnCreatedAt': 'createdAt',
-        'columnUpdatedAt': 'updatedAt',
-        'columnDeadline': 'deadline'
+        columnCreatedAt: 'createdAt',
+        columnUpdatedAt: 'updatedAt',
+        columnDeadline: 'deadline'
       },
       customColumns: {
-        'columnTranslatedName': 'translations.name',
-        'columnParentTranslatedName': 'parent.translations.name'
-      },
+        columnTranslatedName: 'translations.name',
+        columnParentTranslatedName: 'parent.translations.name'
+      }
     }
   },
   computed: {
-    role_show () {
+    role_show() {
       return 'ROLE_' + this.path.toUpperCase() + '_SHOW'
     },
-    role_edit () {
+    role_edit() {
       return 'ROLE_' + this.path.toUpperCase() + '_UPDATE'
     },
-    headings () {
+    headings() {
       let headings = {}
 
       this.columns.forEach(key => {
@@ -142,14 +127,14 @@ export default {
 
       return headings
     },
-    showRoute () {
+    showRoute() {
       return this.entity + 'Show'
     },
-    updateRoute () {
+    updateRoute() {
       return this.entity + 'Update'
     }
   },
-  created () {
+  created() {
     let query = this.$route.query
 
     this.initFilters = query
@@ -186,9 +171,9 @@ export default {
         initialPage: this.initialPage,
         orderBy: this.orderBy,
         texts: {
-          filterBy: "{column}",
+          filterBy: '{column}'
         },
-        requestFunction: (params) => {
+        requestFunction: params => {
           return new Promise(resolve => {
             let queryParams = {}
 
@@ -200,9 +185,17 @@ export default {
             this.columns.forEach(key => {
               if (typeof params.query[key] !== 'undefined') {
                 if (Object.keys(this.dateColumns).indexOf(key) !== -1) {
-                  queryParams[this.dateColumns[key] + '[after]'] = this.$moment(params.query[key].start).format('YYYY/M/D')
-                  queryParams[this.dateColumns[key] + '[before]'] = this.$moment(params.query[key].end).add(1, 'day').format('YYYY/M/D')
-                } else if (Object.keys(this.customColumns).indexOf(key) !== -1) {
+                  queryParams[this.dateColumns[key] + '[after]'] = this.$moment(
+                    params.query[key].start
+                  ).format('YYYY/M/D')
+                  queryParams[
+                    this.dateColumns[key] + '[before]'
+                  ] = this.$moment(params.query[key].end)
+                    .add(1, 'day')
+                    .format('YYYY/M/D')
+                } else if (
+                  Object.keys(this.customColumns).indexOf(key) !== -1
+                ) {
                   queryParams[this.customColumns[key]] = params.query[key]
                 } else {
                   queryParams[key] = params.query[key]
@@ -223,15 +216,20 @@ export default {
             if (typeof params.orderBy !== 'undefined') {
               let key
 
-              if (Object.keys(this.dateColumns).indexOf(params.orderBy) !== -1) {
+              if (
+                Object.keys(this.dateColumns).indexOf(params.orderBy) !== -1
+              ) {
                 key = this.dateColumns[params.orderBy]
-              } else if (Object.keys(this.customColumns).indexOf(params.orderBy) !== -1) {
+              } else if (
+                Object.keys(this.customColumns).indexOf(params.orderBy) !== -1
+              ) {
                 key = this.customColumns[params.orderBy]
               } else {
                 key = params.orderBy
               }
 
-              queryParams['order[' + key + ']'] = params.ascending === 1 ? 'ASC' : 'DESC'
+              queryParams['order[' + key + ']'] =
+                params.ascending === 1 ? 'ASC' : 'DESC'
 
               queryParamsUrl['orderBy.ascending'] = params.ascending
               queryParamsUrl['orderBy.column'] = key
@@ -239,13 +237,19 @@ export default {
 
             // clear error
             this.$store.commit(
-              this.path + '/' + decamelize(this.entity).toUpperCase() + '_SET_ERROR',
+              this.path +
+                '/' +
+                decamelize(this.entity).toUpperCase() +
+                '_SET_ERROR',
               null
             )
 
-            this.$router.push({query: queryParamsUrl})
+            this.$router.push({ query: queryParamsUrl })
 
-            axios.get(process.env.VUE_APP_API_URL + '/' + this.route, {params: queryParams})
+            axios
+              .get(process.env.VUE_APP_API_URL + '/' + this.route, {
+                params: queryParams
+              })
               .then(response => {
                 let data = {
                   data: response.data['hydra:member'],
@@ -254,9 +258,12 @@ export default {
 
                 resolve(data)
               })
-              .catch((e) => {
+              .catch(e => {
                 this.$store.commit(
-                  this.path + '/' + decamelize(this.entity).toUpperCase() + '_SET_ERROR',
+                  this.path +
+                    '/' +
+                    decamelize(this.entity).toUpperCase() +
+                    '_SET_ERROR',
                   e.message
                 )
               })
@@ -269,13 +276,13 @@ export default {
 </script>
 
 <style>
-  .VueTables__table th:last-child {
-    width: 95px;
-  }
-  .float-right {
-    float: right!important;
-  }
-  .VuePagination .text-center {
-    float: right;
-  }
+.VueTables__table th:last-child {
+  width: 95px;
+}
+.float-right {
+  float: right !important;
+}
+.VuePagination .text-center {
+  float: right;
+}
 </style>

@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('invoice_type_edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('invoice_type_edit', { entity: item && item.name }) }}</h1>
     </section>
-    <InvoiceTypeForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <InvoiceTypeForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -32,9 +29,14 @@ export default {
       update: 'invoiceType/update'
     }),
     onSendForm() {
-      this.update().then(item => {
-        this.$router.push({name: 'InvoiceTypeShow', params: {id: item.id}})
-      }).catch()
+      this.update()
+        .then(item => {
+          this.$router.push({
+            name: 'InvoiceTypeShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

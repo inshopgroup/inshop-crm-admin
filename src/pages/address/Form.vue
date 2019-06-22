@@ -109,7 +109,7 @@ export default {
     },
     showActions: {
       type: Boolean,
-      default () {
+      default() {
         return true
       }
     }
@@ -119,7 +119,7 @@ export default {
       errors: 'address/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -127,7 +127,7 @@ export default {
       reset: 'address/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('address/ADDRESS_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('address/ADDRESS_UPDATE_ITEM', { [property]: value })
     }
   }
 }

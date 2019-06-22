@@ -158,15 +158,8 @@
           </h3>
         </div>
         <div class="box-body">
-          <button
-            type="button"
-            class="btn btn-info"
-            @click.prevent="addLine()"
-          >
-            <span
-              class="fa fa-plus"
-              aria-hidden="true"
-            />
+          <button type="button" class="btn btn-info" @click.prevent="addLine()">
+            <span class="fa fa-plus" aria-hidden="true" />
             <span>{{ $t('invoice_line_add') }}</span>
           </button>
           <table class="table table-striped">
@@ -181,10 +174,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="line in item.lines"
-                :key="line.id"
-              >
+              <tr v-for="line in item.lines" :key="line.id">
                 <td>
                   <form-select
                     :item="line"
@@ -238,10 +228,7 @@
                     class="btn btn-info"
                     @click.prevent="removeLine(line)"
                   >
-                    <span
-                      class="fa fa-remove"
-                      aria-hidden="true"
-                    />
+                    <span class="fa fa-remove" aria-hidden="true" />
                     <span class="sr-only">{{ $t('delete') }}</span>
                   </button>
                 </td>
@@ -284,7 +271,7 @@ export default {
       errors: 'invoiceHeader/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -292,12 +279,14 @@ export default {
       reset: 'invoiceHeader/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('invoiceHeader/INVOICE_HEADER_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('invoiceHeader/INVOICE_HEADER_UPDATE_ITEM', {
+        [property]: value
+      })
     },
-    addLine () {
-      this.item.lines.push({uuid: Date.now()})
+    addLine() {
+      this.item.lines.push({ uuid: Date.now() })
     },
-    removeLine (line) {
+    removeLine(line) {
       this.item.lines = this.item.lines.filter(function(el) {
         if (!line.id) {
           line.id = line.uuid
@@ -306,7 +295,7 @@ export default {
         return line.id !== el.id
       })
     },
-    productSelected (line) {
+    productSelected(line) {
       if (!line.name) {
         line.name = line.product.name
       }

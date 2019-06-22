@@ -50,17 +50,13 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Document"
-        path="document"
-      />
+      <item-edit-actions :item="item" entity="Document" path="document" />
     </section>
   </form>
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import axios from '../../interceptor'
@@ -92,7 +88,7 @@ export default {
     }),
     authHeader() {
       return 'Bearer ' + this.$store.state.auth.token
-    },
+    }
   },
   beforeDestroy() {
     this.reset()
@@ -102,7 +98,7 @@ export default {
       reset: 'document/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('document/DOCUMENT_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('document/DOCUMENT_UPDATE_ITEM', { [property]: value })
     },
     formFileUploaded(file) {
       this.$store.commit('document/DOCUMENT_ADD_FILE', file)

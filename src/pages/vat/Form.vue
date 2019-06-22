@@ -27,11 +27,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Vat"
-        path="vat"
-      />
+      <item-edit-actions :item="item" entity="Vat" path="vat" />
     </section>
   </form>
 </template>
@@ -69,7 +65,7 @@ export default {
       reset: 'vat/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('vat/VAT_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('vat/VAT_UPDATE_ITEM', { [property]: value })
     }
   }
 }

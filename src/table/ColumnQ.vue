@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-link :to="{ name: data['type'] + 'Show', params: { id: data['entityId'] }}">
+    <router-link
+      :to="{ name: data['type'] + 'Show', params: { id: data['entityId'] } }"
+    >
       {{ data['text'] }}
     </router-link>
   </div>

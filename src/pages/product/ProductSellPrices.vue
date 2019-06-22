@@ -46,7 +46,7 @@ export default {
   props: {
     productSellPrices: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
       }
     }

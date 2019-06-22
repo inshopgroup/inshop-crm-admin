@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('contact_edit', {entity: item && item.value}) }}</h1>
+      <h1>{{ $t('contact_edit', { entity: item && item.value }) }}</h1>
     </section>
-    <ContactForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <ContactForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -32,9 +29,11 @@ export default {
       update: 'contact/update'
     }),
     onSendForm() {
-      this.update().then(item => {
-        this.$router.push({name: 'ContactShow', params: {id: item.id}})
-      }).catch()
+      this.update()
+        .then(item => {
+          this.$router.push({ name: 'ContactShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

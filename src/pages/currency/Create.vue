@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('currency_add') }}</h1>
     </section>
-    <CurrencyForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <CurrencyForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,11 @@ export default {
       create: 'currency/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'CurrencyShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'CurrencyShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

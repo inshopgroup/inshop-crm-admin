@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('vat_add') }}</h1>
     </section>
-    <VatForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <VatForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -27,10 +24,12 @@ export default {
     ...mapActions({
       create: 'vat/create'
     }),
-    onSendForm () {
-      this.create().then(item => {
-        this.$router.push({name: 'VatShow', params: {id: item.id}})
-      }).catch()
+    onSendForm() {
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'VatShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

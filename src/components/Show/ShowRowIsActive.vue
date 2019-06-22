@@ -2,7 +2,12 @@
   <tr>
     <td>{{ $t('isActive') }}</td>
     <td>
-      <span :class="['label', {'label-danger': !item.isActive, 'label-success': item.isActive}]">
+      <span
+        :class="[
+          'label',
+          { 'label-danger': !item.isActive, 'label-success': item.isActive }
+        ]"
+      >
         {{ $t(item.isActive ? 'yes' : 'no') }}
       </span>
     </td>
@@ -15,7 +20,7 @@ export default {
     item: {
       type: Object,
       required: true
-    },
+    }
   }
 }
 </script>

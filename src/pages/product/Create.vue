@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('product_add') }}</h1>
     </section>
-    <ProductForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <ProductForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -16,7 +13,7 @@ import ProductForm from './Form'
 
 export default {
   components: {
-    ProductForm,
+    ProductForm
   },
   computed: {
     ...mapGetters({
@@ -28,9 +25,11 @@ export default {
       create: 'product/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'ProductShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'ProductShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

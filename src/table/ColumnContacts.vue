@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      v-for="contact in data.contacts"
-      :key="contact.id"
-    >
+    <div v-for="contact in data.contacts" :key="contact.id">
       <i
         v-if="contact.contactType.id == 1"
         class="fa fa-phone"
@@ -42,6 +39,6 @@ export default {
       type: Object,
       default: () => ({})
     }
-  } 
+  }
 }
 </script>

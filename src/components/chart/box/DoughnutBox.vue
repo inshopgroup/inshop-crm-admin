@@ -17,14 +17,8 @@
     </div>
     <div class="box-footer">
       <ul class="chart-legend clearfix">
-        <li
-          v-for="(item, key) in labels"
-          :key="item.id"
-        >
-          <i
-            class="fa fa-circle-o"
-            :style="{color: colorByKey(key)}"
-          />
+        <li v-for="(item, key) in labels" :key="item.id">
+          <i class="fa fa-circle-o" :style="{ color: colorByKey(key) }" />
           {{ item }}
           <span class="pull-right">{{ values[key] }}</span>
         </li>
@@ -38,7 +32,7 @@ import DoughnutChart from '../DoughnutChart'
 import Color from 'color'
 
 export default {
-  components: {DoughnutChart},
+  components: { DoughnutChart },
   props: {
     title: {
       type: String,
@@ -46,12 +40,12 @@ export default {
     },
     data: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
       }
     }
   },
-  data () {
+  data() {
     return {
       options: {
         legend: {
@@ -61,7 +55,7 @@ export default {
     }
   },
   computed: {
-    dataset () {
+    dataset() {
       return {
         labels: this.labels,
         datasets: [
@@ -73,7 +67,7 @@ export default {
         ]
       }
     },
-    labels () {
+    labels() {
       let labels = []
 
       this.data.forEach(item => {
@@ -82,7 +76,7 @@ export default {
 
       return labels
     },
-    values () {
+    values() {
       let values = []
 
       this.data.forEach(item => {
@@ -91,21 +85,21 @@ export default {
 
       return values
     },
-    colors () {
+    colors() {
       let colors = []
       let pieces = this.data.length
       let color = new Color('#8A56E2')
 
       let i = 0
       this.data.forEach(() => {
-        colors.push(color.rotate((240 / pieces) * i++ % 240))
+        colors.push(color.rotate(((240 / pieces) * i++) % 240))
       })
 
       return colors
     }
   },
   methods: {
-    colorByKey (key) {
+    colorByKey(key) {
       return this.colors[key]
     }
   }

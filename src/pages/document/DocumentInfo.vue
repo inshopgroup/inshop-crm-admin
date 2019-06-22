@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="item"
-    class="table-responsive"
-  >
+  <div v-if="item" class="table-responsive">
     <table class="table table-striped table-hover">
       <tbody>
         <tr>
@@ -13,11 +10,10 @@
           <td>{{ $t('clients') }}</td>
           <td>
             <template v-if="item.clients">
-              <div
-                v-for="client in item.clients"
-                :key="client.id"
-              >
-                <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
+              <div v-for="client in item.clients" :key="client.id">
+                <router-link
+                  :to="{ name: 'ClientShow', params: { id: client.id } }"
+                >
                   {{ client.name }}
                 </router-link>
               </div>
@@ -28,11 +24,10 @@
           <td>{{ $t('projects') }}</td>
           <td>
             <template v-if="item.projects">
-              <div
-                v-for="project in item.projects"
-                :key="project.id"
-              >
-                <router-link :to="{name: 'ProjectShow', params: { id: project.id }}">
+              <div v-for="project in item.projects" :key="project.id">
+                <router-link
+                  :to="{ name: 'ProjectShow', params: { id: project.id } }"
+                >
                   {{ project.name }}
                 </router-link>
               </div>
@@ -50,10 +45,10 @@
 </template>
 
 <script>
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 export default {
   name: 'DocumentInfo',
   components: {

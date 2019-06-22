@@ -72,11 +72,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Task"
-        path="task"
-      />
+      <item-edit-actions :item="item" entity="Task" path="task" />
     </section>
   </form>
 </template>
@@ -106,7 +102,7 @@ export default {
       errors: 'task/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {

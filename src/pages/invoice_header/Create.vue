@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('invoice_header_add') }}</h1>
     </section>
-    <InvoiceHeaderForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <InvoiceHeaderForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,14 @@ export default {
       create: 'invoiceHeader/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'InvoiceHeaderShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({
+            name: 'InvoiceHeaderShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

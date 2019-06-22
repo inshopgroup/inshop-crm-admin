@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="modal-not-done-tasks"
-    class="modal fade"
-  >
+  <div id="modal-not-done-tasks" class="modal fade">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -35,23 +32,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr
-                v-for="task in tasks"
-                :key="task.id"
-              >
+              <tr v-for="task in tasks" :key="task.id">
                 <td>
-                  <a
-                    href="#"
-                    @click="goto(task)"
-                  >
+                  <a href="#" @click="goto(task)">
                     {{ task.id }}
                   </a>
                 </td>
                 <td>
-                  <a
-                    href="#"
-                    @click="goto(task)"
-                  >
+                  <a href="#" @click="goto(task)">
                     {{ task['name'] }}
                   </a>
                 </td>
@@ -65,41 +53,29 @@
                   </a>
                 </td>
                 <td>
-                  <a
-                    href="#"
-                    @click="goto(task)"
-                  >
+                  <a href="#" @click="goto(task)">
                     {{ task['project']['client']['name'] }}
                   </a>
                 </td>
                 <td>
-                  <a
-                    href="#"
-                    @click="goto(task)"
-                  >
+                  <a href="#" @click="goto(task)">
                     {{ task['assignee']['name'] }}
                   </a>
                 </td>
                 <td>
-                  <a
-                    href="#"
-                    @click="goto(task)"
-                  >
+                  <a href="#" @click="goto(task)">
                     {{ task['status']['name'] }}
                   </a>
                 </td>
                 <td>
-                  <a
-                    href="#"
-                    @click="goto(task)"
-                  >
+                  <a href="#" @click="goto(task)">
                     {{ crmDateFormat(task['deadline']) }}
                   </a>
                 </td>
                 <!--<td>-->
-              <!--<a href="#" @click="goto(task)">-->
+                <!--<a href="#" @click="goto(task)">-->
                 <!--{{ crmDateFormat(task['createdAt']) }}-->
-              <!--</a>-->
+                <!--</a>-->
                 <!--</td>-->
               </tr>
             </tbody>
@@ -125,16 +101,16 @@ export default {
   props: {
     tasks: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
       }
     }
   },
-  data () {
+  data() {
     return {}
   },
   methods: {
-    goto (task) {
+    goto(task) {
       window.$('#modal-not-done-tasks').modal('hide')
       this.$router.push({ name: 'TaskShow', params: { id: task.id } })
     }

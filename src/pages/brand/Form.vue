@@ -20,11 +20,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Brand"
-        path="brand"
-      />
+      <item-edit-actions :item="item" entity="Brand" path="brand" />
     </section>
   </form>
 </template>
@@ -54,7 +50,7 @@ export default {
       errors: 'brand/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +58,7 @@ export default {
       reset: 'brand/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('brand/BRAND_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('brand/BRAND_UPDATE_ITEM', { [property]: value })
     }
   }
 }

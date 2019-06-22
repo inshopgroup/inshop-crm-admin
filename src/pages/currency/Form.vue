@@ -27,11 +27,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Currency"
-        path="currency"
-      />
+      <item-edit-actions :item="item" entity="Currency" path="currency" />
     </section>
   </form>
 </template>
@@ -61,7 +57,7 @@ export default {
       errors: 'currency/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -69,7 +65,7 @@ export default {
       reset: 'currency/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('currency/CURRENCY_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('currency/CURRENCY_UPDATE_ITEM', { [property]: value })
     }
   }
 }

@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('project_type_edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('project_type_edit', { entity: item && item.name }) }}</h1>
     </section>
-    <ProjectTypeForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <ProjectTypeForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -32,9 +29,14 @@ export default {
       update: 'projectType/update'
     }),
     onSendForm() {
-      this.update().then(item => {
-        this.$router.push({name: 'ProjectTypeShow', params: {id: item.id}})
-      }).catch()
+      this.update()
+        .then(item => {
+          this.$router.push({
+            name: 'ProjectTypeShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('contact_type_add') }}</h1>
     </section>
-    <ContactTypeForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <ContactTypeForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,14 @@ export default {
       create: 'contactType/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'ContactTypeShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({
+            name: 'ContactTypeShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

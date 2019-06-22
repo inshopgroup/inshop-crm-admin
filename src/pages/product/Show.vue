@@ -8,43 +8,35 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
             <a
               href="#companyProducts"
               data-toggle="tab"
               aria-expanded="false"
-            >{{ $t('tabs_companyProducts') }}</a>
+              >{{ $t('tabs_companyProducts') }}</a
+            >
           </li>
           <li>
             <a
               href="#productSellPrices"
               data-toggle="tab"
               aria-expanded="false"
-            >{{ $t('tabs_productSellPrices') }}</a>
+              >{{ $t('tabs_productSellPrices') }}</a
+            >
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
-            <div
-              v-if="item"
-              class="table-responsive"
-            >
+          <div id="general" class="tab-pane active">
+            <div v-if="item" class="table-responsive">
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -66,10 +58,7 @@
                   <tr>
                     <td>{{ $t('video') }}</td>
                     <td>
-                      <a
-                        target="_blank"
-                        :href="item.video"
-                      >{{ item.video }}</a>
+                      <a target="_blank" :href="item.video">{{ item.video }}</a>
                     </td>
                   </tr>
                   <tr>
@@ -85,30 +74,21 @@
               </table>
             </div>
           </div>
-          <div
-            id="companyProducts"
-            class="tab-pane"
-          >
+          <div id="companyProducts" class="tab-pane">
             <company-products
               :company-products="companyProducts"
               :product="item.id"
               @reloadCompanyProducts="loadCompanyProducts"
             />
           </div>
-          <div
-            id="productSellPrices"
-            class="tab-pane"
-          >
+          <div id="productSellPrices" class="tab-pane">
             <product-sell-prices
               :product-sell-prices="productSellPrices"
               :product="item.id"
               @reloadProductSellPrices="loadProductSellPrices"
             />
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -118,11 +98,7 @@
           </div>
         </div>
       </div>
-      <item-show-actions
-        :item="item"
-        entity="Product"
-        path="product"
-      />
+      <item-show-actions :item="item" entity="Product" path="product" />
     </section>
   </div>
 </template>
@@ -134,10 +110,10 @@ import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
 import CompanyProducts from './CompanyProducts'
 import ProductSellPrices from './ProductSellPrices'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 
 export default {
   components: {
@@ -151,7 +127,7 @@ export default {
     ItemErrors,
     ItemShowActions
   },
-  data () {
+  data() {
     return {
       historyKey: 1
     }
@@ -166,7 +142,7 @@ export default {
     this.loadCompanyProducts(this.$route.params.id)
     this.loadProductSellPrices(this.$route.params.id)
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {

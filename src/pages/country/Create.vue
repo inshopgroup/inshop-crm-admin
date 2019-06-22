@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('country_add') }}</h1>
     </section>
-    <CountryForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <CountryForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,11 @@ export default {
       create: 'country/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'CountryShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'CountryShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

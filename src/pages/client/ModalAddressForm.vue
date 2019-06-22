@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="modal-address-edit"
-    class="modal fade"
-  >
+  <div id="modal-address-edit" class="modal fade">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -51,29 +48,34 @@ import AddressForm from '../address/Form'
 
 export default {
   name: 'ModalAddressForm',
-  components: {AddressForm},
+  components: { AddressForm },
   props: {
     title: {
       type: String,
-      required :true
+      required: true
     },
     item: {
       type: Object,
-      required :true
+      required: true
     },
     callback: {
       type: Function,
-      required :true
+      required: true
     }
   },
   methods: {
     onSendForm() {
-      this.callback().then(item => {
-        this.$toastr.s(this.$t('address_saved', {address: item.value}), this.$t('saved'))
-        this.$emit('addressesChanged', item)
+      this.callback()
+        .then(item => {
+          this.$toastr.s(
+            this.$t('address_saved', { address: item.value }),
+            this.$t('saved')
+          )
+          this.$emit('addressesChanged', item)
 
-        window.$('#modal-address-edit').modal('hide')
-      }).catch()
+          window.$('#modal-address-edit').modal('hide')
+        })
+        .catch()
     }
   }
 }

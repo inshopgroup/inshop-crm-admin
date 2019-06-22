@@ -20,11 +20,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="TaskStatus"
-        path="task_status"
-      />
+      <item-edit-actions :item="item" entity="TaskStatus" path="task_status" />
     </section>
   </form>
 </template>
@@ -54,7 +50,7 @@ export default {
       errors: 'taskStatus/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +58,9 @@ export default {
       reset: 'taskStatus/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('taskStatus/TASK_STATUS_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('taskStatus/TASK_STATUS_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

@@ -54,7 +54,7 @@ export default {
       errors: 'paymentType/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +62,9 @@ export default {
       reset: 'paymentType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('paymentType/PAYMENT_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('paymentType/PAYMENT_TYPE_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

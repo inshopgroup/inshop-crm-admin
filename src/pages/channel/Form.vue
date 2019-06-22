@@ -28,11 +28,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Channel"
-        path="channel"
-      />
+      <item-edit-actions :item="item" entity="Channel" path="channel" />
     </section>
   </form>
 </template>
@@ -62,7 +58,7 @@ export default {
       errors: 'channel/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -70,8 +66,8 @@ export default {
       reset: 'channel/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('channel/CHANNEL_UPDATE_ITEM', {[property]: value})
-    },
+      this.$store.commit('channel/CHANNEL_UPDATE_ITEM', { [property]: value })
+    }
   }
 }
 </script>

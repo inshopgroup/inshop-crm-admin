@@ -51,11 +51,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="User"
-        path="user"
-      />
+      <item-edit-actions :item="item" entity="User" path="user" />
     </section>
   </form>
 </template>
@@ -85,7 +81,7 @@ export default {
       errors: 'user/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -93,7 +89,7 @@ export default {
       reset: 'user/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('user/USER_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('user/USER_UPDATE_ITEM', { [property]: value })
     }
   }
 }

@@ -40,11 +40,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Template"
-        path="template"
-      />
+      <item-edit-actions :item="item" entity="Template" path="template" />
     </section>
   </form>
 </template>
@@ -82,9 +78,9 @@ export default {
     }),
     authHeader() {
       return 'Bearer ' + this.$store.state.auth.token
-    },
+    }
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -92,7 +88,7 @@ export default {
       reset: 'template/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('template/TEMPLATE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('template/TEMPLATE_UPDATE_ITEM', { [property]: value })
     },
     formFileUploaded(file) {
       this.$store.commit('template/TEMPLATE_ADD_FILE', file)

@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('order_status_add') }}</h1>
     </section>
-    <OrderStatusForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <OrderStatusForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,14 @@ export default {
       create: 'orderStatus/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'OrderStatusShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({
+            name: 'OrderStatusShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

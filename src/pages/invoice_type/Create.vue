@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('invoice_type_add') }}</h1>
     </section>
-    <InvoiceTypeForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <InvoiceTypeForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,14 @@ export default {
       create: 'invoiceType/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'InvoiceTypeShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({
+            name: 'InvoiceTypeShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

@@ -4,43 +4,54 @@ import * as types from './store/modules/general/mutation_types'
 
 axios.defaults.timeout = 30000
 
-axios.interceptors.request.use(config => {
-  store.commit('general/' + types.LOADING_START)
+axios.interceptors.request.use(
+  config => {
+    store.commit('general/' + types.LOADING_START)
 
-  let token = store.getters['auth/jwtDecoded'] || null
-  let authorized = (token && token.exp > Date.now() / 1000)
+    let token = store.getters['auth/jwtDecoded'] || null
+    let authorized = token && token.exp > Date.now() / 1000
 
-  if (authorized) {
-    config.headers.common['Authorization'] = 'Bearer ' + store.state.auth.token
-  }
-
-  if (process.env.NODE_ENV !== 'production') {
-    if (config.url.indexOf('?') > -1) {
-      config.url = config.url + '&XDEBUG_SESSION_START=PHPSTORM'
-    } else {
-      config.url = config.url + '?XDEBUG_SESSION_START=PHPSTORM'
+    if (authorized) {
+      config.headers.common['Authorization'] =
+        'Bearer ' + store.state.auth.token
     }
+
+    if (process.env.NODE_ENV !== 'production') {
+      if (config.url.indexOf('?') > -1) {
+        config.url = config.url + '&XDEBUG_SESSION_START=PHPSTORM'
+      } else {
+        config.url = config.url + '?XDEBUG_SESSION_START=PHPSTORM'
+      }
+    }
+
+    return config
+  },
+  error => {
+    store.commit('general/' + types.LOADING_STOP)
+
+    return Promise.reject(error)
   }
+)
 
-  return config
-}, error => {
-  store.commit('general/' + types.LOADING_STOP)
+axios.interceptors.response.use(
+  data => {
+    store.commit('general/' + types.LOADING_STOP)
 
-  return Promise.reject(error)
-})
+    return data
+  },
+  error => {
+    store.commit('general/' + types.LOADING_STOP)
 
-axios.interceptors.response.use(data => {
-  store.commit('general/' + types.LOADING_STOP)
+    if (
+      error.response &&
+      error.response.status &&
+      error.response.status === 401
+    ) {
+      window.location.href = '/signin'
+    }
 
-  return data
-}, error => {
-  store.commit('general/' + types.LOADING_STOP)
-
-  if (error.response && error.response.status && error.response.status === 401) {
-    window.location.href = '/signin'
+    return Promise.reject(error)
   }
-
-  return Promise.reject(error)
-})
+)
 
 export default axios

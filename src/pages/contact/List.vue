@@ -39,17 +39,39 @@ import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: { ItemErrors, ApiTable },
-  data: function () {
+  data: function() {
     return {
-      columns: ['id', 'value', 'contactType.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'value', 'contactType.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'value', 'contactType.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: [
+        'id',
+        'value',
+        'contactType.name',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt',
+        'actions'
+      ],
+      filterable: [
+        'id',
+        'value',
+        'contactType.name',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
+      sortable: [
+        'id',
+        'value',
+        'contactType.name',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
       templates: {
         columnCreatedAt,
         columnUpdatedAt,
-        'isActive': columnIsActive
+        isActive: columnIsActive
       }
     }
-  },
+  }
 }
 </script>

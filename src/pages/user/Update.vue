@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('user_edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('user_edit', { entity: item && item.name }) }}</h1>
     </section>
-    <UserForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <UserForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -23,7 +20,7 @@ export default {
       item: 'user/item'
     })
   },
-  created () {
+  created() {
     this.getItem(this.$route.params.id)
   },
   methods: {
@@ -31,10 +28,12 @@ export default {
       getItem: 'user/getItem',
       update: 'user/update'
     }),
-    onSendForm () {
-      this.update().then(item => {
-        this.$router.push({ name: 'UserShow', params: { id: item.id}} )
-      }).catch()
+    onSendForm() {
+      this.update()
+        .then(item => {
+          this.$router.push({ name: 'UserShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

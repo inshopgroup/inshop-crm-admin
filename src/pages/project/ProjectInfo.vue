@@ -1,8 +1,5 @@
 <template>
-  <div
-    v-if="item"
-    class="table-responsive"
-  >
+  <div v-if="item" class="table-responsive">
     <table class="table table-striped table-hover">
       <thead>
         <tr>
@@ -42,7 +39,7 @@
           <td>
             <router-link
               v-if="item.client"
-              :to="{name: 'ClientShow', params: { id: item.client.id }}"
+              :to="{ name: 'ClientShow', params: { id: item.client.id } }"
             >
               {{ item.client.name }}
             </router-link>
@@ -59,10 +56,10 @@
 </template>
 
 <script>
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 export default {
   name: 'ProjectInfo',
   components: {

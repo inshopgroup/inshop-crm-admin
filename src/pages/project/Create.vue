@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('project_add') }}</h1>
     </section>
-    <ProjectForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <ProjectForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,11 @@ export default {
       create: 'project/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'ProjectShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'ProjectShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

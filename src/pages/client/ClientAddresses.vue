@@ -3,14 +3,11 @@
     <section class="content-header hidden show-print">
       <h1>{{ $t('tabs_addresses') }}</h1>
     </section>
-    <button
-      class="btn btn-primary hidden-print"
-      @click="create($event.target)"
-    >
+    <button class="btn btn-primary hidden-print" @click="create($event.target)">
       {{ $t('address_add') }}
     </button>
-    <br>
-    <br>
+    <br />
+    <br />
     <table class="table table-striped table-hover">
       <thead>
         <tr>
@@ -26,21 +23,15 @@
           <th>{{ $t('building') }}</th>
           <th>{{ $t('apartment') }}</th>
           <th>{{ $t('comment') }}</th>
-          <th
-            class="hidden-print"
-            style="width: 100px;"
-          />
+          <th class="hidden-print" style="width: 100px;" />
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="address in addresses"
-          :key="address.id"
-        >
+        <tr v-for="address in addresses" :key="address.id">
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.id }}
             </router-link>
@@ -48,7 +39,7 @@
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.postCode }}
             </router-link>
@@ -56,7 +47,7 @@
           <td>
             <router-link
               v-if="address.country"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.country.name }}
             </router-link>
@@ -64,7 +55,7 @@
           <td>
             <router-link
               v-if="address.city"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.city.name }}
             </router-link>
@@ -72,7 +63,7 @@
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.region }}
             </router-link>
@@ -80,7 +71,7 @@
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.district }}
             </router-link>
@@ -88,7 +79,7 @@
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.street }}
             </router-link>
@@ -96,7 +87,7 @@
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.building }}
             </router-link>
@@ -104,7 +95,7 @@
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.apartment }}
             </router-link>
@@ -112,34 +103,22 @@
           <td>
             <router-link
               v-if="address"
-              :to="{name: 'AddressShow', params: { id: address.id }}"
+              :to="{ name: 'AddressShow', params: { id: address.id } }"
             >
               {{ address.comment }}
             </router-link>
           </td>
           <td class="hidden-print">
-            <div
-              class="btn-group"
-              role="group"
-            >
+            <div class="btn-group" role="group">
               <button
                 class="btn btn-info"
                 @click="edit(address, $event.target)"
               >
-                <span
-                  class="fa fa-pencil"
-                  aria-hidden="true"
-                />
+                <span class="fa fa-pencil" aria-hidden="true" />
                 <span class="sr-only">{{ $t('edit') }}</span>
               </button>
-              <button
-                class="btn btn-info"
-                @click="deleteItem(address)"
-              >
-                <span
-                  class="fa fa-remove"
-                  aria-hidden="true"
-                />
+              <button class="btn btn-info" @click="deleteItem(address)">
+                <span class="fa fa-remove" aria-hidden="true" />
                 <span class="sr-only">{{ $t('delete') }}</span>
               </button>
             </div>
@@ -169,12 +148,12 @@ export default {
     },
     addresses: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
       }
     }
   },
-  data () {
+  data() {
     return {
       title: '',
       item: {},
@@ -187,11 +166,11 @@ export default {
       updateItem: 'address/update',
       createItem: 'address/create'
     }),
-    deleteItem (item) {
+    deleteItem(item) {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
         this.remove(item).then(() => {
           this.$toastr.s(
-            this.$t('address_deleted', {entity: item.value}),
+            this.$t('address_deleted', { entity: item.value }),
             this.$t('deleted')
           )
 
@@ -199,7 +178,7 @@ export default {
         })
       }
     },
-    create () {
+    create() {
       this.$store.commit('address/ADDRESS_SET_ITEM', this.parent)
 
       this.title = this.$t('address_add')
@@ -208,15 +187,15 @@ export default {
 
       window.$('#modal-address-edit').modal('show')
     },
-    edit (item) {
+    edit(item) {
       this.$store.commit('address/ADDRESS_SET_ITEM', item)
 
-      this.title = this.$t('address_edit', {entity: item.id})
+      this.title = this.$t('address_edit', { entity: item.id })
       this.item = this.$store.getters['address/item']
       this.callback = this.updateItem
 
       window.$('#modal-address-edit').modal('show')
-    },
+    }
   }
 }
 </script>

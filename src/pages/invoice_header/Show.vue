@@ -8,36 +8,24 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#lines"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_lines') }}</a>
+            <a href="#lines" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_lines')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
-            <div
-              v-if="item"
-              class="table-responsive"
-            >
+          <div id="general" class="tab-pane active">
+            <div v-if="item" class="table-responsive">
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -57,7 +45,10 @@
                     <td>
                       <router-link
                         v-if="item.status"
-                        :to="{name: 'InvoiceStatusShow', params: { id: item.status.id }}"
+                        :to="{
+                          name: 'InvoiceStatusShow',
+                          params: { id: item.status.id }
+                        }"
                       >
                         {{ item.status.name }}
                       </router-link>
@@ -68,7 +59,10 @@
                     <td>
                       <router-link
                         v-if="item.type"
-                        :to="{name: 'InvoiceTypeShow', params: { id: item.type.id }}"
+                        :to="{
+                          name: 'InvoiceTypeShow',
+                          params: { id: item.type.id }
+                        }"
                       >
                         {{ item.type.name }}
                       </router-link>
@@ -80,7 +74,10 @@
                     <td>
                       <router-link
                         v-if="item.orderHeader"
-                        :to="{name: 'OrderHeaderShow', params: { id: item.orderHeader.id }}"
+                        :to="{
+                          name: 'OrderHeaderShow',
+                          params: { id: item.orderHeader.id }
+                        }"
                       >
                         {{ item.orderHeader.number }}
                       </router-link>
@@ -91,7 +88,10 @@
                     <td>
                       <router-link
                         v-if="item.companyFrom"
-                        :to="{name: 'CompanyShow', params: { id: item.companyFrom.id }}"
+                        :to="{
+                          name: 'CompanyShow',
+                          params: { id: item.companyFrom.id }
+                        }"
                       >
                         {{ item.companyFrom.name }}
                       </router-link>
@@ -102,7 +102,10 @@
                     <td>
                       <router-link
                         v-if="item.companyTo"
-                        :to="{name: 'CompanyShow', params: { id: item.companyTo.id }}"
+                        :to="{
+                          name: 'CompanyShow',
+                          params: { id: item.companyTo.id }
+                        }"
                       >
                         {{ item.companyTo.name }}
                       </router-link>
@@ -114,7 +117,10 @@
                     <td>
                       <router-link
                         v-if="item.agreement"
-                        :to="{name: 'DocumentShow', params: { id: item.agreement.id }}"
+                        :to="{
+                          name: 'DocumentShow',
+                          params: { id: item.agreement.id }
+                        }"
                       >
                         {{ item.agreement.name }}
                       </router-link>
@@ -125,7 +131,10 @@
                     <td>
                       <router-link
                         v-if="item.currency"
-                        :to="{name: 'CurrencyShow', params: { id: item.currency.id }}"
+                        :to="{
+                          name: 'CurrencyShow',
+                          params: { id: item.currency.id }
+                        }"
                       >
                         {{ item.currency.name }}
                       </router-link>
@@ -136,7 +145,10 @@
                     <td>
                       <router-link
                         v-if="item.language"
-                        :to="{name: 'LanguageShow', params: { id: item.language.id }}"
+                        :to="{
+                          name: 'LanguageShow',
+                          params: { id: item.language.id }
+                        }"
                       >
                         {{ item.language.name }}
                       </router-link>
@@ -163,21 +175,12 @@
               </table>
             </div>
           </div>
-          <div
-            id="lines"
-            class="tab-pane"
-          >
-            <div
-              v-if="item.lines"
-              class="table-responsive"
-            >
+          <div id="lines" class="tab-pane">
+            <div v-if="item.lines" class="table-responsive">
               <lines :lines="item.lines" />
             </div>
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -202,10 +205,10 @@ import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import Lines from './Lines'
 import History from '../../components/History'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 
 export default {
   components: {
@@ -218,7 +221,7 @@ export default {
     ItemErrors,
     ItemShowActions
   },
-  data () {
+  data() {
     return {
       historyKey: 1
     }

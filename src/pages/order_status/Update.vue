@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('order_status_edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('order_status_edit', { entity: item && item.name }) }}</h1>
     </section>
-    <OrderStatusForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <OrderStatusForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -32,9 +29,14 @@ export default {
       update: 'orderStatus/update'
     }),
     onSendForm() {
-      this.update().then(item => {
-        this.$router.push({name: 'OrderStatusShow', params: {id: item.id}})
-      }).catch()
+      this.update()
+        .then(item => {
+          this.$router.push({
+            name: 'OrderStatusShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

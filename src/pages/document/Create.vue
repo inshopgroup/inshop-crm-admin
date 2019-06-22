@@ -4,10 +4,7 @@
       <h1>{{ $t('document_add') }}</h1>
     </section>
 
-    <DocumentForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <DocumentForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -29,9 +26,11 @@ export default {
       create: 'document/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'DocumentShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'DocumentShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

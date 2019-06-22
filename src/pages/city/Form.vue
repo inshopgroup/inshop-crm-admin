@@ -28,11 +28,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="City"
-        path="city"
-      />
+      <item-edit-actions :item="item" entity="City" path="city" />
     </section>
   </form>
 </template>
@@ -55,14 +51,14 @@ export default {
     item: {
       type: Object,
       required: true
-    },
+    }
   },
   computed: {
     ...mapGetters({
       errors: 'city/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -70,8 +66,8 @@ export default {
       reset: 'city/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('city/CITY_UPDATE_ITEM', {[property]: value})
-    },
+      this.$store.commit('city/CITY_UPDATE_ITEM', { [property]: value })
+    }
   }
 }
 </script>

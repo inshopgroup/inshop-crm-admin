@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('brand_add') }}</h1>
     </section>
-    <BrandForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <BrandForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -27,10 +24,12 @@ export default {
     ...mapActions({
       create: 'brand/create'
     }),
-    onSendForm () {
-      this.create().then(item => {
-        this.$router.push({name: 'BrandShow', params: {id: item.id}})
-      }).catch()
+    onSendForm() {
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'BrandShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

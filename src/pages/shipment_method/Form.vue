@@ -54,7 +54,7 @@ export default {
       errors: 'shipmentMethod/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +62,9 @@ export default {
       reset: 'shipmentMethod/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('shipmentMethod/SHIPMENT_METHOD_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('shipmentMethod/SHIPMENT_METHOD_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

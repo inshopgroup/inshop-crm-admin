@@ -1,13 +1,14 @@
 import * as crud from '../../../utils/crud'
-import {namespace} from "./mutation_types"
-import axios from "../../../interceptor"
-import {API_HOST} from "../../../config/_entrypoint"
-import pluralize from "pluralize"
+import { namespace } from './mutation_types'
+import axios from '../../../interceptor'
+import { API_HOST } from '../../../config/_entrypoint'
+import pluralize from 'pluralize'
 
 export const getItem = ({ commit }, id) => {
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
+  return axios
+    .get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
     .then(response => response.data)
     .then(data => {
       let roles = []
@@ -21,7 +22,6 @@ export const getItem = ({ commit }, id) => {
     .catch(e => {
       commit(namespace + '_SET_ERROR', e.message)
     })
-
 }
 
 export const getItems = ({ dispatch, commit }, query) => {
@@ -29,25 +29,23 @@ export const getItems = ({ dispatch, commit }, query) => {
 }
 
 export const create = ({ dispatch, commit, state }) => {
-  commit(namespace + '_UPDATE_ITEM', {roles: state.item.roleIRIs})
+  commit(namespace + '_UPDATE_ITEM', { roles: state.item.roleIRIs })
 
-  return crud.create({ dispatch, commit, state }, namespace)
-    .then(data => {
-      commit(namespace + '_RESET')
+  return crud.create({ dispatch, commit, state }, namespace).then(data => {
+    commit(namespace + '_RESET')
 
-      return data
-    })
+    return data
+  })
 }
 
 export const update = ({ dispatch, commit, state }) => {
-  commit(namespace + '_UPDATE_ITEM', {roles: state.item.roleIRIs})
+  commit(namespace + '_UPDATE_ITEM', { roles: state.item.roleIRIs })
 
-  return crud.update({ dispatch, commit, state }, namespace,)
-    .then(data => {
-      commit(namespace + '_RESET')
+  return crud.update({ dispatch, commit, state }, namespace).then(data => {
+    commit(namespace + '_RESET')
 
-      return data
-    })
+    return data
+  })
 }
 
 export const remove = ({ dispatch, commit }, item) => {

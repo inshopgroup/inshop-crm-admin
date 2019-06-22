@@ -38,18 +38,40 @@ import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: {ItemErrors, ApiTable},
-  data: function () {
+  components: { ItemErrors, ApiTable },
+  data: function() {
     return {
-      columns: ['id', 'name', 'country.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'country.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'name', 'country.name', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: [
+        'id',
+        'name',
+        'country.name',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt',
+        'actions'
+      ],
+      filterable: [
+        'id',
+        'name',
+        'country.name',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
+      sortable: [
+        'id',
+        'name',
+        'country.name',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
       templates: {
         columnCreatedAt,
         columnUpdatedAt,
-        'isActive': columnIsActive
+        isActive: columnIsActive
       }
     }
-  },
+  }
 }
 </script>

@@ -8,40 +8,27 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
-            <div
-              v-if="item"
-              class="table-responsive"
-            >
-              <table
-                v-if="item"
-                class="table table-striped table-hover"
-              >
+          <div id="general" class="tab-pane active">
+            <div v-if="item" class="table-responsive">
+              <table v-if="item" class="table table-striped table-hover">
                 <thead>
                   <tr>
                     <th>{{ $t('field') }}</th>
                     <th>{{ $t('value') }}</th>
                   </tr>
                 </thead>
-                <tbody> 
+                <tbody>
                   <tr>
                     <td>{{ $t('contact_value') }}</td>
                     <td>{{ item.value }}</td>
@@ -58,11 +45,13 @@
                     <td>{{ $t('clients') }}</td>
                     <td>
                       <ul>
-                        <li
-                          v-for="client in item.clients"
-                          :key="client.id"
-                        >
-                          <router-link :to="{name: 'ClientShow', params: { id: client.id }}">
+                        <li v-for="client in item.clients" :key="client.id">
+                          <router-link
+                            :to="{
+                              name: 'ClientShow',
+                              params: { id: client.id }
+                            }"
+                          >
                             {{ client.name }}
                           </router-link>
                         </li>
@@ -73,11 +62,13 @@
                     <td>{{ $t('companies') }}</td>
                     <td>
                       <ul>
-                        <li
-                          v-for="company in item.companies"
-                          :key="company.id"
-                        >
-                          <router-link :to="{name: 'CompanyShow', params: { id: company.id }}">
+                        <li v-for="company in item.companies" :key="company.id">
+                          <router-link
+                            :to="{
+                              name: 'CompanyShow',
+                              params: { id: company.id }
+                            }"
+                          >
                             {{ company.name }}
                           </router-link>
                         </li>
@@ -93,10 +84,7 @@
               </table>
             </div>
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -106,11 +94,7 @@
           </div>
         </div>
       </div>
-      <item-show-actions
-        :item="item"
-        entity="Contact"
-        path="contact"
-      />
+      <item-show-actions :item="item" entity="Contact" path="contact" />
     </section>
   </div>
 </template>
@@ -120,10 +104,10 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 
 export default {
   components: {
@@ -135,7 +119,7 @@ export default {
     ItemErrors,
     ItemShowActions
   },
-  data () {
+  data() {
     return {
       historyKey: 1
     }

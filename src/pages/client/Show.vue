@@ -8,65 +8,45 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#contacts"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_contacts') }}</a>
+            <a href="#contacts" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_contacts')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#addresses"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_addresses') }}</a>
+            <a href="#addresses" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_addresses')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
+          <div id="general" class="tab-pane active">
             <client-info :item="item" />
           </div>
-          <div
-            id="contacts"
-            class="tab-pane"
-          >
+          <div id="contacts" class="tab-pane">
             <client-contacts
               :contacts="item.contacts"
-              :parent="{clients: [item]}"
+              :parent="{ clients: [item] }"
               @contactsChanged="loadItem"
             />
           </div>
-          <div
-            id="addresses"
-            class="tab-pane"
-          >
+          <div id="addresses" class="tab-pane">
             <client-addresses
               :addresses="item.addresses"
-              :parent="{clients: [item]}"
+              :parent="{ clients: [item] }"
               @addressesChanged="loadItem"
             />
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -76,11 +56,7 @@
           </div>
         </div>
       </div>
-      <item-show-actions
-        :item="item"
-        entity="Client"
-        path="client"
-      />
+      <item-show-actions :item="item" entity="Client" path="client" />
     </section>
   </div>
 </template>
@@ -103,20 +79,20 @@ export default {
     ClientInfo,
     ItemShowActions
   },
-  data () {
+  data() {
     return {
       historyKey: 1
     }
   },
   computed: {
-    ... mapGetters({
+    ...mapGetters({
       item: 'client/item'
     })
   },
   created() {
     this.loadItem()
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {

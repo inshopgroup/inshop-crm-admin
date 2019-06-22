@@ -2,10 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <button
-          type="submit"
-          class="btn btn-success"
-        >
+        <button type="submit" class="btn btn-success">
           {{ $t('submit') }}
         </button>
       </div>
@@ -71,26 +68,30 @@ export default {
     }
   },
   computed: {
-    role_show () {
+    role_show() {
       return 'ROLE_' + this.path.toUpperCase() + '_SHOW'
     },
-    role_list () {
+    role_list() {
       return 'ROLE_' + this.path.toUpperCase() + '_LIST'
     },
-    role_delete () {
+    role_delete() {
       return 'ROLE_' + this.path.toUpperCase() + '_DELETE'
     }
   },
   methods: {
-    backToList () {
+    backToList() {
       this.$router.push({ name: this.entity + 'List' })
     },
-    showItem () {
-      this.$router.push({ name: this.entity + 'Show', params: { id: this.item.id } })
+    showItem() {
+      this.$router.push({
+        name: this.entity + 'Show',
+        params: { id: this.item.id }
+      })
     },
-    deleteItem () {
+    deleteItem() {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.$store.dispatch(this.path + '/remove', this.item)
+        this.$store
+          .dispatch(this.path + '/remove', this.item)
           .then(() => this.$router.push({ name: this.entity + 'List' }))
       }
     }

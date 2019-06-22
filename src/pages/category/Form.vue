@@ -7,13 +7,14 @@
           <li
             v-for="(language, i) in languages"
             :key="'header_' + language.id"
-            :class="{active: i === 0}"
+            :class="{ active: i === 0 }"
           >
             <a
               :href="'#' + language.code"
               data-toggle="tab"
               aria-expanded="false"
-            >{{ language.name }}</a>
+              >{{ language.name }}</a
+            >
           </li>
         </ul>
         <div class="tab-content">
@@ -21,21 +22,27 @@
             v-for="(language, i) in languages"
             :id="language.code"
             :key="'content_' + language.id"
-            :class="['tab-pane', {active: i === 0}]"
+            :class="['tab-pane', { active: i === 0 }]"
           >
             <form-input
               :item="findItem(language)"
               :errors="errors"
               property="name"
               label="name"
-              @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
+              @formUpdated="
+                (property, value) =>
+                  updateTranslatedValue(property, value, language)
+              "
             />
             <form-textarea
               :item="findItem(language)"
               :errors="errors"
               property="description"
               label="description"
-              @formUpdated="(property, value) => updateTranslatedValue(property, value, language)"
+              @formUpdated="
+                (property, value) =>
+                  updateTranslatedValue(property, value, language)
+              "
             />
           </div>
         </div>
@@ -66,11 +73,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Category"
-        path="category"
-      />
+      <item-edit-actions :item="item" entity="Category" path="category" />
     </section>
   </form>
 </template>
@@ -112,7 +115,7 @@ export default {
 
         return translations
       }
-    },
+    }
   },
   created() {
     this.getLanguages()
@@ -126,7 +129,7 @@ export default {
     }),
     findItem(language) {
       let translation = {
-        language: language,
+        language: language
       }
 
       this.item.translations.some(element => {
@@ -138,7 +141,7 @@ export default {
       return translation
     },
     updateValue(property, value) {
-      this.$store.commit('category/CATEGORY_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('category/CATEGORY_UPDATE_ITEM', { [property]: value })
     },
     updateTranslatedValue(property, value, language) {
       this.$store.commit('category/CATEGORY_UPDATE_ITEM_TRANSLATION', {
@@ -149,7 +152,7 @@ export default {
     },
     ...mapActions({
       getLanguages: 'language/getItems'
-    }),
+    })
   }
 }
 </script>

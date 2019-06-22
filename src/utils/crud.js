@@ -1,11 +1,12 @@
 import axios from '../interceptor'
-import {API_HOST} from "../config/_entrypoint"
-import pluralize from "pluralize"
+import { API_HOST } from '../config/_entrypoint'
+import pluralize from 'pluralize'
 
 export const getItem = ({ commit }, namespace, id) => {
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
+  return axios
+    .get(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + id)
     .then(response => response.data)
     .then(data => {
       commit(namespace + '_SET_ITEM', data)
@@ -21,12 +22,17 @@ export const getItems = ({ commit }, namespace, query) => {
   let url = '/' + pluralize(namespace.toLowerCase())
 
   if (query) {
-    url += '?' + Object.keys(query).map(key => key + '=' + query[key]).join('&')
+    url +=
+      '?' +
+      Object.keys(query)
+        .map(key => key + '=' + query[key])
+        .join('&')
   }
 
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.get(API_HOST + url)
+  return axios
+    .get(API_HOST + url)
     .then(response => response.data)
     .then(data => {
       commit(namespace + '_SET_ITEMS', data['hydra:member'])
@@ -41,7 +47,8 @@ export const getItems = ({ commit }, namespace, query) => {
 export const create = ({ commit, state }, namespace) => {
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.post(API_HOST + '/' + pluralize(namespace.toLowerCase()), state.item)
+  return axios
+    .post(API_HOST + '/' + pluralize(namespace.toLowerCase()), state.item)
     .then(response => response.data)
     .catch(e => {
       let data = e.response.data
@@ -50,13 +57,15 @@ export const create = ({ commit, state }, namespace) => {
         let errors = {}
 
         data.violations.map(violation => {
-          Object.assign(errors, {[violation.propertyPath]: violation.message})
+          Object.assign(errors, { [violation.propertyPath]: violation.message })
         })
 
         commit(namespace + '_SET_ERRORS', errors)
       }
 
-      let error = data['hydra:description'] ? data['hydra:description'] : data.message
+      let error = data['hydra:description']
+        ? data['hydra:description']
+        : data.message
       commit(namespace + '_SET_ERROR', error)
 
       throw data
@@ -66,7 +75,11 @@ export const create = ({ commit, state }, namespace) => {
 export const update = ({ commit, state }, namespace) => {
   commit(namespace + '_SET_ERROR', null)
 
-  return axios.put(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + state.item.id, state.item)
+  return axios
+    .put(
+      API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + state.item.id,
+      state.item
+    )
     .then(response => response.data)
     .catch(e => {
       let data = e.response.data
@@ -75,13 +88,15 @@ export const update = ({ commit, state }, namespace) => {
         let errors = {}
 
         data.violations.map(violation => {
-          Object.assign(errors, {[violation.propertyPath]: violation.message})
+          Object.assign(errors, { [violation.propertyPath]: violation.message })
         })
 
         commit(namespace + '_SET_ERRORS', errors)
       }
 
-      let error = data['hydra:description'] ? data['hydra:description'] : data.message
+      let error = data['hydra:description']
+        ? data['hydra:description']
+        : data.message
       commit(namespace + '_SET_ERROR', error)
 
       throw data
@@ -89,7 +104,8 @@ export const update = ({ commit, state }, namespace) => {
 }
 
 export const remove = ({ commit }, namespace, item) => {
-  return axios.delete(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + item.id)
+  return axios
+    .delete(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + item.id)
     .catch(e => {
       commit(namespace + '_SET_ERROR', e.message)
 

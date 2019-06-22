@@ -1,5 +1,5 @@
 export default class SubmissionError extends Error {
-  constructor (errors) {
+  constructor(errors) {
     super('Submit Validation Failed')
     this.errors = errors
     Error.captureStackTrace(this, this.constructor)

@@ -8,31 +8,21 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
+          <div id="general" class="tab-pane active">
             <project-info :item="item" />
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -42,11 +32,7 @@
           </div>
         </div>
       </div>
-      <item-show-actions
-        :item="item"
-        entity="Project"
-        path="project"
-      />
+      <item-show-actions :item="item" entity="Project" path="project" />
     </section>
   </div>
 </template>
@@ -60,7 +46,7 @@ import History from '../../components/History'
 
 export default {
   components: { History, ProjectInfo, ItemErrors, ItemShowActions },
-  data () {
+  data() {
     return {
       historyKey: 1
     }
@@ -68,12 +54,12 @@ export default {
   computed: {
     ...mapGetters({
       item: 'project/item'
-    }),
+    })
   },
   created() {
     this.loadProject()
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {

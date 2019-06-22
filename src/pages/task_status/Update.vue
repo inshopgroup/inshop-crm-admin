@@ -1,12 +1,9 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ $t('task_status_edit', {entity: item && item.name}) }}</h1>
+      <h1>{{ $t('task_status_edit', { entity: item && item.name }) }}</h1>
     </section>
-    <TaskStatusForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <TaskStatusForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -23,7 +20,7 @@ export default {
       item: 'taskStatus/item'
     })
   },
-  created () {
+  created() {
     this.getItem(this.$route.params.id)
   },
   methods: {
@@ -31,10 +28,12 @@ export default {
       getItem: 'taskStatus/getItem',
       update: 'taskStatus/update'
     }),
-    onSendForm () {
-      this.update().then(item => {
-        this.$router.push({ name: 'TaskStatusShow', params: {id: item.id}})
-      }).catch()
+    onSendForm() {
+      this.update()
+        .then(item => {
+          this.$router.push({ name: 'TaskStatusShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

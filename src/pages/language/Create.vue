@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('language_add') }}</h1>
     </section>
-    <LanguageForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <LanguageForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,11 @@ export default {
       create: 'language/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'LanguageShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'LanguageShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

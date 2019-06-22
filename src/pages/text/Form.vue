@@ -48,11 +48,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Text"
-        path="text"
-      />
+      <item-edit-actions :item="item" entity="Text" path="text" />
     </section>
   </form>
 </template>
@@ -82,7 +78,7 @@ export default {
       errors: 'text/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -90,7 +86,7 @@ export default {
       reset: 'text/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('text/TEXT_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('text/TEXT_UPDATE_ITEM', { [property]: value })
     }
   }
 }

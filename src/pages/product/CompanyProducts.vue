@@ -15,17 +15,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="companyProduct in companyProducts"
-          :key="companyProduct.id"
-        >
+        <tr v-for="companyProduct in companyProducts" :key="companyProduct.id">
           <td>
             {{ companyProduct.id }}
           </td>
           <td>
             <router-link
               v-if="companyProduct"
-              :to="{name: 'CompanyShow', params: { id: companyProduct.company.id }}"
+              :to="{
+                name: 'CompanyShow',
+                params: { id: companyProduct.company.id }
+              }"
             >
               {{ companyProduct.company.name }}
             </router-link>
@@ -57,7 +57,7 @@ export default {
   props: {
     companyProducts: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
       }
     }

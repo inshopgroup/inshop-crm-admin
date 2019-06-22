@@ -39,17 +39,45 @@ import columnTranslatedName from './../../table/ColumnTranslatedName'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: {ItemErrors, ApiTable},
-  data: function () {
+  components: { ItemErrors, ApiTable },
+  data: function() {
     return {
-      columns: ['id', 'columnTranslatedName', 'brand.name', 'category.name', 'ean', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'columnTranslatedName', 'brand.name', 'category.name', 'ean', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'columnTranslatedName', 'brand.name', 'category.name', 'ean', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
+      columns: [
+        'id',
+        'columnTranslatedName',
+        'brand.name',
+        'category.name',
+        'ean',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt',
+        'actions'
+      ],
+      filterable: [
+        'id',
+        'columnTranslatedName',
+        'brand.name',
+        'category.name',
+        'ean',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
+      sortable: [
+        'id',
+        'columnTranslatedName',
+        'brand.name',
+        'category.name',
+        'ean',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
       templates: {
         columnTranslatedName,
         columnCreatedAt,
         columnUpdatedAt,
-        'isActive': columnIsActive
+        isActive: columnIsActive
       }
     }
   }

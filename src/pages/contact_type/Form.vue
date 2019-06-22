@@ -54,7 +54,7 @@ export default {
       errors: 'contactType/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +62,9 @@ export default {
       reset: 'contactType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('contactType/CONTACT_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('contactType/CONTACT_TYPE_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

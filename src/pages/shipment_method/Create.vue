@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('shipment_method_add') }}</h1>
     </section>
-    <ShipmentMethodForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <ShipmentMethodForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -27,10 +24,15 @@ export default {
     ...mapActions({
       create: 'shipmentMethod/create'
     }),
-    onSendForm( ) {
-      this.create().then(item => {
-        this.$router.push( {name: 'ShipmentMethodShow', params: {id: item.id}} )
-      }).catch()
+    onSendForm() {
+      this.create()
+        .then(item => {
+          this.$router.push({
+            name: 'ShipmentMethodShow',
+            params: { id: item.id }
+          })
+        })
+        .catch()
     }
   }
 }

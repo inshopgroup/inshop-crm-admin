@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div
-      v-for="address in data.addresses"
-      :key="address.id"
-    >
+    <div v-for="address in data.addresses" :key="address.id">
       <div>{{ address.country.name }}</div>
     </div>
   </div>
@@ -16,6 +13,6 @@ export default {
       type: Object,
       default: () => ({})
     }
-  } 
+  }
 }
 </script>

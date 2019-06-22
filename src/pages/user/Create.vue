@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('user_add') }}</h1>
     </section>
-    <UserForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <UserForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -27,10 +24,12 @@ export default {
     ...mapActions({
       create: 'user/create'
     }),
-    onSendForm () {
-      this.create().then(item => {
-        this.$router.push({name: 'UserShow', params: {id: item.id}})
-      }).catch()
+    onSendForm() {
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'UserShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

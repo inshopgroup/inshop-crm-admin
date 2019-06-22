@@ -27,11 +27,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Language"
-        path="language"
-      />
+      <item-edit-actions :item="item" entity="Language" path="language" />
     </section>
   </form>
 </template>
@@ -61,7 +57,7 @@ export default {
       errors: 'language/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -69,7 +65,7 @@ export default {
       reset: 'language/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('language/LANGUAGE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('language/LANGUAGE_UPDATE_ITEM', { [property]: value })
     }
   }
 }

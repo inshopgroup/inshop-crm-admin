@@ -56,11 +56,7 @@
           />
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Project"
-        path="project"
-      />
+      <item-edit-actions :item="item" entity="Project" path="project" />
     </section>
   </form>
 </template>
@@ -90,7 +86,7 @@ export default {
       errors: 'project/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -98,7 +94,7 @@ export default {
       reset: 'project/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('project/PROJECT_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('project/PROJECT_UPDATE_ITEM', { [property]: value })
     }
   }
 }

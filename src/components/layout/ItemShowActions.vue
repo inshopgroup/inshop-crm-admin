@@ -64,26 +64,30 @@ export default {
     }
   },
   computed: {
-    role_update () {
+    role_update() {
       return 'ROLE_' + this.path.toUpperCase() + '_UPDATE'
     },
-    role_list () {
+    role_list() {
       return 'ROLE_' + this.path.toUpperCase() + '_LIST'
     },
-    role_delete () {
+    role_delete() {
       return 'ROLE_' + this.path.toUpperCase() + '_DELETE'
     }
   },
   methods: {
-    backToList () {
+    backToList() {
       this.$router.push({ name: this.entity + 'List' })
     },
-    editItem () {
-      this.$router.push({ name: this.entity + 'Update', params: { id: this.item.id } })
+    editItem() {
+      this.$router.push({
+        name: this.entity + 'Update',
+        params: { id: this.item.id }
+      })
     },
-    deleteItem () {
+    deleteItem() {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.$store.dispatch(this.path + '/remove', this.item)
+        this.$store
+          .dispatch(this.path + '/remove', this.item)
           .then(() => this.$router.push({ name: this.entity + 'List' }))
       }
     }

@@ -5,24 +5,28 @@ import axios from 'axios/index'
 import { API_HOST, API_PATH } from '../../../config/_entrypoint'
 
 const actions = {
-  login ({ commit }, data) {
+  login({ commit }, data) {
     commit(types.AUTH_ERROR_CHANGE, null)
 
     const url = '/login'
-    const link = url.includes(API_PATH) ? API_HOST + url : API_HOST + API_PATH + url
+    const link = url.includes(API_PATH)
+      ? API_HOST + url
+      : API_HOST + API_PATH + url
 
-    return axios.post(link, data)
-      .catch(() => {
-        commit(types.AUTH_ERROR_CHANGE, 'Wprowadzony login lub hasło są nieprawidłowe')
-      })
+    return axios.post(link, data).catch(() => {
+      commit(
+        types.AUTH_ERROR_CHANGE,
+        'Wprowadzony login lub hasło są nieprawidłowe'
+      )
+    })
   },
-  logout ({ commit }) {
+  logout({ commit }) {
     commit(types.AUTH_RESET)
     router.push({ name: 'SignIn' })
   }
 }
 
-function initialState () {
+function initialState() {
   return {
     token: localStorage.getItem('token'),
     roles: localStorage.getItem('roles') || [],
@@ -34,7 +38,7 @@ function initialState () {
 const state = initialState()
 
 const getters = {
-  jwtDecoded: (state) => {
+  jwtDecoded: state => {
     let token = state.token || null
     if (token !== null) {
       return jwtDecode(state.token)
@@ -46,20 +50,20 @@ const getters = {
 }
 
 const mutations = {
-  [types.AUTH_UPDATE_TOKEN] (state, data) {
+  [types.AUTH_UPDATE_TOKEN](state, data) {
     localStorage.setItem('token', data.token)
     localStorage.setItem('roles', data.roles)
     state.token = data.token
     state.roles = data.roles
   },
-  [types.AUTH_UPDATE_LANGUAGE] (state, language) {
+  [types.AUTH_UPDATE_LANGUAGE](state, language) {
     localStorage.setItem('language', language)
     state.language = language
   },
-  [types.AUTH_ERROR_CHANGE] (state, error) {
+  [types.AUTH_ERROR_CHANGE](state, error) {
     state.error = error
   },
-  [types.AUTH_RESET] (state) {
+  [types.AUTH_RESET](state) {
     localStorage.removeItem('token')
     localStorage.removeItem('name')
     localStorage.removeItem('language')

@@ -29,7 +29,7 @@
             name="q"
             class="form-control"
             placeholder="Search..."
-          >
+          />
           <span class="input-group-btn">
             <button
               id="search-btn"
@@ -45,10 +45,7 @@
       <!-- /.search form -->
 
       <!-- Sidebar Menu -->
-      <ul
-        class="sidebar-menu"
-        data-widget="tree"
-      >
+      <ul class="sidebar-menu" data-widget="tree">
         <li class="header">
           {{ $t('title') }}
         </li>
@@ -84,7 +81,8 @@
             </li>
             <li v-if="isGranted('ROLE_ADDRESS_LIST')">
               <router-link :to="{ name: 'AddressList' }">
-                <i class="fa fa-address-book" /> <span>{{ $t('address') }}</span>
+                <i class="fa fa-address-book" />
+                <span>{{ $t('address') }}</span>
               </router-link>
             </li>
             <li v-if="isGranted('ROLE_COUNTRY_LIST')">
@@ -106,7 +104,9 @@
         </li>
 
         <li
-          v-if="isGranted('ROLE_CATEGORY_LIST') || isGranted('ROLE_PRODUCT_LIST')"
+          v-if="
+            isGranted('ROLE_CATEGORY_LIST') || isGranted('ROLE_PRODUCT_LIST')
+          "
           class="treeview"
         >
           <a href="#">
@@ -123,16 +123,14 @@
             </li>
             <li v-if="isGranted('ROLE_PRODUCT_LIST')">
               <router-link :to="{ name: 'ProductList' }">
-                <i class="fa fa-product-hunt" /> <span>{{ $t('product') }}</span>
+                <i class="fa fa-product-hunt" />
+                <span>{{ $t('product') }}</span>
               </router-link>
             </li>
           </ul>
         </li>
 
-        <li
-          v-if="isGranted('ROLE_TEXT_LIST')"
-          class="treeview"
-        >
+        <li v-if="isGranted('ROLE_TEXT_LIST')" class="treeview">
           <a href="#">
             <i class="fa fa-edit" /> <span>{{ $t('cms') }}</span>
             <span class="pull-right-container">
@@ -161,7 +159,8 @@
           <ul class="treeview-menu">
             <li v-if="isGranted('ROLE_PROJECT_LIST')">
               <router-link :to="{ name: 'ProjectList' }">
-                <i class="fa  fa-folder-open" /> <span>{{ $t('projects') }}</span>
+                <i class="fa  fa-folder-open" />
+                <span>{{ $t('projects') }}</span>
               </router-link>
             </li>
             <li v-if="isGranted('ROLE_TASK_LIST')">
@@ -173,7 +172,11 @@
         </li>
 
         <li
-          v-if="isGranted('ROLE_DOCUMENT_LIST') || isGranted('ROLE_TEMPLATE_LIST') || isGranted('ROLE_TEMPLATE_TYPE_LIST')"
+          v-if="
+            isGranted('ROLE_DOCUMENT_LIST') ||
+              isGranted('ROLE_TEMPLATE_LIST') ||
+              isGranted('ROLE_TEMPLATE_TYPE_LIST')
+          "
           class="treeview"
         >
           <a href="#">
@@ -202,7 +205,11 @@
         </li>
 
         <li
-          v-if="isGranted('ROLE_ORDER_HEADER_LIST') || isGranted('ROLE_ORDER_STATUS_LIST') || isGranted('ROLE_ORDER_LINE_STATUS_LIST')"
+          v-if="
+            isGranted('ROLE_ORDER_HEADER_LIST') ||
+              isGranted('ROLE_ORDER_STATUS_LIST') ||
+              isGranted('ROLE_ORDER_LINE_STATUS_LIST')
+          "
           class="treeview"
         >
           <a href="#">
@@ -224,18 +231,24 @@
             </li>
             <li v-if="isGranted('ROLE_ORDER_LINE_STATUS_LIST')">
               <router-link :to="{ name: 'OrderLineStatusList' }">
-                <i class="fa fa-list" /> <span>{{ $t('order_line_status') }}</span>
+                <i class="fa fa-list" />
+                <span>{{ $t('order_line_status') }}</span>
               </router-link>
             </li>
           </ul>
         </li>
 
         <li
-          v-if="isGranted('ROLE_INVOICE_HEADER_LIST') || isGranted('ROLE_INVOICE_STATUS_LIST') || isGranted('ROLE_INVOICE_TYPE_LIST')"
+          v-if="
+            isGranted('ROLE_INVOICE_HEADER_LIST') ||
+              isGranted('ROLE_INVOICE_STATUS_LIST') ||
+              isGranted('ROLE_INVOICE_TYPE_LIST')
+          "
           class="treeview"
         >
           <a href="#">
-            <i class="fa fa-dashboard" /> <span>{{ $t('invoice_header') }}</span>
+            <i class="fa fa-dashboard" />
+            <span>{{ $t('invoice_header') }}</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right" />
             </span>
@@ -411,13 +424,16 @@ export default {
   },
   methods: {
     search() {
-      this.$router.push({name: 'Search', query: {q: this.q}})
+      this.$router.push({ name: 'Search', query: { q: this.q } })
     },
     showSubmenuByActiveLink() {
-      window.$('.treeview').each(function () {
+      window.$('.treeview').each(function() {
         if (window.$(this).find('a.router-link-active').length) {
           window.$(this).addClass('menu-open')
-          window. $(this).children('.treeview-menu').css('display', 'block')
+          window
+            .$(this)
+            .children('.treeview-menu')
+            .css('display', 'block')
         }
       })
     }
@@ -426,8 +442,8 @@ export default {
 </script>
 
 <style scoped>
-  a.router-link-active {
-    color: #fff !important;
-    background-color: #367fa9;
-  }
+a.router-link-active {
+  color: #fff !important;
+  background-color: #367fa9;
+}
 </style>

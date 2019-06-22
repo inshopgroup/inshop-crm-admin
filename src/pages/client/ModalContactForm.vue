@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="modal-contact-edit"
-    class="modal fade"
-  >
+  <div id="modal-contact-edit" class="modal fade">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -55,25 +52,30 @@ export default {
   props: {
     title: {
       type: String,
-      required :true
+      required: true
     },
     item: {
       type: Object,
-      required :true
+      required: true
     },
     callback: {
       type: Function,
-      required :true
+      required: true
     }
   },
   methods: {
     onSendForm() {
-      this.callback().then(item => {
-        this.$toastr.s(this.$t('contact_saved', {contact: item.value}), this.$t('saved'))
-        this.$emit('contactsChanged', item)
+      this.callback()
+        .then(item => {
+          this.$toastr.s(
+            this.$t('contact_saved', { contact: item.value }),
+            this.$t('saved')
+          )
+          this.$emit('contactsChanged', item)
 
-        window.$('#modal-contact-edit').modal('hide')
-      }).catch()
+          window.$('#modal-contact-edit').modal('hide')
+        })
+        .catch()
     }
   }
 }

@@ -40,16 +40,40 @@ import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
   components: { ItemErrors, ApiTable },
-  data: function () {
+  data: function() {
     return {
-      columns: ['id', 'name', 'contacts.value', 'description', 'isActive', 'columnCreatedAt', 'columnUpdatedAt', 'actions'],
-      filterable: ['id', 'name', 'contacts.value', 'description', 'isActive', 'columnCreatedAt', 'columnUpdatedAt'],
-      sortable: ['id', 'name', 'description', 'columnCreatedAt', 'isActive', 'columnUpdatedAt'],
+      columns: [
+        'id',
+        'name',
+        'contacts.value',
+        'description',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt',
+        'actions'
+      ],
+      filterable: [
+        'id',
+        'name',
+        'contacts.value',
+        'description',
+        'isActive',
+        'columnCreatedAt',
+        'columnUpdatedAt'
+      ],
+      sortable: [
+        'id',
+        'name',
+        'description',
+        'columnCreatedAt',
+        'isActive',
+        'columnUpdatedAt'
+      ],
       templates: {
         'contacts.value': columnContacts,
         columnCreatedAt,
         columnUpdatedAt,
-        'isActive': columnIsActive
+        isActive: columnIsActive
       }
     }
   }

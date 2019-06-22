@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('task_add') }}</h1>
     </section>
-    <TaskForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <TaskForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -28,9 +25,11 @@ export default {
       create: 'task/create'
     }),
     onSendForm() {
-      this.create().then(item => {
-        this.$router.push({name: 'TaskShow', params: {id: item.id}})
-      }).catch()
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'TaskShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

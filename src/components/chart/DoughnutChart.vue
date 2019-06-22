@@ -8,12 +8,12 @@ export default {
   props: {
     options: {
       type: Object,
-      default: function () {
+      default: function() {
         return {}
       }
     }
   },
-  mounted () {
+  mounted() {
     this.renderChart(this.chartData, this.options)
   }
 }

@@ -54,7 +54,7 @@ export default {
       errors: 'orderStatus/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +62,9 @@ export default {
       reset: 'orderStatus/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('orderStatus/ORDER_STATUS_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('orderStatus/ORDER_STATUS_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

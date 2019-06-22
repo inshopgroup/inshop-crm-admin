@@ -18,11 +18,7 @@
             label="isActive"
             @formUpdated="updateValue"
           />
-          <div
-            v-for="module in modules"
-            :key="module.id"
-            class="form-group"
-          >
+          <div v-for="module in modules" :key="module.id" class="form-group">
             <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
             <span
               v-for="role in module.roles"
@@ -31,7 +27,7 @@
             >
               <form-checkbox
                 :id="role['@id']"
-                :item="{value: item.roleIRIs.includes(role['@id'])}"
+                :item="{ value: item.roleIRIs.includes(role['@id']) }"
                 :errors="errors"
                 property="value"
                 :label="role.name.toLowerCase()"
@@ -41,11 +37,7 @@
           </div>
         </div>
       </div>
-      <item-edit-actions
-        :item="item"
-        entity="Group"
-        path="group"
-      />
+      <item-edit-actions :item="item" entity="Group" path="group" />
     </section>
   </form>
 </template>
@@ -76,7 +68,7 @@ export default {
     }),
     modules() {
       return this.$store.getters['module/items'] || []
-    },
+    }
   },
   beforeDestroy() {
     this.reset()
@@ -92,10 +84,13 @@ export default {
       getModules: 'module/getItems'
     }),
     updateValue(property, value) {
-      this.$store.commit('group/GROUP_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('group/GROUP_UPDATE_ITEM', { [property]: value })
     },
     updateRole(property, value, iri) {
-      this.$store.commit('group/GROUP_UPDATE_ITEM_ROLES', {iri: iri, value: value})
+      this.$store.commit('group/GROUP_UPDATE_ITEM_ROLES', {
+        iri: iri,
+        value: value
+      })
     }
   }
 }

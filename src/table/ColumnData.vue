@@ -1,10 +1,7 @@
 <template>
   <div style="width: 400px;">
     <ul>
-      <li
-        v-for="(value, property) in data.data"
-        :key="property + data.id"
-      >
+      <li v-for="(value, property) in data.data" :key="property + data.id">
         <b>{{ propName(property) }}:</b> {{ value }}
       </li>
     </ul>
@@ -22,7 +19,10 @@ export default {
   computed: {
     path() {
       if (this.data.objectClass) {
-        return this.data.objectClass.split('\\').slice(-1)[0].toLowerCase()
+        return this.data.objectClass
+          .split('\\')
+          .slice(-1)[0]
+          .toLowerCase()
       }
 
       return ''

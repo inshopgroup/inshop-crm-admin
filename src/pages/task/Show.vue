@@ -5,31 +5,21 @@
     </section>
     <section class="content">
       <item-errors entity="task" />
-      <div
-        v-if="item"
-        class="nav-tabs-custom"
-      >
+      <div v-if="item" class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
+          <div id="general" class="tab-pane active">
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
@@ -49,19 +39,30 @@
                   <td>{{ item.description }}</td>
                 </tr>
                 <tr>
-                  <td><b>{{ $t('status_name') }}</b></td>
-                  <td><b v-if="item.status">{{ item.status.name }}</b></td>
+                  <td>
+                    <b>{{ $t('status_name') }}</b>
+                  </td>
+                  <td>
+                    <b v-if="item.status">{{ item.status.name }}</b>
+                  </td>
                 </tr>
                 <tr>
-                  <td><b>{{ $t('deadline') }}</b></td>
-                  <td><b>{{ crmDateFormat(item.deadline) }}</b></td>
+                  <td>
+                    <b>{{ $t('deadline') }}</b>
+                  </td>
+                  <td>
+                    <b>{{ crmDateFormat(item.deadline) }}</b>
+                  </td>
                 </tr>
                 <tr>
                   <td>{{ $t('project_name') }}</td>
                   <td>
                     <router-link
                       v-if="item.project"
-                      :to="{name: 'ProjectShow', params: { id: item.project.id }}"
+                      :to="{
+                        name: 'ProjectShow',
+                        params: { id: item.project.id }
+                      }"
                     >
                       {{ item.project.name }}
                     </router-link>
@@ -72,7 +73,10 @@
                   <td>
                     <router-link
                       v-if="item.assignee"
-                      :to="{name: 'UserShow', params: { id: item.assignee.id }}"
+                      :to="{
+                        name: 'UserShow',
+                        params: { id: item.assignee.id }
+                      }"
                     >
                       {{ item.assignee.name }}
                     </router-link>
@@ -94,10 +98,7 @@
               </tbody>
             </table>
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -107,11 +108,7 @@
           </div>
         </div>
       </div>
-      <item-show-actions
-        :item="item"
-        entity="Task"
-        path="task"
-      />
+      <item-show-actions :item="item" entity="Task" path="task" />
     </section>
   </div>
 </template>
@@ -121,10 +118,10 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 
 export default {
   components: {
@@ -136,7 +133,7 @@ export default {
     ItemErrors,
     ItemShowActions
   },
-  data () {
+  data() {
     return {
       historyKey: 1
     }

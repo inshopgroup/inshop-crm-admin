@@ -3,10 +3,7 @@
     <section class="content-header">
       <h1>{{ $t('task_status_add') }}</h1>
     </section>
-    <TaskStatusForm
-      :handle-submit="onSendForm"
-      :item="item"
-    />
+    <TaskStatusForm :handle-submit="onSendForm" :item="item" />
   </div>
 </template>
 
@@ -27,10 +24,12 @@ export default {
     ...mapActions({
       create: 'taskStatus/create'
     }),
-    onSendForm( ) {
-      this.create().then(item => {
-        this.$router.push({name: 'TaskStatusShow', params: {id: item.id}})
-      }).catch()
+    onSendForm() {
+      this.create()
+        .then(item => {
+          this.$router.push({ name: 'TaskStatusShow', params: { id: item.id } })
+        })
+        .catch()
     }
   }
 }

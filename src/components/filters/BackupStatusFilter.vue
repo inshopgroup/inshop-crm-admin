@@ -1,7 +1,7 @@
 <template>
   <field-select
     id="backupStatus"
-    :item="{value: value}"
+    :item="{ value: value }"
     property="value"
     :options="options"
     option-label="name"
@@ -11,14 +11,14 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
-import {Event} from 'vue-tables-2'
+import { mapActions } from 'vuex'
+import { Event } from 'vue-tables-2'
 
 export default {
   name: 'BackupStatusFilter',
-  data: function () {
+  data: function() {
     return {
-      value: [],
+      value: []
     }
   },
   computed: {
@@ -27,34 +27,33 @@ export default {
     }
   },
   created() {
-    this.getOptions()
-      .then(options => {
-        let selected = []
+    this.getOptions().then(options => {
+      let selected = []
 
-        if (this.$route.query['status.id']) {
-          let params = []
+      if (this.$route.query['status.id']) {
+        let params = []
 
-          if (this.$route.query['status.id'].length > 1) {
-            params = this.$route.query['status.id']
-          } else {
-            params.push(this.$route.query['status.id'])
-          }
-
-          params.forEach(id => {
-            options.some(element => {
-              if (element.id === parseInt(id)) {
-                selected.push(element)
-              }
-            })
-          })
+        if (this.$route.query['status.id'].length > 1) {
+          params = this.$route.query['status.id']
+        } else {
+          params.push(this.$route.query['status.id'])
         }
 
-        this.value = selected
-      })
+        params.forEach(id => {
+          options.some(element => {
+            if (element.id === parseInt(id)) {
+              selected.push(element)
+            }
+          })
+        })
+      }
+
+      this.value = selected
+    })
   },
   methods: {
     ...mapActions({
-      getOptions: 'backupStatus/getItems',
+      getOptions: 'backupStatus/getItems'
     }),
     filterTable(property, data) {
       let ids = []

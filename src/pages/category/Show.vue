@@ -8,29 +8,19 @@
       <div class="nav-tabs-custom">
         <ul class="nav nav-tabs">
           <li class="active">
-            <a
-              href="#general"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_general') }}</a>
+            <a href="#general" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_general')
+            }}</a>
           </li>
           <li>
-            <a
-              href="#history"
-              data-toggle="tab"
-              aria-expanded="false"
-            >{{ $t('tabs_history') }}</a>
+            <a href="#history" data-toggle="tab" aria-expanded="false">{{
+              $t('tabs_history')
+            }}</a>
           </li>
         </ul>
         <div class="tab-content">
-          <div
-            id="general"
-            class="tab-pane active"
-          >
-            <div
-              v-if="item"
-              class="table-responsive"
-            >
+          <div id="general" class="tab-pane active">
+            <div v-if="item" class="table-responsive">
               <table class="table table-striped table-hover">
                 <thead>
                   <tr>
@@ -62,7 +52,10 @@
                     <td>
                       <router-link
                         v-if="item.parent"
-                        :to="{name: 'CategoryShow', params: { id: item.parent.id }}"
+                        :to="{
+                          name: 'CategoryShow',
+                          params: { id: item.parent.id }
+                        }"
                       >
                         {{ item.parent.name }}
                       </router-link>
@@ -77,10 +70,7 @@
               </table>
             </div>
           </div>
-          <div
-            id="history"
-            class="tab-pane"
-          >
+          <div id="history" class="tab-pane">
             <history
               :id="parseInt($route.params.id)"
               :key="historyKey"
@@ -91,11 +81,7 @@
         </div>
       </div>
 
-      <item-show-actions
-        :item="item"
-        entity="Category"
-        path="category"
-      />
+      <item-show-actions :item="item" entity="Category" path="category" />
     </section>
   </div>
 </template>
@@ -105,10 +91,10 @@ import { mapActions, mapGetters } from 'vuex'
 import ItemShowActions from '../../components/layout/ItemShowActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import History from '../../components/History'
-import ShowRowIsActive from "../../components/Show/ShowRowIsActive"
-import ShowRowCreatedAt from "../../components/Show/ShowRowCreatedAt"
-import ShowRowUpdatedAt from "../../components/Show/ShowRowUpdatedAt"
-import ShowRowUpdatedBy from "../../components/Show/ShowRowUpdatedBy"
+import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
+import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
+import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
+import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 
 export default {
   components: {
@@ -120,7 +106,7 @@ export default {
     ItemErrors,
     ItemShowActions
   },
-  data () {
+  data() {
     return {
       historyKey: 1
     }

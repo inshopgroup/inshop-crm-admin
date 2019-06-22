@@ -54,7 +54,7 @@ export default {
       errors: 'invoiceType/errors'
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.reset()
   },
   methods: {
@@ -62,7 +62,9 @@ export default {
       reset: 'invoiceType/reset'
     }),
     updateValue(property, value) {
-      this.$store.commit('invoiceType/INVOICE_TYPE_UPDATE_ITEM', {[property]: value})
+      this.$store.commit('invoiceType/INVOICE_TYPE_UPDATE_ITEM', {
+        [property]: value
+      })
     }
   }
 }

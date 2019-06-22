@@ -31,15 +31,34 @@ import columnLoggedAt from './../../table/ColumnLoggedAt'
 import columnData from './../../table/ColumnData'
 
 export default {
-  components: {ItemListErrors, ApiTable},
-  data: function () {
+  components: { ItemListErrors, ApiTable },
+  data: function() {
     return {
-      columns: ['username', 'action', 'columnLoggedAt', 'objectClass', 'objectId', 'columnData'],
-      filterable: ['username', 'action', 'columnLoggedAt', 'objectId', 'objectClass'],
-      sortable: ['username', 'action', 'columnLoggedAt', 'objectId', 'objectClass'],
+      columns: [
+        'username',
+        'action',
+        'columnLoggedAt',
+        'objectClass',
+        'objectId',
+        'columnData'
+      ],
+      filterable: [
+        'username',
+        'action',
+        'columnLoggedAt',
+        'objectId',
+        'objectClass'
+      ],
+      sortable: [
+        'username',
+        'action',
+        'columnLoggedAt',
+        'objectId',
+        'objectClass'
+      ],
       templates: {
         columnLoggedAt,
-        columnData,
+        columnData
       }
     }
   }
