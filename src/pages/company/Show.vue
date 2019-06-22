@@ -49,7 +49,7 @@
           >
             <client-contacts
               :contacts="item.contacts"
-              :parent="{companies: [this.item]}"
+              :parent="{companies: [item]}"
               @contactsChanged="loadItem"
             />
           </div>
@@ -59,7 +59,7 @@
           >
             <client-addresses
               :addresses="item.addresses"
-              :parent="{companies: [this.item]}"
+              :parent="{companies: [item]}"
               @addressesChanged="loadItem"
             />
           </div>

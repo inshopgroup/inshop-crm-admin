@@ -80,13 +80,13 @@ export default {
       required: true
     }
   },
-  beforeDestroy () {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'user/errors'
     })
+  },
+  beforeDestroy () {
+    this.reset()
   },
   methods: {
     ...mapActions({

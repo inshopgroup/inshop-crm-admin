@@ -121,13 +121,13 @@ export default {
       required: true
     }
   },
-  beforeDestroy () {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'company/errors'
     })
+  },
+  beforeDestroy () {
+    this.reset()
   },
   methods: {
     ...mapActions({

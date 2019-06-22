@@ -77,13 +77,13 @@ export default {
       required: true
     }
   },
-  beforeDestroy () {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'text/errors'
     })
+  },
+  beforeDestroy () {
+    this.reset()
   },
   methods: {
     ...mapActions({

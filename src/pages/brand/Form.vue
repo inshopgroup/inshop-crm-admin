@@ -49,13 +49,13 @@ export default {
       required: true
     }
   },
-  beforeDestroy () {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'brand/errors'
     })
+  },
+  beforeDestroy () {
+    this.reset()
   },
   methods: {
     ...mapActions({

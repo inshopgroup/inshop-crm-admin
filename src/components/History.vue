@@ -59,15 +59,15 @@ export default {
       default: null
     }
   },
+  computed: {
+    ...mapGetters({
+      logs: 'history/items'
+    })
+  },
   mounted () {
     this.getItems({
       entity: this.entity,
       id: this.id
-    })
-  },
-  computed: {
-    ...mapGetters({
-      logs: 'history/items'
     })
   },
   methods: {

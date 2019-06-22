@@ -149,13 +149,13 @@ export default {
       required: true
     }
   },
-  beforeDestroy () {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'client/errors'
     })
+  },
+  beforeDestroy () {
+    this.reset()
   },
   methods: {
     ...mapActions({

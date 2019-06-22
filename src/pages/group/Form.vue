@@ -70,9 +70,6 @@ export default {
       required: true
     }
   },
-  beforeDestroy() {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'group/errors'
@@ -80,6 +77,9 @@ export default {
     modules() {
       return this.$store.getters['module/items'] || []
     },
+  },
+  beforeDestroy() {
+    this.reset()
   },
   created() {
     this.getModules({

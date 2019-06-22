@@ -129,9 +129,6 @@ export default {
       route: process.env.VUE_APP_API_URL + '/images'
     }
   },
-  beforeDestroy() {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'product/errors'
@@ -156,6 +153,9 @@ export default {
   },
   created() {
     this.getLanguages()
+  },
+  beforeDestroy() {
+    this.reset()
   },
   methods: {
     ...mapActions({

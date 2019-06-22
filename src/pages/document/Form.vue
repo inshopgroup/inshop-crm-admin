@@ -86,9 +86,6 @@ export default {
       route: process.env.VUE_APP_API_URL + '/files'
     }
   },
-  beforeDestroy() {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'document/errors'
@@ -96,6 +93,9 @@ export default {
     authHeader() {
       return 'Bearer ' + this.$store.state.auth.token
     },
+  },
+  beforeDestroy() {
+    this.reset()
   },
   methods: {
     ...mapActions({

@@ -232,9 +232,6 @@ export default {
       required: true
     }
   },
-  beforeDestroy () {
-    this.reset()
-  },
   computed: {
     ...mapGetters({
       errors: 'orderHeader/errors'
@@ -249,6 +246,9 @@ export default {
     isLoading () {
       return this.$store.getters['general/isLoading']
     },
+  },
+  beforeDestroy () {
+    this.reset()
   },
   methods: {
     ...mapActions({
