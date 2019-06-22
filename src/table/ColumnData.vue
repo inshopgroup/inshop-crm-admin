@@ -12,36 +12,36 @@
 </template>
 
 <script>
-  export default {
-    props: {
-      data: {
-        type: Object,
-        default: () => ({})
+export default {
+  props: {
+    data: {
+      type: Object,
+      default: () => ({})
+    }
+  },
+  computed: {
+    path() {
+      if (this.data.objectClass) {
+        return this.data.objectClass.split('\\').slice(-1)[0].toLowerCase()
       }
-    },
-    computed: {
-      path() {
-        if (this.data.objectClass) {
-          return this.data.objectClass.split('\\').slice(-1)[0].toLowerCase()
-        }
 
-        return ''
+      return ''
+    }
+  },
+  methods: {
+    propName(property) {
+      let label = this.$t(property)
+
+      if (label.name) {
+        return label.name
       }
-    },
-    methods: {
-      propName(property) {
-        let label = this.$t(property)
 
-        if (label.name) {
-          return label.name
-        }
-
-        if (label.value) {
-          return label.value
-        }
-
-        return label
+      if (label.value) {
+        return label.value
       }
+
+      return label
     }
   }
+}
 </script>

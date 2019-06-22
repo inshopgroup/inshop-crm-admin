@@ -16,13 +16,13 @@
 </template>
 
 <script>
-  import fecha from 'fecha'
-  export default {
-    name: 'FooterSlot',
-    data () {
-      return {
-        fecha: fecha
-      }
+import fecha from 'fecha'
+export default {
+  name: 'FooterSlot',
+  data () {
+    return {
+      fecha: fecha
     }
   }
+}
 </script>

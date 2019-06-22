@@ -65,7 +65,9 @@
       "semi": [
         2,
         "never"
-      ]
+      ],
+      "vue/block-spacing": "error",
+      "vue/script-indent": "error"
     }
   },
   "postcss": {

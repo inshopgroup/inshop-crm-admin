@@ -77,8 +77,7 @@ export default {
         'order[deadline]': 'asc',
         'status.id[]': '1',
         'itemsPerPage': '500'
-        }
-      )
+      })
     }
   }
 }
