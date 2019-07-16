@@ -198,7 +198,7 @@ export default {
                 ) {
                   queryParams[this.customColumns[key]] = params.query[key]
                 } else {
-                  queryParams[key] = params.query[key]
+                  queryParams[key] = params.query[key].trim()
                 }
               }
             })
@@ -206,7 +206,7 @@ export default {
             // custom filtering
             this.options().customFilters.forEach(key => {
               if (typeof params[key] !== 'undefined' && params[key] !== '') {
-                queryParams[key] = params[key]
+                queryParams[key] = params[key].trim()
               }
             })
 
