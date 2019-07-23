@@ -139,17 +139,17 @@ export default {
     languages() {
       return this.$store.getters['language/items'] || []
     },
-    translations: {
-      get() {
-        let translations = []
-
-        this.languages.forEach(language => {
-          translations.push(this.findItem(language))
-        })
-
-        return translations
-      }
-    },
+    // translations: {
+    //   get() {
+    //     let translations = []
+    //
+    //     this.languages.forEach(language => {
+    //       translations.push(this.findItem(language))
+    //     })
+    //
+    //     return translations
+    //   }
+    // },
     authHeader() {
       return 'Bearer ' + this.$store.state.auth.token
     }

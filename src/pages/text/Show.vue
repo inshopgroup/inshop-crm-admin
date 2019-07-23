@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="content-header">
-      <h1>{{ item && item.title }}</h1>
+      <h1>{{ item && translate(item).title }}</h1>
     </section>
     <section class="content">
       <item-errors entity="text" />
@@ -33,27 +33,27 @@
                 <tbody>
                   <tr>
                     <td>{{ $t('title') }}</td>
-                    <td>{{ item.title }}</td>
+                    <td>{{ translate(item).title }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('slug') }}</td>
-                    <td>{{ item.slug }}</td>
+                    <td>{{ translate(item).slug }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('content') }}</td>
-                    <td>{{ item.content }}</td>
+                    <td>{{ translate(item).content }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('seoTitle') }}</td>
-                    <td>{{ item.seoTitle }}</td>
+                    <td>{{ translate(item).seoTitle }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('seoDescription') }}</td>
-                    <td>{{ item.seoDescription }}</td>
+                    <td>{{ translate(item).seoDescription }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('seoKeywords') }}</td>
-                    <td>{{ item.seoKeywords }}</td>
+                    <td>{{ translate(item).seoKeywords }}</td>
                   </tr>
 
                   <show-row-is-active :item="item" />

@@ -105,6 +105,7 @@ export default {
       },
       customColumns: {
         columnTranslatedName: 'translations.name',
+        columnTranslatedTitle: 'translations.title',
         columnParentTranslatedName: 'parent.translations.name'
       }
     }

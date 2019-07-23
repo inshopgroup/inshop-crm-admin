@@ -36,6 +36,7 @@ import ApiTable from '../../components/ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnIsActive from './../../table/ColumnIsActive'
+import columnTranslatedTitle from './../../table/ColumnTranslatedTitle'
 
 export default {
   components: { ItemErrors, ApiTable },
@@ -43,8 +44,7 @@ export default {
     return {
       columns: [
         'id',
-        'title',
-        'slug',
+        'columnTranslatedTitle',
         'isActive',
         'columnCreatedAt',
         'columnUpdatedAt',
@@ -52,21 +52,20 @@ export default {
       ],
       filterable: [
         'id',
-        'title',
-        'slug',
+        'columnTranslatedTitle',
         'isActive',
         'columnCreatedAt',
         'columnUpdatedAt'
       ],
       sortable: [
         'id',
-        'title',
-        'slug',
+        'columnTranslatedTitle',
         'isActive',
         'columnCreatedAt',
         'columnUpdatedAt'
       ],
       templates: {
+        columnTranslatedTitle,
         columnCreatedAt,
         columnUpdatedAt,
         isActive: columnIsActive

@@ -266,6 +266,7 @@
   "mimeType": "Mime type",
   "originalName": "Original name",
   "title_name": "Title",
+  "columnTranslatedTitle": "Title",
   "slug": "Slug",
   "content": "Content",
   "seoTitle": "SEO title",
