@@ -37,7 +37,7 @@
                   </tr>
                   <tr>
                     <td>{{ $t('slug') }}</td>
-                    <td>{{ translate(item).slug }}</td>
+                    <td>{{ item.slug }}</td>
                   </tr>
                   <tr>
                     <td>{{ $t('content') }}</td>
