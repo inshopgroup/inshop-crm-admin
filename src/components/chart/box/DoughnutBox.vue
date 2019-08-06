@@ -10,13 +10,15 @@
       />
     </v-card-text>
     <v-card-actions>
-      <ul class="chart-legend clearfix">
-        <li v-for="(item, key) in labels" :key="item.id">
-          <i class="fa fa-circle-o" :style="{ color: colorByKey(key) }" />
-          {{ item }}
-          <span class="pull-right">{{ values[key] }}</span>
-        </li>
-      </ul>
+      <v-layout align-start justify-start column fill-height>
+        <v-flex v-for="(item, key) in labels" :key="item.id">
+          <v-layout align-center>
+            <i class="material-icons" :style="{ color: colorByKey(key) }">stop</i>
+            {{ item }}
+            <span class="pull-right">{{ values.key }}</span>
+          </v-layout>
+        </v-flex>
+      </v-layout>
     </v-card-actions>
   </v-card>
 </template>
@@ -34,9 +36,7 @@ export default {
     },
     data: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     }
   },
   data() {
