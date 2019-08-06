@@ -1,37 +1,23 @@
 <template>
-  <div class="container-fluid hidden-print">
-    <div class="row">
-      <div class="col-md-6" />
-      <div class="col-md-6">
-        <div class="pull-right btn-toolbar">
-          <button
-            v-if="btnBackToList && isGranted(role_list)"
-            type="button"
-            class="btn btn-info"
-            @click="backToList()"
-          >
-            {{ $t('back_to_list') }}
-          </button>
-          <button
-            v-if="btnEdit && isGranted(role_update)"
-            type="button"
-            class="btn btn-primary"
-            @click="editItem()"
-          >
-            {{ $t('edit') }}
-          </button>
-          <button
-            v-if="btnDelete && isGranted(role_delete)"
-            type="button"
-            class="btn btn-danger"
-            @click="deleteItem()"
-          >
-            {{ $t('delete') }}
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <v-container fluid row>
+    <v-layout>
+      <v-flex md4 sm12>
+        <v-btn class="mx-1" large color="primary" @click="editItem()" v-if="btnEdit && isGranted(role_update)">
+          {{ $t('edit') }}
+        </v-btn>
+      </v-flex>
+      <v-flex md4 sm12 text-center>
+        <v-btn class="mx-1" large color="info" @click="backToList()" v-if="btnBackToList && isGranted(role_list)">
+          {{ $t('back_to_list') }}
+        </v-btn>
+      </v-flex>
+      <v-flex md4 sm12 text-right>
+        <v-btn class="mx-1" large color="error" @click="deleteItem()" v-if="btnDelete && isGranted(role_delete)">
+          {{ $t('delete') }}
+        </v-btn>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>

@@ -7,7 +7,7 @@
 
       <v-flex align-self-center text-right v-if="routeAdd">
         <v-btn
-            color="green"
+            color="success"
             dark
             fab
             :to="{ name: routeAdd }"

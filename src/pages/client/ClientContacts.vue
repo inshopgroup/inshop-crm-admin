@@ -1,8 +1,7 @@
 <template>
   <div class="table-responsive">
-    <section class="content-header hidden show-print">
-      <h1>{{ $t('tabs_contacts') }}</h1>
-    </section>
+    <is-title title="tabs_contacts"></is-title>
+
     <button class="btn btn-primary hidden-print" @click="create($event.target)">
       {{ $t('contact_add') }}
     </button>
@@ -77,7 +76,7 @@ import ModalContactForm from './ModalContactForm'
 import { mapActions } from 'vuex'
 
 export default {
-  components: { ModalContactForm },
+  components: {ModalContactForm },
   props: {
     parent: {
       type: Object,

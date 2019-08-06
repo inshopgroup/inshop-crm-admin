@@ -1,8 +1,7 @@
 <template>
   <div class="table-responsive">
-    <section class="content-header hidden show-print">
-      <h1>{{ $t('tabs_addresses') }}</h1>
-    </section>
+    <is-title title="tabs_addresses"></is-title>
+
     <button class="btn btn-primary hidden-print" @click="create($event.target)">
       {{ $t('address_add') }}
     </button>
@@ -140,7 +139,7 @@ import ModalAddressForm from './ModalAddressForm'
 import { mapActions } from 'vuex'
 
 export default {
-  components: { ModalAddressForm },
+  components: {ModalAddressForm },
   props: {
     parent: {
       type: Object,
