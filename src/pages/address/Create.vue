@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('address_add') }}</h1>
-    </section>
-    <AddressForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="address_add">
+    <address-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

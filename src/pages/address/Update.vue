@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('address_edit', { entity: item && item.id }) }}</h1>
-    </section>
+  <is-main-template title="address_edit" :title-params="{ entity: item && item.id }">
     <AddressForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  </is-main-template>
 </template>
 
 <script>

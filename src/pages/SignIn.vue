@@ -76,18 +76,16 @@
       </v-container>
     </v-content>
 
-    <footer-slot></footer-slot>
+    <is-footer></is-footer>
   </v-app>
 </template>
 
 <script>
   import * as types from '../store/modules/auth/mutation_types'
   import {messages} from '../locales'
-  import FooterSlot from "../components/layout/FooterSlot";
 
   export default {
     name: 'SignIn',
-    components: {FooterSlot},
     data() {
       return {
         credentials: {

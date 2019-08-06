@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h1 class="display-3 py-5">
-      {{ $t('dashboard_title') }}
-    </h1>
+  <v-container fluid>
+    <is-title title="dashboard_title"></is-title>
 
     <v-layout row>
       <v-flex md6 sm12 pa-2>
@@ -37,7 +35,7 @@
         />
       </v-flex>
     </v-layout>
-  </div>
+  </v-container>
 </template>
 
 <script>

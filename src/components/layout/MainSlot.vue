@@ -9,10 +9,11 @@
         <template v-for="item in items">
           <v-list-group
               :key="item.label"
-              :prepend-icon="item.icon"
-              append-icon=""
+              :prepend-icon="prependIcon(item)"
+              :append-icon="appendIcon(item)"
               @click="listItemClick(item)"
               v-if="isGrantedItem(item)"
+              v-model="item.model"
           >
             <template v-slot:activator>
               <v-list-item>
@@ -34,7 +35,7 @@
               </v-list-item-action>
               <v-list-item-content>
                 <v-list-item-title>
-                  {{ child.label }}
+                  {{ $t(child.label) }}
                 </v-list-item-title>
               </v-list-item-content>
             </v-list-item>
@@ -89,7 +90,7 @@
       </v-container>
     </v-content>
 
-    <footer-slot></footer-slot>
+    <is-footer></is-footer>
 
 <!--    <v-dialog-->
 <!--        v-model="dialog"-->
@@ -203,18 +204,13 @@
 </template>
 
 <script>
-// import Header from '../../components/layout/Header'
 import fecha from 'fecha'
-import FooterSlot from '../../components/layout/FooterSlot'
-// import LeftSidebarSlot from '../../components/layout/LeftSidebarSlot'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
 
 export default {
   name: 'MainSlot',
-  components: { ModalNotDoneTasks, FooterSlot
-    // , LeftSidebarSlot, HeaderSlot
-  },
+  components: { ModalNotDoneTasks },
   data() {
     return {
       fecha,
@@ -222,41 +218,65 @@ export default {
       tasks: [],
       dialog: true,
       drawer: null,
-      // source: '',
       items: [
-        { label: 'dashboard', route: 'Dashboard', icon: 'keyboard', role: 'ROLE_USER_DASHBOARD' },
-        { label: 'calendar', route: 'Calendar', icon: 'keyboard', role: 'ROLE_OTHER_CALENDAR' },
-        { label: 'contacts', icon: 'keyboard', children: [
-            { label: 'clients', route: 'ClientList', icon: 'keyboard', role: 'ROLE_CLIENT_LIST' },
-          ] },
-        // { icon: 'history', text: 'Frequently contacted' },
-        // { icon: 'content_copy', text: 'Duplicates' },
-        // {
-        //   icon: 'keyboard_arrow_up',
-        //   // 'icon-alt': 'keyboard_arrow_down',
-        //   text: 'Labels',
-        //   model: true,
-        //   children: [
-        //     { icon: 'add', text: 'Create label' },
-        //   ],
-        // },
-        // {
-        //   icon: 'keyboard_arrow_up',
-        //   text: 'More',
-        //   model: false,
-        //   children: [
-        //     { text: 'Import' },
-        //     { text: 'Export' },
-        //     { text: 'Print' },
-        //     { text: 'Undo changes' },
-        //     { text: 'Other contacts' },
-        //   ],
-        // },
-        // { icon: 'settings', text: 'Settings' },
-        // { icon: 'chat_bubble', text: 'Send feedback' },
-        // { icon: 'help', text: 'Help' },
-        // { icon: 'phonelink', text: 'App downloads' },
-        // { icon: 'keyboard', text: 'Go to the old version' },
+        { label: 'dashboard', icon: 'dashboard', route: 'Dashboard', role: 'ROLE_USER_DASHBOARD' },
+        { label: 'calendar', icon: 'perm_contact_calendar', route: 'Calendar', role: 'ROLE_OTHER_CALENDAR' },
+        { label: 'contacts', icon: 'people', children: [
+            { label: 'clients', icon: 'people_outline', route: 'ClientList', role: 'ROLE_CLIENT_LIST' },
+            { label: 'companies', icon: 'grade', route: 'CompanyList', role: 'ROLE_COMPANY_LIST' },
+            { label: 'address', icon: 'my_location', route: 'AddressList', role: 'ROLE_ADDRESS_LIST' },
+            { label: 'country', icon: 'flag', route: 'CountryList', role: 'ROLE_COUNTRY_LIST' },
+            { label: 'city', icon: 'location_city', route: 'CityList', role: 'ROLE_CITY_LIST' },
+            { label: 'contacts', icon: 'local_phone', route: 'ContactList', role: 'ROLE_CONTACT_LIST' },
+        ]},
+        { label: 'product', icon: 'store', children: [
+            { label: 'category', icon: 'format_align_justify', route: 'CategoryList', role: 'ROLE_CATEGORY_LIST' },
+            { label: 'product', icon: 'format_align_justify', route: 'ProductList', role: 'ROLE_PRODUCT_LIST' },
+        ]},
+        { label: 'cms', icon: 'mode_edit', children: [
+            { label: 'text', icon: 'text_fields', route: 'TextList', role: 'ROLE_TEXT_LIST' },
+        ]},
+        { label: 'projects', icon: 'folder', children: [
+            { label: 'projects', icon: 'folder_open', route: 'ProjectList', role: 'ROLE_PROJECT_LIST' },
+            { label: 'tasks', icon: 'access_time', route: 'TaskList', role: 'ROLE_TASK_LIST' },
+        ]},
+        { label: 'documents', icon: 'insert_drive_file', children: [
+            { label: 'documents', icon: 'turned_in', route: 'DocumentList', role: 'ROLE_DOCUMENT_LIST' },
+            { label: 'templates', icon: 'turned_in_not', route: 'TemplateList', role: 'ROLE_TEMPLATE_LIST' },
+            { label: 'template_types', icon: 'tune', route: 'TemplateTypeList', role: 'ROLE_TEMPLATE_TYPE_LIST' },
+        ]},
+        { label: 'order_header', icon: 'local_grocery_store', children: [
+            { label: 'order_header', icon: 'assignment', route: 'OrderHeaderList', role: 'ROLE_ORDER_HEADER_LIST' },
+            { label: 'order_status', icon: 'library_books', route: 'OrderStatusList', role: 'ROLE_ORDER_STATUS_LIST' },
+            { label: 'order_line_status', icon: 'format_align_justify', route: 'OrderLineStatusList', role: 'ROLE_ORDER_LINE_STATUS_LIST' },
+        ]},
+        { label: 'invoice_header', icon: 'attach_money', children: [
+            { label: 'invoice_header', icon: 'format_align_justify', route: 'InvoiceHeaderList', role: 'ROLE_INVOICE_HEADER_LIST' },
+            { label: 'invoice_status', icon: 'format_align_justify', route: 'InvoiceStatusList', role: 'ROLE_INVOICE_STATUS_LIST' },
+            { label: 'invoice_type', icon: 'format_align_justify', route: 'InvoiceTypeList', role: 'ROLE_INVOICE_TYPE_LIST' },
+        ]},
+        { label: 'dictionaries', icon: 'list', children: [
+            { label: 'language', icon: 'format_align_justify', route: 'LanguageList', role: 'ROLE_LANGUAGE_LIST' },
+            { label: 'vat', icon: 'format_align_justify', route: 'VatList', role: 'ROLE_VAT_LIST' },
+            { label: 'currency', icon: 'format_align_justify', route: 'CurrencyList', role: 'ROLE_CURRENCY_LIST' },
+            { label: 'contact_type', icon: 'format_align_justify', route: 'ContactTypeList', role: 'ROLE_CONTACT_TYPE_LIST' },
+            { label: 'project_type', icon: 'format_align_justify', route: 'ProjectTypeList', role: 'ROLE_PROJECT_TYPE_LIST' },
+            { label: 'project_status', icon: 'format_align_justify', route: 'ProjectStatusList', role: 'ROLE_PROJECT_STATUS_LIST' },
+            { label: 'task_status', icon: 'format_align_justify', route: 'TaskStatusList', role: 'ROLE_TASK_STATUS_LIST' },
+            { label: 'brand', icon: 'format_align_justify', route: 'BrandList', role: 'ROLE_BRAND_LIST' },
+            { label: 'channel', icon: 'format_align_justify', route: 'ChannelList', role: 'ROLE_CHANNEL_LIST' },
+            { label: 'label', icon: 'format_align_justify', route: 'LabelList', role: 'ROLE_LABEL_LIST' },
+            { label: 'paymentType', icon: 'format_align_justify', route: 'PaymentTypeList', role: 'ROLE_PAYMENT_TYPE_LIST' },
+            { label: 'shipmentMethod', icon: 'format_align_justify', route: 'ShipmentMethodList', role: 'ROLE_SHIPMENT_METHOD_LIST' },
+        ]},
+        { label: 'users', icon: 'security', children: [
+            { label: 'users', icon: 'format_align_justify', route: 'UserList', role: 'ROLE_USER_LIST' },
+            { label: 'groups', icon: 'format_align_justify', route: 'GroupList', role: 'ROLE_GROUP_LIST' },
+          ]},
+        { label: 'maintenance', icon: 'settings', children: [
+            { label: 'backup', icon: 'format_align_justify', route: 'BackupList', role: 'ROLE_BACKUP_LIST' },
+            { label: 'history', icon: 'watch', route: 'HistoryList', role: 'ROLE_HISTORY_LIST' },
+          ]},
       ],
     }
   },
@@ -271,12 +291,22 @@ export default {
     }
   },
   methods: {
+    prependIcon(item) {
+      if (item.icon) {
+        return item.icon
+      }
+    },
+    appendIcon(item) {
+      if (item.children && item.children.length) {
+        return item.model ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
+      }
+
+      return null
+    },
     listItemClick(item) {
-      // console.log(item)
       if (item.route) {
         this.$router.push({
           name: item.route,
-          // params: { id: this.item.id }
         })
       }
     },
@@ -286,8 +316,8 @@ export default {
       }
 
       if (item.children) {
-        item.children.forEach(child => {
-
+        return item.children.some(child => {
+          return this.isGranted(child.role)
         })
       }
 

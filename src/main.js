@@ -13,9 +13,11 @@ import store from './store'
 import router from './router'
 
 import 'babel-polyfill'
+import App from './App'
 import Vue from 'vue'
 import vuetify from './plugins/vuetify'
-import App from './App'
+import './plugins/layout'
+import './plugins/formComponents'
 
 import 'vue-event-calendar/dist/style.css'
 import vueEventCalendar from 'vue-event-calendar'
@@ -29,12 +31,6 @@ import Security from './mixin/Security'
 import Translate from './mixin/Translate'
 import DateMixin from './mixin/DateMixin'
 import VueI18n from 'vue-i18n'
-import FormComponents from '@inshopgroup/vue-inshop-crm-form-components'
-import '@inshopgroup/vue-inshop-crm-form-components/dist/vue-inshop-crm-form-components.css'
-
-Object.keys(FormComponents).forEach(name => {
-  Vue.component(name, FormComponents[name])
-})
 
 Vue.use(vbclass, router)
 Vue.use(VueI18n)
