@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('brand_add') }}</h1>
-    </section>
-    <BrandForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="brand_add">
+    <brand-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

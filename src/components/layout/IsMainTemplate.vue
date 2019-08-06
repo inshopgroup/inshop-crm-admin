@@ -21,7 +21,7 @@
       <v-flex>
         <v-card class="mx-auto">
           <v-card-text>
-            <item-errors entity="address"/>
+            <item-errors :entity="entity" v-if="entity" />
 
             <slot></slot>
           </v-card-text>
@@ -38,6 +38,10 @@ export default {
   components: {ItemErrors},
   props: {
     title: {
+      type: String,
+      default: null
+    },
+    entity: {
       type: String,
       default: null
     },
