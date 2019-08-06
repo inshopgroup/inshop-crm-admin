@@ -1,11 +1,10 @@
-import 'font-awesome/css/font-awesome.css'
-import 'bootstrap'
-import 'admin-lte'
+// import 'font-awesome/css/font-awesome.css'
+// import 'bootstrap'
+// import 'admin-lte'
 import moment from 'moment'
 
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
-import '../node_modules/admin-lte/dist/css/AdminLTE.css'
-import '../node_modules/admin-lte/dist/css/skins/skin-blue.css'
+// import '../node_modules/bootstrap/dist/css/bootstrap.css'
+// import '../node_modules/admin-lte/dist/css/adminlte.min.css'
 
 import '../node_modules/daterangepicker/daterangepicker'
 import '../node_modules/daterangepicker/daterangepicker.css'
@@ -13,7 +12,9 @@ import '../node_modules/daterangepicker/daterangepicker.css'
 import store from './store'
 import router from './router'
 
+import 'babel-polyfill'
 import Vue from 'vue'
+import vuetify from './plugins/vuetify'
 import App from './App'
 
 import 'vue-event-calendar/dist/style.css'
@@ -63,6 +64,7 @@ window.moment = moment
 Vue.config.productionTip = false
 
 new Vue({
+  vuetify,
   store,
   router,
   i18n,

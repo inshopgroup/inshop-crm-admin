@@ -1,98 +1,123 @@
 <template>
-  <div class="login-box">
-    <div class="login-logo">
-      <a href="https://inshopcrm.com" target="_blank">
-        <img
-          class="mb-4"
-          src="../assets/logo.png"
-          alt="inshopcrm.com"
-          style="width: 200px;"
-        />
-      </a>
-    </div>
-    <div class="login-box-body">
-      <p class="login-box-msg">
-        {{ $t('start_session') }}
-      </p>
+  <v-app id="inspire">
+    <v-content>
+      <v-container
+          fluid
+          fill-height
+      >
 
-      <form method="post" @submit.prevent="signIn">
-        <div class="form-group">
-          <label>{{ $t('username') }}:</label>
-          <input
-            v-model="credentials.username"
-            type="text"
-            class="form-control"
-            :placeholder="$t('username')"
-            required
-            autofocus
-          />
-        </div>
-        <div :class="[{ 'has-error': error }, 'form-group']">
-          <label>{{ $t('password') }}:</label>
-          <input
-            v-model="credentials.password"
-            type="password"
-            class="form-control"
-            :placeholder="$t('password')"
-          />
-          <span class="help-block">{{ error }}</span>
-        </div>
+        <v-layout
+            align-center
+            justify-center
+        >
+          <v-flex
+              xs12
+              sm8
+              md4
+              lg3
+          >
 
-        <div class="row">
-          <div class="col-xs-8" />
-          <div class="col-xs-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">
-              {{ $t('signin') }}
-            </button>
-          </div>
-        </div>
-      </form>
+          <v-layout
+              column
+          >
+            <v-flex text-center pb-3>
+              <a href="https://inshopcrm.com" target="_blank">
+                <img
+                    src="../assets/logo.png"
+                    alt="inshopcrm.com"
+                    style="width: 40%;"
+                />
+              </a>
+            </v-flex>
 
-      {{ $t('powered_by') }}
-      <a href="https://inshopgroup.com" target="_blank">Inshop Group</a>
-    </div>
-  </div>
+            <v-flex>
+              <v-card class="elevation-12">
+                <v-form @submit.prevent="signIn">
+                  <v-toolbar
+                      color="dark"
+                      dark
+                      flat
+                  >
+                    <v-toolbar-title>Sign in to start the session</v-toolbar-title>
+                  </v-toolbar>
+                  <v-card-text>
+                    <v-text-field
+                        :label="$t('username')"
+                        name="login"
+                        prepend-icon="person"
+                        type="text"
+                        v-model="credentials.username"
+                        :error="hasError"
+                        :error-messages="error"
+                    ></v-text-field>
+
+                    <v-text-field
+                        id="password"
+                        :label="$t('password')"
+                        name="password"
+                        prepend-icon="lock"
+                        type="password"
+                        v-model="credentials.password"
+                        :error="hasError"
+                        :error-messages="error"
+                    ></v-text-field>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn type="submit">{{ $t('signin') }}</v-btn>
+
+                  </v-card-actions>
+                </v-form>
+              </v-card>
+            </v-flex>
+          </v-layout>
+          </v-flex>
+        </v-layout>
+      </v-container>
+    </v-content>
+
+    <footer-slot></footer-slot>
+  </v-app>
 </template>
 
 <script>
-import * as types from '../store/modules/auth/mutation_types'
-import { messages } from '../locales'
+  import * as types from '../store/modules/auth/mutation_types'
+  import {messages} from '../locales'
+  import FooterSlot from "../components/layout/FooterSlot";
 
-export default {
-  name: 'SignIn',
-  data() {
-    return {
-      credentials: {
-        username: 'demo',
-        password: 'demo'
+  export default {
+    name: 'SignIn',
+    components: {FooterSlot},
+    data() {
+      return {
+        credentials: {
+          username: 'demo',
+          password: 'demo'
+        }
+      }
+    },
+    computed: {
+      error() {
+        return this.$store.getters['auth/error']
+      },
+      hasError() {
+        return this.error !== null
+      }
+    },
+    methods: {
+      signIn() {
+        this.$store.dispatch('auth/login', this.credentials).then(response => {
+          this.$store.commit('auth/' + types.AUTH_UPDATE_TOKEN, response.data)
+          this.$router.push({name: 'Dashboard'})
+
+          let lang = response.data.language
+
+          if (lang && messages[lang]) {
+            this.$store.commit('auth/' + types.AUTH_UPDATE_LANGUAGE, lang)
+            this.$i18n.locale = lang
+          }
+        }).catch(() => {})
       }
     }
-  },
-  computed: {
-    error() {
-      return this.$store.getters['auth/error']
-    }
-  },
-  methods: {
-    signIn() {
-      this.$store.dispatch('auth/login', this.credentials).then(response => {
-        this.$store.commit('auth/' + types.AUTH_UPDATE_TOKEN, response.data)
-        this.$router.push({ name: 'Dashboard' })
-
-        let lang = response.data.language
-
-        if (lang && messages[lang]) {
-          this.$store.commit('auth/' + types.AUTH_UPDATE_LANGUAGE, lang)
-          this.$i18n.locale = lang
-        }
-      })
-    }
   }
-}
 </script>
-
-<style>
-.login-page {
-  background: #444;
-}
-</style>

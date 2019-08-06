@@ -1,21 +1,15 @@
 <template>
-  <div class="box box-default">
-    <div class="box-header with-border">
-      <h3 class="box-title">
-        {{ title }}
-      </h3>
-    </div>
-    <div class="box-body">
-      <div class="chart-responsive">
-        <bar-chart
-          :height="200"
-          :chart-data="dataset"
-          :labels="labels"
-          :options="options"
-        />
-      </div>
-    </div>
-  </div>
+  <v-card class="mx-auto">
+    <v-card-title>{{ title }}</v-card-title>
+    <v-card-text>
+      <bar-chart
+        :height="200"
+        :chart-data="dataset"
+        :labels="labels"
+        :options="options"
+      />
+    </v-card-text>
+  </v-card>
 </template>
 
 <script>

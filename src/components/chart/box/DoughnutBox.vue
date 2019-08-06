@@ -1,21 +1,15 @@
 <template>
-  <div class="box box-default">
-    <div class="box-header with-border">
-      <h3 class="box-title">
-        {{ title }}
-      </h3>
-    </div>
-    <div class="box-body">
-      <div class="chart-responsive">
-        <doughnut-chart
-          :height="200"
-          :chart-data="dataset"
-          :labels="labels"
-          :options="options"
-        />
-      </div>
-    </div>
-    <div class="box-footer">
+  <v-card class="mx-auto">
+    <v-card-title>{{ title }}</v-card-title>
+    <v-card-text>
+      <doughnut-chart
+        :height="200"
+        :chart-data="dataset"
+        :labels="labels"
+        :options="options"
+      />
+    </v-card-text>
+    <v-card-actions>
       <ul class="chart-legend clearfix">
         <li v-for="(item, key) in labels" :key="item.id">
           <i class="fa fa-circle-o" :style="{ color: colorByKey(key) }" />
@@ -23,8 +17,8 @@
           <span class="pull-right">{{ values[key] }}</span>
         </li>
       </ul>
-    </div>
-  </div>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>

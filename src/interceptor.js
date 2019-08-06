@@ -45,7 +45,8 @@ axios.interceptors.response.use(
     if (
       error.response &&
       error.response.status &&
-      error.response.status === 401
+      error.response.status === 401 &&
+      error.response.data.message !== 'Bad credentials'
     ) {
       window.location.href = '/signin'
     }

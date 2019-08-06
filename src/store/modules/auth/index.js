@@ -1,23 +1,21 @@
 import jwtDecode from 'jwt-decode'
 import * as types from './mutation_types'
 import router from '../../../router'
-import axios from 'axios/index'
-import { API_HOST, API_PATH } from '../../../config/_entrypoint'
+import axios from '../../../interceptor'
 
 const actions = {
   login({ commit }, data) {
     commit(types.AUTH_ERROR_CHANGE, null)
 
-    const url = '/login'
-    const link = url.includes(API_PATH)
-      ? API_HOST + url
-      : API_HOST + API_PATH + url
+    const url = process.env.VUE_APP_API_URL + '/login'
 
-    return axios.post(link, data).catch(() => {
+    return axios.post(url, data).catch(e => {
       commit(
         types.AUTH_ERROR_CHANGE,
-        'Wprowadzony login lub hasło są nieprawidłowe'
+        'Username or password are incorrect'
       )
+
+      throw e
     })
   },
   logout({ commit }) {
