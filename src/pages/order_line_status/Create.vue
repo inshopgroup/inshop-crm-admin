@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('order_line_status_add') }}</h1>
-    </section>
-    <OrderLineStatusForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="order_line_status_add">
+    <order-line-status-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

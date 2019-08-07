@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('language_add') }}</h1>
-    </section>
-    <LanguageForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="language_add">
+    <language-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

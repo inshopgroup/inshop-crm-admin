@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('project_add') }}</h1>
-    </section>
-    <ProjectForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="project_add">
+    <project-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

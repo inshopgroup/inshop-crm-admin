@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('currency_add') }}</h1>
-    </section>
-    <CurrencyForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="currency_add">
+    <currency-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

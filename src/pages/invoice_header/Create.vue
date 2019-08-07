@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('invoice_header_add') }}</h1>
-    </section>
-    <InvoiceHeaderForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="invoice_header_add">
+    <invoice-header-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

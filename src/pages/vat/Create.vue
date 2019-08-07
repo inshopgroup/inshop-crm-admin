@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('vat_add') }}</h1>
-    </section>
-    <VatForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="vat_add">
+    <vat-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

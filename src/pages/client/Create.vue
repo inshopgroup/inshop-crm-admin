@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('client_add') }}</h1>
-    </section>
-    <ClientForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="client_add">
+    <client-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('document_add') }}</h1>
-    </section>
-
-    <DocumentForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="document_add">
+    <document-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

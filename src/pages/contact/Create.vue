@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('contact_add') }}</h1>
-    </section>
-    <ContactForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="contact_add">
+    <contact-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>
