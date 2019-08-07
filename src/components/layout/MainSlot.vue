@@ -24,21 +24,22 @@
                 </v-list-item-content>
               </v-list-item>
             </template>
-            <v-list-item
-              v-for="(child, i) in item.children"
-              v-if="isGrantedItem(child)"
-              :key="i"
-              @click="listItemClick(child)"
-            >
-              <v-list-item-action v-if="child.icon">
-                <v-icon>{{ child.icon }}</v-icon>
-              </v-list-item-action>
-              <v-list-item-content>
-                <v-list-item-title>
-                  {{ $t(child.label) }}
-                </v-list-item-title>
-              </v-list-item-content>
-            </v-list-item>
+            <template v-for="(child, i) in item.children">
+              <v-list-item
+                v-if="isGrantedItem(child)"
+                :key="i"
+                @click="listItemClick(child)"
+              >
+                <v-list-item-action v-if="child.icon">
+                  <v-icon>{{ child.icon }}</v-icon>
+                </v-list-item-action>
+                <v-list-item-content>
+                  <v-list-item-title>
+                    {{ $t(child.label) }}
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </template>
           </v-list-group>
         </template>
       </v-list>
@@ -85,113 +86,12 @@
 
     <is-footer></is-footer>
 
-    <!--    <v-dialog-->
-    <!--        v-model="dialog"-->
-    <!--        width="800px"-->
-    <!--    >-->
-    <!--      <v-card>-->
-    <!--        <v-card-title class="grey darken-2">-->
-    <!--          Create contact-->
-    <!--        </v-card-title>-->
-    <!--        <v-container grid-list-sm>-->
-    <!--          <v-layout-->
-    <!--              wrap-->
-    <!--          >-->
-    <!--            <v-flex-->
-    <!--                xs12-->
-    <!--                align-center-->
-    <!--                justify-space-between-->
-    <!--            >-->
-    <!--              <v-layout align-center>-->
-    <!--                <v-avatar-->
-    <!--                    size="40px"-->
-    <!--                    class="mr-4"-->
-    <!--                >-->
-    <!--                  <img-->
-    <!--                      src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png"-->
-    <!--                      alt=""-->
-    <!--                  >-->
-    <!--                </v-avatar>-->
-    <!--                <v-text-field-->
-    <!--                    placeholder="Name"-->
-    <!--                ></v-text-field>-->
-    <!--              </v-layout>-->
-    <!--            </v-flex>-->
-    <!--            <v-flex xs6>-->
-    <!--              <v-text-field-->
-    <!--                  prepend-icon="business"-->
-    <!--                  placeholder="Company"-->
-    <!--              ></v-text-field>-->
-    <!--            </v-flex>-->
-    <!--            <v-flex xs6>-->
-    <!--              <v-text-field-->
-    <!--                  placeholder="Job title"-->
-    <!--              ></v-text-field>-->
-    <!--            </v-flex>-->
-    <!--            <v-flex xs12>-->
-    <!--              <v-text-field-->
-    <!--                  prepend-icon="mail"-->
-    <!--                  placeholder="Email"-->
-    <!--              ></v-text-field>-->
-    <!--            </v-flex>-->
-    <!--            <v-flex xs12>-->
-    <!--              <v-text-field-->
-    <!--                  type="tel"-->
-    <!--                  prepend-icon="phone"-->
-    <!--                  placeholder="(000) 000 - 0000"-->
-    <!--              ></v-text-field>-->
-    <!--            </v-flex>-->
-    <!--            <v-flex xs12>-->
-    <!--              <v-text-field-->
-    <!--                  prepend-icon="notes"-->
-    <!--                  placeholder="Notes"-->
-    <!--              ></v-text-field>-->
-    <!--            </v-flex>-->
-    <!--          </v-layout>-->
-    <!--        </v-container>-->
-    <!--        <v-card-actions>-->
-    <!--          <v-btn-->
-    <!--              text-->
-    <!--              color="primary"-->
-    <!--          >More</v-btn>-->
-    <!--          <v-spacer></v-spacer>-->
-    <!--          <v-btn-->
-    <!--              text-->
-    <!--              color="primary"-->
-    <!--              @click="dialog = false"-->
-    <!--          >Cancel</v-btn>-->
-    <!--          <v-btn-->
-    <!--              text-->
-    <!--              @click="dialog = false"-->
-    <!--          >Save</v-btn>-->
-    <!--        </v-card-actions>-->
-    <!--      </v-card>-->
-    <!--    </v-dialog>-->
+    <modal-not-done-tasks
+      :tasks="tasks"
+      :dialog="dialog"
+      @dialog-close="dialog = false"
+    ></modal-not-done-tasks>
   </v-app>
-
-  <!--  <div class="wrapper">-->
-  <!--    <header class="main-header">-->
-  <!--      <a href="/" class="logo">-->
-  <!--        <span class="logo-lg">{{ $t('title') }}</span>-->
-  <!--      </a>-->
-
-  <!--      <header-slot />-->
-  <!--    </header>-->
-
-  <!--    <left-sidebar-slot />-->
-
-  <!--    <div class="content-wrapper">-->
-  <!--      <section class="content container-fluid">-->
-  <!--        <router-view />-->
-  <!--      </section>-->
-  <!--    </div>-->
-
-  <!--    <footer-slot />-->
-
-  <!--    <div class="control-sidebar-bg" />-->
-
-  <!--    <modal-not-done-tasks :tasks="tasks" />-->
-  <!--  </div>-->
 </template>
 
 <script>
@@ -207,7 +107,7 @@ export default {
       fecha,
       q: null,
       tasks: [],
-      dialog: true,
+      dialog: false,
       drawer: null,
       items: [
         {
@@ -503,7 +403,7 @@ export default {
   },
   computed: {
     username() {
-      return this.$store.getters['auth/jwtDecoded']['name']
+      return this.$store.getters['auth/jwtDecoded'].name
     }
   },
   mounted() {
@@ -557,7 +457,7 @@ export default {
         this.tasks = response.data['hydra:member']
 
         if (this.tasks.length) {
-          window.$('#modal-not-done-tasks').modal('show')
+          this.dialog = true
         }
       })
     }
