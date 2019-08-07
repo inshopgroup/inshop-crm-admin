@@ -240,3 +240,9 @@ export default {
   },
 }
 </script>
+
+<style>
+  .v-calendar-weekly__day-label {
+    margin: 4px 0 !important;
+  }
+</style>

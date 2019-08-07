@@ -28,7 +28,7 @@
       </v-flex>
       <v-flex md4 sm12 text-right>
         <v-btn
-          v-if="btnBackToList && isGranted(role_delete)"
+          v-if="item.id && isGranted(role_delete)"
           class="mx-1"
           large
           color="error"
