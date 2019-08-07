@@ -1,11 +1,4 @@
-// import 'font-awesome/css/font-awesome.css'
-// import 'bootstrap'
-// import 'admin-lte'
 import moment from 'moment'
-
-// import '../node_modules/bootstrap/dist/css/bootstrap.css'
-// import '../node_modules/admin-lte/dist/css/adminlte.min.css'
-
 import '../node_modules/daterangepicker/daterangepicker'
 import '../node_modules/daterangepicker/daterangepicker.css'
 
@@ -19,8 +12,6 @@ import vuetify from './plugins/vuetify'
 import './plugins/layout'
 import './plugins/formComponents'
 
-import 'vue-event-calendar/dist/style.css'
-import vueEventCalendar from 'vue-event-calendar'
 import { ServerTable } from 'vue-tables-2'
 import Toastr from 'vue-toastr'
 import 'vue-toastr/src/vue-toastr.scss'
@@ -36,7 +27,6 @@ Vue.use(vbclass, router)
 Vue.use(VueI18n)
 Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default')
-Vue.use(vueEventCalendar, { locale: 'en', weekStartOn: 1 }) //locale can be 'zh' , 'en' , 'es', 'pt-br', 'ja', 'ko', 'fr', 'it', 'ru', 'de', 'vi', 'ua'
 Vue.use(VueSentry, {
   enable: process.env.SENTRY_PUBLIC_KEY !== '',
   key: process.env.SENTRY_PUBLIC_KEY,
