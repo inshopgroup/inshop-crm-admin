@@ -139,7 +139,7 @@ import ModalAddressForm from './ModalAddressForm'
 import { mapActions } from 'vuex'
 
 export default {
-  components: {ModalAddressForm },
+  components: { ModalAddressForm },
   props: {
     parent: {
       type: Object,

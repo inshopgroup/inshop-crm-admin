@@ -1,13 +1,13 @@
 <template>
   <is-main-template title="brand_list" route-add="BrandCreate" entity="brand">
     <api-table
-        entity="Brand"
-        route="brands"
-        path="brand"
-        :filterable="filterable"
-        :sortable="sortable"
-        :columns="columns"
-        :templates="templates"
+      entity="Brand"
+      route="brands"
+      path="brand"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
     />
   </is-main-template>
 </template>

@@ -5,13 +5,8 @@
         <is-title :title="title" :title-params="titleParams"></is-title>
       </v-flex>
 
-      <v-flex align-self-center text-right v-if="routeAdd">
-        <v-btn
-            color="success"
-            dark
-            fab
-            :to="{ name: routeAdd }"
-        >
+      <v-flex v-if="routeAdd" align-self-center text-right>
+        <v-btn color="success" dark fab :to="{ name: routeAdd }">
           <v-icon>{{ icon }}</v-icon>
         </v-btn>
       </v-flex>
@@ -21,7 +16,7 @@
       <v-flex>
         <v-card class="mx-auto">
           <v-card-text>
-            <item-errors :entity="entity" v-if="entity" />
+            <item-errors v-if="entity" :entity="entity" />
 
             <slot></slot>
           </v-card-text>
@@ -32,10 +27,10 @@
 </template>
 
 <script>
-import ItemErrors from './errors/ItemErrors';
+import ItemErrors from './errors/ItemErrors'
 export default {
   name: 'IsMainTemplate',
-  components: {ItemErrors},
+  components: { ItemErrors },
   props: {
     title: {
       type: String,

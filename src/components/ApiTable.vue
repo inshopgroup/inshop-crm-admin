@@ -6,18 +6,18 @@
           <v-layout>
             <v-btn-toggle dark rounded small>
               <v-btn
-                  v-if="isGranted(role_show)"
-                  :to="{ name: showRoute, params: { id: props.row.id } }"
-                  color="success"
-                  small
+                v-if="isGranted(role_show)"
+                :to="{ name: showRoute, params: { id: props.row.id } }"
+                color="success"
+                small
               >
                 <v-icon small>remove_red_eye</v-icon>
               </v-btn>
               <v-btn
-                  v-if="isGranted(role_show) && isGranted(role_edit)"
-                  :to="{ name: updateRoute, params: { id: props.row.id } }"
-                  color="success"
-                  small
+                v-if="isGranted(role_show) && isGranted(role_edit)"
+                :to="{ name: updateRoute, params: { id: props.row.id } }"
+                color="success"
+                small
               >
                 <v-icon small>edit</v-icon>
               </v-btn>
@@ -277,141 +277,189 @@ export default {
 </script>
 
 <style>
-  .table-responsive {
-    min-height: .01%;
-    overflow-x: auto;
-  }
+.table-responsive {
+  min-height: 0.01%;
+  overflow-x: auto;
+}
 
-  .table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-    border: 1px solid #f4f4f4;
-  }
+.table-bordered,
+.table-bordered > tbody > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > thead > tr > th {
+  border: 1px solid #f4f4f4;
+}
 
-  .table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 20px;
-  }
-  table {
-    background-color: transparent;
-  }
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-  *, :after, :before {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+table {
+  background-color: transparent;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  .table-hover>tbody>tr:hover, .table>tbody>tr.active>td, .table>tbody>tr.active>th, .table>tbody>tr>td.active, .table>tbody>tr>th.active, .table>tfoot>tr.active>td, .table>tfoot>tr.active>th, .table>tfoot>tr>td.active, .table>tfoot>tr>th.active, .table>thead>tr.active>td, .table>thead>tr.active>th, .table>thead>tr>td.active, .table>thead>tr>th.active {
-    background-color: #f5f5f5;
-  }
+.table-hover > tbody > tr:hover,
+.table > tbody > tr.active > td,
+.table > tbody > tr.active > th,
+.table > tbody > tr > td.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr.active > td,
+.table > tfoot > tr.active > th,
+.table > tfoot > tr > td.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > thead > tr.active > th,
+.table > thead > tr > td.active,
+.table > thead > tr > th.active {
+  background-color: #f5f5f5;
+}
 
-  .table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: #f9f9f9;
-  }
-  *, :after, :before {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  .table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th {
-    border: 1px solid #f4f4f4;
-  }
+.table-bordered,
+.table-bordered > tbody > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > thead > tr > th {
+  border: 1px solid #f4f4f4;
+}
 
-  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    border-top: 1px solid #f4f4f4;
-  }
-  .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;
-  }
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  border-top: 1px solid #f4f4f4;
+}
+.table > tbody > tr > td,
+.table > tbody > tr > th,
+.table > tfoot > tr > td,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > thead > tr > th {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
 
-  .pagination {
-    display: inline-block;
-    padding-left: 0;
-    margin: 20px 0;
-    border-radius: 4px;
-  }
-  .pagination>li {
-    display: inline;
-  }
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
 
-  .pagination>.disabled>a, .pagination>.disabled>a:focus, .pagination>.disabled>a:hover, .pagination>.disabled>span, .pagination>.disabled>span:focus, .pagination>.disabled>span:hover {
-    color: #777;
-    cursor: not-allowed;
-    background-color: #fff;
-    border-color: #ddd;
-  }
+.pagination > .disabled > a,
+.pagination > .disabled > a:focus,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > span,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > span:hover {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd;
+}
 
-  .pagination>li>a {
-    background: #fafafa;
-    color: #666;
-  }
-  .pagination>li>a, .pagination>li>span {
-    position: relative;
-    float: left;
-    padding: 6px 12px;
-    margin-left: -1px;
-    line-height: 1.42857143;
-    color: #337ab7;
-    text-decoration: none;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
+.pagination > li > a {
+  background: #fafafa;
+  color: #666;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
 
+.form-control {
+  border-radius: 0;
+  border-color: #d2d6de;
+}
+.form-control {
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+  -webkit-transition: border-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
+}
+.form-control,
+output {
+  display: block;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+}
+/*button, input, select, textarea {*/
+/*  font-family: inherit;*/
+/*  font-size: inherit;*/
+/*  line-height: inherit;*/
+/*}*/
 
-  .form-control {
-    border-radius: 0;
-    border-color: #d2d6de;
-  }
-  .form-control {
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  }
-  .form-control, output {
-    display: block;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-  }
-  /*button, input, select, textarea {*/
-  /*  font-family: inherit;*/
-  /*  font-size: inherit;*/
-  /*  line-height: inherit;*/
-  /*}*/
+/**, :after, :before {*/
+/*  -webkit-box-sizing: border-box;*/
+/*  box-sizing: border-box;*/
+/*}*/
+/*table {*/
+/*  display: table;*/
+/*  border-collapse: separate;*/
+/*  border-spacing: 2px;*/
+/*  border-color: grey;*/
+/*}*/
 
-  /**, :after, :before {*/
-  /*  -webkit-box-sizing: border-box;*/
-  /*  box-sizing: border-box;*/
-  /*}*/
-  /*table {*/
-  /*  display: table;*/
-  /*  border-collapse: separate;*/
-  /*  border-spacing: 2px;*/
-  /*  border-color: grey;*/
-  /*}*/
-
-  /*.VueTables__table th:last-child {*/
-  /*  width: 95px;*/
-  /*}*/
-  /*.float-right {*/
-  /*  float: right !important;*/
-  /*}*/
-  /*.VuePagination .text-center {*/
-  /*  float: right;*/
-  /*}*/
+/*.VueTables__table th:last-child {*/
+/*  width: 95px;*/
+/*}*/
+/*.float-right {*/
+/*  float: right !important;*/
+/*}*/
+/*.VuePagination .text-center {*/
+/*  float: right;*/
+/*}*/
 </style>

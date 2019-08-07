@@ -13,7 +13,9 @@
       <v-layout align-start justify-start column fill-height>
         <v-flex v-for="(item, key) in labels" :key="item.id">
           <v-layout align-center>
-            <i class="material-icons" :style="{ color: colorByKey(key) }">stop</i>
+            <i class="material-icons" :style="{ color: colorByKey(key) }"
+              >stop</i
+            >
             {{ item }}
             <span class="pull-right">{{ values.key }}</span>
           </v-layout>

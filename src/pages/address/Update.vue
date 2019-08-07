@@ -1,5 +1,8 @@
 <template>
-  <is-main-template title="address_edit" :title-params="{ entity: item && item.id }">
+  <is-main-template
+    title="address_edit"
+    :title-params="{ entity: item && item.id }"
+  >
     <address-form :handle-submit="onSendForm" :item="item" />
   </is-main-template>
 </template>

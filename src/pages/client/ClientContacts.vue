@@ -76,7 +76,7 @@ import ModalContactForm from './ModalContactForm'
 import { mapActions } from 'vuex'
 
 export default {
-  components: {ModalContactForm },
+  components: { ModalContactForm },
   props: {
     parent: {
       type: Object,

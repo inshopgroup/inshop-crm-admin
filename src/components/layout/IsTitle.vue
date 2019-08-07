@@ -13,7 +13,7 @@ export default {
     titleParams: {
       type: Object,
       default: null
-    },
+    }
   }
 }
 </script>

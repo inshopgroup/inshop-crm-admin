@@ -4,35 +4,34 @@
 
     <v-layout row>
       <v-flex md6 sm12 pa-2>
-        <bar-box :title="$t('clients_30')" :data="data.clients_30"/>
+        <bar-box :title="$t('clients_30')" :data="data.clients_30" />
       </v-flex>
       <v-flex md6 sm12 pa-2>
-        <bar-box :title="$t('events_30')" :data="data.events_30"/>
+        <bar-box :title="$t('events_30')" :data="data.events_30" />
       </v-flex>
     </v-layout>
 
     <v-layout row>
       <v-flex md4 sm12 pa-2>
-        <doughnut-box :title="$t('user_7')" :data="data.user_7"/>
+        <doughnut-box :title="$t('user_7')" :data="data.user_7" />
       </v-flex>
       <v-flex md4 sm12 pa-2>
-        <doughnut-box :title="$t('user_30')" :data="data.user_30"/>
+        <doughnut-box :title="$t('user_30')" :data="data.user_30" />
       </v-flex>
       <v-flex md4 sm12 pa-2>
-        <doughnut-box :title="$t('user_365')" :data="data.user_365"/>
+        <doughnut-box :title="$t('user_365')" :data="data.user_365" />
       </v-flex>
     </v-layout>
 
     <v-layout row>
       <v-flex md4 sm12 pa-2>
-        <doughnut-box :title="$t('user_time_7')" :data="data.user_time_7"/>
+        <doughnut-box :title="$t('user_time_7')" :data="data.user_time_7" />
       </v-flex>
       <v-flex md4 sm12 pa-2>
-        <doughnut-box :title="$t('user_time_30')" :data="data.user_time_30"/>
+        <doughnut-box :title="$t('user_time_30')" :data="data.user_time_30" />
       </v-flex>
       <v-flex md4 sm12 pa-2>
-        <doughnut-box :title="$t('user_time_365')" :data="data.user_time_365"
-        />
+        <doughnut-box :title="$t('user_time_365')" :data="data.user_time_365" />
       </v-flex>
     </v-layout>
   </v-container>
@@ -46,7 +45,7 @@ import axios from '../interceptor'
 export default {
   components: {
     DoughnutBox,
-    BarBox,
+    BarBox
   },
   data() {
     return {
@@ -68,6 +67,6 @@ export default {
         this.data = response.data['hydra:member'][0]
       })
     }
-  },
+  }
 }
 </script>

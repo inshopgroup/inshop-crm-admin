@@ -1,14 +1,14 @@
 <template>
   <is-main-template title="backup_list">
     <api-table
-        entity="Backup"
-        route="backups"
-        path="backup"
-        :filterable="filterable"
-        :custom-filters="customFilters"
-        :sortable="sortable"
-        :columns="columns"
-        :templates="templates"
+      entity="Backup"
+      route="backups"
+      path="backup"
+      :filterable="filterable"
+      :custom-filters="customFilters"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
     >
       <template slot="filter__status.id">
         <backup-status-filter />

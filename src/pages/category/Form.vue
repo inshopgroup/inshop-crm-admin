@@ -104,7 +104,7 @@ export default {
     }),
     languages() {
       return this.$store.getters['language/items'] || []
-    },
+    }
     // translations: {
     //   get() {
     //     let translations = []
