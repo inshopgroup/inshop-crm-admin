@@ -27,14 +27,17 @@ Vue.use(vbclass, router)
 Vue.use(VueI18n)
 Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default')
-Vue.use(VueSentry, {
-  enable: process.env.SENTRY_PUBLIC_KEY !== '',
-  key: process.env.SENTRY_PUBLIC_KEY,
-  project: process.env.SENTRY_PROJECT_ID,
-  server: process.env.SENTRY_SERVER,
-  protocol: process.env.SENTRY_PROTOCOL,
-  config: {}
-})
+
+if (process.env.SENTRY_PUBLIC_KEY0 !== '') {
+  Vue.use(VueSentry, {
+    enable: process.env.SENTRY_PUBLIC_KEY0 !== '',
+    key: process.env.SENTRY_PUBLIC_KEY,
+    project: process.env.SENTRY_PROJECT_ID,
+    server: process.env.SENTRY_SERVER,
+    protocol: process.env.SENTRY_PROTOCOL,
+    config: {}
+  })
+}
 
 let i18n = new VueI18n({
   locale: store.state.auth.language,

@@ -436,30 +436,4 @@ output {
   line-height: 1.42857143;
   color: #555;
 }
-/*button, input, select, textarea {*/
-/*  font-family: inherit;*/
-/*  font-size: inherit;*/
-/*  line-height: inherit;*/
-/*}*/
-
-/**, :after, :before {*/
-/*  -webkit-box-sizing: border-box;*/
-/*  box-sizing: border-box;*/
-/*}*/
-/*table {*/
-/*  display: table;*/
-/*  border-collapse: separate;*/
-/*  border-spacing: 2px;*/
-/*  border-color: grey;*/
-/*}*/
-
-/*.VueTables__table th:last-child {*/
-/*  width: 95px;*/
-/*}*/
-/*.float-right {*/
-/*  float: right !important;*/
-/*}*/
-/*.VuePagination .text-center {*/
-/*  float: right;*/
-/*}*/
 </style>

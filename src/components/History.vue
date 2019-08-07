@@ -1,36 +1,16 @@
 <template>
-  <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th style="width: 75px;">
-            {{ $t('id') }}
-          </th>
-          <th>{{ $t('version') }}</th>
-          <th>{{ $t('action') }}</th>
-          <th>{{ $t('username') }}</th>
-          <th>{{ $t('logged_at') }}</th>
-          <th>{{ $t('changes') }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="log in logs" :key="log.id">
-          <td>{{ log.id }}</td>
-          <td>{{ log.version }}</td>
-          <td>{{ log.action }}</td>
-          <td>{{ log.username }}</td>
-          <td>{{ crmDateFormat(log.loggedAt) }}</td>
-          <td>
-            <ul>
-              <li v-for="(value, property) in log.data" :key="property">
-                <b>{{ $t(property) }}:</b> {{ value }}
-              </li>
-            </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <is-table
+    :headers="headers"
+    :items="items"
+  >
+    <template v-slot:item.changes="{ item, header, value }" v-for="header in headers">
+      <ul>
+        <li v-for="(val, key) in item.data" :key="key">
+          <b>{{ $t(key) }}:</b> {{ val }}
+        </li>
+      </ul>
+    </template>
+  </is-table>
 </template>
 
 <script>
@@ -53,9 +33,40 @@ export default {
       default: null
     }
   },
+  data () {
+    return {
+      headers: [
+        {
+          text: this.$t('id'),
+          value: 'id',
+          type: 'string',
+        },
+        {
+          text: this.$t('action'),
+          value: 'action',
+          type: 'string',
+        },
+        {
+          text: this.$t('username'),
+          value: 'username',
+          type: 'string',
+        },
+        {
+          text: this.$t('logged_at'),
+          value: 'loggedAt',
+          type: 'datetime',
+        },
+        {
+          text: this.$t('changes'),
+          value: 'changes',
+          type: 'list',
+        },
+      ],
+    }
+  },
   computed: {
     ...mapGetters({
-      logs: 'history/items'
+      items: 'history/items'
     })
   },
   mounted() {
