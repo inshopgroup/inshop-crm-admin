@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('country_add') }}</h1>
-    </section>
-    <CountryForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="country_add">
+    <country-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

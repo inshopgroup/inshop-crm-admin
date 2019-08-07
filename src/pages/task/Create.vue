@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('task_add') }}</h1>
-    </section>
-    <TaskForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="task_add">
+    <task-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

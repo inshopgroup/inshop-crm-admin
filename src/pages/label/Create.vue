@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('label_add') }}</h1>
-    </section>
-    <LabelForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="label_add">
+    <label-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

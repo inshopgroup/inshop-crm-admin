@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('shipment_method_add') }}</h1>
-    </section>
-    <ShipmentMethodForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="shipment_method_add">
+    <shipment-method-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

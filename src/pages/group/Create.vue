@@ -1,9 +1,8 @@
 <template>
   <div class="user-groups">
-    <section class="content-header">
-      <h1>{{ $t('group_add') }}</h1>
-    </section>
-    <GroupForm :handle-submit="onSendForm" :item="item" />
+    <is-main-template title="group_add">
+      <group-form :handle-submit="onSendForm" :item="item" />
+    </is-main-template>
   </div>
 </template>
 

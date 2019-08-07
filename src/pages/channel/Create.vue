@@ -1,10 +1,7 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('channel_add') }}</h1>
-    </section>
-    <ChannelForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template title="channel_add">
+    <channel-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>
