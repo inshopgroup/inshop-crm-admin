@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('country_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'CountryCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('country_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="country" />
-          <api-table
-            entity="Country"
-            route="countries"
-            path="country"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="country_list" route-add="CountryCreate" entity="country">
+    <api-table
+      entity="Country"
+      route="countries"
+      path="country"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

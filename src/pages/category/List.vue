@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('category_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'CategoryCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('category_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="category" />
-          <api-table
-            entity="Category"
-            route="categories"
-            path="category"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="category_list" route-add="CategoryCreate" entity="category">
+    <api-table
+      entity="Category"
+      route="categories"
+      path="category"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

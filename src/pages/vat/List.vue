@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('vat_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'VatCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('vat_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="vat" />
-          <api-table
-            entity="Vat"
-            route="vats"
-            path="vat"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="vat_list" route-add="VatCreate" entity="vat">
+    <api-table
+      entity="Vat"
+      route="vats"
+      path="vat"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

@@ -1,27 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('history_list') }}</h1>
-    </section>
-
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-list-errors entity="history" />
-
-          <api-table
-            entity="History"
-            route="histories"
-            path="history"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="history_list" entity="history">
+    <api-table
+      entity="History"
+      route="histories"
+      path="history"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

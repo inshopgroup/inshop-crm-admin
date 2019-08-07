@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('contact_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'ContactCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('contact_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="contact" />
-          <api-table
-            entity="Contact"
-            route="contacts"
-            path="contact"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="contact_list" route-add="ContactCreate" entity="contact">
+    <api-table
+      entity="Contact"
+      route="contacts"
+      path="contact"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

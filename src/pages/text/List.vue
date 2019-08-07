@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('text_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'TextCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('text_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="text" />
-          <api-table
-            entity="Text"
-            route="texts"
-            path="text"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="text_list" route-add="TextCreate" entity="text">
+    <api-table
+      entity="Text"
+      route="texts"
+      path="text"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

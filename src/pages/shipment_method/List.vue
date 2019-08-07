@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('shipment_method_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'ShipmentMethodCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('shipment_method_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="shipmentMethod" />
-          <api-table
-            entity="ShipmentMethod"
-            route="shipment_methods"
-            path="shipment_method"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="shipment_method_list" route-add="ShipmentMethodCreate" entity="shipmentMethod">
+    <api-table
+      entity="ShipmentMethod"
+      route="shipment_methods"
+      path="shipment_method"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>
