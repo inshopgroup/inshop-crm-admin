@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-layout justify-space-between fill-height mx-5 row>
+    <v-layout justify-space-between mx-5 row>
       <v-flex v-if="title">
         <is-title :title="title" :title-params="titleParams"></is-title>
       </v-flex>
