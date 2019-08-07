@@ -64,7 +64,7 @@
                   </v-card-text>
                   <v-card-actions>
                     <v-spacer></v-spacer>
-                    <v-btn type="submit">{{ $t('signin') }}</v-btn>
+                    <v-btn type="submit" color="success">{{ $t('signin') }}</v-btn>
 
                   </v-card-actions>
                 </v-form>

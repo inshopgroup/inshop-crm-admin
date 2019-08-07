@@ -1,6 +1,6 @@
 <template>
   <v-container fluid row>
-    <v-layout>
+    <v-layout row>
       <v-flex md4 sm12>
         <v-btn class="mx-1" type="submit" large color="success">{{ $t('submit') }}</v-btn>
       </v-flex>
