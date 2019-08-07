@@ -1,13 +1,17 @@
 <template>
-  <div v-if="isLoading" class="ajax-loader" />
+  <v-overlay :value="isLoading">
+    <v-progress-circular
+      :size="50"
+      color="primary"
+      indeterminate
+      v-if="isLoading"
+    ></v-progress-circular>
+  </v-overlay>
 </template>
 
 <script>
 export default {
   name: 'Loader',
-  data() {
-    return {}
-  },
   computed: {
     isLoading() {
       return this.$store.state.general.isLoading
@@ -15,26 +19,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.ajax-loader {
-  opacity: 0.5;
-  position: fixed;
-  border-radius: 5px;
-  width: 100%;
-  height: 100%;
-  background: #fff url('../assets/loader-eclipse.gif') no-repeat center;
-  left: 0;
-  top: 0;
-  z-index: 999999;
-}
-.ajax-loader:after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: block;
-}
-</style>
