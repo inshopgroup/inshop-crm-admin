@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('template_type_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'TemplateTypeCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('template_type_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="templateType" />
-          <api-table
-            entity="TemplateType"
-            route="template_types"
-            path="template_type"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="template_type_list" route-add="TemplateTypeCreate" entity="templateType">
+    <api-table
+      entity="TemplateType"
+      route="template_types"
+      path="template_type"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

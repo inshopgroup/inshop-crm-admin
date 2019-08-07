@@ -1,42 +1,24 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('project_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'ProjectCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('project_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="project" />
-          <api-table
-            entity="Project"
-            route="projects"
-            path="project"
-            :filterable="filterable"
-            :custom-filters="customFilters"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          >
-            <template slot="filter__status.id">
-              <project-status-filter />
-            </template>
-
-            <template slot="filter__type.id">
-              <project-type-filter />
-            </template>
-          </api-table>
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="project_list" route-add="ProjectCreate" entity="project">
+    <api-table
+      entity="Project"
+      route="projects"
+      path="project"
+      :filterable="filterable"
+      :custom-filters="customFilters"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    >
+      <template slot="filter__status.id">
+        <project-status-filter />
+      </template>
+      
+      <template slot="filter__type.id">
+        <project-type-filter />
+      </template>
+    </api-table>
+  </is-main-template>
 </template>
 
 <script>

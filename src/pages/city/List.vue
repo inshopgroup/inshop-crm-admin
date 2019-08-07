@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('city_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'CityCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('city_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="city" />
-          <api-table
-            entity="City"
-            route="cities"
-            path="city"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="city_list" route-add="CityCreate" entity="city">
+    <api-table
+      entity="City"
+      route="cities"
+      path="city"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+      />
+  </is-main-template>
 </template>
 
 <script>

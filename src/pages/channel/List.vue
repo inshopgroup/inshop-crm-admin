@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('channel_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'ChannelCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('channel_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="channel" />
-          <api-table
-            entity="Channel"
-            route="channels"
-            path="channel"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="channel_list" route-add="ChannelCreate" entity="channel">
+    <api-table
+      entity="Channel"
+      route="channels"
+      path="channel"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>

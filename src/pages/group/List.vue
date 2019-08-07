@@ -1,33 +1,15 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('group_list') }}</h1>
-    </section>
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <router-link
-            :to="{ name: 'GroupCreate' }"
-            class="btn btn-primary pull-right"
-          >
-            {{ $t('group_add') }}
-          </router-link>
-        </div>
-        <div class="box-body">
-          <item-errors entity="group" />
-          <api-table
-            entity="Group"
-            route="groups"
-            path="group"
-            :filterable="filterable"
-            :sortable="sortable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="group_list" route-add="GroupCreate" entity="group">
+    <api-table
+      entity="Group"
+      route="groups"
+      path="group"
+      :filterable="filterable"
+      :sortable="sortable"
+      :columns="columns"
+      :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>
