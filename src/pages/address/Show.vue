@@ -1,38 +1,36 @@
 <template>
   <is-main-template title="address">
-    <div class="nav-tabs-custom">
-      <ul class="nav nav-tabs">
-        <li class="active">
-          <a href="#general" data-toggle="tab" aria-expanded="false">
-            {{ $t('tabs_general') }}</a
-          >
-        </li>
-        <li>
-          <a href="#history" data-toggle="tab" aria-expanded="false">{{
-            $t('tabs_history')
-          }}</a>
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div id="general" class="tab-pane active">
-          <div v-if="item" class="table-responsive">
-            <table class="table table-striped table-hover">
-              <thead>
+    <v-tabs
+        v-model="tab"
+        background-color="transparent"
+        grow
+    >
+      <v-tab href="#general">{{ $t('tabs_general') }}</v-tab>
+      <v-tab href="#history">{{ $t('tabs_history') }}</v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
+      <v-tab-item value="general">
+        <v-card flat>
+          <v-card-text>
+            <div v-if="item" class="table-responsive">
+              <table class="table table-striped table-hover">
+                <thead>
                 <tr>
                   <th width="20%">
                     {{ $t('field') }}
                   </th>
                   <th>{{ $t('value') }}</th>
                 </tr>
-              </thead>
-              <tbody>
+                </thead>
+                <tbody>
                 <tr>
                   <td>{{ $t('clients') }}</td>
                   <td>
                     <ul>
                       <li v-for="client in item.clients" :key="client.id">
                         <router-link
-                          :to="{
+                            :to="{
                             name: 'ClientShow',
                             params: { id: client.id }
                           }"
@@ -49,7 +47,7 @@
                     <ul>
                       <li v-for="company in item.companies" :key="company.id">
                         <router-link
-                          :to="{
+                            :to="{
                             name: 'CompanyShow',
                             params: { id: company.id }
                           }"
@@ -68,8 +66,8 @@
                   <td>{{ $t('country_name') }}</td>
                   <td>
                     <router-link
-                      v-if="item.country"
-                      :to="{
+                        v-if="item.country"
+                        :to="{
                         name: 'CountryShow',
                         params: { id: item.country.id }
                       }"
@@ -82,8 +80,8 @@
                   <td>{{ $t('city_name') }}</td>
                   <td>
                     <router-link
-                      v-if="item.city"
-                      :to="{ name: 'CityShow', params: { id: item.city.id } }"
+                        v-if="item.city"
+                        :to="{ name: 'CityShow', params: { id: item.city.id } }"
                     >
                       {{ item.city.name }}
                     </router-link>
@@ -118,20 +116,26 @@
                 <show-row-created-at :item="item" />
                 <show-row-updated-at :item="item" />
                 <show-row-updated-by :item="item" />
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div id="history" class="tab-pane">
-          <history
-            :id="parseInt($route.params.id)"
-            :key="historyKey"
-            entity="Address"
-            path="address"
-          />
-        </div>
-      </div>
-    </div>
+                </tbody>
+              </table>
+            </div>
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+      <v-tab-item value="history">
+        <v-card flat>
+          <v-card-text>
+            <history
+              :id="parseInt($route.params.id)"
+              :key="historyKey"
+              entity="Address"
+              path="address"
+            />
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
+
     <item-show-actions :item="item" entity="Address" path="address" />
   </is-main-template>
 </template>
@@ -158,6 +162,7 @@ export default {
   },
   data() {
     return {
+      tab: null,
       historyKey: 1
     }
   },
