@@ -2,6 +2,7 @@
   <v-data-table
       :headers="headers"
       :items="items"
+      :hide-default-footer="hideDefaultFooter"
   >
     <template
       v-slot:[name(header)]="{ item, header, value }"
@@ -44,6 +45,10 @@ export default {
       type: Array,
       required: true
     },
+    hideDefaultFooter: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     name(header) {

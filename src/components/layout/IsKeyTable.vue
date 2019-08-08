@@ -2,6 +2,7 @@
   <is-table
       :headers="headers"
       :items="items"
+      :hide-default-footer="true"
   >
     <template v-slot:item.key="{ value }">
       {{ value }}
