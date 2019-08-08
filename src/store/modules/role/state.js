@@ -1,6 +1,8 @@
 export default function() {
   return {
-    item: {},
+    item: {
+      isActive: true,
+    },
     items: [],
     error: null,
     errors: {}
