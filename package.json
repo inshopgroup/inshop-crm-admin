@@ -18,6 +18,7 @@
     "chart.js": "2.7.2",
     "color": "^3.1.2",
     "core-js": "^2.6.9",
+    "dot-object": "^1.9.0",
     "fecha": "^3.0.3",
     "filesize": "^4.1.2",
     "jwt-decode": "^2.2.0",

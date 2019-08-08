@@ -3,8 +3,29 @@
       :headers="headers"
       :items="items"
   >
-    <template v-slot:[name(header)]="{ item, header, value }" v-for="header in headers">
-      {{ itemValue(item, header, value) }}
+    <template
+      v-slot:[name(header)]="{ item, header, value }"
+      v-for="header in headers"
+    >
+      <template v-if="header.type === 'boolean'">
+        {{ value ? $t('yes') : $t('no') }}
+      </template>
+      <template v-else-if="header.type === 'datetime'">
+        {{ crmDateFormat(value) }}
+      </template>
+      <template v-else-if="header.type === 'object'">
+        {{ itemObject(item, header) }}
+      </template>
+      <template v-else-if="header.type === 'list'">
+        <ul :key="header.value">
+          <li v-for="(val, key) in item.data" :key="key">
+            <b>{{ $t(key) }}:</b> {{ val }}
+          </li>
+        </ul>
+      </template>
+      <template v-else>
+        {{ value }}
+      </template>
     </template>
 
     <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope"><slot :name="slot" v-bind="scope"/></template>
@@ -28,22 +49,9 @@ export default {
     name(header) {
       return 'item.' + header.value
     },
-    itemValue(item, header, value) {
-      if (!header.type) {
-        return value
-      }
-
-      switch (header.type) {
-        case 'boolean':
-          return value ? $t('yes') : $t('no')
-
-        case 'datetime':
-          return this.crmDateFormat(value)
-
-        default:
-          return value
-      }
-    },
+    itemObject(item, header) {
+      return this.$dot.pick(header.value, item)
+    }
   }
 }
 </script>

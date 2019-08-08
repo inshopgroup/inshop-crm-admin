@@ -11,31 +11,13 @@
         </v-card-title>
 
         <v-card-text>
-          <v-data-table :headers="headers" :items="tasks" :items-per-page="10">
-            <template v-slot:item.id="{ item }">
-              {{ item.id }}
-            </template>
-            <template v-slot:item.client="{ item }">
-              {{ item.project.name }}
-            </template>
-            <template v-slot:item.assignee="{ item }">
-              {{ item.assignee.name }}
-            </template>
-            <template v-slot:item.status="{ item }">
-              {{ item.status.name }}
-            </template>
-            <template v-slot:item.deadline="{ item }">
-              {{ crmDateFormat(item.deadline) }}
-            </template>
-            <template v-slot:item.createdAt="{ item }">
-              {{ crmDateFormat(item.createdAt) }}
-            </template>
-            <template v-slot:item.action="{ item }">
+          <is-table :headers="headers" :items="tasks">
+            <template v-slot:item.actions="{ item }">
               <v-icon class="mr-2" color="success" @click="goto(item)">
                 remove_red_eye
               </v-icon>
             </template>
-          </v-data-table>
+          </is-table>
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -60,12 +42,12 @@ export default {
       headers: [
         { text: this.$t('id'), value: 'id' },
         { text: this.$t('name'), value: 'name' },
-        { text: this.$t('client'), value: 'client', sortable: false },
-        { text: this.$t('assignee_name'), value: 'assignee', sortable: false },
-        { text: this.$t('status_name'), value: 'status', sortable: false },
-        { text: this.$t('deadline'), value: 'deadline', sortable: false },
-        { text: this.$t('createdAt'), value: 'createdAt', sortable: false },
-        { text: '', value: 'action', sortable: false }
+        { text: this.$t('client'), value: 'project.name', type: 'object', sortable: false },
+        { text: this.$t('assignee_name'), value: 'assignee.name', type: 'object', sortable: false },
+        { text: this.$t('status_name'), value: 'status.name', type: 'object', sortable: false },
+        { text: this.$t('deadline'), value: 'deadline', type: 'datetime', sortable: false },
+        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
+        { text: '', value: 'actions', sortable: false }
       ]
     }
   },

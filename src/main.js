@@ -17,6 +17,7 @@ import Toastr from 'vue-toastr'
 import 'vue-toastr/src/vue-toastr.scss'
 import { messages } from './locales'
 import VueSentry from 'vue2-sentry'
+import dot from 'dot-object'
 import vbclass from 'vue-body-class'
 import Security from './mixin/Security'
 import Translate from './mixin/Translate'
@@ -47,6 +48,8 @@ Vue.mixin(Translate)
 Vue.mixin(DateMixin)
 
 window.moment = moment
+
+Vue.prototype.$dot = dot
 
 Vue.config.productionTip = false
 

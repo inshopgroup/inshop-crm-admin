@@ -1,16 +1,5 @@
 <template>
-  <is-table
-    :headers="headers"
-    :items="items"
-  >
-    <template v-slot:item.changes="{ item, header, value }" v-for="header in headers">
-      <ul>
-        <li v-for="(val, key) in item.data" :key="key">
-          <b>{{ $t(key) }}:</b> {{ val }}
-        </li>
-      </ul>
-    </template>
-  </is-table>
+  <is-table :headers="headers" :items="items"></is-table>
 </template>
 
 <script>
@@ -33,7 +22,7 @@ export default {
       default: null
     }
   },
-  data () {
+  data() {
     return {
       headers: [
         {
