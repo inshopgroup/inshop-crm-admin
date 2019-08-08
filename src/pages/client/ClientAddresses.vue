@@ -1,7 +1,5 @@
 <template>
   <div class="table-responsive">
-    <is-title title="tabs_addresses"></is-title>
-
     <button class="btn btn-primary hidden-print" @click="create($event.target)">
       {{ $t('address_add') }}
     </button>
