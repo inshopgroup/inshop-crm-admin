@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('category_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <CategoryForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="category_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <category-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

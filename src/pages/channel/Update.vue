@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('channel_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <ChannelForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="channel_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <channel-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>
