@@ -7,30 +7,7 @@
 
     <v-tabs-items v-model="tab">
       <v-tab-item class="my-4" value="general">
-                <is-table :headers="headers" :items="items"></is-table>
-<!--        <div v-if="item" class="table-responsive">-->
-<!--          <table class="table table-striped table-hover">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--              <th width="20%">-->
-<!--                {{ $t('field') }}-->
-<!--              </th>-->
-<!--              <th>{{ $t('value') }}</th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--            <tbody>-->
-<!--            <tr>-->
-<!--              <td>{{ $t('name') }}</td>-->
-<!--              <td>{{ item.name }}</td>-->
-<!--            </tr>-->
-
-<!--            <show-row-is-active :item="item" />-->
-<!--            <show-row-created-at :item="item" />-->
-<!--            <show-row-updated-at :item="item" />-->
-<!--            <show-row-updated-by :item="item" />-->
-<!--            </tbody>-->
-<!--          </table>-->
-<!--        </div>-->
+        <is-key-table :item="item" :fields="fields"></is-key-table>
       </v-tab-item>
       <v-tab-item class="my-4" value="history">
         <history
@@ -70,16 +47,6 @@ export default {
     return {
       tab: null,
       historyKey: 1,
-      headers: [
-        {
-          text: this.$t('field'),
-          value: 'key',
-        },
-        {
-          text: this.$t('value'),
-          value: 'val',
-        }
-      ],
       fields: [
         {
           value: 'name',
@@ -89,6 +56,18 @@ export default {
           value: 'isActive',
           type: 'boolean',
         },
+        {
+          value: 'createdAt',
+          type: 'datetime',
+        },
+        {
+          value: 'updatedAt',
+          type: 'datetime',
+        },
+        {
+          value: 'updatedBy',
+          type: 'string',
+        },
       ]
     }
   },
@@ -96,19 +75,6 @@ export default {
     ...mapGetters({
       item: 'brand/item'
     }),
-    items() {
-      let arr = []
-
-      this.fields.forEach(field => {
-        arr.push({
-          key: this.$t(field.value),
-          val: this.item[field.value],
-          type: field.type
-        })
-      })
-
-      return arr
-    }
   },
   created() {
     this.getItem(this.$route.params.id)
