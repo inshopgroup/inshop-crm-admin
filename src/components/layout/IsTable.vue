@@ -17,7 +17,7 @@
         {{ itemObject(item, header) }}
       </template>
       <template v-else-if="header.type === 'list'">
-        <ul :key="header.value">
+        <ul :key="header.value" class="my-2">
           <li v-for="(val, key) in item.data" :key="key">
             <b>{{ $t(key) }}:</b> {{ val }}
           </li>
