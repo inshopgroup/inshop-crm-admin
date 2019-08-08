@@ -42,7 +42,7 @@
       </v-tab-item>
     </v-tabs-items>
 
-    <item-show-actions :item="item" entity="Address" path="address" />
+    <item-show-actions :item="item" entity="Brand" path="brand" />
   </is-main-template>
 </template>
 
