@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('order_header_edit', { entity: item && item.number }) }}</h1>
-    </section>
-    <OrderHeaderForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="order_header_edit"
+    :title-params="{ entity: item && item.number }"
+  >
+    <order-header-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('vat_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <VatForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="vat_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <vat-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

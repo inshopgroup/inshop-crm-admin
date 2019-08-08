@@ -1,10 +1,10 @@
 <template>
-  <div class="user-groups">
-    <section class="content-header">
-      <h1>{{ $t('group_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <GroupForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="group_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <group-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

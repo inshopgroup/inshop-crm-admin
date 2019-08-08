@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('product_edit', { entity: item && item.ean }) }}</h1>
-    </section>
-    <ProductForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="product_edit"
+    :title-params="{ entity: item && item.ean }"
+  >
+    <product-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

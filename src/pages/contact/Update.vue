@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('contact_edit', { entity: item && item.value }) }}</h1>
-    </section>
-    <ContactForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="contact_edit"
+    :title-params="{ entity: item && item.value }"
+  >
+    <contact-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('client_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <ClientForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="client_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <client-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

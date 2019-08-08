@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('project_type_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <ProjectTypeForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="project_type_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <project-type-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

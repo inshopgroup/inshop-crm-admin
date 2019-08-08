@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('label_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <LabelForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="label_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <label-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

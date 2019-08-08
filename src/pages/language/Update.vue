@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('language_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <LanguageForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="language_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <language-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>

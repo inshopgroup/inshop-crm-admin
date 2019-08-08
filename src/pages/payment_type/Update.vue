@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('payment_type_edit', { entity: item && item.name }) }}</h1>
-    </section>
-    <PaymentTypeForm :handle-submit="onSendForm" :item="item" />
-  </div>
+  <is-main-template
+    title="payment_type_edit"
+    :title-params="{ entity: item && item.name }"
+  >
+    <payment-type-form :handle-submit="onSendForm" :item="item" />
+  </is-main-template>
 </template>
 
 <script>
