@@ -145,18 +145,6 @@ export default {
               role: 'ROLE_ADDRESS_LIST'
             },
             {
-              label: 'country',
-              icon: 'flag',
-              route: 'CountryList',
-              role: 'ROLE_COUNTRY_LIST'
-            },
-            {
-              label: 'city',
-              icon: 'location_city',
-              route: 'CityList',
-              role: 'ROLE_CITY_LIST'
-            },
-            {
               label: 'contacts',
               icon: 'local_phone',
               route: 'ContactList',
@@ -288,6 +276,18 @@ export default {
           label: 'dictionaries',
           icon: 'list',
           children: [
+            {
+              label: 'country',
+              icon: 'flag',
+              route: 'CountryList',
+              role: 'ROLE_COUNTRY_LIST'
+            },
+            {
+              label: 'city',
+              icon: 'location_city',
+              route: 'CityList',
+              role: 'ROLE_CITY_LIST'
+            },
             {
               label: 'language',
               icon: 'format_align_justify',
