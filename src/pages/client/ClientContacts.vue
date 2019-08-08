@@ -1,7 +1,5 @@
 <template>
   <div class="table-responsive">
-    <is-title title="tabs_contacts"></is-title>
-
     <button class="btn btn-primary hidden-print" @click="create($event.target)">
       {{ $t('contact_add') }}
     </button>
@@ -66,6 +64,8 @@
       :callback="callback"
       :title="title"
       :item="item"
+      :dialog="dialog"
+      @dialog-close="dialog = false"
       @contactsChanged="$emit('contactsChanged')"
     />
   </div>
@@ -84,16 +84,15 @@ export default {
     },
     contacts: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     }
   },
   data() {
     return {
       title: '',
       item: {},
-      callback: () => {}
+      callback: () => ({}),
+      dialog: false
     }
   },
   methods: {
@@ -121,7 +120,7 @@ export default {
       this.item = this.$store.getters['contact/item']
       this.callback = this.createItem
 
-      window.$('#modal-contact-edit').modal('show')
+      this.dialog = true
     },
     edit(item) {
       this.$store.commit('contact/CONTACT_SET_ITEM', item)
@@ -130,7 +129,7 @@ export default {
       this.item = this.$store.getters['contact/item']
       this.callback = this.updateItem
 
-      window.$('#modal-contact-edit').modal('show')
+      this.dialog = true
     }
   }
 }
