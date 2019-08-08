@@ -2,21 +2,22 @@
   <v-data-table
       :headers="headers"
       :items="items"
+      :hide-default-footer="hideDefaultFooter"
   >
     <template
       v-slot:[name(header)]="{ item, header, value }"
       v-for="header in headers"
     >
-      <template v-if="header.type === 'boolean'">
+      <template v-if="(item.type || header.type) === 'boolean'">
         {{ value ? $t('yes') : $t('no') }}
       </template>
-      <template v-else-if="header.type === 'datetime'">
+      <template v-else-if="(item.type || header.type) === 'datetime'">
         {{ crmDateFormat(value) }}
       </template>
-      <template v-else-if="header.type === 'object'">
+      <template v-else-if="(item.type || header.type) === 'object'">
         {{ itemObject(item, header) }}
       </template>
-      <template v-else-if="header.type === 'list'">
+      <template v-else-if="(item.type || header.type) === 'list'">
         <ul :key="header.value" class="my-2">
           <li v-for="(val, key) in item.data" :key="key">
             <b>{{ $t(key) }}:</b> {{ val }}
@@ -44,6 +45,10 @@ export default {
       type: Array,
       required: true
     },
+    hideDefaultFooter: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     name(header) {

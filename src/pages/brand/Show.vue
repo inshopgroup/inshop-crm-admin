@@ -1,62 +1,26 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ item && item.name }}</h1>
-    </section>
-    <section class="content">
-      <item-errors entity="brand" />
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-          <li class="active">
-            <a href="#general" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_general')
-            }}</a>
-          </li>
-          <li>
-            <a href="#history" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_history')
-            }}</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div id="general" class="tab-pane active">
-            <div v-if="item" class="table-responsive">
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th width="20%">
-                      {{ $t('field') }}
-                    </th>
-                    <th>{{ $t('value') }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{{ $t('name') }}</td>
-                    <td>{{ item.name }}</td>
-                  </tr>
+  <is-main-template :title="item.name">
+    <v-tabs v-model="tab" background-color="transparent">
+      <v-tab href="#general">{{ $t('tabs_general') }}</v-tab>
+      <v-tab href="#history">{{ $t('tabs_history') }}</v-tab>
+    </v-tabs>
 
-                  <show-row-is-active :item="item" />
-                  <show-row-created-at :item="item" />
-                  <show-row-updated-at :item="item" />
-                  <show-row-updated-by :item="item" />
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div id="history" class="tab-pane">
-            <history
-              :id="parseInt($route.params.id)"
-              :key="historyKey"
-              entity="Brand"
-              path="brand"
-            />
-          </div>
-        </div>
-      </div>
-      <item-show-actions :item="item" entity="Brand" path="brand" />
-    </section>
-  </div>
+    <v-tabs-items v-model="tab">
+      <v-tab-item class="my-4" value="general">
+        <is-key-table :item="item" :fields="fields"></is-key-table>
+      </v-tab-item>
+      <v-tab-item class="my-4" value="history">
+        <history
+          :id="parseInt($route.params.id)"
+          :key="historyKey"
+          entity="Brand"
+          path="brand"
+        />
+      </v-tab-item>
+    </v-tabs-items>
+
+    <item-show-actions :item="item" entity="Brand" path="brand" />
+  </is-main-template>
 </template>
 
 <script>
@@ -81,12 +45,37 @@ export default {
   },
   data() {
     return {
-      historyKey: 1
+      tab: null,
+      historyKey: 1,
+      fields: [
+        {
+          value: 'name',
+          type: 'string',
+        },
+        {
+          value: 'isActive',
+          type: 'boolean',
+        },
+        {
+          value: 'createdAt',
+          type: 'datetime',
+        },
+        {
+          value: 'updatedAt',
+          type: 'datetime',
+        },
+        {
+          value: 'updatedBy',
+          type: 'string',
+        },
+      ]
     }
   },
-  computed: mapGetters({
-    item: 'brand/item'
-  }),
+  computed: {
+    ...mapGetters({
+      item: 'brand/item'
+    }),
+  },
   created() {
     this.getItem(this.$route.params.id)
   },
