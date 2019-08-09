@@ -2,7 +2,8 @@ export default function() {
   return {
     item: {
       images: [],
-      translations: []
+      translations: [],
+      isActive: true,
     },
     items: [],
     companyProducts: [],

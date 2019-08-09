@@ -1,7 +1,8 @@
 export default function() {
   return {
     item: {
-      files: []
+      files: [],
+      isActive: true,
     },
     items: [],
     error: null,

@@ -1,7 +1,8 @@
 export default function() {
   return {
     item: {
-      translations: []
+      translations: [],
+      isActive: true,
     },
     items: [],
     error: null,

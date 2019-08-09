@@ -2,7 +2,8 @@ export default function() {
   return {
     item: {
       roles: [],
-      roleIRIs: []
+      roleIRIs: [],
+      isActive: true,
     },
     items: [],
     error: null,
