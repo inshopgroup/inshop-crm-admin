@@ -21,6 +21,7 @@
 <script>
 import ClientContacts from "./ClientContacts";
 import ClientAddresses from "./ClientAddresses";
+
 export default {
   components: {
     ClientAddresses,
