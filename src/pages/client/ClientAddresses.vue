@@ -1,138 +1,32 @@
 <template>
-  <div class="table-responsive">
-    <v-btn
-        class="mx-1"
-        small
-        color="success"
-        @click="create($event.target)"
-    >
-      {{ $t('address_add') }}
-    </v-btn>
-    <br />
-    <br />
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th style="width: 75px;">
-            {{ $t('id') }}
-          </th>
-          <th>{{ $t('postCode') }}</th>
-          <th>{{ $t('country_name') }}</th>
-          <th>{{ $t('city_name') }}</th>
-          <th>{{ $t('region') }}</th>
-          <th>{{ $t('district') }}</th>
-          <th>{{ $t('street') }}</th>
-          <th>{{ $t('building') }}</th>
-          <th>{{ $t('apartment') }}</th>
-          <th>{{ $t('comment') }}</th>
-          <th class="hidden-print" style="width: 100px;" />
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="address in addresses" :key="address.id">
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.id }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.postCode }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address.country"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.country.name }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address.city"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.city.name }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.region }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.district }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.street }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.building }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.apartment }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="address"
-              :to="{ name: 'AddressShow', params: { id: address.id } }"
-            >
-              {{ address.comment }}
-            </router-link>
-          </td>
-          <td class="hidden-print">
-            <v-layout>
-              <v-btn-toggle dark rounded small>
-                <v-btn
-                  @click="edit(address, $event.target)"
-                  color="success"
-                  small
-                >
-                  <v-icon small>edit</v-icon>
-                </v-btn>
-                <v-btn
-                  @click="deleteItem(address)"
-                  color="success"
-                  small
-                >
-                  <v-icon small>delete_forever</v-icon>
-                </v-btn>
-              </v-btn-toggle>
-            </v-layout>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <v-layout wrap>
+    <v-flex xs12 mb-4>
+      <v-btn
+          class="mx-1"
+          color="success"
+          @click="create($event.target)"
+      >
+        {{ $t('address_add') }}
+      </v-btn>
+    </v-flex>
+    <v-flex xs12>
+      <is-table :headers="headers" :items="addresses">
+        <template v-slot:item.actions="{ item }">
+          <v-layout justify-end>
+            <v-btn text x-small @click="goto(item, $event.target)">
+              <v-icon color="primary">remove_red_eye</v-icon>
+            </v-btn>
+            <v-btn text x-small @click="edit(item, $event.target)">
+              <v-icon color="primary">edit</v-icon>
+            </v-btn>
+            <v-btn text x-small @click="deleteItem(item)">
+              <v-icon color="primary">delete_forever</v-icon>
+            </v-btn>
+          </v-layout>
+        </template>
+      </is-table>
+    </v-flex>
+
     <modal-address-form
       :callback="callback"
       :title="title"
@@ -141,7 +35,7 @@
       @dialog-close="dialog = false"
       @addressesChanged="$emit('changed')"
     />
-  </div>
+  </v-layout>
 </template>
 
 <script>
@@ -165,7 +59,20 @@ export default {
       title: '',
       item: {},
       callback: () => ({}),
-      dialog: false
+      dialog: false,
+      headers: [
+        { text: this.$t('id'), value: 'id' },
+        { text: this.$t('postCode'), value: 'postCode' },
+        { text: this.$t('country_name'), value: 'country.name', type: 'object' },
+        { text: this.$t('city_name'), value: 'city.name', type: 'object' },
+        { text: this.$t('region'), value: 'region' },
+        { text: this.$t('district'), value: 'district' },
+        { text: this.$t('street'), value: 'street' },
+        { text: this.$t('building'), value: 'building' },
+        { text: this.$t('apartment'), value: 'apartment' },
+        { text: this.$t('comment'), value: 'comment' },
+        { text: '', value: 'actions', sortable: false }
+      ]
     }
   },
   methods: {
@@ -186,10 +93,14 @@ export default {
         })
       }
     },
+    goto(item) {
+      this.$router.push({ name: 'AddressShow', params: { id: item.id } })
+    },
     create() {
       this.$store.commit('address/ADDRESS_SET_ITEM', this.parent)
 
       this.title = this.$t('address_add')
+
       this.item = this.$store.getters['address/item']
       this.callback = this.createItem
 

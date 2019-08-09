@@ -1,40 +1,42 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <section class="content">
-      <item-errors entity="contact" />
-      <div class="box box-primary">
-        <div class="box-body">
-          <form-input
-            :item="item"
-            :errors="errors"
-            property="value"
-            label="value"
-            @formUpdated="updateValue"
-          />
-          <form-select
-            :item="item"
-            :errors="errors"
-            property="contactType"
-            option-store="contactType"
-            label="contactType_name"
-            @formUpdated="updateValue"
-          />
-          <form-checkbox
-            :item="item"
-            :errors="errors"
-            property="isActive"
-            label="isActive"
-            @formUpdated="updateValue"
-          />
-        </div>
-      </div>
+    <v-layout wrap>
+      <v-flex xs12 px-2>
+        <item-errors entity="contact" />
+      </v-flex>
+
+      <v-flex xs12 px-2>
+        <form-input
+          :item="item"
+          :errors="errors"
+          property="value"
+          label="value"
+          @formUpdated="updateValue"
+        />
+        <form-select
+          :item="item"
+          :errors="errors"
+          property="contactType"
+          option-store="contactType"
+          label="contactType_name"
+          @formUpdated="updateValue"
+        />
+        <form-checkbox
+          :item="item"
+          :errors="errors"
+          property="isActive"
+          label="isActive"
+          @formUpdated="updateValue"
+        />
+      </v-flex>
+
       <item-edit-actions
         v-if="showActions"
         :item="item"
         entity="Contact"
         path="contact"
       />
-    </section>
+    </v-layout>
   </form>
 </template>
 

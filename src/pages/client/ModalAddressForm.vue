@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center>
-    <v-dialog :value="dialog" max-width="1200">
+    <v-dialog :value="dialog" max-width="800">
       <v-card>
         <v-card-title class="headline">
           {{ title }}
@@ -72,7 +72,7 @@ export default {
           )
           this.$emit('addressesChanged', item)
 
-          window.$('#modal-address-edit').modal('hide')
+          this.dialogClose()
         })
         .catch()
     },

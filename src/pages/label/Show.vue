@@ -3,16 +3,16 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      fields: [
-        {
-          value: 'name',
-          type: 'string',
-        },
-      ]
+  export default {
+    data() {
+      return {
+        fields: [
+          {
+            value: 'name',
+            type: 'string',
+          },
+        ]
+      }
     }
   }
-}
 </script>

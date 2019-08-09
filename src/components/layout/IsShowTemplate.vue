@@ -19,9 +19,9 @@
 
       <v-tab-item class="my-4" value="history">
         <history
-            :id="parseInt($route.params.id)"
-            :key="historyKey"
-            :entity="entity"
+          :id="parseInt($route.params.id)"
+          :key="historyKey"
+          :entity="entity"
         />
       </v-tab-item>
     </v-tabs-items>
@@ -31,14 +31,13 @@
 </template>
 
 <script>
-import ItemErrors from './errors/ItemErrors'
-import ItemShowActions from "./ItemShowActions";
-import History from "../History";
-import decamelize from "../../utils/decamelize";
+import ItemShowActions from "./ItemShowActions"
+import History from "../History"
+import decamelize from "../../utils/decamelize"
 
 export default {
   name: 'IsShowTemplate',
-  components: {ItemShowActions, History, ItemErrors },
+  components: {ItemShowActions, History },
   props: {
     fields: {
       type: Array,
@@ -89,21 +88,24 @@ export default {
     path() {
       return decamelize(this.entity)
     },
+    storeModule() {
+      return this.entity.charAt(0).toLowerCase() + this.entity.slice(1)
+    },
     item() {
-      return this.$store.getters[this.path + '/item']
+      return this.$store.getters[this.storeModule + '/item']
     },
   },
   created() {
     this.getItem()
   },
   watch: {
-    historyKey: function(val) {
+    historyKey: function() {
       this.getItem()
     },
   },
   methods: {
     getItem() {
-      this.$store.dispatch(this.path + '/getItem', this.$route.params.id)
+      this.$store.dispatch(this.storeModule + '/getItem', this.$route.params.id)
     }
   }
 }

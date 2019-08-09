@@ -1,75 +1,32 @@
 <template>
-  <div class="table-responsive">
-    <v-btn
-        class="mx-1"
-        small
-        color="success"
-        @click="create($event.target)"
-    >
-      {{ $t('contact_add') }}
-    </v-btn>
-    <br />
-    <br />
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th style="width: 75px;">
-            {{ $t('id') }}
-          </th>
-          <th>{{ $t('contact_value') }}</th>
-          <th>{{ $t('contactType_name') }}</th>
-          <th class="hidden-print" style="width: 100px;" />
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="contact in contacts" :key="contact.id">
-          <td>
-            <router-link
-              v-if="contact"
-              :to="{ name: 'ContactShow', params: { id: contact.id } }"
-            >
-              {{ contact.id }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="contact"
-              :to="{ name: 'ContactShow', params: { id: contact.id } }"
-            >
-              {{ contact.value }}
-            </router-link>
-          </td>
-          <td>
-            <router-link
-              v-if="contact.contactType"
-              :to="{ name: 'ContactShow', params: { id: contact.id } }"
-            >
-              {{ contact.contactType.name }}
-            </router-link>
-          </td>
-          <td class="hidden-print">
-            <v-layout>
-              <v-btn-toggle dark rounded small>
-                <v-btn
-                  @click="edit(contact, $event.target)"
-                  color="success"
-                  small
-                >
-                  <v-icon small>edit</v-icon>
-                </v-btn>
-                <v-btn
-                  @click="deleteItem(contact)"
-                  color="success"
-                  small
-                >
-                  <v-icon small>delete_forever</v-icon>
-                </v-btn>
-              </v-btn-toggle>
-            </v-layout>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <v-layout wrap>
+    <v-flex xs12 mb-4>
+      <v-btn
+          class="mx-1"
+          color="success"
+          @click="create($event.target)"
+      >
+        {{ $t('contact_add') }}
+      </v-btn>
+    </v-flex>
+    <v-flex xs12>
+      <is-table :headers="headers" :items="contacts">
+        <template v-slot:item.actions="{ item }">
+          <v-layout justify-end>
+            <v-btn text x-small @click="goto(item, $event.target)">
+              <v-icon color="primary">remove_red_eye</v-icon>
+            </v-btn>
+            <v-btn text x-small @click="edit(item, $event.target)">
+              <v-icon color="primary">edit</v-icon>
+            </v-btn>
+            <v-btn text x-small @click="deleteItem(item)">
+              <v-icon color="primary">delete_forever</v-icon>
+            </v-btn>
+          </v-layout>
+        </template>
+      </is-table>
+    </v-flex>
+
     <modal-contact-form
       :callback="callback"
       :title="title"
@@ -78,7 +35,7 @@
       @dialog-close="dialog = false"
       @contactsChanged="$emit('changed')"
     />
-  </div>
+  </v-layout>
 </template>
 
 <script>
@@ -102,7 +59,13 @@ export default {
       title: '',
       item: {},
       callback: () => ({}),
-      dialog: false
+      dialog: false,
+      headers: [
+        { text: this.$t('id'), value: 'id' },
+        { text: this.$t('contact_value'), value: 'value' },
+        { text: this.$t('contactType_name'), value: 'contactType.name', type: 'object' },
+        { text: '', value: 'actions', sortable: false }
+      ]
     }
   },
   methods: {
@@ -122,6 +85,9 @@ export default {
           this.$emit('changed')
         })
       }
+    },
+    goto(item) {
+      this.$router.push({ name: 'ContactShow', params: { id: item.id } })
     },
     create() {
       this.$store.commit('contact/CONTACT_SET_ITEM', this.parent)

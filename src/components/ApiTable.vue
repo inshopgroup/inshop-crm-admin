@@ -3,25 +3,23 @@
     <v-server-table :columns="columns" :options="options()">
       <template slot="actions" slot-scope="props">
         <v-container>
-          <v-layout>
-            <v-btn-toggle dark rounded small>
-              <v-btn
-                v-if="isGranted(role_show)"
-                :to="{ name: showRoute, params: { id: props.row.id } }"
-                color="success"
-                small
-              >
-                <v-icon small>remove_red_eye</v-icon>
-              </v-btn>
-              <v-btn
-                v-if="isGranted(role_show) && isGranted(role_edit)"
-                :to="{ name: updateRoute, params: { id: props.row.id } }"
-                color="success"
-                small
-              >
-                <v-icon small>edit</v-icon>
-              </v-btn>
-            </v-btn-toggle>
+          <v-layout justify-end>
+            <v-btn
+              v-if="isGranted(role_show)"
+              text
+              x-small
+              :to="{ name: showRoute, params: { id: props.row.id } }"
+            >
+              <v-icon color="primary">remove_red_eye</v-icon>
+            </v-btn>
+            <v-btn
+              v-if="isGranted(role_show) && isGranted(role_edit)"
+              text
+              x-small
+              :to="{ name: updateRoute, params: { id: props.row.id } }"
+            >
+              <v-icon color="primary">edit</v-icon>
+            </v-btn>
           </v-layout>
         </v-container>
       </template>
