@@ -88,8 +88,11 @@ export default {
     path() {
       return decamelize(this.entity)
     },
+    storeModule() {
+      return this.entity.charAt(0).toLowerCase() + this.entity.slice(1)
+    },
     item() {
-      return this.$store.getters[this.path + '/item']
+      return this.$store.getters[this.storeModule + '/item']
     },
   },
   created() {
@@ -102,7 +105,7 @@ export default {
   },
   methods: {
     getItem() {
-      this.$store.dispatch(this.path + '/getItem', this.$route.params.id)
+      this.$store.dispatch(this.storeModule + '/getItem', this.$route.params.id)
     }
   }
 }
