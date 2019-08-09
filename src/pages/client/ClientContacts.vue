@@ -1,8 +1,13 @@
 <template>
   <div class="table-responsive">
-    <button class="btn btn-primary hidden-print" @click="create($event.target)">
+    <v-btn
+        class="mx-1"
+        small
+        color="success"
+        @click="create($event.target)"
+    >
       {{ $t('contact_add') }}
-    </button>
+    </v-btn>
     <br />
     <br />
     <table class="table table-striped table-hover">
@@ -43,19 +48,24 @@
             </router-link>
           </td>
           <td class="hidden-print">
-            <div class="btn-group" role="group">
-              <button
-                class="btn btn-info"
-                @click="edit(contact, $event.target)"
-              >
-                <span class="fa fa-pencil" aria-hidden="true" />
-                <span class="sr-only">{{ $t('edit') }}</span>
-              </button>
-              <button class="btn btn-info" @click="deleteItem(contact)">
-                <span class="fa fa-remove" aria-hidden="true" />
-                <span class="sr-only">{{ $t('delete') }}</span>
-              </button>
-            </div>
+            <v-layout>
+              <v-btn-toggle dark rounded small>
+                <v-btn
+                  @click="edit(contact, $event.target)"
+                  color="success"
+                  small
+                >
+                  <v-icon small>edit</v-icon>
+                </v-btn>
+                <v-btn
+                  @click="deleteItem(contact)"
+                  color="success"
+                  small
+                >
+                  <v-icon small>delete_forever</v-icon>
+                </v-btn>
+              </v-btn-toggle>
+            </v-layout>
           </td>
         </tr>
       </tbody>

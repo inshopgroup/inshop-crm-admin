@@ -18,56 +18,24 @@
           />
         </v-card-text>
         <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="green darken-1" text @click="onSendForm">{{ $t('save') }}</v-btn>
-          <v-btn color="green darken-1" text @click="dialogClose">{{ $t('close') }}</v-btn>
+          <v-layout justify-space-between>
+            <v-btn
+                color="primary"
+                @click="onSendForm"
+            >
+              {{ $t('save') }}
+            </v-btn>
+            <v-btn
+                color="error"
+                @click="dialogClose"
+            >
+              {{ $t('close') }}
+            </v-btn>
+          </v-layout>
         </v-card-actions>
       </v-card>
     </v-dialog>
   </v-layout>
-
-<!--  <div id="modal-contact-edit" class="modal fade">-->
-<!--    <div class="modal-dialog modal-lg">-->
-<!--      <div class="modal-content">-->
-<!--        <div class="modal-header">-->
-<!--          <button-->
-<!--            type="button"-->
-<!--            class="close"-->
-<!--            data-dismiss="modal"-->
-<!--            aria-label="Close"-->
-<!--          >-->
-<!--            <span aria-hidden="true">&times;</span>-->
-<!--          </button>-->
-<!--          <h4 class="modal-title">-->
-<!--            {{ title }}-->
-<!--          </h4>-->
-<!--        </div>-->
-<!--        <div class="modal-body form-horizontal">-->
-<!--          <ContactForm-->
-<!--            :handle-submit="onSendForm"-->
-<!--            :item="item"-->
-<!--            :show-actions="false"-->
-<!--          />-->
-<!--        </div>-->
-<!--        <div class="modal-footer">-->
-<!--          <button-->
-<!--            type="submit"-->
-<!--            class="btn btn-primary pull-left"-->
-<!--            @click="onSendForm"-->
-<!--          >-->
-<!--            {{ $t('save') }}-->
-<!--          </button>-->
-<!--          <button-->
-<!--            type="button"-->
-<!--            class="btn btn-default pull-right"-->
-<!--            data-dismiss="modal"-->
-<!--          >-->
-<!--            {{ $t('close') }}-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
 </template>
 
 <script>
