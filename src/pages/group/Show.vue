@@ -11,12 +11,26 @@
             xs12
             pa-2
           >
-            <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
-            <ul v-if="item && item.roles">
-              <li v-for="role in roles(module)" :key="role.id">
-                {{ $t(role.name.toLowerCase()) }}
-              </li>
-            </ul>
+            <v-card outlined>
+              <v-toolbar
+                color="primary"
+                dark
+                dense
+              >
+                <v-toolbar-title>
+                  {{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}
+                </v-toolbar-title>
+              </v-toolbar>
+
+              <v-card-text>
+                <ul v-if="item && item.roles">
+                  <li v-for="role in roles(module)" :key="role.id">
+                    {{ $t(role.name.toLowerCase()) }}
+                  </li>
+                </ul>
+              </v-card-text>
+
+            </v-card>
           </v-flex>
         </v-layout>
       </v-container>
