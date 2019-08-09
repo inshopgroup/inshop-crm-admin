@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center>
-    <v-dialog :value="dialog" max-width="1200">
+    <v-dialog :value="dialog" max-width="600">
       <v-card>
         <v-card-title class="headline">
           {{ title }}

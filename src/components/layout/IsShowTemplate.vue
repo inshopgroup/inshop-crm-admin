@@ -19,9 +19,9 @@
 
       <v-tab-item class="my-4" value="history">
         <history
-            :id="parseInt($route.params.id)"
-            :key="historyKey"
-            :entity="entity"
+          :id="parseInt($route.params.id)"
+          :key="historyKey"
+          :entity="entity"
         />
       </v-tab-item>
     </v-tabs-items>
@@ -31,14 +31,13 @@
 </template>
 
 <script>
-import ItemErrors from './errors/ItemErrors'
-import ItemShowActions from "./ItemShowActions";
-import History from "../History";
-import decamelize from "../../utils/decamelize";
+import ItemShowActions from "./ItemShowActions"
+import History from "../History"
+import decamelize from "../../utils/decamelize"
 
 export default {
   name: 'IsShowTemplate',
-  components: {ItemShowActions, History, ItemErrors },
+  components: {ItemShowActions, History },
   props: {
     fields: {
       type: Array,
@@ -54,7 +53,7 @@ export default {
     },
     tabs: {
       type: Array,
-      default: []
+      default: () => []
     },
   },
   data() {
@@ -97,7 +96,7 @@ export default {
     this.getItem()
   },
   watch: {
-    historyKey: function(val) {
+    historyKey: function() {
       this.getItem()
     },
   },

@@ -13,7 +13,7 @@
         <v-card-text>
           <is-table :headers="headers" :items="tasks">
             <template v-slot:item.actions="{ item }">
-              <v-icon class="mr-2" color="success" @click="goto(item)">
+              <v-icon class="mr-2" color="primary" @click="goto(item)">
                 remove_red_eye
               </v-icon>
             </template>
