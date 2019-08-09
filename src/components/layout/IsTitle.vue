@@ -1,5 +1,5 @@
 <template>
-  <h1 class="display-3 py-5">{{ $t(title, titleParams) }}</h1>
+  <h1 class="display-1 py-5">{{ $t(title, titleParams) }}</h1>
 </template>
 
 <script>

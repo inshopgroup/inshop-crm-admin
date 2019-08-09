@@ -127,7 +127,7 @@
       :callback="callback"
       :title="title"
       :item="item"
-      @addressesChanged="$emit('addressesChanged')"
+      @addressesChanged="$emit('changed')"
     />
   </div>
 </template>

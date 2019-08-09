@@ -17,10 +17,6 @@ export default {
       type: String,
       required: true
     },
-    path: {
-      type: String,
-      default: null
-    }
   },
   data() {
     return {

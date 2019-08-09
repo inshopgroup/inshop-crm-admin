@@ -66,7 +66,7 @@
       :item="item"
       :dialog="dialog"
       @dialog-close="dialog = false"
-      @contactsChanged="$emit('contactsChanged')"
+      @contactsChanged="$emit('changed')"
     />
   </div>
 </template>
