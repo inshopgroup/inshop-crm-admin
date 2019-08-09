@@ -1,15 +1,25 @@
 <template>
   <is-show-template :fields="fields" entity="Group" :tabs="['roles']">
     <template v-slot:roles="{ item }">
-
-      <div v-for="module in modules" :key="module.id">
-        <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
-        <ul v-if="item && item.roles">
-          <li v-for="role in roles(module)" :key="role.id">
-            {{ $t(role.name.toLowerCase()) }}
-          </li>
-        </ul>
-      </div>
+      <v-container fluid>
+        <v-layout row>
+          <v-flex
+            v-for="module in modules"
+            :key="module.id"
+            md2
+            sm6
+            xs12
+            pa-2
+          >
+            <h2>{{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}</h2>
+            <ul v-if="item && item.roles">
+              <li v-for="role in roles(module)" :key="role.id">
+                {{ $t(role.name.toLowerCase()) }}
+              </li>
+            </ul>
+          </v-flex>
+        </v-layout>
+      </v-container>
       
     </template>
   </is-show-template>
