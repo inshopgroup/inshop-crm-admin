@@ -60,7 +60,7 @@ export default {
     dialog: {
       type: Boolean,
       default: false
-    },
+    }
   },
   methods: {
     onSendForm() {
@@ -78,7 +78,7 @@ export default {
     },
     dialogClose() {
       this.$emit('dialog-close')
-    },
+    }
   }
 }
 </script>

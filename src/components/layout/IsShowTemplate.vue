@@ -54,7 +54,7 @@ export default {
     },
     tabs: {
       type: Array,
-      default: []
+      default: () => []
     },
   },
   data() {
