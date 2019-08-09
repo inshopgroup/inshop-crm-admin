@@ -119,7 +119,7 @@ export default {
             this.$t('deleted')
           )
 
-          this.$emit('contactsChanged')
+          this.$emit('changed')
         })
       }
     },

@@ -94,7 +94,17 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch(this.path + '/getItem', this.$route.params.id)
+    this.getItem()
   },
+  watch: {
+    historyKey: function(val) {
+      this.getItem()
+    },
+  },
+  methods: {
+    getItem() {
+      this.$store.dispatch(this.path + '/getItem', this.$route.params.id)
+    }
+  }
 }
 </script>

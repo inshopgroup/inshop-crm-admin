@@ -182,7 +182,7 @@ export default {
             this.$t('deleted')
           )
 
-          this.$emit('addressesChanged')
+          this.$emit('changed')
         })
       }
     },
