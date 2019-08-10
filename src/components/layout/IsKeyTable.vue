@@ -5,7 +5,7 @@
       :hide-default-footer="true"
   >
     <template v-slot:item.key="{ value }">
-      {{ value }}
+      {{ $t(value) }}
     </template>
   </is-table>
 </template>

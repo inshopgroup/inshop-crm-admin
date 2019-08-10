@@ -33,15 +33,15 @@ export default {
       historyKey: 1,
       fields: [
         {
-          value: 'username',
+          property: 'username',
           type: 'string',
         },
         {
-          value: 'name',
+          property: 'name',
           type: 'string',
         },
         {
-          value: 'description',
+          property: 'description',
           type: 'string',
         },
       ]
