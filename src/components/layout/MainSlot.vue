@@ -123,32 +123,68 @@ export default {
           role: 'ROLE_OTHER_CALENDAR'
         },
         {
-          label: 'contacts',
+          label: 'clients',
           icon: 'people',
+          route: 'ClientList',
+          role: 'ROLE_CLIENT_LIST'
+        },
+        {
+          label: 'companies',
+          icon: 'grade',
+          route: 'CompanyList',
+          role: 'ROLE_COMPANY_LIST'
+        },
+        {
+          label: 'projects',
+          icon: 'folder_open',
+          route: 'ProjectList',
+          role: 'ROLE_PROJECT_LIST'
+        },
+        {
+          label: 'tasks',
+          icon: 'access_time',
+          route: 'TaskList',
+          role: 'ROLE_TASK_LIST'
+        },
+        {
+          label: 'documents',
+          icon: 'insert_drive_file',
           children: [
             {
-              label: 'clients',
-              icon: 'people_outline',
-              route: 'ClientList',
-              role: 'ROLE_CLIENT_LIST'
+              label: 'documents',
+              icon: 'turned_in',
+              route: 'DocumentList',
+              role: 'ROLE_DOCUMENT_LIST'
             },
             {
-              label: 'companies',
-              icon: 'grade',
-              route: 'CompanyList',
-              role: 'ROLE_COMPANY_LIST'
+              label: 'templates',
+              icon: 'turned_in_not',
+              route: 'TemplateList',
+              role: 'ROLE_TEMPLATE_LIST'
+            },
+            {
+              label: 'template_types',
+              icon: 'tune',
+              route: 'TemplateTypeList',
+              role: 'ROLE_TEMPLATE_TYPE_LIST'
+            }
+          ]
+        },
+        {
+          label: 'contacts',
+          icon: 'contacts',
+          children: [
+            {
+              label: 'contacts',
+              icon: 'local_phone',
+              route: 'ContactList',
+              role: 'ROLE_CONTACT_LIST'
             },
             {
               label: 'address',
               icon: 'my_location',
               route: 'AddressList',
               role: 'ROLE_ADDRESS_LIST'
-            },
-            {
-              label: 'contacts',
-              icon: 'local_phone',
-              route: 'ContactList',
-              role: 'ROLE_CONTACT_LIST'
             }
           ]
         },
@@ -179,48 +215,6 @@ export default {
               icon: 'text_fields',
               route: 'TextList',
               role: 'ROLE_TEXT_LIST'
-            }
-          ]
-        },
-        {
-          label: 'projects',
-          icon: 'folder',
-          children: [
-            {
-              label: 'projects',
-              icon: 'folder_open',
-              route: 'ProjectList',
-              role: 'ROLE_PROJECT_LIST'
-            },
-            {
-              label: 'tasks',
-              icon: 'access_time',
-              route: 'TaskList',
-              role: 'ROLE_TASK_LIST'
-            }
-          ]
-        },
-        {
-          label: 'documents',
-          icon: 'insert_drive_file',
-          children: [
-            {
-              label: 'documents',
-              icon: 'turned_in',
-              route: 'DocumentList',
-              role: 'ROLE_DOCUMENT_LIST'
-            },
-            {
-              label: 'templates',
-              icon: 'turned_in_not',
-              route: 'TemplateList',
-              role: 'ROLE_TEMPLATE_LIST'
-            },
-            {
-              label: 'template_types',
-              icon: 'tune',
-              route: 'TemplateTypeList',
-              role: 'ROLE_TEMPLATE_TYPE_LIST'
             }
           ]
         },
@@ -308,25 +302,25 @@ export default {
             },
             {
               label: 'contact_type',
-              icon: 'format_align_justify',
+              icon: 'call_end',
               route: 'ContactTypeList',
               role: 'ROLE_CONTACT_TYPE_LIST'
             },
             {
               label: 'project_type',
-              icon: 'format_align_justify',
+              icon: 'work',
               route: 'ProjectTypeList',
               role: 'ROLE_PROJECT_TYPE_LIST'
             },
             {
               label: 'project_status',
-              icon: 'format_align_justify',
+              icon: 'web',
               route: 'ProjectStatusList',
               role: 'ROLE_PROJECT_STATUS_LIST'
             },
             {
               label: 'task_status',
-              icon: 'format_align_justify',
+              icon: 'web_asset',
               route: 'TaskStatusList',
               role: 'ROLE_TASK_STATUS_LIST'
             },
@@ -344,7 +338,7 @@ export default {
             },
             {
               label: 'label',
-              icon: 'format_align_justify',
+              icon: 'label',
               route: 'LabelList',
               role: 'ROLE_LABEL_LIST'
             },
@@ -368,13 +362,13 @@ export default {
           children: [
             {
               label: 'users',
-              icon: 'format_align_justify',
+              icon: 'account_box',
               route: 'UserList',
               role: 'ROLE_USER_LIST'
             },
             {
               label: 'groups',
-              icon: 'format_align_justify',
+              icon: 'people_outline',
               route: 'GroupList',
               role: 'ROLE_GROUP_LIST'
             }
@@ -392,7 +386,7 @@ export default {
             },
             {
               label: 'history',
-              icon: 'watch',
+              icon: 'timelapse',
               route: 'HistoryList',
               role: 'ROLE_HISTORY_LIST'
             }
