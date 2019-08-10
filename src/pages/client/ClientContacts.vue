@@ -5,6 +5,7 @@
           class="mx-1"
           color="success"
           @click="create($event.target)"
+          large
       >
         {{ $t('contact_add') }}
       </v-btn>

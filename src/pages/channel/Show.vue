@@ -13,7 +13,7 @@
           },
           {
             property: 'currency',
-            value: 'currency.name',
+            path: 'currency.name',
             type: 'string',
           },
         ]

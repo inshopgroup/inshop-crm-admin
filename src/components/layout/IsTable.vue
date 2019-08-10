@@ -3,26 +3,44 @@
       :headers="headers"
       :items="items"
       :hide-default-footer="hideDefaultFooter"
+      :items-per-page="itemsPerPage"
   >
     <template
-      v-slot:[name(header)]="{ item, header, value }"
+      v-slot:[name(header)]="{ item, header }"
       v-for="header in headers"
     >
-      <template v-if="(item.type || header.type) === 'boolean'">
-        {{ itemObject(item, header) ? $t('yes') : $t('no') }}
+      <template v-if="type(item, header) === 'boolean'">
+        <v-chip
+            :color="value(item, header) ? 'green' : 'red'"
+            text-color="white"
+        >
+          {{ value(item, header) ? $t('yes') : $t('no') }}
+        </v-chip>
       </template>
-      <template v-else-if="(item.type || header.type) === 'datetime'">
-        {{ crmDateFormat(itemObject(item, header)) }}
+
+      <template v-else-if="type(item, header) === 'datetime'">
+        {{ crmDateFormat(value(item, header)) }}
       </template>
-      <template v-else-if="(item.type || header.type) === 'list'">
-        <ul :key="header.value" class="my-2">
+
+      <template v-else-if="type(item, header) === 'collection'">
+        <v-chip
+            color="gray"
+            v-for="(obj, key) in value(item, header)" :key="key"
+        >
+          {{ pick(collectionPath(item, header), obj) }}
+        </v-chip>
+      </template>
+
+      <template v-else-if="type(item, header) === 'list'">
+        <ul class="my-2">
           <li v-for="(val, key) in item.data" :key="key">
             <b>{{ $t(key) }}:</b> {{ val }}
           </li>
         </ul>
       </template>
+
       <template v-else>
-        {{ itemObject(item, header) }}
+        {{ value(item, header) }}
       </template>
     </template>
 
@@ -45,14 +63,30 @@ export default {
     hideDefaultFooter: {
       type: Boolean,
       default: false
+    },
+    itemsPerPage: {
+      type: Number,
+      default: 50
     }
   },
   methods: {
+    type(item, header) {
+      return item.type || header.type
+    },
+    path(item, header) {
+      return item.path || header.value
+    },
+    collectionPath(item, header) {
+      return item.collectionPath || header.collectionPath || 'name'
+    },
     name(header) {
       return 'item.' + header.value
     },
-    itemObject(item, header) {
-      return this.$dot.pick(item.key || header.value, item)
+    value(item, header) {
+      return this.pick(this.path(item, header), item)
+    },
+    pick(key, item) {
+      return this.$dot.pick(key, item)
     }
   }
 }
