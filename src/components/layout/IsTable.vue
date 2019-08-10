@@ -9,13 +9,10 @@
       v-for="header in headers"
     >
       <template v-if="(item.type || header.type) === 'boolean'">
-        {{ value ? $t('yes') : $t('no') }}
+        {{ itemObject(item, header) ? $t('yes') : $t('no') }}
       </template>
       <template v-else-if="(item.type || header.type) === 'datetime'">
-        {{ crmDateFormat(value) }}
-      </template>
-      <template v-else-if="(item.type || header.type) === 'object'">
-        {{ itemObject(item, header) }}
+        {{ crmDateFormat(itemObject(item, header)) }}
       </template>
       <template v-else-if="(item.type || header.type) === 'list'">
         <ul :key="header.value" class="my-2">
@@ -25,7 +22,7 @@
         </ul>
       </template>
       <template v-else>
-        {{ value }}
+        {{ itemObject(item, header) }}
       </template>
     </template>
 
@@ -55,7 +52,7 @@ export default {
       return 'item.' + header.value
     },
     itemObject(item, header) {
-      return this.$dot.pick(header.value, item)
+      return this.$dot.pick(item.key || header.value, item)
     }
   }
 }

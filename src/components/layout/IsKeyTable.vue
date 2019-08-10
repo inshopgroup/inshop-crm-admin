@@ -43,8 +43,8 @@ export default {
 
       this.fields.forEach(field => {
         arr.push({
-          key: this.$t(field.value),
-          val: this.item[field.value],
+          [field.property]: this.item[field.property],
+          key: (field.value || field.property),
           type: field.type
         })
       })

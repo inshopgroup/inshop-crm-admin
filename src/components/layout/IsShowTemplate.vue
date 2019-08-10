@@ -67,19 +67,19 @@ export default {
         ...this.fields,
         ...[
           {
-            value: 'isActive',
+            property: 'isActive',
             type: 'boolean',
           },
           {
-            value: 'createdAt',
+            property: 'createdAt',
             type: 'datetime',
           },
           {
-            value: 'updatedAt',
+            property: 'updatedAt',
             type: 'datetime',
           },
           {
-            value: 'updatedBy',
+            property: 'updatedBy',
             type: 'string',
           }
         ]
