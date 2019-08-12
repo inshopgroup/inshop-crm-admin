@@ -24,6 +24,7 @@
 
       <template v-else-if="type(item, header) === 'collection'">
         <v-chip
+            class="mr-1"
             color="gray"
             v-for="(obj, key) in value(item, header)" :key="key"
         >
@@ -71,7 +72,7 @@ export default {
   },
   methods: {
     type(item, header) {
-      return item.type || header.type
+      return item.propertyType || header.type
     },
     path(item, header) {
       return item.path || header.value

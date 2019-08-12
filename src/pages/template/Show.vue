@@ -1,69 +1,31 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ item && item.name }}</h1>
-    </section>
-    <section class="content">
-      <item-errors entity="template" />
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-          <li class="active">
-            <a href="#general" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_general')
-            }}</a>
-          </li>
-          <li>
-            <a href="#files" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_files')
-            }}</a>
-          </li>
-          <li>
-            <a href="#history" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_history')
-            }}</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div id="general" class="tab-pane active">
-            <template-info :item="item" />
-          </div>
-          <div id="files" class="tab-pane">
-            <files-table :files="item.files" />
-          </div>
-          <div id="history" class="tab-pane">
-            <history
-              :id="parseInt($route.params.id)"
-              :key="historyKey"
-              entity="Template"
-              path="template"
-            />
-          </div>
-        </div>
-      </div>
-      <item-show-actions :item="item" entity="Template" path="template" />
-    </section>
-  </div>
+  <is-show-template :fields="fields" entity="Template" :tabs="['tabs_files']" :history-key="historyKey">
+    <template v-slot:tabs_files="{ item }">
+      <files-table :files="item.files" />
+    </template>
+  </is-show-template>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../../components/layout/ItemShowActions'
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import FilesTable from './FilesTable'
-import TemplateInfo from './TemplateInfo'
-import History from '../../components/History'
 
 export default {
   components: {
-    History,
-    ItemErrors,
-    ItemShowActions,
-    TemplateInfo,
     FilesTable
   },
   data() {
     return {
-      historyKey: 1
+      historyKey: 1,
+      fields: [
+        {
+          property: 'name',
+        },
+        {
+          property: 'type',
+          path: 'type.name',
+        },
+      ]
     }
   },
   computed: mapGetters({

@@ -5,7 +5,7 @@
       :hide-default-footer="true"
   >
     <template v-slot:item.key="{ item }">
-      {{ $t(item.path) }}
+      {{ $t(item.path.replace(/\./g, '_')) }}
     </template>
   </is-table>
 </template>
@@ -45,7 +45,7 @@ export default {
         arr.push({
           [field.property]: this.item[field.property],
           path: (field.path || field.property),
-          type: field.type
+          propertyType: field.type
         })
       })
 

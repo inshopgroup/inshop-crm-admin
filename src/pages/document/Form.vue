@@ -14,7 +14,7 @@
           <form-select
             :item="item"
             :errors="errors"
-            property="client"
+            property="clients"
             option-store="client"
             label="clients"
             :multiple="true"
