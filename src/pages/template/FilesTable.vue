@@ -20,11 +20,13 @@
           <td>{{ bytes(file.size) }}</td>
           <td>{{ file.mimeType }}</td>
           <td>{{ crmDateFormat(file.createdAt) }}</td>
-          <td>
-            <a href="#" @click.stop="download(file)">
-              <span class="fa fa-download" aria-hidden="true" />
-              <span class="sr-only">{{ $t('file_download') }}</span>
-            </a>
+          <td class="text-right">
+            <v-btn color="primary" text x-small @click.stop="download(file)">
+              <v-icon small class="mr-1">
+                save_alt
+              </v-icon>
+              {{ $t('file_download') }}
+            </v-btn>
           </td>
         </tr>
       </tbody>
