@@ -24,6 +24,7 @@
 
       <template v-else-if="type(item, header) === 'collection'">
         <v-chip
+            class="mr-1"
             color="gray"
             v-for="(obj, key) in value(item, header)" :key="key"
         >
