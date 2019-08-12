@@ -17,8 +17,8 @@ export default {
         },
         {
           property: 'groups',
-          path: 'groups[0].name',
-          type: 'string',
+          path: 'groups',
+          type: 'collection',
         },
         {
           property: 'language',
@@ -30,4 +30,3 @@ export default {
   }
 }
 </script>
-
