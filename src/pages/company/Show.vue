@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
 import ClientContacts from '../client/ClientContacts'
 import ClientAddresses from '../client/ClientAddresses'
 
@@ -33,37 +32,57 @@ export default {
       historyKey: 1,
       fields: [
         {
-          value: 'username',
+          property: 'name',
           type: 'string',
         },
         {
-          value: 'name',
+          property: 'fullName',
           type: 'string',
         },
         {
-          value: 'description',
+          property: 'description',
+          type: 'string',
+        },
+        {
+          property: 'contactPerson',
+          type: 'string',
+        },
+        {
+          property: 'description',
+          type: 'string',
+        },
+        {
+          property: 'bankName',
+          type: 'string',
+        },
+        {
+          property: 'bankAccountNumber',
+          type: 'string',
+        },
+        {
+          property: 'krs',
+          type: 'string',
+        },
+        {
+          property: 'nip',
+          type: 'string',
+        },
+        {
+          property: 'isVat',
+          type: 'boolean',
+        },
+        {
+          property: 'labels',
+          type: 'collection',
+        },
+        {
+          property: 'vatComment',
           type: 'string',
         },
       ]
     }
   },
-  computed: mapGetters({
-    item: 'company/item'
-  }),
-  created() {
-    this.loadItem()
-  },
-  beforeDestroy() {
-    this.reset()
-  },
   methods: {
-    ...mapActions({
-      getItem: 'company/getItem',
-      reset: 'company/reset'
-    }),
-    loadItem() {
-      this.getItem(this.$route.params.id)
-    },
     changed() {
       this.historyKey++
     }

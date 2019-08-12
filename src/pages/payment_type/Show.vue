@@ -8,7 +8,7 @@
       return {
         fields: [
           {
-            value: 'name',
+            property: 'name',
             type: 'string',
           },
         ]

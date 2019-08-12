@@ -4,8 +4,8 @@
       :items="items"
       :hide-default-footer="true"
   >
-    <template v-slot:item.key="{ value }">
-      {{ value }}
+    <template v-slot:item.key="{ item }">
+      {{ $t(item.path) }}
     </template>
   </is-table>
 </template>
@@ -43,8 +43,8 @@ export default {
 
       this.fields.forEach(field => {
         arr.push({
-          key: this.$t(field.value),
-          val: this.item[field.value],
+          [field.property]: this.item[field.property],
+          path: (field.path || field.property),
           type: field.type
         })
       })
