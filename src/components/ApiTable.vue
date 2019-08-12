@@ -131,7 +131,10 @@ export default {
     },
     updateRoute() {
       return this.entity + 'Update'
-    }
+    },
+    storeModule() {
+      return this.entity.charAt(0).toLowerCase() + this.entity.slice(1)
+    },
   },
   created() {
     let query = this.$route.query
@@ -236,7 +239,7 @@ export default {
 
             // clear error
             this.$store.commit(
-              this.path +
+              this.storeModule +
                 '/' +
                 decamelize(this.entity).toUpperCase() +
                 '_SET_ERROR',
@@ -259,7 +262,7 @@ export default {
               })
               .catch(e => {
                 this.$store.commit(
-                  this.path +
+                  this.storeModule +
                     '/' +
                     decamelize(this.entity).toUpperCase() +
                     '_SET_ERROR',
