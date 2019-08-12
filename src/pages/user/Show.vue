@@ -1,5 +1,5 @@
 <template>
-  <is-show-template :fields="fields"  entity="User" />
+  <is-show-template :fields="fields" entity="User" />
 </template>
 
 <script>
@@ -8,20 +8,22 @@ export default {
     return {
       fields: [
         {
-          value: 'name',
+          property: 'name',
           type: 'string',
         },
         {
-          value: 'email',
+          property: 'email',
           type: 'string',
         },
         {
-          value: 'groups',
-          type: 'object',
+          property: 'groups',
+          path: 'groups[0].name',
+          type: 'string',
         },
         {
-          value: 'language',
-          type: 'object',
+          property: 'language',
+          path: 'language.name',
+          type: 'string',
         },
       ]
     }

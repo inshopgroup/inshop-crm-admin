@@ -8,27 +8,32 @@ export default {
     return {
       fields: [
         {
-          value: 'title',
+          property: 'translations',
+          path: 'translations[0].title',
           type: 'string',
         },
         {
-          value: 'slug',
+          property: 'slug',
           type: 'string',
         },
         {
-          value: 'content',
+          property: 'translations',
+          path: 'translations[0].content',
           type: 'string',
         },
         {
-          value: 'seoTitle',
+          property: 'translations',
+          path: 'translations[0].seoTitle',
           type: 'string',
         },
         {
-          value: 'seoDescription',
+          property: 'translations',
+          path: 'translations[0].seoDescription',
           type: 'string',
         },
         {
-          value: 'seoKeywords',
+          property: 'translations',
+          path: 'translations[0].seoKeywords',
           type: 'string',
         },
       ]

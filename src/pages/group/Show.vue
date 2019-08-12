@@ -22,7 +22,6 @@
                   {{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}
                 </v-toolbar-title>
               </v-toolbar>
-
               <v-card-text>
                 <ul v-if="item && item.roles">
                   <li v-for="role in roles(module)" :key="role.id">
@@ -30,24 +29,23 @@
                   </li>
                 </ul>
               </v-card-text>
-
             </v-card>
           </v-flex>
         </v-layout>
       </v-container>
-      
     </template>
   </is-show-template>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+
 export default {
   data() {
     return {
       fields: [
         {
-          value: 'name',
+          property: 'name',
           type: 'string',
         },
       ]
