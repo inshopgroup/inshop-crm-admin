@@ -23,13 +23,26 @@
       </template>
 
       <template v-else-if="type(item, header) === 'collection'">
-        <v-chip
-            class="mr-1"
-            color="gray"
-            v-for="(obj, key) in value(item, header)" :key="key"
-        >
-          {{ pick(collectionPath(item, header), obj) }}
-        </v-chip>
+        <span v-for="(obj, key) in value(item, header)" :key="key" class="mr-1">
+          <template v-if="item.link !== undefined">
+            <v-btn
+              :to="{
+                name: item.link.route,
+                params: { id: pick(routePath(item), obj) }
+              }"
+              rounded
+              color="primary"
+              small
+            >
+              {{ pick(collectionPath(item, header), obj) }}
+            </v-btn>
+          </template>
+          <template v-else>
+            <v-chip color="gray">
+              {{ pick(collectionPath(item, header), obj) }}
+            </v-chip>
+          </template>
+        </span>
       </template>
 
       <template v-else-if="type(item, header) === 'list'">
@@ -41,7 +54,22 @@
       </template>
 
       <template v-else>
-        {{ value(item, header) }}
+        <template v-if="item.link !== undefined">
+          <v-btn
+              :to="{
+                name: item.link.route,
+                params: { id: pick(routePath(item), item) }
+              }"
+              rounded
+              color="primary"
+              small
+          >
+            {{ value(item, header) }}
+          </v-btn>
+        </template>
+        <template v-else>
+          {{ value(item, header) }}
+        </template>
       </template>
     </template>
 
@@ -79,6 +107,9 @@ export default {
     },
     collectionPath(item, header) {
       return item.collectionPath || header.collectionPath || 'name'
+    },
+    routePath(item) {
+      return item.link.param ? item.link.param : 'id'
     },
     name(header) {
       return 'item.' + header.value

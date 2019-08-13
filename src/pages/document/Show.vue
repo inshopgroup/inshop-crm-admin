@@ -24,10 +24,16 @@ export default {
         {
           property: 'clients',
           type: 'collection',
+          link: {
+            route: 'ClientShow'
+          },
         },
         {
           property: 'projects',
           type: 'collection',
+          link: {
+            route: 'ProjectShow',
+          },
         },
       ]
     }

@@ -45,7 +45,8 @@ export default {
         arr.push({
           [field.property]: this.item[field.property],
           path: (field.path || field.property),
-          propertyType: field.type
+          propertyType: field.type,
+          link: field.link,
         })
       })
 
