@@ -1,6 +1,6 @@
  
 <template>
-  <is-show-template :fields="fields" entity="Group" :tabs="['roles']">
+  <is-show-template :fields="fields" entity="Group" :tabs="['roles']" :history-key="historyKey">
     <template v-slot:roles="{ item }">
       <v-container fluid>
         <v-layout row>
@@ -43,6 +43,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
+      historyKey: 1,
       fields: [
         {
           property: 'name',
