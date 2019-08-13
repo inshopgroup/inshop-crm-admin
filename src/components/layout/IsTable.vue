@@ -11,8 +11,8 @@
     >
       <template v-if="type(item, header) === 'boolean'">
         <v-chip
-            :color="value(item, header) ? 'green' : 'red'"
-            text-color="white"
+          :color="value(item, header) ? 'green' : 'red'"
+          text-color="white"
         >
           {{ value(item, header) ? $t('yes') : $t('no') }}
         </v-chip>
@@ -24,14 +24,14 @@
 
       <template v-else-if="type(item, header) === 'collection'">
         <v-chip
-            class="mr-1"
-            color="gray"
-            v-for="(obj, key) in value(item, header)" :key="key"
+          class="mr-1"
+          color="gray"
+          v-for="(obj, key) in value(item, header)" :key="key"
         >
           {{ pick(collectionPath(item, header), obj) }}
         </v-chip>
       </template>
-
+      
       <template v-else-if="type(item, header) === 'list'">
         <ul class="my-2">
           <li v-for="(val, key) in item.data" :key="key">
