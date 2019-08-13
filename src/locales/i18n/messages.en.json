@@ -248,7 +248,7 @@
   "product_sell_price": "Product sell prices",
   "price_sell_brutto": "Price sell brutto",
   "client_name": "Client",
-  "paymentType_name": "Shipment method",
+  "paymentType_name": "Payment type",
   "company_name": "Supplier",
   "price_buy_netto": "Price buy netto",
   "availability": "Availability",
