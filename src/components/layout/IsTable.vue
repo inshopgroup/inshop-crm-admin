@@ -28,7 +28,7 @@
             <v-btn
               :to="{
                 name: routeName(item, header),
-                params: { id: routeParam(item, obj) }
+                params: { id: pick(routeParam(item, header), obj) },
               }"
               rounded
               color="primary"
@@ -59,7 +59,7 @@
             v-if="value(item, header)"
             :to="{
               name: routeName(item, header),
-              params: { id: routeParam(item, header) }
+              params: { id: pick(routeParam(item, header), item) }
             }"
             rounded
             color="primary"
@@ -109,9 +109,6 @@ export default {
     collectionPath(item, header) {
       return item.collectionPath || header.collectionPath || 'name'
     },
-    routePath(item) {
-      return item.link.param ? item.link.param : 'id'
-    },
     routeName(item, header) {
       if (item.link && item.link.route) {
         return item.link.route
@@ -132,7 +129,7 @@ export default {
         param = header.link.param
       }
 
-      return this.pick(param, item)
+      return param
     },
     name(header) {
       return 'item.' + header.value
