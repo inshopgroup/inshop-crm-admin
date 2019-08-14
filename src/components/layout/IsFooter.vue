@@ -1,5 +1,5 @@
 <template>
-  <v-footer app dark height="50">
+  <v-footer app color="blue-grey darken-3" dark height="50">
     <v-layout align-center justify-space-between>
       <div>
         {{ fecha.format(new Date(), 'YYYY') }},
