@@ -56,13 +56,14 @@
       <template v-else>
         <template v-if="item.link !== undefined">
           <v-btn
-              :to="{
-                name: item.link.route,
-                params: { id: pick(routePath(item), item) }
-              }"
-              rounded
-              color="primary"
-              small
+            v-if="value(item, header)"
+            :to="{
+              name: item.link.route,
+              params: { id: pick(routePath(item), item) }
+            }"
+            rounded
+            color="primary"
+            small
           >
             {{ value(item, header) }}
           </v-btn>

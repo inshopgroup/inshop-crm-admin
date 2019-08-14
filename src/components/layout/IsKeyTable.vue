@@ -29,10 +29,12 @@ export default {
         {
           text: this.$t('field'),
           value: 'key',
+          sortable: false,
         },
         {
           text: this.$t('value'),
           value: 'val',
+          sortable: false,
         },
       ],
     }

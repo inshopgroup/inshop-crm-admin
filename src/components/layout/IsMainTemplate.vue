@@ -28,6 +28,7 @@
 
 <script>
 import ItemErrors from './errors/ItemErrors'
+
 export default {
   name: 'IsMainTemplate',
   components: { ItemErrors },

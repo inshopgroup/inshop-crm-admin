@@ -1,229 +1,94 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ item && item.number }}</h1>
-    </section>
-    <section class="content">
-      <item-errors entity="invoiceHeader" />
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-          <li class="active">
-            <a href="#general" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_general')
-            }}</a>
-          </li>
-          <li>
-            <a href="#lines" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_lines')
-            }}</a>
-          </li>
-          <li>
-            <a href="#history" data-toggle="tab" aria-expanded="false">{{
-              $t('tabs_history')
-            }}</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div id="general" class="tab-pane active">
-            <div v-if="item" class="table-responsive">
-              <table class="table table-striped table-hover">
-                <thead>
-                  <tr>
-                    <th width="20%">
-                      {{ $t('field') }}
-                    </th>
-                    <th>{{ $t('value') }}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{{ $t('number') }}</td>
-                    <td>{{ item.number }}</td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('status_name') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.status"
-                        :to="{
-                          name: 'InvoiceStatusShow',
-                          params: { id: item.status.id }
-                        }"
-                      >
-                        {{ item.status.name }}
-                      </router-link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('type_name') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.type"
-                        :to="{
-                          name: 'InvoiceTypeShow',
-                          params: { id: item.type.id }
-                        }"
-                      >
-                        {{ item.type.name }}
-                      </router-link>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>{{ $t('orderHeader_number') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.orderHeader"
-                        :to="{
-                          name: 'OrderHeaderShow',
-                          params: { id: item.orderHeader.id }
-                        }"
-                      >
-                        {{ item.orderHeader.number }}
-                      </router-link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('companyFrom_name') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.companyFrom"
-                        :to="{
-                          name: 'CompanyShow',
-                          params: { id: item.companyFrom.id }
-                        }"
-                      >
-                        {{ item.companyFrom.name }}
-                      </router-link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('companyTo_name') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.companyTo"
-                        :to="{
-                          name: 'CompanyShow',
-                          params: { id: item.companyTo.id }
-                        }"
-                      >
-                        {{ item.companyTo.name }}
-                      </router-link>
-                    </td>
-                  </tr>
-
-                  <tr>
-                    <td>{{ $t('agreement_name') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.agreement"
-                        :to="{
-                          name: 'DocumentShow',
-                          params: { id: item.agreement.id }
-                        }"
-                      >
-                        {{ item.agreement.name }}
-                      </router-link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('currency_name') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.currency"
-                        :to="{
-                          name: 'CurrencyShow',
-                          params: { id: item.currency.id }
-                        }"
-                      >
-                        {{ item.currency.name }}
-                      </router-link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('language_name') }}</td>
-                    <td>
-                      <router-link
-                        v-if="item.language"
-                        :to="{
-                          name: 'LanguageShow',
-                          params: { id: item.language.id }
-                        }"
-                      >
-                        {{ item.language.name }}
-                      </router-link>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('dateOfInvoice') }}</td>
-                    <td>{{ crmDateFormat(item.dateOfInvoice) }}</td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('dateOfSale') }}</td>
-                    <td>{{ crmDateFormat(item.dateOfSale) }}</td>
-                  </tr>
-                  <tr>
-                    <td>{{ $t('maturity') }}</td>
-                    <td>{{ item.maturity }}</td>
-                  </tr>
-
-                  <show-row-is-active :item="item" />
-                  <show-row-created-at :item="item" />
-                  <show-row-updated-at :item="item" />
-                  <show-row-updated-by :item="item" />
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div id="lines" class="tab-pane">
-            <div v-if="item.lines" class="table-responsive">
-              <lines :lines="item.lines" />
-            </div>
-          </div>
-          <div id="history" class="tab-pane">
-            <history
-              :id="parseInt($route.params.id)"
-              :key="historyKey"
-              entity="InvoiceHeader"
-              path="invoice_header"
-            />
-          </div>
-        </div>
-      </div>
-      <item-show-actions
-        :item="item"
-        entity="InvoiceHeader"
-        path="invoice_header"
-      />
-    </section>
-  </div>
+  <is-show-template :fields="fields" entity="InvoiceHeader" :tabs="['lines']" :history-key="historyKey">
+    <template v-slot:lines="{ item }">
+      <lines :lines="item.lines" />
+    </template>
+  </is-show-template>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import ItemShowActions from '../../components/layout/ItemShowActions'
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import Lines from './Lines'
-import History from '../../components/History'
-import ShowRowIsActive from '../../components/Show/ShowRowIsActive'
-import ShowRowCreatedAt from '../../components/Show/ShowRowCreatedAt'
-import ShowRowUpdatedAt from '../../components/Show/ShowRowUpdatedAt'
-import ShowRowUpdatedBy from '../../components/Show/ShowRowUpdatedBy'
 
 export default {
   components: {
-    ShowRowUpdatedBy,
-    ShowRowUpdatedAt,
-    ShowRowCreatedAt,
-    ShowRowIsActive,
-    History,
-    Lines,
-    ItemErrors,
-    ItemShowActions
+    Lines
   },
   data() {
     return {
-      historyKey: 1
+      historyKey: 1,
+      fields: [
+        {
+          property: 'number',
+        },
+        {
+          property: 'type',
+          path: 'type.name',
+          link: {
+            route: 'InvoiceStatusShow',
+            param: 'type.id'
+          },
+        },
+        {
+          property: 'orderHeader',
+          path: 'orderHeader.number',
+          link: {
+            route: 'OrderHeaderShow',
+            param: 'orderHeader.id'
+          },
+        },
+        {
+          property: 'companyFrom',
+          path: 'companyFrom.name',
+          link: {
+            route: 'CompanyShow',
+            param: 'companyFrom.id'
+          },
+        },
+        {
+          property: 'companyTo',
+          path: 'companyTo.name',
+          link: {
+            route: 'CompanyShow',
+            param: 'companyTo.id'
+          },
+        },
+        {
+          property: 'agreement',
+          path: 'agreement.name',
+          link: {
+            route: 'DocumentShow',
+            param: 'agreement.id'
+          },
+        },
+        {
+          property: 'currency',
+          path: 'currency.name',
+          link: {
+            route: 'CurrencyShow',
+            param: 'currency.id'
+          },
+        },
+        {
+          property: 'language',
+          path: 'language.name',
+          link: {
+            route: 'LanguageShow',
+            param: 'language.id'
+          },
+        },
+        {
+          property: 'dateOfInvoice',
+          type: 'datetime',
+        },
+        {
+          property: 'dateOfSale',
+          type: 'datetime',
+        },
+        {
+          property: 'maturity',
+        },
+      ]
     }
   },
   computed: mapGetters({
