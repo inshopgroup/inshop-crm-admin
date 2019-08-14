@@ -51,7 +51,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary" dark>
+    <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary" dark src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png">
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>
