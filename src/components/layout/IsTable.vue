@@ -24,11 +24,11 @@
 
       <template v-else-if="type(item, header) === 'collection'">
         <span v-for="(obj, key) in value(item, header)" :key="key" class="mr-1">
-          <template v-if="item.link !== undefined">
+          <template v-if="item.link || header.link">
             <v-btn
               :to="{
-                name: item.link.route,
-                params: { id: pick(routePath(item), obj) }
+                name: routeName(item, header),
+                params: { id: routeParam(item, obj) }
               }"
               rounded
               color="primary"
@@ -54,12 +54,12 @@
       </template>
 
       <template v-else>
-        <template v-if="item.link !== undefined">
+        <template v-if="item.link || header.link">
           <v-btn
             v-if="value(item, header)"
             :to="{
-              name: item.link.route,
-              params: { id: pick(routePath(item), item) }
+              name: routeName(item, header),
+              params: { id: routeParam(item, header) }
             }"
             rounded
             color="primary"
@@ -111,6 +111,28 @@ export default {
     },
     routePath(item) {
       return item.link.param ? item.link.param : 'id'
+    },
+    routeName(item, header) {
+      if (item.link && item.link.route) {
+        return item.link.route
+      }
+
+      if (header.link && header.link.route) {
+        return header.link.route
+      }
+    },
+    routeParam(item, header) {
+      let param = 'id'
+
+      if (item.link && item.link.param) {
+        param = item.link.param
+      }
+
+      if (header.link && header.link.param) {
+        param = header.link.param
+      }
+
+      return this.pick(param, item)
     },
     name(header) {
       return 'item.' + header.value

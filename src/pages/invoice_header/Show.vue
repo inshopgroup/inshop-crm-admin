@@ -22,10 +22,18 @@ export default {
           property: 'number',
         },
         {
+          property: 'status',
+          path: 'status.name',
+          link: {
+            route: 'InvoiceStatusShow',
+            param: 'status.id'
+          },
+        },
+        {
           property: 'type',
           path: 'type.name',
           link: {
-            route: 'InvoiceStatusShow',
+            route: 'InvoiceTypeShow',
             param: 'type.id'
           },
         },

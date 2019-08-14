@@ -1,61 +1,5 @@
 <template>
-  <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th style="width: 75px;">
-            {{ $t('invoice_line.id') }}
-          </th>
-          <th>{{ $t('product_name') }}</th>
-          <th>{{ $t('name') }}</th>
-          <th>{{ $t('vat_name') }}</th>
-          <th>{{ $t('unitPriceNetto') }}</th>
-          <th>{{ $t('unitsCount') }}</th>
-          <th>{{ $t('createdAt') }}</th>
-          <th>{{ $t('updatedAt') }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="line in lines" :key="line.id">
-          <td>
-            {{ line.id }}
-          </td>
-          <td>
-            <router-link
-              v-if="line.product"
-              :to="{ name: 'ProductShow', params: { id: line.product.id } }"
-            >
-              {{ line.product.name }}
-            </router-link>
-          </td>
-
-          <td>
-            {{ line.name }}
-          </td>
-          <td>
-            <router-link
-              v-if="line.vat"
-              :to="{ name: 'VatShow', params: { id: line.vat.id } }"
-            >
-              {{ line.vat.name }}
-            </router-link>
-          </td>
-          <td>
-            {{ line.unitPriceNetto }}
-          </td>
-          <td>
-            {{ line.unitsCount }}
-          </td>
-          <td>
-            {{ crmDateFormat(item.createdAt) }}
-          </td>
-          <td>
-            {{ crmDateFormat(item.updatedAt) }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <is-table v-if="lines.length" :headers="headers" :items="lines" />
 </template>
 
 <script>
@@ -64,10 +8,37 @@ export default {
   props: {
     lines: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     }
-  }
+  },
+  data() {
+    return {
+      headers: [
+        { text: this.$t('id'), value: 'id' },
+        {
+          text: this.$t('product'),
+          value: 'product.id',
+          link: {
+            route: 'ProductShow',
+            param: 'product.id'
+          },
+        },
+        { text: this.$t('name'), value: 'name' },
+        {
+          text: this.$t('vat'),
+          value: 'vat.name',
+          path: 'vat.name',
+          link: {
+            route: 'VatShow',
+            param: 'vat.id'
+          },
+        },
+        { text: this.$t('unitPriceNetto'), value: 'unitPriceNetto' },
+        { text: this.$t('unitsCount'), value: 'unitsCount' },
+        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
+        { text: this.$t('updatedAt'), value: 'updatedAt', type: 'datetime', sortable: false },
+      ]
+    }
+  },
 }
 </script>
