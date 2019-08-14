@@ -4,6 +4,9 @@
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
+      dark
+      hide-overlay
+      src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png"
     >
       <v-list dense>
         <template v-for="item in items">
@@ -14,16 +17,19 @@
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
+            color="primary"
+            no-action
           >
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ $t(item.label) }}
+                    {{ item.label }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </template>
+            
             <template v-for="(child, i) in item.children">
               <v-list-item
                 v-if="isGrantedItem(child)"
@@ -45,7 +51,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app dark>
+    <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary" dark>
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>
@@ -70,9 +76,10 @@
       </v-layout>
 
       <v-spacer></v-spacer>
+      
       <span class="mx-2">{{ username }}</span>
       <v-btn icon @click="signOut">
-        <v-icon>mdi-power</v-icon>
+        <v-icon color="error">mdi-power</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -105,6 +112,7 @@ export default {
   data() {
     return {
       fecha,
+      active: true,
       q: null,
       tasks: [],
       dialog: false,
@@ -458,3 +466,11 @@ export default {
   }
 }
 </script>
+
+<style>
+  .v-list-group--active>.v-list-group__header .v-list-group__header__prepend-icon .v-icon, 
+  .v-list-group--active>.v-list-group__header .v-list-item, 
+  .v-list-group--active>.v-list-group__header .v-list-item__content {
+    color: #1976d2!important;
+  }
+</style>
