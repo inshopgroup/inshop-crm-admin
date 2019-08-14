@@ -16,7 +16,7 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true
+      required: true,
     },
     fields: {
       type: Array,
@@ -33,7 +33,7 @@ export default {
         {
           text: this.$t('value'),
           value: 'val',
-        }
+        },
       ],
     }
   },

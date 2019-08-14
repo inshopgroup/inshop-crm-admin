@@ -1,11 +1,12 @@
 <template>
-  <is-show-template :fields="fields" entity="OrderStatus" />
+  <is-show-template :fields="fields" entity="OrderStatus" :history-key="historyKey" />
 </template>
 
 <script>
 export default {
   data() {
     return {
+      historyKey: 1,
       fields: [
         {
           property: 'name',

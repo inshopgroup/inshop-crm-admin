@@ -11,8 +11,8 @@
     >
       <template v-if="type(item, header) === 'boolean'">
         <v-chip
-            :color="value(item, header) ? 'green' : 'red'"
-            text-color="white"
+          :color="value(item, header) ? 'green' : 'red'"
+          text-color="white"
         >
           {{ value(item, header) ? $t('yes') : $t('no') }}
         </v-chip>
