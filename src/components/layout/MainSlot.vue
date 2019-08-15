@@ -6,7 +6,7 @@
       app
       dark
       hide-overlay
-      src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png"
+      src="../assets/bg.png"
     >
       <v-list dense>
         <template v-for="item in items">
@@ -17,14 +17,14 @@
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
-            color="#3E7180"
+            color="primary"
             no-action
           >
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
-                    {{ item.label }}
+                    {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
@@ -37,10 +37,12 @@
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon" >
-                  <v-icon>{{ child.icon }}</v-icon>
+                  <v-icon right :class="{ 'primary--text': child.route === activeRoute }">
+                    {{ child.icon }}
+                  </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title>
+                  <v-list-item-title :class="{ 'primary--text': child.route === activeRoute }">
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -116,6 +118,7 @@ export default {
   components: { ModalNotDoneTasks },
   data() {
     return {
+      activeRoute: null,
       fecha,
       active: true,
       q: null,
@@ -437,6 +440,8 @@ export default {
           name: item.route
         })
       }
+      this.activeRoute = item.route
+      console.log(item)
     },
     isGrantedItem(item) {
       if (item.role) {
@@ -467,7 +472,7 @@ export default {
           this.dialog = true
         }
       })
-    }
+    },
   }
 }
 </script>
@@ -477,5 +482,11 @@ export default {
   .v-list-group--active>.v-list-group__header .v-list-item, 
   .v-list-group--active>.v-list-group__header .v-list-item__content {
     color: #1976d2!important;
+  }
+  .v-list-group--active>.v-list-group__items {
+    background: #3e707f;
+  }
+  .v-list-group--active>.v-list-group__header {
+    background: #113145;
   }
 </style>
