@@ -1,43 +1,5 @@
 <template>
-  <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th style="width: 75px;">
-            {{ $t('id') }}
-          </th>
-          <th>{{ $t('company_product_name') }}</th>
-          <th>{{ $t('channel_name') }}</th>
-          <th>{{ $t('currency_name') }}</th>
-          <th>{{ $t('vat_name') }}</th>
-          <th>{{ $t('price_sell_brutto') }}</th>
-          <th>{{ $t('price_old_sell_brutto') }}</th>
-          <th>{{ $t('active_from') }}</th>
-          <th>{{ $t('active_to') }}</th>
-          <th>{{ $t('createdAt') }}</th>
-          <th>{{ $t('updatedAt') }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="productSellPrice in productSellPrices"
-          :key="productSellPrice.id"
-        >
-          <td>{{ productSellPrice.id }}</td>
-          <td>{{ productSellPrice.companyProduct.company.name }}</td>
-          <td>{{ productSellPrice.channel.name }}</td>
-          <td>{{ productSellPrice.channel.currency.name }}</td>
-          <td>{{ productSellPrice.vat.name }}</td>
-          <td>{{ productSellPrice.priceSellBrutto }}</td>
-          <td>{{ productSellPrice.priceOldSellBrutto }}</td>
-          <td>{{ crmDateFormat(productSellPrice.activeFrom) }}</td>
-          <td>{{ crmDateFormat(productSellPrice.activeTo) }}</td>
-          <td>{{ crmDateFormat(productSellPrice.createdAt) }}</td>
-          <td>{{ crmDateFormat(productSellPrice.updatedAt) }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <is-table v-if="productSellPrices.length" :headers="headers" :items="productSellPrices" />
 </template>
 
 <script>
@@ -46,10 +8,25 @@ export default {
   props: {
     productSellPrices: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     }
-  }
+  },
+  data() {
+    return {
+      headers: [
+        { text: this.$t('id'), value: 'id' },
+        { text: this.$t('company_product_name'), value: 'companyProduct.company.name' },
+        { text: this.$t('channel_name'), value: 'channel.name' },
+        { text: this.$t('currency_name'), value: 'channel.currency.name' },
+        { text: this.$t('vat_name'), value: 'vat.name' },
+        { text: this.$t('price_sell_brutto'), value: 'priceSellBrutto' },
+        { text: this.$t('price_old_sell_brutto'), value: 'priceOldSellBrutto' },
+        { text: this.$t('active_from'), value: 'activeFrom', type: 'datetime', sortable: false },
+        { text: this.$t('active_to'), value: 'activeTo', type: 'datetime', sortable: false },
+        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
+        { text: this.$t('updatedAt'), value: 'updatedAt', type: 'datetime', sortable: false },
+      ]
+    }
+  },
 }
 </script>

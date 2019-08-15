@@ -1,54 +1,5 @@
 <template>
-  <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th style="width: 75px;">
-            {{ $t('id') }}
-          </th>
-          <th>{{ $t('company_name') }}</th>
-          <th>{{ $t('currency_name') }}</th>
-          <th>{{ $t('price_buy_netto') }}</th>
-          <th>{{ $t('availability') }}</th>
-          <th>{{ $t('createdAt') }}</th>
-          <th>{{ $t('updatedAt') }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="companyProduct in companyProducts" :key="companyProduct.id">
-          <td>
-            {{ companyProduct.id }}
-          </td>
-          <td>
-            <router-link
-              v-if="companyProduct"
-              :to="{
-                name: 'CompanyShow',
-                params: { id: companyProduct.company.id }
-              }"
-            >
-              {{ companyProduct.company.name }}
-            </router-link>
-          </td>
-          <td>
-            {{ companyProduct.currency.name }}
-          </td>
-          <td>
-            {{ companyProduct.priceBuyNetto }}
-          </td>
-          <td>
-            {{ companyProduct.availability }}
-          </td>
-          <td>
-            {{ crmDateFormat(companyProduct.createdAt) }}
-          </td>
-          <td>
-            {{ crmDateFormat(companyProduct.updatedAt) }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <is-table v-if="companyProducts.length" :headers="headers" :items="companyProducts" />
 </template>
 
 <script>
@@ -57,10 +8,28 @@ export default {
   props: {
     companyProducts: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     }
-  }
+  },
+  data() {
+    return {
+      headers: [
+        { text: this.$t('id'), value: 'id' },
+        {
+          text: this.$t('company_name'),
+          value: 'company.name',
+          link: {
+            route: 'CompanyShow',
+            param: 'company.id'
+          },
+        },
+        { text: this.$t('currency_name'), value: 'currency.name' },
+        { text: this.$t('price_buy_netto'), value: 'priceBuyNetto' },
+        { text: this.$t('availability'), value: 'availability' },
+        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
+        { text: this.$t('updatedAt'), value: 'updatedAt', type: 'datetime', sortable: false },
+      ]
+    }
+  },
 }
 </script>

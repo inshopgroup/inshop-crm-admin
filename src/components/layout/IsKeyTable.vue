@@ -45,7 +45,7 @@ export default {
 
       this.fields.forEach(field => {
         arr.push({
-          [field.property]: this.item[field.property],
+          [field.property]: field.type === 'translate' ? this.translate(this.item)[field.property] : this.item[field.property],
           path: (field.path || field.property),
           propertyType: field.type,
           link: field.link,
