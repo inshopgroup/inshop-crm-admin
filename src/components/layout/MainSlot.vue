@@ -20,7 +20,7 @@
             color="primary"
             no-action
           >
-            <template v-slot:activator>
+            <template>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
