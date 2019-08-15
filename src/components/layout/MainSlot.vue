@@ -17,7 +17,7 @@
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
-            color="primary"
+            color="#3E7180"
             no-action
           >
             <template v-slot:activator>
@@ -37,7 +37,7 @@
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon" >
-                  <v-icon color="primary" right>{{ child.icon }}</v-icon>
+                  <v-icon>{{ child.icon }}</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
