@@ -6,7 +6,7 @@
       app
       dark
       hide-overlay
-      src="../assets/bg.png"
+      src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png"
     >
       <v-list dense>
         <template v-for="item in items">
@@ -485,7 +485,7 @@ export default {
     color: #1976d2!important;
   }
   .v-list-group--active>.v-list-group__items {
-    background: #3e707f;
+    background: #8fb2bd;
   }
   .v-list-group--active>.v-list-group__header {
     background: #113145;
