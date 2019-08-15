@@ -473,9 +473,9 @@ export default {
 </script>
 
 <style>
-  /* .v-list-group--active>.v-list-group__header .v-list-group__header__prepend-icon .v-icon, 
+  .v-list-group--active>.v-list-group__header .v-list-group__header__prepend-icon .v-icon, 
   .v-list-group--active>.v-list-group__header .v-list-item, 
   .v-list-group--active>.v-list-group__header .v-list-item__content {
     color: #1976d2!important;
-  } */
+  }
 </style>
