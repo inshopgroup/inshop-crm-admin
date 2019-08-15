@@ -20,7 +20,7 @@
             color="primary"
             no-action
           >
-            <template>
+            <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -36,8 +36,8 @@
                 :key="i"
                 @click="listItemClick(child)"
               >
-                <v-list-item-action v-if="child.icon">
-                  <v-icon>{{ child.icon }}</v-icon>
+                <v-list-item-action v-if="child.icon" >
+                  <v-icon color="primary" right>{{ child.icon }}</v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title>
@@ -51,7 +51,12 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app color="primary" dark src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png">
+    <v-app-bar 
+      :clipped-left="$vuetify.breakpoint.lgAndUp" 
+      app 
+      color="primary" 
+      dark src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png"
+    >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>
@@ -79,7 +84,7 @@
       
       <span class="mx-2">{{ username }}</span>
       <v-btn icon @click="signOut">
-        <v-icon color="error">mdi-power</v-icon>
+        <v-icon color="red">mdi-power</v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -468,9 +473,9 @@ export default {
 </script>
 
 <style>
-  .v-list-group--active>.v-list-group__header .v-list-group__header__prepend-icon .v-icon, 
+  /* .v-list-group--active>.v-list-group__header .v-list-group__header__prepend-icon .v-icon, 
   .v-list-group--active>.v-list-group__header .v-list-item, 
   .v-list-group--active>.v-list-group__header .v-list-item__content {
     color: #1976d2!important;
-  }
+  } */
 </style>
