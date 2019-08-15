@@ -442,7 +442,6 @@ export default {
         })
       }
       this.activeRoute = item.route
-      console.log(item)
     },
     isGrantedItem(item) {
       if (item.role) {
