@@ -17,13 +17,11 @@
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
-            color="primary"
-            no-action
           >
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title>
+                  <v-list-item-title :class="{ 'primary--text': item.route === activeRoute }">
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -36,7 +34,7 @@
                 :key="i"
                 @click="listItemClick(child)"
               >
-                <v-list-item-action v-if="child.icon" >
+                <v-list-item-action v-if="child.icon">
                   <v-icon right :class="{ 'primary--text': child.route === activeRoute }">
                     {{ child.icon }}
                   </v-icon>
@@ -440,8 +438,9 @@ export default {
         this.$router.push({
           name: item.route
         })
+
+        this.activeRoute = item.route
       }
-      this.activeRoute = item.route
     },
     isGrantedItem(item) {
       if (item.role) {
@@ -478,15 +477,10 @@ export default {
 </script>
 
 <style>
-  .v-list-group--active>.v-list-group__header .v-list-group__header__prepend-icon .v-icon, 
-  .v-list-group--active>.v-list-group__header .v-list-item, 
-  .v-list-group--active>.v-list-group__header .v-list-item__content {
-    color: #1976d2!important;
-  }
-  .v-list-group--active>.v-list-group__items {
-    background: #8fb2bd;
-  }
-  .v-list-group--active>.v-list-group__header {
-    background: #113145;
-  }
+.v-navigation-drawer .v-list-group--active > .v-list-group__items {
+  background: #142430;
+}
+.v-navigation-drawer .v-list-group--active > .v-list-group__header {
+  background: #142430;
+}
 </style>
