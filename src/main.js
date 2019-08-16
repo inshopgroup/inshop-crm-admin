@@ -16,7 +16,7 @@ import { ServerTable } from 'vue-tables-2'
 import Toastr from 'vue-toastr'
 import 'vue-toastr/src/vue-toastr.scss'
 import { messages } from './locales'
-import VueSentry from 'vue2-sentry'
+// import VueSentry from 'vue2-sentry'
 import dot from 'dot-object'
 import vbclass from 'vue-body-class'
 import Security from './mixin/Security'
@@ -29,14 +29,14 @@ Vue.use(VueI18n)
 Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default')
 
-Vue.use(VueSentry, {
-  enable: process.env.SENTRY_PUBLIC_KEY !== '',
-  key: process.env.SENTRY_PUBLIC_KEY,
-  project: process.env.SENTRY_PROJECT_ID,
-  server: process.env.SENTRY_SERVER,
-  protocol: process.env.SENTRY_PROTOCOL,
-  config: {}
-})
+// Vue.use(VueSentry, {
+//   enable: process.env.SENTRY_PUBLIC_KEY !== '',
+//   key: process.env.SENTRY_PUBLIC_KEY,
+//   project: process.env.SENTRY_PROJECT_ID,
+//   server: process.env.SENTRY_SERVER,
+//   protocol: process.env.SENTRY_PROTOCOL,
+//   config: {}
+// })
 
 let i18n = new VueI18n({
   locale: store.state.auth.language,

@@ -14,6 +14,8 @@
             v-if="isGrantedItem(item)"
             :key="item.label"
             v-model="item.model"
+            ref="listGroup"
+            :class="{ 'v-list-group--active': item.route === activeRoute }"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -419,6 +421,7 @@ export default {
     if (this.isGranted('ROLE_TASK_LIST')) {
       this.getTasks()
     }
+    this.activeRoute = this.$route.name
   },
   methods: {
     prependIcon(item) {
