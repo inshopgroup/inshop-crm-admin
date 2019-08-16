@@ -9,33 +9,28 @@ export default {
       historyKey: 1,
       fields: [
         {
-          property: 'translations',
-          path: 'translations[0].title',
-          type: 'string',
+          property: 'title',
+          type: 'translate',
         },
         {
           property: 'slug',
-          type: 'string',
+          type: 'translate',
         },
         {
-          property: 'translations',
-          path: 'translations[0].content',
-          type: 'string',
+          property: 'content',
+          type: 'translate',
         },
         {
-          property: 'translations',
-          path: 'translations[0].seoTitle',
-          type: 'string',
+          property: 'seoTitle',
+          type: 'translate',
         },
         {
-          property: 'translations',
-          path: 'translations[0].seoDescription',
-          type: 'string',
+          property: 'seoDescription',
+          type: 'translate',
         },
         {
-          property: 'translations',
-          path: 'translations[0].seoKeywords',
-          type: 'string',
+          property: 'seoKeywords',
+          type: 'translate',
         },
       ]
     }

@@ -1,107 +1,84 @@
 <template>
-  <form @submit.prevent="handleSubmit(item)">
-    <section class="content">
-      <item-errors entity="text" />
+  <form @submit.prevent="handleSubmit">
+    <v-tabs v-model="tab" background-color="transparent">
+      <v-tab :href="'#tab-' + language.id" v-for="language in languages" :key="language.id">{{ $t(language.name) }}</v-tab>
+    </v-tabs>
 
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-          <li
-            v-for="(language, i) in languages"
-            :key="'header_' + language.id"
-            :class="{ active: i === 0 }"
-          >
-            <a
-              :href="'#' + language.code"
-              data-toggle="tab"
-              aria-expanded="false"
-              >{{ language.name }}</a
-            >
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div
-            v-for="(language, i) in languages"
-            :id="language.code"
-            :key="'content_' + language.id"
-            :class="['tab-pane', { active: i === 0 }]"
-          >
-            <form-input
-              :item="findItem(language)"
-              :errors="errors"
-              property="title"
-              label="text_title"
-              @formUpdated="
+    <v-tabs-items v-model="tab">
+      <v-tab-item class="my-4" v-for="language in languages" :value="'tab-' + language.id" :key="language.id">
+        <form-input
+            :item="findItem(language)"
+            :errors="errors"
+            property="title"
+            label="text_title"
+            @formUpdated="
                 (property, value) =>
                   updateTranslatedValue(property, value, language)
               "
-            />
-            <form-textarea
-              :item="findItem(language)"
-              :errors="errors"
-              property="content"
-              label="content"
-              @formUpdated="
+        />
+        <form-textarea
+            :item="findItem(language)"
+            :errors="errors"
+            property="content"
+            label="content"
+            @formUpdated="
                 (property, value) =>
                   updateTranslatedValue(property, value, language)
               "
-            />
-            <form-input
-              :item="findItem(language)"
-              :errors="errors"
-              property="seoTitle"
-              label="seoTitle"
-              @formUpdated="
+        />
+        <form-input
+            :item="findItem(language)"
+            :errors="errors"
+            property="seoTitle"
+            label="seoTitle"
+            @formUpdated="
                 (property, value) =>
                   updateTranslatedValue(property, value, language)
               "
-            />
-            <form-input
-              :item="findItem(language)"
-              :errors="errors"
-              property="seoDescription"
-              label="seoDescription"
-              @formUpdated="
+        />
+        <form-input
+            :item="findItem(language)"
+            :errors="errors"
+            property="seoDescription"
+            label="seoDescription"
+            @formUpdated="
                 (property, value) =>
                   updateTranslatedValue(property, value, language)
               "
-            />
-            <form-input
-              :item="findItem(language)"
-              :errors="errors"
-              property="seoKeywords"
-              label="seoKeywords"
-              @formUpdated="
+        />
+        <form-input
+            :item="findItem(language)"
+            :errors="errors"
+            property="seoKeywords"
+            label="seoKeywords"
+            @formUpdated="
                 (property, value) =>
                   updateTranslatedValue(property, value, language)
               "
-            />
-            <form-checkbox
-              :item="findItem(language)"
-              :errors="errors"
-              property="isActive"
-              label="isActive"
-              @formUpdated="
+        />
+        <form-checkbox
+            :item="findItem(language)"
+            :errors="errors"
+            property="isActive"
+            label="isActive"
+            @formUpdated="
                 (property, value) =>
                   updateTranslatedValue(property, value, language)
               "
-            />
-          </div>
-        </div>
-      </div>
+        />
+      </v-tab-item>
+    </v-tabs-items>
 
-      <item-edit-actions :item="item" entity="Text" path="text" />
-    </section>
+    <item-edit-actions :item="item" entity="Text" path="text" />
   </form>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 
 export default {
   components: {
-    ItemErrors,
     ItemEditActions
   },
   props: {
@@ -112,6 +89,11 @@ export default {
     item: {
       type: Object,
       required: true
+    }
+  },
+  data() {
+    return {
+      tab: null,
     }
   },
   computed: {

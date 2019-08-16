@@ -1,119 +1,97 @@
 <template>
   <form @submit.prevent="handleSubmit">
-    <section class="content">
-      <item-errors entity="product" />
-      <div class="nav-tabs-custom">
-        <ul class="nav nav-tabs">
-          <li
-            v-for="(language, i) in languages"
-            :key="'header_' + language.id"
-            :class="{ active: i === 0 }"
-          >
-            <a
-              :href="'#' + language.code"
-              data-toggle="tab"
-              aria-expanded="false"
-              >{{ language.name }}</a
-            >
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div
-            v-for="(language, i) in languages"
-            :id="language.code"
-            :key="'content_' + language.id"
-            :class="['tab-pane', { active: i === 0 }]"
-          >
-            <form-input
-              :item="findItem(language)"
-              :errors="errors"
-              property="name"
-              label="name"
-              @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
-            />
-            <form-textarea
-              :item="findItem(language)"
-              :errors="errors"
-              property="description"
-              label="description"
-              @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
-            />
-          </div>
-        </div>
-      </div>
-      <div class="box box-primary">
-        <div class="box-body">
-          <form-select
-            :item="item"
-            :errors="errors"
-            property="brand"
-            option-store="brand"
-            label="brand_name"
-            @formUpdated="updateValue"
-          />
-          <form-input
-            :item="item"
-            :errors="errors"
-            property="ean"
-            label="ean"
-            @formUpdated="updateValue"
-          />
-          <form-select-autocomplete
-            :item="item"
-            :errors="errors"
-            property="category"
-            option-store="category"
-            label="category_name"
-            @formUpdated="updateValue"
-          />
-          <form-input
-            :item="item"
-            :errors="errors"
-            property="video"
-            label="video"
-            @formUpdated="updateValue"
-          />
-          <form-file
-            :axios="axios"
-            :errors="errors"
-            :item="item"
-            property="images"
-            form-property="image"
-            :route="route"
-            :multiple="true"
-            label="files"
-            @formFileUploaded="formFileUploaded"
-            @formFileDeleted="formFileDeleted"
-          />
-          <form-checkbox
-            :item="item"
-            :errors="errors"
-            property="isActive"
-            label="isActive"
-            @formUpdated="updateValue"
-          />
-        </div>
-      </div>
-      <item-edit-actions :item="item" entity="Product" path="product" />
-    </section>
+    <v-tabs v-model="tab" background-color="transparent">
+      <v-tab :href="'#tab-' + language.id" v-for="language in languages" :key="language.id">{{ $t(language.name) }}</v-tab>
+    </v-tabs>
+
+    <v-tabs-items v-model="tab">
+      <v-tab-item class="my-4" v-for="language in languages" :value="'tab-' + language.id" :key="language.id">
+        <form-input
+          :item="findItem(language)"
+          :errors="errors"
+          property="name"
+          label="name"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
+        />
+        <form-textarea
+          :item="findItem(language)"
+          :errors="errors"
+          property="description"
+          label="description"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
+        />
+      </v-tab-item>
+    </v-tabs-items>
+
+    <div>
+      <form-select
+        :item="item"
+        :errors="errors"
+        property="brand"
+        option-store="brand"
+        label="brand_name"
+        @formUpdated="updateValue"
+      />
+      <form-input
+        :item="item"
+        :errors="errors"
+        property="ean"
+        label="ean"
+        @formUpdated="updateValue"
+      />
+      <form-select-autocomplete
+        :item="item"
+        :errors="errors"
+        property="category"
+        option-store="category"
+        label="category_name"
+        @formUpdated="updateValue"
+      />
+      <form-input
+        :item="item"
+        :errors="errors"
+        property="video"
+        label="video"
+        @formUpdated="updateValue"
+      />
+      <form-file
+        :axios="axios"
+        :errors="errors"
+        :item="item"
+        property="images"
+        form-property="image"
+        :route="route"
+        :multiple="true"
+        label="files"
+        @formFileUploaded="formFileUploaded"
+        @formFileDeleted="formFileDeleted"
+      />
+      <form-checkbox
+        :item="item"
+        :errors="errors"
+        property="isActive"
+        label="isActive"
+        @formUpdated="updateValue"
+      />
+    </div>
+
+    <item-edit-actions :item="item" entity="Product" path="product" />
   </form>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import axios from '../../interceptor'
 
 export default {
   components: {
-    ItemErrors,
     ItemEditActions
   },
   props: {
@@ -129,7 +107,8 @@ export default {
   data() {
     return {
       axios: axios,
-      route: process.env.VUE_APP_API_URL + '/images'
+      route: process.env.VUE_APP_API_URL + '/images',
+      tab: null,
     }
   },
   computed: {
