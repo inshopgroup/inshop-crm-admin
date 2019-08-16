@@ -37,7 +37,7 @@
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon right :class="{ 'primary--text': child.route === activeRoute }">
+                  <v-icon right>
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
@@ -422,6 +422,7 @@ export default {
       this.getTasks()
     }
     this.activeRoute = this.$route.name
+
   },
   methods: {
     prependIcon(item) {
