@@ -64,6 +64,7 @@
             rounded
             color="primary"
             small
+            text
           >
             {{ value(item, header) }}
           </v-btn>
