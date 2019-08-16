@@ -1,37 +1,19 @@
 <template>
-  <div class="table-responsive" style="">
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th style="width: 75px;">
-            {{ $t('id') }}
-          </th>
-          <th>{{ $t('originalName') }}</th>
-          <th>{{ $t('size') }}</th>
-          <th>{{ $t('mimeType') }}</th>
-          <th>{{ $t('createdAt') }}</th>
-          <th />
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="file in files" :key="file.id">
-          <td>{{ file.id }}</td>
-          <td>{{ file.originalName }}</td>
-          <td>{{ bytes(file.size) }}</td>
-          <td>{{ file.mimeType }}</td>
-          <td>{{ crmDateFormat(file.createdAt) }}</td>
-          <td class="text-right">
-            <v-btn color="primary" text x-small @click.stop="download(file)">
-              <v-icon small class="mr-1">
-                save_alt
-              </v-icon>
-              {{ $t('file_download') }}
-            </v-btn>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <is-table v-if="files.length" :headers="headers" :items="files">
+    <template v-slot:item.size="{ item }">
+      {{ bytes(item.size) }}
+    </template>
+    <template v-slot:item.actions="{ item }">
+      <div class="text-right">
+        <v-btn color="primary" text x-small @click.stop="download(item)">
+          <v-icon small class="mr-1">
+            save_alt
+          </v-icon>
+          {{ $t('file_download') }}
+        </v-btn>
+      </div>
+    </template>
+  </is-table>
 </template>
 
 <script>
@@ -43,9 +25,19 @@ export default {
   props: {
     files: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
+    }
+  },
+  data() {
+    return {
+      headers: [
+        { text: this.$t('id'), value: 'id' },
+        { text: this.$t('originalName'), value: 'originalName' },
+        { text: this.$t('size'), value: 'size' },
+        { text: this.$t('mimeType'), value: 'mimeType' },
+        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
+        { text: '', value: 'actions', sortable: false }
+      ]
     }
   },
   methods: {
