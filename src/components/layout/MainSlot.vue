@@ -15,7 +15,7 @@
             :key="item.label"
             v-model="item.model"
             ref="listGroup"
-            :class="{ 'v-list-group--active': item.route === activeRoute }"
+            :class="[ groupClasse(item), { 'v-list-group--active primary--text': isActive(item.route) }]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -23,7 +23,7 @@
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title :class="{ 'primary--text': item.route === activeRoute }">
+                  <v-list-item-title :class="{ 'primary--text': isActive(item.route) }">
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -37,12 +37,12 @@
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon right :class="{ 'primary--text': child.route === activeRoute }">
+                  <v-icon right :class="{ 'primary--text': isActive(child.route) }">
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title :class="{ 'primary--text': child.route === activeRoute }">
+                  <v-list-item-title :class="{ 'primary--text': isActive(child.route) }">
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -417,13 +417,41 @@ export default {
       return this.$store.getters['auth/jwtDecoded'].name
     }
   },
+  created() {
+    this.activeRoute = this.$route.name
+  },
   mounted() {
     if (this.isGranted('ROLE_TASK_LIST')) {
       this.getTasks()
     }
-    this.activeRoute = this.$route.name
+
+    let found = false
+
+    this.$refs.listGroup.forEach(i => {
+      if (i.$el.classList.contains('v-list-group--active')) {
+        i.$el.getElementsByClassName('v-list-group__header')[0].classList.add('v-list-item--active')
+
+        found = true
+      }
+    })
+
+    if (!found) {
+      this.$refs.listGroup.forEach(i => {
+        if (i.$el.classList.contains(this.activeRoute)) {
+          i.click()
+        }
+      })
+    }
   },
   methods: {
+    isActive(route) {
+      if (route) {
+        return route === this.activeRoute
+      }
+    },
+    groupClasse(item) {
+      return item.children ? item.children.map(i => i.route) : ''
+    },
     prependIcon(item) {
       if (item.icon) {
         return item.icon
