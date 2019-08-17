@@ -17,9 +17,13 @@ export default {
       item: 'user/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'user/create'
+      create: 'user/create',
+      reset: 'user/reset',
     }),
     onSendForm() {
       this.create()

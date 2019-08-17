@@ -17,9 +17,13 @@ export default {
       item: 'shipmentMethod/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'shipmentMethod/create'
+      create: 'shipmentMethod/create',
+      reset: 'shipmentMethod/reset',
     }),
     onSendForm() {
       this.create()

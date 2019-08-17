@@ -17,9 +17,13 @@ export default {
       item: 'paymentType/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'paymentType/create'
+      create: 'paymentType/create',
+      reset: 'paymentType/reset',
     }),
     onSendForm() {
       this.create()

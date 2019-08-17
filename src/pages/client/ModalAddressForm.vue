@@ -40,6 +40,7 @@
 
 <script>
 import AddressForm from '../address/Form'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'ModalAddressForm',
@@ -63,6 +64,9 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      reset: 'address/reset',
+    }),
     onSendForm() {
       this.callback()
         .then(item => {
@@ -78,6 +82,7 @@ export default {
     },
     dialogClose() {
       this.$emit('dialog-close')
+      this.reset()
     },
   }
 }

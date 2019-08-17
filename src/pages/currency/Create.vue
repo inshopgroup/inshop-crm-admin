@@ -17,9 +17,13 @@ export default {
       item: 'currency/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'currency/create'
+      create: 'currency/create',
+      reset: 'currency/reset',
     }),
     onSendForm() {
       this.create()

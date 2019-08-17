@@ -17,9 +17,13 @@ export default {
       item: 'orderLineStatus/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'orderLineStatus/create'
+      create: 'orderLineStatus/create',
+      reset: 'orderLineStatus/reset',
     }),
     onSendForm() {
       this.create()

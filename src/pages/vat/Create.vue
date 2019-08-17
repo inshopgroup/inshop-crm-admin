@@ -17,9 +17,13 @@ export default {
       item: 'vat/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'vat/create'
+      create: 'vat/create',
+      reset: 'vat/reset',
     }),
     onSendForm() {
       this.create()

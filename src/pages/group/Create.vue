@@ -19,9 +19,13 @@ export default {
       item: 'group/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'group/create'
+      create: 'group/create',
+      reset: 'group/reset',
     }),
     onSendForm() {
       this.create()

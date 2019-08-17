@@ -17,9 +17,13 @@ export default {
       item: 'invoiceHeader/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'invoiceHeader/create'
+      create: 'invoiceHeader/create',
+      reset: 'invoiceHeader/reset',
     }),
     onSendForm() {
       this.create()

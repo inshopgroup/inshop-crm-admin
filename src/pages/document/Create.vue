@@ -17,9 +17,13 @@ export default {
       item: 'document/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'document/create'
+      create: 'document/create',
+      reset: 'document/reset',
     }),
     onSendForm() {
       this.create()

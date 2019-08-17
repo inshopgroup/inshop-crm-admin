@@ -17,9 +17,13 @@ export default {
       item: 'orderHeader/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'orderHeader/create'
+      create: 'orderHeader/create',
+      reset: 'orderHeader/reset',
     }),
     onSendForm() {
       this.create()

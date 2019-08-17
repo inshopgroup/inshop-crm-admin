@@ -17,9 +17,13 @@ export default {
       item: 'channel/item'
     })
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
-      create: 'channel/create'
+      create: 'channel/create',
+      reset: 'channel/reset',
     }),
     onSendForm() {
       this.create()

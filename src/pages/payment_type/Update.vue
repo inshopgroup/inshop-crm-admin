@@ -23,10 +23,14 @@ export default {
   created() {
     this.getItem(this.$route.params.id)
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
     ...mapActions({
       getItem: 'paymentType/getItem',
-      update: 'paymentType/update'
+      update: 'paymentType/update',
+      reset: 'paymentType/reset',
     }),
     onSendForm() {
       this.update()
