@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="label in data.labels" :key="label.id">
-      <span class="label label-primary">{{ label.name }}</span>
-    </div>
+    <v-chip color="gray" v-for="label in data.labels" :key="label.id" class="ma-1">
+      {{ label.name }}
+    </v-chip>
   </div>
 </template>
 

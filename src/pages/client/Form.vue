@@ -30,6 +30,15 @@
             label="description"
             @formUpdated="updateValue"
           />
+          <form-select
+              :item="item"
+              :errors="errors"
+              property="labels"
+              option-store="label"
+              label="labels_id"
+              :multiple="true"
+              @formUpdated="updateValue"
+          />
           <form-checkbox
             :item="item"
             :errors="errors"

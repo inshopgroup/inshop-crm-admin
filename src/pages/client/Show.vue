@@ -42,6 +42,10 @@ export default {
           property: 'description',
           type: 'string',
         },
+        {
+          property: 'labels',
+          type: 'collection',
+        },
       ]
     }
   },

@@ -5,10 +5,15 @@
       route="clients"
       path="client"
       :filterable="filterable"
+      :custom-filters="customFilters"
+      :sortable="sortable"
       :columns="columns"
       :templates="templates"
-      :sortable="sortable"
-    />
+    >
+      <template slot="filter__labels.id">
+        <labels-filter />
+      </template>
+    </api-table>
   </is-main-template>
 </template>
 
@@ -16,12 +21,14 @@
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnContacts from './../../table/ColumnContacts'
+import columnLabels from './../../table/ColumnLabels'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
+import LabelsFilter from '../../components/filters/LabelsFilter'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: { ItemErrors, ApiTable },
+  components: { LabelsFilter, ItemErrors, ApiTable },
   data: function() {
     return {
       columns: [
@@ -29,6 +36,7 @@ export default {
         'name',
         'contacts.value',
         'description',
+        'labels.id',
         'isActive',
         'columnCreatedAt',
         'columnUpdatedAt',
@@ -43,6 +51,7 @@ export default {
         'columnCreatedAt',
         'columnUpdatedAt'
       ],
+      customFilters: ['labels.id'],
       sortable: [
         'id',
         'name',
@@ -55,6 +64,7 @@ export default {
         'contacts.value': columnContacts,
         columnCreatedAt,
         columnUpdatedAt,
+        'labels.id': columnLabels,
         isActive: columnIsActive
       }
     }
