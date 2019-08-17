@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <span v-if="data.isActive" class="label label-success">{{
-      $t('yes')
-    }}</span>
-    <span v-else class="label label-danger">{{ $t('no') }}</span>
-  </div>
+  <v-chip
+      :color="data.isActive ? 'green' : 'red'"
+      text-color="white"
+  >
+    {{ data.isActive ? $t('yes') : $t('no') }}
+  </v-chip>
 </template>
 
 <script>
