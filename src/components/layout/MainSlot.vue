@@ -15,7 +15,7 @@
             :key="item.label"
             v-model="item.model"
             ref="listGroup"
-            :class="[ groupClasse(item), { 'v-list-group--active primary--text': isActive(item.route) }]"
+            :class="[ groupClass(item), { 'v-list-group--active primary--text': isActive(item.route) }]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -419,7 +419,7 @@ export default {
     }
   },
   created() {
-    this.activeRoute = this.$route.name
+    this.activeRoute = this.routeName(this.$route.name)
   },
   mounted() {
     if (this.isGranted('ROLE_TASK_LIST')) {
@@ -438,7 +438,7 @@ export default {
 
     if (!found) {
       this.$refs.listGroup.forEach(i => {
-        if (i.$el.classList.contains(this.activeRoute)) {
+        if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
           i.click()
         }
       })
@@ -447,11 +447,14 @@ export default {
   methods: {
     isActive(route) {
       if (route) {
-        return route === this.activeRoute
+        return this.routeName(route) === this.activeRoute
       }
     },
-    groupClasse(item) {
-      return item.children ? item.children.map(i => i.route) : ''
+    groupClass(item) {
+      return item.children ? item.children.map(i => this.routeName(i.route)) : ''
+    },
+    routeName(route) {
+      return route.replace(/(List|Show|Create|Update)/, '')
     },
     prependIcon(item) {
       if (item.icon) {
@@ -467,11 +470,8 @@ export default {
     },
     listItemClick(item) {
       if (item.route) {
-        this.$router.push({
-          name: item.route
-        })
-
-        this.activeRoute = item.route
+        this.$router.push({ name: item.route })
+        this.activeRoute = this.routeName(item.route)
       }
     },
     isGrantedItem(item) {
