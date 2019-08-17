@@ -30,11 +30,11 @@ Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default')
 
 Vue.use(VueSentry, {
-  enable: process.env.SENTRY_PUBLIC_KEY !== '',
-  key: process.env.SENTRY_PUBLIC_KEY,
-  project: process.env.SENTRY_PROJECT_ID,
-  server: process.env.SENTRY_SERVER,
-  protocol: process.env.SENTRY_PROTOCOL,
+  enable: process.env.VUE_APP_SENTRY_PUBLIC_KEY !== '',
+  key: process.env.VUE_APP_SENTRY_PUBLIC_KEY,
+  project: process.env.VUE_APP_SENTRY_PROJECT_ID,
+  server: process.env.VUE_APP_SENTRY_SERVER,
+  protocol: process.env.VUE_APP_SENTRY_PROTOCOL,
   config: {}
 })
 
