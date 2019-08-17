@@ -13,12 +13,9 @@
           <v-list-group
             v-if="isGrantedItem(item)"
             :key="item.label"
-            ref="listGroup"
             v-model="item.model"
-            :class="[
-              groupClasse(item),
-              { 'v-list-group--active primary--text': isActive(item.route) }
-            ]"
+            ref="listGroup"
+            :class="[ groupClass(item), { 'v-list-group--active primary--text': isActive(item.route) }]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -26,15 +23,13 @@
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="{ 'primary--text': isActive(item.route) }"
-                  >
+                  <v-list-item-title :class="{ 'primary--text': isActive(item.route) }">
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </template>
-
+            
             <template v-for="(child, i) in item.children">
               <v-list-item
                 v-if="isGrantedItem(child)"
@@ -42,17 +37,12 @@
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon
-                    right
-                    :class="{ 'primary--text': isActive(child.route) }"
-                  >
+                  <v-icon right :class="{ 'primary--text': isActive(child.route) }">
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="{ 'primary--text': isActive(child.route) }"
-                  >
+                  <v-list-item-title :class="{ 'primary--text': isActive(child.route) }">
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -63,9 +53,9 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      :clipped-left="$vuetify.breakpoint.lgAndUp"
-      app
+    <v-app-bar 
+      :clipped-left="$vuetify.breakpoint.lgAndUp" 
+      app 
       color="primary"
       dark
       :src="bg"
@@ -94,7 +84,7 @@
       </v-layout>
 
       <v-spacer></v-spacer>
-
+      
       <span class="mx-2">{{ username }}</span>
       <v-btn icon @click="signOut">
         <v-icon>mdi-power</v-icon>
@@ -429,7 +419,7 @@ export default {
     }
   },
   created() {
-    this.activeRoute = this.$route.name
+    this.activeRoute = this.routeName(this.$route.name)
   },
   mounted() {
     if (this.isGranted('ROLE_TASK_LIST')) {
@@ -440,9 +430,7 @@ export default {
 
     this.$refs.listGroup.forEach(i => {
       if (i.$el.classList.contains('v-list-group--active')) {
-        i.$el
-          .getElementsByClassName('v-list-group__header')[0]
-          .classList.add('v-list-item--active')
+        i.$el.getElementsByClassName('v-list-group__header')[0].classList.add('v-list-item--active')
 
         found = true
       }
@@ -450,7 +438,7 @@ export default {
 
     if (!found) {
       this.$refs.listGroup.forEach(i => {
-        if (i.$el.classList.contains(this.activeRoute)) {
+        if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
           i.click()
         }
       })
@@ -459,11 +447,14 @@ export default {
   methods: {
     isActive(route) {
       if (route) {
-        return route === this.activeRoute
+        return this.routeName(route) === this.activeRoute
       }
     },
-    groupClasse(item) {
-      return item.children ? item.children.map(i => i.route) : ''
+    groupClass(item) {
+      return item.children ? item.children.map(i => this.routeName(i.route)) : ''
+    },
+    routeName(route) {
+      return route.replace(/(List|Show|Create|Update)/, '')
     },
     prependIcon(item) {
       if (item.icon) {
@@ -479,11 +470,8 @@ export default {
     },
     listItemClick(item) {
       if (item.route) {
-        this.$router.push({
-          name: item.route
-        })
-
-        this.activeRoute = item.route
+        this.$router.push({ name: item.route })
+        this.activeRoute = this.routeName(item.route)
       }
     },
     isGrantedItem(item) {
@@ -515,7 +503,7 @@ export default {
           this.dialog = true
         }
       })
-    }
+    },
   }
 }
 </script>
