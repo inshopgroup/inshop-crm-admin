@@ -91,7 +91,7 @@ export default {
       this.$router.push({ name: 'ContactShow', params: { id: item.id } })
     },
     create() {
-      this.$store.commit('contact/CONTACT_SET_ITEM', this.parent)
+      this.$store.commit('contact/CONTACT_UPDATE_ITEM', this.parent)
 
       this.title = this.$t('contact_add')
       this.item = this.$store.getters['contact/item']

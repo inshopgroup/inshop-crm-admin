@@ -98,7 +98,7 @@ export default {
       this.$router.push({ name: 'AddressShow', params: { id: item.id } })
     },
     create() {
-      this.$store.commit('address/ADDRESS_SET_ITEM', this.parent)
+      this.$store.commit('address/ADDRESS_UPDATE_ITEM', this.parent)
 
       this.title = this.$t('address_add')
 
