@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
 import Lines from './Lines'
 
 export default {
@@ -98,21 +97,6 @@ export default {
         },
       ]
     }
-  },
-  computed: mapGetters({
-    item: 'invoiceHeader/item'
-  }),
-  created() {
-    this.getItem(this.$route.params.id)
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-  methods: {
-    ...mapActions({
-      getItem: 'invoiceHeader/getItem',
-      reset: 'invoiceHeader/reset'
-    })
   }
 }
 </script>

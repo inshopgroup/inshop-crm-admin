@@ -54,22 +54,15 @@ export default {
     }
   },
   computed: mapGetters({
-    item: 'product/item',
     companyProducts: 'product/companyProducts',
     productSellPrices: 'product/productSellPrices'
   }),
   created() {
-    this.getItem(this.$route.params.id)
     this.loadCompanyProducts(this.$route.params.id)
     this.loadProductSellPrices(this.$route.params.id)
   },
-  beforeDestroy() {
-    this.reset()
-  },
   methods: {
     ...mapActions({
-      getItem: 'product/getItem',
-      reset: 'product/reset',
       getCompanyProducts: 'product/getCompanyProducts',
       getProductSellPrices: 'product/getProductSellPrices'
     }),

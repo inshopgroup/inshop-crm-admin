@@ -1,4 +1,3 @@
- 
 <template>
   <is-show-template :fields="fields" entity="Group" :tabs="['roles']" :history-key="historyKey">
     <template v-slot:roles="{ item }">

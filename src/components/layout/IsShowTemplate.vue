@@ -103,7 +103,13 @@ export default {
       this.getItem()
     },
   },
+  beforeDestroy() {
+    this.reset()
+  },
   methods: {
+    reset() {
+      this.$store.dispatch(this.storeModule + '/reset')
+    },
     getItem() {
       this.$store.dispatch(this.storeModule + '/getItem', this.$route.params.id)
     }

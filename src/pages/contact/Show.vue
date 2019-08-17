@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-
 export default {
   data() {
     return {
@@ -33,21 +31,6 @@ export default {
         },
       ]
     }
-  },
-  computed: mapGetters({
-    item: 'contact/item'
-  }),
-  created() {
-    this.getItem(this.$route.params.id)
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-  methods: {
-    ...mapActions({
-      getItem: 'contact/getItem',
-      reset: 'contact/reset'
-    })
   }
 }
 </script>

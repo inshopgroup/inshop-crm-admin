@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
-
 export default {
   data() {
     return {
@@ -63,21 +61,6 @@ export default {
         },
       ]
     }
-  },
-  computed: mapGetters({
-    item: 'address/item'
-  }),
-  created() {
-    this.getItem(this.$route.params.id)
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-  methods: {
-    ...mapActions({
-      getItem: 'address/getItem',
-      reset: 'address/reset'
-    })
   }
 }
 </script>

@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
 import FilesTable from './FilesTable'
 
 export default {
@@ -27,21 +26,6 @@ export default {
         },
       ]
     }
-  },
-  computed: mapGetters({
-    item: 'template/item'
-  }),
-  created() {
-    this.getItem(this.$route.params.id)
-  },
-  beforeDestroy() {
-    this.reset()
-  },
-  methods: {
-    ...mapActions({
-      getItem: 'template/getItem',
-      reset: 'template/reset'
-    })
   }
 }
 </script>
