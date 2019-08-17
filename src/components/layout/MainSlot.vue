@@ -87,7 +87,7 @@
       
       <span class="mx-2">{{ username }}</span>
       <v-btn icon @click="signOut">
-        <v-icon color="red">mdi-power</v-icon>
+        <v-icon>mdi-power</v-icon>
       </v-btn>
     </v-app-bar>
 

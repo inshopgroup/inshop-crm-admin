@@ -1,6 +1,6 @@
 <template>
   <v-content>
-    <v-footer :app="app" color="#113145" dark class="caption">
+    <v-footer :app="app" color="secondary" dark class="caption">
       <v-layout align-center justify-space-between>
         <div>
           {{ fecha.format(new Date(), 'YYYY') }},
@@ -24,7 +24,7 @@ export default {
   props: {
     app: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {

@@ -18,7 +18,7 @@
               <v-flex>
                 <v-card class="elevation-12">
                   <v-form @submit.prevent="signIn">
-                    <v-toolbar color="dark" dark flat>
+                    <v-toolbar color="primary" dark flat>
                       <v-toolbar-title
                         >Sign in to start the session</v-toolbar-title
                       >
@@ -47,7 +47,7 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-btn type="submit" color="success">{{
+                      <v-btn type="submit" color="primary">{{
                         $t('signin')
                       }}</v-btn>
                     </v-card-actions>
@@ -106,3 +106,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .login-page .v-application--wrap {
+    background: linear-gradient(#0c5c6f, #003145);
+  }
+</style>
