@@ -11,7 +11,7 @@
           v-if="btnBackToList && isGranted(role_list)"
           class="mx-1"
           large
-          color="info"
+          color="primary"
           @click="backToList()"
         >
           {{ $t('back_to_list') }}

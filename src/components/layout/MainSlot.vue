@@ -4,6 +4,9 @@
       v-model="drawer"
       :clipped="$vuetify.breakpoint.lgAndUp"
       app
+      dark
+      hide-overlay
+      :src="bg"
     >
       <v-list dense>
         <template v-for="item in items">
@@ -11,6 +14,8 @@
             v-if="isGrantedItem(item)"
             :key="item.label"
             v-model="item.model"
+            ref="listGroup"
+            :class="[ groupClasse(item), { 'v-list-group--active primary--text': isActive(item.route) }]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -18,12 +23,13 @@
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title>
+                  <v-list-item-title :class="{ 'primary--text': isActive(item.route) }">
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </template>
+            
             <template v-for="(child, i) in item.children">
               <v-list-item
                 v-if="isGrantedItem(child)"
@@ -31,10 +37,12 @@
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon>{{ child.icon }}</v-icon>
+                  <v-icon right :class="{ 'primary--text': isActive(child.route) }">
+                    {{ child.icon }}
+                  </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title>
+                  <v-list-item-title :class="{ 'primary--text': isActive(child.route) }">
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -45,7 +53,13 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar :clipped-left="$vuetify.breakpoint.lgAndUp" app dark>
+    <v-app-bar 
+      :clipped-left="$vuetify.breakpoint.lgAndUp" 
+      app 
+      color="primary"
+      dark
+      :src="bg"
+    >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>
@@ -70,6 +84,7 @@
       </v-layout>
 
       <v-spacer></v-spacer>
+      
       <span class="mx-2">{{ username }}</span>
       <v-btn icon @click="signOut">
         <v-icon>mdi-power</v-icon>
@@ -104,7 +119,10 @@ export default {
   components: { ModalNotDoneTasks },
   data() {
     return {
+      bg: require('../../assets/bg.png'),
+      activeRoute: null,
       fecha,
+      active: true,
       q: null,
       tasks: [],
       dialog: false,
@@ -400,12 +418,41 @@ export default {
       return this.$store.getters['auth/jwtDecoded'].name
     }
   },
+  created() {
+    this.activeRoute = this.$route.name
+  },
   mounted() {
     if (this.isGranted('ROLE_TASK_LIST')) {
       this.getTasks()
     }
+
+    let found = false
+
+    this.$refs.listGroup.forEach(i => {
+      if (i.$el.classList.contains('v-list-group--active')) {
+        i.$el.getElementsByClassName('v-list-group__header')[0].classList.add('v-list-item--active')
+
+        found = true
+      }
+    })
+
+    if (!found) {
+      this.$refs.listGroup.forEach(i => {
+        if (i.$el.classList.contains(this.activeRoute)) {
+          i.click()
+        }
+      })
+    }
   },
   methods: {
+    isActive(route) {
+      if (route) {
+        return route === this.activeRoute
+      }
+    },
+    groupClasse(item) {
+      return item.children ? item.children.map(i => i.route) : ''
+    },
     prependIcon(item) {
       if (item.icon) {
         return item.icon
@@ -423,6 +470,8 @@ export default {
         this.$router.push({
           name: item.route
         })
+
+        this.activeRoute = item.route
       }
     },
     isGrantedItem(item) {
@@ -454,7 +503,16 @@ export default {
           this.dialog = true
         }
       })
-    }
+    },
   }
 }
 </script>
+
+<style>
+.v-navigation-drawer .v-list-group--active > .v-list-group__items {
+  background: #142430;
+}
+.v-navigation-drawer .v-list-group--active > .v-list-group__header {
+  background: #142430;
+}
+</style>
