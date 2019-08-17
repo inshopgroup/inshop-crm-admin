@@ -10,7 +10,9 @@ export default {
   },
   [types.UPDATE_ITEM_ROLES](state, params) {
     if (params.value) {
-      state.item.roleIRIs.push(params.iri)
+      if (!state.item.roleIRIs.includes(params.iri)) {
+        state.item.roleIRIs.push(params.iri)
+      }
     } else {
       let index = state.item.roleIRIs.indexOf(params.iri)
 
