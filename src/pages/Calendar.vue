@@ -154,7 +154,7 @@ export default {
         this.tasks.forEach(task => {
           task.start = this.crmDateFormat(task.deadline, 'YYYY-MM-DD')
           task.end = this.crmDateFormat(task.deadline, 'YYYY-MM-DD')
-          task.color = '#4285F4'
+          task.color = 'primary'
         })
 
         return this.tasks

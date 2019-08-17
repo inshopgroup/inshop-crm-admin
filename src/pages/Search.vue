@@ -1,26 +1,14 @@
 <template>
-  <div>
-    <section class="content-header">
-      <h1>{{ $t('search_list') }}</h1>
-    </section>
-
-    <section class="content">
-      <div class="box box-primary">
-        <div class="box-body">
-          <item-errors entity="text" />
-
-          <api-table
-            entity="Search"
-            route="search"
-            path="search"
-            :filterable="filterable"
-            :columns="columns"
-            :templates="templates"
-          />
-        </div>
-      </div>
-    </section>
-  </div>
+  <is-main-template title="search_list">
+    <api-table
+        entity="Search"
+        route="search"
+        path="search"
+        :filterable="filterable"
+        :columns="columns"
+        :templates="templates"
+    />
+  </is-main-template>
 </template>
 
 <script>
