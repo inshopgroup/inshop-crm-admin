@@ -21,7 +21,7 @@ export default {
           link: {
             route: 'ProductShow',
             param: 'product.id'
-          },
+          }
         },
         { text: this.$t('name'), value: 'name' },
         {
@@ -31,14 +31,24 @@ export default {
           link: {
             route: 'VatShow',
             param: 'vat.id'
-          },
+          }
         },
         { text: this.$t('unitPriceNetto'), value: 'unitPriceNetto' },
         { text: this.$t('unitsCount'), value: 'unitsCount' },
-        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
-        { text: this.$t('updatedAt'), value: 'updatedAt', type: 'datetime', sortable: false },
+        {
+          text: this.$t('createdAt'),
+          value: 'createdAt',
+          type: 'datetime',
+          sortable: false
+        },
+        {
+          text: this.$t('updatedAt'),
+          value: 'updatedAt',
+          type: 'datetime',
+          sortable: false
+        }
       ]
     }
-  },
+  }
 }
 </script>

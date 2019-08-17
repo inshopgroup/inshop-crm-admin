@@ -1,7 +1,7 @@
 export default function() {
   return {
     item: {
-      isActive: true,
+      isActive: true
     },
     items: [],
     error: null,

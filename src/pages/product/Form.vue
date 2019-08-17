@@ -1,11 +1,21 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <v-tabs v-model="tab" background-color="transparent">
-      <v-tab :href="'#tab-' + language.id" v-for="language in languages" :key="language.id">{{ $t(language.name) }}</v-tab>
+      <v-tab
+        v-for="language in languages"
+        :key="language.id"
+        :href="'#tab-' + language.id"
+        >{{ $t(language.name) }}</v-tab
+      >
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-tab-item class="my-4" v-for="language in languages" :value="'tab-' + language.id" :key="language.id">
+      <v-tab-item
+        v-for="language in languages"
+        :key="language.id"
+        class="my-4"
+        :value="'tab-' + language.id"
+      >
         <form-input
           :item="findItem(language)"
           :errors="errors"
@@ -108,7 +118,7 @@ export default {
     return {
       axios: axios,
       route: process.env.VUE_APP_API_URL + '/images',
-      tab: null,
+      tab: null
     }
   },
   computed: {

@@ -1,5 +1,9 @@
 <template>
-  <is-main-template title="template_type_list" route-add="TemplateTypeCreate" entity="templateType">
+  <is-main-template
+    title="template_type_list"
+    route-add="TemplateTypeCreate"
+    entity="templateType"
+  >
     <api-table
       entity="TemplateType"
       route="template_types"
@@ -13,14 +17,13 @@
 </template>
 
 <script>
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: { ItemErrors, ApiTable },
+  components: { ApiTable },
   data: function() {
     return {
       columns: [

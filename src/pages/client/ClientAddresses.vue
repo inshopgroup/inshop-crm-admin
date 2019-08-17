@@ -1,12 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12 mb-4>
-      <v-btn
-          class="mx-1"
-          color="success"
-          @click="create($event.target)"
-          large
-      >
+      <v-btn class="mx-1" color="success" large @click="create($event.target)">
         {{ $t('address_add') }}
       </v-btn>
     </v-flex>
@@ -64,7 +59,11 @@ export default {
       headers: [
         { text: this.$t('id'), value: 'id' },
         { text: this.$t('postCode'), value: 'postCode' },
-        { text: this.$t('country_name'), value: 'country.name', type: 'object' },
+        {
+          text: this.$t('country_name'),
+          value: 'country.name',
+          type: 'object'
+        },
         { text: this.$t('city_name'), value: 'city.name', type: 'object' },
         { text: this.$t('region'), value: 'region' },
         { text: this.$t('district'), value: 'district' },

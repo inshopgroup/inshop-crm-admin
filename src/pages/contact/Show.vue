@@ -1,5 +1,9 @@
 <template>
-  <is-show-template :fields="fields" entity="Contact" :history-key="historyKey" />
+  <is-show-template
+    :fields="fields"
+    entity="Contact"
+    :history-key="historyKey"
+  />
 </template>
 
 <script>
@@ -9,7 +13,7 @@ export default {
       historyKey: 1,
       fields: [
         {
-          property: 'value',
+          property: 'value'
         },
         {
           property: 'contactType',
@@ -20,15 +24,15 @@ export default {
           type: 'collection',
           link: {
             route: 'ClientShow'
-          },
+          }
         },
         {
           property: 'companies',
           type: 'collection',
           link: {
             route: 'CompanyShow'
-          },
-        },
+          }
+        }
       ]
     }
   }

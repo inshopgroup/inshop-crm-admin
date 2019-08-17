@@ -1,12 +1,7 @@
 <template>
   <v-layout wrap>
     <v-flex xs12 mb-4>
-      <v-btn
-          class="mx-1"
-          color="success"
-          @click="create($event.target)"
-          large
-      >
+      <v-btn class="mx-1" color="success" large @click="create($event.target)">
         {{ $t('contact_add') }}
       </v-btn>
     </v-flex>
@@ -64,7 +59,11 @@ export default {
       headers: [
         { text: this.$t('id'), value: 'id' },
         { text: this.$t('contact_value'), value: 'value' },
-        { text: this.$t('contactType_name'), value: 'contactType.name', type: 'object' },
+        {
+          text: this.$t('contactType_name'),
+          value: 'contactType.name',
+          type: 'object'
+        },
         { text: '', value: 'actions', sortable: false }
       ]
     }

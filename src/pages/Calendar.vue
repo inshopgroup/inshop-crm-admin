@@ -7,19 +7,17 @@
             <v-btn class="mr-4" @click="setToday">
               Today
             </v-btn>
-            <v-btn fab text small @click="prev" class="mx-1">
+            <v-btn fab text small class="mx-1" @click="prev">
               <v-icon small>arrow_back_ios</v-icon>
             </v-btn>
-            <v-btn fab text small @click="next" class="mx-1">
+            <v-btn fab text small class="mx-1" @click="next">
               <v-icon small>arrow_forward_ios</v-icon>
             </v-btn>
             <v-toolbar-title class="ml-4">{{ title }}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-menu bottom right>
               <template v-slot:activator="{ on }">
-                <v-btn
-                    v-on="on"
-                >
+                <v-btn v-on="on">
                   <span>{{ typeToLabel[type] }}</span>
                   <v-icon right>arrow_drop_down</v-icon>
                 </v-btn>
@@ -40,36 +38,32 @@
         </v-sheet>
         <v-sheet height="600">
           <v-calendar
-              ref="calendar"
-              v-model="focus"
-              color="primary"
-              :events="events"
-              :event-color="getEventColor"
-              :event-margin-bottom="3"
-              :now="today"
-              :type="type"
-              @click:event="showEvent"
-              @click:more="viewDay"
-              @click:date="viewDay"
-              @change="updateRange"
+            ref="calendar"
+            v-model="focus"
+            color="primary"
+            :events="events"
+            :event-color="getEventColor"
+            :event-margin-bottom="3"
+            :now="today"
+            :type="type"
+            @click:event="showEvent"
+            @click:more="viewDay"
+            @click:date="viewDay"
+            @change="updateRange"
           ></v-calendar>
           <v-menu
-              v-model="selectedOpen"
-              :close-on-content-click="false"
-              :activator="selectedElement"
-              full-width
-              offset-x
+            v-model="selectedOpen"
+            :close-on-content-click="false"
+            :activator="selectedElement"
+            full-width
+            offset-x
           >
-            <v-card
-                color="grey lighten-4"
-                min-width="350px"
-                flat
-            >
-              <v-toolbar
-                  :color="selectedEvent.color"
-                  dark
-              >
-                <v-btn icon :to="{ name: 'TaskUpdate', params: { id: selectedEvent.id } }">
+            <v-card color="grey lighten-4" min-width="350px" flat>
+              <v-toolbar :color="selectedEvent.color" dark>
+                <v-btn
+                  icon
+                  :to="{ name: 'TaskUpdate', params: { id: selectedEvent.id } }"
+                >
                   <v-icon>edit</v-icon>
                 </v-btn>
                 <v-toolbar-title v-html="selectedEvent.name"></v-toolbar-title>
@@ -80,8 +74,15 @@
                 <p>
                   {{ $t('client') }}:
                   <router-link
-                      v-if="selectedEvent && selectedEvent.project && selectedEvent.project.client"
-                    :to="{ name: 'ClientShow', params: { id: selectedEvent.project.client.id } }"
+                    v-if="
+                      selectedEvent &&
+                        selectedEvent.project &&
+                        selectedEvent.project.client
+                    "
+                    :to="{
+                      name: 'ClientShow',
+                      params: { id: selectedEvent.project.client.id }
+                    }"
                   >
                     {{ selectedEvent.project.client.name }}
                   </router-link>
@@ -90,7 +91,10 @@
                   {{ $t('assignee_name') }}:
                   <router-link
                     v-if="selectedEvent && selectedEvent.assignee"
-                    :to="{ name: 'UserShow', params: { id: selectedEvent.assignee.id } }"
+                    :to="{
+                      name: 'UserShow',
+                      params: { id: selectedEvent.assignee.id }
+                    }"
                   >
                     {{ selectedEvent.assignee.name }}
                   </router-link>
@@ -98,17 +102,13 @@
               </v-card-text>
               <v-card-actions>
                 <v-btn
-                    text
-                    color="success"
-                    :to="{ name: 'TaskShow', params: { id: selectedEvent.id } }"
+                  text
+                  color="success"
+                  :to="{ name: 'TaskShow', params: { id: selectedEvent.id } }"
                 >
                   More details
                 </v-btn>
-                <v-btn
-                    text
-                    color="secondary"
-                    @click="selectedOpen = false"
-                >
+                <v-btn text color="secondary" @click="selectedOpen = false">
                   Close
                 </v-btn>
               </v-card-actions>
@@ -135,31 +135,31 @@ export default {
     typeToLabel: {
       month: 'Month',
       week: 'Week',
-      day: 'Day',
+      day: 'Day'
     },
     start: null,
     end: null,
     selectedEvent: {},
     selectedElement: null,
-    selectedOpen: false,
+    selectedOpen: false
   }),
   created() {
     this.load(moment().format('M/Y'))
   },
   computed: {
-      ...mapGetters({
-        tasks: 'task/items'
-      }),
-      events() {
-        this.tasks.forEach(task => {
-          task.start = this.crmDateFormat(task.deadline, 'YYYY-MM-DD')
-          task.end = this.crmDateFormat(task.deadline, 'YYYY-MM-DD')
-          task.color = 'primary'
-        })
+    ...mapGetters({
+      tasks: 'task/items'
+    }),
+    events() {
+      this.tasks.forEach(task => {
+        task.start = this.crmDateFormat(task.deadline, 'YYYY-MM-DD')
+        task.end = this.crmDateFormat(task.deadline, 'YYYY-MM-DD')
+        task.color = 'primary'
+      })
 
-        return this.tasks
-      },
-    title () {
+      return this.tasks
+    },
+    title() {
       const { start, end } = this
       if (!start || !end) {
         return ''
@@ -178,49 +178,50 @@ export default {
       }
       return ''
     },
-    monthFormatter () {
+    monthFormatter() {
       return this.$refs.calendar.getFormatter({
-        timeZone: 'UTC', month: 'long',
+        timeZone: 'UTC',
+        month: 'long'
       })
-    },
+    }
   },
   methods: {
-      ...mapActions({
-        getTasks: 'task/getItems'
-      }),
-      load(date) {
-        this.getTasks({
-          'deadline[after]': moment(date, 'M/Y').format('DD-MM-YYYY'),
-          'deadline[before]': moment(date, 'M/Y')
-            .endOf('month')
-            .add(1, 'day')
-            .format('DD-MM-YYYY'),
-          'order[deadline]': 'asc',
-          'status.id[]': '1',
-          itemsPerPage: '500'
-        })
-      },
-    viewDay ({ date }) {
+    ...mapActions({
+      getTasks: 'task/getItems'
+    }),
+    load(date) {
+      this.getTasks({
+        'deadline[after]': moment(date, 'M/Y').format('DD-MM-YYYY'),
+        'deadline[before]': moment(date, 'M/Y')
+          .endOf('month')
+          .add(1, 'day')
+          .format('DD-MM-YYYY'),
+        'order[deadline]': 'asc',
+        'status.id[]': '1',
+        itemsPerPage: '500'
+      })
+    },
+    viewDay({ date }) {
       this.focus = date
       this.type = 'day'
     },
-    getEventColor (event) {
+    getEventColor(event) {
       return event.color
     },
-    setToday () {
+    setToday() {
       this.focus = this.today
     },
-    prev () {
+    prev() {
       this.$refs.calendar.prev()
     },
-    next () {
+    next() {
       this.$refs.calendar.next()
     },
-    showEvent ({ nativeEvent, event }) {
+    showEvent({ nativeEvent, event }) {
       const open = () => {
         this.selectedEvent = event
         this.selectedElement = nativeEvent.target
-        setTimeout(() => this.selectedOpen = true, 10)
+        setTimeout(() => (this.selectedOpen = true), 10)
       }
 
       if (this.selectedOpen) {
@@ -232,17 +233,17 @@ export default {
 
       nativeEvent.stopPropagation()
     },
-    updateRange ({ start, end }) {
+    updateRange({ start, end }) {
       this.load(moment(start.date).format('M/Y'))
       this.start = start
       this.end = end
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style>
-  .v-calendar-weekly__day-label {
-    margin: 4px 0 !important;
-  }
+.v-calendar-weekly__day-label {
+  margin: 4px 0 !important;
+}
 </style>

@@ -10,28 +10,28 @@ export default {
       fields: [
         {
           property: 'title',
-          type: 'translate',
+          type: 'translate'
         },
         {
           property: 'slug',
-          type: 'translate',
+          type: 'translate'
         },
         {
           property: 'content',
-          type: 'translate',
+          type: 'translate'
         },
         {
           property: 'seoTitle',
-          type: 'translate',
+          type: 'translate'
         },
         {
           property: 'seoDescription',
-          type: 'translate',
+          type: 'translate'
         },
         {
           property: 'seoKeywords',
-          type: 'translate',
-        },
+          type: 'translate'
+        }
       ]
     }
   }

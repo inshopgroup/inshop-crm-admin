@@ -9,18 +9,18 @@ export default {
       historyKey: 1,
       fields: [
         {
-          property: 'name',
+          property: 'name'
         },
         {
-          property: 'description',
+          property: 'description'
         },
         {
           property: 'status',
-          path: 'status.name',
+          path: 'status.name'
         },
         {
           property: 'deadline',
-          type: 'datetime',
+          type: 'datetime'
         },
         {
           property: 'project',
@@ -28,7 +28,7 @@ export default {
           link: {
             route: 'ProjectShow',
             param: 'project.id'
-          },
+          }
         },
         {
           property: 'assignee',
@@ -36,14 +36,14 @@ export default {
           link: {
             route: 'UserShow',
             param: 'assignee.id'
-          },
+          }
         },
         {
-          property: 'timeEstimated',
+          property: 'timeEstimated'
         },
         {
-          property: 'timeSpent',
-        },
+          property: 'timeSpent'
+        }
       ]
     }
   }

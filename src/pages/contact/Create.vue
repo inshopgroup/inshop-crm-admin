@@ -23,7 +23,7 @@ export default {
   methods: {
     ...mapActions({
       create: 'contact/create',
-      reset: 'contact/reset',
+      reset: 'contact/reset'
     }),
     onSendForm() {
       this.create()

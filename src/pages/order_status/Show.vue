@@ -1,5 +1,9 @@
 <template>
-  <is-show-template :fields="fields" entity="OrderStatus" :history-key="historyKey" />
+  <is-show-template
+    :fields="fields"
+    entity="OrderStatus"
+    :history-key="historyKey"
+  />
 </template>
 
 <script>
@@ -10,8 +14,8 @@ export default {
       fields: [
         {
           property: 'name',
-          type: 'string',
-        },
+          type: 'string'
+        }
       ]
     }
   }

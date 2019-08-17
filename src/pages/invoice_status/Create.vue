@@ -23,7 +23,7 @@ export default {
   methods: {
     ...mapActions({
       create: 'invoiceStatus/create',
-      reset: 'invoiceStatus/reset',
+      reset: 'invoiceStatus/reset'
     }),
     onSendForm() {
       this.create()

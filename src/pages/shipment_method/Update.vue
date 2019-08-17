@@ -30,7 +30,7 @@ export default {
     ...mapActions({
       getItem: 'shipmentMethod/getItem',
       update: 'shipmentMethod/update',
-      reset: 'shipmentMethod/reset',
+      reset: 'shipmentMethod/reset'
     }),
     onSendForm() {
       this.update()

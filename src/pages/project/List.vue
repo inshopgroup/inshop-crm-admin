@@ -1,5 +1,9 @@
 <template>
-  <is-main-template title="project_list" route-add="ProjectCreate" entity="project">
+  <is-main-template
+    title="project_list"
+    route-add="ProjectCreate"
+    entity="project"
+  >
     <api-table
       entity="Project"
       route="projects"
@@ -13,7 +17,7 @@
       <template slot="filter__status.id">
         <project-status-filter />
       </template>
-      
+
       <template slot="filter__type.id">
         <project-type-filter />
       </template>
@@ -22,7 +26,6 @@
 </template>
 
 <script>
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
@@ -33,7 +36,7 @@ import ProjectTypeFilter from '../../components/filters/ProjectTypeFilter'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: { ProjectTypeFilter, ProjectStatusFilter, ItemErrors, ApiTable },
+  components: { ProjectTypeFilter, ProjectStatusFilter, ApiTable },
   data: function() {
     return {
       columns: [

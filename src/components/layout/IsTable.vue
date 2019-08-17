@@ -1,13 +1,13 @@
 <template>
   <v-data-table
-      :headers="headers"
-      :items="items"
-      :hide-default-footer="hideDefaultFooter"
-      :items-per-page="itemsPerPage"
+    :headers="headers"
+    :items="items"
+    :hide-default-footer="hideDefaultFooter"
+    :items-per-page="itemsPerPage"
   >
     <template
-      v-slot:[name(header)]="{ item, header }"
       v-for="header in headers"
+      v-slot:[name(header)]="{ item, header }"
     >
       <template v-if="type(item, header) === 'boolean'">
         <v-chip
@@ -28,7 +28,7 @@
             <v-btn
               :to="{
                 name: routeName(item, header),
-                params: { id: pick(routeParam(item, header), obj) },
+                params: { id: pick(routeParam(item, header), obj) }
               }"
               rounded
               color="primary"
@@ -75,7 +75,9 @@
       </template>
     </template>
 
-    <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope"><slot :name="slot" v-bind="scope"/></template>
+    <template v-for="(_, slot) of $scopedSlots" v-slot:[slot]="scope"
+      ><slot :name="slot" v-bind="scope"
+    /></template>
   </v-data-table>
 </template>
 

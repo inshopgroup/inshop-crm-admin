@@ -30,7 +30,7 @@ export default {
     ...mapActions({
       getItem: 'channel/getItem',
       update: 'channel/update',
-      reset: 'channel/reset',
+      reset: 'channel/reset'
     }),
     onSendForm() {
       this.update()

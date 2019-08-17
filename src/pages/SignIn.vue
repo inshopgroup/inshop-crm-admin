@@ -108,7 +108,7 @@ export default {
 </script>
 
 <style>
-  .login-page .v-application--wrap {
-    background: linear-gradient(#0c5c6f, #003145);
-  }
+.login-page .v-application--wrap {
+  background: linear-gradient(#0c5c6f, #003145);
+}
 </style>

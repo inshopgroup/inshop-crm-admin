@@ -30,7 +30,7 @@ export default {
     ...mapActions({
       getItem: 'invoiceType/getItem',
       update: 'invoiceType/update',
-      reset: 'invoiceType/reset',
+      reset: 'invoiceType/reset'
     }),
     onSendForm() {
       this.update()

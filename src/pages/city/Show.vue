@@ -9,7 +9,7 @@ export default {
       historyKey: 1,
       fields: [
         {
-          property: 'name',
+          property: 'name'
         },
         {
           property: 'country',
@@ -17,8 +17,8 @@ export default {
           link: {
             route: 'CountryShow',
             param: 'country.id'
-          },
-        },
+          }
+        }
       ]
     }
   }

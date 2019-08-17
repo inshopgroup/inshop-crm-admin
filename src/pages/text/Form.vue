@@ -1,70 +1,80 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <v-tabs v-model="tab" background-color="transparent">
-      <v-tab :href="'#tab-' + language.id" v-for="language in languages" :key="language.id">{{ $t(language.name) }}</v-tab>
+      <v-tab
+        v-for="language in languages"
+        :key="language.id"
+        :href="'#tab-' + language.id"
+        >{{ $t(language.name) }}</v-tab
+      >
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-tab-item class="my-4" v-for="language in languages" :value="'tab-' + language.id" :key="language.id">
+      <v-tab-item
+        v-for="language in languages"
+        :key="language.id"
+        class="my-4"
+        :value="'tab-' + language.id"
+      >
         <form-input
-            :item="findItem(language)"
-            :errors="errors"
-            property="title"
-            label="text_title"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="title"
+          label="text_title"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
         <form-textarea
-            :item="findItem(language)"
-            :errors="errors"
-            property="content"
-            label="content"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="content"
+          label="content"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
         <form-input
-            :item="findItem(language)"
-            :errors="errors"
-            property="seoTitle"
-            label="seoTitle"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="seoTitle"
+          label="seoTitle"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
         <form-input
-            :item="findItem(language)"
-            :errors="errors"
-            property="seoDescription"
-            label="seoDescription"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="seoDescription"
+          label="seoDescription"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
         <form-input
-            :item="findItem(language)"
-            :errors="errors"
-            property="seoKeywords"
-            label="seoKeywords"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="seoKeywords"
+          label="seoKeywords"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
         <form-checkbox
-            :item="findItem(language)"
-            :errors="errors"
-            property="isActive"
-            label="isActive"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="isActive"
+          label="isActive"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
       </v-tab-item>
     </v-tabs-items>
@@ -93,7 +103,7 @@ export default {
   },
   data() {
     return {
-      tab: null,
+      tab: null
     }
   },
   computed: {

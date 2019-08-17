@@ -1,5 +1,10 @@
 <template>
-  <is-show-template :fields="fields" entity="Product" :tabs="['tabs_companyProducts', 'tabs_productSellPrices']" :history-key="historyKey">
+  <is-show-template
+    :fields="fields"
+    entity="Product"
+    :tabs="['tabs_companyProducts', 'tabs_productSellPrices']"
+    :history-key="historyKey"
+  >
     <template v-slot:tabs_companyProducts="{ item }">
       <company-products
         :company-products="companyProducts"
@@ -26,7 +31,7 @@ import ProductSellPrices from './ProductSellPrices'
 export default {
   components: {
     ProductSellPrices,
-    CompanyProducts,
+    CompanyProducts
   },
   data() {
     return {
@@ -37,14 +42,14 @@ export default {
           type: 'translate'
         },
         {
-          property: 'ean',
+          property: 'ean'
         },
         {
           property: 'brand',
           path: 'brand.name'
         },
         {
-          property: 'video',
+          property: 'video'
         },
         {
           property: 'description',

@@ -1,6 +1,11 @@
 <template>
   <div>
-    <v-chip color="gray" v-for="label in data.labels" :key="label.id" class="ma-1">
+    <v-chip
+      v-for="label in data.labels"
+      :key="label.id"
+      color="gray"
+      class="ma-1"
+    >
       {{ label.name }}
     </v-chip>
   </div>

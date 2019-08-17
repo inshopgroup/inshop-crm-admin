@@ -1,22 +1,16 @@
 <template>
-  <is-show-template :fields="fields" entity="Group" :tabs="['roles']" :history-key="historyKey">
+  <is-show-template
+    :fields="fields"
+    entity="Group"
+    :tabs="['roles']"
+    :history-key="historyKey"
+  >
     <template v-slot:roles="{ item }">
       <v-container fluid>
         <v-layout row>
-          <v-flex
-            v-for="module in modules"
-            :key="module.id"
-            md2
-            sm6
-            xs12
-            pa-2
-          >
+          <v-flex v-for="module in modules" :key="module.id" md2 sm6 xs12 pa-2>
             <v-card outlined>
-              <v-toolbar
-                color="primary"
-                dark
-                dense
-              >
+              <v-toolbar color="primary" dark dense>
                 <v-toolbar-title>
                   {{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}
                 </v-toolbar-title>
@@ -46,8 +40,8 @@ export default {
       fields: [
         {
           property: 'name',
-          type: 'string',
-        },
+          type: 'string'
+        }
       ]
     }
   },
@@ -77,6 +71,6 @@ export default {
     roles(module) {
       return this.item.roles.filter(role => role.module.id === module.id)
     }
-  },
+  }
 }
 </script>

@@ -42,11 +42,36 @@ export default {
       headers: [
         { text: this.$t('id'), value: 'id' },
         { text: this.$t('name'), value: 'name' },
-        { text: this.$t('client'), value: 'project.name', type: 'object', sortable: false },
-        { text: this.$t('assignee_name'), value: 'assignee.name', type: 'object', sortable: false },
-        { text: this.$t('status_name'), value: 'status.name', type: 'object', sortable: false },
-        { text: this.$t('deadline'), value: 'deadline', type: 'datetime', sortable: false },
-        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
+        {
+          text: this.$t('client'),
+          value: 'project.name',
+          type: 'object',
+          sortable: false
+        },
+        {
+          text: this.$t('assignee_name'),
+          value: 'assignee.name',
+          type: 'object',
+          sortable: false
+        },
+        {
+          text: this.$t('status_name'),
+          value: 'status.name',
+          type: 'object',
+          sortable: false
+        },
+        {
+          text: this.$t('deadline'),
+          value: 'deadline',
+          type: 'datetime',
+          sortable: false
+        },
+        {
+          text: this.$t('createdAt'),
+          value: 'createdAt',
+          type: 'datetime',
+          sortable: false
+        },
         { text: '', value: 'actions', sortable: false }
       ]
     }

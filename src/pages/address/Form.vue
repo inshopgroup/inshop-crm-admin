@@ -7,82 +7,82 @@
 
       <v-flex md6 px-2>
         <form-select
-            :item="item"
-            :errors="errors"
-            property="country"
-            option-store="country"
-            label="country"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="country"
+          option-store="country"
+          label="country"
+          @formUpdated="updateValue"
         />
         <form-select
-            :item="item"
-            :errors="errors"
-            property="city"
-            option-store="city"
-            label="city"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="city"
+          option-store="city"
+          label="city"
+          @formUpdated="updateValue"
         />
         <form-input
-            :item="item"
-            :errors="errors"
-            property="region"
-            label="region"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="region"
+          label="region"
+          @formUpdated="updateValue"
         />
         <form-input
-            :item="item"
-            :errors="errors"
-            property="district"
-            label="district"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="district"
+          label="district"
+          @formUpdated="updateValue"
         />
       </v-flex>
       <v-flex md6 px-2>
         <form-input
-            :item="item"
-            :errors="errors"
-            property="postCode"
-            label="postCode"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="postCode"
+          label="postCode"
+          @formUpdated="updateValue"
         />
         <form-input
-            :item="item"
-            :errors="errors"
-            property="street"
-            label="street"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="street"
+          label="street"
+          @formUpdated="updateValue"
         />
         <form-input
-            :item="item"
-            :errors="errors"
-            property="building"
-            label="building"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="building"
+          label="building"
+          @formUpdated="updateValue"
         />
         <form-input
-            :item="item"
-            :errors="errors"
-            property="apartment"
-            label="apartment"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="apartment"
+          label="apartment"
+          @formUpdated="updateValue"
         />
       </v-flex>
       <v-flex xs12 px-2>
         <form-textarea
-            :item="item"
-            :errors="errors"
-            property="comment"
-            label="comment"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="comment"
+          label="comment"
+          @formUpdated="updateValue"
         />
       </v-flex>
       <v-flex xs12 px-2>
         <form-checkbox
-            :item="item"
-            :errors="errors"
-            property="isActive"
-            label="isActive"
-            @formUpdated="updateValue"
+          :item="item"
+          :errors="errors"
+          property="isActive"
+          label="isActive"
+          @formUpdated="updateValue"
         />
       </v-flex>
 

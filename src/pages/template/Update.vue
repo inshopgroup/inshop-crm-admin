@@ -30,7 +30,7 @@ export default {
     ...mapActions({
       getItem: 'template/getItem',
       update: 'template/update',
-      reset: 'template/reset',
+      reset: 'template/reset'
     }),
     onSendForm() {
       this.update()

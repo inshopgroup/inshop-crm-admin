@@ -30,7 +30,7 @@ export default {
     ...mapActions({
       getItem: 'projectStatus/getItem',
       update: 'projectStatus/update',
-      reset: 'projectStatus/reset',
+      reset: 'projectStatus/reset'
     }),
     onSendForm() {
       this.update()

@@ -10,8 +10,8 @@ export default {
       fields: [
         {
           property: 'name',
-          type: 'string',
-        },
+          type: 'string'
+        }
       ]
     }
   }

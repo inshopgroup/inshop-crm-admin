@@ -1,5 +1,10 @@
 <template>
-  <is-show-template :fields="fields" entity="OrderHeader" :tabs="['lines']" :history-key="historyKey">
+  <is-show-template
+    :fields="fields"
+    entity="OrderHeader"
+    :tabs="['lines']"
+    :history-key="historyKey"
+  >
     <template v-slot:lines="{ item }">
       <lines :lines="item.lines" />
     </template>
@@ -18,7 +23,7 @@ export default {
       historyKey: 1,
       fields: [
         {
-          property: 'number',
+          property: 'number'
         },
         {
           property: 'client',
@@ -26,7 +31,7 @@ export default {
           link: {
             route: 'ClientShow',
             param: 'client.id'
-          },
+          }
         },
         {
           property: 'channel',
@@ -34,7 +39,7 @@ export default {
           link: {
             route: 'ChannelShow',
             param: 'channel.id'
-          },
+          }
         },
         {
           property: 'paymentType',
@@ -42,7 +47,7 @@ export default {
           link: {
             route: 'PaymentTypeShow',
             param: 'paymentType.id'
-          },
+          }
         },
         {
           property: 'shipmentMethod',
@@ -50,7 +55,7 @@ export default {
           link: {
             route: 'ShipmentMethodShow',
             param: 'shipmentMethod.id'
-          },
+          }
         },
         {
           property: 'status',
@@ -58,7 +63,7 @@ export default {
           link: {
             route: 'OrderStatusShow',
             param: 'status.id'
-          },
+          }
         },
         {
           property: 'channel',
@@ -66,8 +71,8 @@ export default {
           link: {
             route: 'CurrencyShow',
             param: 'channel.currency.id'
-          },
-        },
+          }
+        }
       ]
     }
   }

@@ -1,5 +1,9 @@
 <template>
-  <is-show-template :fields="fields" entity="Category" :history-key="historyKey" />
+  <is-show-template
+    :fields="fields"
+    entity="Category"
+    :history-key="historyKey"
+  />
 </template>
 
 <script>
@@ -17,7 +21,7 @@ export default {
           type: 'translate'
         },
         {
-          property: 'position',
+          property: 'position'
         },
         {
           property: 'parent',
@@ -25,8 +29,8 @@ export default {
           link: {
             route: 'CategoryShow',
             param: 'parent.id'
-          },
-        },
+          }
+        }
       ]
     }
   }

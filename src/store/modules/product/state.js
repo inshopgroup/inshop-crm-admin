@@ -3,7 +3,7 @@ export default function() {
     item: {
       images: [],
       translations: [],
-      isActive: true,
+      isActive: true
     },
     items: [],
     companyProducts: [],

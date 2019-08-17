@@ -1,5 +1,9 @@
 <template>
-  <is-main-template title="contact_list" route-add="ContactCreate" entity="contact">
+  <is-main-template
+    title="contact_list"
+    route-add="ContactCreate"
+    entity="contact"
+  >
     <api-table
       entity="Contact"
       route="contacts"
@@ -13,14 +17,13 @@
 </template>
 
 <script>
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: { ItemErrors, ApiTable },
+  components: { ApiTable },
   data: function() {
     return {
       columns: [

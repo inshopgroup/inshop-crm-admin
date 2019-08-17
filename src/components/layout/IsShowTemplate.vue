@@ -3,7 +3,9 @@
     <v-tabs v-model="tab" background-color="transparent">
       <v-tab href="#general">{{ $t('tabs_general') }}</v-tab>
 
-      <v-tab :href="'#' + tab" v-for="tab in tabs" :key="tab">{{ $t(tab) }}</v-tab>
+      <v-tab v-for="tab in tabs" :key="tab" :href="'#' + tab">{{
+        $t(tab)
+      }}</v-tab>
 
       <v-tab href="#history">{{ $t('tabs_history') }}</v-tab>
     </v-tabs>
@@ -13,7 +15,7 @@
         <is-key-table :item="item" :fields="allFields"></is-key-table>
       </v-tab-item>
 
-      <v-tab-item class="my-4" :value="tab" v-for="tab in tabs" :key="tab">
+      <v-tab-item v-for="tab in tabs" :key="tab" class="my-4" :value="tab">
         <slot :item="item" :name="tab"></slot>
       </v-tab-item>
 
@@ -31,13 +33,13 @@
 </template>
 
 <script>
-import ItemShowActions from "./ItemShowActions"
-import History from "../History"
-import decamelize from "../../utils/decamelize"
+import ItemShowActions from './ItemShowActions'
+import History from '../History'
+import decamelize from '../../utils/decamelize'
 
 export default {
   name: 'IsShowTemplate',
-  components: {ItemShowActions, History },
+  components: { ItemShowActions, History },
   props: {
     fields: {
       type: Array,
@@ -54,11 +56,11 @@ export default {
     tabs: {
       type: Array,
       default: () => []
-    },
+    }
   },
   data() {
     return {
-      tab: null,
+      tab: null
     }
   },
   computed: {
@@ -68,19 +70,19 @@ export default {
         ...[
           {
             property: 'isActive',
-            type: 'boolean',
+            type: 'boolean'
           },
           {
             property: 'createdAt',
-            type: 'datetime',
+            type: 'datetime'
           },
           {
             property: 'updatedAt',
-            type: 'datetime',
+            type: 'datetime'
           },
           {
             property: 'updatedBy',
-            type: 'string',
+            type: 'string'
           }
         ]
       ]
@@ -93,15 +95,15 @@ export default {
     },
     item() {
       return this.$store.getters[this.storeModule + '/item']
-    },
-  },
-  created() {
-    this.getItem()
+    }
   },
   watch: {
     historyKey: function() {
       this.getItem()
-    },
+    }
+  },
+  created() {
+    this.getItem()
   },
   beforeDestroy() {
     this.reset()

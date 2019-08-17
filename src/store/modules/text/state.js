@@ -2,7 +2,7 @@ export default function() {
   return {
     item: {
       translations: [],
-      isActive: true,
+      isActive: true
     },
     items: [],
     error: null,

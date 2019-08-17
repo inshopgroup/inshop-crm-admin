@@ -1,5 +1,9 @@
 <template>
-  <is-show-template :fields="fields" entity="Backup" :history-key="historyKey" />
+  <is-show-template
+    :fields="fields"
+    entity="Backup"
+    :history-key="historyKey"
+  />
 </template>
 
 <script>
@@ -10,22 +14,22 @@ export default {
       fields: [
         {
           property: 'name',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'size',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'status',
           path: 'status.name',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'type',
           path: 'type.name',
-          type: 'string',
-        },
+          type: 'string'
+        }
       ]
     }
   }

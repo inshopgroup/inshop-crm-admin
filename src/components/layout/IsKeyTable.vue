@@ -1,9 +1,5 @@
 <template>
-  <is-table
-      :headers="headers"
-      :items="items"
-      :hide-default-footer="true"
-  >
+  <is-table :headers="headers" :items="items" :hide-default-footer="true">
     <template v-slot:item.key="{ item }">
       {{ $t(item.path.replace(/\./g, '_')) }}
     </template>
@@ -16,12 +12,12 @@ export default {
   props: {
     item: {
       type: Object,
-      required: true,
+      required: true
     },
     fields: {
       type: Array,
       required: true
-    },
+    }
   },
   data() {
     return {
@@ -29,14 +25,14 @@ export default {
         {
           text: this.$t('field'),
           value: 'key',
-          sortable: false,
+          sortable: false
         },
         {
           text: this.$t('value'),
           value: 'val',
-          sortable: false,
-        },
-      ],
+          sortable: false
+        }
+      ]
     }
   },
   computed: {
@@ -45,15 +41,18 @@ export default {
 
       this.fields.forEach(field => {
         arr.push({
-          [field.property]: field.type === 'translate' ? this.translate(this.item)[field.property] : this.item[field.property],
-          path: (field.path || field.property),
+          [field.property]:
+            field.type === 'translate'
+              ? this.translate(this.item)[field.property]
+              : this.item[field.property],
+          path: field.path || field.property,
           propertyType: field.type,
-          link: field.link,
+          link: field.link
         })
       })
 
       return arr
     }
-  },
+  }
 }
 </script>

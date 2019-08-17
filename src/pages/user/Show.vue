@@ -10,22 +10,22 @@ export default {
       fields: [
         {
           property: 'name',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'email',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'groups',
           path: 'groups',
-          type: 'collection',
+          type: 'collection'
         },
         {
           property: 'language',
           path: 'language.name',
-          type: 'string',
-        },
+          type: 'string'
+        }
       ]
     }
   }

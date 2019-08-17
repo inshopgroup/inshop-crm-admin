@@ -30,7 +30,7 @@ export default {
     ...mapActions({
       getItem: 'currency/getItem',
       update: 'currency/update',
-      reset: 'currency/reset',
+      reset: 'currency/reset'
     }),
     onSendForm() {
       this.update()

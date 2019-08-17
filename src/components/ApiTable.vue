@@ -134,7 +134,7 @@ export default {
     },
     storeModule() {
       return this.entity.charAt(0).toLowerCase() + this.entity.slice(1)
-    },
+    }
   },
   created() {
     let query = this.$route.query

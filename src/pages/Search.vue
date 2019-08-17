@@ -1,12 +1,12 @@
 <template>
   <is-main-template title="search_list">
     <api-table
-        entity="Search"
-        route="search"
-        path="search"
-        :filterable="filterable"
-        :columns="columns"
-        :templates="templates"
+      entity="Search"
+      route="search"
+      path="search"
+      :filterable="filterable"
+      :columns="columns"
+      :templates="templates"
     />
   </is-main-template>
 </template>

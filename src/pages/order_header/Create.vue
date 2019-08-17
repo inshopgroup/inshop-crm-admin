@@ -23,7 +23,7 @@ export default {
   methods: {
     ...mapActions({
       create: 'orderHeader/create',
-      reset: 'orderHeader/reset',
+      reset: 'orderHeader/reset'
     }),
     onSendForm() {
       this.create()

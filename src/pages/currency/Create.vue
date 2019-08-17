@@ -23,7 +23,7 @@ export default {
   methods: {
     ...mapActions({
       create: 'currency/create',
-      reset: 'currency/reset',
+      reset: 'currency/reset'
     }),
     onSendForm() {
       this.create()

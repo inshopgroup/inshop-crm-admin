@@ -30,7 +30,7 @@ export default {
     ...mapActions({
       getItem: 'taskStatus/getItem',
       update: 'taskStatus/update',
-      reset: 'taskStatus/reset',
+      reset: 'taskStatus/reset'
     }),
     onSendForm() {
       this.update()

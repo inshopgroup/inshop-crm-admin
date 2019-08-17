@@ -21,7 +21,7 @@ export default {
           link: {
             route: 'OrderLineStatusShow',
             param: 'status.id'
-          },
+          }
         },
         {
           text: this.$t('product'),
@@ -29,7 +29,7 @@ export default {
           link: {
             route: 'ProductShow',
             param: 'productSellPrice.product.id'
-          },
+          }
         },
         {
           text: this.$t('vat'),
@@ -38,13 +38,23 @@ export default {
           link: {
             route: 'VatShow',
             param: 'vat.id'
-          },
+          }
         },
         { text: this.$t('priceSellBrutto'), value: 'priceSellBrutto' },
-        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
-        { text: this.$t('updatedAt'), value: 'updatedAt', type: 'datetime', sortable: false },
+        {
+          text: this.$t('createdAt'),
+          value: 'createdAt',
+          type: 'datetime',
+          sortable: false
+        },
+        {
+          text: this.$t('updatedAt'),
+          value: 'updatedAt',
+          type: 'datetime',
+          sortable: false
+        }
       ]
     }
-  },
+  }
 }
 </script>

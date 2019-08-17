@@ -4,7 +4,9 @@
       <v-layout align-center justify-space-between>
         <div>
           {{ fecha.format(new Date(), 'YYYY') }},
-          <a href="https://inshopcrm.com" class="white--text" target="_blank">Inshop CRM</a>, v1.6.0
+          <a href="https://inshopcrm.com" class="white--text" target="_blank"
+            >Inshop CRM</a
+          >, v1.6.0
         </div>
         <div>
           {{ $t('powered_by') }}

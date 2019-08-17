@@ -25,7 +25,7 @@ export default {
   methods: {
     ...mapActions({
       create: 'group/create',
-      reset: 'group/reset',
+      reset: 'group/reset'
     }),
     onSendForm() {
       this.create()

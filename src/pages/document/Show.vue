@@ -1,5 +1,10 @@
 <template>
-  <is-show-template :fields="fields" entity="Document" :tabs="['files']" :history-key="historyKey">
+  <is-show-template
+    :fields="fields"
+    entity="Document"
+    :tabs="['files']"
+    :history-key="historyKey"
+  >
     <template v-slot:files="{ item }">
       <files-table :files="item.files" />
     </template>
@@ -18,22 +23,22 @@ export default {
       historyKey: 1,
       fields: [
         {
-          property: 'name',
+          property: 'name'
         },
         {
           property: 'clients',
           type: 'collection',
           link: {
             route: 'ClientShow'
-          },
+          }
         },
         {
           property: 'projects',
           type: 'collection',
           link: {
-            route: 'ProjectShow',
-          },
-        },
+            route: 'ProjectShow'
+          }
+        }
       ]
     }
   }

@@ -1,5 +1,9 @@
 <template>
-  <is-main-template title="company_list" route-add="CompanyCreate" entity="company">
+  <is-main-template
+    title="company_list"
+    route-add="CompanyCreate"
+    entity="company"
+  >
     <api-table
       entity="Company"
       route="companies"
@@ -18,7 +22,6 @@
 </template>
 
 <script>
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnContacts from './../../table/ColumnContacts'
 import columnLabels from './../../table/ColumnLabels'
@@ -29,7 +32,7 @@ import LabelsFilter from '../../components/filters/LabelsFilter'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: { LabelsFilter, ItemErrors, ApiTable },
+  components: { LabelsFilter, ApiTable },
   data: function() {
     return {
       columns: [

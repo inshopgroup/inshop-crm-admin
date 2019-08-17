@@ -23,7 +23,7 @@ export default {
   methods: {
     ...mapActions({
       create: 'paymentType/create',
-      reset: 'paymentType/reset',
+      reset: 'paymentType/reset'
     }),
     onSendForm() {
       this.create()

@@ -1,8 +1,5 @@
 <template>
-  <v-chip
-      :color="data.isActive ? 'green' : 'red'"
-      text-color="white"
-  >
+  <v-chip :color="data.isActive ? 'green' : 'red'" text-color="white">
     {{ data.isActive ? $t('yes') : $t('no') }}
   </v-chip>
 </template>

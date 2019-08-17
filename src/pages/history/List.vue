@@ -13,13 +13,12 @@
 </template>
 
 <script>
-import ItemListErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnLoggedAt from './../../table/ColumnLoggedAt'
 import columnData from './../../table/ColumnData'
 
 export default {
-  components: { ItemListErrors, ApiTable },
+  components: { ApiTable },
   data: function() {
     return {
       columns: [

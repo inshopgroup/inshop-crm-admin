@@ -1,5 +1,9 @@
 <template>
-  <is-main-template title="payment_type_list" route-add="PaymentTypeCreate" entity="paymentType">
+  <is-main-template
+    title="payment_type_list"
+    route-add="PaymentTypeCreate"
+    entity="paymentType"
+  >
     <api-table
       entity="PaymentType"
       route="payment_types"
@@ -13,14 +17,13 @@
 </template>
 
 <script>
-import ItemErrors from '../../components/layout/errors/ItemErrors'
 import ApiTable from '../../components/ApiTable'
 import columnCreatedAt from './../../table/ColumnCreatedAt'
 import columnUpdatedAt from './../../table/ColumnUpdatedAt'
 import columnIsActive from './../../table/ColumnIsActive'
 
 export default {
-  components: { ItemErrors, ApiTable },
+  components: { ApiTable },
   data: function() {
     return {
       columns: [

@@ -3,7 +3,7 @@ export default function() {
     item: {
       roles: [],
       roleIRIs: [],
-      isActive: true,
+      isActive: true
     },
     items: [],
     error: null,

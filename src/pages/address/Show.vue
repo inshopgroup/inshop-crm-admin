@@ -1,5 +1,9 @@
 <template>
-  <is-show-template :fields="fields" entity="Address" :history-key="historyKey" />
+  <is-show-template
+    :fields="fields"
+    entity="Address"
+    :history-key="historyKey"
+  />
 </template>
 
 <script>
@@ -13,17 +17,17 @@ export default {
           type: 'collection',
           link: {
             route: 'ClientShow'
-          },
+          }
         },
         {
           property: 'companies',
           type: 'collection',
           link: {
             route: 'CompanyShow'
-          },
+          }
         },
         {
-          property: 'postCode',
+          property: 'postCode'
         },
         {
           property: 'country',
@@ -31,7 +35,7 @@ export default {
           link: {
             route: 'CountryShow',
             param: 'country.id'
-          },
+          }
         },
         {
           property: 'city',
@@ -39,26 +43,26 @@ export default {
           link: {
             route: 'CityShow',
             param: 'city.id'
-          },
+          }
         },
         {
-          property: 'region',
+          property: 'region'
         },
         {
-          property: 'district',
+          property: 'district'
         },
         {
-          property: 'street',
+          property: 'street'
         },
         {
-          property: 'building',
+          property: 'building'
         },
         {
-          property: 'apartment',
+          property: 'apartment'
         },
         {
-          property: 'comment',
-        },
+          property: 'comment'
+        }
       ]
     }
   }

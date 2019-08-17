@@ -16,7 +16,7 @@ export default {
     entity: {
       type: String,
       required: true
-    },
+    }
   },
   data() {
     return {
@@ -24,29 +24,29 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
-          type: 'string',
+          type: 'string'
         },
         {
           text: this.$t('action'),
           value: 'action',
-          type: 'string',
+          type: 'string'
         },
         {
           text: this.$t('username'),
           value: 'username',
-          type: 'string',
+          type: 'string'
         },
         {
           text: this.$t('logged_at'),
           value: 'loggedAt',
-          type: 'datetime',
+          type: 'datetime'
         },
         {
           text: this.$t('changes'),
           value: 'changes',
-          type: 'list',
-        },
-      ],
+          type: 'list'
+        }
+      ]
     }
   },
   computed: {

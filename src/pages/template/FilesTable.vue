@@ -35,7 +35,12 @@ export default {
         { text: this.$t('originalName'), value: 'originalName' },
         { text: this.$t('size'), value: 'size' },
         { text: this.$t('mimeType'), value: 'mimeType' },
-        { text: this.$t('createdAt'), value: 'createdAt', type: 'datetime', sortable: false },
+        {
+          text: this.$t('createdAt'),
+          value: 'createdAt',
+          type: 'datetime',
+          sortable: false
+        },
         { text: '', value: 'actions', sortable: false }
       ]
     }

@@ -1,56 +1,66 @@
 <template>
   <form @submit.prevent="handleSubmit">
     <v-tabs v-model="tab" background-color="transparent">
-      <v-tab :href="'#tab-' + language.id" v-for="language in languages" :key="language.id">{{ $t(language.name) }}</v-tab>
+      <v-tab
+        v-for="language in languages"
+        :key="language.id"
+        :href="'#tab-' + language.id"
+        >{{ $t(language.name) }}</v-tab
+      >
     </v-tabs>
 
     <v-tabs-items v-model="tab">
-      <v-tab-item class="my-4" v-for="language in languages" :value="'tab-' + language.id" :key="language.id">
+      <v-tab-item
+        v-for="language in languages"
+        :key="language.id"
+        class="my-4"
+        :value="'tab-' + language.id"
+      >
         <form-input
-            :item="findItem(language)"
-            :errors="errors"
-            property="name"
-            label="name"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="name"
+          label="name"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
         <form-textarea
-            :item="findItem(language)"
-            :errors="errors"
-            property="description"
-            label="description"
-            @formUpdated="
-                (property, value) =>
-                  updateTranslatedValue(property, value, language)
-              "
+          :item="findItem(language)"
+          :errors="errors"
+          property="description"
+          label="description"
+          @formUpdated="
+            (property, value) =>
+              updateTranslatedValue(property, value, language)
+          "
         />
       </v-tab-item>
     </v-tabs-items>
 
     <div>
       <form-select
-          :item="item"
-          :errors="errors"
-          property="parent"
-          option-store="category"
-          label="parent_name"
-          @formUpdated="updateValue"
+        :item="item"
+        :errors="errors"
+        property="parent"
+        option-store="category"
+        label="parent_name"
+        @formUpdated="updateValue"
       />
       <form-number
-          :item="item"
-          :errors="errors"
-          property="position"
-          label="position"
-          @formUpdated="updateValue"
+        :item="item"
+        :errors="errors"
+        property="position"
+        label="position"
+        @formUpdated="updateValue"
       />
       <form-checkbox
-          :item="item"
-          :errors="errors"
-          property="isActive"
-          label="isActive"
-          @formUpdated="updateValue"
+        :item="item"
+        :errors="errors"
+        property="isActive"
+        label="isActive"
+        @formUpdated="updateValue"
       />
     </div>
 
@@ -78,7 +88,7 @@ export default {
   },
   data() {
     return {
-      tab: null,
+      tab: null
     }
   },
   computed: {

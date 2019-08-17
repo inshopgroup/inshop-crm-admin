@@ -1,5 +1,10 @@
 <template>
-  <is-show-template :fields="fields" entity="Company" :tabs="['contacts', 'addresses']" :history-key="historyKey">
+  <is-show-template
+    :fields="fields"
+    entity="Company"
+    :tabs="['contacts', 'addresses']"
+    :history-key="historyKey"
+  >
     <template v-slot:contacts="{ item }">
       <client-contacts
         :contacts="item.contacts"
@@ -25,7 +30,7 @@ import ClientAddresses from '../client/ClientAddresses'
 export default {
   components: {
     ClientAddresses,
-    ClientContacts,
+    ClientContacts
   },
   data() {
     return {
@@ -33,52 +38,52 @@ export default {
       fields: [
         {
           property: 'name',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'fullName',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'description',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'contactPerson',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'description',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'bankName',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'bankAccountNumber',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'krs',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'nip',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'isVat',
-          type: 'boolean',
+          type: 'boolean'
         },
         {
           property: 'labels',
-          type: 'collection',
+          type: 'collection'
         },
         {
           property: 'vatComment',
-          type: 'string',
-        },
+          type: 'string'
+        }
       ]
     }
   },

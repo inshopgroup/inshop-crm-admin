@@ -1,10 +1,10 @@
 <template>
   <v-overlay :value="isLoading">
     <v-progress-circular
+      v-if="isLoading"
       :size="50"
       color="primary"
       indeterminate
-      v-if="isLoading"
     ></v-progress-circular>
   </v-overlay>
 </template>

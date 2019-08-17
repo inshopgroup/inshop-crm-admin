@@ -19,16 +19,10 @@
         </v-card-text>
         <v-card-actions>
           <v-layout justify-space-between>
-            <v-btn
-                color="primary"
-                @click="onSendForm"
-            >
+            <v-btn color="primary" @click="onSendForm">
               {{ $t('save') }}
             </v-btn>
-            <v-btn
-                color="error"
-                @click="dialogClose"
-            >
+            <v-btn color="error" @click="dialogClose">
               {{ $t('close') }}
             </v-btn>
           </v-layout>
@@ -61,11 +55,11 @@ export default {
     dialog: {
       type: Boolean,
       default: false
-    },
+    }
   },
   methods: {
     ...mapActions({
-      reset: 'address/reset',
+      reset: 'address/reset'
     }),
     onSendForm() {
       this.callback()
@@ -83,7 +77,7 @@ export default {
     dialogClose() {
       this.$emit('dialog-close')
       this.reset()
-    },
+    }
   }
 }
 </script>

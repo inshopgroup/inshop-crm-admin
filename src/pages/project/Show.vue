@@ -1,5 +1,9 @@
 <template>
-  <is-show-template :fields="fields" entity="Project" :history-key="historyKey" />
+  <is-show-template
+    :fields="fields"
+    entity="Project"
+    :history-key="historyKey"
+  />
 </template>
 
 <script>
@@ -10,19 +14,19 @@ export default {
       fields: [
         {
           property: 'name',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'description',
-          type: 'string',
+          type: 'string'
         },
         {
           property: 'type',
-          path: 'type.name',
+          path: 'type.name'
         },
         {
           property: 'status',
-          path: 'status.name',
+          path: 'status.name'
         },
         {
           property: 'client',
@@ -30,8 +34,8 @@ export default {
           link: {
             route: 'ClientShow',
             param: 'client.id'
-          },
-        },
+          }
+        }
       ]
     }
   }
