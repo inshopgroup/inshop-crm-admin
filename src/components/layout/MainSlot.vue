@@ -6,7 +6,7 @@
       app
       dark
       hide-overlay
-      src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png"
+      :src="bg"
     >
       <v-list dense>
         <template v-for="item in items">
@@ -56,9 +56,9 @@
     <v-app-bar 
       :clipped-left="$vuetify.breakpoint.lgAndUp" 
       app 
-      color="primary" 
-      dark 
-      src="http://blog.harrix.org/wp-content/uploads/2017/02/thumbnail216-1024x450.png"
+      color="primary"
+      dark
+      :src="bg"
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -119,6 +119,7 @@ export default {
   components: { ModalNotDoneTasks },
   data() {
     return {
+      bg: require('../../assets/bg.png'),
       activeRoute: null,
       fecha,
       active: true,

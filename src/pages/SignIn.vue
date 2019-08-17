@@ -60,7 +60,7 @@
       </v-container>
     </v-content>
 
-    <is-footer></is-footer>
+    <is-footer :app="true"></is-footer>
   </v-app>
 </template>
 
