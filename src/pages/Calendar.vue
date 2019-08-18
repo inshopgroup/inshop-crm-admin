@@ -143,9 +143,6 @@ export default {
     selectedElement: null,
     selectedOpen: false
   }),
-  created() {
-    this.load(moment().format('M/Y'))
-  },
   computed: {
     ...mapGetters({
       tasks: 'task/items'
@@ -184,6 +181,9 @@ export default {
         month: 'long'
       })
     }
+  },
+  created() {
+    this.load(moment().format('M/Y'))
   },
   methods: {
     ...mapActions({

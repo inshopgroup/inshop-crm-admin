@@ -6,11 +6,12 @@
     :items-per-page="itemsPerPage"
   >
     <template
-      v-for="header in headers"
+      v-for="(header, h) in headers"
       v-slot:[name(header)]="{ item, header }"
     >
       <template v-if="type(item, header) === 'boolean'">
         <v-chip
+          :key="h"
           :color="value(item, header) ? 'green' : 'red'"
           text-color="white"
         >
@@ -46,7 +47,7 @@
       </template>
 
       <template v-else-if="type(item, header) === 'list'">
-        <ul class="my-2">
+        <ul :key="h" class="my-2">
           <li v-for="(val, key) in item.data" :key="key">
             <b>{{ $t(key) }}:</b> {{ val }}
           </li>

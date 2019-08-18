@@ -13,9 +13,12 @@
           <v-list-group
             v-if="isGrantedItem(item)"
             :key="item.label"
-            v-model="item.model"
             ref="listGroup"
-            :class="[ groupClass(item), { 'v-list-group--active primary--text': isActive(item.route) }]"
+            v-model="item.model"
+            :class="[
+              groupClass(item),
+              { 'v-list-group--active primary--text': isActive(item.route) }
+            ]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -23,13 +26,15 @@
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title :class="{ 'primary--text': isActive(item.route) }">
+                  <v-list-item-title
+                    :class="{ 'primary--text': isActive(item.route) }"
+                  >
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </template>
-            
+
             <template v-for="(child, i) in item.children">
               <v-list-item
                 v-if="isGrantedItem(child)"
@@ -37,12 +42,17 @@
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon right :class="{ 'primary--text': isActive(child.route) }">
+                  <v-icon
+                    right
+                    :class="{ 'primary--text': isActive(child.route) }"
+                  >
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title :class="{ 'primary--text': isActive(child.route) }">
+                  <v-list-item-title
+                    :class="{ 'primary--text': isActive(child.route) }"
+                  >
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -53,9 +63,9 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar 
-      :clipped-left="$vuetify.breakpoint.lgAndUp" 
-      app 
+    <v-app-bar
+      :clipped-left="$vuetify.breakpoint.lgAndUp"
+      app
       color="primary"
       dark
       :src="bg"
@@ -84,7 +94,7 @@
       </v-layout>
 
       <v-spacer></v-spacer>
-      
+
       <span class="mx-2">{{ username }}</span>
       <v-btn icon @click="signOut">
         <v-icon>mdi-power</v-icon>
@@ -430,7 +440,9 @@ export default {
 
     this.$refs.listGroup.forEach(i => {
       if (i.$el.classList.contains('v-list-group--active')) {
-        i.$el.getElementsByClassName('v-list-group__header')[0].classList.add('v-list-item--active')
+        i.$el
+          .getElementsByClassName('v-list-group__header')[0]
+          .classList.add('v-list-item--active')
 
         found = true
       }
@@ -451,7 +463,9 @@ export default {
       }
     },
     groupClass(item) {
-      return item.children ? item.children.map(i => this.routeName(i.route)) : ''
+      return item.children
+        ? item.children.map(i => this.routeName(i.route))
+        : ''
     },
     routeName(route) {
       return route.replace(/(List|Show|Create|Update)/, '')
@@ -503,7 +517,7 @@ export default {
           this.dialog = true
         }
       })
-    },
+    }
   }
 }
 </script>

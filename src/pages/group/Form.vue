@@ -18,7 +18,15 @@
       />
 
       <v-layout row>
-        <v-flex v-for="module in modules" :key="module.id" lg2 md3 sm4 xs12 pa-1>
+        <v-flex
+          v-for="module in modules"
+          :key="module.id"
+          lg2
+          md3
+          sm4
+          xs12
+          pa-1
+        >
           <v-card outlined>
             <v-toolbar color="primary" dark dense>
               <v-toolbar-title>
@@ -43,7 +51,12 @@
               <v-btn text x-small color="grey darken-1" @click="select(module)">
                 {{ $t('select') }}
               </v-btn>
-              <v-btn text x-small color="grey darken-1" @click="deselect(module)">
+              <v-btn
+                text
+                x-small
+                color="grey darken-1"
+                @click="deselect(module)"
+              >
                 {{ $t('deselect') }}
               </v-btn>
             </v-card-actions>
@@ -116,7 +129,7 @@ export default {
     },
     deselect(module) {
       this.batchChange(module, false)
-    },
+    }
   }
 }
 </script>
