@@ -1,10 +1,23 @@
 <template>
   <v-layout wrap>
     <v-flex xs12 mb-4>
-      <v-btn class="mx-1" color="success" large @click="create($event.target)">
-        {{ $t('address_add') }}
-      </v-btn>
+      <v-dialog v-model="dialog" width="800">
+        <template v-slot:activator="{ on }">
+          <v-btn class="mx-1" color="success" large @click="create($event.target)">
+            {{ $t('address_add') }}
+          </v-btn>
+        </template>
+
+        <modal-address-form
+          :callback="callback"
+          :title="title"
+          :item="item"
+          @dialog-close="dialog = false"
+          @addressesChanged="$emit('changed')"
+        />
+      </v-dialog>
     </v-flex>
+
     <v-flex xs12>
       <is-table :headers="headers" :items="addresses">
         <template v-slot:item.actions="{ item }">
@@ -22,15 +35,6 @@
         </template>
       </is-table>
     </v-flex>
-
-    <modal-address-form
-      :callback="callback"
-      :title="title"
-      :item="item"
-      :dialog="dialog"
-      @dialog-close="dialog = false"
-      @addressesChanged="$emit('changed')"
-    />
   </v-layout>
 </template>
 
