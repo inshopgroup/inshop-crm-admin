@@ -60,16 +60,20 @@ export default {
             this.$t('address_saved', { address: item.value }),
             this.$t('saved')
           )
-          this.$emit('addressesChanged', item)
+          this.$emit('addresses-changed', item)
 
           this.dialogClose()
+          this.resetForm()
         })
         .catch()
     },
     dialogClose() {
       this.$emit('dialog-close')
+    },
+    resetForm() {
       this.reset()
-    }
+      this.$emit('reset-form')
+    },
   }
 }
 </script>

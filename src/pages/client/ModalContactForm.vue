@@ -60,16 +60,20 @@ export default {
             this.$t('contact_saved', { contact: item.value }),
             this.$t('saved')
           )
-          this.$emit('contactsChanged', item)
+          this.$emit('contacts-changed', item)
 
           this.dialogClose()
+          this.resetForm()
         })
         .catch()
     },
     dialogClose() {
       this.$emit('dialog-close')
+    },
+    resetForm() {
       this.reset()
-    }
+      this.$emit('reset-form')
+    },
   }
 }
 </script>

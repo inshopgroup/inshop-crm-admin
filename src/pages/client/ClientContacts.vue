@@ -3,17 +3,24 @@
     <v-flex xs12 mb-4>
       <v-dialog v-model="dialog" width="600">
         <template v-slot:activator="{ on }">
-          <v-btn class="mx-1" color="success" large @click="create($event.target)">
+          <v-btn
+            class="mx-1"
+            color="success"
+            large
+            @click="create($event.target)"
+          >
             {{ $t('contact_add') }}
           </v-btn>
         </template>
 
         <modal-contact-form
+          :key="key"
           :callback="callback"
           :title="title"
           :item="item"
-          @dialog-close="dialog = false"
-          @contactsChanged="$emit('changed')"
+          @dialog-close="onCloseDialog"
+          @reset-form="resetForm"
+          @contacts-changed="$emit('changed')"
         />
       </v-dialog>
     </v-flex>
@@ -69,7 +76,8 @@ export default {
           type: 'object'
         },
         { text: '', value: 'actions', sortable: false }
-      ]
+      ],
+      key: 1,
     }
   },
   methods: {
@@ -110,7 +118,13 @@ export default {
       this.callback = this.updateItem
 
       this.dialog = true
-    }
+    },
+    onCloseDialog() {
+      this.dialog = false
+    },
+    resetForm() {
+      this.key++
+    },
   }
 }
 </script>

@@ -9,11 +9,13 @@
         </template>
 
         <modal-address-form
+          :key="key"
           :callback="callback"
           :title="title"
           :item="item"
-          @dialog-close="dialog = false"
-          @addressesChanged="$emit('changed')"
+          @dialog-close="onCloseDialog"
+          @reset-form="resetForm"
+          @addresses-changed="$emit('changed')"
         />
       </v-dialog>
     </v-flex>
@@ -76,7 +78,8 @@ export default {
         { text: this.$t('apartment'), value: 'apartment' },
         { text: this.$t('comment'), value: 'comment' },
         { text: '', value: 'actions', sortable: false }
-      ]
+      ],
+      key: 1,
     }
   },
   methods: {
@@ -118,7 +121,13 @@ export default {
       this.callback = this.updateItem
 
       this.dialog = true
-    }
+    },
+    onCloseDialog() {
+      this.dialog = false
+    },
+    resetForm() {
+      this.key++
+    },
   }
 }
 </script>
