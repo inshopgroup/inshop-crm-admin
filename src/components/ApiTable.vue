@@ -32,6 +32,7 @@
         <slot :name="'filter__' + customFilter" />
       </div>
     </v-server-table>
+
   </div>
 </template>
 
@@ -300,8 +301,6 @@ export default {
 }
 table {
   background-color: transparent;
-}
-table {
   border-collapse: collapse;
   border-spacing: 0;
 }
@@ -331,12 +330,6 @@ table {
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9;
 }
-*,
-:after,
-:before {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
 
 .table-bordered,
 .table-bordered > tbody > tr > td,
@@ -365,6 +358,10 @@ table {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
+}
+
+.table > tbody > tr {
+  color: rgba(0,0,0,.87);
 }
 
 .pagination {
@@ -400,10 +397,15 @@ table {
   padding: 6px 12px;
   margin-left: -1px;
   line-height: 1.42857143;
-  color: #337ab7;
+  color: rgba(0,0,0,.87);
   text-decoration: none;
   background-color: #fff;
   border: 1px solid #ddd;
+}
+
+.VuePagination__pagination-item .active {
+  background-color: #0c5c6f;
+  color: #fff;
 }
 
 .form-control {
