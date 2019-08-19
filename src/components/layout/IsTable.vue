@@ -31,9 +31,9 @@
                 name: routeName(item, header),
                 params: { id: pick(routeParam(item, header), obj) }
               }"
-              rounded
               color="primary"
-              small
+              x-small
+              text
             >
               {{ pick(collectionPath(item, header), obj) }}
             </v-btn>
@@ -58,13 +58,13 @@
         <template v-if="item.link || header.link">
           <v-btn
             v-if="value(item, header)"
+            :key="h"
             :to="{
               name: routeName(item, header),
               params: { id: pick(routeParam(item, header), item) }
             }"
-            rounded
             color="primary"
-            small
+            x-small
             text
           >
             {{ value(item, header) }}
