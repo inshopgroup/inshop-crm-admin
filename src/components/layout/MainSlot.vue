@@ -17,7 +17,7 @@
             v-model="item.model"
             :class="[
               groupClass(item),
-              { 'v-list-group--active primary--text': isActive(item.route) }
+              { 'v-list-group--active': isActive(item.route) }
             ]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
@@ -27,7 +27,7 @@
               <v-list-item>
                 <v-list-item-content>
                   <v-list-item-title
-                    :class="{ 'primary--text': isActive(item.route) }"
+                    :class="isActive(item.route)"
                   >
                     {{ $t(item.label) }}
                   </v-list-item-title>
@@ -40,18 +40,19 @@
                 v-if="isGrantedItem(child)"
                 :key="i"
                 @click="listItemClick(child)"
+                :class="{ 'active-item': isActive(child.route) }"
               >
                 <v-list-item-action v-if="child.icon">
                   <v-icon
                     right
-                    :class="{ 'primary--text': isActive(child.route) }"
+                    :class="isActive(child.route)"
                   >
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
                   <v-list-item-title
-                    :class="{ 'primary--text': isActive(child.route) }"
+                    :class="isActive(child.route)"
                   >
                     {{ $t(child.label) }}
                   </v-list-item-title>
@@ -111,11 +112,11 @@
 
     <is-footer></is-footer>
 
-    <modal-not-done-tasks
+    <!-- <modal-not-done-tasks
       :tasks="tasks"
       :dialog="dialog"
       @dialog-close="dialog = false"
-    ></modal-not-done-tasks>
+    ></modal-not-done-tasks> -->
   </v-app>
 </template>
 
@@ -132,7 +133,6 @@ export default {
       bg: require('../../assets/bg.png'),
       activeRoute: null,
       fecha,
-      active: true,
       q: null,
       tasks: [],
       dialog: false,
@@ -522,11 +522,35 @@ export default {
 }
 </script>
 
-<style>
-.v-navigation-drawer .v-list-group--active > .v-list-group__items {
-  background: #142430;
+<style lang="scss">
+.v-navigation-drawer {
+  .v-list {
+    &-group--active {
+      .v-list-group__items {
+        background: #142430;
+      }
+      .v-list-group__header {
+        background: #142430;
+      }
+    }
+    .theme--dark {
+      .v-icon {
+        color: #fff !important;
+      }
+    }
+  }
 }
-.v-navigation-drawer .v-list-group--active > .v-list-group__header {
-  background: #142430;
+.active-item {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .3 !important;
+    background-color: #fafafa !important;
+  }
 }
 </style>
