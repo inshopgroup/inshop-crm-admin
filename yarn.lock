@@ -9262,10 +9262,10 @@ vue@>=2.0.0, vue@^2.5.0, vue@^2.5.2, vue@^2.5.22, vue@^2.6.10:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
   integrity sha512-ImThpeNU9HbdZL3utgMCq0oiMzAkt1mcgy3/E6zWC/G6AaQoeuFdsl9nDhTDU3X1R6FK7nsIUuRACVcjI+A2GQ==
 
-vuetify@^2.0.4:
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.0.4.tgz#0f751ba1d257212de16e30f3e1e9c4b8a8a93353"
-  integrity sha512-StXzJUph//ZJ1UTQNoJBmjAcC71Goeeg5Ag392z85dyertihy/3BIzPPxMqFTOJuDzst6oGQ3uQCfkIIqJvtfA==
+vuetify@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-2.0.7.tgz#a5985aca904c147e2febe4ca14e9c7ed26c4f011"
+  integrity sha512-dnW6VowHOXaq6cxYjn6RXcTWVCJnWh3ajh4e4pP84grb4Smebka6yUQSG8rSalPyFzkPeNGuXrXWVsbTAIqv7w==
 
 vuex@^2.0.0:
   version "2.5.0"
