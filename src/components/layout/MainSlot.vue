@@ -428,6 +428,22 @@ export default {
       return this.$store.getters['auth/jwtDecoded'].name
     }
   },
+  watch: {
+    '$route'(to, from) {
+      this.$refs.listGroup.forEach(i => {
+        if (
+          i.$el.querySelector('.v-list-group__items') !== null &&
+          i.$el.classList.contains('v-list-group--active') &&
+          i.$el.classList.contains(this.routeName(from.name)) &&
+          !i.$el.classList.contains(this.routeName(to.name))
+        ) {
+          i.click()
+        }
+      })
+
+      this.activeRoute = this.routeName(to.name)
+    }
+  },
   created() {
     this.activeRoute = this.routeName(this.$route.name)
   },
@@ -436,27 +452,30 @@ export default {
       this.getTasks()
     }
 
-    let found = false
-
-    this.$refs.listGroup.forEach(i => {
-      if (i.$el.classList.contains('v-list-group--active')) {
-        i.$el
-          .getElementsByClassName('v-list-group__header')[0]
-          .classList.add('v-list-item--active')
-
-        found = true
-      }
-    })
-
-    if (!found) {
-      this.$refs.listGroup.forEach(i => {
-        if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
-          i.click()
-        }
-      })
-    }
+    this.initActiveMenuItem()
   },
   methods: {
+    initActiveMenuItem() {
+      let found = false
+
+      this.$refs.listGroup.forEach(i => {
+        if (i.$el.classList.contains('v-list-group--active')) {
+          i.$el
+            .getElementsByClassName('v-list-group__header')[0]
+            .classList.add('v-list-item--active')
+
+          found = true
+        }
+      })
+
+      if (!found) {
+        this.$refs.listGroup.forEach(i => {
+          if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
+            i.click()
+          }
+        })
+      }
+    },
     isActive(route) {
       if (route) {
         return this.routeName(route) === this.activeRoute
@@ -468,7 +487,7 @@ export default {
         : ''
     },
     routeName(route) {
-      return route.replace(/(List|Show|Create|Update)/, '')
+      return route ? route.replace(/(List|Show|Create|Update)/, '') : ''
     },
     prependIcon(item) {
       if (item.icon) {
@@ -485,7 +504,6 @@ export default {
     listItemClick(item) {
       if (item.route) {
         this.$router.push({ name: item.route })
-        this.activeRoute = this.routeName(item.route)
       }
     },
     isGrantedItem(item) {
