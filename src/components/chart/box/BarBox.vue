@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto">
-    <v-card-title>{{ title }}</v-card-title>
+    <v-card-title class="d-flex justify-center">{{ title }}</v-card-title>
     <v-card-text>
       <bar-chart
         :height="200"
