@@ -9,7 +9,7 @@
         :options="options"
       />
     </v-card-text>
-    <v-card-actions>
+    <!-- <v-card-actions>
       <v-layout align-start justify-start column fill-height>
         <v-flex v-for="(item, key) in labels" :key="item.id">
           <v-layout align-center>
@@ -21,7 +21,7 @@
           </v-layout>
         </v-flex>
       </v-layout>
-    </v-card-actions>
+    </v-card-actions> -->
   </v-card>
 </template>
 

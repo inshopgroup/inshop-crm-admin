@@ -1,12 +1,17 @@
 <template>
-  <v-container fluid row>
-    <v-layout row>
-      <v-flex md4 sm12>
-        <v-btn class="mx-1" type="submit" large color="success">{{
-          $t('submit')
-        }}</v-btn>
-      </v-flex>
-      <v-flex md4 sm12 text-center>
+  <v-container fluid>
+    <v-row justify="space-between">
+      <v-col cols="auto">
+        <v-btn 
+          class="mx-1" 
+          type="submit" 
+          large 
+          color="success"
+        >
+          {{ $t('submit')}}
+        </v-btn>
+      </v-col>
+      <v-col cols="auto">
         <v-btn
           v-if="btnBackToList && isGranted(role_list)"
           class="mx-1"
@@ -25,8 +30,8 @@
         >
           {{ $t('show') }}
         </v-btn>
-      </v-flex>
-      <v-flex md4 sm12 text-right>
+      </v-col>
+      <v-col cols="auto">
         <v-btn
           v-if="item.id && isGranted(role_delete)"
           class="mx-1"
@@ -36,8 +41,9 @@
         >
           {{ $t('delete') }}
         </v-btn>
-      </v-flex>
-    </v-layout>
+      </v-col>
+
+    </v-row>
   </v-container>
 </template>
 

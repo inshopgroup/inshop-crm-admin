@@ -1,7 +1,7 @@
 <template>
-  <v-container fluid row>
-    <v-layout>
-      <v-flex md4 sm12>
+  <v-container fluid>
+    <v-row justify="space-between">
+      <v-col cols="auto">
         <v-btn
           v-if="btnEdit && isGranted(role_update)"
           class="mx-1"
@@ -11,8 +11,9 @@
         >
           {{ $t('edit') }}
         </v-btn>
-      </v-flex>
-      <v-flex md4 sm12 text-center>
+      </v-col>
+
+      <v-col cols="auto">
         <v-btn
           v-if="btnBackToList && isGranted(role_list)"
           class="mx-1"
@@ -22,8 +23,9 @@
         >
           {{ $t('back_to_list') }}
         </v-btn>
-      </v-flex>
-      <v-flex md4 sm12 text-right>
+      </v-col>
+     
+      <v-col cols="auto">
         <v-btn
           v-if="btnDelete && isGranted(role_delete)"
           class="mx-1"
@@ -33,8 +35,8 @@
         >
           {{ $t('delete') }}
         </v-btn>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

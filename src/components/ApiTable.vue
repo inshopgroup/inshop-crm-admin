@@ -1,39 +1,32 @@
 <template>
-  <div>
-    <v-server-table :columns="columns" :options="options()">
-      <template slot="actions" slot-scope="props">
-        <v-container>
-          <v-layout justify-end>
-            <v-btn
-              v-if="isGranted(role_show)"
-              text
-              x-small
-              :to="{ name: showRoute, params: { id: props.row.id } }"
-            >
-              <v-icon color="primary">remove_red_eye</v-icon>
-            </v-btn>
-            <v-btn
-              v-if="isGranted(role_show) && isGranted(role_edit)"
-              text
-              x-small
-              :to="{ name: updateRoute, params: { id: props.row.id } }"
-            >
-              <v-icon color="primary">edit</v-icon>
-            </v-btn>
-          </v-layout>
-        </v-container>
-      </template>
-
-      <div
-        v-for="customFilter in customFilters"
-        :key="customFilter"
-        :slot="'filter__' + customFilter"
+  <v-server-table :columns="columns" :options="options()">
+    <template slot="actions" slot-scope="props">
+      <v-btn
+        v-if="isGranted(role_show)"
+        text
+        x-small
+        :to="{ name: showRoute, params: { id: props.row.id } }"
       >
-        <slot :name="'filter__' + customFilter" />
-      </div>
-    </v-server-table>
+        <v-icon color="primary">remove_red_eye</v-icon>
+      </v-btn>
+      <v-btn
+        v-if="isGranted(role_show) && isGranted(role_edit)"
+        text
+        x-small
+        :to="{ name: updateRoute, params: { id: props.row.id } }"
+      >
+        <v-icon color="primary">edit</v-icon>
+      </v-btn>
+    </template>
 
-  </div>
+    <div
+      v-for="customFilter in customFilters"
+      :key="customFilter"
+      :slot="'filter__' + customFilter"
+    >
+      <slot :name="'filter__' + customFilter" />
+    </div>
+  </v-server-table>
 </template>
 
 <script>
