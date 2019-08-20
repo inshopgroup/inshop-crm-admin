@@ -17,7 +17,8 @@
             v-model="item.model"
             :class="[
               groupClass(item),
-              { 'v-list-group--active': isActive(item.route) }
+              { 'v-list-group--active': isActive(item.route) },
+              { 'has-child': item.children },
             ]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
@@ -26,9 +27,7 @@
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="isActive(item.route)"
-                  >
+                  <v-list-item-title>
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -43,17 +42,12 @@
                 :class="{ 'active-item': isActive(child.route) }"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon
-                    right
-                    :class="isActive(child.route)"
-                  >
+                  <v-icon right>
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="isActive(child.route)"
-                  >
+                  <v-list-item-title>
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -432,10 +426,21 @@ export default {
     '$route'(to, from) {
       this.$refs.listGroup.forEach(i => {
         if (
-          i.$el.querySelector('.v-list-group__items') !== null &&
           i.$el.classList.contains('v-list-group--active') &&
           i.$el.classList.contains(this.routeName(from.name)) &&
           !i.$el.classList.contains(this.routeName(to.name))
+        ) {
+          if (i.$el.classList.contains('has-child')) {
+            i.click()
+          } else {
+            this.$nextTick(() => i.$el.classList.remove('v-list-group--active'))
+          }
+        }
+
+        if (
+          i.$el.classList.contains('has-child') &&
+          i.$el.classList.contains(this.routeName(to.name)) &&
+          !i.$el.classList.contains('v-list-group--active')
         ) {
           i.click()
         }
@@ -456,25 +461,11 @@ export default {
   },
   methods: {
     initActiveMenuItem() {
-      let found = false
-
       this.$refs.listGroup.forEach(i => {
-        if (i.$el.classList.contains('v-list-group--active')) {
-          i.$el
-            .getElementsByClassName('v-list-group__header')[0]
-            .classList.add('v-list-item--active')
-
-          found = true
+        if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
+          i.click()
         }
       })
-
-      if (!found) {
-        this.$refs.listGroup.forEach(i => {
-          if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
-            i.click()
-          }
-        })
-      }
     },
     isActive(route) {
       if (route) {
@@ -484,7 +475,7 @@ export default {
     groupClass(item) {
       return item.children
         ? item.children.map(i => this.routeName(i.route))
-        : ''
+        : this.routeName(item.route)
     },
     routeName(route) {
       return route ? route.replace(/(List|Show|Create|Update)/, '') : ''
