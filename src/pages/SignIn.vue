@@ -2,10 +2,10 @@
   <v-app id="inspire">
     <v-content>
       <v-container fluid fill-height>
-        <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4 lg3>
-            <v-layout column>
-              <v-flex text-center pb-3>
+        <v-row align="center" justify="center">
+          <v-col xs="12" sm="8" md="4" lg="3">
+            <v-row class="flex-column">
+              <v-col class="text-center">
                 <a href="https://inshopcrm.com" target="_blank">
                   <img
                     src="../assets/logo.png"
@@ -13,9 +13,9 @@
                     style="width: 40%;"
                   />
                 </a>
-              </v-flex>
+              </v-col>
 
-              <v-flex>
+              <v-col>
                 <v-card class="elevation-12">
                   <v-form @submit.prevent="signIn">
                     <v-toolbar color="primary" dark flat>
@@ -53,10 +53,10 @@
                     </v-card-actions>
                   </v-form>
                 </v-card>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
       </v-container>
     </v-content>
 
