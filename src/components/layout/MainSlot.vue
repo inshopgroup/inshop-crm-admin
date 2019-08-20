@@ -462,7 +462,10 @@ export default {
   methods: {
     initActiveMenuItem() {
       this.$refs.listGroup.forEach(i => {
-        if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
+        if (
+          i.$el.classList.contains('has-child') &&
+          i.$el.classList.contains(this.routeName(this.activeRoute))
+        ) {
           i.click()
         }
       })
