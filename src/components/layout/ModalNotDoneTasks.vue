@@ -1,27 +1,29 @@
 <template>
-  <v-layout justify-center>
-    <v-dialog :value="dialog" max-width="1200">
-      <v-card>
-        <v-card-title class="headline">
-          {{ $t('notification_deadline') }}
-          <v-spacer></v-spacer>
-          <v-icon class="mr-2" @click="dialogClose">
-            close
-          </v-icon>
-        </v-card-title>
+  <v-container fluid>
+    <v-row justify="center">
+      <v-dialog :value="dialog" max-width="1200">
+        <v-card>
+          <v-card-title class="headline">
+            {{ $t('notification_deadline') }}
+            <v-spacer></v-spacer>
+            <v-icon class="mr-2" @click="dialogClose">
+              close
+            </v-icon>
+          </v-card-title>
 
-        <v-card-text>
-          <is-table :headers="headers" :items="tasks">
-            <template v-slot:item.actions="{ item }">
-              <v-icon class="mr-2" color="primary" @click="goto(item)">
-                remove_red_eye
-              </v-icon>
-            </template>
-          </is-table>
-        </v-card-text>
-      </v-card>
-    </v-dialog>
-  </v-layout>
+          <v-card-text>
+            <is-table :headers="headers" :items="tasks">
+              <template v-slot:item.actions="{ item }">
+                <v-icon class="mr-2" color="primary" @click="goto(item)">
+                  remove_red_eye
+                </v-icon>
+              </template>
+            </is-table>
+          </v-card-text>
+        </v-card>
+      </v-dialog>
+    </v-row>
+  </v-container>
 </template>
 
 <script>

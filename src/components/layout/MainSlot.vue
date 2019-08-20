@@ -109,11 +109,11 @@
 
     <is-footer></is-footer>
 
-    <!-- <modal-not-done-tasks
+    <modal-not-done-tasks
       :tasks="tasks"
       :dialog="dialog"
       @dialog-close="dialog = false"
-    ></modal-not-done-tasks> -->
+    ></modal-not-done-tasks>
   </v-app>
 </template>
 
