@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto">
-    <v-card-title>{{ title }}</v-card-title>
+    <v-card-title class="d-flex justify-center">{{ title }}</v-card-title>
     <v-card-text>
       <doughnut-chart
         :height="200"
@@ -10,17 +10,19 @@
       />
     </v-card-text>
     <v-card-actions>
-      <v-layout align-start justify-start column fill-height>
-        <v-flex v-for="(item, key) in labels" :key="item.id">
-          <v-layout align-center>
-            <i class="material-icons" :style="{ color: colorByKey(key) }">
-              stop
-            </i>
-            {{ item }}
-            <span class="pull-right">{{ values.key }}</span>
-          </v-layout>
-        </v-flex>
-      </v-layout>
+      <v-container fluid>
+        <v-row align="start" justify="start" class="flex-column" fill-height>
+          <v-col cols="12" v-for="(item, key) in labels" :key="item.id">
+            <v-row align="center">
+              <i class="material-icons" :style="{ color: colorByKey(key) }">
+                stop
+              </i>
+              {{ item }}
+              <span class="pull-right">{{ values.key }}</span>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-card-actions>
   </v-card>
 </template>
