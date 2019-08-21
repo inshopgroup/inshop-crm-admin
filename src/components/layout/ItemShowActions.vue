@@ -1,6 +1,6 @@
 <template>
   <v-container fluid>
-    <v-row justify="space-between">
+    <v-row justify="center" justify-lg="space-between" justify-md="space-between" justify-sm="space-between">
       <v-col cols="auto">
         <v-btn
           v-if="btnEdit && isGranted(role_update)"
