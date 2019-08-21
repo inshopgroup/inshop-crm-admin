@@ -15,11 +15,6 @@
             :key="item.label"
             ref="listGroup"
             v-model="item.model"
-            :class="[
-              groupClass(item),
-              { 'v-list-group--active': isActive(item.route) },
-              { 'has-child': item.children },
-            ]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -38,8 +33,8 @@
               <v-list-item
                 v-if="isGrantedItem(child)"
                 :key="i"
+                :class="{ 'active-item': routeName(child.route) === activeRoute }"
                 @click="listItemClick(child)"
-                :class="{ 'active-item': isActive(child.route) }"
               >
                 <v-list-item-action v-if="child.icon">
                   <v-icon right>
@@ -424,29 +419,8 @@ export default {
   },
   watch: {
     '$route'(to, from) {
-      this.$refs.listGroup.forEach(i => {
-        if (
-          i.$el.classList.contains('v-list-group--active') &&
-          i.$el.classList.contains(this.routeName(from.name)) &&
-          !i.$el.classList.contains(this.routeName(to.name))
-        ) {
-          if (i.$el.classList.contains('has-child')) {
-            i.click()
-          } else {
-            this.$nextTick(() => i.$el.classList.remove('v-list-group--active'))
-          }
-        }
-
-        if (
-          i.$el.classList.contains('has-child') &&
-          i.$el.classList.contains(this.routeName(to.name)) &&
-          !i.$el.classList.contains('v-list-group--active')
-        ) {
-          i.click()
-        }
-      })
-
       this.activeRoute = this.routeName(to.name)
+      this.initActiveMenuItem()
     }
   },
   created() {
@@ -461,24 +435,19 @@ export default {
   },
   methods: {
     initActiveMenuItem() {
-      this.$refs.listGroup.forEach(i => {
-        if (
-          i.$el.classList.contains('has-child') &&
-          i.$el.classList.contains(this.routeName(this.activeRoute))
-        ) {
-          i.click()
+      this.items.forEach(i => {
+        if (i.children && i.children.length) {
+          i.children.forEach(el => {
+            if (this.routeName(el.route) === this.activeRoute) {
+              i.model = true
+            }
+          })
+        } else {
+          if (this.routeName(i.route) === this.activeRoute) {
+            i.model = true
+          }
         }
       })
-    },
-    isActive(route) {
-      if (route) {
-        return this.routeName(route) === this.activeRoute
-      }
-    },
-    groupClass(item) {
-      return item.children
-        ? item.children.map(i => this.routeName(i.route))
-        : this.routeName(item.route)
     },
     routeName(route) {
       return route ? route.replace(/(List|Show|Create|Update)/, '') : ''
@@ -561,7 +530,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .3 !important;
+    opacity: 0.3 !important;
     background-color: #fafafa !important;
   }
 }
