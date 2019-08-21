@@ -48,16 +48,15 @@
             </v-card-text>
 
             <v-card-actions>
-              <v-btn text x-small color="grey darken-1" @click="select(module)">
-                {{ $t('select') }}
+              <v-btn fab x-small color="primary" @click="select(module)">
+                <v-icon>
+                  check_box
+                </v-icon>
               </v-btn>
-              <v-btn
-                text
-                x-small
-                color="grey darken-1"
-                @click="deselect(module)"
-              >
-                {{ $t('deselect') }}
+              <v-btn fab x-small color="primary" @click="deselect(module)">
+                <v-icon>
+                  check_box_outline_blank
+                </v-icon>
               </v-btn>
             </v-card-actions>
           </v-card>
