@@ -17,15 +17,15 @@
         @formUpdated="updateValue"
       />
 
-      <v-layout row>
-        <v-flex
+      <v-row>
+        <v-col
           v-for="module in modules"
           :key="module.id"
-          lg2
-          md3
-          sm4
-          xs12
-          pa-1
+          cols="12"
+          lg="2"
+          md="3"
+          sm="4"
+          class="pa-1"
         >
           <v-card outlined>
             <v-toolbar color="primary" dark dense>
@@ -61,8 +61,8 @@
               </v-btn>
             </v-card-actions>
           </v-card>
-        </v-flex>
-      </v-layout>
+        </v-col>
+      </v-row>
 
       <item-edit-actions :item="item" entity="Group" path="group" />
     </v-container>
