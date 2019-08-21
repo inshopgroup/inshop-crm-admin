@@ -21,7 +21,7 @@
     </v-flex>
 
     <v-flex xs12>
-      <is-table :headers="headers" :items="addresses">
+      <is-table :headers="headers" :items="addresses" :hideDefaultFooter="true">
         <template v-slot:item.actions="{ item }">
           <v-layout justify-end>
             <v-btn text x-small @click="goto(item, $event.target)">
