@@ -266,7 +266,6 @@ export default {
     .v-event {
       &-end {
         margin: 0 auto;
-        text-align: center;
       }
     }
   }

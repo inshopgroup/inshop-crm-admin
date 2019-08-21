@@ -1,9 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <v-row wrap>
-      <v-col cols="12">
-        <item-errors entity="address" />
-      </v-col>
+    <v-row>
+      <item-errors entity="address" />
 
       <v-col cols="12" md="6" sm="6" class="px-2">
         <form-select
