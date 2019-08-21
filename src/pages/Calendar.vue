@@ -1,7 +1,7 @@
 <template>
   <is-main-template title="calendar">
-    <v-layout fill-height>
-      <v-flex>
+    <v-row fill-height>
+      <v-col cols="12">
         <v-sheet height="64">
           <v-toolbar flat color="white">
             <v-btn class="mr-4" @click="setToday">
@@ -115,8 +115,8 @@
             </v-card>
           </v-menu>
         </v-sheet>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </is-main-template>
 </template>
 
@@ -242,8 +242,33 @@ export default {
 }
 </script>
 
-<style>
-.v-calendar-weekly__day-label {
-  margin: 4px 0 !important;
+<style lang="scss">
+.theme--light {
+  .v-calendar {
+    &-weekly {
+      &__day-label {
+        margin: 4px 0 !important;
+      }
+      &__head-weekday {
+        flex: 1 0 0;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+        &:first-child {
+          border-left: 1px solid #e0e0e0;
+        }
+      }
+      &__day {
+        &:first-child {
+          border-left: 1px solid #e0e0e0;
+        }
+      }
+    }
+    .v-event {
+      &-end {
+        margin: 0 auto;
+        text-align: center;
+      }
+    }
+  }
 }
 </style>
