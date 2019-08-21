@@ -113,19 +113,20 @@
 import fecha from 'fecha'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
+import bg from '@/assets/bg.png'
 
 export default {
   name: 'MainSlot',
   components: { ModalNotDoneTasks },
   data() {
     return {
-      bg: require('../../assets/bg.png'),
-      activeRoute: null,
+      bg,
       fecha,
       q: null,
       tasks: [],
       dialog: false,
       drawer: null,
+      activeRoute: null,
       items: [
         {
           label: 'dashboard',
