@@ -1,5 +1,5 @@
 <template>
-  <v-container :class="{ 'd-none': isLoading }" fluid>
+  <v-container fluid>
     <v-row class="mx-5" no-gutters justify="space-between">
       <v-col cols="9" v-if="title">
         <is-title :title="title" :title-params="titleParams"></is-title>
@@ -51,11 +51,6 @@ export default {
     icon: {
       type: String,
       default: 'add'
-    }
-  },
-  computed: {
-    isLoading() {
-      return this.$store.state.general.isLoading
     }
   }
 }

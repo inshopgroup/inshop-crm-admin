@@ -90,8 +90,6 @@ export default {
     }),
     deleteItem(item) {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
-        this.$store.dispatch('general/loadingAllow', false)
-
         this.remove(item).then(() => {
           this.$toastr.s(
             this.$t('address_deleted', { entity: item.value }),
@@ -106,7 +104,6 @@ export default {
       this.$router.push({ name: 'AddressShow', params: { id: item.id } })
     },
     create() {
-      this.$store.dispatch('general/loadingAllow', false)
       this.$store.commit('address/ADDRESS_UPDATE_ITEM', this.parent)
 
       this.title = this.$t('address_add')
@@ -117,7 +114,6 @@ export default {
       this.dialog = true
     },
     edit(item) {
-      this.$store.dispatch('general/loadingAllow', false)
       this.$store.commit('address/ADDRESS_SET_ITEM', item)
 
       this.title = this.$t('address_edit', { entity: item.id })
