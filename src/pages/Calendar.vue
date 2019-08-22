@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="calendar">
-    <v-row fill-height>
+    <v-row>
       <v-col cols="12">
         <v-sheet height="64">
           <v-toolbar flat color="white">
@@ -128,21 +128,23 @@ import Vue from 'vue'
 Vue.prototype.moment = moment
 
 export default {
-  data: () => ({
-    today: moment().format('YYYY-MM-DD'),
-    focus: moment().format('YYYY-MM-DD'),
-    type: 'month',
-    typeToLabel: {
-      month: 'Month',
-      week: 'Week',
-      day: 'Day'
-    },
-    start: null,
-    end: null,
-    selectedEvent: {},
-    selectedElement: null,
-    selectedOpen: false
-  }),
+  data() {
+    return {
+      today: moment().format('YYYY-MM-DD'),
+      focus: moment().format('YYYY-MM-DD'),
+      type: 'month',
+      typeToLabel: {
+        month: 'Month',
+        week: 'Week',
+        day: 'Day'
+      },
+      start: null,
+      end: null,
+      selectedEvent: {},
+      selectedElement: null,
+      selectedOpen: false
+    }
+  },
   computed: {
     ...mapGetters({
       tasks: 'task/items'

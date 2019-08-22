@@ -1,9 +1,7 @@
 <template>
-  <v-col v-if="error" cols="12">
-    <v-alert type="error">
-      {{ error }}
-    </v-alert>
-  </v-col>
+  <v-alert v-if="error" type="error">
+    {{ error }}
+  </v-alert>
 </template>
 
 <script>

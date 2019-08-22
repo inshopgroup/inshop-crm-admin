@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-auto">
-    <v-card-title class="d-flex justify-center">{{ title }}</v-card-title>
+    <v-card-title>{{ title }}</v-card-title>
     <v-card-text>
       <bar-chart
         :height="200"
@@ -24,9 +24,7 @@ export default {
     },
     data: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     }
   },
   data() {
@@ -60,22 +58,10 @@ export default {
       }
     },
     labels() {
-      let labels = []
-
-      this.data.forEach(item => {
-        labels.push(item.name)
-      })
-
-      return labels
+      return this.data.map(i => i.name)
     },
     values() {
-      let values = []
-
-      this.data.forEach(item => {
-        values.push(item.cnt)
-      })
-
-      return values
+      return this.data.map(i => i.cnt)
     }
   }
 }

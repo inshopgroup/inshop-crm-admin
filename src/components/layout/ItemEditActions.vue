@@ -1,13 +1,7 @@
 <template>
-
-  <v-row justify="center" justify-lg="space-between" justify-md="space-between" justify-sm="space-between">
+  <v-row justify="center" justify-sm="space-between">
     <v-col cols="auto">
-      <v-btn 
-        class="ma-1" 
-        type="submit" 
-        large 
-        color="success"
-      >
+      <v-btn type="submit" large color="success">
         {{ $t('submit')}}
       </v-btn>
     </v-col>
@@ -15,19 +9,19 @@
       <div class="">
         <v-btn
           v-if="btnBackToList && isGranted(role_list)"
-          class="ma-1"
+          class="mx-1"
           large
           color="primary"
-          @click="backToList()"
+          @click="backToList"
         >
           {{ $t('back_to_list') }}
         </v-btn>
         <v-btn
           v-if="item.id && isGranted(role_show)"
-          class="ma-1"
+          class="mx-1"
           large
           color="primary"
-          @click="showItem()"
+          @click="showItem"
         >
           {{ $t('show') }}
         </v-btn>
@@ -36,17 +30,14 @@
     <v-col cols="auto">
       <v-btn
         v-if="item.id && isGranted(role_delete)"
-        class="ma-1"
         large
         color="error"
-        @click="deleteItem()"
+        @click="deleteItem"
       >
         {{ $t('delete') }}
       </v-btn>
     </v-col>
-
   </v-row>
-
 </template>
 
 <script>

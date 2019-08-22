@@ -1,12 +1,12 @@
 <template>
   <v-container fluid>
-    <v-row class="mx-5" no-gutters justify="space-between">
-      <v-col cols="9" v-if="title">
+    <v-row justify="space-between">
+      <v-col v-if="title" class="col-auto">
         <is-title :title="title" :title-params="titleParams"></is-title>
       </v-col>
 
-      <v-col cols="3" v-if="routeAdd" class="text-right" align-self="center">
-        <v-btn color="success" dark fab :to="{ name: routeAdd }">
+      <v-col v-if="routeAdd" class="col-auto">
+        <v-btn color="success mr-lg-5" dark fab :to="{ name: routeAdd }">
           <v-icon>{{ icon }}</v-icon>
         </v-btn>
       </v-col>

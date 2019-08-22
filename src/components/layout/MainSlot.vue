@@ -60,7 +60,6 @@
       dark
       :src="bg"
     >
-    
       <v-toolbar-title style="width: 300px" class="ml-0">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>

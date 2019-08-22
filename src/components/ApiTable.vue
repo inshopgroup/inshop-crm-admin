@@ -385,6 +385,10 @@ table {
       color: #fff;
     }
   }
+  &.row {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .pagination {
