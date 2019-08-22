@@ -4,6 +4,9 @@
     :items="items"
     :hide-default-footer="hideDefaultFooter"
     :items-per-page="itemsPerPage"
+    :footer-props="{
+      itemsPerPageOptions: [10, 25, 50, 100]
+    }"
   >
     <template
       v-for="(header, h) in headers"

@@ -29,13 +29,13 @@
       <is-table :headers="headers" :items="contacts" :hideDefaultFooter="true">
         <template v-slot:item.actions="{ item }">
           <v-row justify="end">
-            <v-btn text x-small @click="goto(item, $event.target)">
+            <v-btn text small @click="goto(item, $event.target)">
               <v-icon color="primary">remove_red_eye</v-icon>
             </v-btn>
-            <v-btn text x-small @click="edit(item, $event.target)">
+            <v-btn text small @click="edit(item, $event.target)">
               <v-icon color="primary">edit</v-icon>
             </v-btn>
-            <v-btn text x-small @click="deleteItem(item)">
+            <v-btn text small @click="deleteItem(item)">
               <v-icon color="primary">delete_forever</v-icon>
             </v-btn>
           </v-row>
@@ -88,6 +88,8 @@ export default {
     }),
     deleteItem(item) {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
+        this.$store.dispatch('general/loadingAllow', false)
+
         this.remove(item).then(() => {
           this.$toastr.s(
             this.$t('contact_deleted', { entity: item.value }),
@@ -102,6 +104,7 @@ export default {
       this.$router.push({ name: 'ContactShow', params: { id: item.id } })
     },
     create() {
+      this.$store.dispatch('general/loadingAllow', false)
       this.$store.commit('contact/CONTACT_UPDATE_ITEM', this.parent)
 
       this.title = this.$t('contact_add')
@@ -111,6 +114,7 @@ export default {
       this.dialog = true
     },
     edit(item) {
+      this.$store.dispatch('general/loadingAllow', false)
       this.$store.commit('contact/CONTACT_SET_ITEM', item)
 
       this.title = this.$t('contact_edit', { entity: item.value })

@@ -23,6 +23,7 @@ import vbclass from 'vue-body-class'
 import Security from './mixin/Security'
 import Translate from './mixin/Translate'
 import DateMixin from './mixin/DateMixin'
+import StoreModule from './mixin/StoreModule'
 import VueI18n from 'vue-i18n'
 
 Vue.use(vbclass, router)
@@ -47,6 +48,7 @@ let i18n = new VueI18n({
 Vue.mixin(Security)
 Vue.mixin(Translate)
 Vue.mixin(DateMixin)
+Vue.mixin(StoreModule)
 
 window.moment = moment
 

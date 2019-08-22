@@ -55,6 +55,8 @@ export default {
     })
   },
   mounted() {
+    this.$store.dispatch('general/loadingAllow', false)
+
     this.getItems({
       entity: this.entity,
       id: this.id

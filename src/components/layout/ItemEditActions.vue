@@ -102,7 +102,7 @@ export default {
     deleteItem() {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
         this.$store
-          .dispatch(this.path + '/remove', this.item)
+          .dispatch(this.storeModule(this.path) + '/remove', this.item)
           .then(() => this.$router.push({ name: this.entity + 'List' }))
       }
     }

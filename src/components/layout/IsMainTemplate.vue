@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container :class="{ 'd-none': isLoading }" fluid>
     <v-row class="mx-5" no-gutters justify="space-between">
       <v-col cols="9" v-if="title">
         <is-title :title="title" :title-params="titleParams"></is-title>
@@ -16,10 +16,7 @@
       <v-col cols="12">
         <v-card class="mx-auto">
           <v-card-text>
-            <item-errors 
-              v-if="entity" 
-              :entity="entity" 
-            />
+            <item-errors v-if="entity" :entity="entity"/>
             <slot></slot>
           </v-card-text>
         </v-card>
@@ -54,6 +51,11 @@ export default {
     icon: {
       type: String,
       default: 'add'
+    }
+  },
+  computed: {
+    isLoading() {
+      return this.$store.state.general.isLoading
     }
   }
 }

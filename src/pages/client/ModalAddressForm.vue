@@ -54,6 +54,8 @@ export default {
       reset: 'address/reset'
     }),
     onSendForm() {
+      this.$store.dispatch('general/loadingAllow', false)
+
       this.callback()
         .then(item => {
           this.$toastr.s(

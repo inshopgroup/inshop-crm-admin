@@ -15,10 +15,6 @@
             :key="item.label"
             ref="listGroup"
             v-model="item.model"
-            :class="[
-              groupClass(item),
-              { 'v-list-group--active': isActive(item.route) }
-            ]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -26,9 +22,7 @@
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="isActive(item.route)"
-                  >
+                  <v-list-item-title>
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -39,21 +33,16 @@
               <v-list-item
                 v-if="isGrantedItem(child)"
                 :key="i"
+                :class="{ 'active-item': routeName(child.route) === activeRoute }"
                 @click="listItemClick(child)"
-                :class="{ 'active-item': isActive(child.route) }"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon
-                    right
-                    :class="isActive(child.route)"
-                  >
+                  <v-icon right>
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="isActive(child.route)"
-                  >
+                  <v-list-item-title>
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -121,19 +110,20 @@
 import fecha from 'fecha'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
+import bg from '@/assets/bg.png'
 
 export default {
   name: 'MainSlot',
   components: { ModalNotDoneTasks },
   data() {
     return {
-      bg: require('../../assets/bg.png'),
-      activeRoute: null,
+      bg,
       fecha,
       q: null,
       tasks: [],
       dialog: false,
       drawer: null,
+      activeRoute: null,
       items: [
         {
           label: 'dashboard',
@@ -425,6 +415,12 @@ export default {
       return this.$store.getters['auth/jwtDecoded'].name
     }
   },
+  watch: {
+    '$route'(to, from) {
+      this.activeRoute = this.routeName(to.name)
+      this.initActiveMenuItem()
+    }
+  },
   created() {
     this.activeRoute = this.routeName(this.$route.name)
   },
@@ -433,39 +429,26 @@ export default {
       this.getTasks()
     }
 
-    let found = false
-
-    this.$refs.listGroup.forEach(i => {
-      if (i.$el.classList.contains('v-list-group--active')) {
-        i.$el
-          .getElementsByClassName('v-list-group__header')[0]
-          .classList.add('v-list-item--active')
-
-        found = true
-      }
-    })
-
-    if (!found) {
-      this.$refs.listGroup.forEach(i => {
-        if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
-          i.click()
-        }
-      })
-    }
+    this.initActiveMenuItem()
   },
   methods: {
-    isActive(route) {
-      if (route) {
-        return this.routeName(route) === this.activeRoute
-      }
-    },
-    groupClass(item) {
-      return item.children
-        ? item.children.map(i => this.routeName(i.route))
-        : ''
+    initActiveMenuItem() {
+      this.items.forEach(i => {
+        if (i.children && i.children.length) {
+          i.children.forEach(el => {
+            if (this.routeName(el.route) === this.activeRoute) {
+              i.model = true
+            }
+          })
+        } else {
+          if (this.routeName(i.route) === this.activeRoute) {
+            i.model = true
+          }
+        }
+      })
     },
     routeName(route) {
-      return route.replace(/(List|Show|Create|Update)/, '')
+      return route ? route.replace(/(List|Show|Create|Update)/, '') : ''
     },
     prependIcon(item) {
       if (item.icon) {
@@ -482,7 +465,6 @@ export default {
     listItemClick(item) {
       if (item.route) {
         this.$router.push({ name: item.route })
-        this.activeRoute = this.routeName(item.route)
       }
     },
     isGrantedItem(item) {
@@ -546,7 +528,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: .3 !important;
+    opacity: 0.3 !important;
     background-color: #fafafa !important;
   }
 }
