@@ -16,14 +16,14 @@
       />
     </v-card-text>
     <v-card-actions>
-      <v-layout justify-space-between>
+      <v-row justify="space-between">
         <v-btn color="primary" @click="onSendForm">
           {{ $t('save') }}
         </v-btn>
         <v-btn color="error" @click="dialogClose">
           {{ $t('close') }}
         </v-btn>
-      </v-layout>
+      </v-row>
     </v-card-actions>
   </v-card>
 </template>

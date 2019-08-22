@@ -60,12 +60,12 @@
       dark
       :src="bg"
     >
-      <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
+      <v-toolbar-title style="width: 300px" class="ml-0">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>
       </v-toolbar-title>
 
-      <v-layout column>
+      <v-row class="flex-column">
         <v-form
           v-if="isGranted('ROLE_OTHER_SEARCH')"
           method="get"
@@ -81,7 +81,7 @@
             label="Search"
           ></v-text-field>
         </v-form>
-      </v-layout>
+      </v-row>
 
       <v-spacer></v-spacer>
 
@@ -92,11 +92,7 @@
     </v-app-bar>
 
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout align-start justify-center>
-          <router-view />
-        </v-layout>
-      </v-container>
+      <router-view />
     </v-content>
 
     <is-footer></is-footer>

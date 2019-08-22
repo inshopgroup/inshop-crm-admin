@@ -1,18 +1,18 @@
 <template>
-  <v-container fluid row>
-    <v-layout row>
-      <v-flex md4 sm12>
-        <v-btn class="mx-1" type="submit" large color="success">{{
-          $t('submit')
-        }}</v-btn>
-      </v-flex>
-      <v-flex md4 sm12 text-center>
+  <v-row justify="center" justify-sm="space-between">
+    <v-col cols="auto">
+      <v-btn type="submit" large color="success">
+        {{ $t('submit')}}
+      </v-btn>
+    </v-col>
+    <v-col cols="auto">
+      <div class="">
         <v-btn
           v-if="btnBackToList && isGranted(role_list)"
           class="mx-1"
           large
           color="primary"
-          @click="backToList()"
+          @click="backToList"
         >
           {{ $t('back_to_list') }}
         </v-btn>
@@ -21,24 +21,23 @@
           class="mx-1"
           large
           color="primary"
-          @click="showItem()"
+          @click="showItem"
         >
           {{ $t('show') }}
         </v-btn>
-      </v-flex>
-      <v-flex md4 sm12 text-right>
-        <v-btn
-          v-if="item.id && isGranted(role_delete)"
-          class="mx-1"
-          large
-          color="error"
-          @click="deleteItem()"
-        >
-          {{ $t('delete') }}
-        </v-btn>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </div>
+    </v-col>
+    <v-col cols="auto">
+      <v-btn
+        v-if="item.id && isGranted(role_delete)"
+        large
+        color="error"
+        @click="deleteItem"
+      >
+        {{ $t('delete') }}
+      </v-btn>
+    </v-col>
+  </v-row>
 </template>
 
 <script>

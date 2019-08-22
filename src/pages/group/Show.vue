@@ -7,8 +7,16 @@
   >
     <template v-slot:roles="{ item }">
       <v-container fluid>
-        <v-layout row>
-          <v-flex v-for="module in modules" :key="module.id" md2 sm6 xs12 pa-2>
+        <v-row>
+          <v-col 
+            v-for="module in modules" 
+            :key="module.id" 
+            cols="12" 
+            lg="2" 
+            md="2" 
+            sm="6" 
+            class="pa-2"
+          >
             <v-card outlined>
               <v-toolbar color="primary" dark dense>
                 <v-toolbar-title>
@@ -23,8 +31,8 @@
                 </ul>
               </v-card-text>
             </v-card>
-          </v-flex>
-        </v-layout>
+          </v-col>
+        </v-row>
       </v-container>
     </template>
   </is-show-template>

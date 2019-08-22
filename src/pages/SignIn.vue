@@ -2,61 +2,57 @@
   <v-app id="inspire">
     <v-content>
       <v-container fluid fill-height>
-        <v-layout align-center justify-center>
-          <v-flex xs12 sm8 md4 lg3>
-            <v-layout column>
-              <v-flex text-center pb-3>
-                <a href="https://inshopcrm.com" target="_blank">
-                  <img
-                    src="../assets/logo.png"
-                    alt="inshopcrm.com"
-                    style="width: 40%;"
-                  />
-                </a>
-              </v-flex>
+        <v-row align="center" justify="center">
+          <v-col class="col-12 d-flex justify-center">
+            <a href="https://inshopcrm.com" target="_blank">
+              <img
+                src="../assets/logo.png"
+                alt="inshopcrm.com"
+                style="width: 200px;"
+              />
+            </a>
+          </v-col>
 
-              <v-flex>
-                <v-card class="elevation-12">
-                  <v-form @submit.prevent="signIn">
-                    <v-toolbar color="primary" dark flat>
-                      <v-toolbar-title
-                        >Sign in to start the session</v-toolbar-title
-                      >
-                    </v-toolbar>
-                    <v-card-text>
-                      <v-text-field
-                        v-model="credentials.username"
-                        :label="$t('username')"
-                        name="login"
-                        prepend-icon="person"
-                        type="text"
-                        :error="hasError"
-                        :error-messages="error"
-                      ></v-text-field>
+          <v-col class="col-12 d-flex justify-center">
+            <v-card class="elevation-12" width="100%" max-width="400">
+              <v-form @submit.prevent="signIn">
+                <v-toolbar color="primary" dark flat>
+                  <v-toolbar-title
+                    >Sign in to start the session</v-toolbar-title
+                  >
+                </v-toolbar>
+                <v-card-text>
+                  <v-text-field
+                    v-model="credentials.username"
+                    :label="$t('username')"
+                    name="login"
+                    prepend-icon="person"
+                    type="text"
+                    :error="hasError"
+                    :error-messages="error"
+                  ></v-text-field>
 
-                      <v-text-field
-                        id="password"
-                        v-model="credentials.password"
-                        :label="$t('password')"
-                        name="password"
-                        prepend-icon="lock"
-                        type="password"
-                        :error="hasError"
-                        :error-messages="error"
-                      ></v-text-field>
-                    </v-card-text>
-                    <v-card-actions>
-                      <v-spacer></v-spacer>
-                      <v-btn type="submit" color="primary">{{
-                        $t('signin')
-                      }}</v-btn>
-                    </v-card-actions>
-                  </v-form>
-                </v-card>
-              </v-flex>
-            </v-layout>
-          </v-flex>
-        </v-layout>
+                  <v-text-field
+                    id="password"
+                    v-model="credentials.password"
+                    :label="$t('password')"
+                    name="password"
+                    prepend-icon="lock"
+                    type="password"
+                    :error="hasError"
+                    :error-messages="error"
+                  ></v-text-field>
+                </v-card-text>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn type="submit" color="primary">
+                    {{ $t('signin') }}
+                  </v-btn>
+                </v-card-actions>
+              </v-form>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
     </v-content>
 
