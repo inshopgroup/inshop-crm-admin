@@ -87,7 +87,7 @@ export default {
       }
     }
   },
-  data: function() {
+  data() {
     return {
       orderBy: {},
       initFilters: {},
@@ -149,6 +149,9 @@ export default {
   methods: {
     options() {
       return {
+        columnsClasses: {
+          id: 'column-id'
+        },
         dateColumns: Object.keys(this.dateColumns),
         datepickerOptions: {
           opens: 'left'
@@ -292,17 +295,23 @@ table {
     tr {
       th {
         font-size: 12px;
+        &.column-id {
+          max-width: 75px;
+        }
       }
     }
   }
   tbody {
     tr {
-      color: rgba(0,0,0,.87);
+      color: rgba(0, 0, 0, 0.87);
     }
   }
-  tbody, tfoot, thead {
+  tbody,
+  tfoot,
+  thead {
     tr {
-      td, th {
+      td,
+      th {
         padding: 8px;
         vertical-align: middle;
         border-top: 1px solid #f4f4f4;
@@ -315,9 +324,12 @@ table {
     overflow-x: auto;
   }
   &-bordered {
-    tbody, tfoot, thead {
+    tbody,
+    tfoot,
+    thead {
       tr {
-        td, th {
+        td,
+        th {
           border: 1px solid #f4f4f4;
         }
       }
@@ -355,9 +367,10 @@ table {
 
 .v-application {
   p {
-    color: rgba(0,0,0,.87);
+    color: rgba(0, 0, 0, 0.87);
   }
-  ol, ul {
+  ol,
+  ul {
     padding-left: 0 !important;
   }
 }
@@ -379,11 +392,11 @@ table {
   padding-left: 0;
   margin: 20px 0;
   .disabled {
-    a, 
-    a:focus, 
-    a:hover, 
-    span, 
-    span:focus, 
+    a,
+    a:focus,
+    a:hover,
+    span,
+    span:focus,
     span:hover {
       color: #777;
       cursor: not-allowed;
@@ -393,20 +406,20 @@ table {
   }
   li {
     display: inline;
-    a, 
+    a,
     span {
       position: relative;
-      margin: 0 .3rem;
+      margin: 0 0.3rem;
       padding: 6px 12px;
       line-height: 1.43;
-      color: rgba(0,0,0,.87);
+      color: rgba(0, 0, 0, 0.87);
       text-decoration: none;
       background-color: #fff;
       border-radius: 5px;
-      box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 
-                  0 2px 2px 0 rgba(0,0,0,.14), 
+      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                  0 2px 2px 0 rgba(0,0,0,.14),
                   0 1px 5px 0 rgba(0,0,0,.12);
-      transition: box-shadow .5s ease;
+      transition: box-shadow 0.5s ease;
     }
     a:hover {
       box-shadow: none;
@@ -426,13 +439,13 @@ table {
   background-image: none;
   border: 1px solid #d2d6de;
   border-radius: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  -webkit-transition: border-color .15s ease-in-out,
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color 0.15s ease-in-out,
                       box-shadow .15s ease-in-out,
                       -webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,
-              box-shadow .15s ease-in-out,
+  transition: border-color 0.15s ease-in-out,
+              box-shadow 0.15s ease-in-out,
               -webkit-box-shadow .15s ease-in-out;
 }
 
