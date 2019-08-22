@@ -282,7 +282,7 @@ table {
   thead {
     tr {
       th {
-        font-size: 12px;
+        font-size: 14px;
         &.column-id {
           max-width: 75px;
         }

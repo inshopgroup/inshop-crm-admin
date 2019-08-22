@@ -84,9 +84,8 @@
         />
       </v-col>
 
-      <v-col cols="12">
+      <v-col cols="12" v-if="showActions">
         <item-edit-actions
-          v-if="showActions"
           :item="item"
           entity="Address"
           path="address"
