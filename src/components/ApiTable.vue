@@ -1,24 +1,24 @@
 <template>
   <v-server-table :columns="columns" :options="options()">
     <template slot="actions" slot-scope="props">
-      <div class="column-center">
+      <v-layout justify-center>
         <v-btn
-          v-if="isGranted(role_show)"
-          text
-          x-small
-          :to="{ name: showRoute, params: { id: props.row.id } }"
+            v-if="isGranted(role_show)"
+            text
+            x-small
+            :to="{ name: showRoute, params: { id: props.row.id } }"
         >
           <v-icon color="primary">remove_red_eye</v-icon>
         </v-btn>
         <v-btn
-          v-if="isGranted(role_show) && isGranted(role_edit)"
-          text
-          x-small
-          :to="{ name: updateRoute, params: { id: props.row.id } }"
+            v-if="isGranted(role_show) && isGranted(role_edit)"
+            text
+            x-small
+            :to="{ name: updateRoute, params: { id: props.row.id } }"
         >
           <v-icon color="primary">edit</v-icon>
         </v-btn>
-      </div>
+      </v-layout>
     </template>
 
     <div
@@ -52,39 +52,27 @@ export default {
     },
     columns: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     },
     sortable: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     },
     filterable: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     },
     customFilters: {
       type: Array,
-      default: function() {
-        return []
-      }
+      default: () => []
     },
     templates: {
       type: Object,
-      default: function() {
-        return {}
-      }
+      default: () => ({})
     },
     listColumns: {
       type: Object,
-      default: function() {
-        return {}
-      }
+      default: () => ({})
     }
   },
   data() {
@@ -434,7 +422,6 @@ table {
 .form-control {
   display: block;
   width: 100%;
-  height: 24px;
   padding: 6px 12px;
   font-size: 12px;
   line-height: 1.3;

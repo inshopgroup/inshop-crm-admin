@@ -16,13 +16,17 @@
       />
     </v-card-text>
     <v-card-actions>
-      <v-row justify="space-between">
-        <v-btn color="primary" @click="onSendForm">
-          {{ $t('save') }}
-        </v-btn>
-        <v-btn color="error" @click="dialogClose">
-          {{ $t('close') }}
-        </v-btn>
+      <v-row justify="space-between" no-gutters>
+        <v-col class="col-auto">
+          <v-btn color="primary" @click="onSendForm">
+            {{ $t('save') }}
+          </v-btn>
+        </v-col>
+        <v-col class="col-auto">
+          <v-btn color="error" @click="dialogClose">
+            {{ $t('close') }}
+          </v-btn>
+        </v-col>
       </v-row>
     </v-card-actions>
   </v-card>

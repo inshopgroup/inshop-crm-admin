@@ -1,11 +1,9 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <v-row>
-      <v-col cols="12" class="px-2">
-        <item-errors entity="contact" />
-      </v-col>
+      <item-errors entity="contact" />
 
-      <v-col cols="12" class="px-2">
+      <v-col cols="12">
         <form-input
           :item="item"
           :errors="errors"
@@ -30,12 +28,14 @@
         />
       </v-col>
 
-      <item-edit-actions
-        v-if="showActions"
-        :item="item"
-        entity="Contact"
-        path="contact"
-      />
+      <v-col cols="12">
+        <item-edit-actions
+          v-if="showActions"
+          :item="item"
+          entity="Contact"
+          path="contact"
+        />
+      </v-col>
     </v-row>
   </form>
 </template>
