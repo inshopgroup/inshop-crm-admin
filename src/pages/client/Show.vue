@@ -56,7 +56,6 @@ export default {
   },
   methods: {
     changed() {
-      this.$store.dispatch('general/loadingAllow', false)
       this.historyKey++
     }
   }
