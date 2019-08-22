@@ -5,7 +5,7 @@
         {{ fecha.format(new Date(), 'YYYY') }},
         <a href="https://inshopcrm.com" class="white--text" target="_blank">
           Inshop CRM
-        </a>, v1.6.0
+        </a>, v1.6.1
       </v-col>
       <v-col cols="12" sm="auto" class="text-center">
         {{ $t('powered_by') }}
