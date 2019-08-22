@@ -15,10 +15,6 @@
             :key="item.label"
             ref="listGroup"
             v-model="item.model"
-            :class="[
-              groupClass(item),
-              { 'v-list-group--active primary--text': isActive(item.route) }
-            ]"
             :prepend-icon="prependIcon(item)"
             :append-icon="appendIcon(item)"
             @click="listItemClick(item)"
@@ -26,9 +22,7 @@
             <template v-slot:activator>
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="{ 'primary--text': isActive(item.route) }"
-                  >
+                  <v-list-item-title>
                     {{ $t(item.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -39,20 +33,16 @@
               <v-list-item
                 v-if="isGrantedItem(child)"
                 :key="i"
+                :class="{ 'active-item': routeName(child.route) === activeRoute }"
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon">
-                  <v-icon
-                    right
-                    :class="{ 'primary--text': isActive(child.route) }"
-                  >
+                  <v-icon right>
                     {{ child.icon }}
                   </v-icon>
                 </v-list-item-action>
                 <v-list-item-content>
-                  <v-list-item-title
-                    :class="{ 'primary--text': isActive(child.route) }"
-                  >
+                  <v-list-item-title>
                     {{ $t(child.label) }}
                   </v-list-item-title>
                 </v-list-item-content>
@@ -70,12 +60,12 @@
       dark
       :src="bg"
     >
-      <v-toolbar-title style="width: 300px" class="ml-0 pl-4">
+      <v-toolbar-title style="width: 300px" class="ml-0">
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>
       </v-toolbar-title>
 
-      <v-layout column>
+      <v-row class="flex-column">
         <v-form
           v-if="isGranted('ROLE_OTHER_SEARCH')"
           method="get"
@@ -91,7 +81,7 @@
             label="Search"
           ></v-text-field>
         </v-form>
-      </v-layout>
+      </v-row>
 
       <v-spacer></v-spacer>
 
@@ -102,11 +92,7 @@
     </v-app-bar>
 
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout align-start justify-center>
-          <router-view />
-        </v-layout>
-      </v-container>
+      <router-view />
     </v-content>
 
     <is-footer></is-footer>
@@ -123,20 +109,20 @@
 import fecha from 'fecha'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
+import bg from '@/assets/bg.png'
 
 export default {
   name: 'MainSlot',
   components: { ModalNotDoneTasks },
   data() {
     return {
-      bg: require('../../assets/bg.png'),
-      activeRoute: null,
+      bg,
       fecha,
-      active: true,
       q: null,
       tasks: [],
       dialog: false,
       drawer: null,
+      activeRoute: null,
       items: [
         {
           label: 'dashboard',
@@ -428,6 +414,12 @@ export default {
       return this.$store.getters['auth/jwtDecoded'].name
     }
   },
+  watch: {
+    '$route'(to, from) {
+      this.activeRoute = this.routeName(to.name)
+      this.initActiveMenuItem()
+    }
+  },
   created() {
     this.activeRoute = this.routeName(this.$route.name)
   },
@@ -436,39 +428,26 @@ export default {
       this.getTasks()
     }
 
-    let found = false
-
-    this.$refs.listGroup.forEach(i => {
-      if (i.$el.classList.contains('v-list-group--active')) {
-        i.$el
-          .getElementsByClassName('v-list-group__header')[0]
-          .classList.add('v-list-item--active')
-
-        found = true
-      }
-    })
-
-    if (!found) {
-      this.$refs.listGroup.forEach(i => {
-        if (i.$el.classList.contains(this.routeName(this.activeRoute))) {
-          i.click()
-        }
-      })
-    }
+    this.initActiveMenuItem()
   },
   methods: {
-    isActive(route) {
-      if (route) {
-        return this.routeName(route) === this.activeRoute
-      }
-    },
-    groupClass(item) {
-      return item.children
-        ? item.children.map(i => this.routeName(i.route))
-        : ''
+    initActiveMenuItem() {
+      this.items.forEach(i => {
+        if (i.children && i.children.length) {
+          i.children.forEach(el => {
+            if (this.routeName(el.route) === this.activeRoute) {
+              i.model = true
+            }
+          })
+        } else {
+          if (this.routeName(i.route) === this.activeRoute) {
+            i.model = true
+          }
+        }
+      })
     },
     routeName(route) {
-      return route.replace(/(List|Show|Create|Update)/, '')
+      return route ? route.replace(/(List|Show|Create|Update)/, '') : ''
     },
     prependIcon(item) {
       if (item.icon) {
@@ -485,7 +464,6 @@ export default {
     listItemClick(item) {
       if (item.route) {
         this.$router.push({ name: item.route })
-        this.activeRoute = this.routeName(item.route)
       }
     },
     isGrantedItem(item) {
@@ -522,11 +500,35 @@ export default {
 }
 </script>
 
-<style>
-.v-navigation-drawer .v-list-group--active > .v-list-group__items {
-  background: #142430;
+<style lang="scss">
+.v-navigation-drawer {
+  .v-list {
+    &-group--active {
+      .v-list-group__items {
+        background: #142430;
+      }
+      .v-list-group__header {
+        background: #142430;
+      }
+    }
+    .theme--dark {
+      .v-icon {
+        color: #fff !important;
+      }
+    }
+  }
 }
-.v-navigation-drawer .v-list-group--active > .v-list-group__header {
-  background: #142430;
+.active-item {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3 !important;
+    background-color: #fafafa !important;
+  }
 }
 </style>

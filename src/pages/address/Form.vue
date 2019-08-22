@@ -1,11 +1,9 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <v-layout wrap>
-      <v-flex xs12>
-        <item-errors entity="address" />
-      </v-flex>
+    <v-row>
+      <item-errors entity="address" />
 
-      <v-flex md6 px-2>
+      <v-col cols="12" md="6" sm="6">
         <form-select
           :item="item"
           :errors="errors"
@@ -36,8 +34,8 @@
           label="district"
           @formUpdated="updateValue"
         />
-      </v-flex>
-      <v-flex md6 px-2>
+      </v-col>
+      <v-col cols="12" md="6" sm="6">
         <form-input
           :item="item"
           :errors="errors"
@@ -66,8 +64,8 @@
           label="apartment"
           @formUpdated="updateValue"
         />
-      </v-flex>
-      <v-flex xs12 px-2>
+      </v-col>
+      <v-col cols="12">
         <form-textarea
           :item="item"
           :errors="errors"
@@ -75,8 +73,8 @@
           label="comment"
           @formUpdated="updateValue"
         />
-      </v-flex>
-      <v-flex xs12 px-2>
+      </v-col>
+      <v-col cols="12">
         <form-checkbox
           :item="item"
           :errors="errors"
@@ -84,15 +82,16 @@
           label="isActive"
           @formUpdated="updateValue"
         />
-      </v-flex>
+      </v-col>
 
-      <item-edit-actions
-        v-if="showActions"
-        :item="item"
-        entity="Address"
-        path="address"
-      />
-    </v-layout>
+      <v-col cols="12" v-if="showActions">
+        <item-edit-actions
+          :item="item"
+          entity="Address"
+          path="address"
+        />
+      </v-col>
+    </v-row>
   </form>
 </template>
 

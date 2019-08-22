@@ -103,6 +103,7 @@ const router = new VueRouter({
         ...historyRoutes,
         ...vatRoutes
       ],
+      redirect: { name: 'Dashboard' },
       meta: {
         requiresAuth: true,
         bodyClass: 'hold-transition skin-blue sidebar-mini'

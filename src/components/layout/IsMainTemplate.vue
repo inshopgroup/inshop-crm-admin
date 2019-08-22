@@ -1,28 +1,27 @@
 <template>
   <v-container fluid>
-    <v-layout justify-space-between mx-5 row>
-      <v-flex v-if="title">
+    <v-row justify="space-between">
+      <v-col v-if="title" class="col-auto">
         <is-title :title="title" :title-params="titleParams"></is-title>
-      </v-flex>
+      </v-col>
 
-      <v-flex v-if="routeAdd" align-self-center text-right>
-        <v-btn color="success" dark fab :to="{ name: routeAdd }">
+      <v-col v-if="routeAdd" class="col-auto">
+        <v-btn color="success mr-lg-5" dark fab :to="{ name: routeAdd }">
           <v-icon>{{ icon }}</v-icon>
         </v-btn>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
 
-    <v-layout row>
-      <v-flex>
+    <v-row>
+      <v-col cols="12">
         <v-card class="mx-auto">
           <v-card-text>
-            <item-errors v-if="entity" :entity="entity" />
-
+            <item-errors v-if="entity" :entity="entity"/>
             <slot></slot>
           </v-card-text>
         </v-card>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

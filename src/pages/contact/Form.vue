@@ -1,11 +1,9 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
-    <v-layout wrap>
-      <v-flex xs12 px-2>
-        <item-errors entity="contact" />
-      </v-flex>
+    <v-row>
+      <item-errors entity="contact" />
 
-      <v-flex xs12 px-2>
+      <v-col cols="12">
         <form-input
           :item="item"
           :errors="errors"
@@ -28,15 +26,16 @@
           label="isActive"
           @formUpdated="updateValue"
         />
-      </v-flex>
+      </v-col>
 
-      <item-edit-actions
-        v-if="showActions"
-        :item="item"
-        entity="Contact"
-        path="contact"
-      />
-    </v-layout>
+      <v-col cols="12" v-if="showActions">
+        <item-edit-actions
+          :item="item"
+          entity="Contact"
+          path="contact"
+        />
+      </v-col>
+    </v-row>
   </form>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="user-groups">
-    <is-main-template title="group_add">
+    <is-main-template :class="{ 'd-none': isLoading }" title="group_add">
       <group-form :handle-submit="onSendForm" :item="item" />
     </is-main-template>
   </div>
@@ -17,7 +17,10 @@ export default {
   computed: {
     ...mapGetters({
       item: 'group/item'
-    })
+    }),
+    isLoading() {
+      return this.$store.state.general.isLoading
+    }
   },
   beforeDestroy() {
     this.reset()

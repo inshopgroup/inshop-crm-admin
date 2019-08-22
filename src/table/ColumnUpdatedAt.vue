@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="column-center">
     {{ crmDateFormat(data['updatedAt']) }}
   </div>
 </template>

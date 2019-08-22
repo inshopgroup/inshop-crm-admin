@@ -90,11 +90,8 @@ export default {
     path() {
       return decamelize(this.entity)
     },
-    storeModule() {
-      return this.entity.charAt(0).toLowerCase() + this.entity.slice(1)
-    },
     item() {
-      return this.$store.getters[this.storeModule + '/item']
+      return this.$store.getters[this.storeModule(this.entity) + '/item']
     }
   },
   watch: {
@@ -110,10 +107,10 @@ export default {
   },
   methods: {
     reset() {
-      this.$store.dispatch(this.storeModule + '/reset')
+      this.$store.dispatch(this.storeModule(this.entity) + '/reset')
     },
     getItem() {
-      this.$store.dispatch(this.storeModule + '/getItem', this.$route.params.id)
+      this.$store.dispatch(this.storeModule(this.entity) + '/getItem', this.$route.params.id)
     }
   }
 }

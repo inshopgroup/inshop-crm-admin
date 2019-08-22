@@ -1,37 +1,43 @@
 <template>
-  <v-layout wrap>
-    <v-flex xs12 mb-4>
-      <v-btn class="mx-1" color="success" large @click="create($event.target)">
-        {{ $t('address_add') }}
-      </v-btn>
-    </v-flex>
-    <v-flex xs12>
-      <is-table :headers="headers" :items="addresses">
+  <v-row>
+    <v-col cols="12" class="mb-4">
+      <v-dialog v-model="dialog" width="800">
+        <template v-slot:activator="{ on }">
+          <v-btn class="mx-1" color="success" large @click="create($event.target)">
+            {{ $t('address_add') }}
+          </v-btn>
+        </template>
+
+        <modal-address-form
+          :key="key"
+          :callback="callback"
+          :title="title"
+          :item="item"
+          @dialog-close="onCloseDialog"
+          @reset-form="resetForm"
+          @addresses-changed="$emit('changed')"
+        />
+      </v-dialog>
+    </v-col>
+
+    <v-col cols="12">
+      <is-table :headers="headers" :items="addresses" :hideDefaultFooter="true">
         <template v-slot:item.actions="{ item }">
-          <v-layout justify-end>
-            <v-btn text x-small @click="goto(item, $event.target)">
+          <v-row justify="end">
+            <v-btn text small @click="goto(item, $event.target)">
               <v-icon color="primary">remove_red_eye</v-icon>
             </v-btn>
-            <v-btn text x-small @click="edit(item, $event.target)">
+            <v-btn text small @click="edit(item, $event.target)">
               <v-icon color="primary">edit</v-icon>
             </v-btn>
-            <v-btn text x-small @click="deleteItem(item)">
+            <v-btn text small @click="deleteItem(item)">
               <v-icon color="primary">delete_forever</v-icon>
             </v-btn>
-          </v-layout>
+          </v-row>
         </template>
       </is-table>
-    </v-flex>
-
-    <modal-address-form
-      :callback="callback"
-      :title="title"
-      :item="item"
-      :dialog="dialog"
-      @dialog-close="dialog = false"
-      @addressesChanged="$emit('changed')"
-    />
-  </v-layout>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -72,7 +78,8 @@ export default {
         { text: this.$t('apartment'), value: 'apartment' },
         { text: this.$t('comment'), value: 'comment' },
         { text: '', value: 'actions', sortable: false }
-      ]
+      ],
+      key: 1,
     }
   },
   methods: {
@@ -114,7 +121,13 @@ export default {
       this.callback = this.updateItem
 
       this.dialog = true
-    }
+    },
+    onCloseDialog() {
+      this.dialog = false
+    },
+    resetForm() {
+      this.key++
+    },
   }
 }
 </script>
