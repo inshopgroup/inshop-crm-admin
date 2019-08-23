@@ -20,17 +20,19 @@ export default {
           path: 'contactType.name'
         },
         {
-          property: 'clients',
-          type: 'collection',
+          property: 'client',
+          path: 'client.name',
           link: {
-            route: 'ClientShow'
+            route: 'ClientShow',
+            param: 'client.id'
           }
         },
         {
-          property: 'companies',
-          type: 'collection',
+          property: 'company',
+          path: 'company.name',
           link: {
-            route: 'CompanyShow'
+            route: 'CompanyShow',
+            param: 'company.id'
           }
         }
       ]

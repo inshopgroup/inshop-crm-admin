@@ -8,7 +8,7 @@
     <template v-slot:contacts="{ item }">
       <client-contacts
         :contacts="item.contacts"
-        :parent="{ clients: [item] }"
+        :parent="{ client: item }"
         @changed="changed"
       ></client-contacts>
     </template>
@@ -16,7 +16,7 @@
     <template v-slot:addresses="{ item }">
       <client-addresses
         :addresses="item.addresses"
-        :parent="{ clients: [item] }"
+        :parent="{ client: item }"
         @changed="changed"
       ></client-addresses>
     </template>
