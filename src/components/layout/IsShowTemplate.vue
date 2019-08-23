@@ -1,6 +1,6 @@
 <template>
   <is-main-template :title="item.name">
-    <v-tabs v-model="tab" background-color="transparent">
+    <v-tabs v-model="tab" background-color="transparent" show-arrows>
       <v-tab href="#general">{{ $t('tabs_general') }}</v-tab>
 
       <v-tab v-for="tab in tabs" :key="tab" :href="'#' + tab">{{
