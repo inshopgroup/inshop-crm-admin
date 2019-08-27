@@ -27,15 +27,15 @@
       </template>
 
       <template v-else-if="type(item, header) === 'collection'">
-        <span v-for="(obj, key) in value(item, header)" :key="key" class="mr-1">
+        <span v-for="(obj, key) in value(item, header)" :key="key" class="mr-3">
           <template v-if="item.link || header.link">
             <v-btn
               :to="{
                 name: routeName(item, header),
                 params: { id: pick(routeParam(item, header), obj) }
               }"
+              class="px-1"
               color="primary"
-              x-small
               text
             >
               {{ pick(collectionPath(item, header), obj) }}
@@ -66,8 +66,8 @@
               name: routeName(item, header),
               params: { id: pick(routeParam(item, header), item) }
             }"
+            class="px-1"
             color="primary"
-            x-small
             text
           >
             {{ value(item, header) }}

@@ -456,7 +456,7 @@ export default {
     },
     appendIcon(item) {
       if (item.children && item.children.length) {
-        return item.model ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
+        return 'keyboard_arrow_down'
       }
 
       return null
