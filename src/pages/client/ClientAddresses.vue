@@ -21,7 +21,7 @@
     </v-col>
 
     <v-col cols="12">
-      <is-table :headers="headers" :items="addresses" :hideDefaultFooter="true">
+      <is-table :headers="headers" :items="addresses" :hide-default-footer="true">
         <template v-slot:item.actions="{ item }">
           <v-row justify="end">
             <v-btn text small @click="goto(item, $event.target)">
