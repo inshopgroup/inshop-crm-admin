@@ -3,7 +3,7 @@
     <router-link
       :to="{ name: data['type'] + 'Show', params: { id: data['entityId'] } }"
     >
-      {{ data['text'] }}
+      {{ data['search'] }}
     </router-link>
   </div>
 </template>
