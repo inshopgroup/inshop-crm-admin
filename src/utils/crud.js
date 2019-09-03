@@ -107,7 +107,9 @@ export const remove = ({ commit }, namespace, item) => {
   return axios
     .delete(API_HOST + '/' + pluralize(namespace.toLowerCase()) + '/' + item.id)
     .catch(e => {
-      commit(namespace + '_SET_ERROR', e.message)
+      const message = (e.response.status === 409) ? 'Not possible to remove. This record has relations.' : e.message
+
+      commit(namespace + '_SET_ERROR', message)
 
       throw e
     })
