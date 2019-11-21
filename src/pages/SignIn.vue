@@ -107,4 +107,11 @@ export default {
 .login-page .v-application--wrap {
   background: linear-gradient(#0c5c6f, #003145);
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
 </style>
