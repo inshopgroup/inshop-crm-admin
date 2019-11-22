@@ -40,9 +40,6 @@ import orderLineStatus from './modules/order_line_status/'
 import product from './modules/product/'
 import vat from './modules/vat/'
 import module from './modules/module/'
-import backup from './modules/backup/'
-import backupStatus from './modules/backup_status/'
-import backupType from './modules/backup_type/'
 import label from './modules/label/'
 import text from './modules/text/'
 
@@ -52,9 +49,6 @@ export default new Vuex.Store({
   strict: process.env.NODE_ENV !== 'production',
   modules: {
     text,
-    backup,
-    backupStatus,
-    backupType,
     general,
     brand,
     channel,

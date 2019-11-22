@@ -393,12 +393,6 @@ export default {
           icon: 'settings',
           children: [
             {
-              label: 'backup',
-              icon: 'format_align_justify',
-              route: 'BackupList',
-              role: 'ROLE_BACKUP_LIST'
-            },
-            {
               label: 'history',
               icon: 'timelapse',
               route: 'HistoryList',

@@ -6,7 +6,6 @@ import SignIn from '../pages/SignIn'
 import MainSlot from '../components/layout/MainSlot'
 
 import taskRoutes from './task'
-import backupRoutes from './backup'
 import companyRoutes from './company'
 import projectRoutes from './project'
 import documentRoutes from './document'
@@ -64,7 +63,6 @@ const router = new VueRouter({
       component: MainSlot,
       children: [
         ...textRoutes,
-        ...backupRoutes,
         ...labelRoutes,
         ...paymentTypeRoutes,
         ...shipmentMethodRoutes,
