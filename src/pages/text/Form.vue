@@ -133,7 +133,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      reset: 'text/reset'
+      reset: 'text/reset',
+      getLanguages: 'language/getItems'
     }),
     findItem(language) {
       let translation = {
@@ -156,9 +157,6 @@ export default {
         language: language
       })
     },
-    ...mapActions({
-      getLanguages: 'language/getItems'
-    })
   }
 }
 </script>

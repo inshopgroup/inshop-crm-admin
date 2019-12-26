@@ -151,7 +151,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      reset: 'product/reset'
+      reset: 'product/reset',
+      getLanguages: 'language/getItems'
     }),
     findItem(language) {
       let translation = {
@@ -174,9 +175,6 @@ export default {
         language: language
       })
     },
-    ...mapActions({
-      getLanguages: 'language/getItems'
-    }),
     formFileUploaded(file) {
       this.$store.commit('product/PRODUCT_ADD_FILE', file)
     },
