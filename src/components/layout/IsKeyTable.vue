@@ -47,7 +47,8 @@ export default {
               : this.item[field.property],
           path: field.path || field.property,
           propertyType: field.type,
-          link: field.link
+          link: field.link,
+          params: field.params || {},
         })
       })
 

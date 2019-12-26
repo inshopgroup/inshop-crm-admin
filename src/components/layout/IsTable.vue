@@ -26,6 +26,10 @@
         {{ crmDateFormat(value(item, header)) }}
       </template>
 
+      <template v-else-if="type(item, header) === 'image'">
+        <img :src="value(item, header)" alt="" :width="item.params.width" class="mt-2">
+      </template>
+
       <template v-else-if="type(item, header) === 'collection'">
         <span v-for="(obj, key) in value(item, header)" :key="key" class="mr-3">
           <template v-if="item.link || header.link">
