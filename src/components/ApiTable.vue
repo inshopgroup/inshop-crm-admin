@@ -171,12 +171,12 @@ export default {
             this.columns.forEach(key => {
               if (typeof params.query[key] !== 'undefined') {
                 if (Object.keys(this.dateColumns).indexOf(key) !== -1) {
-                  queryParams[this.dateColumns[key] + '[after]'] = this.$moment(
+                  queryParams[this.dateColumns[key] + '[after]'] = window.moment(
                     params.query[key].start
                   ).format('YYYY/M/D')
                   queryParams[
                     this.dateColumns[key] + '[before]'
-                  ] = this.$moment(params.query[key].end)
+                  ] = window.moment(params.query[key].end)
                     .add(1, 'day')
                     .format('YYYY/M/D')
                 } else if (

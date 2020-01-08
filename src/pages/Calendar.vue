@@ -122,16 +122,12 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import moment from 'moment'
-import Vue from 'vue'
-
-Vue.prototype.moment = moment
 
 export default {
   data() {
     return {
-      today: moment().format('YYYY-MM-DD'),
-      focus: moment().format('YYYY-MM-DD'),
+      today: window.moment().format('YYYY-MM-DD'),
+      focus: window.moment().format('YYYY-MM-DD'),
       type: 'month',
       typeToLabel: {
         month: 'Month',
@@ -185,7 +181,7 @@ export default {
     }
   },
   created() {
-    this.load(moment().format('M/Y'))
+    this.load(window.moment().format('M/Y'))
   },
   methods: {
     ...mapActions({
@@ -193,8 +189,8 @@ export default {
     }),
     load(date) {
       this.getTasks({
-        'deadline[after]': moment(date, 'M/Y').format('DD-MM-YYYY'),
-        'deadline[before]': moment(date, 'M/Y')
+        'deadline[after]': window.moment(date, 'M/Y').format('DD-MM-YYYY'),
+        'deadline[before]': window.moment(date, 'M/Y')
           .endOf('month')
           .add(1, 'day')
           .format('DD-MM-YYYY'),
@@ -236,7 +232,7 @@ export default {
       nativeEvent.stopPropagation()
     },
     updateRange({ start, end }) {
-      this.load(moment(start.date).format('M/Y'))
+      this.load(window.moment(start.date).format('M/Y'))
       this.start = start
       this.end = end
     }
