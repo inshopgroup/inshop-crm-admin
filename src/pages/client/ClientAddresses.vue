@@ -3,7 +3,12 @@
     <v-col cols="12" class="mb-4">
       <v-dialog v-model="dialog" width="800">
         <template v-slot:activator="{ on }">
-          <v-btn class="mx-1" color="success" large @click="create($event.target)">
+          <v-btn
+            class="mx-1"
+            color="success"
+            large
+            @click="create($event.target)"
+          >
             {{ $t('address_add') }}
           </v-btn>
         </template>
@@ -21,7 +26,11 @@
     </v-col>
 
     <v-col cols="12">
-      <is-table :headers="headers" :items="addresses" :hide-default-footer="true">
+      <is-table
+        :headers="headers"
+        :items="addresses"
+        :hide-default-footer="true"
+      >
         <template v-slot:item.actions="{ item }">
           <v-row justify="end">
             <v-btn text small @click="goto(item, $event.target)">
@@ -41,8 +50,8 @@
 </template>
 
 <script>
-import ModalAddressForm from './ModalAddressForm'
 import { mapActions } from 'vuex'
+import ModalAddressForm from './ModalAddressForm'
 
 export default {
   components: { ModalAddressForm },
@@ -79,7 +88,7 @@ export default {
         { text: this.$t('comment'), value: 'comment' },
         { text: '', value: 'actions', sortable: false }
       ],
-      key: 1,
+      key: 1
     }
   },
   methods: {
@@ -127,7 +136,7 @@ export default {
     },
     resetForm() {
       this.key++
-    },
+    }
   }
 }
 </script>

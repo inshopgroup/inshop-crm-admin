@@ -19,16 +19,16 @@
 
 <script>
 import ApiTable from '../../components/ApiTable'
-import columnCreatedAt from './../../table/ColumnCreatedAt'
-import columnUpdatedAt from './../../table/ColumnUpdatedAt'
-import columnDeadline from './../../table/ColumnDeadline'
-import columnStatus from './../../table/ColumnStatus'
+import columnCreatedAt from '../../table/ColumnCreatedAt'
+import columnUpdatedAt from '../../table/ColumnUpdatedAt'
+import columnDeadline from '../../table/ColumnDeadline'
+import columnStatus from '../../table/ColumnStatus'
 import TaskStatusFilter from '../../components/filters/TaskStatusFilter'
-import columnIsActive from './../../table/ColumnIsActive'
+import columnIsActive from '../../table/ColumnIsActive'
 
 export default {
   components: { TaskStatusFilter, ApiTable },
-  data: function() {
+  data() {
     return {
       columns: [
         'id',

@@ -3,18 +3,18 @@
     <template slot="actions" slot-scope="props">
       <v-layout justify-center>
         <v-btn
-            v-if="isGranted(role_show)"
-            text
-            x-small
-            :to="{ name: showRoute, params: { id: props.row.id } }"
+          v-if="isGranted(role_show)"
+          text
+          x-small
+          :to="{ name: showRoute, params: { id: props.row.id } }"
         >
           <v-icon color="primary">remove_red_eye</v-icon>
         </v-btn>
         <v-btn
-            v-if="isGranted(role_show) && isGranted(role_edit)"
-            text
-            x-small
-            :to="{ name: updateRoute, params: { id: props.row.id } }"
+          v-if="isGranted(role_show) && isGranted(role_edit)"
+          text
+          x-small
+          :to="{ name: updateRoute, params: { id: props.row.id } }"
         >
           <v-icon color="primary">edit</v-icon>
         </v-btn>
@@ -94,16 +94,16 @@ export default {
   },
   computed: {
     role_show() {
-      return 'ROLE_' + this.path.toUpperCase() + '_SHOW'
+      return `ROLE_${this.path.toUpperCase()}_SHOW`
     },
     role_edit() {
-      return 'ROLE_' + this.path.toUpperCase() + '_UPDATE'
+      return `ROLE_${this.path.toUpperCase()}_UPDATE`
     },
     headings() {
-      let headings = {}
+      const headings = {}
 
       this.columns.forEach(key => {
-        let _key = key.split('.').join('_')
+        const _key = key.split('.').join('_')
 
         headings[key] = this.$t(_key)
       })
@@ -111,14 +111,14 @@ export default {
       return headings
     },
     showRoute() {
-      return this.entity + 'Show'
+      return `${this.entity}Show`
     },
     updateRoute() {
-      return this.entity + 'Update'
-    },
+      return `${this.entity}Update`
+    }
   },
   created() {
-    let query = this.$route.query
+    const { query } = this.$route
 
     this.initFilters = query
 
@@ -159,9 +159,9 @@ export default {
         texts: {
           filterBy: '{column}'
         },
-        requestFunction: params => {
-          return new Promise(resolve => {
-            let queryParams = {}
+        requestFunction: params =>
+          new Promise(resolve => {
+            const queryParams = {}
 
             if (params.page !== 1) {
               queryParams.page = params.page
@@ -171,11 +171,11 @@ export default {
             this.columns.forEach(key => {
               if (typeof params.query[key] !== 'undefined') {
                 if (Object.keys(this.dateColumns).indexOf(key) !== -1) {
-                  queryParams[this.dateColumns[key] + '[after]'] = this.$moment(
+                  queryParams[`${this.dateColumns[key]}[after]`] = this.$moment(
                     params.query[key].start
                   ).format('YYYY/M/D')
                   queryParams[
-                    this.dateColumns[key] + '[before]'
+                    `${this.dateColumns[key]}[before]`
                   ] = this.$moment(params.query[key].end)
                     .add(1, 'day')
                     .format('YYYY/M/D')
@@ -196,7 +196,7 @@ export default {
               }
             })
 
-            let queryParamsUrl = Object.assign({}, queryParams)
+            const queryParamsUrl = Object.assign({}, queryParams)
 
             // Sorting
             if (typeof params.orderBy !== 'undefined') {
@@ -214,7 +214,7 @@ export default {
                 key = params.orderBy
               }
 
-              queryParams['order[' + key + ']'] =
+              queryParams[`order[${key}]`] =
                 params.ascending === 1 ? 'ASC' : 'DESC'
 
               queryParamsUrl['orderBy.ascending'] = params.ascending
@@ -223,21 +223,20 @@ export default {
 
             // clear error
             this.$store.commit(
-              this.storeModule(this.entity) +
-                '/' +
-                decamelize(this.entity).toUpperCase() +
-                '_SET_ERROR',
+              `${this.storeModule(this.entity)}/${decamelize(
+                this.entity
+              ).toUpperCase()}_SET_ERROR`,
               null
             )
 
             this.$router.push({ query: queryParamsUrl })
 
             axios
-              .get(process.env.VUE_APP_API_URL + '/' + this.route, {
+              .get(`${process.env.VUE_APP_API_URL}/${this.route}`, {
                 params: queryParams
               })
               .then(response => {
-                let data = {
+                const data = {
                   data: response.data['hydra:member'],
                   count: response.data['hydra:totalItems']
                 }
@@ -246,15 +245,13 @@ export default {
               })
               .catch(e => {
                 this.$store.commit(
-                  this.storeModule(this.entity) +
-                    '/' +
-                    decamelize(this.entity).toUpperCase() +
-                    '_SET_ERROR',
+                  `${this.storeModule(this.entity)}/${decamelize(
+                    this.entity
+                  ).toUpperCase()}_SET_ERROR`,
                   e.message
                 )
               })
           })
-        }
       }
     }
   }
@@ -409,8 +406,7 @@ table {
       background-color: #fff;
       border-radius: 5px;
       box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-                  0 2px 2px 0 rgba(0,0,0,.14),
-                  0 1px 5px 0 rgba(0,0,0,.12);
+        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
       transition: box-shadow 0.5s ease;
     }
     a:hover {
@@ -433,11 +429,9 @@ table {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   -webkit-transition: border-color 0.15s ease-in-out,
-                      box-shadow .15s ease-in-out,
-                      -webkit-box-shadow .15s ease-in-out;
-  transition: border-color 0.15s ease-in-out,
-              box-shadow 0.15s ease-in-out,
-              -webkit-box-shadow .15s ease-in-out;
+    box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    -webkit-box-shadow 0.15s ease-in-out;
 }
 
 output {

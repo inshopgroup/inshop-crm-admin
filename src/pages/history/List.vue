@@ -14,12 +14,12 @@
 
 <script>
 import ApiTable from '../../components/ApiTable'
-import columnLoggedAt from './../../table/ColumnLoggedAt'
-import columnData from './../../table/ColumnData'
+import columnLoggedAt from '../../table/ColumnLoggedAt'
+import columnData from '../../table/ColumnData'
 
 export default {
   components: { ApiTable },
-  data: function() {
+  data() {
     return {
       columns: [
         'username',

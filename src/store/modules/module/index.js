@@ -5,7 +5,7 @@ import state from './state'
 
 export default {
   namespaced: true,
-  state: state,
+  state,
   actions,
   getters,
   mutations

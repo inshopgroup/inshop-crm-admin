@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import AddressForm from '../address/Form'
 import { mapActions } from 'vuex'
+import AddressForm from '../address/Form'
 
 export default {
   name: 'ModalAddressForm',
@@ -51,7 +51,7 @@ export default {
     callback: {
       type: Function,
       required: true
-    },
+    }
   },
   methods: {
     ...mapActions({
@@ -77,7 +77,7 @@ export default {
     resetForm() {
       this.reset()
       this.$emit('reset-form')
-    },
+    }
   }
 }
 </script>

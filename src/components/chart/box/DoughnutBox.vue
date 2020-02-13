@@ -28,8 +28,8 @@
 </template>
 
 <script>
-import DoughnutChart from '../DoughnutChart'
 import Color from 'color'
+import DoughnutChart from '../DoughnutChart'
 
 export default {
   components: { DoughnutChart },
@@ -66,7 +66,7 @@ export default {
       }
     },
     labels() {
-      let labels = []
+      const labels = []
 
       this.data.forEach(item => {
         labels.push(item.name)
@@ -75,7 +75,7 @@ export default {
       return labels
     },
     values() {
-      let values = []
+      const values = []
 
       this.data.forEach(item => {
         values.push(item.cnt)
@@ -84,9 +84,9 @@ export default {
       return values
     },
     colors() {
-      let colors = []
-      let pieces = this.data.length
-      let color = new Color('#8A56E2')
+      const colors = []
+      const pieces = this.data.length
+      const color = new Color('#8A56E2')
 
       let i = 0
       this.data.forEach(() => {

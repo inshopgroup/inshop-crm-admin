@@ -14,7 +14,7 @@ export default {
         state.item.roleIRIs.push(params.iri)
       }
     } else {
-      let index = state.item.roleIRIs.indexOf(params.iri)
+      const index = state.item.roleIRIs.indexOf(params.iri)
 
       if (index > -1) {
         state.item.roleIRIs.splice(index, 1)

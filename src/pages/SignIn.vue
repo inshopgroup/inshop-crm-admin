@@ -87,13 +87,13 @@ export default {
       this.$store
         .dispatch('auth/login', this.credentials)
         .then(response => {
-          this.$store.commit('auth/' + types.AUTH_UPDATE_TOKEN, response.data)
+          this.$store.commit(`auth/${types.AUTH_UPDATE_TOKEN}`, response.data)
           this.$router.push({ name: 'Dashboard' })
 
-          let lang = response.data.language
+          const lang = response.data.language
 
           if (lang && messages[lang]) {
-            this.$store.commit('auth/' + types.AUTH_UPDATE_LANGUAGE, lang)
+            this.$store.commit(`auth/${types.AUTH_UPDATE_LANGUAGE}`, lang)
             this.$i18n.locale = lang
           }
         })

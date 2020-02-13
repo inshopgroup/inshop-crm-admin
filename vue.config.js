@@ -1,7 +1,9 @@
 const webpack = require('webpack')
+
 module.exports = {
   transpileDependencies: ['vuetify'],
   configureWebpack: {
+    entry: ['babel-polyfill', './src/main.js'],
     plugins: [
       new webpack.ProvidePlugin({
         $: 'jquery',

@@ -224,7 +224,7 @@ export default {
       errors: 'orderHeader/errors'
     }),
     lines() {
-      let lines = this.item.lines
+      const { lines } = this.item
       lines.forEach(line => {
         line.product = line.productSellPrice.product
       })
@@ -249,13 +249,11 @@ export default {
     productSelected(line) {
       axios
         .get(
-          process.env.VUE_APP_API_URL + line.product.id + '/product_sell_prices'
+          `${process.env.VUE_APP_API_URL + line.product.id}/product_sell_prices`
         )
         .then(data => {
-          line.productSellPrices = data['data']['hydra:member'].filter(
-            value => {
-              return value.channel.id === this.item.channel.id
-            }
+          line.productSellPrices = data.data['hydra:member'].filter(
+            value => value.channel.id === this.item.channel.id
           )
         })
 
@@ -269,7 +267,7 @@ export default {
       this.item.lines.push({ uuid: Date.now() })
     },
     removeLine(line) {
-      this.item.lines = this.item.lines.filter(function(el) {
+      this.item.lines = this.item.lines.filter(el => {
         if (!line.id) {
           line.id = line.uuid
         }

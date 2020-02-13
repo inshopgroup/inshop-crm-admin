@@ -14,14 +14,14 @@
 
 <script>
 import ApiTable from '../../components/ApiTable'
-import columnCreatedAt from './../../table/ColumnCreatedAt'
-import columnUpdatedAt from './../../table/ColumnUpdatedAt'
-import columnIsActive from './../../table/ColumnIsActive'
-import columnTranslatedTitle from './../../table/ColumnTranslatedTitle'
+import columnCreatedAt from '../../table/ColumnCreatedAt'
+import columnUpdatedAt from '../../table/ColumnUpdatedAt'
+import columnIsActive from '../../table/ColumnIsActive'
+import columnTranslatedTitle from '../../table/ColumnTranslatedTitle'
 
 export default {
   components: { ApiTable },
-  data: function() {
+  data() {
     return {
       columns: [
         'id',

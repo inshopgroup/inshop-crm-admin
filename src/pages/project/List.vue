@@ -27,17 +27,17 @@
 
 <script>
 import ApiTable from '../../components/ApiTable'
-import columnCreatedAt from './../../table/ColumnCreatedAt'
-import columnUpdatedAt from './../../table/ColumnUpdatedAt'
-import columnStatus from './../../table/ColumnStatus'
-import columnType from './../../table/ColumnType'
+import columnCreatedAt from '../../table/ColumnCreatedAt'
+import columnUpdatedAt from '../../table/ColumnUpdatedAt'
+import columnStatus from '../../table/ColumnStatus'
+import columnType from '../../table/ColumnType'
 import ProjectStatusFilter from '../../components/filters/ProjectStatusFilter'
 import ProjectTypeFilter from '../../components/filters/ProjectTypeFilter'
-import columnIsActive from './../../table/ColumnIsActive'
+import columnIsActive from '../../table/ColumnIsActive'
 
 export default {
   components: { ProjectTypeFilter, ProjectStatusFilter, ApiTable },
-  data: function() {
+  data() {
     return {
       columns: [
         'id',

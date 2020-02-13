@@ -10,7 +10,7 @@
       </v-card-title>
 
       <v-card-text>
-        <is-table :headers="headers" :items="tasks" :itemsPerPage="10">
+        <is-table :headers="headers" :items="tasks" :items-per-page="10">
           <template v-slot:item.actions="{ item }">
             <v-icon class="mr-2" color="primary" @click="goto(item)">
               remove_red_eye

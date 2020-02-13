@@ -287,7 +287,7 @@ export default {
       this.item.lines.push({ uuid: Date.now() })
     },
     removeLine(line) {
-      this.item.lines = this.item.lines.filter(function(el) {
+      this.item.lines = this.item.lines.filter(el => {
         if (!line.id) {
           line.id = line.uuid
         }

@@ -28,12 +28,8 @@
         />
       </v-col>
 
-      <v-col cols="12" v-if="showActions">
-        <item-edit-actions
-          :item="item"
-          entity="Contact"
-          path="contact"
-        />
+      <v-col v-if="showActions" cols="12">
+        <item-edit-actions :item="item" entity="Contact" path="contact" />
       </v-col>
     </v-row>
   </form>

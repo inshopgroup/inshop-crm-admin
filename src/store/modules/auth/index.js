@@ -7,7 +7,7 @@ const actions = {
   login({ commit }, data) {
     commit(types.AUTH_ERROR_CHANGE, null)
 
-    const url = process.env.VUE_APP_API_URL + '/login'
+    const url = `${process.env.VUE_APP_API_URL}/login`
 
     return axios.post(url, data).catch(e => {
       commit(types.AUTH_ERROR_CHANGE, 'Username or password are incorrect')
@@ -34,7 +34,7 @@ const state = initialState()
 
 const getters = {
   jwtDecoded: state => {
-    let token = state.token || null
+    const token = state.token || null
     if (token !== null) {
       return jwtDecode(state.token)
     }

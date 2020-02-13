@@ -33,7 +33,9 @@
               <v-list-item
                 v-if="isGrantedItem(child)"
                 :key="i"
-                :class="{ 'active-item': routeName(child.route) === activeRoute }"
+                :class="{
+                  'active-item': routeName(child.route) === activeRoute
+                }"
                 @click="listItemClick(child)"
               >
                 <v-list-item-action v-if="child.icon">
@@ -107,9 +109,9 @@
 
 <script>
 import fecha from 'fecha'
+import bg from '@/assets/bg.png'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
-import bg from '@/assets/bg.png'
 
 export default {
   name: 'MainSlot',
@@ -409,7 +411,7 @@ export default {
     }
   },
   watch: {
-    '$route'(to, from) {
+    $route(to, from) {
       this.activeRoute = this.routeName(to.name)
       this.initActiveMenuItem()
     }
@@ -433,10 +435,8 @@ export default {
               i.model = true
             }
           })
-        } else {
-          if (this.routeName(i.route) === this.activeRoute) {
-            i.model = true
-          }
+        } else if (this.routeName(i.route) === this.activeRoute) {
+          i.model = true
         }
       })
     },
@@ -466,9 +466,7 @@ export default {
       }
 
       if (item.children) {
-        return item.children.some(child => {
-          return this.isGranted(child.role)
-        })
+        return item.children.some(child => this.isGranted(child.role))
       }
 
       return false
@@ -480,7 +478,7 @@ export default {
       this.$store.dispatch('auth/logout')
     },
     getTasks() {
-      let url = process.env.VUE_APP_API_URL + '/tasks/deadline'
+      const url = `${process.env.VUE_APP_API_URL}/tasks/deadline`
 
       axios.get(url).then(response => {
         this.tasks = response.data['hydra:member']

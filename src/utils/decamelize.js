@@ -1,4 +1,3 @@
-'use strict'
 const xRegExp = require('xregexp')
 
 export default (text, separator) => {

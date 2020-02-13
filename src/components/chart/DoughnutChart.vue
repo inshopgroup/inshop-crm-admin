@@ -1,5 +1,6 @@
 <script>
 import { Doughnut, mixins } from 'vue-chartjs'
+
 const { reactiveProp } = mixins
 
 export default {
@@ -8,7 +9,7 @@ export default {
   props: {
     options: {
       type: Object,
-      default: function() {
+      default() {
         return {}
       }
     }

@@ -23,16 +23,16 @@
 
 <script>
 import ApiTable from '../../components/ApiTable'
-import columnContacts from './../../table/ColumnContacts'
-import columnLabels from './../../table/ColumnLabels'
-import columnCreatedAt from './../../table/ColumnCreatedAt'
-import columnUpdatedAt from './../../table/ColumnUpdatedAt'
+import columnContacts from '../../table/ColumnContacts'
+import columnLabels from '../../table/ColumnLabels'
+import columnCreatedAt from '../../table/ColumnCreatedAt'
+import columnUpdatedAt from '../../table/ColumnUpdatedAt'
 import LabelsFilter from '../../components/filters/LabelsFilter'
-import columnIsActive from './../../table/ColumnIsActive'
+import columnIsActive from '../../table/ColumnIsActive'
 
 export default {
   components: { LabelsFilter, ApiTable },
-  data: function() {
+  data() {
     return {
       columns: [
         'id',

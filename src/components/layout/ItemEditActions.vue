@@ -2,7 +2,7 @@
   <v-row justify="center" justify-sm="space-between">
     <v-col cols="auto">
       <v-btn type="submit" large color="success">
-        {{ $t('submit')}}
+        {{ $t('submit') }}
       </v-btn>
     </v-col>
     <v-col cols="auto">
@@ -71,30 +71,30 @@ export default {
   },
   computed: {
     role_show() {
-      return 'ROLE_' + this.path.toUpperCase() + '_SHOW'
+      return `ROLE_${this.path.toUpperCase()}_SHOW`
     },
     role_list() {
-      return 'ROLE_' + this.path.toUpperCase() + '_LIST'
+      return `ROLE_${this.path.toUpperCase()}_LIST`
     },
     role_delete() {
-      return 'ROLE_' + this.path.toUpperCase() + '_DELETE'
+      return `ROLE_${this.path.toUpperCase()}_DELETE`
     }
   },
   methods: {
     backToList() {
-      this.$router.push({ name: this.entity + 'List' })
+      this.$router.push({ name: `${this.entity}List` })
     },
     showItem() {
       this.$router.push({
-        name: this.entity + 'Show',
+        name: `${this.entity}Show`,
         params: { id: this.item.id }
       })
     },
     deleteItem() {
       if (window.confirm(this.$t('delete_are_you_sure'))) {
         this.$store
-          .dispatch(this.storeModule(this.path) + '/remove', this.item)
-          .then(() => this.$router.push({ name: this.entity + 'List' }))
+          .dispatch(`${this.storeModule(this.path)}/remove`, this.item)
+          .then(() => this.$router.push({ name: `${this.entity}List` }))
       }
     }
   }

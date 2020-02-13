@@ -18,15 +18,15 @@
 
 <script>
 import ApiTable from '../../components/ApiTable'
-import columnCreatedAt from './../../table/ColumnCreatedAt'
-import columnUpdatedAt from './../../table/ColumnUpdatedAt'
-import columnTranslatedName from './../../table/ColumnTranslatedName'
-import columnParentTranslatedName from './../../table/ColumnParentTranslatedName'
-import columnIsActive from './../../table/ColumnIsActive'
+import columnCreatedAt from '../../table/ColumnCreatedAt'
+import columnUpdatedAt from '../../table/ColumnUpdatedAt'
+import columnTranslatedName from '../../table/ColumnTranslatedName'
+import columnParentTranslatedName from '../../table/ColumnParentTranslatedName'
+import columnIsActive from '../../table/ColumnIsActive'
 
 export default {
   components: { ApiTable },
-  data: function() {
+  data() {
     return {
       columns: [
         'id',

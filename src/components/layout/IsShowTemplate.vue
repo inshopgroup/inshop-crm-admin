@@ -91,11 +91,11 @@ export default {
       return decamelize(this.entity)
     },
     item() {
-      return this.$store.getters[this.storeModule(this.entity) + '/item']
+      return this.$store.getters[`${this.storeModule(this.entity)}/item`]
     }
   },
   watch: {
-    historyKey: function() {
+    historyKey() {
       this.getItem()
     }
   },
@@ -107,10 +107,13 @@ export default {
   },
   methods: {
     reset() {
-      this.$store.dispatch(this.storeModule(this.entity) + '/reset')
+      this.$store.dispatch(`${this.storeModule(this.entity)}/reset`)
     },
     getItem() {
-      this.$store.dispatch(this.storeModule(this.entity) + '/getItem', this.$route.params.id)
+      this.$store.dispatch(
+        `${this.storeModule(this.entity)}/getItem`,
+        this.$route.params.id
+      )
     }
   }
 }

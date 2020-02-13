@@ -116,8 +116,8 @@ export default {
   },
   data() {
     return {
-      axios: axios,
-      route: process.env.VUE_APP_API_URL + '/images',
+      axios,
+      route: `${process.env.VUE_APP_API_URL}/images`,
       tab: null
     }
   },
@@ -140,7 +140,7 @@ export default {
     //   }
     // },
     authHeader() {
-      return 'Bearer ' + this.$store.state.auth.token
+      return `Bearer ${this.$store.state.auth.token}`
     }
   },
   created() {
@@ -156,7 +156,7 @@ export default {
     }),
     findItem(language) {
       let translation = {
-        language: language
+        language
       }
       this.item.translations.some(element => {
         if (element.language.code === language.code) {
@@ -170,9 +170,9 @@ export default {
     },
     updateTranslatedValue(property, value, language) {
       this.$store.commit('product/PRODUCT_UPDATE_ITEM_TRANSLATION', {
-        property: property,
-        value: value,
-        language: language
+        property,
+        value,
+        language
       })
     },
     formFileUploaded(file) {

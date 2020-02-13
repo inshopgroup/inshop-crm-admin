@@ -27,7 +27,12 @@
       </template>
 
       <template v-else-if="type(item, header) === 'image'">
-        <img :src="value(item, header)" alt="" :width="item.params.width" class="mt-2">
+        <img
+          :src="value(item, header)"
+          alt=""
+          :width="item.params.width"
+          class="mt-2"
+        />
       </template>
 
       <template v-else-if="type(item, header) === 'collection'">
@@ -143,7 +148,7 @@ export default {
       return param
     },
     name(header) {
-      return 'item.' + header.value
+      return `item.${header.value}`
     },
     value(item, header) {
       return this.pick(this.path(item, header), item)

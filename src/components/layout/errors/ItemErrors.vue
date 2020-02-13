@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     error() {
-      return this.$store.getters[this.entity + '/error']
+      return this.$store.getters[`${this.entity}/error`]
     }
   }
 }

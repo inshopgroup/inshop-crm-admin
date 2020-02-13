@@ -16,7 +16,7 @@ import { Event } from 'vue-tables-2'
 
 export default {
   name: 'ProjectTypeFilter',
-  data: function() {
+  data() {
     return {
       value: []
     }
@@ -28,7 +28,7 @@ export default {
   },
   created() {
     this.getOptions().then(options => {
-      let selected = []
+      const selected = []
 
       if (this.$route.query['type.id']) {
         let params = []
@@ -56,7 +56,7 @@ export default {
       getOptions: 'projectType/getItems'
     }),
     filterTable(property, data) {
-      let ids = []
+      const ids = []
 
       if (data.length) {
         data.forEach(item => {

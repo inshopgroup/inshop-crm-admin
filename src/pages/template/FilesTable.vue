@@ -51,7 +51,7 @@ export default {
     },
     download(file) {
       axios({
-        url: process.env.VUE_APP_API_URL + '/files/download/' + file.id,
+        url: `${process.env.VUE_APP_API_URL}/files/download/${file.id}`,
         method: 'GET',
         responseType: 'blob' // important
       }).then(response => {

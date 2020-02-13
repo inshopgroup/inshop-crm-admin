@@ -37,7 +37,7 @@ export default {
   },
   computed: {
     items() {
-      let arr = []
+      const arr = []
 
       this.fields.forEach(field => {
         arr.push({
@@ -48,7 +48,7 @@ export default {
           path: field.path || field.property,
           propertyType: field.type,
           link: field.link,
-          params: field.params || {},
+          params: field.params || {}
         })
       })
 

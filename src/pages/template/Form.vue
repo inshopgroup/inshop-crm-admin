@@ -68,8 +68,8 @@ export default {
   },
   data() {
     return {
-      axios: axios,
-      route: process.env.VUE_APP_API_URL + '/files'
+      axios,
+      route: `${process.env.VUE_APP_API_URL}/files`
     }
   },
   computed: {
@@ -77,7 +77,7 @@ export default {
       errors: 'template/errors'
     }),
     authHeader() {
-      return 'Bearer ' + this.$store.state.auth.token
+      return `Bearer ${this.$store.state.auth.token}`
     }
   },
   beforeDestroy() {

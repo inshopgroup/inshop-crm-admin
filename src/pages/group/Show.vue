@@ -8,13 +8,13 @@
     <template v-slot:roles="{ item }">
       <v-container fluid>
         <v-row>
-          <v-col 
-            v-for="module in modules" 
-            :key="module.id" 
-            cols="12" 
-            lg="2" 
-            md="2" 
-            sm="6" 
+          <v-col
+            v-for="module in modules"
+            :key="module.id"
+            cols="12"
+            lg="2"
+            md="2"
+            sm="6"
             class="pa-2"
           >
             <v-card outlined>

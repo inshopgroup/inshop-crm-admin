@@ -114,8 +114,8 @@ export default {
     },
     updateRole(property, value, iri) {
       this.$store.commit('group/GROUP_UPDATE_ITEM_ROLES', {
-        iri: iri,
-        value: value
+        iri,
+        value
       })
     },
     batchChange(module, value) {

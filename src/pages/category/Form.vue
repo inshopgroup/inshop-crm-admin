@@ -69,8 +69,8 @@
 </template>
 
 <script>
-import ItemEditActions from '../../components/layout/ItemEditActions'
 import { mapActions, mapGetters } from 'vuex'
+import ItemEditActions from '../../components/layout/ItemEditActions'
 
 export default {
   components: {
@@ -123,7 +123,7 @@ export default {
     }),
     findItem(language) {
       let translation = {
-        language: language
+        language
       }
 
       this.item.translations.some(element => {
@@ -139,11 +139,11 @@ export default {
     },
     updateTranslatedValue(property, value, language) {
       this.$store.commit('category/CATEGORY_UPDATE_ITEM_TRANSLATION', {
-        property: property,
-        value: value,
-        language: language
+        property,
+        value,
+        language
       })
-    },
+    }
   }
 }
 </script>

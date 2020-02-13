@@ -138,7 +138,7 @@ export default {
     }),
     findItem(language) {
       let translation = {
-        language: language
+        language
       }
       this.item.translations.some(element => {
         if (element.language.code === language.code) {
@@ -152,11 +152,11 @@ export default {
     },
     updateTranslatedValue(property, value, language) {
       this.$store.commit('text/TEXT_UPDATE_ITEM_TRANSLATION', {
-        property: property,
-        value: value,
-        language: language
+        property,
+        value,
+        language
       })
-    },
+    }
   }
 }
 </script>

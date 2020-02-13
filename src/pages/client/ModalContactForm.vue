@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import ContactForm from '../contact/Form'
 import { mapActions } from 'vuex'
+import ContactForm from '../contact/Form'
 
 export default {
   name: 'ModalContactForm',
@@ -51,7 +51,7 @@ export default {
     callback: {
       type: Function,
       required: true
-    },
+    }
   },
   methods: {
     ...mapActions({
@@ -77,7 +77,7 @@ export default {
     resetForm() {
       this.reset()
       this.$emit('reset-form')
-    },
+    }
   }
 }
 </script>

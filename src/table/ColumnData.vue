@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     propName(property) {
-      let label = this.$t(property)
+      const label = this.$t(property)
 
       if (label.name) {
         return label.name

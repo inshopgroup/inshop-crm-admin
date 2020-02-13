@@ -4,6 +4,7 @@
 
 <script>
 import ShowRow from './ShowRow'
+
 export default {
   components: { ShowRow },
   props: {

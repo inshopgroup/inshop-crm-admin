@@ -2,29 +2,29 @@ import moment from 'moment'
 import '../node_modules/daterangepicker/daterangepicker'
 import '../node_modules/daterangepicker/daterangepicker.css'
 
+import { ServerTable } from 'vue-tables-2'
+import Toastr from 'vue-toastr'
+import VueSentry from 'vue2-sentry'
+import Vue from 'vue'
+import dot from 'dot-object'
+import vbclass from 'vue-body-class'
+import VueI18n from 'vue-i18n'
 import store from './store'
 import router from './router'
 
 import 'babel-polyfill'
 import App from './App'
-import Vue from 'vue'
 import vuetify from './plugins/vuetify'
 import './plugins/ga'
 import './plugins/layout'
 import './plugins/formComponents'
 
-import { ServerTable } from 'vue-tables-2'
-import Toastr from 'vue-toastr'
 import 'vue-toastr/src/vue-toastr.scss'
 import { messages } from './locales'
-import VueSentry from 'vue2-sentry'
-import dot from 'dot-object'
-import vbclass from 'vue-body-class'
 import Security from './mixin/Security'
 import Translate from './mixin/Translate'
 import DateMixin from './mixin/DateMixin'
 import StoreModule from './mixin/StoreModule'
-import VueI18n from 'vue-i18n'
 
 Vue.use(vbclass, router)
 Vue.use(VueI18n)
@@ -40,7 +40,7 @@ Vue.use(VueSentry, {
   config: {}
 })
 
-let i18n = new VueI18n({
+const i18n = new VueI18n({
   locale: store.state.auth.language,
   messages
 })

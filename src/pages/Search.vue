@@ -13,11 +13,11 @@
 
 <script>
 import ApiTable from '../components/ApiTable'
-import q from './../table/ColumnQ'
+import q from '../table/ColumnQ'
 
 export default {
   components: { ApiTable },
-  data: function() {
+  data() {
     return {
       columns: ['q', 'type'],
       filterable: ['q', 'type'],
