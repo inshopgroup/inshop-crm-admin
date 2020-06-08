@@ -2,7 +2,7 @@
   <v-footer :app="app" color="secondary" dark class="caption" min-height="32">
     <v-row no-gutters justify="space-between">
       <v-col cols="12" sm="auto" class="text-center">
-        {{ fecha.format(new Date(), 'YYYY') }},
+        {{ $dayjs.format('YYYY') }},
         <a href="https://inshopcrm.com" class="white--text" target="_blank">
           Inshop CRM </a
         >, v1.6.2
@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import fecha from 'fecha'
-
 export default {
   name: 'FooterSlot',
   props: {
@@ -28,10 +26,5 @@ export default {
       default: true
     }
   },
-  data() {
-    return {
-      fecha
-    }
-  }
 }
 </script>

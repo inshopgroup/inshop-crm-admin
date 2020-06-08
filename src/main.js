@@ -1,4 +1,6 @@
-import moment from 'moment'
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 import '../node_modules/daterangepicker/daterangepicker'
 import '../node_modules/daterangepicker/daterangepicker.css'
 
@@ -50,8 +52,10 @@ Vue.mixin(Translate)
 Vue.mixin(DateMixin)
 Vue.mixin(StoreModule)
 
-window.moment = moment
+dayjs.extend(utc)
+dayjs.extend(customParseFormat)
 
+Vue.prototype.$dayjs = dayjs
 Vue.prototype.$dot = dot
 
 Vue.config.productionTip = false

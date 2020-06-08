@@ -108,7 +108,6 @@
 </template>
 
 <script>
-import fecha from 'fecha'
 import bg from '@/assets/bg.png'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
 import axios from '../../interceptor'
@@ -119,7 +118,6 @@ export default {
   data() {
     return {
       bg,
-      fecha,
       q: null,
       tasks: [],
       dialog: false,

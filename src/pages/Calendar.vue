@@ -126,8 +126,8 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
-      today: window.moment().format('YYYY-MM-DD'),
-      focus: window.moment().format('YYYY-MM-DD'),
+      today: this.$dayjs().format('YYYY-MM-DD'),
+      focus: this.$dayjs().format('YYYY-MM-DD'),
       type: 'month',
       typeToLabel: {
         month: 'Month',
@@ -181,7 +181,7 @@ export default {
     }
   },
   created() {
-    this.load(window.moment().format('M/Y'))
+    this.load(this.$dayjs().format('M/Y'))
   },
   methods: {
     ...mapActions({
@@ -189,8 +189,8 @@ export default {
     }),
     load(date) {
       this.getTasks({
-        'deadline[after]': window.moment(date, 'M/Y').format('DD-MM-YYYY'),
-        'deadline[before]': window.moment(date, 'M/Y')
+        'deadline[after]': this.$dayjs(date, 'M/Y').format('DD-MM-YYYY'),
+        'deadline[before]': this.$dayjs(date, 'M/Y')
           .endOf('month')
           .add(1, 'day')
           .format('DD-MM-YYYY'),
@@ -232,7 +232,7 @@ export default {
       nativeEvent.stopPropagation()
     },
     updateRange({ start, end }) {
-      this.load(window.moment(start.date).format('M/Y'))
+      this.load(this.$dayjs(start.date).format('M/Y'))
       this.start = start
       this.end = end
     }
