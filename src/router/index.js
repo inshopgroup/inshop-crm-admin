@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueBodyClass from 'vue-body-class'
 
 import store from '../store'
 import SignIn from '../pages/SignIn'
@@ -46,71 +47,77 @@ import historyRoutes from './history'
 
 Vue.use(VueRouter)
 
+const routes = [
+  {
+    path: '/signin',
+    name: 'SignIn',
+    component: SignIn,
+    meta: {
+      requiresAuth: false,
+      bodyClass: 'hold-transition login-page'
+    }
+  },
+  {
+    path: '/',
+    component: MainSlot,
+    children: [
+      ...textRoutes,
+      ...labelRoutes,
+      ...paymentTypeRoutes,
+      ...shipmentMethodRoutes,
+      ...brandRoutes,
+      ...dashboardRoutes,
+      ...searchRoutes,
+      ...calendarRoutes,
+      ...clientRoutes,
+      ...companyRoutes,
+      ...documentRoutes,
+      ...templateRoutes,
+      ...templateTypeRoutes,
+      ...taskRoutes,
+      ...projectRoutes,
+      ...userRoutes,
+      ...contactRoutes,
+      ...contactTypeRoutes,
+      ...groupRoutes,
+      ...channelRoutes,
+      ...addressRoutes,
+      ...categoryRoutes,
+      ...cityRoutes,
+      ...countryRoutes,
+      ...currencyRoutes,
+      ...orderHeaderRoutes,
+      ...orderStatusRoutes,
+      ...orderLineStatusRoutes,
+      ...invoiceHeaderRoutes,
+      ...invoiceStatusRoutes,
+      ...invoiceTypeRoutes,
+      ...languageRoutes,
+      ...productRoutes,
+      ...projectStatusRoutes,
+      ...projectTypeRoutes,
+      ...taskStatusRoutes,
+      ...historyRoutes,
+      ...vatRoutes
+    ],
+    redirect: { name: 'Dashboard' },
+    meta: {
+      requiresAuth: true,
+      bodyClass: 'hold-transition skin-blue sidebar-mini'
+    }
+  }
+]
+
 const router = new VueRouter({
   mode: 'history',
-  routes: [
-    {
-      path: '/signin',
-      name: 'SignIn',
-      component: SignIn,
-      meta: {
-        requiresAuth: false,
-        bodyClass: 'hold-transition login-page'
-      }
-    },
-    {
-      path: '/',
-      component: MainSlot,
-      children: [
-        ...textRoutes,
-        ...labelRoutes,
-        ...paymentTypeRoutes,
-        ...shipmentMethodRoutes,
-        ...brandRoutes,
-        ...dashboardRoutes,
-        ...searchRoutes,
-        ...calendarRoutes,
-        ...clientRoutes,
-        ...companyRoutes,
-        ...documentRoutes,
-        ...templateRoutes,
-        ...templateTypeRoutes,
-        ...taskRoutes,
-        ...projectRoutes,
-        ...userRoutes,
-        ...contactRoutes,
-        ...contactTypeRoutes,
-        ...groupRoutes,
-        ...channelRoutes,
-        ...addressRoutes,
-        ...categoryRoutes,
-        ...cityRoutes,
-        ...countryRoutes,
-        ...currencyRoutes,
-        ...orderHeaderRoutes,
-        ...orderStatusRoutes,
-        ...orderLineStatusRoutes,
-        ...invoiceHeaderRoutes,
-        ...invoiceStatusRoutes,
-        ...invoiceTypeRoutes,
-        ...languageRoutes,
-        ...productRoutes,
-        ...projectStatusRoutes,
-        ...projectTypeRoutes,
-        ...taskStatusRoutes,
-        ...historyRoutes,
-        ...vatRoutes
-      ],
-      redirect: { name: 'Dashboard' },
-      meta: {
-        requiresAuth: true,
-        bodyClass: 'hold-transition skin-blue sidebar-mini'
-      }
-    }
-  ]
+  routes
 })
 
+const vueBodyClass = new VueBodyClass(routes);
+
 router.beforeEach((to, from, next) => {
+  vueBodyClass.guard(to, next)
+
   const token = store.getters['auth/jwtDecoded'] || null
   const authorized = token && token.exp > Date.now() / 1000
 

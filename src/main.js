@@ -7,7 +7,6 @@ import Toastr from 'vue-toastr'
 import VueSentry from 'vue2-sentry'
 import Vue from 'vue'
 import dot from 'dot-object'
-import vbclass from 'vue-body-class'
 import VueI18n from 'vue-i18n'
 import store from './store'
 import router from './router'
@@ -26,7 +25,6 @@ import Translate from './mixin/Translate'
 import DateMixin from './mixin/DateMixin'
 import StoreModule from './mixin/StoreModule'
 
-Vue.use(vbclass, router)
 Vue.use(VueI18n)
 Vue.use(Toastr)
 Vue.use(ServerTable, {}, false, 'bootstrap4', 'default')
