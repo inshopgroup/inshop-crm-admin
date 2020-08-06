@@ -12,11 +12,10 @@
           label="country"
           @formUpdated="updateValue"
         />
-        <form-select
+        <form-input
           :item="item"
           :errors="errors"
           property="city"
-          option-store="city"
           label="city"
           @formUpdated="updateValue"
         />

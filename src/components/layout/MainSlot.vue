@@ -293,12 +293,6 @@ export default {
               role: 'ROLE_COUNTRY_LIST'
             },
             {
-              label: 'city',
-              icon: 'location_city',
-              route: 'CityList',
-              role: 'ROLE_CITY_LIST'
-            },
-            {
               label: 'language',
               icon: 'format_align_justify',
               route: 'LanguageList',

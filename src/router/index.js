@@ -24,7 +24,6 @@ import contactTypeRoutes from './contactType'
 import labelRoutes from './label'
 import addressRoutes from './address'
 import categoryRoutes from './category'
-import cityRoutes from './city'
 import countryRoutes from './country'
 import currencyRoutes from './currency'
 import orderHeaderRoutes from './orderHeader'
@@ -83,7 +82,6 @@ const routes = [
       ...channelRoutes,
       ...addressRoutes,
       ...categoryRoutes,
-      ...cityRoutes,
       ...countryRoutes,
       ...currencyRoutes,
       ...orderHeaderRoutes,

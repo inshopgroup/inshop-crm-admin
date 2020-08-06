@@ -79,7 +79,7 @@ export default {
           value: 'country.name',
           type: 'object'
         },
-        { text: this.$t('city_name'), value: 'city.name', type: 'object' },
+        { text: this.$t('city_name'), value: 'city' },
         { text: this.$t('region'), value: 'region' },
         { text: this.$t('district'), value: 'district' },
         { text: this.$t('street'), value: 'street' },

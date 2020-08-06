@@ -26,7 +26,6 @@ import ApiTable from '../../components/ApiTable'
 import columnContacts from '../../table/ColumnContacts'
 import columnLabels from '../../table/ColumnLabels'
 import columnAddressCountry from '../../table/ColumnAddressCountry'
-import columnAddressCity from '../../table/ColumnAddressCity'
 import columnAddressPostCode from '../../table/ColumnAddressPostCode'
 import LabelsFilter from '../../components/filters/LabelsFilter'
 import columnIsActive from '../../table/ColumnIsActive'
@@ -41,7 +40,7 @@ export default {
         'contacts.value',
         'contactPerson',
         'addresses.country.name',
-        'addresses.city.name',
+        'addresses.city',
         'addresses.postCode',
         'labels.id',
         'isActive',
@@ -55,7 +54,7 @@ export default {
         'contacts.value',
         'contactPerson',
         'addresses.country.name',
-        'addresses.city.name',
+        'addresses.city',
         'addresses.postCode',
         'isActive',
         'columnCreatedAt',
@@ -73,7 +72,6 @@ export default {
       templates: {
         'contacts.value': columnContacts,
         'addresses.country.name': columnAddressCountry,
-        'addresses.city.name': columnAddressCity,
         'addresses.postCode': columnAddressPostCode,
         'labels.id': columnLabels,
         isActive: columnIsActive

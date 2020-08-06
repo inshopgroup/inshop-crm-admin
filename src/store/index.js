@@ -27,7 +27,6 @@ import brand from './modules/brand'
 import channel from './modules/channel'
 import address from './modules/address'
 import category from './modules/category'
-import city from './modules/city'
 import country from './modules/country'
 import currency from './modules/currency'
 import invoiceHeader from './modules/invoice_header'
@@ -54,7 +53,6 @@ export default new Vuex.Store({
     channel,
     address,
     category,
-    city,
     country,
     currency,
     invoiceHeader,

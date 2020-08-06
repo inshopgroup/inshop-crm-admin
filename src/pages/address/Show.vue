@@ -38,12 +38,7 @@ export default {
           }
         },
         {
-          property: 'city',
-          path: 'city.name',
-          link: {
-            route: 'CityShow',
-            param: 'city.id'
-          }
+          property: 'city'
         },
         {
           property: 'region'
