@@ -192,7 +192,7 @@ export default {
             // custom filtering
             this.options().customFilters.forEach(key => {
               if (typeof params[key] !== 'undefined' && params[key] !== '') {
-                queryParams[key] = params[key].trim()
+                queryParams[key] = params[key]
               }
             })
 
