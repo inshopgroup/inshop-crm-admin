@@ -10,8 +10,6 @@ import companyProduct from './modules/company_product'
 import contact from './modules/contact'
 import contactType from './modules/contact_type'
 import document from './modules/document'
-import template from './modules/template'
-import templateType from './modules/template_type'
 import task from './modules/task'
 import taskStatus from './modules/task_status'
 import project from './modules/project'
@@ -72,8 +70,6 @@ export default new Vuex.Store({
     contact,
     contactType,
     document,
-    template,
-    templateType,
     task,
     taskStatus,
     project,

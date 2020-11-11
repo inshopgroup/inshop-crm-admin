@@ -164,27 +164,9 @@ export default {
         },
         {
           label: 'documents',
-          icon: 'insert_drive_file',
-          children: [
-            {
-              label: 'documents',
-              icon: 'turned_in',
-              route: 'DocumentList',
-              role: 'ROLE_DOCUMENT_LIST'
-            },
-            {
-              label: 'templates',
-              icon: 'turned_in_not',
-              route: 'TemplateList',
-              role: 'ROLE_TEMPLATE_LIST'
-            },
-            {
-              label: 'template_types',
-              icon: 'tune',
-              route: 'TemplateTypeList',
-              role: 'ROLE_TEMPLATE_TYPE_LIST'
-            }
-          ]
+          icon: 'turned_in',
+          route: 'DocumentList',
+          role: 'ROLE_DOCUMENT_LIST'
         },
         {
           label: 'contacts',
@@ -401,7 +383,9 @@ export default {
   },
   computed: {
     username() {
-      return this.$store.getters['auth/jwtDecoded'].name
+      const jwt = this.$store.getters['auth/jwtDecoded']
+
+      return jwt ? jwt.name : null
     }
   },
   watch: {

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import FilesTable from '../template/FilesTable'
+import FilesTable from '../document/FilesTable'
 
 export default {
   components: {
@@ -26,17 +26,11 @@ export default {
           property: 'name'
         },
         {
-          property: 'clients',
-          type: 'collection',
+          property: 'client',
+          path: 'client.name',
           link: {
-            route: 'ClientShow'
-          }
-        },
-        {
-          property: 'projects',
-          type: 'collection',
-          link: {
-            route: 'ProjectShow'
+            route: 'ClientShow',
+            param: 'client.id'
           }
         }
       ]

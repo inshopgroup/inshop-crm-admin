@@ -10,8 +10,6 @@ import taskRoutes from './task'
 import companyRoutes from './company'
 import projectRoutes from './project'
 import documentRoutes from './document'
-import templateRoutes from './template'
-import templateTypeRoutes from './templateType'
 import paymentTypeRoutes from './paymentType'
 import shipmentMethodRoutes from './shipmentMethod'
 import clientRoutes from './client'
@@ -71,8 +69,6 @@ const routes = [
       ...clientRoutes,
       ...companyRoutes,
       ...documentRoutes,
-      ...templateRoutes,
-      ...templateTypeRoutes,
       ...taskRoutes,
       ...projectRoutes,
       ...userRoutes,

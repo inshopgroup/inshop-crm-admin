@@ -14,19 +14,10 @@
           <form-select
             :item="item"
             :errors="errors"
-            property="clients"
+            property="client"
             option-store="client"
-            label="clients"
-            :multiple="true"
-            @formUpdated="updateValue"
-          />
-          <form-select
-            :item="item"
-            :errors="errors"
-            property="projects"
-            option-store="project"
-            label="projects"
-            :multiple="true"
+            label="client"
+            :multiple="false"
             @formUpdated="updateValue"
           />
           <form-file
