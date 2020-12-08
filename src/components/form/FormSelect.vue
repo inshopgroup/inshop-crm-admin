@@ -7,6 +7,7 @@
       :label="$t(label)"
       :items="options"
       :item-text="optionLabel"
+      :multiple="multiple"
       return-object
       outlined
       dense
