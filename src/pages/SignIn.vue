@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-content>
+    <v-main>
       <v-container fluid fill-height>
         <v-row align="center" justify="center">
           <v-col class="col-12 d-flex justify-center">
@@ -54,7 +54,7 @@
           </v-col>
         </v-row>
       </v-container>
-    </v-content>
+    </v-main>
 
     <is-footer :app="true"></is-footer>
   </v-app>
