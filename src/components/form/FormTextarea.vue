@@ -2,19 +2,19 @@
   <div :class="[isInvalid ? 'is-invalid' : '']">
     <div v-if="isInvalid" class="inshop-errors">{{ errors[property] }}</div>
 
-    <v-text-field
+    <v-textarea
       :value="item[property]"
       :label="$t(label)"
       outlined
       dense
       @input="$emit('formUpdated', property, $event)"
-    ></v-text-field>
+    ></v-textarea>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'FormInput',
+  name: 'FormTextarea',
   props: {
     item: {
       type: Object,
