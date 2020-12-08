@@ -5,6 +5,7 @@
     <v-text-field
       :value="item[property]"
       :label="$t(label)"
+      :type="type"
       outlined
       dense
       @input="$emit('formUpdated', property, $event)"
@@ -27,6 +28,10 @@ export default {
     label: {
       type: String,
       default: null
+    },
+    type: {
+      type: String,
+      default: 'text'
     },
     errors: {
       type: Object,
