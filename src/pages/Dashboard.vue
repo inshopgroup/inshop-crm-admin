@@ -41,7 +41,7 @@
 <script>
 import BarBox from '../components/chart/box/BarBox'
 import DoughnutBox from '../components/chart/box/DoughnutBox'
-import axios from '../interceptor'
+import axios from '../plugins/axios'
 
 export default {
   components: {

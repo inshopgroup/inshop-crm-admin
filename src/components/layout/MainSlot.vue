@@ -111,7 +111,7 @@
 import fecha from 'fecha'
 import bg from '@/assets/bg.png'
 import ModalNotDoneTasks from './ModalNotDoneTasks'
-import axios from '../../interceptor'
+import axios from '../../plugins/axios'
 
 export default {
   name: 'MainSlot',

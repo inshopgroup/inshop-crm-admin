@@ -1,6 +1,6 @@
 import axios from 'axios'
-import store from './store'
-import * as types from './store/modules/general/mutation_types'
+import store from '../store'
+import * as types from '../store/modules/general/mutation_types'
 
 axios.defaults.timeout = 30000
 
@@ -45,7 +45,7 @@ axios.interceptors.response.use(
       error.response &&
       error.response.status &&
       error.response.status === 401 &&
-      error.response.data.message !== 'Bad credentials'
+      error.response.data.message !== 'Invalid credentials.'
     ) {
       window.location.href = '/signin'
     }

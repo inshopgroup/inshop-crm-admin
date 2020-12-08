@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import axios from '../interceptor'
+import axios from '../plugins/axios'
 import decamelize from '../utils/decamelize'
 
 export default {

@@ -1,7 +1,7 @@
 import jwtDecode from 'jwt-decode'
 import * as types from './mutation_types'
 import router from '../../../router'
-import axios from '../../../interceptor'
+import axios from '../../../plugins/axios'
 
 const actions = {
   login({ commit }, data) {

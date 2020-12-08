@@ -18,7 +18,7 @@
 
 <script>
 import filesize from '../../../node_modules/filesize'
-import axios from '../../interceptor'
+import axios from '../../plugins/axios'
 
 export default {
   name: 'FilesTable',

@@ -201,7 +201,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
-import axios from '../../interceptor'
+import axios from '../../plugins/axios'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
 
 export default {

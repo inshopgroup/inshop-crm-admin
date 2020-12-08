@@ -1,5 +1,5 @@
 import { namespace } from './mutation_types'
-import axios from '../../../interceptor'
+import axios from '../../../plugins/axios'
 
 export const getItems = ({ commit }, params) => {
   const url = `${process.env.VUE_APP_API_URL}/histories/${params.entity}/${params.id}`

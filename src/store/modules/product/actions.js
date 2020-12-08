@@ -1,6 +1,6 @@
 import * as crud from '../../../utils/crud'
 import { namespace } from './mutation_types'
-import axios from '../../../interceptor'
+import axios from '../../../plugins/axios'
 import { API_HOST } from '../../../config/_entrypoint'
 
 export const getItem = ({ dispatch, commit }, id) =>
