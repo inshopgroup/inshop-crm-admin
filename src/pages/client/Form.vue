@@ -3,11 +3,6 @@
     <section class="content">
       <item-errors entity="client" />
       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">
-            {{ $t('tabs_general') }}
-          </h3>
-        </div>
         <div class="box-body">
           <form-input
             :item="item"
