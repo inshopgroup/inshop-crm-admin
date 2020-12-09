@@ -1,13 +1,14 @@
 <template>
-  <field-select
-    id="label"
-    :item="{ value: value }"
-    property="value"
-    :options="options"
-    option-label="name"
+  <v-select
+    :value="value"
+    :items="options"
+    item-text="name"
     :multiple="true"
-    @fieldUpdated="filterTable"
-  />
+    return-object
+    outlined
+    dense
+    @input="filterTable(value, $event)"
+  ></v-select>
 </template>
 
 <script>
