@@ -1,19 +1,16 @@
 <template>
-  <div :class="[isInvalid ? 'is-invalid' : '']">
-    <div v-if="isInvalid" class="inshop-errors">{{ errors[property] }}</div>
-
-    <v-select
-      :value="item[property]"
-      :label="$t(label)"
-      :items="options"
-      :item-text="optionLabel"
-      :multiple="multiple"
-      return-object
-      outlined
-      dense
-      @input="$emit('formUpdated', property, $event)"
-    ></v-select>
-  </div>
+  <v-select
+    :value="item[property]"
+    :label="$t(label)"
+    :items="options"
+    :item-text="optionLabel"
+    :multiple="multiple"
+    :error-messages="error"
+    return-object
+    outlined
+    dense
+    @input="$emit('formUpdated', property, $event)"
+  ></v-select>
 </template>
 
 <script>
@@ -50,8 +47,8 @@ export default {
     },
   },
   computed: {
-    isInvalid() {
-      return Object.keys(this.errors).length > 0 && this.errors[this.property]
+    error() {
+      return Object.keys(this.errors).length > 0 ? this.errors[this.property] : ''
     },
     options() {
       if (this.$store) {
@@ -73,11 +70,3 @@ export default {
   }
 }
 </script>
-<style>
-.inshop-errors {
-  color: red;
-}
-.is-invalid fieldset {
-  border: 1px solid red !important;
-}
-</style>
