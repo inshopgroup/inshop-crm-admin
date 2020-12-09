@@ -1,12 +1,11 @@
 import pluralize from 'pluralize'
 import axios from '../plugins/axios'
-import { API_HOST } from '../config/_entrypoint'
 
 export const getItem = ({ commit }, namespace, id) => {
   commit(`${namespace}_SET_ERROR`, null)
 
   return axios
-    .get(`${API_HOST}/${pluralize(namespace.toLowerCase())}/${id}`)
+    .get(`${process.env.VUE_APP_API_URL}/${pluralize(namespace.toLowerCase())}/${id}`)
     .then(response => response.data)
     .then(data => {
       commit(`${namespace}_SET_ITEM`, data)
@@ -30,7 +29,7 @@ export const getItems = ({ commit }, namespace, query) => {
   commit(`${namespace}_SET_ERROR`, null)
 
   return axios
-    .get(API_HOST + url)
+    .get(process.env.VUE_APP_API_URL + url)
     .then(response => response.data)
     .then(data => {
       commit(`${namespace}_SET_ITEMS`, data['hydra:member'])
@@ -46,7 +45,7 @@ export const create = ({ commit, state }, namespace) => {
   commit(`${namespace}_SET_ERROR`, null)
 
   return axios
-    .post(`${API_HOST}/${pluralize(namespace.toLowerCase())}`, state.item)
+    .post(`${process.env.VUE_APP_API_URL}/${pluralize(namespace.toLowerCase())}`, state.item)
     .then(response => response.data)
     .catch(e => {
       const { data } = e.response
@@ -75,7 +74,7 @@ export const update = ({ commit, state }, namespace) => {
 
   return axios
     .put(
-      `${API_HOST}/${pluralize(namespace.toLowerCase())}/${state.item.id}`,
+      `${process.env.VUE_APP_API_URL}/${pluralize(namespace.toLowerCase())}/${state.item.id}`,
       state.item
     )
     .then(response => response.data)
@@ -103,7 +102,7 @@ export const update = ({ commit, state }, namespace) => {
 
 export const remove = ({ commit }, namespace, item) =>
   axios
-    .delete(`${API_HOST}/${pluralize(namespace.toLowerCase())}/${item.id}`)
+    .delete(`${process.env.VUE_APP_API_URL}/${pluralize(namespace.toLowerCase())}/${item.id}`)
     .catch(e => {
       const message =
         e.response.status === 409

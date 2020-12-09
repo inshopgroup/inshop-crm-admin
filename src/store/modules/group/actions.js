@@ -2,13 +2,12 @@ import pluralize from 'pluralize'
 import * as crud from '../../../utils/crud'
 import { namespace } from './mutation_types'
 import axios from '../../../plugins/axios'
-import { API_HOST } from '../../../config/_entrypoint'
 
 export const getItem = ({ commit }, id) => {
   commit(`${namespace}_SET_ERROR`, null)
 
   return axios
-    .get(`${API_HOST}/${pluralize(namespace.toLowerCase())}/${id}`)
+    .get(`${process.env.VUE_APP_API_URL}/${pluralize(namespace.toLowerCase())}/${id}`)
     .then(response => response.data)
     .then(data => {
       const roles = []
