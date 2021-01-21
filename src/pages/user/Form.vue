@@ -60,37 +60,39 @@
 import { mapActions, mapGetters } from 'vuex'
 import ItemEditActions from '../../components/layout/ItemEditActions'
 import ItemErrors from '../../components/layout/errors/ItemErrors'
+import FormPassword from '../../components/form/FormPassword'
 
 export default {
   components: {
     ItemErrors,
-    ItemEditActions
+    ItemEditActions,
+    FormPassword,
   },
   props: {
     handleSubmit: {
       type: Function,
-      required: true
+      required: true,
     },
     item: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     ...mapGetters({
-      errors: 'user/errors'
-    })
+      errors: 'user/errors',
+    }),
   },
   beforeDestroy() {
     this.reset()
   },
   methods: {
     ...mapActions({
-      reset: 'user/reset'
+      reset: 'user/reset',
     }),
     updateValue(property, value) {
       this.$store.commit('user/USER_UPDATE_ITEM', { [property]: value })
-    }
-  }
+    },
+  },
 }
 </script>
