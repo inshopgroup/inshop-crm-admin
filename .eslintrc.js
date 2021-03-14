@@ -1,15 +1,21 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
     node: true,
-    jest: true
+  },
+  parserOptions: {
+    parser: 'babel-eslint',
   },
   extends: [
-    'airbnb-base',
-    'eslint:recommended',
-    'plugin:vue/recommended',
-    '@vue/prettier'
+    '@nuxtjs',
+    'prettier',
+    'prettier/vue',
+    'plugin:prettier/recommended',
+    'plugin:nuxt/recommended',
   ],
+  plugins: ['prettier'],
+  // add your custom rules here
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
@@ -42,9 +48,11 @@ module.exports = {
     camelcase: 0,
     radix: 0,
     'no-alert': 0,
-    'no-shadow': 0
+    'no-shadow': 0,
+    'nuxt/no-globals-in-created': 0,
+    'import/no-absolute-path': 0,
+    'no-undef': 0,
+    'prefer-template': 0,
+    'vue/valid-v-slot': 0,
   },
-  parserOptions: {
-    parser: 'babel-eslint'
-  }
 }

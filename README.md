@@ -91,8 +91,14 @@ services:
   client:
     restart: always
     image: inshopgroup/inshop-crm-client
+    user: node
+    working_dir: /var/www
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
     ports:
       - ${PORT_CLIENT}:80
+    command: "npm start"
 
   php:
     restart: always
