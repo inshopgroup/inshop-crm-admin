@@ -164,11 +164,10 @@ export default {
                 if (Object.keys(this.dateColumns).includes(key)) {
                   queryParams[
                     `${this.dateColumns[key]}[after]`
-                  ] = window.moment(params.query[key].start).format('YYYY/M/D')
+                  ] = this.$date(params.query[key].start).format('YYYY/M/D')
                   queryParams[
                     `${this.dateColumns[key]}[before]`
-                  ] = window
-                    .moment(params.query[key].end)
+                  ] = this.$date(params.query[key].end)
                     .add(1, 'day')
                     .format('YYYY/M/D')
                 } else if (Object.keys(this.customColumns).includes(key)) {

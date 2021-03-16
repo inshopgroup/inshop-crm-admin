@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import fecha from 'fecha'
-
 export default {
   name: 'FormDatePicker',
   props: {
@@ -62,10 +60,7 @@ export default {
   },
   methods: {
     updateValue(value) {
-      const date = fecha.format(
-        fecha.parse(value, 'YYYY-MM-DD'),
-        'YYYY-MM-DDTHH:mm:ss'
-      )
+      const date = this.$date(value).format('YYYY-MM-DDTHH:mm:ss')
       this.$emit('formUpdated', this.property, date)
     },
   },

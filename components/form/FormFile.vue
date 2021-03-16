@@ -23,12 +23,7 @@
             <td>{{ filesize(file.size) }}</td>
             <td>{{ file.mimeType }}</td>
             <td>
-              {{
-                fecha.format(
-                  fecha.parse(file.createdAt, 'YYYY-MM-DDTHH:mm:ss'),
-                  'DD-MM-YYYY HH:mm'
-                )
-              }}
+              {{$date(file.createdAt).format('DD-MM-YYYY HH:mm') }}
             </td>
             <td>
               <button type="button" @click.prevent="deleteFile(file.id)">
@@ -54,7 +49,6 @@
 
 <script>
 import filesize from 'filesize'
-import fecha from 'fecha'
 export default {
   name: 'FormFile',
   props: {
@@ -102,7 +96,6 @@ export default {
   data() {
     return {
       filesize,
-      fecha,
     }
   },
   computed: {

@@ -1,11 +1,9 @@
 <script>
-import fecha from 'fecha'
-
 export default {
   methods: {
     crmDateFormat(date, format = 'DD-MM-YYYY') {
       if (date) {
-        return fecha.format(fecha.parse(date, 'YYYY-MM-DDTHH:mm:ss'), format)
+        return this.$date(date).format(format)
       }
     },
   },

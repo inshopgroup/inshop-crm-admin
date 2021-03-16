@@ -108,7 +108,6 @@
 </template>
 
 <script>
-import fecha from 'fecha'
 import ModalNotDoneTasks from '@/components/layout/ModalNotDoneTasks'
 import bg from '../assets/bg.png'
 
@@ -118,7 +117,6 @@ export default {
   data() {
     return {
       bg,
-      fecha,
       q: null,
       tasks: [],
       dialog: false,
