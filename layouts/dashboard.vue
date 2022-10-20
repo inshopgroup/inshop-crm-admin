@@ -147,13 +147,13 @@ export default {
           children: [
             {
               label: 'contacts',
-              icon: 'mdi-local_phone',
+              icon: 'mdi-card-account-phone',
               route: '/contact',
               role: 'ROLE_CONTACT_LIST',
             },
             {
               label: 'address',
-              icon: 'mdi-my_location',
+              icon: 'mdi-book-open-blank-variant',
               route: '/address',
               role: 'ROLE_ADDRESS_LIST',
             },
@@ -161,7 +161,7 @@ export default {
         },
         {
           label: 'dictionaries',
-          icon: 'mdi-list',
+          icon: 'mdi-format-list-bulleted',
           children: [
             {
               label: 'country',
@@ -171,31 +171,31 @@ export default {
             },
             {
               label: 'language',
-              icon: 'mdi-format_align_justify',
+              icon: 'mdi-translate',
               route: '/language',
               role: 'ROLE_LANGUAGE_LIST',
             },
             {
               label: 'contact_type',
-              icon: 'mdi-call_end',
+              icon: 'mdi-room-service',
               route: '/contact_type',
               role: 'ROLE_CONTACT_TYPE_LIST',
             },
             {
               label: 'project_type',
-              icon: 'mdi-work',
+              icon: 'mdi-folder-wrench',
               route: '/project_type',
               role: 'ROLE_PROJECT_TYPE_LIST',
             },
             {
               label: 'project_status',
-              icon: 'mdi-web',
+              icon: 'mdi-folder-star',
               route: '/project_status',
               role: 'ROLE_PROJECT_STATUS_LIST',
             },
             {
               label: 'task_status',
-              icon: 'mdi-web_asset',
+              icon: 'mdi-ticket-confirmation',
               route: '/task_status',
               role: 'ROLE_TASK_STATUS_LIST',
             },
@@ -213,13 +213,13 @@ export default {
           children: [
             {
               label: 'users',
-              icon: 'mdi-account_box',
+              icon: 'mdi-account',
               route: '/user',
               role: 'ROLE_USER_LIST',
             },
             {
               label: 'groups',
-              icon: 'mdi-people_outline',
+              icon: 'mdi-account-supervisor',
               route: '/group',
               role: 'ROLE_GROUP_LIST',
             },
