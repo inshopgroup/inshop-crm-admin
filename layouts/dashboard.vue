@@ -67,24 +67,6 @@
         <span class="hidden-sm-and-down mx-2">Inshop CRM</span>
       </v-toolbar-title>
 
-      <v-row class="flex-column">
-        <v-form
-          v-if="isGranted('ROLE_OTHER_SEARCH')"
-          method="get"
-          class="hidden-sm-and-down"
-          @submit.prevent="search"
-        >
-          <v-text-field
-            v-model="q"
-            flat
-            hide-details
-            solo-inverted
-            prepend-inner-icon="mdi-magnify"
-            label="Search"
-          ></v-text-field>
-        </v-form>
-      </v-row>
-
       <v-spacer></v-spacer>
 
       <span class="mx-2">{{ username }}</span>
@@ -325,9 +307,6 @@ export default {
       }
 
       return false
-    },
-    search() {
-      this.$router.push({ name: 'search___en', query: { q: this.q } })
     },
     signOut() {
       this.$store.dispatch('auth/logout')
