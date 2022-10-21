@@ -5,7 +5,7 @@
         {{ $date().format('YYYY') }},
         <a href="https://inshopcrm.com" class="white--text" target="_blank">
           Inshop CRM </a
-        >, v2.0.0
+        >, v3.0.1
       </v-col>
       <v-col cols="12" sm="auto" class="text-center">
         {{ $t('powered_by') }}

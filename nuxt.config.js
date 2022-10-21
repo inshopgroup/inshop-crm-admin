@@ -57,12 +57,6 @@ export default {
             name: 'English',
             file: 'en.js',
           },
-          {
-            code: 'pl',
-            iso: 'pl',
-            name: 'Polish',
-            file: 'pl.js',
-          },
         ],
         lazy: true,
         langDir: 'lang/',
