@@ -1,6 +1,8 @@
 <template>
   <v-card class="mx-auto">
-    <v-card-title>{{ title }}</v-card-title>
+    <v-card-title>
+      {{ title }}
+    </v-card-title>
     <v-card-text>
       <doughnut-chart
         :height="200"

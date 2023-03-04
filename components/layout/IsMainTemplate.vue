@@ -7,7 +7,9 @@
 
       <v-col v-if="routeAdd" class="col-auto">
         <v-btn color="success mr-lg-5" dark fab :to="routeAdd">
-          <v-icon>{{ icon }}</v-icon>
+          <v-icon>
+            {{ icon }}
+          </v-icon>
         </v-btn>
       </v-col>
     </v-row>

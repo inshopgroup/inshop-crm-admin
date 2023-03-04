@@ -14,7 +14,7 @@
       width="400"
       :alt="file.originalName"
     />
-    <div v-if="!this.isImage && !this.isPdf" class="preview-not-available">
+    <div v-if="!isImage && !isPdf" class="preview-not-available">
       Preview not available
     </div>
   </div>

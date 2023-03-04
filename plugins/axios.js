@@ -12,7 +12,7 @@ export default function ({ $axios, store, redirect, error }) {
     return config
   })
 
-  $axios.onResponse((data) => {
+  $axios.onResponse(() => {
     store.dispatch('loadingStop')
   })
 

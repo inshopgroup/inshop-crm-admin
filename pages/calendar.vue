@@ -24,13 +24,13 @@
               </template>
               <v-list>
                 <v-list-item @click="type = 'day'">
-                  <v-list-item-title>Day</v-list-item-title>
+                  <v-list-item-title> Day </v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="type = 'week'">
-                  <v-list-item-title>Week</v-list-item-title>
+                  <v-list-item-title> Week </v-list-item-title>
                 </v-list-item>
                 <v-list-item @click="type = 'month'">
-                  <v-list-item-title>Month</v-list-item-title>
+                  <v-list-item-title> Month </v-list-item-title>
                 </v-list-item>
               </v-list>
             </v-menu>
@@ -67,7 +67,7 @@
                       params: { id: selectedEvent.id },
                     }"
                   >
-                    <v-icon>mdi-pencil</v-icon>
+                    <v-icon> mdi-pencil </v-icon>
                   </v-btn>
                   <v-toolbar-title
                     v-html="selectedEvent.name"
@@ -77,7 +77,9 @@
                   <p>
                     {{ crmDateFormat(selectedEvent.deadline, 'YYYY-MM-DD') }}
                   </p>
-                  <p>{{ selectedEvent.description }}</p>
+                  <p>
+                    {{ selectedEvent.description }}
+                  </p>
                   <p>
                     {{ $t('client') }}:
                     <router-link

@@ -1,7 +1,11 @@
 <template>
   <tr>
-    <td>{{ $t(label) }}</td>
-    <td>{{ value }}</td>
+    <td>
+      {{ $t(label) }}
+    </td>
+    <td>
+      {{ value }}
+    </td>
   </tr>
 </template>
 

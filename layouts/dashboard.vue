@@ -71,7 +71,7 @@
 
       <span class="mx-2">{{ username }}</span>
       <v-btn icon @click="signOut">
-        <v-icon>mdi-power</v-icon>
+        <v-icon> mdi-power </v-icon>
       </v-btn>
     </v-app-bar>
 
@@ -248,7 +248,7 @@ export default {
     },
   },
   watch: {
-    $route(to, from) {
+    $route(to, _from) {
       this.activeRoute = this.routeName(to.name)
       this.initActiveMenuItem()
     },

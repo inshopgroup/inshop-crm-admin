@@ -19,9 +19,15 @@
             <td v-if="preview">
               <file-preview :file="file" :route="route"></file-preview>
             </td>
-            <td>{{ file.originalName }}</td>
-            <td>{{ filesize(file.size) }}</td>
-            <td>{{ file.mimeType }}</td>
+            <td>
+              {{ file.originalName }}
+            </td>
+            <td>
+              {{ filesize(file.size) }}
+            </td>
+            <td>
+              {{ file.mimeType }}
+            </td>
             <td>
               {{ $date(file.createdAt).format('DD-MM-YYYY HH:mm') }}
             </td>

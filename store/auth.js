@@ -88,7 +88,7 @@ export const actions = {
         return response
       })
   },
-  loginByToken({ commit, getters }, token) {
+  loginByToken({ commit }, token) {
     const link = process.env.NUXT_ENV_API_URL + '/frontend/login/' + token
 
     return this.$axios

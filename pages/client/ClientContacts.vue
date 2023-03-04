@@ -2,16 +2,14 @@
   <v-row>
     <v-col cols="12" class="mb-4">
       <v-dialog v-model="dialog" width="600">
-        <template>
-          <v-btn
-            class="mx-1"
-            color="success"
-            large
-            @click="create($event.target)"
-          >
-            {{ $t('contact_add') }}
-          </v-btn>
-        </template>
+        <v-btn
+          class="mx-1"
+          color="success"
+          large
+          @click="create($event.target)"
+        >
+          {{ $t('contact_add') }}
+        </v-btn>
 
         <modal-contact-form
           :key="key"

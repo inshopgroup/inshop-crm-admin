@@ -44,7 +44,7 @@ export const actions = {
   loadingAllow({ commit }, value) {
     commit('LOADING_ALLOW', value)
   },
-  async nuxtServerInit({ commit, dispatch }, context) {
+  async nuxtServerInit({ commit }, context) {
     const t = context.app.$cookiz.get('t')
     const rt = context.app.$cookiz.get('rt')
     const roles = context.app.$cookiz.get('roles')

@@ -1,6 +1,8 @@
 <template>
   <tr>
-    <td>{{ $t('isActive') }}</td>
+    <td>
+      {{ $t('isActive') }}
+    </td>
     <td>
       <span
         :class="[

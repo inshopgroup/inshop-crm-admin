@@ -11,7 +11,7 @@
         <v-card class="elevation-12" width="100%" max-width="400">
           <v-form @submit.prevent="signIn">
             <v-toolbar color="primary" dark flat>
-              <v-toolbar-title>Sign in to start the session</v-toolbar-title>
+              <v-toolbar-title> Sign in to start the session </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-text-field

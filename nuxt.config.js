@@ -1,4 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
+// import colors from 'vuetify/es5/util/colors'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -79,7 +79,7 @@ export default {
       headers: {
         Connection: 'keep-alive',
       },
-      onProxyReq: function log(proxyReq, req, res) {
+      onProxyReq: function log(proxyReq, req, _res) {
         //  console.log(req.body)
         // console.log(proxyReq.getHeader('Content-Type'))
 
