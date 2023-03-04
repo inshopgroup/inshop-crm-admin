@@ -5,12 +5,10 @@ module.exports = {
     node: true,
   },
   extends: [
-    '@nuxtjs',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended',
     '@nuxtjs/eslint-config-typescript',
+    'plugin:prettier/recommended',
+    'prettier/vue',
+    'prettier',
   ],
   plugins: ['prettier'],
   // add your custom rules here
@@ -19,6 +17,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'vue/require-default-prop': 'off',
     'vue/no-v-html': 'off',
+    'vue/no-v-text-v-html-on-component': 'off',
     'import/no-dynamic-require': 'off',
     'import/no-unresolved': 'off',
     'no-var': 2,
