@@ -76,7 +76,7 @@
     </v-app-bar>
 
     <v-main>
-      <nuxt />
+      <nuxt></nuxt>
     </v-main>
 
     <is-footer></is-footer>
@@ -90,8 +90,8 @@
 </template>
 
 <script>
-import ModalNotDoneTasks from '@/components/layout/ModalNotDoneTasks'
 import bg from '../assets/bg.png'
+import ModalNotDoneTasks from '@/components/layout/ModalNotDoneTasks'
 
 export default {
   name: 'MainSlot',

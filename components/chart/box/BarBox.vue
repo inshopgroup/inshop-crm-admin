@@ -7,7 +7,7 @@
         :chart-data="dataset"
         :labels="labels"
         :options="options"
-      />
+      ></bar-chart>
     </v-card-text>
   </v-card>
 </template>

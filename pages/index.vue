@@ -65,12 +65,12 @@ export default {
       title: 'Homepage title',
       meta: [
         {
-          hid: `description`,
+          hid: 'description',
           name: 'description',
           content: 'Homepage title',
         },
         {
-          hid: `keywords`,
+          hid: 'keywords',
           name: 'keywords',
           keywords: 'Homepage title',
         },

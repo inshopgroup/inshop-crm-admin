@@ -3,7 +3,7 @@
     title="contact_edit"
     :title-params="{ entity: item && item.value }"
   >
-    <contact-form :handle-submit="onSendForm" :item="item" />
+    <contact-form :handle-submit="onSendForm" :item="item"></contact-form>
   </is-main-template>
 </template>
 

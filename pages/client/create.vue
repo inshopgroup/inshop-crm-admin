@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="client_add">
-    <client-form :handle-submit="onSendForm" :item="item" />
+    <client-form :handle-submit="onSendForm" :item="item"></client-form>
   </is-main-template>
 </template>
 

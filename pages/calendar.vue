@@ -6,18 +6,20 @@
           <v-toolbar flat color="white">
             <v-btn class="mr-4" @click="setToday"> Today </v-btn>
             <v-btn fab text small class="mx-1" @click="prev">
-              <v-icon small>mdi-chevron-left</v-icon>
+              <v-icon small> mdi-chevron-left </v-icon>
             </v-btn>
             <v-btn fab text small class="mx-1" @click="next">
-              <v-icon small>mdi-chevron-right</v-icon>
+              <v-icon small> mdi-chevron-right </v-icon>
             </v-btn>
-            <v-toolbar-title class="ml-4">{{ title }}</v-toolbar-title>
+            <v-toolbar-title class="ml-4">
+              {{ title }}
+            </v-toolbar-title>
             <v-spacer></v-spacer>
             <v-menu bottom right>
               <template #activator="{ on }">
                 <v-btn v-on="on">
                   <span>{{ typeToLabel[type] }}</span>
-                  <v-icon right>mdi-chevron-down</v-icon>
+                  <v-icon right> mdi-chevron-down </v-icon>
                 </v-btn>
               </template>
               <v-list>

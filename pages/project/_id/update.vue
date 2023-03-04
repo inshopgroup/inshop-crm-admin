@@ -3,7 +3,7 @@
     title="project_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <project-form :handle-submit="onSendForm" :item="item" />
+    <project-form :handle-submit="onSendForm" :item="item"></project-form>
   </is-main-template>
 </template>
 

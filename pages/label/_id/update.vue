@@ -3,7 +3,7 @@
     title="label_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <label-form :handle-submit="onSendForm" :item="item" />
+    <label-form :handle-submit="onSendForm" :item="item"></label-form>
   </is-main-template>
 </template>
 

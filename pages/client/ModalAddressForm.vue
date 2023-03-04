@@ -11,7 +11,7 @@
         :handle-submit="onSendForm"
         :item="item"
         :show-actions="false"
-      />
+      ></AddressForm>
     </v-card-text>
     <v-card-actions>
       <v-row justify="space-between" no-gutters>

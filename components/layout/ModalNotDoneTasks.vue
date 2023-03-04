@@ -4,7 +4,7 @@
       <v-card-title class="headline">
         {{ $t('notification_deadline') }}
         <v-spacer></v-spacer>
-        <v-icon class="mr-2" @click="dialogClose">mdi-close</v-icon>
+        <v-icon class="mr-2" @click="dialogClose"> mdi-close </v-icon>
       </v-card-title>
 
       <v-card-text>

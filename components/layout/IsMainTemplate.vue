@@ -16,8 +16,8 @@
       <v-col cols="12">
         <v-card class="mx-auto">
           <v-card-text>
-            <item-errors v-if="entity" :entity="entity" />
-            <slot></slot>
+            <item-errors v-if="entity" :entity="entity"></item-errors>
+            <slot />
           </v-card-text>
         </v-card>
       </v-col>

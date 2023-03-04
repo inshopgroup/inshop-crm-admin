@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <nuxt />
+      <nuxt></nuxt>
     </v-main>
     <is-footer :app="true"></is-footer>
   </v-app>

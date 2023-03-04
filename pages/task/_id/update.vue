@@ -3,7 +3,7 @@
     title="task_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <task-form :handle-submit="onSendForm" :item="item" />
+    <task-form :handle-submit="onSendForm" :item="item"></task-form>
   </is-main-template>
 </template>
 

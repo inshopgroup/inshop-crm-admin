@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="contact_add">
-    <contact-form :handle-submit="onSendForm" :item="item" />
+    <contact-form :handle-submit="onSendForm" :item="item"></contact-form>
   </is-main-template>
 </template>
 

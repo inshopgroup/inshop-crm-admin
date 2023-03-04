@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors entity="country" />
+      <item-errors entity="country"></item-errors>
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -10,17 +10,21 @@
             property="name"
             label="name"
             @formUpdated="updateValue"
-          />
+          ></form-input>
           <form-checkbox
             :item="item"
             :errors="errors"
             property="isActive"
             label="isActive"
             @formUpdated="updateValue"
-          />
+          ></form-checkbox>
         </div>
       </div>
-      <item-edit-actions :item="item" entity="Country" path="country" />
+      <item-edit-actions
+        :item="item"
+        entity="Country"
+        path="country"
+      ></item-edit-actions>
     </section>
   </form>
 </template>

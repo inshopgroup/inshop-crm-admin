@@ -3,7 +3,7 @@
     title="client_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <client-form :handle-submit="onSendForm" :item="item" />
+    <client-form :handle-submit="onSendForm" :item="item"></client-form>
   </is-main-template>
 </template>
 

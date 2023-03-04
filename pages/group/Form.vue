@@ -1,21 +1,21 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <v-container fluid>
-      <item-errors entity="group" />
+      <item-errors entity="group"></item-errors>
       <form-input
         :item="item"
         :errors="errors"
         property="name"
         label="name"
         @formUpdated="updateValue"
-      />
+      ></form-input>
       <form-checkbox
         :item="item"
         :errors="errors"
         property="isActive"
         label="isActive"
         @formUpdated="updateValue"
-      />
+      ></form-checkbox>
 
       <v-row>
         <v-col
@@ -44,7 +44,7 @@
                 property="value"
                 :label="role.name.toLowerCase()"
                 @formUpdated="updateRole"
-              />
+              ></form-checkbox>
             </v-card-text>
 
             <v-card-actions>
@@ -59,7 +59,11 @@
         </v-col>
       </v-row>
 
-      <item-edit-actions :item="item" entity="Group" path="group" />
+      <item-edit-actions
+        :item="item"
+        entity="Group"
+        path="group"
+      ></item-edit-actions>
     </v-container>
   </form>
 </template>

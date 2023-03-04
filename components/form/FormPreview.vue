@@ -6,7 +6,7 @@
       :type="file.mimeType"
       width="400"
       height="300"
-    ></iframe>
+    />
     <img
       v-if="isImage && src"
       :src="src"

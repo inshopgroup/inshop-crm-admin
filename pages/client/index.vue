@@ -15,7 +15,7 @@
       :templates="templates"
     >
       <template slot="filter__labels.id">
-        <labels-filter />
+        <labels-filter></labels-filter>
       </template>
     </api-table>
   </is-main-template>

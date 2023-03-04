@@ -3,7 +3,7 @@
     title="country_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <country-form :handle-submit="onSendForm" :item="item" />
+    <country-form :handle-submit="onSendForm" :item="item"></country-form>
   </is-main-template>
 </template>
 

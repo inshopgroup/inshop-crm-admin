@@ -3,7 +3,7 @@
     title="group_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <group-form :handle-submit="onSendForm" :item="item" />
+    <group-form :handle-submit="onSendForm" :item="item"></group-form>
   </is-main-template>
 </template>
 

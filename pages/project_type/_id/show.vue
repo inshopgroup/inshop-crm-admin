@@ -3,7 +3,7 @@
     :fields="fields"
     entity="ProjectType"
     :history-key="historyKey"
-  />
+  ></is-show-template>
 </template>
 
 <script>

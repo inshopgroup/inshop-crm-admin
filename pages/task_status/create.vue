@@ -1,6 +1,9 @@
 <template>
   <is-main-template title="task_status_add">
-    <task-status-form :handle-submit="onSendForm" :item="item" />
+    <task-status-form
+      :handle-submit="onSendForm"
+      :item="item"
+    ></task-status-form>
   </is-main-template>
 </template>
 

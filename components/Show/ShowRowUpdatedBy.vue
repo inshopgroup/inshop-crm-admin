@@ -1,5 +1,5 @@
 <template>
-  <show-row label="updatedBy" :value="item.updatedBy" />
+  <show-row label="updatedBy" :value="item.updatedBy"></show-row>
 </template>
 
 <script>

@@ -11,7 +11,7 @@
             <th>Size</th>
             <th>Mime type</th>
             <th>Create at</th>
-            <th></th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
             <td>{{ filesize(file.size) }}</td>
             <td>{{ file.mimeType }}</td>
             <td>
-              {{$date(file.createdAt).format('DD-MM-YYYY HH:mm') }}
+              {{ $date(file.createdAt).format('DD-MM-YYYY HH:mm') }}
             </td>
             <td>
               <button type="button" @click.prevent="deleteFile(file.id)">
@@ -43,7 +43,9 @@
       />
     </div>
 
-    <div v-if="isInvalid" class="inshop-errors">{{ errors[property] }}</div>
+    <div v-if="isInvalid" class="inshop-errors">
+      {{ errors[property] }}
+    </div>
   </div>
 </template>
 

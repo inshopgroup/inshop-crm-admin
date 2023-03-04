@@ -68,10 +68,10 @@ export const actions = {
         })
         data.roleIRIs = roles
 
-        context.commit(`GROUP_SET_ITEM`, data)
+        context.commit('GROUP_SET_ITEM', data)
       })
       .catch((e) => {
-        context.commit(`GROUP_SET_ERROR`, e.message)
+        context.commit('GROUP_SET_ERROR', e.message)
       })
   },
   getItems(context, query) {

@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="user_add">
-    <user-form :handle-submit="onSendForm" :item="item" />
+    <user-form :handle-submit="onSendForm" :item="item"></user-form>
   </is-main-template>
 </template>
 

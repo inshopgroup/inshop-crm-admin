@@ -3,7 +3,7 @@
     :fields="fields"
     entity="ContactType"
     :history-key="historyKey"
-  />
+  ></is-show-template>
 </template>
 
 <script>

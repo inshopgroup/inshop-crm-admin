@@ -3,7 +3,10 @@
     title="contact_type_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <contact-type-form :handle-submit="onSendForm" :item="item" />
+    <contact-type-form
+      :handle-submit="onSendForm"
+      :item="item"
+    ></contact-type-form>
   </is-main-template>
 </template>
 

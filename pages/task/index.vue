@@ -11,7 +11,7 @@
       :templates="templates"
     >
       <template slot="filter__status.id">
-        <task-status-filter />
+        <task-status-filter></task-status-filter>
       </template>
     </api-table>
   </is-main-template>

@@ -1,5 +1,5 @@
 <template>
-  <show-row label="createdAt" :value="crmDateFormat(item.createdAt)" />
+  <show-row label="createdAt" :value="crmDateFormat(item.createdAt)"></show-row>
 </template>
 
 <script>

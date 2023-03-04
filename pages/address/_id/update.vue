@@ -3,7 +3,7 @@
     title="address_edit"
     :title-params="{ entity: item && item.id }"
   >
-    <address-form :handle-submit="onSendForm" :item="item" />
+    <address-form :handle-submit="onSendForm" :item="item"></address-form>
   </is-main-template>
 </template>
 

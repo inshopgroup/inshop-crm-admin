@@ -3,7 +3,7 @@
     title="document_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <document-form :handle-submit="onSendForm" :item="item" />
+    <document-form :handle-submit="onSendForm" :item="item"></document-form>
   </is-main-template>
 </template>
 

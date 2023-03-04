@@ -1,7 +1,7 @@
 <template>
   <div class="user-groups">
     <is-main-template :class="{ 'd-none': isLoading }" title="group_add">
-      <group-form :handle-submit="onSendForm" :item="item" />
+      <group-form :handle-submit="onSendForm" :item="item"></group-form>
     </is-main-template>
   </div>
 </template>

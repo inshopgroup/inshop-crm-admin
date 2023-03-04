@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors entity="document" />
+      <item-errors entity="document"></item-errors>
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -10,7 +10,7 @@
             property="name"
             label="name"
             @formUpdated="updateValue"
-          />
+          ></form-input>
           <form-select
             :item="item"
             :errors="errors"
@@ -19,7 +19,7 @@
             label="client"
             :multiple="false"
             @formUpdated="updateValue"
-          />
+          ></form-select>
           <form-file
             :axios="$axios"
             :errors="errors"
@@ -31,17 +31,21 @@
             label="files"
             @formFileUploaded="formFileUploaded"
             @formFileDeleted="formFileDeleted"
-          />
+          ></form-file>
           <form-checkbox
             :item="item"
             :errors="errors"
             property="isActive"
             label="isActive"
             @formUpdated="updateValue"
-          />
+          ></form-checkbox>
         </div>
       </div>
-      <item-edit-actions :item="item" entity="Document" path="document" />
+      <item-edit-actions
+        :item="item"
+        entity="Document"
+        path="document"
+      ></item-edit-actions>
     </section>
   </form>
 </template>

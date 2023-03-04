@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors entity="client" />
+      <item-errors entity="client"></item-errors>
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -10,21 +10,21 @@
             property="username"
             label="email"
             @formUpdated="updateValue"
-          />
+          ></form-input>
           <form-input
             :item="item"
             :errors="errors"
             property="name"
             label="name"
             @formUpdated="updateValue"
-          />
+          ></form-input>
           <form-textarea
             :item="item"
             :errors="errors"
             property="description"
             label="description"
             @formUpdated="updateValue"
-          />
+          ></form-textarea>
           <form-select
             :item="item"
             :errors="errors"
@@ -33,17 +33,21 @@
             label="labels_id"
             :multiple="true"
             @formUpdated="updateValue"
-          />
+          ></form-select>
           <form-checkbox
             :item="item"
             :errors="errors"
             property="isActive"
             label="isActive"
             @formUpdated="updateValue"
-          />
+          ></form-checkbox>
         </div>
       </div>
-      <item-edit-actions :item="item" entity="Client" path="client" />
+      <item-edit-actions
+        :item="item"
+        entity="Client"
+        path="client"
+      ></item-edit-actions>
     </section>
   </form>
 </template>

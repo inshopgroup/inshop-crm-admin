@@ -3,7 +3,10 @@
     title="task_status_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <task-status-form :handle-submit="onSendForm" :item="item" />
+    <task-status-form
+      :handle-submit="onSendForm"
+      :item="item"
+    ></task-status-form>
   </is-main-template>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="label_add">
-    <label-form :handle-submit="onSendForm" :item="item" />
+    <label-form :handle-submit="onSendForm" :item="item"></label-form>
   </is-main-template>
 </template>
 

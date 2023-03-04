@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="document_add">
-    <document-form :handle-submit="onSendForm" :item="item" />
+    <document-form :handle-submit="onSendForm" :item="item"></document-form>
   </is-main-template>
 </template>
 

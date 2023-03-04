@@ -3,7 +3,7 @@
     :fields="fields"
     entity="TaskStatus"
     :history-key="historyKey"
-  />
+  ></is-show-template>
 </template>
 
 <script>

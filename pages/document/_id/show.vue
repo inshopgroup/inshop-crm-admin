@@ -6,7 +6,7 @@
     :history-key="historyKey"
   >
     <template #files="{ item }">
-      <files-table :files="item.files" />
+      <files-table :files="item.files"></files-table>
     </template>
   </is-show-template>
 </template>

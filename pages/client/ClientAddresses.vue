@@ -21,7 +21,7 @@
           @dialog-close="onCloseDialog"
           @reset-form="resetForm"
           @addresses-changed="$emit('changed')"
-        />
+        ></modal-address-form>
       </v-dialog>
     </v-col>
 
@@ -34,13 +34,13 @@
         <template #item.actions="{ item }">
           <v-row justify="end" style="min-width: 150px">
             <v-btn text small @click="goto(item, $event.target)">
-              <v-icon color="primary">mdi-eye</v-icon>
+              <v-icon color="primary"> mdi-eye </v-icon>
             </v-btn>
             <v-btn text small @click="edit(item, $event.target)">
-              <v-icon color="primary">mdi-pencil</v-icon>
+              <v-icon color="primary"> mdi-pencil </v-icon>
             </v-btn>
             <v-btn text small @click="deleteItem(item)">
-              <v-icon color="primary">mdi-delete</v-icon>
+              <v-icon color="primary"> mdi-delete </v-icon>
             </v-btn>
           </v-row>
         </template>

@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <v-row>
-      <item-errors entity="contact" />
+      <item-errors entity="contact"></item-errors>
 
       <v-col cols="12">
         <form-input
@@ -10,7 +10,7 @@
           property="value"
           label="value"
           @formUpdated="updateValue"
-        />
+        ></form-input>
         <form-select
           :item="item"
           :errors="errors"
@@ -18,18 +18,22 @@
           option-store="contactType"
           label="contactType_name"
           @formUpdated="updateValue"
-        />
+        ></form-select>
         <form-checkbox
           :item="item"
           :errors="errors"
           property="isActive"
           label="isActive"
           @formUpdated="updateValue"
-        />
+        ></form-checkbox>
       </v-col>
 
       <v-col v-if="showActions" cols="12">
-        <item-edit-actions :item="item" entity="Contact" path="contact" />
+        <item-edit-actions
+          :item="item"
+          entity="Contact"
+          path="contact"
+        ></item-edit-actions>
       </v-col>
     </v-row>
   </form>

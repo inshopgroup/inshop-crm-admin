@@ -8,7 +8,7 @@
           x-small
           :to="{ name: showRoute, params: { id: props.row.id } }"
         >
-          <v-icon color="primary">mdi-eye</v-icon>
+          <v-icon color="primary"> mdi-eye </v-icon>
         </v-btn>
         <v-btn
           v-if="isGranted(role_show) && isGranted(role_edit)"
@@ -16,7 +16,7 @@
           x-small
           :to="{ name: updateRoute, params: { id: props.row.id } }"
         >
-          <v-icon color="primary">mdi-pencil</v-icon>
+          <v-icon color="primary"> mdi-pencil </v-icon>
         </v-btn>
       </v-layout>
     </template>
@@ -162,12 +162,12 @@ export default {
             this.columns.forEach((key) => {
               if (typeof params.query[key] !== 'undefined') {
                 if (Object.keys(this.dateColumns).includes(key)) {
-                  queryParams[
-                    `${this.dateColumns[key]}[after]`
-                  ] = this.$date(params.query[key].start).format('YYYY/M/D')
-                  queryParams[
-                    `${this.dateColumns[key]}[before]`
-                  ] = this.$date(params.query[key].end)
+                  queryParams[`${this.dateColumns[key]}[after]`] = this.$date(
+                    params.query[key].start
+                  ).format('YYYY/M/D')
+                  queryParams[`${this.dateColumns[key]}[before]`] = this.$date(
+                    params.query[key].end
+                  )
                     .add(1, 'day')
                     .format('YYYY/M/D')
                 } else if (Object.keys(this.customColumns).includes(key)) {

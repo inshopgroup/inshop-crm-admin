@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors entity="project" />
+      <item-errors entity="project"></item-errors>
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -10,14 +10,14 @@
             property="name"
             label="name"
             @formUpdated="updateValue"
-          />
+          ></form-input>
           <form-input
             :item="item"
             :errors="errors"
             property="description"
             label="description"
             @formUpdated="updateValue"
-          />
+          ></form-input>
           <form-select
             :item="item"
             :errors="errors"
@@ -25,7 +25,7 @@
             option-store="projectType"
             label="type_name"
             @formUpdated="updateValue"
-          />
+          ></form-select>
           <form-select
             :item="item"
             :errors="errors"
@@ -33,7 +33,7 @@
             option-store="projectStatus"
             label="status_name"
             @formUpdated="updateValue"
-          />
+          ></form-select>
           <form-select-autocomplete
             :item="item"
             :errors="errors"
@@ -41,17 +41,21 @@
             option-store="client"
             label="client_name"
             @formUpdated="updateValue"
-          />
+          ></form-select-autocomplete>
           <form-checkbox
             :item="item"
             :errors="errors"
             property="isActive"
             label="isActive"
             @formUpdated="updateValue"
-          />
+          ></form-checkbox>
         </div>
       </div>
-      <item-edit-actions :item="item" entity="Project" path="project" />
+      <item-edit-actions
+        :item="item"
+        entity="Project"
+        path="project"
+      ></item-edit-actions>
     </section>
   </form>
 </template>

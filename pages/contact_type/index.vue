@@ -12,7 +12,7 @@
       :sortable="sortable"
       :columns="columns"
       :templates="templates"
-    />
+    ></api-table>
   </is-main-template>
 </template>
 

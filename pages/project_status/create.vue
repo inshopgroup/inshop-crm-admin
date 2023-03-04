@@ -1,6 +1,9 @@
 <template>
   <is-main-template title="project_status_add">
-    <project-status-form :handle-submit="onSendForm" :item="item" />
+    <project-status-form
+      :handle-submit="onSendForm"
+      :item="item"
+    ></project-status-form>
   </is-main-template>
 </template>
 

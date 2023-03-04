@@ -1,5 +1,9 @@
 <template>
-  <is-show-template :fields="fields" entity="Label" :history-key="historyKey" />
+  <is-show-template
+    :fields="fields"
+    entity="Label"
+    :history-key="historyKey"
+  ></is-show-template>
 </template>
 
 <script>

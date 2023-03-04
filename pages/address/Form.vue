@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <v-row>
-      <item-errors entity="address" />
+      <item-errors entity="address"></item-errors>
 
       <v-col cols="12" md="6" sm="6">
         <form-select
@@ -11,28 +11,28 @@
           option-store="country"
           label="country"
           @formUpdated="updateValue"
-        />
+        ></form-select>
         <form-input
           :item="item"
           :errors="errors"
           property="city"
           label="city"
           @formUpdated="updateValue"
-        />
+        ></form-input>
         <form-input
           :item="item"
           :errors="errors"
           property="region"
           label="region"
           @formUpdated="updateValue"
-        />
+        ></form-input>
         <form-input
           :item="item"
           :errors="errors"
           property="district"
           label="district"
           @formUpdated="updateValue"
-        />
+        ></form-input>
       </v-col>
       <v-col cols="12" md="6" sm="6">
         <form-input
@@ -41,28 +41,28 @@
           property="postCode"
           label="postCode"
           @formUpdated="updateValue"
-        />
+        ></form-input>
         <form-input
           :item="item"
           :errors="errors"
           property="street"
           label="street"
           @formUpdated="updateValue"
-        />
+        ></form-input>
         <form-input
           :item="item"
           :errors="errors"
           property="building"
           label="building"
           @formUpdated="updateValue"
-        />
+        ></form-input>
         <form-input
           :item="item"
           :errors="errors"
           property="apartment"
           label="apartment"
           @formUpdated="updateValue"
-        />
+        ></form-input>
       </v-col>
       <v-col cols="12">
         <form-textarea
@@ -71,7 +71,7 @@
           property="comment"
           label="comment"
           @formUpdated="updateValue"
-        />
+        ></form-textarea>
       </v-col>
       <v-col cols="12">
         <form-checkbox
@@ -80,11 +80,15 @@
           property="isActive"
           label="isActive"
           @formUpdated="updateValue"
-        />
+        ></form-checkbox>
       </v-col>
 
       <v-col v-if="showActions" cols="12">
-        <item-edit-actions :item="item" entity="Address" path="address" />
+        <item-edit-actions
+          :item="item"
+          entity="Address"
+          path="address"
+        ></item-edit-actions>
       </v-col>
     </v-row>
   </form>

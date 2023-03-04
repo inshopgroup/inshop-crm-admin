@@ -3,7 +3,7 @@
     title="user_edit"
     :title-params="{ entity: item && item.name }"
   >
-    <user-form :handle-submit="onSendForm" :item="item" />
+    <user-form :handle-submit="onSendForm" :item="item"></user-form>
   </is-main-template>
 </template>
 

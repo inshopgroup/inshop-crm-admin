@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="project_add">
-    <project-form :handle-submit="onSendForm" :item="item" />
+    <project-form :handle-submit="onSendForm" :item="item"></project-form>
   </is-main-template>
 </template>
 

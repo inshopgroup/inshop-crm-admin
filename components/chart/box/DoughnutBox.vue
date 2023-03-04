@@ -7,7 +7,7 @@
         :chart-data="dataset"
         :labels="labels"
         :options="options"
-      />
+      ></doughnut-chart>
     </v-card-text>
     <v-card-actions>
       <v-container fluid>

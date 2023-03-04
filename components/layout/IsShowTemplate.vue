@@ -1,13 +1,17 @@
 <template>
   <is-main-template :title="item.name">
     <v-tabs v-model="tab" background-color="transparent" show-arrows>
-      <v-tab href="#general">{{ $t('tabs_general') }}</v-tab>
+      <v-tab href="#general">
+        {{ $t('tabs_general') }}
+      </v-tab>
 
-      <v-tab v-for="tab in tabs" :key="tab" :href="'#' + tab">{{
-        $t(tab)
-      }}</v-tab>
+      <v-tab v-for="tab in tabs" :key="tab" :href="'#' + tab">
+        {{ $t(tab) }}
+      </v-tab>
 
-      <v-tab href="#history">{{ $t('tabs_history') }}</v-tab>
+      <v-tab href="#history">
+        {{ $t('tabs_history') }}
+      </v-tab>
     </v-tabs>
 
     <v-tabs-items v-model="tab">
@@ -16,7 +20,7 @@
       </v-tab-item>
 
       <v-tab-item v-for="tab in tabs" :key="tab" class="my-4" :value="tab">
-        <slot :item="item" :name="tab"></slot>
+        <slot :item="item" :name="tab" />
       </v-tab-item>
 
       <v-tab-item class="my-4" value="history">
@@ -24,11 +28,15 @@
           :id="parseInt($route.params.id)"
           :key="historyKey"
           :entity="entity"
-        />
+        ></history>
       </v-tab-item>
     </v-tabs-items>
 
-    <item-show-actions :item="item" :entity="entity" :path="path" />
+    <item-show-actions
+      :item="item"
+      :entity="entity"
+      :path="path"
+    ></item-show-actions>
   </is-main-template>
 </template>
 

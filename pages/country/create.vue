@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="country_add">
-    <country-form :handle-submit="onSendForm" :item="item" />
+    <country-form :handle-submit="onSendForm" :item="item"></country-form>
   </is-main-template>
 </template>
 

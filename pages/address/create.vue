@@ -1,6 +1,6 @@
 <template>
   <is-main-template title="address_add">
-    <address-form :handle-submit="onSendForm" :item="item" />
+    <address-form :handle-submit="onSendForm" :item="item"></address-form>
   </is-main-template>
 </template>
 

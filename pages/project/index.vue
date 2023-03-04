@@ -15,11 +15,11 @@
       :templates="templates"
     >
       <template slot="filter__status.id">
-        <project-status-filter />
+        <project-status-filter></project-status-filter>
       </template>
 
       <template slot="filter__type.id">
-        <project-type-filter />
+        <project-type-filter></project-type-filter>
       </template>
     </api-table>
   </is-main-template>
