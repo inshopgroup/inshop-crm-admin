@@ -208,9 +208,11 @@ export default {
               queryParamsUrl['orderBy.column'] = key
             }
 
+            const entity = decamelize(this.entity)
+
             // clear error
             this.$store.commit(
-              `${decamelize(this.entity).toUpperCase()}_SET_ERROR`,
+              `${entity}/${entity.toUpperCase()}_SET_ERROR`,
               null
             )
 
@@ -230,7 +232,7 @@ export default {
               })
               .catch((e) => {
                 this.$store.commit(
-                  `${decamelize(this.entity).toUpperCase()}_SET_ERROR`,
+                  `${entity}/${entity.toUpperCase()}_SET_ERROR`,
                   e.message
                 )
               })
