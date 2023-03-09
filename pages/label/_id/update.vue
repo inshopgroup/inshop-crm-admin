@@ -7,11 +7,14 @@
   </is-main-template>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import { mapActions, mapGetters } from 'vuex'
-import LabelForm from '../Form'
+import LabelForm from '../Form.vue'
 
-export default {
+import type { ILabel } from '~/store/label'
+
+export default Vue.extend({
   components: {
     LabelForm,
   },
@@ -41,14 +44,14 @@ export default {
     }),
     onSendForm() {
       this.update()
-        .then((item) => {
+        .then((item: ILabel) => {
           this.$router.push({
             name: 'label-id-show___en',
-            params: { id: item.id },
+            params: { id: item.id.toString() },
           })
         })
         .catch()
     },
   },
-}
+})
 </script>

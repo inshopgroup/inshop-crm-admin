@@ -1,24 +1,41 @@
+import { GetterTree, ActionTree, MutationTree } from 'vuex'
 import * as crud from '~/utils/crud'
+
+export interface ILabel {
+  id: number
+  name: string
+  '@context': string
+  '@id': string
+  '@type': string
+  createdAt: string
+  createdBy: string
+  isActive: boolean
+  updatedAt: string
+  updatedBy: string
+  [x: string]: any
+}
 
 const defaultState = () => ({
   item: {
     isActive: true,
-  },
-  items: [],
-  error: null,
+  } as ILabel,
+  items: [] as ILabel[],
+  error: null as null | string,
   errors: {},
 })
 
 export const state = () => defaultState()
 
-export const mutations = {
-  LABEL_SET_ITEM(state, item) {
+export type RootState = ReturnType<typeof state>
+
+export const mutations: MutationTree<RootState> = {
+  LABEL_SET_ITEM(state, item: ILabel) {
     Object.assign(state, { item })
   },
-  LABEL_UPDATE_ITEM(state, item) {
+  LABEL_UPDATE_ITEM(state, item: ILabel) {
     state.item = Object.assign({}, state.item, item)
   },
-  LABEL_SET_ITEMS(state, items) {
+  LABEL_SET_ITEMS(state, items: ILabel[]) {
     Object.assign(state, { items })
   },
   LABEL_SET_ERROR(state, error) {
@@ -32,14 +49,14 @@ export const mutations = {
   },
 }
 
-export const getters = {
-  item: (state) => state.item,
-  items: (state) => state.items,
+export const getters: GetterTree<RootState, RootState> = {
+  item: (state): ILabel => state.item,
+  items: (state): ILabel[] => state.items,
   error: (state) => state.error,
   errors: (state) => state.errors,
 }
 
-export const actions = {
+export const actions: ActionTree<RootState, RootState> = {
   getItem(context, id) {
     return crud.getItem(context, this.$axios, 'LABEL', id)
   },

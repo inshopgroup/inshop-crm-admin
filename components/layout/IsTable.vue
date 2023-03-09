@@ -8,7 +8,7 @@
       itemsPerPageOptions: [5, 10, 25, 50, 100],
     }"
   >
-    <template v-for="(header, h) in headers" #[name(header)]="{ item, header }">
+    <template v-for="(header, h) in headers" #[name(header)]="{ item }">
       <template v-if="type(item, header) === 'boolean'">
         <v-chip
           :key="h"
@@ -91,68 +91,72 @@
   </v-data-table>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+
+import type { IDataTableHeader, IDataTableCell } from '~/types/DataTable'
+
+export default Vue.extend({
   name: 'IsTable',
   props: {
     headers: {
       type: Array,
       required: true,
-    },
+    } as PropOptions<IDataTableHeader[]>,
     items: {
       type: Array,
       required: true,
-    },
+    } as PropOptions<IDataTableCell[]>,
     hideDefaultFooter: {
       type: Boolean,
       default: false,
-    },
+    } as PropOptions<boolean>,
     itemsPerPage: {
       type: Number,
       default: 50,
-    },
+    } as PropOptions<number>,
   },
   methods: {
-    type(item, header) {
+    type(item: IDataTableCell, header: IDataTableHeader): string | undefined {
       return item.propertyType || header.type
     },
-    path(item, header) {
+    path(item: IDataTableCell, header: IDataTableHeader): string {
       return item.path || header.value
     },
-    collectionPath(item, header) {
+    collectionPath(item: IDataTableCell, header: IDataTableHeader): string {
       return item.collectionPath || header.collectionPath || 'name'
     },
-    routeName(item, header) {
-      if (item.link && item.link.route) {
+    routeName(item: IDataTableCell, header: IDataTableHeader): void | string {
+      if (item?.link?.route) {
         return item.link.route
       }
 
-      if (header.link && header.link.route) {
+      if (header?.link?.route) {
         return header.link.route
       }
     },
-    routeParam(item, header) {
+    routeParam(item: IDataTableCell, header: IDataTableHeader): string {
       let param = 'id'
 
-      if (item.link && item.link.param) {
+      if (item?.link?.param) {
         param = item.link.param
       }
 
-      if (header.link && header.link.param) {
+      if (header?.link?.param) {
         param = header.link.param
       }
 
       return param
     },
-    name(header) {
+    name(header: IDataTableHeader): string {
       return `item.${header.value}`
     },
-    value(item, header) {
+    value(item: IDataTableCell, header: IDataTableHeader): any {
       return this.pick(this.path(item, header), item)
     },
-    pick(key, item) {
+    pick(key: string, item: IDataTableCell): any {
       return this.$dot.pick(key, item)
     },
   },
-}
+})
 </script>

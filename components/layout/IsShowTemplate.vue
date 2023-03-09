@@ -24,11 +24,11 @@
       </v-tab-item>
 
       <v-tab-item class="my-4" value="history">
-        <history
+        <is-history
           :id="parseInt($route.params.id)"
           :key="historyKey"
           :entity="entity"
-        ></history>
+        ></is-history>
       </v-tab-item>
     </v-tabs-items>
 
@@ -40,31 +40,35 @@
   </is-main-template>
 </template>
 
-<script>
-import History from '../History'
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
 import decamelize from '../../utils/decamelize'
-import ItemShowActions from './ItemShowActions'
+import ItemShowActions from './ItemShowActions.vue'
+import IsHistory from '~/components/IsHistory.vue'
 
-export default {
+import type { ILabel } from '~/store/label'
+import type { IDataTableField } from '~/types/DataTable'
+
+export default Vue.extend({
   name: 'IsShowTemplate',
-  components: { ItemShowActions, History },
+  components: { ItemShowActions, IsHistory },
   props: {
     fields: {
       type: Array,
       required: true,
-    },
+    } as PropOptions<IDataTableField[]>,
     entity: {
       type: String,
       required: true,
-    },
+    } as PropOptions<string>,
     historyKey: {
       type: Number,
       default: 1,
-    },
+    } as PropOptions<number>,
     tabs: {
       type: Array,
       default: () => [],
-    },
+    } as PropOptions<Array<string>>,
   },
   data() {
     return {
@@ -72,33 +76,30 @@ export default {
     }
   },
   computed: {
-    allFields() {
-      return [
-        ...this.fields,
-        ...[
-          {
-            property: 'isActive',
-            type: 'boolean',
-          },
-          {
-            property: 'createdAt',
-            type: 'datetime',
-          },
-          {
-            property: 'updatedAt',
-            type: 'datetime',
-          },
-          {
-            property: 'updatedBy',
-            type: 'string',
-          },
-        ],
-      ]
+    allFields(): IDataTableField[] {
+      return this.fields.slice().concat([
+        {
+          property: 'isActive',
+          type: 'boolean',
+        },
+        {
+          property: 'createdAt',
+          type: 'datetime',
+        },
+        {
+          property: 'updatedAt',
+          type: 'datetime',
+        },
+        {
+          property: 'updatedBy',
+          type: 'string',
+        },
+      ])
     },
-    path() {
+    path(): string {
       return decamelize(this.entity)
     },
-    item() {
+    item(): ILabel {
       return this.$store.getters[`${this.path}/item`]
     },
   },
@@ -114,12 +115,12 @@ export default {
     this.reset()
   },
   methods: {
-    reset() {
+    reset(): void {
       this.$store.dispatch(`${this.path}/reset`)
     },
-    getItem() {
+    getItem(): void {
       this.$store.dispatch(`${this.path}/getItem`, this.$route.params.id)
     },
   },
-}
+})
 </script>

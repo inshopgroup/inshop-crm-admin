@@ -2,21 +2,23 @@
   <is-table :headers="headers" :items="items"></is-table>
 </template>
 
-<script>
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
 import { mapActions, mapGetters } from 'vuex'
 
-export default {
-  name: 'History',
-  components: {},
+import type { IDataTableHeader } from '~/types/DataTable'
+
+export default Vue.extend({
+  name: 'IsHistory',
   props: {
     id: {
       type: Number,
       required: true,
-    },
+    } as PropOptions<number>,
     entity: {
       type: String,
       required: true,
-    },
+    } as PropOptions<string>,
   },
   data() {
     return {
@@ -24,17 +26,14 @@ export default {
         {
           text: this.$t('id'),
           value: 'id',
-          type: 'string',
         },
         {
           text: this.$t('action'),
           value: 'action',
-          type: 'string',
         },
         {
           text: this.$t('username'),
           value: 'username',
-          type: 'string',
         },
         {
           text: this.$t('logged_at'),
@@ -46,7 +45,7 @@ export default {
           value: 'changes',
           type: 'list',
         },
-      ],
+      ] as IDataTableHeader[],
     }
   },
   computed: {
@@ -65,5 +64,5 @@ export default {
       getItems: 'history/getItems',
     }),
   },
-}
+})
 </script>

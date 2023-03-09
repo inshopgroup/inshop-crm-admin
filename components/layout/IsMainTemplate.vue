@@ -27,21 +27,22 @@
   </v-container>
 </template>
 
-<script>
-import ItemErrors from './errors/ItemErrors'
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+import ItemErrors from './errors/ItemErrors.vue'
 
-export default {
+export default Vue.extend({
   name: 'IsMainTemplate',
   components: { ItemErrors },
   props: {
     title: {
       type: String,
       default: null,
-    },
+    } as PropOptions<string>,
     entity: {
       type: String,
       default: null,
-    },
+    } as PropOptions<string>,
     titleParams: {
       type: Object,
       default: null,
@@ -49,11 +50,11 @@ export default {
     routeAdd: {
       type: String,
       default: null,
-    },
+    } as PropOptions<string>,
     icon: {
       type: String,
       default: 'mdi-plus',
-    },
+    } as PropOptions<string>,
   },
-}
+})
 </script>

@@ -35,59 +35,67 @@
   </v-row>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+
+interface ItemProps {
+  id?: string
+}
+
+export default Vue.extend({
   name: 'ItemShowActions',
   props: {
     item: {
       type: Object,
       default: () => ({}),
-    },
+    } as PropOptions<ItemProps>,
     path: {
       type: String,
-      default: null,
-    },
+      required: true,
+    } as PropOptions<string>,
     btnBackToList: {
       type: Boolean,
       default: true,
-    },
+    } as PropOptions<boolean>,
     btnEdit: {
       type: Boolean,
       default: true,
-    },
+    } as PropOptions<boolean>,
     btnDelete: {
       type: Boolean,
       default: true,
-    },
+    } as PropOptions<boolean>,
   },
   computed: {
-    role_update() {
+    role_update(): string {
       return `ROLE_${this.path.toUpperCase()}_UPDATE`
     },
-    role_list() {
+    role_list(): string {
       return `ROLE_${this.path.toUpperCase()}_LIST`
     },
-    role_delete() {
+    role_delete(): string {
       return `ROLE_${this.path.toUpperCase()}_DELETE`
     },
   },
   methods: {
-    backToList() {
+    backToList(): void {
       this.$router.push({ name: `${this.path}___en` })
     },
-    editItem() {
-      this.$router.push({
-        name: `${this.path}-id-update___en`,
-        params: { id: this.item.id },
-      })
+    editItem(): void {
+      if (this.item.id) {
+        this.$router.push({
+          name: `${this.path}-id-update___en`,
+          params: { id: this.item.id },
+        })
+      }
     },
-    deleteItem() {
-      if (window.confirm(this.$t('delete_are_you_sure'))) {
+    deleteItem(): void {
+      if (this.item.id && window.confirm(this.$t('delete_are_you_sure'))) {
         this.$store
           .dispatch(`${this.path}/remove`, this.item)
           .then(() => this.$router.push({ name: `${this.path}___en` }))
       }
     },
   },
-}
+})
 </script>

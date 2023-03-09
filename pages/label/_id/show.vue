@@ -6,8 +6,13 @@
   ></is-show-template>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+import type { Route } from 'vue-router/types'
+import type { IDataTableField } from '~/types/DataTable'
+
+export default Vue.extend({
   layout: 'dashboard',
   middleware: 'authenticated',
   data() {
@@ -18,7 +23,7 @@ export default {
           property: 'name',
           type: 'string',
         },
-      ],
+      ] as IDataTableField[],
     }
   },
   head() {
@@ -26,5 +31,5 @@ export default {
       title: 'Homepage title',
     }
   },
-}
+})
 </script>

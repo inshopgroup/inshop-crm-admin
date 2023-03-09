@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 export default {
   methods: {
-    translate(item) {
+    translate(item: any): object {
       let translationLocale = null
-      let translationAny = null
+      let translationAny: null | object = null
 
       item.translations.forEach((translation) => {
         if (translationAny === null) {
