@@ -61,7 +61,7 @@
                   <v-btn
                     icon
                     :to="{
-                      name: 'TaskUpdate',
+                      name: 'task-id-update___en',
                       params: { id: selectedEvent.id },
                     }"
                   >
@@ -85,7 +85,7 @@
                         selectedEvent.project.client
                       "
                       :to="{
-                        name: 'ClientShow',
+                        name: 'client-id-show___en',
                         params: { id: selectedEvent.project.client.id },
                       }"
                     >
@@ -97,7 +97,7 @@
                     <router-link
                       v-if="selectedEvent && selectedEvent.assignee"
                       :to="{
-                        name: 'UserShow',
+                        name: 'user-id-show___en',
                         params: { id: selectedEvent.assignee.id },
                       }"
                     >
@@ -109,7 +109,10 @@
                   <v-btn
                     text
                     color="success"
-                    :to="{ name: 'TaskShow', params: { id: selectedEvent.id } }"
+                    :to="{
+                      name: 'task-id-show___en',
+                      params: { id: selectedEvent.id },
+                    }"
                   >
                     More details
                   </v-btn>
