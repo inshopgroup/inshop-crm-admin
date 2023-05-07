@@ -22,7 +22,7 @@
             :item="item"
             :errors="errors"
             property="type"
-            option-store="projectType"
+            option-store="project_type"
             label="type_name"
             @formUpdated="updateValue"
           />
@@ -30,7 +30,7 @@
             :item="item"
             :errors="errors"
             property="status"
-            option-store="projectStatus"
+            option-store="project_status"
             label="status_name"
             @formUpdated="updateValue"
           />
@@ -89,7 +89,7 @@ export default {
       reset: 'project/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('project/PROJECT_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('project/UPDATE_ITEM', { [property]: value })
     },
   },
 }

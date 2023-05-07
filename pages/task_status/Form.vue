@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="handleSubmit(item)">
     <section class="content">
-      <item-errors entity="taskStatus" />
+      <item-errors entity="task_status" />
       <div class="box box-primary">
         <div class="box-body">
           <form-input
@@ -47,7 +47,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      errors: 'taskStatus/errors',
+      errors: 'task_status/errors',
     }),
   },
   beforeDestroy() {
@@ -55,10 +55,10 @@ export default {
   },
   methods: {
     ...mapActions({
-      reset: 'taskStatus/reset',
+      reset: 'task_status/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('taskStatus/TASK_STATUS_UPDATE_ITEM', {
+      this.$store.commit('task_status/UPDATE_ITEM', {
         [property]: value,
       })
     },

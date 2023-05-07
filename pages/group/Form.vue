@@ -106,10 +106,10 @@ export default {
       getModules: 'module/getItems',
     }),
     updateValue(property, value) {
-      this.$store.commit('group/GROUP_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('group/UPDATE_ITEM', { [property]: value })
     },
     updateRole(property, value, iri) {
-      this.$store.commit('group/GROUP_UPDATE_ITEM_ROLES', {
+      this.$store.commit('group/UPDATE_ITEM_ROLES', {
         iri,
         value,
       })

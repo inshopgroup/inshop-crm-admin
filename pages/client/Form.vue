@@ -81,7 +81,7 @@ export default {
       reset: 'client/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('client/CLIENT_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('client/UPDATE_ITEM', { [property]: value })
     },
   },
 }

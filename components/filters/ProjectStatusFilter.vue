@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     options() {
-      return this.$store.getters['projectStatus/items'] || []
+      return this.$store.getters['project_status/items'] || []
     },
   },
   created() {
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getOptions: 'projectStatus/getItems',
+      getOptions: 'project_status/getItems',
     }),
     filterTable(property, data) {
       const ids = []

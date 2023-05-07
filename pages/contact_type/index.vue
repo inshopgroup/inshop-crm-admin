@@ -2,10 +2,10 @@
   <is-main-template
     title="contact_type_list"
     route-add="/contact_type/create"
-    entity="contactType"
+    entity="contact_type"
   >
     <api-table
-      entity="ContactType"
+      entity="contact_type"
       route="contact_types"
       path="contact_type"
       :filterable="filterable"

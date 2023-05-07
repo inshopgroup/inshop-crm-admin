@@ -162,12 +162,12 @@ export default {
             this.columns.forEach((key) => {
               if (typeof params.query[key] !== 'undefined') {
                 if (Object.keys(this.dateColumns).includes(key)) {
-                  queryParams[
-                    `${this.dateColumns[key]}[after]`
-                  ] = this.$date(params.query[key].start).format('YYYY/M/D')
-                  queryParams[
-                    `${this.dateColumns[key]}[before]`
-                  ] = this.$date(params.query[key].end)
+                  queryParams[`${this.dateColumns[key]}[after]`] = this.$date(
+                    params.query[key].start
+                  ).format('YYYY/M/D')
+                  queryParams[`${this.dateColumns[key]}[before]`] = this.$date(
+                    params.query[key].end
+                  )
                     .add(1, 'day')
                     .format('YYYY/M/D')
                 } else if (Object.keys(this.customColumns).includes(key)) {
@@ -210,7 +210,7 @@ export default {
 
             // clear error
             this.$store.commit(
-              `${decamelize(this.entity).toUpperCase()}_SET_ERROR`,
+              `${decamelize(this.entity).toLowerCase()}/SET_ERROR`,
               null
             )
 

@@ -12,22 +12,22 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  LANGUAGE_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  LANGUAGE_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  LANGUAGE_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  LANGUAGE_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  LANGUAGE_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  LANGUAGE_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
 }
@@ -41,21 +41,21 @@ export const getters = {
 
 export const actions = {
   getItem(context, id) {
-    return crud.getItem(context, this.$axios, 'LANGUAGE', id)
+    return crud.getItem(context, this.$axios, 'language', id)
   },
   getItems(context, query) {
-    return crud.getItems(context, this.$axios, 'LANGUAGE', query)
+    return crud.getItems(context, this.$axios, 'language', query)
   },
   create(context) {
-    return crud.create(context, this.$axios, 'LANGUAGE')
+    return crud.create(context, this.$axios, 'language')
   },
   update(context) {
-    return crud.update(context, this.$axios, 'LANGUAGE')
+    return crud.update(context, this.$axios, 'language')
   },
   remove(context, item) {
-    return crud.remove(context, this.$axios, 'LANGUAGE', item)
+    return crud.remove(context, this.$axios, 'language', item)
   },
   reset(context) {
-    return crud.reset(context, 'LANGUAGE')
+    return crud.reset(context, 'language')
   },
 }

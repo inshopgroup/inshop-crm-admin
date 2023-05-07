@@ -14,13 +14,13 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  GROUP_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  GROUP_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  GROUP_UPDATE_ITEM_ROLES(state, params) {
+  UPDATE_ITEM_ROLES(state, params) {
     if (params.value) {
       if (!state.item.roleIRIs.includes(params.iri)) {
         state.item.roleIRIs.push(params.iri)
@@ -33,16 +33,16 @@ export const mutations = {
       }
     }
   },
-  GROUP_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  GROUP_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  GROUP_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  GROUP_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
 }
@@ -56,7 +56,7 @@ export const getters = {
 
 export const actions = {
   getItem(context, id) {
-    context.commit('GROUP_SET_ERROR', null)
+    context.commit('SET_ERROR', null)
 
     return this.$axios
       .get(`${process.env.NUXT_ENV_API_URL}/groups/${id}`)
@@ -68,29 +68,29 @@ export const actions = {
         })
         data.roleIRIs = roles
 
-        context.commit(`GROUP_SET_ITEM`, data)
+        context.commit(`SET_ITEM`, data)
       })
       .catch((e) => {
-        context.commit(`GROUP_SET_ERROR`, e.message)
+        context.commit(`SET_ERROR`, e.message)
       })
   },
   getItems(context, query) {
     return crud.getItems(context, this.$axios, 'GROUP', query)
   },
   create(context) {
-    context.commit('GROUP_UPDATE_ITEM', { roles: state.item.roleIRIs })
+    context.commit('group/UPDATE_ITEM', { roles: state.item.roleIRIs })
 
     return crud.create(context, this.$axios, 'GROUP').then((data) => {
-      context.commit('GROUP_RESET')
+      context.commit('group/RESET')
 
       return data
     })
   },
   update(context) {
-    context.commit('GROUP_UPDATE_ITEM', { roles: state.item.roleIRIs })
+    context.commit('group/UPDATE_ITEM', { roles: state.item.roleIRIs })
 
     return crud.update(context, this.$axios, 'GROUP').then((data) => {
-      context.commit('GROUP_RESET')
+      context.commit('group/RESET')
 
       return data
     })

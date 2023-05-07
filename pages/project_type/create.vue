@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'projectType/item',
+      item: 'project_type/item',
     }),
   },
   beforeDestroy() {
@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      create: 'projectType/create',
-      reset: 'projectType/reset',
+      create: 'project_type/create',
+      reset: 'project_type/reset',
     }),
     onSendForm() {
       this.create()

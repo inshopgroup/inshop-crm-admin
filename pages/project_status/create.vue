@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'projectStatus/item',
+      item: 'project_status/item',
     }),
   },
   beforeDestroy() {
@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      create: 'projectStatus/create',
-      reset: 'projectStatus/reset',
+      create: 'project_status/create',
+      reset: 'project_status/reset',
     }),
     onSendForm() {
       this.create()

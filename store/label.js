@@ -12,22 +12,22 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  LABEL_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  LABEL_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  LABEL_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  LABEL_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  LABEL_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  LABEL_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
 }
@@ -41,21 +41,21 @@ export const getters = {
 
 export const actions = {
   getItem(context, id) {
-    return crud.getItem(context, this.$axios, 'LABEL', id)
+    return crud.getItem(context, this.$axios, 'label', id)
   },
   getItems(context, query) {
-    return crud.getItems(context, this.$axios, 'LABEL', query)
+    return crud.getItems(context, this.$axios, 'label', query)
   },
   create(context) {
-    return crud.create(context, this.$axios, 'LABEL')
+    return crud.create(context, this.$axios, 'label')
   },
   update(context) {
-    return crud.update(context, this.$axios, 'LABEL')
+    return crud.update(context, this.$axios, 'label')
   },
   remove(context, item) {
-    return crud.remove(context, this.$axios, 'LABEL', item)
+    return crud.remove(context, this.$axios, 'label', item)
   },
   reset(context) {
-    return crud.reset(context, 'LABEL')
+    return crud.reset(context, 'label')
   },
 }

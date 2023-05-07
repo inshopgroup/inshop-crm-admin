@@ -22,7 +22,7 @@
             :item="item"
             :errors="errors"
             property="status"
-            option-store="taskStatus"
+            option-store="task_status"
             label="status_name"
             @formUpdated="updateValue"
           />
@@ -110,7 +110,7 @@ export default {
       reset: 'task/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('task/TASK_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('task/UPDATE_ITEM', { [property]: value })
     },
   },
 }

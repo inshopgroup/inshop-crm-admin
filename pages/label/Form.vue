@@ -58,7 +58,7 @@ export default {
       reset: 'label/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('label/LABEL_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('label/UPDATE_ITEM', { [property]: value })
     },
   },
 }

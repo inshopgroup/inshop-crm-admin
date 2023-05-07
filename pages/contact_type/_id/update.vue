@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'contactType/item',
+      item: 'contact_type/item',
     }),
   },
   created() {
@@ -32,8 +32,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      getItem: 'contactType/getItem',
-      update: 'contactType/update',
+      getItem: 'contact_type/getItem',
+      update: 'contact_type/update',
     }),
     onSendForm() {
       this.update()

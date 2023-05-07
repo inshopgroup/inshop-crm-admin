@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     options() {
-      return this.$store.getters['taskStatus/items'] || []
+      return this.$store.getters['task_status/items'] || []
     },
   },
   created() {
@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      getOptions: 'taskStatus/getItems',
+      getOptions: 'task_status/getItems',
     }),
     filterTable(property, data) {
       const ids = []

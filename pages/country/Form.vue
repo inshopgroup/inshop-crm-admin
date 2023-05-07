@@ -58,7 +58,7 @@ export default {
       reset: 'country/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('country/COUNTRY_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('country/UPDATE_ITEM', { [property]: value })
     },
   },
 }

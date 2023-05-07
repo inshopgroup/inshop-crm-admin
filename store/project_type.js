@@ -12,22 +12,22 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  PROJECT_TYPE_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  PROJECT_TYPE_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  PROJECT_TYPE_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  PROJECT_TYPE_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  PROJECT_TYPE_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  PROJECT_TYPE_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
 }
@@ -41,21 +41,21 @@ export const getters = {
 
 export const actions = {
   getItem(context, id) {
-    return crud.getItem(context, this.$axios, 'PROJECT_TYPE', id)
+    return crud.getItem(context, this.$axios, 'project_type', id)
   },
   getItems(context, query) {
-    return crud.getItems(context, this.$axios, 'PROJECT_TYPE', query)
+    return crud.getItems(context, this.$axios, 'project_type', query)
   },
   create(context) {
-    return crud.create(context, this.$axios, 'PROJECT_TYPE')
+    return crud.create(context, this.$axios, 'project_type')
   },
   update(context) {
-    return crud.update(context, this.$axios, 'PROJECT_TYPE')
+    return crud.update(context, this.$axios, 'project_type')
   },
   remove(context, item) {
-    return crud.remove(context, this.$axios, 'PROJECT_TYPE', item)
+    return crud.remove(context, this.$axios, 'project_type', item)
   },
   reset(context) {
-    return crud.reset(context, 'PROJECT_TYPE')
+    return crud.reset(context, 'project_type')
   },
 }

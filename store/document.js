@@ -13,28 +13,28 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  DOCUMENT_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  DOCUMENT_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  DOCUMENT_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  DOCUMENT_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  DOCUMENT_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  DOCUMENT_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
-  DOCUMENT_ADD_FILE(state, file) {
+  ADD_FILE(state, file) {
     state.item.files.push(file)
   },
-  DOCUMENT_DELETE_FILE(state, fileId) {
+  DELETE_FILE(state, fileId) {
     state.item.files = state.item.files.filter((file) => file.id !== fileId)
   },
 }
@@ -48,21 +48,21 @@ export const getters = {
 
 export const actions = {
   getItem(context, id) {
-    return crud.getItem(context, this.$axios, 'DOCUMENT', id)
+    return crud.getItem(context, this.$axios, 'document', id)
   },
   getItems(context, query) {
-    return crud.getItems(context, this.$axios, 'DOCUMENT', query)
+    return crud.getItems(context, this.$axios, 'document', query)
   },
   create(context) {
-    return crud.create(context, this.$axios, 'DOCUMENT')
+    return crud.create(context, this.$axios, 'document')
   },
   update(context) {
-    return crud.update(context, this.$axios, 'DOCUMENT')
+    return crud.update(context, this.$axios, 'document')
   },
   remove(context, item) {
-    return crud.remove(context, this.$axios, 'DOCUMENT', item)
+    return crud.remove(context, this.$axios, 'document', item)
   },
   reset(context) {
-    return crud.reset(context, 'DOCUMENT')
+    return crud.reset(context, 'document')
   },
 }

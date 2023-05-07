@@ -10,22 +10,22 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  HISTORY_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  HISTORY_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  HISTORY_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  HISTORY_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  HISTORY_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  HISTORY_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
 }
@@ -45,12 +45,12 @@ export const actions = {
       .get(url)
       .then((response) => response.data)
       .then((data) => {
-        commit('HISTORY_SET_ITEMS', data['hydra:member'])
+        commit('SET_ITEMS', data['hydra:member'])
 
         return data['hydra:member']
       })
       .catch((e) => {
-        commit('HISTORY_SET_ERROR', e.message)
+        commit('SET_ERROR', e.message)
       })
   },
 }

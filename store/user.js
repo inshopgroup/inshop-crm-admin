@@ -12,22 +12,22 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  USER_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  USER_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  USER_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  USER_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  USER_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  USER_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
 }
@@ -41,21 +41,21 @@ export const getters = {
 
 export const actions = {
   getItem(context, id) {
-    return crud.getItem(context, this.$axios, 'USER', id)
+    return crud.getItem(context, this.$axios, 'user', id)
   },
   getItems(context, query) {
-    return crud.getItems(context, this.$axios, 'USER', query)
+    return crud.getItems(context, this.$axios, 'user', query)
   },
   create(context) {
-    return crud.create(context, this.$axios, 'USER')
+    return crud.create(context, this.$axios, 'user')
   },
   update(context) {
-    return crud.update(context, this.$axios, 'USER')
+    return crud.update(context, this.$axios, 'user')
   },
   remove(context, item) {
-    return crud.remove(context, this.$axios, 'USER', item)
+    return crud.remove(context, this.$axios, 'user', item)
   },
   reset(context) {
-    return crud.reset(context, 'USER')
+    return crud.reset(context, 'user')
   },
 }

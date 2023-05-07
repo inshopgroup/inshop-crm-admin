@@ -12,22 +12,22 @@ const defaultState = () => ({
 export const state = () => defaultState()
 
 export const mutations = {
-  CONTACT_TYPE_SET_ITEM(state, item) {
+  SET_ITEM(state, item) {
     Object.assign(state, { item })
   },
-  CONTACT_TYPE_UPDATE_ITEM(state, item) {
+  UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  CONTACT_TYPE_SET_ITEMS(state, items) {
+  SET_ITEMS(state, items) {
     Object.assign(state, { items })
   },
-  CONTACT_TYPE_SET_ERROR(state, error) {
+  SET_ERROR(state, error) {
     Object.assign(state, { error })
   },
-  CONTACT_TYPE_SET_ERRORS(state, errors) {
+  SET_ERRORS(state, errors) {
     Object.assign(state, { errors })
   },
-  CONTACT_TYPE_RESET(state) {
+  RESET(state) {
     Object.assign(state, defaultState())
   },
 }
@@ -41,21 +41,21 @@ export const getters = {
 
 export const actions = {
   getItem(context, id) {
-    return crud.getItem(context, this.$axios, 'CONTACT_TYPE', id)
+    return crud.getItem(context, this.$axios, 'contact_type', id)
   },
   getItems(context, query) {
-    return crud.getItems(context, this.$axios, 'CONTACT_TYPE', query)
+    return crud.getItems(context, this.$axios, 'contact_type', query)
   },
   create(context) {
-    return crud.create(context, this.$axios, 'CONTACT_TYPE')
+    return crud.create(context, this.$axios, 'contact_type')
   },
   update(context) {
-    return crud.update(context, this.$axios, 'CONTACT_TYPE')
+    return crud.update(context, this.$axios, 'contact_type')
   },
   remove(context, item) {
-    return crud.remove(context, this.$axios, 'CONTACT_TYPE', item)
+    return crud.remove(context, this.$axios, 'contact_type', item)
   },
   reset(context) {
-    return crud.reset(context, 'CONTACT_TYPE')
+    return crud.reset(context, 'contact_type')
   },
 }

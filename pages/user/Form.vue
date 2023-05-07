@@ -91,7 +91,7 @@ export default {
       reset: 'user/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('user/USER_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('user/UPDATE_ITEM', { [property]: value })
     },
   },
 }

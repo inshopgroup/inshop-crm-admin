@@ -87,13 +87,13 @@ export default {
       reset: 'document/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('document/DOCUMENT_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('document/UPDATE_ITEM', { [property]: value })
     },
     formFileUploaded(file) {
-      this.$store.commit('document/DOCUMENT_ADD_FILE', file)
+      this.$store.commit('document/ADD_FILE', file)
     },
     formFileDeleted(value) {
-      this.$store.commit('document/DOCUMENT_DELETE_FILE', value)
+      this.$store.commit('document/DELETE_FILE', value)
     },
   },
 }

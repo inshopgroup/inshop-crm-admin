@@ -1,7 +1,7 @@
 import pluralize from 'pluralize'
 
 export const getItem = ({ commit }, $axios, namespace, id) => {
-  commit(`${namespace}_SET_ERROR`, null)
+  commit(`SET_ERROR`, null)
 
   return $axios
     .get(
@@ -11,12 +11,12 @@ export const getItem = ({ commit }, $axios, namespace, id) => {
     )
     .then((response) => response.data)
     .then((data) => {
-      commit(`${namespace}_SET_ITEM`, data)
+      commit(`SET_ITEM`, data)
 
       return data
     })
     .catch((e) => {
-      commit(`${namespace}_SET_ERROR`, e.message)
+      commit(`SET_ERROR`, e.message)
     })
 }
 
@@ -29,23 +29,23 @@ export const getItems = ({ commit }, $axios, namespace, query) => {
       .join('&')}`
   }
 
-  commit(`${namespace}_SET_ERROR`, null)
+  commit(`SET_ERROR`, null)
 
   return $axios
     .get(process.env.NUXT_ENV_API_URL + url)
     .then((response) => response.data)
     .then((data) => {
-      commit(`${namespace}_SET_ITEMS`, data['hydra:member'])
+      commit(`SET_ITEMS`, data['hydra:member'])
 
       return data['hydra:member']
     })
     .catch((e) => {
-      commit(`${namespace}_SET_ERROR`, e.message)
+      commit(`SET_ERROR`, e.message)
     })
 }
 
 export const create = ({ commit, state }, $axios, namespace) => {
-  commit(`${namespace}_SET_ERROR`, null)
+  commit(`SET_ERROR`, null)
 
   return $axios
     .post(
@@ -63,20 +63,20 @@ export const create = ({ commit, state }, $axios, namespace) => {
           Object.assign(errors, { [violation.propertyPath]: violation.message })
         })
 
-        commit(`${namespace}_SET_ERRORS`, errors)
+        commit(`SET_ERRORS`, errors)
       }
 
       const error = data['hydra:description']
         ? data['hydra:description']
         : data.message
-      commit(`${namespace}_SET_ERROR`, error)
+      commit(`SET_ERROR`, error)
 
       throw data
     })
 }
 
 export const update = ({ commit, state }, $axios, namespace) => {
-  commit(`${namespace}_SET_ERROR`, null)
+  commit(`SET_ERROR`, null)
 
   return $axios
     .put(
@@ -96,13 +96,13 @@ export const update = ({ commit, state }, $axios, namespace) => {
           Object.assign(errors, { [violation.propertyPath]: violation.message })
         })
 
-        commit(`${namespace}_SET_ERRORS`, errors)
+        commit(`SET_ERRORS`, errors)
       }
 
       const error = data['hydra:description']
         ? data['hydra:description']
         : data.message
-      commit(`${namespace}_SET_ERROR`, error)
+      commit(`SET_ERROR`, error)
 
       throw data
     })
@@ -121,11 +121,11 @@ export const remove = ({ commit }, $axios, namespace, item) =>
           ? 'Not possible to remove. This record has relations.'
           : e.message
 
-      commit(`${namespace}_SET_ERROR`, message)
+      commit(`SET_ERROR`, message)
 
       throw e
     })
 
 export const reset = ({ commit }, namespace) => {
-  commit(`${namespace}_RESET`)
+  commit(`RESET`)
 }

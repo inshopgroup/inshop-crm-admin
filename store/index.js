@@ -51,15 +51,15 @@ export const actions = {
     const locale = context.app.$cookiz.get('locale')
 
     if (t) {
-      await commit('auth/AUTH_UPDATE_TOKEN', t)
+      await commit('auth/UPDATE_TOKEN', t)
     }
 
     if (rt) {
-      await commit('auth/AUTH_UPDATE_REFRESH_TOKEN', rt)
+      await commit('auth/UPDATE_REFRESH_TOKEN', rt)
     }
 
     if (roles) {
-      await commit('auth/AUTH_UPDATE_ROLES', roles)
+      await commit('auth/UPDATE_ROLES', roles)
     }
 
     if (locale) {

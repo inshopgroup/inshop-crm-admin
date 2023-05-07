@@ -109,7 +109,7 @@ export default {
       })
     },
     create() {
-      this.$store.commit('contact/CONTACT_UPDATE_ITEM', this.parent)
+      this.$store.commit('contact/UPDATE_ITEM', this.parent)
 
       this.title = this.$t('contact_add')
       this.item = this.$store.getters['contact/item']
@@ -118,7 +118,7 @@ export default {
       this.dialog = true
     },
     edit(item) {
-      this.$store.commit('contact/CONTACT_SET_ITEM', item)
+      this.$store.commit('contact/SET_ITEM', item)
 
       this.title = this.$t('contact_edit', { entity: item.value })
       this.item = this.$store.getters['contact/item']

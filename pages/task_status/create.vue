@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'taskStatus/item',
+      item: 'task_status/item',
     }),
   },
   beforeDestroy() {
@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      create: 'taskStatus/create',
-      reset: 'taskStatus/reset',
+      create: 'task_status/create',
+      reset: 'task_status/reset',
     }),
     onSendForm() {
       this.create()

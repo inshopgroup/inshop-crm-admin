@@ -2,7 +2,7 @@
   <is-main-template
     title="task_status_list"
     route-add="/task_status/create"
-    entity="taskStatus"
+    entity="task_status"
   >
     <api-table
       entity="TaskStatus"

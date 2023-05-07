@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      item: 'contactType/item',
+      item: 'contact_type/item',
     }),
   },
   beforeDestroy() {
@@ -29,8 +29,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      create: 'contactType/create',
-      reset: 'contactType/reset',
+      create: 'contact_type/create',
+      reset: 'contact_type/reset',
     }),
     onSendForm() {
       this.create()

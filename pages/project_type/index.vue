@@ -2,7 +2,7 @@
   <is-main-template
     title="project_type_list"
     route-add="/project_type/create"
-    entity="projectType"
+    entity="project_type"
   >
     <api-table
       entity="ProjectType"

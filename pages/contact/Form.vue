@@ -15,7 +15,7 @@
           :item="item"
           :errors="errors"
           property="contactType"
-          option-store="contactType"
+          option-store="contact_type"
           label="contactType_name"
           @formUpdated="updateValue"
         />
@@ -74,7 +74,7 @@ export default {
       reset: 'contact/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('contact/CONTACT_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('contact/UPDATE_ITEM', { [property]: value })
     },
   },
 }

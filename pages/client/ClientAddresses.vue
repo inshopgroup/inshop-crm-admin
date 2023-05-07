@@ -116,7 +116,7 @@ export default {
       })
     },
     create() {
-      this.$store.commit('address/ADDRESS_UPDATE_ITEM', this.parent)
+      this.$store.commit('address/UPDATE_ITEM', this.parent)
 
       this.title = this.$t('address_add')
 

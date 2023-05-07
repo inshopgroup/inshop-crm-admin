@@ -10,25 +10,25 @@ export const state = () => ({
 })
 
 export const mutations = {
-  AUTH_UPDATE_TOKEN(state, data) {
+  UPDATE_TOKEN(state, data) {
     this.$cookiz.set('t', data)
     state.token = data
   },
-  AUTH_UPDATE_REFRESH_TOKEN(state, data) {
+  UPDATE_REFRESH_TOKEN(state, data) {
     this.$cookiz.set('rt', data)
     state.refreshToken = data
   },
-  AUTH_UPDATE_ROLES(state, data) {
+  UPDATE_ROLES(state, data) {
     this.$cookiz.set('roles', data)
     state.roles = data
   },
-  AUTH_ERROR_CHANGE(state, error) {
+  ERROR_CHANGE(state, error) {
     state.error = error
   },
-  AUTH_UPDATE_LANGUAGE(state, language) {
+  UPDATE_LANGUAGE(state, language) {
     state.language = language
   },
-  AUTH_RESET(state) {
+  RESET(state) {
     this.$cookiz.remove('t')
     this.$cookiz.remove('rt')
 
@@ -58,21 +58,21 @@ export const getters = {
 
 export const actions = {
   login({ commit }, data) {
-    commit('AUTH_ERROR_CHANGE', null)
+    commit('auth/ERROR_CHANGE', null)
 
     const link = process.env.NUXT_ENV_API_URL + '/login'
 
     return this.$axios
       .post(link, data)
       .then((response) => {
-        commit('AUTH_UPDATE_TOKEN', response.data.token)
-        commit('AUTH_UPDATE_REFRESH_TOKEN', response.data.refresh_token)
-        commit('AUTH_UPDATE_ROLES', response.data.roles)
+        commit('auth/UPDATE_TOKEN', response.data.token)
+        commit('auth/UPDATE_REFRESH_TOKEN', response.data.refresh_token)
+        commit('auth/UPDATE_ROLES', response.data.roles)
 
         return response.data
       })
       .catch((error) => {
-        commit('AUTH_ERROR_CHANGE', 'Username or password is incorrect')
+        commit('auth/ERROR_CHANGE', 'Username or password is incorrect')
         throw error
       })
   },
@@ -82,8 +82,8 @@ export const actions = {
     return this.$axios
       .post(link, { refresh_token: getters.refreshToken })
       .then((response) => {
-        commit('AUTH_UPDATE_TOKEN', response.data.token)
-        commit('AUTH_UPDATE_ROLES', response.data.roles)
+        commit('auth/UPDATE_TOKEN', response.data.token)
+        commit('auth/UPDATE_ROLES', response.data.roles)
 
         return response
       })
@@ -94,9 +94,9 @@ export const actions = {
     return this.$axios
       .get(link)
       .then((response) => {
-        commit('AUTH_UPDATE_TOKEN', response.data.token)
-        commit('AUTH_UPDATE_REFRESH_TOKEN', response.data.refresh_token)
-        commit('AUTH_UPDATE_ROLES', response.data.roles)
+        commit('auth/UPDATE_TOKEN', response.data.token)
+        commit('auth/UPDATE_REFRESH_TOKEN', response.data.refresh_token)
+        commit('auth/UPDATE_ROLES', response.data.roles)
 
         return response
       })
@@ -105,6 +105,6 @@ export const actions = {
       })
   },
   logout({ commit }) {
-    commit('AUTH_RESET')
+    commit('auth/RESET')
   },
 }

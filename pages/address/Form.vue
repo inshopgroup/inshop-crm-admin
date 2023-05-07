@@ -129,7 +129,7 @@ export default {
       reset: 'address/reset',
     }),
     updateValue(property, value) {
-      this.$store.commit('address/ADDRESS_UPDATE_ITEM', { [property]: value })
+      this.$store.commit('address/UPDATE_ITEM', { [property]: value })
     },
   },
 }

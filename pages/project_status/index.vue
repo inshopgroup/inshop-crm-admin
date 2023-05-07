@@ -2,7 +2,7 @@
   <is-main-template
     title="project_status_list"
     route-add="/project_status/create"
-    entity="projectStatus"
+    entity="project_status"
   >
     <api-table
       entity="ProjectStatus"
