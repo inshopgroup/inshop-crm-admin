@@ -26,7 +26,7 @@ export default {
       item: 'group/item',
     }),
     isLoading() {
-      return this.$store.state.general.isLoading
+      return this.$store.state.isLoading
     },
   },
   beforeDestroy() {

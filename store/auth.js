@@ -58,21 +58,21 @@ export const getters = {
 
 export const actions = {
   login({ commit }, data) {
-    commit('auth/ERROR_CHANGE', null)
+    commit('ERROR_CHANGE', null)
 
     const link = process.env.NUXT_ENV_API_URL + '/login'
 
     return this.$axios
       .post(link, data)
       .then((response) => {
-        commit('auth/UPDATE_TOKEN', response.data.token)
-        commit('auth/UPDATE_REFRESH_TOKEN', response.data.refresh_token)
-        commit('auth/UPDATE_ROLES', response.data.roles)
+        commit('UPDATE_TOKEN', response.data.token)
+        commit('UPDATE_REFRESH_TOKEN', response.data.refresh_token)
+        commit('UPDATE_ROLES', response.data.roles)
 
         return response.data
       })
       .catch((error) => {
-        commit('auth/ERROR_CHANGE', 'Username or password is incorrect')
+        commit('ERROR_CHANGE', 'Username or password is incorrect')
         throw error
       })
   },
@@ -82,8 +82,8 @@ export const actions = {
     return this.$axios
       .post(link, { refresh_token: getters.refreshToken })
       .then((response) => {
-        commit('auth/UPDATE_TOKEN', response.data.token)
-        commit('auth/UPDATE_ROLES', response.data.roles)
+        commit('UPDATE_TOKEN', response.data.token)
+        commit('UPDATE_ROLES', response.data.roles)
 
         return response
       })
@@ -94,9 +94,9 @@ export const actions = {
     return this.$axios
       .get(link)
       .then((response) => {
-        commit('auth/UPDATE_TOKEN', response.data.token)
-        commit('auth/UPDATE_REFRESH_TOKEN', response.data.refresh_token)
-        commit('auth/UPDATE_ROLES', response.data.roles)
+        commit('UPDATE_TOKEN', response.data.token)
+        commit('UPDATE_REFRESH_TOKEN', response.data.refresh_token)
+        commit('UPDATE_ROLES', response.data.roles)
 
         return response
       })
@@ -105,6 +105,6 @@ export const actions = {
       })
   },
   logout({ commit }) {
-    commit('auth/RESET')
+    commit('RESET')
   },
 }

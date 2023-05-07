@@ -78,19 +78,19 @@ export const actions = {
     return crud.getItems(context, this.$axios, 'GROUP', query)
   },
   create(context) {
-    context.commit('group/UPDATE_ITEM', { roles: state.item.roleIRIs })
+    context.commit('UPDATE_ITEM', { roles: state.item.roleIRIs })
 
     return crud.create(context, this.$axios, 'GROUP').then((data) => {
-      context.commit('group/RESET')
+      context.commit('RESET')
 
       return data
     })
   },
   update(context) {
-    context.commit('group/UPDATE_ITEM', { roles: state.item.roleIRIs })
+    context.commit('UPDATE_ITEM', { roles: state.item.roleIRIs })
 
     return crud.update(context, this.$axios, 'GROUP').then((data) => {
-      context.commit('group/RESET')
+      context.commit('RESET')
 
       return data
     })
