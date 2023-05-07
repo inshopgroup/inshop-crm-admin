@@ -39,20 +39,17 @@
                 v-for="role in module.roles"
                 :id="role['@id']"
                 :key="role.id"
-                :item="{ value: item.roleIRIs.includes(role['@id']) }"
+                :item="{ value: roleIRIs.includes(role['@id']) }"
                 :errors="errors"
                 property="value"
                 :label="role.name.toLowerCase()"
-                @formUpdated="updateRole"
+                @formUpdated="updateRole(role['@id'])"
               />
             </v-card-text>
 
             <v-card-actions>
-              <v-btn fab x-small color="primary" @click="select(module)">
-                <v-icon> check_box </v-icon>
-              </v-btn>
-              <v-btn fab x-small color="primary" @click="deselect(module)">
-                <v-icon> check_box_outline_blank </v-icon>
+              <v-btn fab x-small color="primary" @click="batchChange(module)">
+                <v-icon>mdi-checkbox-multiple-marked-outline</v-icon>
               </v-btn>
             </v-card-actions>
           </v-card>
@@ -88,6 +85,9 @@ export default {
     ...mapGetters({
       errors: 'group/errors',
     }),
+    roleIRIs() {
+      return this.item.roleIRIs || []
+    },
     modules() {
       return this.$store.getters['module/items'] || []
     },
@@ -95,7 +95,7 @@ export default {
   beforeDestroy() {
     this.reset()
   },
-  created() {
+  mounted() {
     this.getModules({
       itemsPerPage: 500,
     })
@@ -108,22 +108,13 @@ export default {
     updateValue(property, value) {
       this.$store.commit('group/UPDATE_ITEM', { [property]: value })
     },
-    updateRole(property, value, iri) {
-      this.$store.commit('group/UPDATE_ITEM_ROLES', {
-        iri,
-        value,
-      })
+    updateRole(iri) {
+      this.$store.commit('group/UPDATE_ITEM_ROLES', iri)
     },
-    batchChange(module, value) {
+    batchChange(module) {
       module.roles.forEach((role) => {
-        this.updateRole('value', value, role['@id'])
+        this.updateRole(role['@id'])
       })
-    },
-    select(module) {
-      this.batchChange(module, true)
-    },
-    deselect(module) {
-      this.batchChange(module, false)
     },
   },
 }

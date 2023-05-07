@@ -20,13 +20,11 @@ export const mutations = {
   UPDATE_ITEM(state, item) {
     state.item = Object.assign({}, state.item, item)
   },
-  UPDATE_ITEM_ROLES(state, params) {
-    if (params.value) {
-      if (!state.item.roleIRIs.includes(params.iri)) {
-        state.item.roleIRIs.push(params.iri)
-      }
+  UPDATE_ITEM_ROLES(state, iri) {
+    if (!state.item.roleIRIs.includes(iri)) {
+      state.item.roleIRIs.push(iri)
     } else {
-      const index = state.item.roleIRIs.indexOf(params.iri)
+      const index = state.item.roleIRIs.indexOf(iri)
 
       if (index > -1) {
         state.item.roleIRIs.splice(index, 1)
@@ -78,7 +76,7 @@ export const actions = {
     return crud.getItems(context, this.$axios, 'GROUP', query)
   },
   create(context) {
-    context.commit('UPDATE_ITEM', { roles: state.item.roleIRIs })
+    context.commit('UPDATE_ITEM', { roles: context.state.item.roleIRIs })
 
     return crud.create(context, this.$axios, 'GROUP').then((data) => {
       context.commit('RESET')
@@ -87,7 +85,7 @@ export const actions = {
     })
   },
   update(context) {
-    context.commit('UPDATE_ITEM', { roles: state.item.roleIRIs })
+    context.commit('UPDATE_ITEM', { roles: context.state.item.roleIRIs })
 
     return crud.update(context, this.$axios, 'GROUP').then((data) => {
       context.commit('RESET')
