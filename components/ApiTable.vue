@@ -20,6 +20,13 @@
         </v-btn>
       </v-layout>
     </template>
+    <div
+      v-for="customFilter in customFilters"
+      :key="customFilter"
+      :slot="'filter__' + customFilter"
+    >
+      <slot :name="'filter__' + customFilter" />
+    </div>
   </v-server-table>
 </template>
 
@@ -131,13 +138,13 @@ export default {
         columnsClasses: {
           id: 'column-id',
         },
-        dateColumns: Object.keys(this.dateColumns),
+        // dateColumns: Object.keys(this.dateColumns),
         datepickerOptions: {
           opens: 'left',
         },
-        filterByColumn: false,
-        filterable: false,
-        customFilters: [],
+        filterByColumn: true,
+        filterable: this.filterable,
+        customFilters: this.customFilters,
         listColumns: this.listColumns,
         sortable: this.sortable,
         perPage: 30,
