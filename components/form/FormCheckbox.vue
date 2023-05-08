@@ -4,6 +4,7 @@
     :label="$t(label)"
     :error-messages="error"
     outlined
+    :hide-details="hideDetails"
     @click="$emit('formUpdated', property, !item[property])"
   ></v-checkbox>
 </template>
@@ -15,6 +16,10 @@ export default {
     item: {
       type: Object,
       required: true,
+    },
+    hideDetails: {
+      type: Boolean,
+      default: false,
     },
     property: {
       type: String,

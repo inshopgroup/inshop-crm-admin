@@ -32,6 +32,10 @@
               <v-toolbar-title>
                 {{ $t(module.name.replace(/\s+/g, '_').toLowerCase()) }}
               </v-toolbar-title>
+              <v-spacer></v-spacer>
+              <v-btn fab x-small color="secondary" @click="batchChange(module)">
+                <v-icon>mdi-checkbox-multiple-marked-outline</v-icon>
+              </v-btn>
             </v-toolbar>
 
             <v-card-text>
@@ -41,17 +45,12 @@
                 :key="role.id"
                 :item="{ value: roleIRIs.includes(role['@id']) }"
                 :errors="errors"
+                hide-details
                 property="value"
                 :label="role.name.toLowerCase()"
                 @formUpdated="updateRole(role['@id'])"
               />
             </v-card-text>
-
-            <v-card-actions>
-              <v-btn fab x-small color="primary" @click="batchChange(module)">
-                <v-icon>mdi-checkbox-multiple-marked-outline</v-icon>
-              </v-btn>
-            </v-card-actions>
           </v-card>
         </v-col>
       </v-row>
